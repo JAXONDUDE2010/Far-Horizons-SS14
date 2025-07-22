@@ -442,7 +442,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    screamAction: null
+    # screamAction: null
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -503,7 +503,7 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
 
-# starlight
+# starlight - NTNC borgs
 - type: entity
   parent: BaseBorgChassisNotIonStormable
   id: BaseNTNCChassis
@@ -518,7 +518,7 @@
     - NamesBorg
   - type: NpcFactionMember
     factions:
-    - NanoTrasenSilicon # starlight
+    - NanoTrasenSilicon
   - type: Access
     enabled: false
     groups:
@@ -526,9 +526,45 @@
     tags:
     - Borg
   - type: AccessReader
-    access: [["Command"], ["Research"]]
+    access: [["Centcom"]]
   - type: ShowJobIcons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Xenoborg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconXenoborg
   - type: FlashImmunity
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Centcom
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Law
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Centcom
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Law
+
+- type: entity
