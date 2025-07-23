@@ -316,11 +316,15 @@
 
 # starlight
 - type: entity
-  parent: [ JetpackBlack, BaseXenoborgContraband ]
+  parent: [ JetpackBlack, BaseCentcommContraband ]
   id: JetpackCyborgCentcomm
   name: CentComm jetpack
   suffix: Cyborg, Infinite
+  description: Specialised jetpack for cyborgs which harvests moles on the go.
   components:
+  - type: Jump
+    action: JumpJetNoMoles
+    useMolesOnJump: false
   - type: GasTank
     outputPressure: 21.3
     air:
@@ -332,9 +336,3 @@
     weightlessAcceleration: 1.3
     weightlessFriction: 0.3
     weightlessModifier: 1
-  - type: SolutionRegeneration
-    solution: GasTank
-    generated:
-      reagents:
-      - ReagentId: oxygen
-        Quantity: 1
