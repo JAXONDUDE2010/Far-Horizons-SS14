@@ -601,3 +601,36 @@
     interactFailureString: petting-failure-syndicate-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  parent: BaseNTNCChassis
+  id: NTNCBorgChassisSOSU
+  name: NTNC S.O.S.U
+  description: A special chassis produced by Nanotrasen to aid Centcom forces in their duties. The S.O.S.U (Special Operations Sentry Unit) specializes in covert operations and sabotaged and is equipped with several modules to aid it in this task.
+  components:
+  - type: TextToSpeech
+  - type: Sprite
+    layers:
+      - state: ntnc_sosu
+      - state: ntnc_sosu_e
+        map: ["enum.BorgVisualLayers.Light"]
+        shader: unshaded
+        visible: false
+      - state: ntnc_sosu_l
+        shader: unshaded
+        map: ["light"]
+        visible: false
+  - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+        - BorgModuleGeneric
+        - BaseBorgModuleCentcomm
+        - BorgModuleEngineering
+    hasMindState: ntnc_sosu_e
+    noMindState: ntnc_sosu_e_r
+  - type: InteractionPopup
+    interactSuccessString: petting-success-syndicate-cyborg
+    interactFailureString: petting-failure-syndicate-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg

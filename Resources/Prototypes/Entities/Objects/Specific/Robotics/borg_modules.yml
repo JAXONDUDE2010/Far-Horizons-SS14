@@ -1303,7 +1303,7 @@
     - state: icon-centcomm
   - type: ItemBorgModule
     items:
-    - AccessOverider
+    - AccessOveriderRecharging
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
