@@ -1327,8 +1327,8 @@
 - type: entity
   parent: [ BaseBorgModuleCentcomm, BaseProviderBorgModule, BaseCentcommContraband ]
   id: CentcommModuleSpaceMovement
-  name: space movement xenoborg module
-  description: After seeing the success of the thruster module, Centcom decided to develop a proper jetpack for their most valued cyborgs.
+  name: CentComm space movement module
+  description: After seeing the success of the thruster module, CentComm decided to develop a proper jetpack for their most valued cyborgs.
   components:
   - type: Sprite
     layers:
@@ -1343,3 +1343,35 @@
     - JetpackCyborgCentcomm
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-space-movement-module }
+
+- type: entity
+  parent: [ BaseBorgModuleCentcomm, BaseProviderBorgModule, BaseCentcommContraband ]
+  id: CentcommModuleChameleonProjector
+  name: CentComm chameleon projector module
+  description: Module with a chameleon projector.
+  components:
+  - type: Sprite
+    layers:
+    - state: centcomm
+    - state: icon-centcomm
+  - type: ItemBorgModule
+    items:
+    - ChameleonProjector
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
+
+- type: entity
+  parent: [ BaseBorgModuleCentcomm, BaseProviderBorgModule, BaseCentcommContraband ]
+  id: CentcommModuleCloakDevice
+  name: CentComm cloaking device module
+  description: A state of the art module with a device that allows cyborgs to become invisible for some time.
+  components:
+  - type: Sprite
+    layers:
+    - state: centcomm
+    - state: icon-centcomm
+  - type: ItemBorgModule
+    items:
+    - CloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
