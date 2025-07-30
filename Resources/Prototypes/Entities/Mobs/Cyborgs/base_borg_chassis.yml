@@ -503,15 +503,17 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
 
-# starlight - NTNC borgs
+# starlight - NT-NC borgs
 - type: entity
   parent: BaseBorgChassisNotIonStormable
   id: BaseNTNCChassis
-  name: NTNC
+  name: NT-NC
   description: A special chassis produced by Nanotrasen to aid Centcom forces in their duties.
   save: false
   abstract: true
   components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Silicon/chassis.rsi
   - type: TextToSpeech
   - type: RandomMetadata
     nameSegments:
@@ -655,8 +657,9 @@
   - type: Sprite
     layers:
       - state: ntnc_sosu
+        map: ["body"]
       - state: ntnc_sosu_e
-        map: ["enum.BorgVisualLayers.Light"]
+        map: ["enum.BorgVisualLayers.Light", "activeLight"]
         shader: unshaded
         visible: false
       - state: ntnc_sosu_l
@@ -679,3 +682,21 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: NightVision
+  - type: OptionsVisualizer
+    visuals:
+      body:
+      - options: Default
+        data: {state: ntnc_sosu}
+      - options: ReducedMotion
+        data: {state: ntnc_sosu_static}
+      light:
+      - options: Default
+        data: {state: ntnc_sosu_l}
+      - options: ReducedMotion
+        data: {state: ntnc_sosu_l_static}
+      activeLight:
+      - options: Default
+        data: {state: ntnc_sosu_e}
+      - options: ReducedMotion
+        data: {state: ntnc_sosu_e_static}
+
