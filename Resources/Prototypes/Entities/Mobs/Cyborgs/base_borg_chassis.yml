@@ -675,7 +675,6 @@
         - BorgModuleEngineering
     hasMindState: ntnc_sosu_e
     noMindState: ntnc_sosu_e_r
-  - type: MovementAlwaysTouching
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
