@@ -176,4 +176,7 @@
   id: BaseBorgModuleCentcomm
 
 - type: Tag
+  id: Compy
+
+- type: Tag
   id: Table
