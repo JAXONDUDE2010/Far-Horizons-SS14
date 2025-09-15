@@ -151,28 +151,28 @@
   recipes:
 #####################BOX#######################
 # Light Rifle
-  - MagazineBoxLightRifleRubber
+  #- MagazineBoxLightRifleRubber
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxLightRifleUranium
   - MagazineBoxLightRifleAP
 # Magnum
-  - MagazineBoxMagnumRubber
+  #- MagazineBoxMagnumRubber
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
   - MagazineBoxMagnumAP
 # Pistol
-  - MagazineBoxPistolRubber
+  #- MagazineBoxPistolRubber
   - MagazineBoxPistolIncendiary
   - MagazineBoxPistolUranium
   - MagazineBoxPistolAP
   - MagazineBoxPistol40AP
 # Rifle
-  - MagazineBoxRifleRubber
+  #- MagazineBoxRifleRubber
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium
   - MagazineBoxRifleAP
 # Shotgun
-  - BoxBeanbag
+  #- BoxBeanbag
   - BoxShotgunIncendiary
   - BoxShotgunUranium
   - BoxShellTranquilizer
@@ -203,7 +203,7 @@
   - MagazineRifleUranium
   - MagazineRifleAP
 # Shotgun
-  - MagazineShotgunBeanbag
+  #- MagazineShotgunBeanbag
   - MagazineShotgunIncendiary
   - SpeedLoaderShotgunIncendiary
   - SpeedLoaderShotgunUranium
@@ -211,13 +211,13 @@
   - MagazineGrenadeEmpty
 #####################CARTRIDGE######################
 # Light Rifle
-  - CartridgeLightRifleRubber
+  #- CartridgeLightRifleRubber
 # Magnum
-  - CartridgeMagnumRubber
+  #- CartridgeMagnumRubber
 # Pistol
-  - CartridgePistolRubber
+  #- CartridgePistolRubber
 # Rifle
-  - CartridgeRifleRubber
+  #- CartridgeRifleRubber
 ####################################################
 
 - type: latheRecipePack
