@@ -59,5 +59,15 @@ namespace Content.Client._FarHorizons.UI.HandheldRadio
             SendPredictedMessage(new HandheldRadioStateChange(HanheldRadioState.Speaker, state));
         }
 
+        protected override void ReceiveMessage(BoundUserInterfaceMessage message){
+            if (_window == null)
+                return;
+
+            if (message is not HandheldRadioStateChange cast)
+                return;
+
+            _window.OnFunctionSwitched(cast);
+        }
+
     }
 }
