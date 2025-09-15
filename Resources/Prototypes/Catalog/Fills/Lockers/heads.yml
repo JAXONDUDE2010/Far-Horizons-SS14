@@ -148,7 +148,6 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: 
     - id: ClothingEyesHudCommand
     - id: BoxFolderHoPClipboard #Starlight Change
 

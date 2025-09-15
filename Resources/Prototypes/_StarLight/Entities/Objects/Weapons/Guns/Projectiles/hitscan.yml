@@ -78,7 +78,7 @@
   parent: BulletTrace
   damage:
     types:
-      Blunt: 1
+      Blunt: 5
   staminaDamage: 20
   bullet:
     sprite:

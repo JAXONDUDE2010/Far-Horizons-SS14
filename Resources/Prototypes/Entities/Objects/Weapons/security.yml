@@ -1,3 +1,4 @@
+# Stun baton heavily edited for Far Horizons
 - type: entity
   name: baton
   parent: [BaseItem, BaseSecurityContraband]
@@ -39,6 +40,9 @@
         enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
+  - type: Tag
+    tags:
+    - Stunbaton
   - type: StaticPrice
     price: 80
   - type: Riggable

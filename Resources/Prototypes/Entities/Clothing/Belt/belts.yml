@@ -548,8 +548,8 @@
         - CombatKnife
         - Truncheon
         - HandGrenade
+        - Stunbaton # Moved from components for Far Horizons
       components:
-        - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
