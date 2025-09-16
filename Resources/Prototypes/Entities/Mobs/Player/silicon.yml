@@ -569,7 +569,7 @@
       raffle:
         settings: default
     - type: GhostTakeoverAvailable
-# region starlight
+# region far horizons
 - type: entity
   id: PlayerBorgHAWBattery
   parent: NTNCBorgChassisHAW
