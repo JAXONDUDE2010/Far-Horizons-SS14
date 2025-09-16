@@ -16,7 +16,7 @@
   - type: Gun
     fireRate: 6
     soundGunshot:
-      path: /Audio//Weapons/Guns/Gunshots/AK.ogg
+      path: /Audio/Weapons/Guns/Gunshots/AK.ogg
     minAngle: 30
     maxAngle: 40
   - type: GunWieldBonus
