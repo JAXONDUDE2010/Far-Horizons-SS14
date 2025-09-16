@@ -7,7 +7,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Starlight/Mobs/Silicon/chassis.rsi
+    sprite: _FarHorizons/Mobs/Silicon/chassis.rsi
   - type: TextToSpeech
   - type: RandomMetadata
     nameSegments:

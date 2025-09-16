@@ -7,7 +7,7 @@
     tags:
     - BaseBorgModuleCentcomm
   - type: Sprite
-    sprite: _Starlight/Objects/Specific/Robotics/borgmodule.rsi
+    sprite: _FarHorizons/Objects/Specific/Robotics/borgmodule.rsi
   - type: Item
     inhandVisuals: # todo fix these
       left:

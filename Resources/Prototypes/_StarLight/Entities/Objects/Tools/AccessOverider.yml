@@ -20,6 +20,7 @@
   components:
   - type: LimitedCharges
 
+#Far Horizons
 - type: entity
   parent: AccessOverider
   id: AccessOveriderRecharging
