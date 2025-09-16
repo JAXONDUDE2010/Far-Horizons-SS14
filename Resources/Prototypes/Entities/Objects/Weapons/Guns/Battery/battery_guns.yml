@@ -922,7 +922,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
 
-# starlight
+# far horizons
 - type: entity
   name: CentComm cyborg laser.
   parent: [ WeaponAdvancedLaser, BaseCentcommContraband ]
