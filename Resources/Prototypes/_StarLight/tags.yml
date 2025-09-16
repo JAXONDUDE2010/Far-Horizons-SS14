@@ -178,9 +178,6 @@
   id: SyndieDungeon
 
 - type: Tag
-  id: BaseBorgModuleCentcomm
-
-- type: Tag
   id: Compy
 
 - type: Tag
