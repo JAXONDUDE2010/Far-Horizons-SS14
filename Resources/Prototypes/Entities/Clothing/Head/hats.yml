@@ -351,13 +351,13 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraBrown
-  name: brown fedora
-  description: A brown fedora.
+  name: Black Fedora
+  description: A black fedora.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/brownfedora.rsi
+    sprite: _FarHorizons/Clothing/Head/Hats/blackfedora.rsi # Far Horizons
   - type: Clothing
-    sprite: Clothing/Head/Hats/brownfedora.rsi
+    sprite: _FarHorizons/Clothing/Head/Hats/blackfedora.rsi # Far Horizons
   - type: Tag
     tags:
     - PetWearable
