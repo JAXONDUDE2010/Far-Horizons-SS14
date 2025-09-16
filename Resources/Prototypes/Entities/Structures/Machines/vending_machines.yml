@@ -299,7 +299,7 @@
   - type: SpeakOnUIClosed
     pack: ChefvendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/chefvend.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/chefvend.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -335,7 +335,7 @@
   - type: SpeakOnUIClosed
     pack: CigaretteMachineGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cigs.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/cigs.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -362,7 +362,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/clothing.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/clothing.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -393,7 +393,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/winterdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/winterdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: [ "enum.VendingMachineVisualLayers.Base" ]
@@ -431,7 +431,7 @@
   - type: SpeakOnUIClosed
     pack: HotDrinksMachineGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/coffee.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/coffee.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -470,7 +470,7 @@
   - type: SpeakOnUIClosed
     pack: RobustSoftdrinksGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cola.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/cola.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -490,7 +490,7 @@
   suffix: Black
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cola-black.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/cola-black.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -511,7 +511,7 @@
   description: It vends cola, in space.
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cola-red.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/cola-red.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -534,7 +534,7 @@
   - type: VendingMachine
     pack: SpaceUpInventory
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/spaceup.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/spaceup.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -556,7 +556,7 @@
   - type: VendingMachine
     pack: SodaInventory
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/soda.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/soda.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -579,7 +579,7 @@
   - type: VendingMachine
     pack: StarkistInventory
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/starkist.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/starkist.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -613,7 +613,7 @@
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/shamblersjuice.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/shamblersjuice.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -649,7 +649,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/pwrgame.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/pwrgame.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -685,7 +685,7 @@
   - type: SpeakOnUIClosed
     pack: DrGibbGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/gib.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/gib.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -706,7 +706,7 @@
   description: Popular with the administration.
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/smite.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/smite.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: [ "enum.VendingMachineVisualLayers.Base" ]
@@ -753,7 +753,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/dinnerware.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/dinnerware.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -786,7 +786,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/magivend.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/magivend.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -819,7 +819,7 @@
   - type: SpeakOnUIClosed
     pack: DiscountDansGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/discount.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/discount.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -848,7 +848,7 @@
     denyState: deny-unshaded
     showPrices: false # Starlight-edit: Vending Machines Prices
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/engivend.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/engivend.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -922,7 +922,7 @@
   - type: SpeakOnUIClosed
     pack: NutriMaxGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/nutri.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/nutri.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -997,7 +997,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/seeds.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/seeds.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1040,7 +1040,7 @@
   - type: SpeakOnUIClosed
     pack: GetmoreChocolateCorpGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/snack.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/snack.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1070,7 +1070,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/sustenance.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/sustenance.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1090,7 +1090,7 @@
   suffix: Blue
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/snack-blue.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/snack-blue.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1110,7 +1110,7 @@
   suffix: Orange
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/snack-orange.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/snack-orange.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1130,7 +1130,7 @@
   suffix: Green
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/snack-green.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/snack-green.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1150,7 +1150,7 @@
   suffix: Teal
   components:
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/snack-teal.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/snack-teal.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1213,13 +1213,13 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    screenState: screen
+    # screenState: screen #Far Horizons resprite
   - type: DatasetVocalizer
     dataset: AutoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/theater.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/theater.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1228,9 +1228,9 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: "screen"
-      map: ["enum.VendingMachineVisualLayers.Screen"]
-      shader: unshaded
+    # - state: "screen" #Far Horizons resprite
+    #   map: ["enum.VendingMachineVisualLayers.Screen"]
+    #   shader: unshaded
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -1254,7 +1254,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/vendomat.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/vendomat.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1321,7 +1321,7 @@
     denyState: deny-unshaded
     showPrices: false # Starlight-edit: Vending Machines Prices
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/youtool.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/youtool.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1354,7 +1354,7 @@
   - type: SpeakOnUIClosed
     pack: GoodCleanFunGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/games.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/games.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1387,7 +1387,7 @@
   - type: SpeakOnUIClosed
     pack: ChangGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/changs.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/changs.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1453,7 +1453,7 @@
   - type: SpeakOnUIClosed
     pack: DonutGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/donut.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/donut.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1507,7 +1507,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/hydrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/hydrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1539,7 +1539,7 @@
   - type: SpeakOnUIClosed
     pack: LawDrobeGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/lawdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/lawdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1567,7 +1567,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/secdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/secdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1600,7 +1600,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/bardrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/bardrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1624,7 +1624,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/chapdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/chapdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1656,7 +1656,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/cargodrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/cargodrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1688,7 +1688,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/medidrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/medidrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1716,7 +1716,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/chemdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/chemdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1744,7 +1744,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/curadrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/curadrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1772,7 +1772,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/atmosdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/atmosdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1804,7 +1804,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/engidrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/engidrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1836,7 +1836,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/chefdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/chefdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1864,7 +1864,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/detdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/detdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1892,7 +1892,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/janidrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/janidrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1924,7 +1924,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/scidrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/scidrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1953,7 +1953,7 @@
   - type: SpeakOnUIClosed
     pack: SyndieDrobeGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/syndiedrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/syndiedrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1985,7 +1985,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/robodrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/robodrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -2013,7 +2013,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/genedrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/genedrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -2041,7 +2041,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/virodrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/virodrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -2066,7 +2066,7 @@
     brokenState: broken
     normalState: normal-unshaded
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/centdrobe.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/centdrobe.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -2101,7 +2101,7 @@
     initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
     showPrices: false # Starlight-edit: Vending Machines Prices
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/happyhonk.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/happyhonk.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -2145,7 +2145,7 @@
     energy: 1.3 # reduced energy since the color is pure white
     color: "#FFFFFF"
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/pride.rsi
+    sprite: _FarHorizons/Structures/Machines/VendingMachines/pride.rsi #Far Horizons resprite
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
