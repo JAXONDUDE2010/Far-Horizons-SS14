@@ -36,6 +36,12 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -88,6 +94,8 @@
   - DaBling #SL
   - CrapPlushie #SL ##not a typo
   - LighterGatcha #SL
+  - MagicCrayon #SL
+  - HappyHonk #SL
 
 - type: loadoutGroup
   id: Glasses
@@ -336,6 +344,16 @@
   - WhiteShoes
   - WinterBoots
   - Heels # 🌟Starlight🌟
+
+- type: loadoutGroup
+  id: AssistantID
+  name: loadout-group-assistant-id
+  loadouts:
+    - AssistantPDA
+    - PassengerPDA
+    - OffDutyPDA
+    - UnemployedPDA
+    - RefugeePDA
 
 - type: loadoutGroup
   id: BartenderHead

@@ -1,11 +1,12 @@
 using System.Linq;
 using Content.Server._Starlight.Medical.Limbs;
+using Content.Server.Access.Components;
 using Content.Server.Access.Systems;
 using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
-using Content.Server.Mind.Commands;
+using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
@@ -49,6 +50,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly LimbSystem _limbSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
 
@@ -140,7 +142,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         {
             DebugTools.Assert(entity is null);
             var jobEntity = Spawn(prototype.JobEntity, coordinates);
-            MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
+            _mindSystem.MakeSentient(jobEntity);
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
@@ -165,10 +167,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
 
-            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-            }
+            //Starlight remove
+            // if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+            // {
+            //     AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+            // }
         }
 
         SetupCybernetics(entity.Value, profile?.Cybernetics ?? []); // Starlight
@@ -305,8 +308,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (!TryComp<IdCardComponent>(cardId, out var card))
             return;
 
+        // FarHorizons - custom job titles
+        string jobTitle = jobPrototype.LocalizedName;
+        if (TryComp<PresetIdCardComponent>(cardId, out var presetIdCard) && presetIdCard.CustomJobTitle != null)
+            jobTitle = presetIdCard.CustomJobTitle;
+        
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
+        _cardSystem.TryChangeJobTitle(cardId, jobTitle, card);
 
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);

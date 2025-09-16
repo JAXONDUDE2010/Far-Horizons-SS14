@@ -24,7 +24,6 @@
 - type: startingGear
   id: AssistantGear
   equipment:
-    id: AssistantPDA
     ears: ClothingHeadsetAssistant
   #storage:
     #back:
@@ -33,6 +32,17 @@
 - type: chameleonOutfit
   id: PassengerChameleonOutfit
   job: Passenger
+  equipment:
+    head: ClothingHeadHatWelding
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckMantle
+    outerClothing: ClothingOuterWinterCoat
+    gloves: ClothingHandsGlovesColorYellowBudget
+
+- type: chameleonOutfit
+  id: AssistantChameleonOutfit
+  job: Assistant
   equipment:
     head: ClothingHeadHatWelding
     eyes: ClothingEyesGlassesCheapSunglasses

@@ -697,6 +697,7 @@
     title: comms-console-announcement-title-station
     sound: /Audio/_Starlight/Announcements/announce2.ogg #Starlight
   - type: DeviceNetwork
+    deviceNetId: Wireless    
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -715,6 +716,30 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+    #FarHorizonsStart
+  - type: Lock
+    unlockOnClick: false
+  - type: ItemSlotsLock
+    slots:
+    - key_slot
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: key-slot
+        insertSuccessPopup: communication-channels-updated
+        whitelist:
+          requireAll: true
+          components:
+          - EncryptionKey
+          - Item
+  - type: ContainerFill
+    containers:
+      key_slot:
+      - EncryptionKeyStationMaster
+  - type: ContainerContainer
+    containers:
+      key_slot: !type:ContainerSlot
+    #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -749,6 +774,30 @@
     radius: 1.5
     energy: 1.6
     color: "#f71713"
+    #FarHorizonsStart
+  - type: Lock
+    unlockOnClick: false
+  - type: ItemSlotsLock
+    slots:
+    - key_slot
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: key-slot
+        insertSuccessPopup: communication-channels-updated
+        whitelist:
+          requireAll: true
+          components:
+          - EncryptionKey
+          - Item
+  - type: ContainerFill
+    containers:
+      key_slot:
+      - EncryptionKeySyndie
+  - type: ContainerContainer
+    containers:
+      key_slot: !type:ContainerSlot
+    #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -783,6 +832,30 @@
     radius: 1.5
     energy: 1.6
     color: "#F317F3"
+    #FarHorizonsStart
+  - type: Lock
+    unlockOnClick: false
+  - type: ItemSlotsLock
+    slots:
+    - key_slot
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: key-slot
+        insertSuccessPopup: communication-channels-updated
+        whitelist:
+          requireAll: true
+          components:
+          - EncryptionKey
+          - Item
+  - type: ContainerFill
+    containers:
+      key_slot:
+      - EncryptionKeyCommon
+  - type: ContainerContainer
+    containers:
+      key_slot: !type:ContainerSlot
+    #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -815,6 +888,30 @@
     radius: 1.5
     energy: 1.6
     color: "#00FF00"
+    #FarHorizonsStart
+  - type: Lock
+    unlockOnClick: false
+  - type: ItemSlotsLock
+    slots:
+    - key_slot
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: key-slot
+        insertSuccessPopup: communication-channels-updated
+        whitelist:
+          requireAll: true
+          components:
+          - EncryptionKey
+          - Item
+  - type: ContainerFill
+    containers:
+      key_slot:
+      - EncryptionKeyStationMaster
+  - type: ContainerContainer
+    containers:
+      key_slot: !type:ContainerSlot
+    #FarHorizonsEnd
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1169,7 +1266,7 @@
     key: enum.FundingAllocationConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["HeadOfPersonnel"]] #Starlight Change needs to make QM
   - type: UserInterface
     interfaces:
       enum.FundingAllocationConsoleUiKey.Key:

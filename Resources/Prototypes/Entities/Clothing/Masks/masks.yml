@@ -41,6 +41,13 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: Hailer # Starlight
+    hailMessage: "Stop."
+    hailSound:
+      path: /Audio/_FarHorizons/Effects/stop.ogg
+      params:
+        variation: 0.125
+    cooldownDuration: 5
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -315,6 +322,8 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+  - type: StaticPrice
+    price: 5
   - type: Tag
     tags:
     - SurgeryCompatibleArmor # Starlight-edit

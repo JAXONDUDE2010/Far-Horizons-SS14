@@ -42,6 +42,42 @@
 
 - type: entity
   parent: AssistantIDCard
+  id: PassengerIDCard
+  name: Passenger ID card
+  components:
+  - type: PresetIdCard
+    job: Assistant
+    customJobTitle: Passenger
+
+- type: entity
+  parent: AssistantIDCard
+  id: OffDutyIDCard
+  name: Off-duty ID card
+  components:
+  - type: PresetIdCard
+    job: Assistant
+    customJobTitle: Off-duty
+
+- type: entity
+  parent: AssistantIDCard
+  id: UnemployedIDCard
+  name: Unemployed ID card
+  components:
+  - type: PresetIdCard
+    job: Assistant
+    customJobTitle: Unemployed
+
+- type: entity
+  parent: AssistantIDCard
+  id: RefugeeIDCard
+  name: Refugee ID card
+  components:
+  - type: PresetIdCard
+    job: Assistant
+    customJobTitle: Refugee
+
+- type: entity
+  parent: AssistantIDCard
   id: TechnicalAssistantIDCard
   name: technical assistant ID card
   components:
@@ -569,8 +605,8 @@
     job: DeathSquad
 
 - type: entity
-  name: assistant ID card
-  parent: IDCardStandard
+  name: assistant ID card #Starlight de-gretidification
+  parent: [IDCardStandard, BaseChameleon]
   id: AgentIDCard
   suffix: Agent
   components:
@@ -585,9 +621,11 @@
     - state: default
     - state: idassistant
   - type: AgentIDCard
+  - type: UIRequiresLock
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true
+    verbText: agent-id-open-ui-verb
   - type: Tag
     tags:
     - DoorBumpOpener

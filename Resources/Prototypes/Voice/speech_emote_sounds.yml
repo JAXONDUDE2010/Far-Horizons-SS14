@@ -47,6 +47,12 @@
       collection: FelionoidMeows
     Trill:
       collection: FelionoidTrills
+    Bark:
+      collection: Bark
+    Yip:
+      path: /Audio/_Starlight/Effects/yip.ogg
+    Whine:
+      collection: Whine
     #endregion Starlight
 
 - type: emoteSounds
@@ -97,6 +103,12 @@
       collection: FelionoidMeows
     Trill:
       collection: FelionoidTrills
+    Bark:
+      collection: Bark
+    Yip:
+      path: /Audio/_Starlight/Effects/yip.ogg
+    Whine:
+      collection: Whine
     #endregion Starlight
 
 - type: emoteSounds
@@ -188,6 +200,20 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    #region Afterlight
+    Mew:
+      collection: FelionoidMews
+    Meow:
+      collection: FelionoidMeows
+    Trill:
+      collection: FelionoidTrills
+    Bark:
+      collection: Bark
+    Yip:
+      path: /Audio/_Starlight/Effects/yip.ogg
+    Whine:
+      collection: Whine
+    #endregion Afterlight
   params:
     variation: 0.125
 
@@ -232,6 +258,20 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    #region Afterlight
+    Mew:
+      collection: FelionoidMews
+    Meow:
+      collection: FelionoidMeows
+    Trill:
+      collection: FelionoidTrills
+    Bark:
+      collection: Bark
+    Yip:
+      path: /Audio/_Starlight/Effects/yip.ogg
+    Whine:
+      collection: Whine
+    #endregion Afterlight
   params:
     variation: 0.125
 
@@ -436,7 +476,7 @@
     variation: 0.05
   sounds:
     Scream:
-      collection: SiliconScreams
+      collection: SyndicateBorgScreams_SL
     Laugh:
       path: /Audio/Voice/Silicon/syndieborg_laugh.ogg
     Beep:
@@ -503,8 +543,8 @@
   params:
     variation: 0.05
   sounds:
-    Scream: # starlight
-      collection: SiliconScreams
+    Scream:
+      collection: XenoborgScream
     Laugh:
       collection: XenoborgLaugh
     Beep:
