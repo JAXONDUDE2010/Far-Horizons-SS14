@@ -1,0 +1,65 @@
+- type: entity
+  name: X-49 multiphase rifle "Rushdown"
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponMultiphaseSMG
+  description: After the success of the X-01, Nanotrasen developed a leaner, bulkier variant of the weapon designed for close-quarters combat. It boasts the highest rate of fire manufacturers can achieve and features a self-recharging battery like its predecessor—though it recharges significantly slower
+  components:
+  - type: Appearance
+  - type: Gun
+    fireRate: 5.5
+    burstFireRate: 12
+    shotsPerBurst: 3
+    burstCooldown: 0.55
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    - Burst
+  - type: Sprite
+    sprite: /Textures/_FarHorizons/Objects/Weapons/Guns/Battery/rushdown_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: disable-unshaded
+      map: ["enum.FireModesLayers.FireMode"]
+      shader: unshaded
+    - state: disable-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Lock
+  - type: AccessReader
+    access: [["BlueShield"]]
+  - type: Item
+    size: Normal
+    shape:
+    - 0, 0, 2, 1
+  - type: MagazineVisuals
+    magState: disable
+    steps: 5
+    zeroVisible: true
+  - type: HitscanBatteryAmmoProvider
+    proto: DisablerBolt
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: DisablerBolt
+      fireCost: 100
+      magState: disable
+      visualState: disable-unshaded
+    - proto: RedLaserBeam
+      fireCost: 200
+      magState: kill
+      visualState: kill-unshaded
+      conditions:
+      - !type:AlertLevelCondition
+        alertLevels:
+        - blue
+        - violet
+        - yellow
+        - red
+        - gamma
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
