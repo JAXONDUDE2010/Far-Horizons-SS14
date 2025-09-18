@@ -1,6 +1,6 @@
 - type: entity
   name: X-49 multiphase rifle "Rushdown"
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponMultiphaseSMG
   description: After the success of the X-01, Nanotrasen developed a leaner, bulkier variant of the weapon designed for close-quarters combat. It boasts the highest rate of fire manufacturers can achieve and features a self-recharging battery like its predecessor—though it recharges significantly slower
   components:
