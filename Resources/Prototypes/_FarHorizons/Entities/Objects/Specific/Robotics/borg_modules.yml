@@ -38,8 +38,8 @@
     - state: centcomm
     - state: icon-centcomm
   - type: ItemBorgModule
-    items:
-    - CentcommCyborgLaser
+    hands:
+    - item: CentcommCyborgLaser
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
 
@@ -54,8 +54,8 @@
     - state: centcomm
     - state: icon-centcomm
   - type: ItemBorgModule
-    items:
-    - AccessOveriderRecharging
+    hands:
+    - item: AccessOveriderRecharging
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
@@ -70,9 +70,9 @@
       - state: centcomm
       - state: icon-centcomm
     - type: ItemBorgModule
-      items:
-        - EnergyShieldCyber
-        - CyberEnergyChainsword
+      hands:
+      - item: EnergyShieldCyber
+      - item: CyberEnergyChainsword
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-esword-module }
 
@@ -87,12 +87,12 @@
     - state: centcomm
     - state: icon-centcomm
   - type: ItemBorgModule
-    items:
-    - HandheldGPSBasic
-    - HandHeldMassScannerBorg
-    - HandheldStationMapUnpowered
-    - WeaponGrapplingGun
-    - JetpackCyborgCentcomm
+    hands:
+    - item: HandheldGPSBasic
+    - item: HandHeldMassScannerBorg
+    - item: HandheldStationMapUnpowered
+    - item: WeaponGrapplingGun
+    - item: JetpackCyborgCentcomm
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-space-movement-module }
 
@@ -107,8 +107,8 @@
     - state: centcomm
     - state: icon-centcomm
   - type: ItemBorgModule
-    items:
-    - ChameleonProjector
+    hands:
+    - item: ChameleonProjector
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
 
@@ -123,7 +123,7 @@
     - state: centcomm
     - state: icon-centcomm
   - type: ItemBorgModule
-    items:
-    - CloakingDevice
+    hands:
+    - item: CloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
