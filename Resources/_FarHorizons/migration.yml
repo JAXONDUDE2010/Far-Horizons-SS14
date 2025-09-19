@@ -12,7 +12,7 @@ Airlock: FHAirlock
 AirlockGlass: FHAirlockGlass
   
 AirlockServiceLocked: FHAirlockServiceLocked
-AirlockService: FHAirlockService
+# AirlockService: FHAirlockService
 AirlockMaintLocked: FHAirlockMaintLocked
 AirlockFreezerLocked: FHAirlockFreezerLocked
 AirlockFreezerKitchenHydroLocked: FHAirlockFreezerKitchenHydroLocked
