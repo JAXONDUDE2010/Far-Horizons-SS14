@@ -19,7 +19,6 @@
       collection: MetalThud
     angle: 60
     animation: WeaponArcThrust
-  - type: Stunbaton
   - type: StaminaDamageOnHit
     damage: 25
   - type: StaminaDamageOnCollide
@@ -42,6 +41,8 @@
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: Tag
+    tags:
+    - Truncheon
   - type: StaticPrice
     price: 80
   - type: Riggable
