@@ -52,7 +52,7 @@ AirlockDetectiveLocked: FHAirlockDetectiveLocked
 AirlockBrigLocked: FHAirlockBrigLocked
 AirlockSecurityLawyerLocked: FHAirlockSecurityLawyerLocked
 AirlockArmoryLocked: FHAirlockArmoryLocked
-AirlockArmory: FHAirlockArmory
+# AirlockArmory: FHAirlockArmory
 AirlockVaultLocked: FHAirlockVaultLocked
 AirlockEVALocked: FHAirlockEVALocked
 AirlockMaintSalvageLocked: FHAirlockMaintSalvageLocked
