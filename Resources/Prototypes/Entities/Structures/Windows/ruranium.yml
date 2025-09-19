@@ -64,10 +64,10 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/directional.rsi
+    sprite: _FarHorizons/Structures/Windows/directional.rsi
     state: uranium_reinforced_window
   - type: Icon
-    sprite: Structures/Windows/directional.rsi
+    sprite: _FarHorizons/Structures/Windows/directional.rsi
     state: uranium_reinforced_window
   - type: Construction
     graph: WindowDirectional
