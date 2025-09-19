@@ -58,11 +58,12 @@
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+    sprite: _FarHorizons/Objects/Devices/securityradio.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: security
+    - state: security-on
+      visible: false
+    state: security
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie
