@@ -64,6 +64,9 @@
       containers:
         - board
     - type: Occluder
+    - type: Door
+      denySound:
+        path: /Audio/Machines/airlock_deny.ogg
 
 - type: entity
   id: FHAirlockGlass
