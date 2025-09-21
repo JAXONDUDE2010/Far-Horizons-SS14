@@ -5,9 +5,9 @@
   description: A visor that provides flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: _FarHorizon/Clothing/Eyes/Visors/security.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/security.rsi
   - type: Clothing
-    sprite: _FarHorizon/Clothing/Eyes/Visors/security.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/security.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -30,9 +30,9 @@
   description: An innovative visor that scans the humanoids in view and provides accurate data about their ID status, security records, and medical information.
   components:
   - type: Sprite
-    sprite: _FarHorizon/Clothing/Eyes/Visors/blueshield.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/blueshield.rsi
   - type: Clothing
-    sprite: _FarHorizon/Clothing/Eyes/Visors/blueshield.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/blueshield.rsi
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
@@ -52,12 +52,12 @@
   parent: [ ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband ]
   id: ClothingEyesVisorBrigmedic
   name: Brigmedic Visor
-  description: Tamashi-upgraded HUDs. Yes. Brigmedic ones.
+  description: Tamashi-upgraded Visor. Yes. Brigmedic ones.
   components:
   - type: Sprite
-    sprite: _FarHorizon/Clothing/Eyes/Visors/security.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/brigmedic.rsi
   - type: Clothing
-    sprite: _FarHorizon/Clothing/Eyes/Visors/security.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Visors/brigmedic.rsi
   - type: EyeProtection
     protectionTime: 5
   - type: ShowHealthBars
