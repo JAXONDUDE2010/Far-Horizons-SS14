@@ -69,13 +69,15 @@
     autoRot: true
   - type: Ringer
   - type: RingerUplink
+  - type: SuitSensor
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: PDA
+    transmitFrequencyId: SuitSensor
     prefix: device-address-prefix-console
     savableAddress: false
   - type: WirelessNetworkConnection
-    range: 500
+    range: 1200
+  - type: StationLimitedNetwork
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
