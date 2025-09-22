@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by ItsAbby for Far Horizons, an SS14 Project",
+  "copyright": "Modified by ItsAbby for Far Horizons",
   "size": {
     "x": 32,
     "y": 32
@@ -11,15 +11,11 @@
       "name": "icon"
     },
     {
-      "name": "equipped-EYES",
+      "name": "equipped-HELMET",
       "directions": 4
     },
     {
-      "name": "equipped-EYES-arachnid",
-      "directions": 4
-    },
-    {
-      "name": "equipped-EYES-moth",
+      "name": "equipped-HELMET-hamster",
       "directions": 4
     },
     {
@@ -30,9 +26,5 @@
       "name": "inhand-right",
       "directions": 4
     },
-    {
-      "name": "equipped-EYES-dog",
-      "directions": 4
-    }
   ]
 }
