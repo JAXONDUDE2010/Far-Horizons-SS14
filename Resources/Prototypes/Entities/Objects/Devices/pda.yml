@@ -72,11 +72,11 @@
   - type: SuitSensor
   - type: DeviceNetwork
     deviceNetId: Wireless
-    transmitFrequencyId: SuitSensor
+    transmitFrequencyId: Suit Sensor #PDA-Far Horizons
     prefix: device-address-prefix-console
     savableAddress: false
   - type: WirelessNetworkConnection
-    range: 1200
+    range: 1200 #500-Far Horizons
   - type: StationLimitedNetwork
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
