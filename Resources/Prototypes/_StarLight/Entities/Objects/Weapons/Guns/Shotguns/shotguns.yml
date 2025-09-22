@@ -21,7 +21,7 @@
     graph: ShotgunRiotSawn
     node: start
     deconstructionTarget: null
-    
+
 - type: entity
   name: sawn-off riot shotgun
   parent: [BaseWeaponShotgun, BaseSecurityContraband]
@@ -44,7 +44,7 @@
     graph: ShotgunRiotSawn
     node: shotgunsawn
     deconstructionTarget: null
-    
+
 - type: entity
   parent: [WeaponShotgunRiotSawn, BaseSecurityContraband]
   id: WeaponShotgunRiotSawnEmpty
@@ -56,7 +56,7 @@
     graph: ShotgunRiotSawn
     node: shotgunsawn
     deconstructionTarget: null
-    
+
 - type: entity
   name: combat shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
@@ -74,7 +74,7 @@
   - type: GunRequiresWield
   - type: BallisticAmmoProvider
     capacity: 7
-    
+
 - type: entity
   name: cycler shotgun
   parent: [BaseWeaponShotgunAny, BaseGunWieldable, BaseSecuritySalvageContraband]
@@ -103,6 +103,10 @@
     ammoSlots: [ null, null, null, null, null, null, null, null, null ]
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      revolver-ammo: !type:Container
       
 - type: entity
   name: Tkach Ya-Sui GA 12 revolver
@@ -148,6 +152,10 @@
     ammoSlots: [ null, null, null ]
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      revolver-ammo: !type:Container
       
 - type: entity
   name: "AS-12 'Minotaur' Shotgun"
@@ -163,6 +171,8 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi
+  - type: Item
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/minotaur.rsi
   - type: Item
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/minotaur_inhands_64x.rsi

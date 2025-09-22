@@ -59,7 +59,7 @@
   radioChannels:
   - Security
 
-# Moved to Roundstart tech for Far Horizons
+#FarHorizons: Roundstart tech
 #- type: technology
 #  id: NonlethalAmmunition
 #  name: research-technology-nonlethal-ammunition
@@ -75,6 +75,7 @@
 #  - BoxBeanbag
 #  - WeaponDisabler
 #  - WeaponMechCombatDisabler
+#  - WeaponMechCombatFlashbangLauncher
 #  - CartridgePistolRubber
 #  - CartridgeMagnumRubber
 #  - CartridgeLightRifleRubber
