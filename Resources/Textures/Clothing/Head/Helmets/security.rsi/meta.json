@@ -27,8 +27,7 @@
       "directions": 4
     },
     {
-      "name": "icon-flash",
-      "directions": 4
+      "name": "icon-flash"
     },
     {
       "name": "lighton-equipped-HELMET-vox",
@@ -39,7 +38,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-HELMET_LightOn",
+      "name": "equipped-HELMET-lighton",
       "directions": 4
     },
     {
@@ -47,7 +46,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-HELMET_Vox_LightOn",
+      "name": "equipped-HELMET-vox-lighton",
       "directions": 4
     }
   ]
