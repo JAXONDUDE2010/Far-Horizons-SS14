@@ -357,6 +357,16 @@
       - state: equipped-INNERCLOTHING
         color: "#ff8300"
       - state: prisoner-equipped-INNERCLOTHING
+  #Far Horizons-Start
+  - type: WirelessNetworkConnection
+    range: 1200 #500-Far Horizons
+  - type: StationLimitedNetwork
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor #PDA-Far Horizons
+    prefix: device-address-prefix-console
+    savableAddress: false
+  #Far Horizons-End
   - type: SuitSensor
     controlsLocked: true
     randomMode: false
