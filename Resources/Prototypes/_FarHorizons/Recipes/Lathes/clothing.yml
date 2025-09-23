@@ -11,6 +11,11 @@
   result: ClothingHeadHatBeretVirologist
 
 - type: latheRecipe
-  parent: BaseHatRecipe
-  id: ClothingHeadHatBeretMedic
-  result: ClothingHeadHatBeretMedic
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitVirology
+  result: ClothingUniformJumpsuitVirology
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtVirology
+  result: ClothingUniformJumpsuitVirology
