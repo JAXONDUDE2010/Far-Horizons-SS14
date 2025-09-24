@@ -384,3 +384,36 @@
     - id: WeaponDisabler
     - id: WantedListCartridge
     - id: DrinkHosFlask
+
+- type: entity
+  id: LockerHeadOfSecurityFHFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerHeadOfSecurityFH
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckCloakHosElite
+    - id: WeaponEnergySMG
+    - id: BookSpaceLaw
+    - id: BoxEncryptionKeySecurity
+    - id: CigarGoldCase
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingEyesHudSecurity
+    - id: ClothingHeadsetAltSecurity
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingOuterCoatHoSTrench
+    - id: ClothingShoesBootsJack
+    - id: DoorRemoteSecurity
+    - id: HoloprojectorSecurity
+    - id: RubberStampHos
+    - id: SecurityTechFabCircuitboard
+    - id: CargoRequestSecurityComputerCircuitboard
+    - id: WeaponDisabler
+    - id: WantedListCartridge
+    - id: DrinkHosFlask
+    - id: ClothingMaskGasSwat
+    - id: ClothingOuterHardsuitSecurityRed
+    - id: JetpackSecurityFilled
+    - id: OxygenTankFilled
+    - id: ClothingShoesBootsMagSec
