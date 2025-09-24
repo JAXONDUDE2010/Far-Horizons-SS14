@@ -41,7 +41,6 @@ using Content.Server._Starlight.Language; // Starlight
 using Content.Shared._Starlight.Language; // Starlight
 using Content.Shared.Popups; // Starlight
 using Content.Shared.Radio.Components;//FarHorizons
-using Content.Server.Radio.Components;//FarHorizons
 
 namespace Content.Server.Chat.Systems;
 
