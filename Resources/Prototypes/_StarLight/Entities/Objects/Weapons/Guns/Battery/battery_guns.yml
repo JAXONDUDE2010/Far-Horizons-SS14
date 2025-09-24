@@ -177,12 +177,12 @@
   - type: Lock
   - type: AccessReader
     access: [["Security"]]
-  - type: HitscanBatteryAmmoProvider
-    proto: TaserBolt
+  - type: HitscanBatteryAmmoProvider  #FH edit
+    proto: BoltTaserFH
     fireCost: 166
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: TaserBolt #FH edit
+    - proto: BoltTaserFH #FH edit
       fireCost: 166
       magState: stun
       conditions:
