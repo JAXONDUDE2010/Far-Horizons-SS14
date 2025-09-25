@@ -150,6 +150,7 @@
   - ShuttleGunFriendshipCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunSvalinnMachineGunCircuitboard
+  - ScanGateMachineCircuitboard
 
 - type: latheRecipePack
   parent:
@@ -234,6 +235,8 @@
   - WeaponIonCarbine
   - WeaponDecloner
   - WeaponLaserImmolator
+  - WeaponLaserSvalinn
+  - WeaponTemperatureGun
 
 - type: latheRecipePack
   id: StarlightSecurityMechsWeapons
