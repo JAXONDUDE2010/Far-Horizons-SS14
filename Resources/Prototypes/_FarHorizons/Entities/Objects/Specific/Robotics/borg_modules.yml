@@ -39,9 +39,34 @@
     - state: icon-security
   - type: ItemBorgModule
     hands:
-    - item: CentcommCyborgLaser
+    - item: Stunbaton
+    - item: BorgFlash
+    - item: Handcuffs
+      hand:
+        emptyLabel: borg-slot-handcuffs-empty
+        emptyRepresentative: Handcuffs
+        whitelist:
+          tags:
+          - Handcuffs
+    - item: BorgContraDuffel
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module } # TODO icon
+
+- type: entity
+  parent: [BaseBorgModuleSecurity,BaseProviderBorgModule,BaseSecurityContraband]
+  id: BorgModuleDominator
+  name: Dominator Cyborg module.
+  description: Module with a dominator specifically designed for cyborgs.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-security
+  - type: ItemBorgModule
+    hands:
+    - item: BorgWeaponDominator
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module } # TODO icon
 
 - type: entity
   parent: BaseBorgModule

@@ -63,3 +63,12 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 10
+
+- type: entity
+  name: Cyborg Dominator
+  parent: WeaponDominator
+  id: BorgWeaponDominator
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
