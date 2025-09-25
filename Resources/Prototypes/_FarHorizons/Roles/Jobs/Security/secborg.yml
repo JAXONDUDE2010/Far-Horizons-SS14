@@ -12,6 +12,6 @@
       time: 54000  # 15 hrs
   canBeAntag: false
   icon: JobIconBorg # todo secborg ID
-  supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgBattery
+  supervisors: job-supervisors-hos
+  jobEntity: PlayerSecBorgBattery
   applyTraits: false
