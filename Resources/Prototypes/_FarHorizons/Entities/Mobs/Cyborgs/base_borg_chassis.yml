@@ -1,4 +1,79 @@
 - type: entity
+  abstract: true
+  parent: BaseBorgTransponder
+  id: BaseSecBorgTransponder
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SecborgControl
+    transmitFrequencyId: SecurityRoboticsConsole
+    savableAddress: false
+
+
+- type: entity # TODO implement sirens
+  parent: [BaseBorgChassis, BaseSecBorgTransponder]
+  id: BorgChassisSecurity
+  name: security cyborg
+  description: A special chassis produced by Nanotrasen to aid station side security forces in their duties.
+  components:
+  - type: BorgTransponder
+    name: security cyborg
+    sprite:
+      sprite: _FarHorizons/Mobs/Silicon/Chassis/security.rsi
+      state: borg
+  - type: TextToSpeech
+  - type: Sprite
+    sprite: _FarHorizons/Mobs/Silicon/Chassis/security.rsi
+    layers:
+      - state: borg
+        map: [ "enum.BorgVisualLayers.Body", "movement" ]
+      - state: borg_e_r
+        map: [ "enum.BorgVisualLayers.Light" ]
+        shader: unshaded
+        visible: false
+      - state: borg_l
+        shader: unshaded
+        map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+        visible: false
+      # - state: borg_siren_on
+      #   map: [ "enum.BorgVisualLayers.Siren", "siren" ]
+      #   shader: unshaded
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasenSilicon
+  - type: Access
+    enabled: false
+    groups:
+    - Security # Ensure it can go anywhere inside of sec.
+  - type: AccessReader
+    access: [["Command"], ["Armory"]] # Warden & Command. Todo, sec roboticist
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: FlashImmunity
+  # - type: ActionGrant
+  #   actions:
+  #   - ActionBorgToggleSirens
+  - type: EmagSiliconLaw
+    stunTime: 5
+  - type: SiliconLawProvider
+    laws: Robocop
+  - type: BorgChassis
+    hasMindState: borg_e
+    noMindState: borg_e_r
+  - type: BorgSwitchableType
+    selectedBorgType: security # This gives me locked modules.
+    inherentRadioChannels:
+    - Binary
+    - Common
+
+- type: entity
   parent: BaseBorgChassisNotIonStormable
   id: BaseNTNCChassis
   name: NT-NC
@@ -7,7 +82,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _FarHorizons/Mobs/Silicon/chassis.rsi
+    sprite: Mobs/Silicon/Chassis/generic.rsi
   - type: TextToSpeech
   - type: RandomMetadata
     nameSegments:
@@ -81,13 +156,14 @@
   components:
   - type: TextToSpeech
   - type: Sprite
+    sprite: _FarHorizons/Mobs/Silicon/Chassis/ntnc_haw.rsi
     layers:
-      - state: ntnc_haw
-      - state: ntnc_haw_e
+      - state: borg
+      - state: borg_e
         map: ["enum.BorgVisualLayers.Light"]
         shader: unshaded
         visible: false
-      - state: ntnc_haw_l
+      - state: borg_l
         shader: unshaded
         map: ["light"]
         visible: false
@@ -96,10 +172,10 @@
     moduleWhitelist:
       tags:
         - BorgModuleGeneric
-        - BaseBorgModuleCentcomm
+        - BorgModuleCentcomm
         - BorgModuleEngineering
-    hasMindState: ntnc_haw_e
-    noMindState: ntnc_haw_e_r
+    hasMindState: borg_e
+    noMindState: borg_e_r
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
@@ -149,14 +225,15 @@
   components:
   - type: TextToSpeech
   - type: Sprite
+    sprite: _FarHorizons/Mobs/Silicon/Chassis/ntnc_sosu.rsi
     layers:
-      - state: ntnc_sosu
+      - state: borg
         map: ["body"]
-      - state: ntnc_sosu_e
+      - state: borg_e
         map: ["enum.BorgVisualLayers.Light", "activeLight"]
         shader: unshaded
         visible: false
-      - state: ntnc_sosu_l
+      - state: borg_l
         shader: unshaded
         map: ["light"]
         visible: false
@@ -165,10 +242,10 @@
     moduleWhitelist:
       tags:
         - BorgModuleGeneric
-        - BaseBorgModuleCentcomm
+        - BorgModuleCentcomm
         - BorgModuleEngineering
-    hasMindState: ntnc_sosu_e
-    noMindState: ntnc_sosu_e_r
+    hasMindState: borg_e
+    noMindState: borg_e_r
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
@@ -179,24 +256,24 @@
     visuals:
       body:
       - options: Default
-        data: {state: ntnc_sosu}
+        data: {state: borg}
       - options: ReducedMotion
-        data: {state: ntnc_sosu_static}
+        data: {state: borg_static}
       light:
       - options: Default
-        data: {state: ntnc_sosu_l}
+        data: {state: borg_l}
       - options: ReducedMotion
-        data: {state: ntnc_sosu_l_static}
+        data: {state: borg_l_static}
       activeLight:
       - options: Default
-        data: {state: ntnc_sosu_e}
+        data: {state: borg_e}
       - options: ReducedMotion
-        data: {state: ntnc_sosu_e_static}
+        data: {state: borg_e_static}
       noMindState:
       - options: Default
-        data: {state: ntnc_sosu_e_r}
+        data: {state: borg_e_r}
       - options: ReducedMotion
-        data: {state: ntnc_sosu_e_r_static}
+        data: {state: borg_e_r_static}
   - type: MovementAlwaysTouching # it flies in space with tiny thrusters
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:

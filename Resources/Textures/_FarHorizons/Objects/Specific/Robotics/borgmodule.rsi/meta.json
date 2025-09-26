@@ -44,6 +44,12 @@
         {
             "name": "base-stripes-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "security"
+        },
+        {
+            "name": "icon-security"
         }
     ]
 }

@@ -259,7 +259,7 @@ public sealed class RadioSystem : EntitySystem
             iconId = "JobIconBorg";
             jobName = Loc.GetString("job-name-borg");
         }
-
+        // TODO ADD A WAY TO IDENTIFY SECURITY BORGS AND GIVE THEM THEIR OWN ICON
         if (HasComp<StationAiHeldComponent>(messageSource) || (TryComp<StationAIShuntComponent>(messageSource, out var aiShunt) && aiShunt.Return.HasValue))
         {
             iconId = "JobIconStationAi";

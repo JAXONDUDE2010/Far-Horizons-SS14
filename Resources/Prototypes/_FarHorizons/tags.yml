@@ -1,7 +1,10 @@
 # ALPHABETIZE
 
 - type: Tag
-  id: BaseBorgModuleCentcomm
+  id: BorgModuleCentcomm
+
+- type: Tag
+  id: BorgModuleSecurity
 
 - type: Tag
   id: IntegrityAnalyzer
