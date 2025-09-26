@@ -9,6 +9,7 @@
   cost: 9000
   recipeUnlocks:
   - SecborgEndoskeleton
+  - BorgModuleLaserCarbine
   technologyPrerequisites:
   - BasicRobotics
   radioChannels:
