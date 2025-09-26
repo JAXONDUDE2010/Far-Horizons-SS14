@@ -7,3 +7,9 @@
   parent: CyborgEndoskeleton
   id: SecborgEndoskeleton
   result: SecborgEndoskeleton
+
+- type: latheRecipePack
+  id: FarHorizonsSecBorgRecipePack
+  recipes:
+  - SecborgEndoskeleton
+  - BorgModuleLaserCarbine
