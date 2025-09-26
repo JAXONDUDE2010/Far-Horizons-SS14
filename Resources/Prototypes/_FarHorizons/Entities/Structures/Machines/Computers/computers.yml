@@ -14,7 +14,7 @@
     receiveFrequencyId: SecurityRoboticsConsole
     transmitFrequencyId: SecborgControl
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["Armory"]]
     
 - type: entity
   parent: BaseComputerAiAccess
