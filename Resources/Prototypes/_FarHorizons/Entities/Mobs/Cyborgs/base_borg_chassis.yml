@@ -57,6 +57,18 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: FlashImmunity
+  - type: IntrinsicRadioTransmitter
+  channels:
+  - Binary
+  - Common
+  - Science
+  - Security
+- type: ActiveRadio
+  channels:
+  - Binary
+  - Common
+  - Science
+  - Security
   # - type: ActionGrant
   #   actions:
   #   - ActionBorgToggleSirens
@@ -65,13 +77,21 @@
   - type: SiliconLawProvider
     laws: Robocop
   - type: BorgChassis
+    maxModules: 6
     hasMindState: borg_e
     noMindState: borg_e_r
-  - type: BorgSwitchableType
-    selectedBorgType: security # This gives me locked modules.
-    inherentRadioChannels:
-    - Binary
-    - Common
+
+- type: entity
+  parent: BorgChassisSecurity
+  id: BorgChassisSecurityModule
+  suffix: Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleBaton
+      - BorgModuleDominator
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
