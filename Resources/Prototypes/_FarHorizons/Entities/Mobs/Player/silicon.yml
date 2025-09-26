@@ -8,10 +8,6 @@
     containers:
       borg_brain:
       - PositronicBrain
-      borg_module:
-      - BorgModuleTool
-      - BorgModuleBaton
-      - BorgModuleDominator
   - type: ItemSlots
     slots:
       cell_slot:
