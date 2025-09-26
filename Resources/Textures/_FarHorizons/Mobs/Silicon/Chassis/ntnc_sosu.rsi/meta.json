@@ -8,65 +8,7 @@
     "copyright": "Base sprites by happymemories11 (github), animations of said sprites by salem-uwu (github)",
     "states": [
         {
-            "name": "ntnc_haw",
-            "directions": 4
-        },
-        {
-            "name": "ntnc_haw_l",
-            "directions": 4
-        },
-        {
-            "name": "ntnc_haw_e",
-            "directions": 4
-        },
-        {
-            "name": "ntnc_haw_e_r",
-            "directions": 4,
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-        {
-            "name": "ntnc_sosu",
+            "name": "borg",
             "directions": 4,
             "delays": [
                 [
@@ -120,7 +62,7 @@
             ]
         },
         {
-            "name": "ntnc_sosu_l",
+            "name": "borg_l",
             "directions": 4,
             "delays": [
                 [
@@ -174,7 +116,7 @@
             ]
         },
         {
-            "name": "ntnc_sosu_e",
+            "name": "borg_e",
             "directions": 4,
             "delays": [
                 [
@@ -228,7 +170,7 @@
             ]
         },
         {
-            "name": "ntnc_sosu_e_r",
+            "name": "borg_e_r",
             "directions": 4,
             "delays": [
                 [
@@ -282,19 +224,19 @@
             ]
         },
         {
-            "name": "ntnc_sosu_static",
+            "name": "borg_static",
             "directions": 4
         },
         {
-            "name": "ntnc_sosu_l_static",
+            "name": "borg_l_static",
             "directions": 4
         },
         {
-            "name": "ntnc_sosu_e_static",
+            "name": "borg_e_static",
             "directions": 4
         },
         {
-            "name": "ntnc_sosu_e_r_static",
+            "name": "borg_e_r_static",
             "directions": 4,
             "delays": [
                 [
@@ -346,26 +288,6 @@
                     0.1
                 ]
             ]
-        },
-        {
-            "name":"secborg",
-            "directions":4
-        },
-        {
-            "name": "secborg_e",
-            "directions": 4
-        },
-        {
-            "name": "secborg_e_r",
-            "directions": 4
-        },
-        {
-            "name": "secborg_l",
-            "directions": 4
-        },
-        {
-            "name": "secborg_siren_on",
-            "directions": 4
         }
     ]
 }

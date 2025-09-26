@@ -4,4 +4,7 @@
   id: BaseBorgModuleCentcomm
 
 - type: Tag
+  id: BaseBorgModuleSecurity
+
+- type: Tag
   id: IntegrityAnalyzer
