@@ -10,7 +10,6 @@
     - type: Anchorable
     - type: Transform
       noRot: true
-   
       damageContainer: StructuralInorganic
       damageModifierSet: Metallic
     - type: Destructible
@@ -77,12 +76,10 @@
         - type: Icon
           sprite: _FarHorizons/Structures/Machines/HoloTables/engineering_holotable.rsi
     - type: Appearance
-
     - type: PointLight
       radius: 3
       energy: 2
       color: "#d9b12e"
-
     - type: PowerMonitoringConsole
     - type: PowerMonitoringCableNetworks
     - type: NodeContainer
@@ -100,3 +97,29 @@
           type: PowerMonitoringConsoleBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+
+- type: entity
+  id: MedicalHolotable
+  parent: HolotableBase
+  name: Medical Holotable
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+    layers:
+      - state: Table-Frame
+      - type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+      - state: Holo-Proyector
+      - type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+      - state: Holo-Table-Lights
+      - type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+      - state: HoloMed
+      - type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+  - type: Appearance
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#66ccde"

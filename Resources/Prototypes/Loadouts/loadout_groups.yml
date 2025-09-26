@@ -62,7 +62,7 @@
   - ClothingUnderSocksCoder # 🌟Starlight🌟
   - ClothWrap # 🌟Starlight🌟
   - ClothingUniformJumpskirtElegantMaid # 🌟Starlight🌟
-  - ClothingHeadHatCatEars # 🌟Starlight🌟
+  - ClothingHeadHatWhiteCatEars # 🌟Starlight🌟
   - RolliePack #SL
   - GoldRing #SL
   - SilverRing #SL
@@ -813,6 +813,13 @@
   - Heels # 🌟Starlight🌟
 
 - type: loadoutGroup
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - SeniorCourierPDA
+
+- type: loadoutGroup
   id: SalvageSpecialistBackpack
   name: loadout-group-salvage-specialist-backpack
   loadouts:
@@ -1173,6 +1180,7 @@
   - SecurityGlasses
   - SecurityHud
   - DetectiveNoirGlasses
+  - SecurityVisor #Far Horizons
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1214,6 +1222,7 @@
   name: loadout-group-brigmedic-eyewear
   loadouts:
   - BrigmedicGlasses
+  - BrigmedicVisor #Far Horizons
   - BrigmedicHud
 
 - type: loadoutGroup
@@ -1415,6 +1424,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - VirologyBeret
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1427,6 +1437,8 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - VirologyJumpsuit #Far Horizons
+  - VirologyJumpskirt #Far Horizons
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
