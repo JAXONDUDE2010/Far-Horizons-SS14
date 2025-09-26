@@ -125,16 +125,9 @@
   parent: BulletTrace
   damage:
     types:
-<<<<<<< Updated upstream
-      Blunt: 35
-      Piercing: 10 # +30%
-  staminaDamage: 10    
-  armorPenetration: -0.55
-=======
       Piercing: 45 # +30%  #FH
   staminaDamage: 10    
   armorPenetration: -1  #FH
->>>>>>> Stashed changes
   pierceChance: 0.03
   derivation: 0.05
   ricochetChance: 0.15
@@ -258,14 +251,8 @@
   parent: BulletTrace
   damage:
     types:
-<<<<<<< Updated upstream
-      Blunt: 16
-      Piercing: 5 # +30%
-  armorPenetration: -0.55
-=======
       Piercing: 21 # +30% #FH
   armorPenetration: -1  #FH
->>>>>>> Stashed changes
   staminaDamage: 5
   pierceChance: 0.03
   derivation: 0.2
@@ -372,27 +359,15 @@
   staminaDamage: 7.5  #FH
   damage:
     types:
-<<<<<<< Updated upstream
-      Blunt: 20
-      Piercing: 6 # +30%
-=======
       Piercing: 33  #FH
->>>>>>> Stashed changes
   bullet:
     sprite:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
       state: bullet
-<<<<<<< Updated upstream
-  armorPenetration: -0.55
-  pierceChance: 0.02
-  derivation: 0.15
-  ricochetChance: 0.10
-=======
   armorPenetration: -1  #FH
   pierceChance: 0.03  #FH
   derivation: 0.12  #FH
   ricochetChance: 0.15  #FH
->>>>>>> Stashed changes
   
 - type: hitscan
   id: BulletPistolTrace40FMJ
@@ -502,16 +477,9 @@
   parent: BulletTrace
   damage:
     types:
-<<<<<<< Updated upstream
-      Blunt: 19
-      Piercing: 6 # +30%
-  pierceLevel: Wood
-  armorPenetration: -0.55
-=======
       Piercing: 25 # +30% #FH
   pierceLevel: Wood
   armorPenetration: -1 #FH
->>>>>>> Stashed changes
   staminaDamage: 6
   pierceChance: 0.03
   derivation: 0.05
@@ -619,14 +587,8 @@
   parent: BulletTrace
   damage:
     types:
-<<<<<<< Updated upstream
-      Blunt: 17
-      Piercing: 6 # +30%
-  armorPenetration: -0.55
-=======
       Piercing: 23 # +30% #FH
   armorPenetration: -1
->>>>>>> Stashed changes
   staminaDamage: 5
   pierceChance: 0.03
   ricochetChance: 0.15
