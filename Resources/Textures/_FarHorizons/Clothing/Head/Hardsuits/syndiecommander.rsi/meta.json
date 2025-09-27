@@ -113,6 +113,18 @@
         {
             "name": "on-equipped-HELMET",
             "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-resomi",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-vulpkanin",
+            "directions": 4
         }
     ]
 }
