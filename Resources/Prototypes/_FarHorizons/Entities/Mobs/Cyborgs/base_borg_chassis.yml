@@ -26,14 +26,13 @@
     sprite: _FarHorizons/Mobs/Silicon/Chassis/security.rsi
     layers:
       - state: borg
-        map: [ "enum.BorgVisualLayers.Body", "movement" ]
-      - state: borg_e_r
-        map: [ "enum.BorgVisualLayers.Light" ]
+      - state: borg_e
+        map: ["enum.BorgVisualLayers.Light"]
         shader: unshaded
         visible: false
       - state: borg_l
         shader: unshaded
-        map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+        map: ["light"]
         visible: false
       # - state: borg_siren_on
       #   map: [ "enum.BorgVisualLayers.Siren", "siren" ]
