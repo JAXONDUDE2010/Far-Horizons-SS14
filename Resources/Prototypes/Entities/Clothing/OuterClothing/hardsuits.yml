@@ -266,9 +266,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -305,9 +305,9 @@
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/brigmedic.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/brigmedic.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -341,9 +341,9 @@
   description: A specialized, heavy riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security-warden.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security-warden.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
