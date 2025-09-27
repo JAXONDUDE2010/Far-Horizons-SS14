@@ -195,7 +195,7 @@
         - red
         - gamma
     - proto: RedLaserBeamDominator #FH edit
-      fireCost: 40 #FH edit
+      fireCost: 50 #FH edit
       magState: lethal
       conditions:
       - !type:AlertLevelCondition
