@@ -19,75 +19,11 @@
             "directions": 4
         },
         {
+            "name": "combat-equipped-HELMET-dog",
+            "directions": 4
+        },
+        {
             "name": "off-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-cyclorite",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-resomi",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded-resomi",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-resomi",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded-cyclorite",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-cyclorite",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded-vox",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-vox",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-felionoid",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-unshaded-felionoid",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-felionoid",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vox",
             "directions": 4
         },
         {
@@ -95,15 +31,7 @@
             "directions": 4
         },
         {
-            "name": "off-equipped-HELMET-unshaded-avali",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-unshaded-avali",
-            "directions": 4
-        },
-        {
-            "name": "combat-equipped-HELMET-dog",
+            "name": "off-equipped-HELMET-cyclorite",
             "directions": 4
         },
         {
@@ -111,7 +39,95 @@
             "directions": 4
         },
         {
+            "name": "off-equipped-HELMET-felionoid",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-resomi",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-avali",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-cyclorite",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-felionoid",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-resomi",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-vox",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-unshaded-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-vox",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET",
+            "directions": 4
+        },
+        {
             "name": "on-equipped-HELMET-dog",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-resomi",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-avali",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-cyclorite",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-felionoid",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-resomi",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-vox",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-unshaded-vulpkanin",
             "directions": 4
         },
         {
@@ -119,7 +135,7 @@
             "directions": 4
         },
         {
-            "name": "on-equipped-HELMET",
+            "name": "on-equipped-HELMET-vulpkanin",
             "directions": 4
         }
     ]
