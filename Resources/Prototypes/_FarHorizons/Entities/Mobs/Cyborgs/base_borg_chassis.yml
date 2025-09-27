@@ -58,17 +58,17 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: FlashImmunity
   - type: IntrinsicRadioTransmitter
-  channels:
-  - Binary
-  - Common
-  - Science
-  - Security
-- type: ActiveRadio
-  channels:
-  - Binary
-  - Common
-  - Science
-  - Security
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - Security
   # - type: ActionGrant
   #   actions:
   #   - ActionBorgToggleSirens
