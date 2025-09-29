@@ -408,12 +408,12 @@
     </ColorBox>
     <ColorBox Color="#476571">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Over-Force of Arrest (9)
+      Excessive Force (9)
       </Box>
     </ColorBox>
     <ColorBox Color="#476571">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Arrest Brutality (9)
+      Brutality (9)
       </Box>
     </ColorBox>
     <ColorBox>
@@ -446,7 +446,7 @@
   
   8. Sedition, Conspiracy, Treason, Enemy of Corporation
 
-  9. Over-Force of Arrest, Arrest Brutality
+  9. Excessive Force, Brutality
   
   ## Minor Crimes
   Those who commit a minor crime should be issued a warning for their first offense, however repeat offenses are cumulative and should result in jail time of up to 10 minutes per minor crime committed. 
@@ -763,7 +763,7 @@
     </ColorBox>
     <ColorBox Color="#476571">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Over-Force of Arrest
+        Excessive Force
       </Box>
     </ColorBox>
     <ColorBox Color="#476571">
@@ -860,7 +860,7 @@
     </ColorBox>
     <ColorBox Color="#476571">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Arrest Brutality
+        Brutality
       </Box>
     </ColorBox>
     <ColorBox Color="#476571">
