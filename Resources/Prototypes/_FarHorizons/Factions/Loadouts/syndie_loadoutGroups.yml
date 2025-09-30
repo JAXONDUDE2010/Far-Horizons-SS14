@@ -33,7 +33,7 @@
   - ScarfStripedSyndieRed
 
 - type: loadoutGroup
-  id: SyndieClothing
+  id: SyndieOuterClothing
   name: loadout-group-syndie-generic-outerclothing
   minLimit: 0
   loadouts:

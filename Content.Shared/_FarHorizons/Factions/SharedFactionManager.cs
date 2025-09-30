@@ -13,7 +13,7 @@ public partial class SharedFactionManager : ISharedFactionManager
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public static readonly ProtoId<FactionPrototype> FallbackFaction = "FactionNanotrasen";
+    public static readonly string FallbackFaction = "FactionNanotrasen";
 
     public event Action<ProtoId<FactionPrototype>?>? OnFactionUpdated;
 

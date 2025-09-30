@@ -25,10 +25,10 @@ public sealed partial class FactionDepartmentAssignmentPrototype : IPrototype
     public int Weight { get; private set; }
 
     [DataField("nameOverride")]
-    public LocId NameOverride = string.Empty;
+    public LocId? NameOverride = null;
 
     [DataField("descriptionOverride")]
-    public LocId DescriptionOverride = string.Empty;
+    public LocId? DescriptionOverride = null;
 
     [DataField("colorOverride")]
     public Color? ColorOverride;

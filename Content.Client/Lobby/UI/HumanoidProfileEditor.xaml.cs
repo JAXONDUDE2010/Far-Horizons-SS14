@@ -1042,7 +1042,7 @@ namespace Content.Client.Lobby.UI
                     !_prototypeManager.TryIndex<FactionPrototype>(dptAssignment.Faction, out var faction))
                     continue;
 
-                var departmentName = Loc.GetString(dptAssignment.NameOverride != "" ? 
+                var departmentName = Loc.GetString(dptAssignment.NameOverride != null && dptAssignment.NameOverride != "" ? 
                                                     dptAssignment.NameOverride : 
                                                     department.Name);
 
