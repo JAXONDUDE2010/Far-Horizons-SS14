@@ -1,0 +1,35 @@
+- type: entity
+  name: gauze that doesn't heal Resomi
+  description: It just doesn't
+  parent: Gauze
+  id: AntiResomiGauze
+  components:
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - Resomi
+
+- type: entity
+  name: gauze that only Resomi know how to use
+  description: It's complicated, alright?
+  parent: Gauze
+  id: ResomiOnlyGauze
+  components:
+  - type: InteractRestriction
+    restrictInteractionSource:
+      whitelist:
+        - Resomi
+
+- type: entity
+  name: gauze that only Resomi know how to use that doesn't heal resomi
+  description: For situation when you need one
+  parent: Gauze
+  id: AntiResomiOnlyGauze
+  components:
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - Resomi
+    restrictInteractionSource:
+      whitelist:
+        - Resomi
