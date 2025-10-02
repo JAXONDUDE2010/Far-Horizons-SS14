@@ -15,7 +15,7 @@ import requests
 import yaml
 import time
 
-DEBUG = True
+DEBUG = False
 DEBUG_CHANGELOG_FILE_OLD = Path("Resources/Changelog/Old.yml")
 GITHUB_API_URL = os.environ.get("GITHUB_API_URL", "https://api.github.com")
 
