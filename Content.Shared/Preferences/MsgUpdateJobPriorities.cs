@@ -1,5 +1,5 @@
 using System.IO;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Roles;
 using Lidgren.Network;
 using Robust.Shared.Network;

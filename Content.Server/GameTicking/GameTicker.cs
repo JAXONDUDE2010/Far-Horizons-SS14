@@ -4,7 +4,7 @@ using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Database;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Players.PlayTimeTracking;

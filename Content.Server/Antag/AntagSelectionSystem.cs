@@ -40,7 +40,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 
 namespace Content.Server.Antag;
 

@@ -1,7 +1,7 @@
 ﻿using Content.Server.Administration;
 using Content.Server.Roles.Jobs;
 using Content.Shared.Administration;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Robust.Server.Player;

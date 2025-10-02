@@ -36,7 +36,7 @@ using Robust.Shared.Utility;
 using Content.Server._NullLink.PlayerData;
 using Content.Shared._Starlight.Language.Components;
 using Content.Shared._Starlight.Language.Systems;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using System.Collections.Immutable;
 
 namespace Content.Server.GameTicking

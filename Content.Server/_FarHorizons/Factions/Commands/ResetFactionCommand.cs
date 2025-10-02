@@ -4,7 +4,7 @@ using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server.FarHorizons.Factions.Commands;
+namespace Content.Server._FarHorizons.Factions.Commands;
 
 [AdminCommand(AdminFlags.Round)]
 public sealed class ResetFactionCommand : IConsoleCommand

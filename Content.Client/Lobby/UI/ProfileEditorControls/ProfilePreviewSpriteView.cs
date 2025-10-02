@@ -1,4 +1,4 @@
-﻿using Content.Shared.FarHorizons.Factions;
+﻿using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;

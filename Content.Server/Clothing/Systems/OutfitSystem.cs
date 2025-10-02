@@ -1,4 +1,4 @@
-﻿using Content.Server.FarHorizons.Factions;
+﻿using Content.Server._FarHorizons.Factions;
 using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Access.Components;

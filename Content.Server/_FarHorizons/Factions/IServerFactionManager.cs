@@ -1,8 +1,8 @@
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.FarHorizons.Factions;
+namespace Content.Server._FarHorizons.Factions;
 
 public interface IServerFactionManager : ISharedFactionManager {
     /// <summary>

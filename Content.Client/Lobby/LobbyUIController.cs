@@ -9,7 +9,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;

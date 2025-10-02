@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Client;

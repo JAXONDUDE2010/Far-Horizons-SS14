@@ -29,8 +29,8 @@ using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Starlight;
 using Content.Client._NullLink;
-using Content.Shared.FarHorizons.Factions;
-using Content.Client.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
+using Content.Client._FarHorizons.Factions;
 
 namespace Content.Client.IoC
 {

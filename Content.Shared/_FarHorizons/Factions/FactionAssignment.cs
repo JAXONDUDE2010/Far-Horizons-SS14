@@ -4,7 +4,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.FarHorizons.Factions;
+namespace Content.Shared._FarHorizons.Factions;
 
 /// <summary>
 ///     A prototype for creating alternative versions of base game departments for Far Horizons factions

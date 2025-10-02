@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;

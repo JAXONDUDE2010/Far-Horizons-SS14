@@ -20,7 +20,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Chat;
-using Content.Server.FarHorizons.Factions; // Starlight
+using Content.Server._FarHorizons.Factions; // Starlight
 
 namespace Content.Server.Access.Systems;
 

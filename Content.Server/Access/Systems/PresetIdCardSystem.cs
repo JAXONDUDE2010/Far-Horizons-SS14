@@ -1,5 +1,5 @@
 using Content.Server.Access.Components;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;

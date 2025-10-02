@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.FarHorizons.Factions;
+namespace Content.Shared._FarHorizons.Factions;
 
 /// <summary>
 ///     A faction, such as NT or Syndicate

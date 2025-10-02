@@ -39,8 +39,8 @@ using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Starlight;
 using Content.Server.Economy; // Starlight-edit
-using Content.Shared.FarHorizons.Factions;
-using Content.Server.FarHorizons.Factions; // Far Horizons edit
+using Content.Shared._FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions; // Far Horizons edit
 
 namespace Content.Server.IoC
 {

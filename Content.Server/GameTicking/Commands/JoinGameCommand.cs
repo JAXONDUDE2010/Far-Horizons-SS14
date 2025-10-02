@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 using Content.Server.Ghost.Roles;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;

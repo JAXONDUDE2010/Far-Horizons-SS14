@@ -12,7 +12,7 @@ using Content.Server.Connection;
 using Content.Server.Database;
 using Content.Server.Discord.DiscordLink;
 using Content.Server.EUI;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 using Content.Server.GameTicking;
 using Content.Server.GhostKick;
 using Content.Server.GuideGenerator;

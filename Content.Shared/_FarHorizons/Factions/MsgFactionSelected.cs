@@ -4,7 +4,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.FarHorizons.Factions;
+namespace Content.Shared._FarHorizons.Factions;
 
 /// <summary>
 /// The server sends this when faction is selected in lobby. Or when player joins server.

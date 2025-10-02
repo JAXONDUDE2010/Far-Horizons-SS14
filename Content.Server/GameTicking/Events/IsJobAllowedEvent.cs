@@ -1,4 +1,4 @@
-﻿using Content.Shared.FarHorizons.Factions;
+﻿using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Roles;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;

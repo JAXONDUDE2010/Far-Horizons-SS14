@@ -26,7 +26,7 @@ using Content.Client.Viewport;
 using Content.Client.Voting;
 using Content.Shared._NullLink;
 using Content.Shared.Ame.Components;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Gravity;
 using Content.Shared.Localizations;
 using Robust.Client;

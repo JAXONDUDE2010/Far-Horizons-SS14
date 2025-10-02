@@ -5,7 +5,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.Humanoid;
 using Content.Shared.CCVar;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;

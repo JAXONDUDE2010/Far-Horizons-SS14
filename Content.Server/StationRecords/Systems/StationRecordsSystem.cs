@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Components;
 using Content.Server.Access.Systems;
-using Content.Server.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 using Content.Server.Forensics;
 using Content.Shared.Access.Components;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;

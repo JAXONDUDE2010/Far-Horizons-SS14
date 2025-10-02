@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Server.GameTicking;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.FarHorizons.Factions;
+namespace Content.Server._FarHorizons.Factions;
 
 public sealed partial class ServerFactionManager : SharedFactionManager, IServerFactionManager
 {

@@ -1,4 +1,4 @@
-﻿using Content.Shared.FarHorizons.Factions;
+﻿using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Shared.Player;

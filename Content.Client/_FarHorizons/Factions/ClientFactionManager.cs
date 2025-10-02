@@ -1,7 +1,7 @@
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Robust.Shared.Network;
 
-namespace Content.Client.FarHorizons.Factions;
+namespace Content.Client._FarHorizons.Factions;
 
 public sealed partial class ClientFactionManager : SharedFactionManager
 {

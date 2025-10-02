@@ -12,7 +12,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.Body.Part;
 using Content.Shared.Starlight;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 
 namespace Content.Client.Lobby.UI.ProfileEditorControls;
 

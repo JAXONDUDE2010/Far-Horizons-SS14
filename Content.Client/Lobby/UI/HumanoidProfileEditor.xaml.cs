@@ -34,7 +34,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Starlight.CCVar;
 using Content.Client._Starlight.TTS;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 
 namespace Content.Client.Lobby.UI
 {

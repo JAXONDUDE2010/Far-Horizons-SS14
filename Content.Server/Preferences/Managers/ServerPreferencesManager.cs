@@ -14,8 +14,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared.FarHorizons.Factions;
-using Content.Server.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
 
 namespace Content.Server.Preferences.Managers
 {

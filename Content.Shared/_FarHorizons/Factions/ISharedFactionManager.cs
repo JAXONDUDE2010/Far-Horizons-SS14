@@ -3,7 +3,7 @@ using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.FarHorizons.Factions;
+namespace Content.Shared._FarHorizons.Factions;
 public interface ISharedFactionManager
 {
     public void Init();

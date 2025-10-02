@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Content.Server.Chat.Managers;
-using Content.Server.FarHorizons.Factions;
-using Content.Shared.FarHorizons.Factions;
+using Content.Server._FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;

@@ -3,7 +3,7 @@ using System.Linq;
 using Content.Server.Maps;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared.FarHorizons.Factions;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
