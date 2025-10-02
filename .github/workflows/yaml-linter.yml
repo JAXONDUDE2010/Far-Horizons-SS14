@@ -6,6 +6,9 @@ on:
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
+    paths:
+      - '**.yaml'
+      - '**.yml'
 
 jobs:
   build:

@@ -9,8 +9,6 @@ on:
       - '**.cs'
       - '**.csproj'
       - '**.sln'
-      - '**.git**'
-      - '**.yml'
 
 jobs:
   build:
