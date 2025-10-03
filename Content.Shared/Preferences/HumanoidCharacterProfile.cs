@@ -35,7 +35,7 @@ namespace Content.Shared.Preferences
         /// </summary>
         /// Far Horizons
         [DataField]
-        private HashSet<(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job)> _jobPreferences = [];
+        private HashSet<(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job)> _factionJobPreferences = [];
 
         /// <summary>
         /// Antags we have opted in to.
@@ -101,10 +101,10 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         /// <summary>
-        /// <see cref="_jobPreferences"/>
+        /// <see cref="_factionJobPreferences"/>
         /// </summary>
         /// Far Horizons
-        public IReadOnlySet<(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job)> JobPreferences => _jobPreferences;
+        public IReadOnlySet<(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job)> JobPreferences => _factionJobPreferences;
 
         /// <summary>
         /// <see cref="_antagPreferences"/>
@@ -156,7 +156,7 @@ namespace Content.Shared.Preferences
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
-            _jobPreferences = jobPreferences; // Far Horizons
+            _factionJobPreferences = jobPreferences; // Far Horizons
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
@@ -327,13 +327,13 @@ namespace Content.Shared.Preferences
         // Far Horizons
         public HumanoidCharacterProfile WithJobPreferences(IEnumerable<(ProtoId<FactionPrototype>, ProtoId<JobPrototype>)> jobPreferences) => new(this)
         {
-            _jobPreferences = [.. jobPreferences],
+            _factionJobPreferences = [.. jobPreferences],
         };
 
         // Far Horizons
         public HumanoidCharacterProfile WithJob(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job, bool include = true)
         {
-            var jobPreferences = new HashSet<(ProtoId<FactionPrototype>, ProtoId<JobPrototype>)>(_jobPreferences);
+            var jobPreferences = new HashSet<(ProtoId<FactionPrototype>, ProtoId<JobPrototype>)>(_factionJobPreferences);
             if (include)
             {
                 jobPreferences.Add((faction, job));
@@ -345,7 +345,7 @@ namespace Content.Shared.Preferences
 
             return new(this)
             {
-                _jobPreferences = jobPreferences,
+                _factionJobPreferences = jobPreferences,
             };
         }
 
@@ -461,7 +461,7 @@ namespace Content.Shared.Preferences
             if (CustomSpecieName != other.CustomSpecieName) return false; // Starlight
             if (!Cybernetics.SequenceEqual(other.Cybernetics)) return false; // Starlight
             if (SpawnPriority != other.SpawnPriority) return false;
-            if (!_jobPreferences.SequenceEqual(other._jobPreferences)) return false;
+            if (!_factionJobPreferences.SequenceEqual(other._factionJobPreferences)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
@@ -610,7 +610,7 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
 
-            _jobPreferences = ValidateFactionJobPreferences(_jobPreferences); // Far Horizons
+            _factionJobPreferences = ValidateFactionJobPreferences(_factionJobPreferences); // Far Horizons
 
             _antagPreferences.Clear();
             _antagPreferences.UnionWith(antags);
@@ -710,7 +710,7 @@ namespace Content.Shared.Preferences
         public override int GetHashCode()
         {
             var hashCode = new HashCode();
-            hashCode.Add(_jobPreferences);
+            hashCode.Add(_factionJobPreferences);
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
