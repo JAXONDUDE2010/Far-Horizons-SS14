@@ -1,1 +1,1 @@
-health-analyzer-chat-message = Patient damage: {$damage}, Blood Level: {$blood}
+health-analyzer-chat-message = Patient damage: {$damage}                         Blood Level: {$blood}
