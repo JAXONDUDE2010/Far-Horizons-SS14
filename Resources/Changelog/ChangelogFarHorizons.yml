@@ -55,4 +55,11 @@ Entries:
   id: 10000
   time: '2025-10-02T16:49:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/100
+- author: CorruptOmega
+  changes:
+  - message: Ammonia Pack easier to tell apart from bloodpack with Cyan markings.
+    type: Tweak
+  id: 12300
+  time: '2025-10-04T08:09:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/123
 
