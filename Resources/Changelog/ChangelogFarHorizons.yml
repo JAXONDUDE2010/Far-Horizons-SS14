@@ -62,4 +62,11 @@ Entries:
   id: 12300
   time: '2025-10-04T08:09:27.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/123
+- author: Far Horizons team
+  changes:
+  - message: Added null link roles admin commands
+    type: Add
+  id: 12700
+  time: '2025-10-04T16:13:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/127
 
