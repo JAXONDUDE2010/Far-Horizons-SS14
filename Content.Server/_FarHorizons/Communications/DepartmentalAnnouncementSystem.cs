@@ -63,6 +63,8 @@ namespace Content.Server.Communications
 
         public void UpdateCommsConsoleInterface(EntityUid uid, DepartmentalAnnouncementComponent comp)
         {
+            if (!TryComp<CommunicationsConsoleComponent>(uid, out var consoleComp))
+                return;
             bool hasCommon = false;
             if (TryComp<ItemSlotsComponent>(uid, out var itemSlots))
             {
