@@ -11,7 +11,7 @@ namespace Content.Server.Communications
         /// If a Fluent ID isn't found, just uses the raw string
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField(required: true)]
+        [DataField]
         public LocId TitleAlt = "comms-console-announcement-title-station-alt";
         public float UIUpdateAccumulator = 0f;
         /// <summary>
