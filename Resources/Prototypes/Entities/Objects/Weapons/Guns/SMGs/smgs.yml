@@ -176,7 +176,7 @@
   description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+      sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/drozd.rsi # Far Horizons 
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
@@ -224,7 +224,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 5
+      steps: 1 # Far Horizons
       zeroVisible: true
     - type: Appearance
 
