@@ -42,6 +42,8 @@ namespace Content.Server.Communications
 
         public override void Update(float frameTime)
         {
+            if (!TryComp<CommunicationsConsoleComponent>(uid, out var consoleComp))
+                return;
             var query = EntityQueryEnumerator<DepartmentalAnnouncementComponent>();
             while (query.MoveNext(out var uid, out var comp))
             {
