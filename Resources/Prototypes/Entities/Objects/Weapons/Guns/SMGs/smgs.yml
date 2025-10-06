@@ -183,7 +183,7 @@
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+      sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/drozd.rsi # Far Horizons
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
@@ -196,7 +196,7 @@
       burstFireRate: 18
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-      selectedMode: Burst
+      selectedMode: FullAuto # Far Horizons
       availableModes:
       - Burst
       - FullAuto
@@ -228,7 +228,7 @@
       zeroVisible: true
     - type: Appearance
 
-- type: entity
+- type: entity # TODO - Far Horizons - Change the sprite when someone with above room temperature iq can make a design
   name: WT550
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
