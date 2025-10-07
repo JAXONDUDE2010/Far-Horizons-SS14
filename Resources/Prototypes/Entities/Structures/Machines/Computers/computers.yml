@@ -695,7 +695,6 @@
     access: [[ "Command" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
-    titleAlt: comms-console-announcement-title-station-alt
     sound: /Audio/_Starlight/Announcements/announce2.ogg #Starlight
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -717,7 +716,9 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
-    #FarHorizonsStart
+  #FarHorizonsStart
+  - type: DepartmentalAnnouncement
+    titleAlt: comms-console-announcement-title-station-alt
   - type: Lock
     unlockOnClick: false
   - type: ItemSlotsLock
@@ -741,7 +742,7 @@
     containers:
       key_slot: !type:ContainerSlot
       board: !type:Container
-    #FarHorizonsEnd
+  #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -765,7 +766,6 @@
     access: [[ "NuclearOperative" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-nukie
-    titleAlt: comms-console-announcement-title-nukie-alt
     color: "#ff0000"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
@@ -777,7 +777,9 @@
     radius: 1.5
     energy: 1.6
     color: "#f71713"
-    #FarHorizonsStart
+  #FarHorizonsStart
+  - type: DepartmentalAnnouncement
+    titleAlt: comms-console-announcement-title-nukie-alt
   - type: Lock
     unlockOnClick: false
   - type: ItemSlotsLock
@@ -801,7 +803,7 @@
     containers:
       key_slot: !type:ContainerSlot
       board: !type:Container
-    #FarHorizonsEnd
+  #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -825,7 +827,6 @@
     access: [[ "Wizard" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-wizard
-    titleAlt: comms-console-announcement-title-wizard-alt
     color: "#ff00ff"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
@@ -837,7 +838,9 @@
     radius: 1.5
     energy: 1.6
     color: "#F317F3"
-    #FarHorizonsStart
+  #FarHorizonsStart
+  - type: DepartmentalAnnouncement
+    titleAlt: comms-console-announcement-title-wizard-alt
   - type: Lock
     unlockOnClick: false
   - type: ItemSlotsLock
@@ -861,7 +864,7 @@
     containers:
       key_slot: !type:ContainerSlot
       board: !type:Container
-    #FarHorizonsEnd
+  #FarHorizonsEnd
 
 - type: entity
   parent: ComputerComms
@@ -885,7 +888,6 @@
     access: [[ "CentralCommand" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
-    titleAlt: comms-console-announcement-title-centcom-alt
     color: "#1d8bad"
     canShuttle: false
     global: true
@@ -895,7 +897,9 @@
     radius: 1.5
     energy: 1.6
     color: "#00FF00"
-    #FarHorizonsStart
+  #FarHorizonsStart
+  - type: DepartmentalAnnouncement
+    titleAlt: comms-console-announcement-title-centcom-alt
   - type: Lock
     unlockOnClick: false
   - type: ItemSlotsLock
@@ -919,7 +923,7 @@
     containers:
       key_slot: !type:ContainerSlot
       board: !type:Container
-    #FarHorizonsEnd
+  #FarHorizonsEnd
 
 - type: entity
   parent: BaseComputerAiAccess

@@ -7,3 +7,7 @@ loadout-group-corpsman-outerclothing = Corpsman outer clothing
 loadout-group-corpsman-eyewear = Corpsman eyewear
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-gloves = Corpsman gloves
+
+loadout-group-magistrate-hat = Magistrate Hat
+loadout-group-magistrate-uniform = Magistrate Uniform
+loadout-group-magistrate-neck = Magistrate Neck
