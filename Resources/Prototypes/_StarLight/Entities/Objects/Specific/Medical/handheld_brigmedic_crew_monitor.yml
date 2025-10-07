@@ -22,6 +22,10 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
+  - type: MeleeWeapon #FarHorizons
+    damage: #FarHorizons
+      types: #FarHorizons
+        Blunt: 5 #FarHorizons
 
 - type: entity
   id: HandheldBrigmedicCrewMonitorEmpty

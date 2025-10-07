@@ -16,4 +16,6 @@
   - type: Sprite
     state: sheetbrigmedicstrange
   - type: Clothing
-    sprite: _Starlight/Clothing/Neck/Bedsheets/brigmedic.rsi
+    sprite: _FarHorizons/Clothing/Neck/Bedsheets/brigmedic.rsi #FH Change
+  - type: StealTarget #FH Change
+    stealGroup: BrigmedicBedsheetSteal #FH Change
