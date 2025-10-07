@@ -55,4 +55,54 @@ Entries:
   id: 10000
   time: '2025-10-02T16:49:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/100
+- author: CorruptOmega
+  changes:
+  - message: Ammonia Pack easier to tell apart from bloodpack with Cyan markings.
+    type: Tweak
+  id: 12300
+  time: '2025-10-04T08:09:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/123
+- author: Far Horizons team
+  changes:
+  - message: Added null link roles admin commands
+    type: Add
+  id: 12700
+  time: '2025-10-04T16:13:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/127
+- author: Far Horizons team
+  changes:
+  - message: Added mentor management commands
+    type: Add
+  id: 13000
+  time: '2025-10-05T14:36:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/130
+- author: princess_gurchi
+  changes:
+  - message: Fixed bunch of tests, how exciting
+    type: Fix
+  id: 12900
+  time: '2025-10-06T16:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/129
+- author: princess_gurchi
+  changes:
+  - message: factions!
+    type: Add
+  id: 9700
+  time: '2025-10-07T18:02:39.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/97
+- author: CorruptOmega
+  changes:
+  - message: Vulpkanin no longer have Messy Drinker component by default.
+    type: Tweak
+  id: 12600
+  time: '2025-10-07T18:04:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/126
+- author: CorruptOmega
+  changes:
+  - message: New Disability Trait - Messy Drinker - Now ANYONE can make a mess while
+      drinking.
+    type: Add
+  id: 12601
+  time: '2025-10-07T18:04:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/126
 
