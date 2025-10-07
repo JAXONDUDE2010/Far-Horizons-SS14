@@ -126,4 +126,13 @@ Entries:
   id: 13300
   time: '2025-10-07T19:49:36.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/133
+- author: CorruptOmega
+  changes:
+  - message: New Breathable Tank Slot! Now you can carry a full size tank on the back
+      of your hard suit without losing space for a weapon! Shows up in the strip menu
+      underneath the belt.
+    type: Add
+  id: 13800
+  time: '2025-10-07T19:52:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/138
 
