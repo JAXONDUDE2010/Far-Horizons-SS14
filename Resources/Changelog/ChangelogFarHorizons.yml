@@ -76,4 +76,93 @@ Entries:
   id: 13000
   time: '2025-10-05T14:36:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/130
+- author: princess_gurchi
+  changes:
+  - message: Fixed bunch of tests, how exciting
+    type: Fix
+  id: 12900
+  time: '2025-10-06T16:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/129
+- author: princess_gurchi
+  changes:
+  - message: factions!
+    type: Add
+  id: 9700
+  time: '2025-10-07T18:02:39.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/97
+- author: CorruptOmega
+  changes:
+  - message: Vulpkanin no longer have Messy Drinker component by default.
+    type: Tweak
+  id: 12600
+  time: '2025-10-07T18:04:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/126
+- author: CorruptOmega
+  changes:
+  - message: New Disability Trait - Messy Drinker - Now ANYONE can make a mess while
+      drinking.
+    type: Add
+  id: 12601
+  time: '2025-10-07T18:04:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/126
+- author: CorruptOmega
+  changes:
+  - message: Vitals Monitor can be connected to Stasis Beds as well now.
+    type: Add
+  id: 12500
+  time: '2025-10-07T19:45:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/125
+- author: CorruptOmega
+  changes:
+  - message: Vitals Monitor text popup cleaned up for ease of reading.
+    type: Tweak
+  id: 12501
+  time: '2025-10-07T19:45:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/125
+- author: Morrie
+  changes:
+  - message: Adds filled lockers for CAD and CSD divisions
+    type: Add
+  id: 13400
+  time: '2025-10-07T19:50:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/134
+- author: AthenaAI
+  changes:
+  - message: Reworks how the backend of things work for departmental announcements.
+    type: Tweak
+  id: 13300
+  time: '2025-10-07T19:49:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/133
+- author: CorruptOmega
+  changes:
+  - message: New Breathable Tank Slot! Now you can carry a full size tank on the back
+      of your hard suit without losing space for a weapon! Shows up in the strip menu
+      underneath the belt.
+    type: Add
+  id: 13800
+  time: '2025-10-07T19:52:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/138
+- author: CorruptOmega
+  changes:
+  - message: Magistrate Hardsuit - Sprited by Rina
+    type: Add
+  id: 13700
+  time: '2025-10-07T19:54:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/137
+- author: CorruptOmega
+  changes:
+  - message: Magistrate loadout options - Choose between hats, uniforms, shoes, and
+      a scarf
+    type: Add
+  id: 13701
+  time: '2025-10-07T19:54:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/137
+- author: CorruptOmega
+  changes:
+  - message: Magistrate Locker (Currently HOS locker sprite) - To spawn in a Magistrate
+      Hardsuit and basic uniforms. Oxygen Tank and Nitrogen Tank included.
+    type: Add
+  id: 13702
+  time: '2025-10-07T19:54:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/137
 
