@@ -12,7 +12,7 @@
 - type: entity
   id: SecurityMedkitFHFilled
   suffix: Filled
-  parent: SecurityMedkit
+  parent: SecurityMedkitFH
   components:
   - type: StorageFill
     contents:

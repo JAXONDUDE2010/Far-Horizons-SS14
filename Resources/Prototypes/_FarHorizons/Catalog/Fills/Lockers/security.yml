@@ -320,7 +320,6 @@
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.35
       - id: RubberStampBrigmedic
-      - id: ClothingOuterHardsuitCorpsman # Spawns in brig locker untill corps locker is mapped
 
 - type: entity
   id: LockerCorpsmanFilled
@@ -329,27 +328,26 @@
   components:
   - type: StorageFill
     contents:
-# Certain items are turned off to prevent duplication - Until locker is mapped, these items spawn on the Corpsman.
       - id: ClothingEyesGlassesCorpsman
       - id: ClothingEyesHudCorpsman
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
-#      - id: ClothingOuterHardsuitCorpsman - Doesn't spawn on corps.
+#      - id: ClothingOuterHardsuitCorpsman
       - id: BoxSterileMask
       - id: ClothingHeadHatBeretCorpsman
       - id: ClothingOuterCoatCorpsman
       - id: ClothingUniformJumpsuitCorpsman
       - id: ClothingUniformJumpskirtCorpsman
       - id: ClothingBeltCorpsmanFilled
-#      - id: DefibrillatorCorpsman
-#      - id: SecurityHypoKitFilled
+      - id: DefibrillatorCorpsman
+      - id: SecurityHypoKitFilled
       - id: ClothingHandsGlovesBlackNitrile
       - id: ClothingShoesBootsMagSec
 #      - id: BedsheetCorpsmanStrange
       - id: MedkitFilled
       - id: MedkitCombatFilled
-#      - id: SecurityMedkitFHFilled
+      - id: SecurityMedkitFHFilled
       - id: MedkitOxygenFilled
       - id: MedkitToxinFilled
 #      - id: RubberStampCorpsman
