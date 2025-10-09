@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/09/2025 09:33:18
-  entityCount: 28476
+  time: 10/09/2025 22:12:11
+  entityCount: 28478
 maps:
 - 1
 grids:
@@ -84437,7 +84437,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -95554.14
+      secondsUntilStateChange: -95597.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -85879,7 +85879,7 @@ entities:
       pos: 9.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8810.639
+      secondsUntilStateChange: -8853.861
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88231,7 +88231,7 @@ entities:
       pos: 18.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2785.1506
+      secondsUntilStateChange: -2828.373
       state: Closing
   - uid: 13810
     components:
@@ -88239,7 +88239,7 @@ entities:
       pos: 18.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2820.8508
+      secondsUntilStateChange: -2864.0732
       state: Closing
   - uid: 13811
     components:
@@ -88407,7 +88407,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -89742.68
+      secondsUntilStateChange: -89785.9
       state: Closing
   - uid: 13838
     components:
@@ -153017,6 +153017,11 @@ entities:
     - type: Transform
       pos: 9.5,39.5
       parent: 2
+  - uid: 28478
+    components:
+    - type: Transform
+      pos: -7.5,32.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 23094
@@ -153097,6 +153102,13 @@ entities:
     components:
     - type: Transform
       pos: 21.5,3.5
+      parent: 2
+- proto: SpawnPointCorpsman
+  entities:
+  - uid: 28477
+    components:
+    - type: Transform
+      pos: -8.5,30.5
       parent: 2
 - proto: SpawnPointDetective
   entities:

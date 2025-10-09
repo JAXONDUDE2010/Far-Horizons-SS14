@@ -57,7 +57,7 @@
     maxFillLevels: 6
     fillBaseName: beaker
   - type: StaticPrice
-    price: 30
+    price: 10
   - type: DnaSubstanceTrace
 
 - type: entity
@@ -90,4 +90,4 @@
     materialComposition:
       ReinforcedGlass: 100
   - type: StaticPrice
-    price: 20
+    price: 10

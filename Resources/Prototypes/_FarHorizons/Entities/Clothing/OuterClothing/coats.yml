@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband, ClothingOuterWinterCoatToggleable]
+  parent: [BaseSecurityContraband, ClothingOuterWinterCoatToggleable]
   id: ClothingOuterCoatCorpsmanFH
   name: Corpsman's Armored Jacket
   description: Heavily armored yet surprisingly comfortable jacket, a byproduct from the tendency of corpsmen to throw themselves directly into danger.
@@ -27,3 +27,13 @@
     damageCoefficient: 0.95
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCorpsman
+
+- type: chameleonOutfit
+  id: CorpsmanChameleonOutfit
+  job: Corpsman
+  equipment:
+    head: ClothingHeadHatBeretCorpsman
+    eyes: ClothingEyesGlassesCorpsman
+    mask: ClothingMaskGasCorpsman
+    outerClothing: ClothingOuterCoatCorpsmanFH
+    gloves: BlackNitrile
