@@ -217,4 +217,12 @@ Entries:
   id: 15105
   time: '2025-10-09T16:29:36.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/151
+- author: CorruptOmega
+  changes:
+  - message: The remaining HUD theme colors for the new tank slot. (Because I forgot
+      they existed)
+    type: Add
+  id: 15000
+  time: '2025-10-09T16:32:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/150
 
