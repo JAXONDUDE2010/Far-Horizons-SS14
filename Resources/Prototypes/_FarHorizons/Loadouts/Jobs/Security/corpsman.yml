@@ -64,3 +64,8 @@
   id: CorpsmanHud
   equipment:
     eyes: ClothingEyesHudCorpsman
+
+- type: loadout
+  id: CorpsmanVisor
+  equipment:
+    eyes: ClothingEyesVisorCorpsman

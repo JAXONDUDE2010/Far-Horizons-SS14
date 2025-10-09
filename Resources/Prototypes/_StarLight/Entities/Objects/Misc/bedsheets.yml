@@ -17,6 +17,6 @@
     sprite: _FarHorizons/Objects/Misc/bedsheets.rsi #FH Change
     state: sheetbrigmedicstrange #FH Change
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Neck/Bedsheets/brigmedic.rsi #FH Change
+    sprite: _FarHorizons/Clothing/Neck/Bedsheets/brigmedicstrange.rsi #FH Change
   - type: StealTarget #FH Change
     stealGroup: BrigmedicBedsheetSteal #FH Change
