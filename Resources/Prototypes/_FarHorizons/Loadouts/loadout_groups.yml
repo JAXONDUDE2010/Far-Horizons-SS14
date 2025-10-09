@@ -44,6 +44,7 @@
   loadouts:
   - CorpsmanGlasses
   - CorpsmanHud
+  - CorpsmanVisor
 
 - type: loadoutGroup
   id: CorpsmanBelt

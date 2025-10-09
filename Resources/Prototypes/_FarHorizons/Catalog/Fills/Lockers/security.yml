@@ -333,7 +333,7 @@
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
-#      - id: ClothingOuterHardsuitCorpsman
+      - id: ClothingOuterHardsuitCorpsman
       - id: BoxSterileMask
       - id: ClothingHeadHatBeretCorpsman
       - id: ClothingOuterCoatCorpsman
@@ -344,7 +344,7 @@
       - id: SecurityHypoKitFilled
       - id: ClothingHandsGlovesBlackNitrile
       - id: ClothingShoesBootsMagSec
-#      - id: BedsheetCorpsmanStrange
+      - id: BedsheetCorpsmanStrange
       - id: MedkitFilled
       - id: MedkitCombatFilled
       - id: SecurityMedkitFHFilled
