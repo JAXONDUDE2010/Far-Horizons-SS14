@@ -43,3 +43,13 @@
     - Flash
     - ClothingMaskGasCorpsman
     - EmergencyRollerBedSpawnFolded
+
+- type: chameleonOutfit
+  id: CorpsmanChameleonOutfit
+  job: Corpsman
+  equipment:
+    head: ClothingHeadHatBeretCorpsman
+    eyes: ClothingEyesGlassesCorpsman
+    mask: ClothingMaskGasCorpsman
+    outerClothing: ClothingOuterCoatCorpsmanFH
+    gloves: ClothingHandsGlovesBlackNitrile

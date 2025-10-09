@@ -27,13 +27,3 @@
     damageCoefficient: 0.95
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCorpsman
-
-- type: chameleonOutfit
-  id: CorpsmanChameleonOutfit
-  job: Corpsman
-  equipment:
-    head: ClothingHeadHatBeretCorpsman
-    eyes: ClothingEyesGlassesCorpsman
-    mask: ClothingMaskGasCorpsman
-    outerClothing: ClothingOuterCoatCorpsmanFH
-    gloves: BlackNitrile
