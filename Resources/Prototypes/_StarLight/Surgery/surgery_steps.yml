@@ -23,6 +23,11 @@
       types:
         Slash: 10
   - type: SurgeryStepEmoteEffect
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
 
 - type: entity
   parent: SurgeryStepBase

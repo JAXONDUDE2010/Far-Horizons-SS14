@@ -14,8 +14,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 //FarHorizons Start
-using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.SpeedModifiers.Components;
+using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
 using Content.Shared.Stunnable;
+using Content.Shared.Damage;
 //FarHorizons End
 
 namespace Content.Shared.Starlight.Medical.Surgery;
@@ -33,7 +34,6 @@ public abstract partial class SharedSurgerySystem
         SubscribeLocalEvent<SurgeryTargetComponent, AccessibleOverrideEvent>(OnOverrideAccess);
 
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryCanPerformStepEvent>(OnCanPerformStep);
-
         Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key, subs => subs.Event<SurgeryStepChosenBuiMsg>(OnSurgeryTargetStepChosen));
     }
     private void OnTargetDoAfter(Entity<SurgeryTargetComponent> ent, ref SurgeryDoAfterEvent args)
@@ -55,6 +55,16 @@ public abstract partial class SharedSurgerySystem
         if (!_random.Prob(args.SuccessRate))
         {
             if (_net.IsClient) return;
+
+            var StepProto = _prototypes.Index<EntityPrototype>(args.Step);
+            if (StepProto.TryGetComponent<OnFailDamageComponent>(out var comp) && TryComp<BodyPartComponent>(args.Target, out var bodyComp))
+            {
+                DamageSpecifier? Damage = comp.Damage;
+                Logger.Info($"{Damage}");
+                Logger.Info($"{bodyComp.Body}");
+                _damageableSystem.TryChangeDamage(bodyComp.Body, Damage!);
+            }
+            
             _popup.PopupEntity("Because of a careless tool, your hand shook. You need to start this step all over again!", args.User, PopupType.SmallCaution);
             return;
         }
@@ -209,7 +219,7 @@ public abstract partial class SharedSurgerySystem
                     args.Invalid = StepInvalidReason.MissingTool;
 
                     if (reg.Component is ISurgeryToolComponent toolComp)
-                        args.Popup = $"You need {toolComp.ToolName} to perform this step!";
+                        args.Popup = $"You need {toolComp.ToolName} on your main hand to perform this step!";
                     return;
             }
             //Far Horizons End
