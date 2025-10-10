@@ -282,7 +282,7 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
-        Heat: 0.7 # Starlight Edit
+        Heat: 0.6 #FH edit
         Caustic: 0.7
     staminaModifier: 0.5 # SL: Default stun resistance
   - type: ClothingSpeedModifier
@@ -312,23 +312,23 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.7 #FH edit
   - type: Pierceable
     level: Metal
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.7
-        Slash: 0.6
-        Piercing: 0.6 # Starlight edit
+        Slash: 0.7 #FH edit
+        Piercing: 0.7 #FH edit
         Heat: 0.7 # Starlight Edit
         Caustic: 0.7
     staminaModifier: 0.7
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.7 # Starlight
+    zombificationResistanceCoefficient: 0.6 #FH edit
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.85 #FH edit
+    sprintModifier: 0.85 #FH edit
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
@@ -357,7 +357,7 @@
         Blunt: 0.4
         Slash: 0.5
         Piercing: 0.6
-        Heat: 0.7 # Starlight Edit
+        Heat: 0.6 #FH edit
         Caustic: 0.7
     staminaModifier: 0.5 # SL: Default stun resistance
   - type: ClothingSpeedModifier
@@ -554,7 +554,7 @@
         Blunt: 0.6
         Slash: 0.5
         Piercing: 0.5
-        Heat: 0.7 # Starlight Edit
+        Heat: 0.5 #FH edit
         Radiation: 0.5
         Caustic: 0.6
     staminaModifier: 0.6
