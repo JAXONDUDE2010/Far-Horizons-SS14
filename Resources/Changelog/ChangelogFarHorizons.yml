@@ -378,4 +378,12 @@ Entries:
   id: 15500
   time: '2025-10-10T13:55:45.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/155
+- author: princess_gurchi
+  changes:
+  - message: Found secborg, poor guy was lost and didn't know what faction he belongs
+      to
+    type: Fix
+  id: 16000
+  time: '2025-10-10T14:42:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/160
 
