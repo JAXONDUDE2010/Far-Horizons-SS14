@@ -2,7 +2,7 @@
   id: CC-CADOfficial
   name: job-name-cc-cad-official
   description: job-description-cc-cad-official
-  playTimeTracker: JobCentralCommandOfficial
+  playTimeTracker: JobCC-CADOfficial
   setPreference: false
   startingGear: CC-CADGear
   icon: "JobIconCentComm"

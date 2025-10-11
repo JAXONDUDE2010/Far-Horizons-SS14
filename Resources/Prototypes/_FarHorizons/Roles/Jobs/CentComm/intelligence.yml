@@ -2,7 +2,7 @@
   id: CC-CIDOfficial
   name: job-name-cc-cid-official
   description: job-description-cc-cid-official
-  playTimeTracker: JobCentralCommandOfficial
+  playTimeTracker: JobCC-CIDOfficial
   setPreference: false
   startingGear: CC-CIDGear
   icon: "JobIconCentComm"
