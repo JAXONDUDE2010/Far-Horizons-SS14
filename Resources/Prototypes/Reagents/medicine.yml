@@ -626,14 +626,13 @@
         min: 4
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.5
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cellular: -0.3
-            Radiation: 0.15
-            Caustic: 0.15
+            Cellular: -1
+            Radiation: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -641,14 +640,6 @@
         damage:
           types:
             Radiation: 0.2
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Arithrazine
-          min: 1
-        damage:
-          types:
-            Caustic: 0.3
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -1137,8 +1128,8 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -3.5 #FH
-            Blunt: 1 #FH
+            Slash: -3 #FH
+            Blunt: 0.5 #FH
       - !type:ModifyBleedAmount #FH
         amount: -1.5 #FH
       - !type:HealthChange
@@ -1164,8 +1155,8 @@
       - !type:HealthChange
         damage:
           types:
-            Piercing: -3.5 #FH = 7 per u / 5u = 35 Piercing healed - 10 Blunt = 25 Piercing total
-            Blunt: 1 #FH = 2 per u
+            Piercing: -3 #FH = 6 per u / 5u = 30 Piercing healed - 5 Blunt = 25 Piercing total
+            Blunt: 0.5 #FH = 1 per u
       - !type:ModifyBleedAmount #FH - Real reason to use over bic.
         amount: -1.5 #FH
       - !type:HealthChange
