@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseSecurityContraband, ClothingOuterWinterCoatToggleable]
+  parent: [BaseSecurityContraband, ClothingOuterWinterCoatToggleable, AllowSuitStorageClothing]
   id: ClothingOuterCoatCorpsmanFH
   name: Corpsman's Armored Jacket
   description: Heavily armored yet surprisingly comfortable jacket, a byproduct from the tendency of corpsmen to throw themselves directly into danger.
