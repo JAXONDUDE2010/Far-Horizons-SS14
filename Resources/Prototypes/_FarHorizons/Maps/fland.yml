@@ -1,7 +1,7 @@
 - type: gameMap
   id: FHFland
   mapName: 'Fland Installation'
-  mapPath: /Maps/_FarHorizons/Stations/Fland.yml
+  mapPath: /Maps/_FarHorizons/Stations/fland.yml
   minPlayers: 65
   stations:
     FHFland:
