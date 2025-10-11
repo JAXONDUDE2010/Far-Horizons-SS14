@@ -45,13 +45,13 @@
   id: hikus
   name: ImHaikus - Hikus
   path:
-    path: /Audio/_FarHorizons/Jukebox/bored_at_the_starbox.ogg
+    path: /Audio/_FarHorizons/Jukebox/hikus.ogg
 
 - type: jukebox
   id: starbox
   name: ImHaikus - Bored at the Starbox
   path:
-    path: /Audio/_FarHorizons/Jukebox/hikus.ogg
+    path: /Audio/_FarHorizons/Jukebox/bored_at_the_starbox.ogg
 
 - type: jukebox
   id: bumpy_rainy
@@ -69,4 +69,4 @@
   id: lowkey_green
   name: ImHaikus - Lowkey Green
   path:
-    path: /Audio/_FarHorizons/Jukebox/hikus.ogg
+    path: /Audio/_FarHorizons/Jukebox/lowkey_green.ogg
