@@ -401,4 +401,45 @@ Entries:
   id: 16400
   time: '2025-10-10T17:53:41.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/164
+- author: RoadTrain
+  changes:
+  - message: github template now marks us as 'FAR HORIZONS TEAM'.
+    type: Tweak
+  id: 16800
+  time: '2025-10-11T13:40:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/168
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Corspman Jacket not being able to store weapons
+    type: Fix
+  id: 16600
+  time: '2025-10-11T13:42:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/166
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Voxes not having the right skin tone choices [Hues]
+    type: Fix
+  id: 16601
+  time: '2025-10-11T13:42:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/166
+- author: CorruptOmega
+  changes:
+  - message: Airlocks are now spray paintable again. Rejoice!
+    type: Tweak
+  id: 17300
+  time: '2025-10-11T16:31:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/173
+- author: CorruptOmega
+  changes:
+  - message: 'Three new CentComm Outfits for Admin outfit setting: CC-CADGear, CC-CSDGear,
+      CC-CIDGear'
+    type: Add
+  id: 17600
+  time: '2025-10-11T19:11:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/176
+  - message: CE Hardsuit Light textures missing.
+    type: Fix
+  id: 17200
+  time: '2025-10-11T16:31:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/172
 
