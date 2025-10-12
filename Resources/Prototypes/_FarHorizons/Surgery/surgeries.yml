@@ -1,0 +1,21 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAlterAppearance
+  name: Plastic Surgery
+  description: Alters the patient's appearance.
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenIncision
+    steps:
+    - SurgeryStepRetractSkin
+    - SurgeryStepAlterAppearance
+    - SurgeryStepCloseIncision
+  - type: SurgeryPartCondition
+    parts:
+    - Head
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: brain
+
+    

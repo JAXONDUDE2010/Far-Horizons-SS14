@@ -1,5 +1,7 @@
 using Robust.Shared.GameStates;
 using Content.Shared.Damage;
+using Robust.Shared.Prototypes;
+using Content.Shared.Chat.Prototypes;
 
 namespace Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
 
@@ -22,4 +24,7 @@ public sealed partial class OnFailDamageComponent : Component
 {
     [DataField]
     public DamageSpecifier? Damage;
+    [DataField]
+    public ProtoId<EmotePrototype> Emote = "Scream";
 }
+[RegisterComponent, NetworkedComponent] public sealed partial class SurgeryAlterAppearanceComponent : Component;

@@ -129,4 +129,13 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                 _surgeries.Add(new EntProtoId(entity.ID));
         }
     }
+    //FarHorizons Start
+    protected override void TryEmoteWithChat(EntityUid body, string? emote)
+    {
+        if (string.IsNullOrEmpty(emote))
+            return;
+
+        _chat.TryEmoteWithChat(body, emote);
+    }
+    //FarHorizons End
 }

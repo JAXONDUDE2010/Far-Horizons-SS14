@@ -1,0 +1,21 @@
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepAlterAppearance
+  name: Alter Appearance
+  components:
+  - type: SurgeryStep
+    duration: 20
+    tools:
+    - type: Scalpel
+    add:
+    - type: IncisionOpen
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  - type: SurgeryAlterAppearance
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End

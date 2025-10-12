@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Control;
+using Content.Shared.Starlight.Medical.Surgery.Effects.Step;  //FarHorizons
 
 namespace Content.Client._Starlight.Medical.Surgery;
 // Based on the RMC14 build.
@@ -43,12 +44,20 @@ public sealed class SurgeryBui : BoundUserInterface
         _entitySystem = _entities.System<StarlightEntitySystem>();
 
         _hands.OnPlayerItemAdded += OnPlayerItemAdded;
+        _hands.OnPlayerSetActiveHand += OnPlayerSwaphand;//FarHorizons
     }
     private void OnPlayerItemAdded(string k1, EntityUid k2)
     {
         if (!_game.IsFirstTimePredicted) return;
         RefreshUI();
     }
+        //FarHorizons Start
+    private void OnPlayerSwaphand(string? k1)
+    {
+        if (!_game.IsFirstTimePredicted) return;
+        RefreshUI();
+    }
+    //FarHorizons End
     protected override void Open()
     {
         base.Open();
@@ -337,6 +346,12 @@ public sealed class SurgeryBui : BoundUserInterface
             {
                 status = StepStatus.Next;
             }
+            //FarHorizons Start
+            else if (_entities.TryGetComponent(_part, out SurgeryProgressComponent? surgComp) && surgComp != null && (surgComp.ActiveRepeatableStep == $"{_surgery.Value.Proto}:{next.Value.Surgery.Comp.Steps[i]}"))
+            {
+                status = StepStatus.Next;
+            }
+            //FarHorizons End
             else if (i < next.Value.Step)
             {
                 status = StepStatus.Complete;
