@@ -157,7 +157,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: Hailer # Starlight
+  - type: Hailer
     hailMessage: "Stop."
     hailSound:
       path: /Audio/_FarHorizons/Effects/stop.ogg
