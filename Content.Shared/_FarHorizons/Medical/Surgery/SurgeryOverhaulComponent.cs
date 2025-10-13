@@ -27,4 +27,10 @@ public sealed partial class OnFailDamageComponent : Component
     [DataField]
     public ProtoId<EmotePrototype> Emote = "Scream";
 }
+[RegisterComponent, NetworkedComponent] 
+public sealed partial class HealDamageComponent : Component
+{
+    [DataField]
+    public DamageSpecifier? Damage;
+}
 [RegisterComponent, NetworkedComponent] public sealed partial class SurgeryAlterAppearanceComponent : Component;
