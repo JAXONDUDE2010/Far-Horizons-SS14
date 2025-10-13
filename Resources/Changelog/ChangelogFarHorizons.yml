@@ -450,4 +450,33 @@ Entries:
   id: 18302
   time: '2025-10-12T15:27:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/183
+- author: lightening_orb
+  changes:
+  - message: Fland station updated for Far Horizons (with blue sec, mining dock, corspman/brigmed
+      stuff, psychologist office, BSO and NTR office)
+    type: Add
+  id: 16900
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station corpsman/brigmed fixes
+    type: Fix
+  id: 16901
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station magi office
+    type: Add
+  id: 16902
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station BSO and NTR office
+    type: Add
+  id: 16903
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
 
