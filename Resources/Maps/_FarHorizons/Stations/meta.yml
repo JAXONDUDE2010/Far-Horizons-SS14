@@ -15452,18 +15452,6 @@ entities:
     - type: Transform
       pos: -31.681831,-29.344753
       parent: 2
-    - type: Storage
-      storedItems:
-        795:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 795
   - uid: 796
     components:
     - type: Transform
