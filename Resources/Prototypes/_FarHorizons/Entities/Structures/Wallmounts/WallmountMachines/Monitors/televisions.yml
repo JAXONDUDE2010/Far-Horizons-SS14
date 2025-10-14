@@ -1,0 +1,71 @@
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionCWS
+  suffix: CWS
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: CWSscreen
+
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionSec
+  suffix: Sec
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: Secpropa
+
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionGensys
+  suffix: Gensys
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: Gensys
+
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionLime
+  suffix: Limehelp
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: Limehelp
+
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionLMC
+  suffix: MinersLMC
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: MinersLMC
+
+- type: entity
+  parent: WallmountTelevision
+  id: WallmountTelevisionNTWorlds
+  suffix: NTWorlds
+  components:
+  - type: Sprite
+    layers:
+      - map: ["computerLayerBody"]
+        state: television_wall
+      - map: ["computerLayerScreen"]
+        state: NTworlds
