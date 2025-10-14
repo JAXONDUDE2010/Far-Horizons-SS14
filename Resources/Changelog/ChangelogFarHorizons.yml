@@ -451,3 +451,125 @@ Entries:
   id: 18302
   time: '2025-10-12T15:27:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/183
+- author: lightening_orb
+  changes:
+  - message: Fland station updated for Far Horizons (with blue sec, mining dock, corspman/brigmed
+      stuff, psychologist office, BSO and NTR office)
+    type: Add
+  id: 16900
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station corpsman/brigmed fixes
+    type: Fix
+  id: 16901
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station magi office
+    type: Add
+  id: 16902
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: lightening_orb
+  changes:
+  - message: Meta station BSO and NTR office
+    type: Add
+  id: 16903
+  time: '2025-10-13T17:41:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/169
+- author: CorruptOmega
+  changes:
+  - message: CE Factional Jumpsuit resprite
+    type: Tweak
+  id: 17800
+  time: '2025-10-13T17:43:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/178
+- author: CorruptOmega
+  changes:
+  - message: CE Factional Jumpsuit loadout option
+    type: Add
+  id: 17801
+  time: '2025-10-13T17:43:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/178
+- author: CorruptOmega
+  changes:
+  - message: New Lobby Song - Blatantly Nuclear by MrJajkes
+    type: Add
+  id: 18100
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Lobby Song - It's Blobin' Time by MrJajkes
+    type: Add
+  id: 18101
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Lobby Song - Nevadean Dream - Madness Fan Track by A-Guy
+    type: Add
+  id: 18102
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Jukebox Song - Bored at the Starbox by ImHaikus
+    type: Add
+  id: 18103
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Jukebox Song - Hikus by ImHaikus
+    type: Add
+  id: 18104
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Jukebox Song - Bumpy Rainy Drive by ImHaikus
+    type: Add
+  id: 18105
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Jukebox Song - Trying to Impress by ImHaikus
+    type: Add
+  id: 18106
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: New Jukebox Song - Lowkey Greens by ImHaikus
+    type: Add
+  id: 18107
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: CorruptOmega
+  changes:
+  - message: Epsilon Alert new sound - Epsilon announcement created by ScarletLightWeaver_ss14,
+      music -Imminent Rescue- by MrJajkes
+    type: Tweak
+  id: 18108
+  time: '2025-10-13T17:45:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/181
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Fixed Meta & Fland.
+    type: Fix
+  id: 19000
+  time: '2025-10-14T17:31:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/190
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added NTR, BSO, and Magistrate Offices to Meta & Fland
+    type: Add
+  id: 19001
+  time: '2025-10-14T17:31:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/190
+
