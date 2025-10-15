@@ -6,7 +6,9 @@ using Robust.Shared.Network;
 using Content.Shared.Preferences;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Log;
+using Content.Shared.Research.Components;
+using Content.Shared.Research.Systems;
+using Content.Shared.Research.Prototypes;
 
 namespace Content.Shared._FarHorizons.Medical.SurgeryOverhaul.System;
 
@@ -18,6 +20,7 @@ public sealed class SurgeryOverhaulSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SharedResearchSystem _research = default!;
 
     public override void Initialize()
     {
@@ -28,6 +31,7 @@ public sealed class SurgeryOverhaulSystem : EntitySystem
 
     private void OnAlterAppearanceComplete(EntityUid uid, SurgeryAlterAppearanceComponent comp, ref SurgeryStepCompleteEvent args)
     {
+        if (_net.IsClient) return;
         var target = args.Body;
 
         if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoid))
@@ -41,11 +45,41 @@ public sealed class SurgeryOverhaulSystem : EntitySystem
         _metaData.SetEntityName(target, newProfile.Name, raiseEvents: false);
         _identity.QueueIdentityUpdate(target);
     }
-    
+
     private void OnHealDamageComplete(EntityUid uid, HealDamageComponent comp, ref SurgeryStepCompleteEvent args)
     {
+        if (_net.IsClient) return;
         var StepProto = _prototypes.Index<EntityPrototype>(args.StepProto);
+        var ResearchModifier = 75f;
+        DamageSpecifier BonusHeal = new();
+        DamageSpecifier TotalHeal;
+        if (CheckForTech("SurgeryTech"))
+            ResearchModifier = 50f;
+        if (CheckForTech("SurgeryTechAdvanced"))
+            ResearchModifier = 25;
         if (StepProto.TryGetComponent<HealDamageComponent>(out var healComp))
-            _damageableSystem.TryChangeDamage(args.Body, healComp.Damage!);
+        {
+            if (TryComp<DamageableComponent>(args.Body, out var dmgComp))
+            {
+                foreach (var key in healComp.Heal!.DamageDict.Keys)
+                {
+                    BonusHeal.DamageDict.Add(key, dmgComp.TotalDamage / ResearchModifier);
+                }
+            }
+            TotalHeal = healComp.Heal! + (-BonusHeal);
+            _damageableSystem.TryChangeDamage(args.Body, TotalHeal);
+        }
+    }
+    
+    private bool CheckForTech(string name)
+    {
+        var query = EntityQueryEnumerator<TechnologyDatabaseComponent>();
+        var TechProto = _prototypes.Index<TechnologyPrototype>(name);
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (_research.IsTechnologyUnlocked(uid, TechProto, comp))
+                return true;
+        }
+        return false;
     }
 }

@@ -31,6 +31,6 @@ public sealed partial class OnFailDamageComponent : Component
 public sealed partial class HealDamageComponent : Component
 {
     [DataField]
-    public DamageSpecifier? Damage;
+    public DamageSpecifier? Heal;
 }
 [RegisterComponent, NetworkedComponent] public sealed partial class SurgeryAlterAppearanceComponent : Component;

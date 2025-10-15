@@ -50,15 +50,15 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: HealDamage
-    damage: 
+    heal: 
       types:
         Blunt: -5
         Slash: -5
-        Pierce: -5
+        Piercing: -5
   - type: OnFailDamage
     damage: 
       types:
-        Pierce: 10
+        Piercing: 10
 
 - type: entity
   parent: SurgeryStepBase
@@ -74,7 +74,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: HealDamage
-    damage: 
+    heal: 
       types:
         Heat: -5
         Cold: -5
