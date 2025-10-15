@@ -2,15 +2,15 @@ using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
 using Content.Shared.Starlight.Medical.Surgery.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Robust.Shared.Network;
 using Content.Shared.Preferences;
 using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Systems;
 using Content.Shared.Research.Prototypes;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._FarHorizons.Medical.SurgeryOverhaul.System;
+namespace Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Systems;
 
 public sealed class SurgeryOverhaulSystem : EntitySystem
 {
@@ -53,12 +53,11 @@ public sealed class SurgeryOverhaulSystem : EntitySystem
         var ResearchModifier = 75f;
         DamageSpecifier BonusHeal = new();
         DamageSpecifier TotalHeal;
-        if (CheckForTech("SurgeryTech"))
-            ResearchModifier = 50f;
-        if (CheckForTech("SurgeryTechAdvanced"))
-            ResearchModifier = 25;
         if (StepProto.TryGetComponent<HealDamageComponent>(out var healComp))
         {
+            foreach (var (key, value) in healComp.TechnologyModifier!)
+                if (CheckForTech(key.Id) && ResearchModifier > value)
+                    ResearchModifier = value;
             if (TryComp<DamageableComponent>(args.Body, out var dmgComp))
             {
                 foreach (var key in healComp.Heal!.DamageDict.Keys)

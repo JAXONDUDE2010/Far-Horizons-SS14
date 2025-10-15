@@ -55,6 +55,10 @@
         Blunt: -5
         Slash: -5
         Piercing: -5
+    technologyModifier:
+      SurgeryTech : 50
+      SurgeryTechAdvanced : 25
+
   - type: OnFailDamage
     damage: 
       types:
