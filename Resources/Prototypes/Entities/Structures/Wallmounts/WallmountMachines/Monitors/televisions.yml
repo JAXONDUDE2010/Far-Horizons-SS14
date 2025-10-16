@@ -16,7 +16,6 @@
         state: television_wall
       - map: ["computerLayerScreen"]
         state: television_wallscreen
-        shader: unshaded
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
