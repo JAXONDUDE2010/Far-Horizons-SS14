@@ -663,5 +663,103 @@ Entries:
   id: 21300
   time: '2025-10-17T16:18:51.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/213
+- author: CorruptOmega
+  changes:
+  - message: 'Jukebox Song: Submerged - MongooseOST'
+    type: Add
+  id: 20000
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Jukebox Song: Retold - Soul_'
+    type: Add
+  id: 20001
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Jukebox Song: Glimpse of Eternity - Yastik'
+    type: Add
+  id: 20002
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Jukebox Song: Fluorescent Garden - Yastik'
+    type: Add
+  id: 20003
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Jukebox Song: Whimsy - Yastik'
+    type: Add
+  id: 20004
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: FUBAR - A-Guy'
+    type: Add
+  id: 20005
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: All Wrong With Megacorpos - A-Guy'
+    type: Add
+  id: 20006
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: Corporate Rats - Bolgarich'
+    type: Add
+  id: 20007
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: Deployment - ksho'
+    type: Add
+  id: 20008
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: Malice - ksho'
+    type: Add
+  id: 20009
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: What genre is this? - 1note'
+    type: Add
+  id: 20010
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: Guardian Wave - Bling-Bling Cheese'
+    type: Add
+  id: 20011
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: 'Lobby Song: Fort-Stress - Bling-Bling Cheese'
+    type: Add
+  id: 20012
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
+- author: CorruptOmega
+  changes:
+  - message: Nevadean Dream attribution
+    type: Fix
+  id: 20013
+  time: '2025-10-17T16:31:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/200
 Order: -1
 
