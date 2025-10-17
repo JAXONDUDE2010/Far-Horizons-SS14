@@ -169,7 +169,9 @@ namespace Content.IntegrationTests.Tests
             #endregion
             #region Far Horizons
             "FHMeta",
-            "FHFland"
+            "FHFland",
+            "FHCentCommG24",
+            "FHCentCommSC17",
             #endregion
         };
 
