@@ -815,5 +815,13 @@ Entries:
   id: 21900
   time: '2025-10-17T19:27:43.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/219
+- author: CorruptOmega
+  changes:
+  - message: Wizard is now a Free Agent instead of Solo Antagonist. You're a Free
+      wizard Harry!
+    type: Tweak
+  id: 22200
+  time: '2025-10-18T10:51:50.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/222
 Order: -1
 
