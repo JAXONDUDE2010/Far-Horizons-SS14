@@ -14,7 +14,12 @@ using Microsoft.CodeAnalysis;
 using Content.Server._Starlight.Medical.Limbs;
 using Content.Server.Administration.Systems;
 using Robust.Shared.Timing;
-
+//FarHorizons Start
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
+using Content.Shared.Prototypes;
+//FarHorizons End
 
 namespace Content.Server.Starlight.Medical.Surgery;
 // Based on the RMC14.
@@ -176,20 +181,36 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
             || !_limbSystem.AttachLimb((args.Body, humanoid), slot, (args.Part, part), (limdId, limb));
 
     private void OnStepAttachItemComplete(Entity<SurgeryStepAttachLimbEffectComponent> ent, string slot, ref SurgeryStepEvent args)
-        => args.IsCancelled = args.Tools.Count == 0 
-            || !(args.Tools.FirstOrDefault() is var itemId) 
-            || !TryComp(itemId, out MetaDataComponent? metadata) 
-            || HasComp<BodyPartComponent>(itemId) 
-            || !TryComp(args.Part, out BodyPartComponent? limb) 
+        => args.IsCancelled = args.Tools.Count == 0
+            || !(args.Tools.FirstOrDefault() is var itemId)
+            || !TryComp(itemId, out MetaDataComponent? metadata)
+            || HasComp<BodyPartComponent>(itemId)
+            || !TryComp(args.Part, out BodyPartComponent? limb)
             || !_limbSystem.AttachItem(args.Body, slot, (args.Part, limb), (itemId, metadata));
 
+    /*    private void OnStepAmputationComplete(Entity<SurgeryStepAmputationEffectComponent> ent, ref SurgeryStepEvent args)
+        {
+            if (_entity.TryEntity<TransformComponent, HumanoidAppearanceComponent, BodyComponent>(args.Body, out var body) 
+                && _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(args.Part, out var limb))
+                _limbSystem.Amputatate(body, limb);
+        }*/
+    //FarHorizons Start
     private void OnStepAmputationComplete(Entity<SurgeryStepAmputationEffectComponent> ent, ref SurgeryStepEvent args)
     {
-        if (_entity.TryEntity<TransformComponent, HumanoidAppearanceComponent, BodyComponent>(args.Body, out var body) 
-            && _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(args.Part, out var limb))
-            _limbSystem.Amputatate(body, limb);
+        var surgProto = _prototypes.Index<EntityPrototype>(args.SurgeryProto);
+        if (_entity.TryEntity<TransformComponent, HumanoidAppearanceComponent, BodyComponent>(args.Body, out var body))
+        {
+            if (_entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(args.Part, out var limb) && !surgProto.HasComponent<NecrosisSurgeryStepComponent>())
+                _limbSystem.Amputatate(body, limb);
+            else if (TryComp(args.Body, out BodyComponent? bodyComp) && TryComp(bodyComp.RootContainer.ContainedEntity, out ContainerManagerComponent? contComp))
+            {
+                if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp) &&
+                    _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(contComp.Containers[surgComp.Target].ContainedEntities[0], out var limb2))
+                        _limbSystem.Amputatate(body, limb2);
+            }
+        }
     }
-
+    //FarHorizons End
     private void CustomLimbRemoved(Entity<CustomLimbMarkerComponent> ent, ref ComponentRemove args)
     {
         if (ent.Comp.VirtualPart is null) return;

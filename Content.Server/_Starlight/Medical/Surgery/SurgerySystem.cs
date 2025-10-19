@@ -84,7 +84,6 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
             var ev = new SurgeryValidEvent(body, part);
 
-
             var isCompleted = progress.CompletedSurgeries.Contains(surgery);
             if (!progress.StartedSurgeries.Contains(surgery)
                 && !isCompleted)
@@ -94,7 +93,10 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                 if (ev.Cancelled)
                     continue;
             }
-            if (!TryComp<RequiredTechnologyComponent>(surgeryEnt, out var reqComp) && !HasComp<DisableSurgeryComponent>(surgeryEnt))
+            if (HasComp<DisableSurgeryComponent>(surgeryEnt))
+                continue;
+
+            if (!TryComp<RequiredTechnologyComponent>(surgeryEnt, out var reqComp))
             {
                 surgeries.GetOrNew(GetNetEntity(part)).Add((surgery, ev.Suffix, isCompleted));
             }

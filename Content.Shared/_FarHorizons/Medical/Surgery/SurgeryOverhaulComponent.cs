@@ -42,7 +42,19 @@ public sealed partial class RequiredTechnologyComponent : Component
     [DataField]
     public ProtoId<TechnologyPrototype> Technology;
 }
-[RegisterComponent, NetworkedComponent] public sealed partial class NecrosisSurgeryComponent : Component;
-[RegisterComponent, NetworkedComponent] public sealed partial class NecrosisSurgeryStepComponent : Component;
+[RegisterComponent, NetworkedComponent] 
+public sealed partial class NecrosisSurgeryStepComponent : Component
+{
+    [DataField]
+    public string Target = "bodypart";
+}
+[RegisterComponent, NetworkedComponent] 
+public sealed partial class NecrosisSurgeryComponent : Component
+{
+    [DataField]
+    public List<EntProtoId> RequiredSurgeries = new();
+    [DataField]
+    public int AmountofSurgeries = 1;
+}
 [RegisterComponent, NetworkedComponent] public sealed partial class DisableSurgeryComponent : Component;
 [RegisterComponent, NetworkedComponent] public sealed partial class SurgeryAlterAppearanceComponent : Component;
