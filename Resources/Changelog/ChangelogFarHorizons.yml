@@ -867,5 +867,12 @@ Entries:
   id: 23100
   time: '2025-10-19T11:05:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/231
+- author: CorruptOmega
+  changes:
+  - message: Maintenance Doors now have a Maint suffix for ease of mapping/spawning.
+    type: Tweak
+  id: 22800
+  time: '2025-10-19T12:00:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/228
 Order: -1
 
