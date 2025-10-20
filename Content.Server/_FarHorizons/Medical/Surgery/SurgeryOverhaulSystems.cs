@@ -17,6 +17,8 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Starlight.Medical.Surgery;
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components;
 
 namespace Content.Server._FarHorizons.Medical.SurgeryOverhaul.Systems;
 
@@ -30,6 +32,7 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedBodySystem _sharedBodySystem = default!;
     private readonly List<EntProtoId> _surgeriesForRotten = [];
 
     public override void Initialize()
@@ -119,12 +122,20 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
                 if (_surgeriesForRotten.Count == 0)
                     break;
                 chosenSurgery = _random.PickAndTake(_surgeriesForRotten);
-                if (!TryComp<BodyPartComponent>(args.Part, out var partComp))
-                    return;
-                if(surgProto.TryGetComponent<SurgeryStepOrganExtractComponent>(out var extractComp))
+                var chosenSurgeryProto = _prototypes.Index<EntityPrototype>(chosenSurgery);
+                foreach (var parent in chosenSurgeryProto.Parents!)
                 {
-                    continue;
+                    var parentProto = _prototypes.Index<EntityPrototype>(parent);
                 }
+                if (!TryComp<BodyPartComponent>(args.Part, out var partComp) || !TryComp<BodyComponent>(args.Body, out var bodyComp))
+                    return;
+                var Organs = _sharedBodySystem.GetBodyOrgans(args.Body, bodyComp);
+                foreach (var (organUid, organEnt) in Organs)
+                {
+                    Logger.Info($"{organUid}");
+                    Logger.Info($"{organEnt}");
+                }
+                
                 break;
             }
             surgComp.RequiredSurgeries.Add((EntProtoId)chosenSurgery!);
