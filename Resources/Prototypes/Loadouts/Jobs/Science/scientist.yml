@@ -10,7 +10,7 @@
 
 # Head
 - type: startingGear
-  id: ScientificBeret
+  id: RDBeret #Far Horizons
   equipment:
     head: ClothingHeadHatBeretRND
 
