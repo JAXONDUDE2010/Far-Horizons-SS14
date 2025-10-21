@@ -47,6 +47,8 @@ public sealed partial class NecrosisSurgeryStepComponent : Component
 {
     [DataField]
     public string Target = "bodypart";
+    [DataField("seconds")]
+    public double time = 60;
 }
 [RegisterComponent, NetworkedComponent] 
 public sealed partial class NecrosisSurgeryComponent : Component

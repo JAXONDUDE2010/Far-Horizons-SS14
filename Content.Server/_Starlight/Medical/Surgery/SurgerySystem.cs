@@ -19,6 +19,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Systems;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Atmos.Rotting;
 
 namespace Content.Server.Starlight.Medical.Surgery;
 // Based on the RMC14.
@@ -33,6 +34,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ContainerSystem _containers = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
+    [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
 
     private readonly List<EntProtoId> _surgeries = [];
     public override void Initialize()
@@ -93,28 +95,27 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                 if (ev.Cancelled)
                     continue;
             }
-            if (HasComp<DisableSurgeryComponent>(surgeryEnt))
+            if (HasComp<NecrosisSurgeryComponent>(surgeryEnt) &&
+                !_rottingSystem.IsRotten(body))
                 continue;
 
-            if (!TryComp<RequiredTechnologyComponent>(surgeryEnt, out var reqComp))
+            if (TryComp<NecrosisSurgeryComponent>(part, out var necrosurgComp) &&
+            HasComp<DisableSurgeryComponent>(surgeryEnt) &&
+                !necrosurgComp.RequiredSurgeries.Contains(surgery))
+                continue;
+
+            if (TryComp<RequiredTechnologyComponent>(surgeryEnt, out var reqComp) &&
+                TryComp(body, out BuckleComponent? buckle) &&
+                TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp))
             {
-                surgeries.GetOrNew(GetNetEntity(part)).Add((surgery, ev.Suffix, isCompleted));
-            }
-            else if(TryComp(body, out BuckleComponent? buckle) && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp))
-            {
-                TechnologyDatabaseComponent? TechDatabase = new();
-                foreach (var source in linkComp.LinkedSources)
+                if (TryComp(linkComp.LinkedSources.First(), out TechnologyDatabaseComponent? techComp))
                 {
-                    if (TryComp(source, out TechnologyDatabaseComponent? techComp))
-                    {
-                        TechDatabase = techComp;
-                        break;
-                    }
+                    var TechProto = _prototypes.Index<TechnologyPrototype>(reqComp!.Technology.Id);
+                    if (!_research.IsTechnologyUnlocked(body, TechProto, techComp))
+                        continue;
                 }
-                var TechProto = _prototypes.Index<TechnologyPrototype>(reqComp!.Technology.Id);
-                if (_research.IsTechnologyUnlocked(body, TechProto, TechDatabase))
-                    surgeries.GetOrNew(GetNetEntity(part)).Add((surgery, ev.Suffix, isCompleted));
             }
+            surgeries.GetOrNew(GetNetEntity(part)).Add((surgery, ev.Suffix, isCompleted));
         }
     }
 

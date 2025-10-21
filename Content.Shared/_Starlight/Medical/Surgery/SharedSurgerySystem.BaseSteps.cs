@@ -53,7 +53,7 @@ public abstract partial class SharedSurgerySystem
         if (args.DidSurgeryFail)
         {
             var StepProto = _prototypes.Index<EntityPrototype>(args.Step);
-            if (StepProto.TryGetComponent<OnFailDamageComponent>(out var comp) && TryComp<BodyPartComponent>(args.Target, out var bodyComp))
+            if (StepProto.TryGetComponent<OnFailDamageComponent>(out var comp, _compFactory) && TryComp<BodyPartComponent>(args.Target, out var bodyComp))
             {
                 _damageableSystem.TryChangeDamage(bodyComp.Body, comp.Damage!);
                 TryEmoteWithChat(bodyComp.Body!.Value, comp.Emote);

@@ -1,8 +1,6 @@
 ﻿using Content.Shared.Body.Part;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using System.Linq;
-using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using Content.Shared.Starlight.Medical.Surgery.Events;
 using Content.Shared.Starlight.Medical.Surgery.Effects.Step;
 using Content.Shared.Body.Systems;

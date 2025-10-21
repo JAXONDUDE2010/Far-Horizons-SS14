@@ -31,7 +31,6 @@ namespace Content.Server.Starlight.Medical.Surgery;
 public sealed partial class SurgerySystem : SharedSurgerySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly LimbSystem _limbSystem = default!;
     [Dependency] private readonly StarlightEntitySystem _entity = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
@@ -129,6 +128,10 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
         var type = ent.Comp.Organ.Values.First().Component.GetType();
 
+        var surgProto = _prototypes.Index<EntityPrototype>(args.SurgeryProto);
+        if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp))
+            _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));      
+
         if (ent.Comp.Slot != null && _containers.TryGetContainer(args.Part, SharedBodySystem.GetOrganContainerId(ent.Comp.Slot), out var container))
         {
             foreach (var containedEnt in container.ContainedEntities)
@@ -205,8 +208,14 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
             else if (TryComp(args.Body, out BodyComponent? bodyComp) && TryComp(bodyComp.RootContainer.ContainedEntity, out ContainerManagerComponent? contComp))
             {
                 if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp) &&
-                    _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(contComp.Containers[surgComp.Target].ContainedEntities[0], out var limb2))
-                        _limbSystem.Amputatate(body, limb2);
+                    _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(contComp.Containers[surgComp.Target].ContainedEntities.First(), out var limb2))
+                {
+                    _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));
+                    DamageSpecifier rotDamage = new();
+                    rotDamage.DamageDict.Add("Cellular", 20);
+                    _damageableSystem.TryChangeDamage(limb2, rotDamage);      
+                    _limbSystem.Amputatate(body, limb2);
+                }   
             }
         }
     }
