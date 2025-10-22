@@ -36,6 +36,18 @@
         - ImprovisedMultitool
         - AnomalyScanner
         - NodeScanner
+        - WeldingTool
+      components:
+        - StationMap
+        - SprayPainter
+        - SprayPainterAmmo
+        - NetworkConfigurator
+        - Welder
+        - PowerCell
+        - Geiger
+        - TrayScanner
+        - GasAnalyzer
+        - HandLabeler
   - type: StorageFill
     contents:
       - id: AnomalyScanner
