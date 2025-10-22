@@ -36,7 +36,6 @@
         - ImprovisedMultitool
         - AnomalyScanner
         - NodeScanner
-        - WeldingTool
       components:
         - StationMap
         - SprayPainter
