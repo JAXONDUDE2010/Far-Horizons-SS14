@@ -50,6 +50,7 @@ public abstract partial class SharedSurgerySystem
                 Dirty(args.Target.Value, dirtyPart, Comp<MetaDataComponent>(args.Target.Value));
             return;
         }
+        //Far Horizons Start
         if (args.DidSurgeryFail)
         {
             var StepProto = _prototypes.Index<EntityPrototype>(args.Step);
@@ -79,6 +80,7 @@ public abstract partial class SharedSurgerySystem
             };
             RaiseLocalEvent(step, ref evComplete);
         }
+        //Far Horizons End
         RefreshUI(ent);
     }
 
@@ -291,7 +293,8 @@ public abstract partial class SharedSurgerySystem
         {
             return;
         }
-        if ((!PreviousStepsComplete(body, part, surgery, args.Step) || IsStepComplete(part, args.Surgery, args.Step)) && !(TryComp<SurgeryProgressComponent>(part, out var surgComp) && surgComp.ActiveRepeatableStep == $"{args.Surgery}:{args.Step}"))
+        if ((!PreviousStepsComplete(body, part, surgery, args.Step) || IsStepComplete(part, args.Surgery, args.Step)) && !(TryComp<SurgeryProgressComponent>(part, out var surgComp) 
+        && surgComp.ActiveRepeatableStep == $"{args.Surgery}:{args.Step}")) //Far Horizons
         {
             var progress = Comp<SurgeryProgressComponent>(part);
             Dirty(part, progress);
@@ -383,7 +386,8 @@ public abstract partial class SharedSurgerySystem
         }
         var surgeryProto = Prototype(surgery);
         for (var i = 0; i < surgery.Comp.Steps.Count; i++)
-            if (!progress.CompletedSteps.Contains($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}") && !progress.ActiveRepeatableStep.Equals($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}")) //FarHorizons
+            if (!progress.CompletedSteps.Contains($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}") &&
+                !progress.ActiveRepeatableStep.Equals($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}")) //FarHorizons
                 return ((surgery, surgery.Comp), i);
 
         return null;

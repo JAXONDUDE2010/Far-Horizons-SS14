@@ -48,7 +48,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
 
-            ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
+            ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a); // FarHorizons
         }
 
         public void Populate(HealthAnalyzerScannedUserMessage msg)
@@ -248,7 +248,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             return rootContainer;
         }
-
+        //FarHorizons Start
         public void SetEntity(EntityUid uid)
         {
             if (!_entityManager.HasComponent<ResearchClientComponent>(uid))
@@ -256,5 +256,6 @@ namespace Content.Client.HealthAnalyzer.UI
                 ServerListButton.Visible = false;
             }
         }
+        //FarHorizons End
     }
 }

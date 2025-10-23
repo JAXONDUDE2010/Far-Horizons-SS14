@@ -11,7 +11,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Control;
-using Content.Shared.Starlight.Medical.Surgery.Effects.Step;  //FarHorizons
+//FarHorizons Start
+using Content.Shared.Starlight.Medical.Surgery.Effects.Step;  
+//FarHorizons End
 
 namespace Content.Client._Starlight.Medical.Surgery;
 // Based on the RMC14 build.
@@ -140,6 +142,7 @@ public sealed class SurgeryBui : BoundUserInterface
                 OnPartPressed(netPart, surgeries);
         }
 
+        _window.ResearchLevelLabel.Text = state.ResearchLevel;
         RefreshUI();
 
         if (!_window.IsOpen)

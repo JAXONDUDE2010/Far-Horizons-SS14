@@ -127,11 +127,11 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         if (ent.Comp.Organ?.Count != 1) return;
 
         var type = ent.Comp.Organ.Values.First().Component.GetType();
-
+        //Far Horizons Start
         var surgProto = _prototypes.Index<EntityPrototype>(args.SurgeryProto);
         if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp))
             _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));      
-
+        //Far Horizons End
         if (ent.Comp.Slot != null && _containers.TryGetContainer(args.Part, SharedBodySystem.GetOrganContainerId(ent.Comp.Slot), out var container))
         {
             foreach (var containedEnt in container.ContainedEntities)
