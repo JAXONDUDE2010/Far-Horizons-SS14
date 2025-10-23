@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Ninja.Components;
 using Content.Shared.PowerCell.Components;
 using Robust.Shared.Audio;
@@ -27,6 +28,11 @@ public sealed partial class IPCBatteryComponent : Component
     public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
     [DataField]
     public ProtoId<AlertPrototype> BatteryAlert = "BorgBattery";
+
+    [DataField]
+    public List<EntProtoId> DrainAllowedTargets = [];
+    [DataField]
+    public ProtoId<EmotePrototype> NoPowerDeathEmote = default;
     [ViewVariables(VVAccess.ReadWrite)]
     public ContainerSlot BatteryContainerSlot = default!;
 

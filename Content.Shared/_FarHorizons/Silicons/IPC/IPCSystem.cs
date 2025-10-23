@@ -4,6 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -34,11 +35,21 @@ public abstract partial class SharedIPCSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<GetVerbsEvent<AlternativeVerb>>(AddAltVerbs);
+
         SetupBrain();
         SetupRevive();
         SetupBattery();
         SetupRadio();
         SetupLock();
+    }
+
+    private void AddAltVerbs(GetVerbsEvent<AlternativeVerb> ev)
+    {
+        if (!ev.CanAccess || !ev.CanInteract)
+            return;
+        AddLockAltVerbs(ev);
+        AddBatteryAltVerbs(ev);
     }
 
     public override void Update(float frameTime)

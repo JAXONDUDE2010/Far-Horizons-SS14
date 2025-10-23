@@ -1,7 +1,9 @@
 using Content.Shared._FarHorizons.Silicons.IPC;
+using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Ninja.Components;
+using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
@@ -46,6 +48,7 @@ public sealed partial class IPCSystem
         if (ent.Comp.Timer == 0 &&
             TryComp<MobStateComponent>(ent, out var state))
         {
+            _chat.TryEmoteWithChat(ent, ent.Comp.NoPowerDeathEmote);
             _state.ChangeMobState(ent, MobState.Dead, state);
         }
     }
@@ -100,6 +103,22 @@ public sealed partial class IPCSystem
         ent.Comp.TimerActive = false;
         ent.Comp.WarningsIssued = 0;
         ent.Comp.Timer = 0f;
+    }
+
+    protected override void StartDrain(Entity<IPCBatteryComponent> user, EntityUid target)
+    {
+        if (!TryComp<BatteryDrainerComponent>(user, out var drainerComp))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, drainerComp.DrainTime, new DrainDoAfterEvent(), target: target, eventTarget: user)
+        {
+            MovementThreshold = 0.5f,
+            BreakOnMove = true,
+            CancelDuplicate = false,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
     private void UpdateBatteryAlert(Entity<IPCBatteryComponent> ent)
