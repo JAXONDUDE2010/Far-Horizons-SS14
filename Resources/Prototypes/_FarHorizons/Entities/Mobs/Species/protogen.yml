@@ -24,9 +24,10 @@
   # Music player
   - type: ActionGrant
     actions:
-    - ActionPAIPlayMidi
+    - ActionSiliconPlayMidi
   - type: Instrument
     allowPercussion: true
+    allowProgramChange: true
     handheld: false
   - type: UserInterface
     interfaces:
