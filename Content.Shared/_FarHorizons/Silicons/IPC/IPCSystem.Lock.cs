@@ -12,7 +12,6 @@ public abstract partial class SharedIPCSystem
     protected virtual void SetupLock()
     {
         SubscribeLocalEvent<IPCLockComponent, ComponentStartup>(OnLockStartup);
-        SubscribeLocalEvent<GetVerbsEvent<AlternativeVerb>>(AddLockAltVerbs);
         SubscribeLocalEvent<IPCLockComponent, IPCLockDoAfter>(OnDoAfterLock);
         SubscribeLocalEvent<IPCLockComponent, IPCUnlockDoAfter>(OnDoAfterUnlock);
         SubscribeLocalEvent<IPCLockComponent, DoAfterAttemptEvent<IPCLockDoAfter>>(DuringLock);
@@ -21,8 +20,7 @@ public abstract partial class SharedIPCSystem
 
     private void AddLockAltVerbs(GetVerbsEvent<AlternativeVerb> ev)
     {
-        if (!ev.CanAccess || !ev.CanInteract ||
-            !ev.CanComplexInteract ||
+        if (!ev.CanComplexInteract ||
             !TryComp<IPCLockComponent>(ev.Target, out var lockComp))
             return;
 

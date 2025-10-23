@@ -134,6 +134,13 @@
     numWarnings: 2 #warn player that they are about to die
     warningText: ipc-warning-critical-charge
 #    warningSound: #Add sounds maybe? idk
+    drainAllowedTargets:
+      - APCBasic
+      - APCHighCapacity
+      - APCSuperCapacity
+      - APCHyperCapacity
+      - SubstationBasic
+      - SubstationWallBasic
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -142,6 +149,7 @@
   - type: BatteryDrainer
     drainEfficiency: 0.005
     drainTime: 0.8
+    disableHandInteraction: true
   # Radio
   - type: IPCRadio
     keysCapacity: 2

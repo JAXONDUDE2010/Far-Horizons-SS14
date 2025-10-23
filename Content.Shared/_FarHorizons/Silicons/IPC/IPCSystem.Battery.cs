@@ -1,10 +1,11 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Ninja.Components;
-using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._FarHorizons.Silicons.IPC;
 
@@ -39,6 +40,26 @@ public abstract partial class SharedIPCSystem
     }
 
     protected abstract void UpdateBatteryTimer(Entity<IPCBatteryComponent> ent);
+
+    private void AddBatteryAltVerbs(GetVerbsEvent<AlternativeVerb> ev)
+    {
+        if (!ev.CanComplexInteract || 
+            !TryComp<IPCBatteryComponent>(ev.User, out var battery) ||
+            !TryComp(ev.Target, out MetaDataComponent? metadata) ||
+            metadata.EntityPrototype == null ||
+            !battery.DrainAllowedTargets.Contains(metadata.EntityPrototype.ID))
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () => StartDrain((ev.User, battery), ev.Target),
+            Text = Loc.GetString("ipc-drain-power-alt-verb"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+        };
+        ev.Verbs.Add(verb);
+    }
+
+    protected virtual void StartDrain(Entity<IPCBatteryComponent> user, EntityUid target){}
 
     private void OnItemSlotEjectAttempt(Entity<IPCBatteryComponent> ent, ref ItemSlotEjectAttemptEvent args)
     {

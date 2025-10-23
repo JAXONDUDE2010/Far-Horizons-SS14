@@ -4,6 +4,8 @@ ipc-cant-eject-own-brain = Can't eject your own brain!
 ipc-brain-ejected = Brain ejected!
 ipc-warning-critical-charge = Danger! Internal power low! Safety shutdown is immenent!
 
+ipc-drain-power-alt-verb = Drain power
+
 ipc-ui-menu-title = IPC Control Panel
 ipc-ui-console-separator = =======================================
 ipc-ui-console-header-1 = = _____ _____   _____    ____   _____
