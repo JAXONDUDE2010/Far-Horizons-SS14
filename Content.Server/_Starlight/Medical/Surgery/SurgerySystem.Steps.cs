@@ -19,6 +19,11 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
 using Content.Shared.Prototypes;
+using Content.Shared.Atmos.Rotting;
+using Content.Shared.Research.Prototypes;
+using Content.Shared.Buckle.Components;
+using Content.Shared.DeviceLinking;
+using Content.Shared.Research.Components;
 //FarHorizons End
 
 namespace Content.Server.Starlight.Medical.Surgery;
@@ -129,8 +134,25 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         var type = ent.Comp.Organ.Values.First().Component.GetType();
         //Far Horizons Start
         var surgProto = _prototypes.Index<EntityPrototype>(args.SurgeryProto);
-        if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp))
-            _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));      
+        if (surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp))
+            if (TryComp<RottingComponent>(args.Body, out var rotting) && TryComp<PerishableComponent>(args.Body, out var perishable))
+            {
+                long ResearchModifier = 50;
+                if (surgProto.TryGetComponent<SurgeryTechnologyComponent>(out var techvar) && TryComp(args.Body, out BuckleComponent? buckle)
+                && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) && linkComp.LinkedSources.Count > 0 &&
+                TryComp<TechnologyDatabaseComponent>(linkComp.LinkedSources.First(), out var techComp))
+                {
+                    foreach (var (key, value) in techvar.TechnologyModifier!)
+                    {
+                        var TechProto = _prototypes.Index<TechnologyPrototype>(key.Id);
+                        if (_research.IsTechnologyUnlocked(args.Body, TechProto, techComp) && ResearchModifier > value)
+                            ResearchModifier = value;
+                    }
+                }
+                
+                var BonusRotRemoved = Math.Round((rotting.TotalRotTime.TotalSeconds + perishable.RotAccumulator.TotalSeconds) / ResearchModifier);
+                _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time+BonusRotRemoved));      
+            }
         //Far Horizons End
         if (ent.Comp.Slot != null && _containers.TryGetContainer(args.Part, SharedBodySystem.GetOrganContainerId(ent.Comp.Slot), out var container))
         {
@@ -210,10 +232,23 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                 if(surgProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var surgComp) &&
                     _entity.TryEntity<TransformComponent, MetaDataComponent, BodyPartComponent>(contComp.Containers[surgComp.Target].ContainedEntities.First(), out var limb2))
                 {
-                    _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));
-                    DamageSpecifier rotDamage = new();
-                    rotDamage.DamageDict.Add("Cellular", 20);
-                    _damageableSystem.TryChangeDamage(limb2, rotDamage);      
+                    if (TryComp<RottingComponent>(args.Body, out var rotting) && TryComp<PerishableComponent>(args.Body, out var perishable))
+                    {
+                        long ResearchModifier = 50;
+                        if (surgProto.TryGetComponent<SurgeryTechnologyComponent>(out var techvar) && TryComp(args.Body, out BuckleComponent? buckle)
+                        && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) && linkComp.LinkedSources.Count > 0 &&
+                        TryComp<TechnologyDatabaseComponent>(linkComp.LinkedSources.First(), out var techComp))
+                        {
+                            foreach (var (key, value) in techvar.TechnologyModifier!)
+                            {
+                                var TechProto = _prototypes.Index<TechnologyPrototype>(key.Id);
+                                if (_research.IsTechnologyUnlocked(args.Body, TechProto, techComp) && ResearchModifier > value)
+                                    ResearchModifier = value;
+                            }
+                        }
+                    
+                    var BonusRotRemoved = Math.Round((rotting.TotalRotTime.TotalSeconds + perishable.RotAccumulator.TotalSeconds) / ResearchModifier);
+                    _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));   
                     _limbSystem.Amputatate(body, limb2);
                 }   
             }

@@ -168,6 +168,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     {
         if (TryComp(body, out BuckleComponent? buckle) &&
             TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) &&
+            linkComp.LinkedSources.Count > 0 &&
             TryComp(linkComp.LinkedSources.First(), out TechnologyDatabaseComponent? techComp))
         {
             var AdvSurgeryTechProto = _prototypes.Index<TechnologyPrototype>("SurgeryTechAdvanced");

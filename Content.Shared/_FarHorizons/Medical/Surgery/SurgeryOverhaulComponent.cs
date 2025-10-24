@@ -41,7 +41,7 @@ public sealed partial class SurgeryTechnologyComponent : Component
     public ProtoId<TechnologyPrototype> RequiredTechnology;
     
     [DataField]
-    public Dictionary<ProtoId<TechnologyPrototype>, float> TechnologyModifier = new();
+    public Dictionary<ProtoId<TechnologyPrototype>, long> TechnologyModifier = new();
 }
 [RegisterComponent, NetworkedComponent] 
 public sealed partial class NecrosisSurgeryStepComponent : Component
@@ -49,7 +49,7 @@ public sealed partial class NecrosisSurgeryStepComponent : Component
     [DataField]
     public string Target = "bodypart";
     [DataField("seconds")]
-    public double time = 60;
+    public double time = 120;
 }
 [RegisterComponent, NetworkedComponent] 
 public sealed partial class NecrosisSurgeryComponent : Component

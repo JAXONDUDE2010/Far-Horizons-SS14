@@ -13,6 +13,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractKidneys
@@ -28,6 +32,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractStomach
@@ -43,6 +51,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractLungs
@@ -58,6 +70,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractLungsSlime
@@ -73,6 +89,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractHeart
@@ -88,6 +108,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryExtractHeartSlime
@@ -103,6 +127,10 @@
     - Torso
   - type: NecrosisSurgeryStep
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputation
@@ -119,6 +147,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_left arm
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputation
@@ -135,6 +167,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_right arm
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputation
@@ -151,6 +187,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_left leg
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputation
@@ -167,6 +207,10 @@
   - type: NecrosisSurgeryStep
     target: "body_part_slot_right leg"
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputationSlime
@@ -183,6 +227,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_left arm
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputationSlime
@@ -199,6 +247,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_right arm
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputationSlime
@@ -215,6 +267,10 @@
   - type: NecrosisSurgeryStep
     target: body_part_slot_left leg
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15
 
 - type: entity
   parent: SurgeryAmputationSlime
@@ -231,3 +287,7 @@
   - type: NecrosisSurgeryStep
     target: "body_part_slot_right leg"
   - type: DisableSurgery
+  - type: SurgeryTechnology
+    technologyModifier:
+      SurgeryTech : 25
+      SurgeryTechAdvanced : 15

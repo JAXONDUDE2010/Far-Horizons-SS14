@@ -76,7 +76,7 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         if (StepProto.TryGetComponent<HealDamageComponent>(out var healComp, _componentFactory))
         {
             if (surgProto.TryGetComponent<SurgeryTechnologyComponent> (out var techvar, _componentFactory) && TryComp(args.Body, out BuckleComponent? buckle)
-                && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) &&
+                && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) && linkComp.LinkedSources.Count > 0 &&
                 TryComp<TechnologyDatabaseComponent>(linkComp.LinkedSources.First(), out var techComp))
             {
                 foreach (var (key, value) in techvar.TechnologyModifier!)
