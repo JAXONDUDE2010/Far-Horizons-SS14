@@ -86,5 +86,6 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    - FullAuto
     minAngle: 1
     maxAngle: 4
