@@ -5,3 +5,19 @@
     state: battery-crit
   name: alerts-battery-crit-name
   description: alerts-battery-crit-desc
+
+- type: alert
+  id: IPCLowCirculation
+  category: IPCCirculation
+  icons:
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot1
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot2
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot3
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot4
+  maxSeverity: 4
+  name: alerts-low-circulation-name
+  description: alerts-low-circulation-desc

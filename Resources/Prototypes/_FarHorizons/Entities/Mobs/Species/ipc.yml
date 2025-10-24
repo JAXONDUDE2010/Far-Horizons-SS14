@@ -56,7 +56,10 @@
     damage:
       groups:
         Brute: 6
-  - type: Barotrauma
+  - type: Barotrauma # TODO: Make unique sprites
+    highPressureAlert: "IPCLowCirculation"
+    lowPressureAlert: "IPCLowCirculation"
+    pressureAlertCategory: "IPCCirculation"
     damage:
       types:
         Blunt: 0 #Metal can't decompress..
