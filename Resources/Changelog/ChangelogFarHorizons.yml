@@ -895,5 +895,13 @@ Entries:
   id: 23600
   time: '2025-10-19T16:06:50.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/236
+- author: CorruptOmega
+  changes:
+  - message: Air Alarms have been wrestled to signal the correct colored light for
+      warning and danger modes.
+    type: Fix
+  id: 23900
+  time: '2025-10-24T15:49:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/239
 Order: -1
 
