@@ -38,7 +38,7 @@ public sealed partial class HealDamageComponent : Component
 public sealed partial class SurgeryTechnologyComponent : Component
 {
     [DataField]
-    public ProtoId<TechnologyPrototype> RequiredTechnology;
+    public ProtoId<TechnologyPrototype>? RequiredTechnology;
     
     [DataField]
     public Dictionary<ProtoId<TechnologyPrototype>, long> TechnologyModifier = new();
