@@ -246,9 +246,10 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                                     ResearchModifier = value;
                             }
                         }
-                    
-                    var BonusRotRemoved = Math.Round((rotting.TotalRotTime.TotalSeconds + perishable.RotAccumulator.TotalSeconds) / ResearchModifier);
-                    _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time));   
+                        var BonusRotRemoved = Math.Round((rotting.TotalRotTime.TotalSeconds + perishable.RotAccumulator.TotalSeconds) / ResearchModifier);
+                        _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time+BonusRotRemoved));   
+
+                    }
                     _limbSystem.Amputatate(body, limb2);
                 }   
             }
