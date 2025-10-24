@@ -106,7 +106,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                 !necrosurgComp.RequiredSurgeries.Contains(surgery))
                 continue;
 
-            if (TryComp<SurgeryTechnologyComponent>(surgeryEnt, out var reqComp) && reqComp.RequiredTechnology != default)
+            if (TryComp<SurgeryTechnologyComponent>(surgeryEnt, out var reqComp) && reqComp.RequiredTechnology != null)
             {
                 var TechProto = _prototypes.Index<TechnologyPrototype>(reqComp.RequiredTechnology);
                 if (!TryComp(body, out BuckleComponent? buckle) || !TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp))
