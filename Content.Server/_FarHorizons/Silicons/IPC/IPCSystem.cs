@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.EUI;
@@ -7,18 +8,20 @@ using Content.Server.Ninja.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
+using Content.Server.Temperature.Systems;
 using Content.Shared._FarHorizons.Silicons.IPC;
 using Content.Shared.Alert;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Silicons.IPC;
 
@@ -42,10 +45,14 @@ public sealed partial class IPCSystem : SharedIPCSystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly TemperatureSystem _tempSys = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    
 
     public override void Initialize()
     {

@@ -61,7 +61,9 @@ public sealed partial class HumanoidEMPSystem : EntitySystem
         _stunSystem.TryKnockdown(ent, effect.KnockdownAmount, false, true, false, true);
         _stunSystem.TryAddStunDuration(ent, effect.StunAmount);
         _damageable.TryChangeDamage(ent, effect.DamageAmount);
-        _status.TryAddStatusEffectDuration(ent, effect.BlindStatusEffect, out _, effect.BlindAmount);
+        foreach (var statusEffect in effect.AdditionalEffects)
+            _status.TryAddStatusEffectDuration(ent, statusEffect.Key, out _, statusEffect.Value);
+        
         _movementMod.TryAddMovementSpeedModDuration(ent, MovementModStatusSystem.FlashSlowdown, effect.SlowdownAmount, effect.WalkSpeedModifier, effect.SprintSpeedModifier);
         foreach (var hand in effect.DropItemsFrom)
             _hands.DoDrop(ent, hand);

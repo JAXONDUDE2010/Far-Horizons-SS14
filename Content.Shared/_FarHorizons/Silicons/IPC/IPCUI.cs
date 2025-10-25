@@ -1,4 +1,3 @@
-using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Robust.Shared.Serialization;
 
@@ -11,20 +10,13 @@ public enum IPCUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class IPCBuiState : BoundUserInterfaceState
+public sealed class IPCBuiState(float chargePercent, bool hasBattery, MobState mobState) : BoundUserInterfaceState
 {
-    public float ChargePercent;
+    public float ChargePercent = chargePercent;
 
-    public bool HasBattery;
+    public bool HasBattery = hasBattery;
 
-    public MobState MobState;
-
-    public IPCBuiState(float chargePercent, bool hasBattery, MobState mobState)
-    {
-        ChargePercent = chargePercent;
-        HasBattery = hasBattery;
-        MobState = mobState;
-    }
+    public MobState MobState = mobState;
 }
 
 [Serializable, NetSerializable]
@@ -34,14 +26,9 @@ public sealed class IPCEjectBrainBuiMessage : BoundUserInterfaceMessage;
 public sealed class IPCEjectBatteryBuiMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class IPCSetNameBuiMessage : BoundUserInterfaceMessage
+public sealed class IPCSetNameBuiMessage(string name) : BoundUserInterfaceMessage
 {
-    public string Name;
-
-    public IPCSetNameBuiMessage(string name)
-    {
-        Name = name;
-    }
+    public string Name = name;
 }
 
 [Serializable, NetSerializable]

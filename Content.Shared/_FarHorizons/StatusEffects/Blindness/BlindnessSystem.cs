@@ -6,15 +6,11 @@ namespace Content.Shared._FarHorizons.StatusEffects.Blindness;
 
 public abstract class SharedBlindnessSystem : EntitySystem
 {
-    [Dependency] private readonly ILogManager _logs = default!;
-    private ISawmill _sawmill = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = _logs.GetSawmill("Blindness");
 
         SubscribeLocalEvent<BlindnessStatusEffectComponent, StatusEffectAppliedEvent>(OnEffectApplied);
         SubscribeLocalEvent<BlindnessStatusEffectComponent, StatusEffectRemovedEvent>(OnEffectRemoved);

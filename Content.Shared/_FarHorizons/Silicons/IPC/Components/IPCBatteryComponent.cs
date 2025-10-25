@@ -50,6 +50,9 @@ public sealed partial class IPCBatteryComponent : Component
     public bool TimerActive = false;
     [ViewVariables(VVAccess.ReadWrite)]
     public float Timer = 0f;
+    public TimeSpan NextUpdate;
+    [DataField, AutoNetworkedField]
+    public TimeSpan RefreshRate = TimeSpan.FromSeconds(1);
     [ViewVariables(VVAccess.ReadWrite)]
     public int WarningsIssued = 0;
 }

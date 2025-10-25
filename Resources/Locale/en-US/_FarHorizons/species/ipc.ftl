@@ -21,6 +21,8 @@ ipc-ui-console-battery = Battery
 ipc-ui-console-battery-charge = Charge
 ipc-ui-console-eye-damage = Optics
 ipc-ui-console-blood-level = Oil
+ipc-ui-console-temperature = Core Temp.
+ipc-ui-console-fans = Cooling Fans
 
 ipc-ui-console-part-installed = OK
 ipc-ui-console-part-missing = MISSING
@@ -31,3 +33,22 @@ ipc-ui-console-eye-damage-lots = SEVERELY DAMAGED
 
 ipc-ui-console-damage-section = Damage detected:
 ipc-ui-console-damage-none = No damage detected!
+
+ipc-thermals-examine-off = { CAPITALIZE(POSS-ADJ($entity)) } fans are still and silent.
+ipc-thermals-diagnostics-off = OFF
+ipc-thermals-examine-low = You faintly hear a hum of cooling fans inside { POSS-ADJ($entity) } chassis.
+ipc-thermals-diagnostics-low = LOW
+ipc-thermals-examine-high = { CAPITALIZE(POSS-ADJ($entity)) } fans are spinning lodly, blowing hot air in every direction.
+ipc-thermals-diagnostics-high = HIGH
+
+alerts-ipc-fans-ok-name = Cooling nominal
+alerts-ipc-fans-ok-desc = Cooling subsystems work as usual, no anomalies detected
+
+alerts-ipc-fans-efficiency-low-name = Cooling efficiency low
+alerts-ipc-fans-efficiency-low-desc = External conditions are below optimal, cooling effectiveness impaired
+
+alerts-ipc-fans-off-name = Cooling fans cut off
+alerts-ipc-fans-off-desc = Extreme danger! Active cooling not functional
+
+alerts-ipc-fans-speed-high-name = Cooling system turbo mode
+alerts-ipc-fans-speed-high-desc = Cooling system is working at recommended limits

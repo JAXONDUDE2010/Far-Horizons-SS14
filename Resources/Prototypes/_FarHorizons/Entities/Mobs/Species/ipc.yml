@@ -56,14 +56,6 @@
     damage:
       groups:
         Brute: 6
-  - type: Barotrauma # TODO: Make unique sprites
-    highPressureAlert: "IPCLowCirculation"
-    lowPressureAlert: "IPCLowCirculation"
-    pressureAlertCategory: "IPCCirculation"
-    damage:
-      types:
-        Blunt: 0 #Metal can't decompress..
-        Heat: 0.5 #..But it can overheat!
   - type: PassiveDamage # Need it here to disable it.
     allowedStates:
     - Alive
@@ -80,11 +72,6 @@
       - DoorBumpOpener
       - AnomalyHost
       - IPC
-  - type: Temperature
-    heatDamageThreshold: 1800
-    coldDamageThreshold: 260
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: IPC
@@ -190,7 +177,6 @@
   - type: HumanoidEMP
     effect:
       stunAmount: 5.0
-      blindAmount: 10.0
       knockdownAmount: 2.0
       slowdownAmount: 15.0
       walkSpeedModifier: 0.5
@@ -198,6 +184,9 @@
       dropItemsFrom:
         - body_part_slot_right hand
         - body_part_slot_left hand
+      additionalEffects:
+        StatusEffectBlinded: 10.0
+        StatusEffectIPCFanDisabled: 20.0
       damageAmount:
         types:
           Shock: 30
@@ -232,6 +221,51 @@
   - type: UIRequiresLock
     userInterfaceKeys:
     - enum.IPCUiKey.Key
+  # Thermals
+  - type: Temperature
+    heatDamageThreshold: 373 # ~100C
+    coldDamageThreshold: 253 # Temperature alert works funky, basically requred for "ideal temperature" to be in the middle between 2
+    coldDamage: {} # Since we had to set treshold for damage, but we don't actually want any damage
+    coldAlert: ""
+    hotAlert: "" # Just hide all alerts, we don't care
+    heatDamage:
+      types:
+        Heat: 2.5 #per second, scales with temperature & other constants
+    currentTemperature: 313
+    specificHeat: 10 # IPC's metal body has very low heat capacity. Fast to heat and fast to cool
+  - type: IPCThermalRegulation
+    produceHeat: 2000 # How much heat generated inside the body per second (only when on)
+    radiateHeat: 300 # Passive heat loss, even when dead and/or spaced
+    minEffectivePressure: 80
+    maxEffectivePressure: 200 # Outside of optimal window fans become less effective
+    minPressure: 10
+    maxPressure: 500 # Outside of this window fans stop working entirely
+    # External cooling completely turns off natual heat generation and loss. 
+    # Active cooling will still work until the temperature is normal, then it will stay unchanging until external cooling is removed
+    externalCoolingTag: IPCExternalCooling # Items must have this tag on them
+    externalCoolingCheckSlots: # All slots must have item in them, and all these items must have tag
+      - outerClothing
+      #- head # uncomment and add tags to helmets if you want them to be closed in space
+    fansOffExamineText: ipc-thermals-examine-off
+    fansOffDiagnosticsText: ipc-thermals-diagnostics-off
+    fansOKAlert: IPCFansOk
+    fansOffAlert: IPCFansOff
+    fansEfficiencyLowAlert: IPCFansEfficiencyLow
+    alertsCategory: IPCCirculation
+    fanModes:
+      - minTemp: 323 # Fans turn on at ~50C
+        bodyHeatEffect: -2500 # And release just enough heat to keep temperature stable in normal conditions
+        atmosHeatEffect: 50 # In a perfect simulation heat would be transferred from IPC to atmos, but in current state of the game we can't do that
+        staysOnFor: 10 # Every time this fan mode activated, it can't be switched off for this long, to prevent fans constantly switching back and forth
+        examineText: ipc-thermals-examine-low # Text you see when examining IPC upclose (hearing or not hearing sound of fans)
+        diagnosticsText: ipc-thermals-diagnostics-low # Text to show in control panel
+      - minTemp: 353 # At ~80C fans go into overdrive
+        bodyHeatEffect: -6000
+        atmosHeatEffect: 150
+        staysOnFor: 10
+        examineText: ipc-thermals-examine-high
+        diagnosticsText: ipc-thermals-diagnostics-high
+        modeAlert: IPCFansSpeedHigh
 
 - type: entity
   parent: BaseSpeciesDummy

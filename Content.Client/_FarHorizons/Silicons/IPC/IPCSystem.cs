@@ -4,6 +4,6 @@ namespace Content.Client._FarHorizons.Silicons.IPC;
 
 public sealed partial class IPCSystem : SharedIPCSystem
 {
-    protected override void UpdateBatteryTimer(Entity<IPCBatteryComponent> ent) { }
-
+    protected override void UpdateBattery(float frameTime) { }
+    protected override void UpdateThermals(float frameTime) { }
 }
