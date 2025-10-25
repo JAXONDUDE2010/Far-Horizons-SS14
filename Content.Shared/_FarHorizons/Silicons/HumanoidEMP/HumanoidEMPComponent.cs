@@ -16,9 +16,6 @@ public sealed partial class HumanoidEMPEffect
     public DamageSpecifier DamageAmount = new();
 
     [DataField]
-    public TimeSpan BlindAmount = default!;
-
-    [DataField]
     public TimeSpan KnockdownAmount = default!;
 
     [DataField]
@@ -34,20 +31,32 @@ public sealed partial class HumanoidEMPEffect
     public List<string> DropItemsFrom = [];
 
     [DataField]
-    public EntProtoId BlindStatusEffect = "StatusEffectBlinded";
+    public Dictionary<EntProtoId, TimeSpan> AdditionalEffects = [];
 
     public static HumanoidEMPEffect operator +(HumanoidEMPEffect a, HumanoidEMPEffect b) => new()
     {
         StunAmount = a.StunAmount + b.StunAmount,
         DamageAmount = a.DamageAmount + b.DamageAmount,
-        BlindAmount = a.BlindAmount + b.BlindAmount,
         KnockdownAmount = a.KnockdownAmount + b.KnockdownAmount,
         SlowdownAmount = a.SlowdownAmount + b.SlowdownAmount,
         WalkSpeedModifier = Math.Min(a.WalkSpeedModifier, b.WalkSpeedModifier),
         SprintSpeedModifier = Math.Min(a.SprintSpeedModifier, b.SprintSpeedModifier),
         DropItemsFrom = [.. a.DropItemsFrom.Union(b.DropItemsFrom)],
-        BlindStatusEffect = a.BlindStatusEffect,
+        AdditionalEffects = CombineEffects(a.AdditionalEffects, b.AdditionalEffects)
     };
+
+    public static Dictionary<EntProtoId, TimeSpan> CombineEffects(Dictionary<EntProtoId, TimeSpan> a, Dictionary<EntProtoId, TimeSpan> b)
+    {
+        var res = a;
+        foreach (var (key, value) in b)
+        {
+            if (res.TryGetValue(key, out _))
+                res[key] += value;
+            else
+                res[key] = value;
+        }
+        return res;
+    }
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

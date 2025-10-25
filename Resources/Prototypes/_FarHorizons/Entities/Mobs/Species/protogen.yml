@@ -39,7 +39,6 @@
   - type: HumanoidEMP
     effect:
       stunAmount: 5.0
-      blindAmount: 10.0
       knockdownAmount: 2.0
       slowdownAmount: 15.0
       walkSpeedModifier: 0.5
@@ -47,6 +46,8 @@
       dropItemsFrom:
         - body_part_slot_right hand
         - body_part_slot_left hand
+      additionalEffects:
+        StatusEffectBlinded: 10.0
       damageAmount:
         types:
           Shock: 10

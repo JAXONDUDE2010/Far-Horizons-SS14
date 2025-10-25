@@ -7,6 +7,42 @@
   description: alerts-battery-crit-desc
 
 - type: alert
+  id: IPCFansOk
+  category: IPCCirculation
+  icons:
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot1
+  name: alerts-ipc-fans-ok-name
+  description: alerts-ipc-fans-ok-desc
+
+- type: alert
+  id: IPCFansEfficiencyLow
+  category: IPCCirculation
+  icons:
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot3
+  name: alerts-ipc-fans-efficiency-low-name
+  description: alerts-ipc-fans-efficiency-low-desc
+
+- type: alert
+  id: IPCFansOff
+  category: IPCCirculation
+  icons:
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot4
+  name: alerts-ipc-fans-off-name
+  description: alerts-ipc-fans-off-desc
+
+- type: alert
+  id: IPCFansSpeedHigh
+  category: IPCCirculation
+  icons:
+  - sprite: /Textures/_FarHorizons/Interface/Alerts/ipcventilation.rsi
+    state: hot2
+  name: alerts-ipc-fans-speed-high-name
+  description: alerts-ipc-fans-speed-high-desc
+
+- type: alert
   id: IPCLowCirculation
   category: IPCCirculation
   icons:

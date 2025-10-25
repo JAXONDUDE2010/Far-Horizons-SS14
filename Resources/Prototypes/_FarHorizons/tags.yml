@@ -23,6 +23,9 @@
   id: IPC
 
 - type: Tag
+  id: IPCExternalCooling
+
+- type: Tag
   id: Protogen
 
 - type: Tag

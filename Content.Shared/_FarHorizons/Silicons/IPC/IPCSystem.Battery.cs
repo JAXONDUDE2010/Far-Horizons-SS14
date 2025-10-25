@@ -23,23 +23,7 @@ public abstract partial class SharedIPCSystem
         SubscribeLocalEvent<IPCBatteryComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);
     }
 
-    private void UpdateBattery(float deltaTime)
-    {
-        // When battery runs out, we begin countdown and call events as it's ticking and another event when time has ran out
-        var query = EntityQueryEnumerator<IPCBatteryComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (!comp.TimerActive)
-                continue;
-
-            comp.Timer = Math.Max(comp.Timer - deltaTime, 0f);
-            if (comp.Timer == 0f)
-                comp.TimerActive = false;
-            UpdateBatteryTimer((uid, comp));
-        }
-    }
-
-    protected abstract void UpdateBatteryTimer(Entity<IPCBatteryComponent> ent);
+    protected abstract void UpdateBattery(float frameTime);
 
     private void AddBatteryAltVerbs(GetVerbsEvent<AlternativeVerb> ev)
     {

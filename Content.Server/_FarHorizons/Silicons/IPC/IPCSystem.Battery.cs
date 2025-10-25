@@ -28,9 +28,28 @@ public sealed partial class IPCSystem
         _powerCell.SetDrawEnabled(ent.Owner, !_state.IsDead(ent));
         UpdateUI(ent);
     }
+
+    protected override void UpdateBattery(float frameTime)
+    {
+        // When battery runs out, we begin countdown and call events as it's ticking and another event when time has ran out
+        var query = EntityQueryEnumerator<IPCBatteryComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.TimerActive ||
+                _timing.CurTime < comp.NextUpdate)
+                continue;
+
+            comp.NextUpdate = _timing.CurTime + comp.RefreshRate;
+
+            comp.Timer = Math.Max(comp.Timer - frameTime, 0f);
+            if (comp.Timer == 0f)
+                comp.TimerActive = false;
+            UpdateBatteryTimer((uid, comp));
+        }
+    }
         
 
-    protected override void UpdateBatteryTimer(Entity<IPCBatteryComponent> ent)
+    private void UpdateBatteryTimer(Entity<IPCBatteryComponent> ent)
     {
         if (!_state.IsAlive(ent))
             return;

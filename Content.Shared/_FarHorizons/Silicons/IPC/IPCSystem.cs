@@ -28,15 +28,13 @@ public abstract partial class SharedIPCSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const float TimerDelay = 1f;
-    private float _timer = 0f;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<GetVerbsEvent<AlternativeVerb>>(AddAltVerbs);
 
+        SetupThermals();
         SetupBrain();
         SetupRevive();
         SetupBattery();
@@ -56,11 +54,7 @@ public abstract partial class SharedIPCSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        _timer += frameTime;
-        if (_timer < TimerDelay)
-            return;
-        _timer -= TimerDelay;
-
-        UpdateBattery(TimerDelay);
+        UpdateBattery(frameTime);
+        UpdateThermals(frameTime);
     }
 }
