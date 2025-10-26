@@ -125,7 +125,10 @@
     dieWithoutPowerAfter: 10.0 # 20 Seconds was too forgiving
     numWarnings: 2 #warn player that they are about to die
     warningText: ipc-warning-critical-charge
-    warningSound: /Audio/_FarHorizons/Effects/Alerts/healthpanel-alert.ogg # Note for Gurchi, put this ogg at the "ALERT!" level warning too. Also needs to be able to loop..
+    warningSound:
+      params:
+        loop: true
+      path: /Audio/_FarHorizons/Effects/Alerts/healthpanel-alert.ogg
     drainAllowedTargets:
       - APCBasic
       - APCHighCapacity
