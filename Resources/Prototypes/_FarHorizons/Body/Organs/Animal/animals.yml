@@ -1,0 +1,17 @@
+- type: entity
+  id: OrganAnimalBrain
+  parent: [BaseItem, OrganHumanBrain]
+  name: animal brain
+  description: "The source of incredible, unending mischief. Ook."
+
+- type: entity
+  id: OrganAnimalEyes
+  parent: [BaseItem, OrganHumanEyes]
+  name: animal eyes
+  description: "I Spy."
+
+- type: entity
+  id: OrganAnimalTongue
+  parent: [BaseItem, OrganHumanTongue]
+  name: animal tongue
+  description: "A fleshy muscle mostly used for screeching."

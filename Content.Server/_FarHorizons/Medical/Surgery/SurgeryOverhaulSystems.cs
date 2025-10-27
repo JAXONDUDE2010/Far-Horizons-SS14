@@ -14,12 +14,10 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
-using Content.Shared.Starlight.Medical.Surgery.Effects.Step;
 using System.Linq;
-using Robust.Shared.Containers;
 using Content.Shared.Atmos.Rotting;
+using Content.Server.Administration.Systems; 
 
 namespace Content.Server._FarHorizons.Medical.SurgeryOverhaul.Systems;
 
@@ -36,6 +34,7 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _sharedBodySystem = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
+    [Dependency] private readonly StarlightEntitySystem _entity = default!;
     private readonly List<EntProtoId> _surgeriesForRotten = [];
 
     public override void Initialize()
@@ -109,47 +108,23 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         
         for (int i = 0; i < surgProtoComp.AmountOfSurgeries; i++)
         {
-            EntProtoId? chosenSurgery;
+            EntProtoId chosenSurgery;
             if (_surgeriesForRotten.Count == 0)
                 break;
                 
             while (true)
             {
                 chosenSurgery = _random.PickAndTake(_surgeriesForRotten);
-                var chosenSurgeryProto = _prototypes.Index<EntityPrototype>(chosenSurgery);
-                if (!TryComp<BodyPartComponent>(args.Part, out var partComp))
-                    return;
+                if (!_entity.TryGetSingleton(chosenSurgery, out var surgeryEnt))
+                    continue;
+                var ev = new SurgeryValidEvent(args.Body, args.Part);
 
-                if (chosenSurgeryProto.TryGetComponent<SurgeryOrganExistConditionComponent>(out var organComp, _componentFactory))
-                {
-                    var Organs = _sharedBodySystem.GetPartOrgans(args.Part, partComp);
-                    var organType = organComp.Organ!.Values.First().Component.GetType();
-                    var hasOrgan = false;
-                    foreach (var organ in Organs)
-                        if (HasComp(organ.Id, organType))
-                        {
-                            hasOrgan = true;
-                            break;
-                        }
-                    if (!hasOrgan) continue;
-                }
-                if (chosenSurgeryProto.TryGetComponent<NecrosisSurgeryStepComponent>(out var necroSurgComp, _componentFactory) &&
-                    TryComp<ContainerManagerComponent>(args.Part, out var container) && necroSurgComp.Target != "bodypart")
-                    if (container.Containers.TryGetValue(necroSurgComp.Target, out var limb) && limb.ContainedEntities.Count == 0)
-                        continue;
+                RaiseLocalEvent(surgeryEnt, ref ev);
 
-                if (chosenSurgeryProto.TryGetComponent<SurgerySpeciesConditionComponent>(out var speciesComp, _componentFactory) &&
-                    TryComp<HumanoidAppearanceComponent>(args.Body, out var charComp))
-                {
-                    var blacklist = speciesComp.SpeciesBlacklist;
-                    var whitelist = speciesComp.SpeciesWhitelist;
-                    if (whitelist.Contains(charComp.Species))
-                        break;
-                    else if (blacklist.Count > 0 && !blacklist.Contains(charComp.Species))
-                        break;
-                }
+                if (!ev.Cancelled)
+                    break;
             }
-            surgComp.RequiredSurgeries.Add((EntProtoId)chosenSurgery!);
+            surgComp.RequiredSurgeries.Add(chosenSurgery!);
         }
     }
 

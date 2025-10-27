@@ -93,7 +93,8 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-
+  - type: SurgeryTarget
+  
 - type: entity
   parent: PartAnimal
   id: LeftHandSmartCorgi
