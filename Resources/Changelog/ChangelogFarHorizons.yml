@@ -1057,5 +1057,12 @@ Entries:
   id: 24902
   time: '2025-10-27T17:35:00.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/249
+- author: CorruptOmega
+  changes:
+  - message: Fixed Hard Worn Suit sprite to have have funny floating pixels
+    type: Fix
+  id: 25200
+  time: '2025-10-27T17:38:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/252
 Order: -1
 
