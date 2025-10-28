@@ -24,6 +24,9 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Buckle.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Research.Components;
+using Content.Server.NPC.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC;
 //FarHorizons End
 
 namespace Content.Server.Starlight.Medical.Surgery;
@@ -149,10 +152,20 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
                             ResearchModifier = value;
                     }
                 }
-                
+
                 var BonusRotRemoved = Math.Round((rotting.TotalRotTime.TotalSeconds + perishable.RotAccumulator.TotalSeconds) / ResearchModifier);
-                _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time+BonusRotRemoved));      
+                _rottingSystem.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(surgComp.time + BonusRotRemoved));
             }
+
+        if(type == typeof(OrganBrainComponent))
+        {
+            if (HasComp<NPCRetaliationComponent>(args.Body))
+                RemComp<NPCRetaliationComponent>(args.Body);
+            if (HasComp<NpcFactionMemberComponent>(args.Body))
+                RemComp<NpcFactionMemberComponent>(args.Body);
+            if (HasComp<ActiveNPCComponent>(args.Body))
+                RemComp<ActiveNPCComponent>(args.Body);
+        }            
         //Far Horizons End
         if (ent.Comp.Slot != null && _containers.TryGetContainer(args.Part, SharedBodySystem.GetOrganContainerId(ent.Comp.Slot), out var container))
         {

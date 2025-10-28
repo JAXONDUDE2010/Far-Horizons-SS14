@@ -31,6 +31,7 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: SurgeryTarget
 
 - type: entity
   id: HandsAnimal
@@ -75,7 +76,7 @@
 
 - type: entity
   id: TorsoAnimal
-  name: animal body
+  name: animal torso
   parent: PartAnimal
   categories: [ HideSpawnMenu ]
   components:
@@ -93,7 +94,6 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-  - type: SurgeryTarget
   
 - type: entity
   parent: PartAnimal
