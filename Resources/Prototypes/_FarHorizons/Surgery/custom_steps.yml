@@ -79,6 +79,7 @@
         Heat: -5
         Cold: -5
         Caustic: -5
+        Shock: -5
   - type: OnFailDamage
     damage: 
       types:
