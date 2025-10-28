@@ -17,6 +17,8 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y python3-git
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
     - name: Publish changelog (Discord)
       run: Tools/actions_live_changelog.py
       env:
