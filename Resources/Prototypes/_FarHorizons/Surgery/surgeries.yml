@@ -82,6 +82,7 @@
   components:
   - type: Surgery
     steps:
+    - SurgeryStepCutRottenFlesh
     - SurgeryStepInspectForNecrosis
   - type: SurgeryPartCondition
     parts:
