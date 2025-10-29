@@ -87,7 +87,7 @@
     sprite: _FarHorizons/Objects/Consumable/Food/Baked/donut.rsi
     size: Normal
     shape:
-    - 0,0,5,1
+    - 0,0,2,1
     heldPrefix: box
   - type: StorageFill
     contents:
