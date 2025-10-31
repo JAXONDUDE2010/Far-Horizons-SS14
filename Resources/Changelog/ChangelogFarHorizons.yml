@@ -1115,5 +1115,34 @@ Entries:
   id: 27103
   time: '2025-10-31T01:49:09.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/271
+- author: CorruptOmega
+  changes:
+  - message: Magi/IAA now have syndi side icons. Oopsies
+    type: Tweak
+  id: 27300
+  time: '2025-10-31T22:43:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/273
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Station Borg will no longer be an Assault Borg. Due to code
+      currently they are the same as NT side borgs.
+    type: Tweak
+  id: 27301
+  time: '2025-10-31T22:43:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/273
+- author: CorruptOmega
+  changes:
+  - message: Improved Syndicate Sec Borg Light, it was way too dim/constricted
+    type: Tweak
+  id: 27302
+  time: '2025-10-31T22:43:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/273
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Silicon are no longer from SELF. They are still Syndicate aligned.
+    type: Tweak
+  id: 27303
+  time: '2025-10-31T22:43:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/273
 Order: -1
 
