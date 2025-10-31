@@ -79,7 +79,7 @@
   id: JobIconSyndieIAA
   icon:
     sprite: /Textures/_FarHorizons/Interface/Misc/syndie_job_icons.rsi
-    state: IAA-Syndi
+    state: IAA-syndi
 
 # Security
 

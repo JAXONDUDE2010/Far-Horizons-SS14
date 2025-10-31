@@ -14,6 +14,7 @@ faction-syndicate-job-detective = Inspector
 faction-syndicate-job-officer = Law Enforcer
 faction-syndicate-job-cadet = Recruit
 faction-syndicate-job-secborg = L.E.A.D.
+## Law Enforcement Assault Droid
 
 faction-syndicate-job-bso = Operative "Red Sword"
 
