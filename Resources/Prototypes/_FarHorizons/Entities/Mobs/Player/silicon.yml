@@ -24,6 +24,7 @@
 - type: entity
   id: PlayerSecBorgBatterySyndicate
   parent: PlayerSecBorgBattery
+  suffix: Syndicate
   components:
     - type: Sprite
       sprite: Mobs/Silicon/Chassis/synd_sec.rsi
@@ -50,5 +51,10 @@
       noMindState: borg
     - type: PointLight
       color: "#dd200b"
-      radius: 2
-      energy: 1
+      radius: 4
+      energy: 2
+
+- type: entity
+  id: PlayerBorgBatterySyndicate
+  parent: PlayerBorgBattery
+  suffix: Syndicate
