@@ -1086,5 +1086,34 @@ Entries:
   id: 26900
   time: '2025-10-29T18:50:19.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/269
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Role Names thanks to suggestions on Discord
+    type: Add
+  id: 27100
+  time: '2025-10-31T01:49:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/271
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Role Icons thanks to Hanz and Rina
+    type: Add
+  id: 27101
+  time: '2025-10-31T01:49:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/271
+- author: CorruptOmega
+  changes:
+  - message: Role Loadouts duplicated from NT roles till they can be resprited/updated.
+    type: Add
+  id: 27102
+  time: '2025-10-31T01:49:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/271
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Faction can now be selected by admins. Only change currently
+      on syndicate faction are the role names and icons.
+    type: Tweak
+  id: 27103
+  time: '2025-10-31T01:49:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/271
 Order: -1
 
