@@ -1,23 +1,14 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original from https://github.com/tgstation/tgstation/blob/42ebbb4202b472cf94561974a30e00a0b00e11bc/icons/mob/screen1_robot.dmi, edited by Killer Tamashi (Discord)",
+  "copyright": "Original from https://github.com/tgstation/tgstation/blob/42ebbb4202b472cf94561974a30e00a0b00e11bc/icons/mob/screen1_robot.dmi, edited by @Doru991, edited again by Killer Tamashi (Discord)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "fanineffective",
-      "delays": [
-        [
-            0.5,
-            0.5
-        ]
-      ]
-    },
-    {
-      "name": "hot0",
+      "name": "health0",
       "delays": [
         [
             1.0,
@@ -26,7 +17,7 @@
       ]
     },
     {
-      "name": "hot1",
+      "name": "health1",
       "delays": [
         [
             1.0,
@@ -35,7 +26,7 @@
       ]
     },
     {
-      "name": "hot2",
+      "name": "health2",
       "delays": [
         [
             1.0,
@@ -44,7 +35,7 @@
       ]
     },
     {
-      "name": "hot3",
+      "name": "health3",
       "delays": [
         [
             1.0,
@@ -53,7 +44,7 @@
       ]
     },
     {
-      "name": "hot4",
+      "name": "health4",
       "delays": [
         [
             0.5,

@@ -39,7 +39,7 @@
       100: Critical
       200: Dead
     stateAlertDict:
-      Alive: BorgHealth
+      Alive: IPCHealth
       Critical: BorgCrit
       Dead: BorgDead
   - type: WiresPanel

@@ -24,6 +24,7 @@
     - alertType: Stun
     - category: Breathing # Vox gang not calling this oxygen
     - category: IPCCirculation #Far Horizons
+    - category: IPCBattery # Far Horizons
     - category: Pressure
     - alertType: Bleed
     - category: Temperature

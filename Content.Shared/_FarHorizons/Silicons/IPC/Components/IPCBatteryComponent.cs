@@ -27,9 +27,9 @@ public sealed partial class IPCBatteryComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> ChargeCritical = "IPCBatteryCrit";
     [DataField]
-    public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+    public ProtoId<AlertPrototype> NoBatteryAlert = "IPCBatteryNone";
     [DataField]
-    public ProtoId<AlertPrototype> BatteryAlert = "BorgBattery";
+    public ProtoId<AlertPrototype> BatteryAlert = "IPCBattery";
 
     [DataField]
     public List<EntProtoId> DrainAllowedTargets = [];
