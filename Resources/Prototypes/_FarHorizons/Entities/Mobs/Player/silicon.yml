@@ -52,7 +52,7 @@
     - type: PointLight
       color: "#dd200b"
       radius: 4
-      energy: 1
+      energy: 2
 
 - type: entity
   id: PlayerBorgBatterySyndicate
