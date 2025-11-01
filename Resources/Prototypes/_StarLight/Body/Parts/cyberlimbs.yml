@@ -177,10 +177,7 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "l_silver_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandLeft
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - ScalpelCyber
         - RetractorCyber
@@ -190,6 +187,14 @@
         - HemostatCyber
         - BoneSetterCyber
         - BoneGel
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+          - BoneGel
     - type: WithAttachedBodyParts
       parts:
         left hand: LeftHandCyber
@@ -209,10 +214,7 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "r_silver_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandRight
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - ScalpelCyber
         - RetractorCyber
@@ -222,6 +224,14 @@
         - HemostatCyber
         - BoneSetterCyber
         - BoneGel
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+          - BoneGel
     - type: WithAttachedBodyParts
       parts:
         right hand: RightHandCyber
@@ -241,20 +251,23 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "l_steel_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandLeft
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - WrenchCyber
         - ScrewdriverCyber
         - CrowbarCyber
         - WirecutterCyber
         - WelderCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         left hand: LeftHandCyber
-
 - type: entity
   id: RightArmCyberMechwright
   name: "right mechwright arm"
@@ -270,16 +283,20 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "r_steel_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandRight
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - WrenchCyber
         - ScrewdriverCyber
         - CrowbarCyber
         - WirecutterCyber
         - WelderCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         right hand: RightHandCyber
@@ -299,13 +316,17 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "l_bulwark_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandLeft
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - EnergyShieldCyber
         - CyberEnergyChainsword
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         left hand: LeftHandCyber
@@ -325,13 +346,17 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "r_bulwark_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandRight
-      sound: 
-        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+    - type: LimbItemStorage
       items:
         - EnergyShieldCyber
         - CyberEnergyChainsword
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         right hand: RightHandCyber
@@ -352,12 +377,16 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "l_mantis_blade_arm"
-    - type: LimbWithItems
+    - type: LimbItemStorage
+      items:
+        - CyberMantisBlade
+    - type: LimbItemDeployer
       action: ActionToggleCyberHandLeft
       sound:
         path: /Audio/Effects/metal_scrape1.ogg
-      items:
-        - CyberMantisBlade
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         left hand: LeftHandCyber
@@ -377,12 +406,16 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "r_mantis_blade_arm"
-    - type: LimbWithItems
+    - type: LimbItemStorage
+      items:
+        - CyberMantisBlade
+    - type: LimbItemDeployer
       action: ActionToggleCyberHandRight
       sound:
         path: /Audio/Effects/metal_scrape1.ogg
-      items:
-        - CyberMantisBlade
+      handWhitelist:
+        tags:
+          - CyberHandItem
     - type: WithAttachedBodyParts
       parts:
         right hand: RightHandCyber
@@ -403,10 +436,7 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "l_ripper_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandLeft
-      sound: 
-        path: /Audio/Effects/metal_scrape1.ogg
+    - type: LimbItemStorage
       items:
         - ScalpelRipper
         - RetractorRipper
@@ -416,11 +446,20 @@
         - HemostatRipper
         - BoneSetterRipper
         - BoneGelRipper
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound: 
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+          - BoneGel
     - type: WithAttachedBodyParts
       parts:
         left hand: LeftHandCyber
-    - type: RoundstartImplantable
-      cost: 2
+    - type: Construction
+      graph: RipperLeftGraph
+      node: left
 
 - type: entity
   id: RightArmCyberRipper
@@ -437,10 +476,7 @@
     - type: Icon
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: "r_ripper_arm"
-    - type: LimbWithItems
-      action: ActionToggleCyberHandRight
-      sound: 
-        path: /Audio/Effects/metal_scrape1.ogg
+    - type: LimbItemStorage
       items:
         - ScalpelRipper
         - RetractorRipper
@@ -450,8 +486,17 @@
         - HemostatRipper
         - BoneSetterRipper
         - BoneGelRipper
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound: 
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+          - BoneGel
     - type: WithAttachedBodyParts
       parts:
         right hand: RightHandCyber
-    - type: RoundstartImplantable
-      cost: 2
+    - type: Construction
+      graph: RipperRightGraph
+      node: right
