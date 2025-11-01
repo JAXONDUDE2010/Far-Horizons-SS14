@@ -38,6 +38,10 @@ public sealed partial class IPCLockComponent : Component
     public WiresPanelComponent WiresPanel = default!;
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextSound;
+    [DataField]
+    public LocId LockedPopupMessage = "entity-storage-component-locked-message";
+    [DataField]
+    public SoundSpecifier? LockedSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
 }
 
 [Serializable, NetSerializable]

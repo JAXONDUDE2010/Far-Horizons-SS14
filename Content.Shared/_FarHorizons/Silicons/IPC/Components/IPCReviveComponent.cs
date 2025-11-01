@@ -4,6 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._FarHorizons.Silicons.IPC.Components;
 
@@ -40,6 +41,18 @@ public sealed partial class IPCReviveComponent : Component
     [DataField]
     [AutoNetworkedField]
     public bool DefibBatteryDrain = false;
+
+    [DataField]
+    public LocId RebootButtonLabel = "ipc-revive-button-label";
+
+    [DataField]
+    public LocId RebootButtonSubmenuLabel = "ipc-revive-button-submenu";
+
+    [DataField]
+    public string RebootButtonIcon = "/Textures/Interface/VerbIcons/zap.svg.192dpi.png";
+
+    [DataField]
+    public string RebootButtonSubmenuIcon = "/Textures/Interface/VerbIcons/group.svg.192dpi.png";
 
     [DataField]
     public SoundSpecifier? DamagedSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");

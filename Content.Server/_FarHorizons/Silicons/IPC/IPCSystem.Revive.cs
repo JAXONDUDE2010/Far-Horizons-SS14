@@ -51,17 +51,17 @@ public sealed partial class IPCSystem
     {
         if (!ev.CanInteract || !ev.CanAccess || !ev.CanComplexInteract ||
             !TryComp<IPCReviveComponent>(ev.Target, out var revive) ||
-            !TryComp<WiresPanelComponent>(ev.Target, out var wires) ||
-            !wires.Open ||
+            !TryComp<IPCLockComponent>(ev.Target, out var lockComp) ||
+            lockComp.Lock.Locked ||
             !revive!.RebootButton ||
             !_state.IsDead(ev.Target))
             return;
 
         var verb = new Verb
         {
-            Text = "Reboot",
-            Category = new("IPC", "/Textures/Interface/VerbIcons/group.svg.192dpi.png"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+            Text = Loc.GetString(revive.RebootButtonLabel),
+            Category = new(revive.RebootButtonSubmenuLabel, revive.RebootButtonSubmenuIcon),
+            Icon = new SpriteSpecifier.Texture(new ResPath(revive.RebootButtonIcon)),
             Act = () => StartReboot((ev.Target, revive)),
         };
 

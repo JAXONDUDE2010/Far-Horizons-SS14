@@ -43,7 +43,6 @@
       Critical: BorgCrit
       Dead: BorgDead
   - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
