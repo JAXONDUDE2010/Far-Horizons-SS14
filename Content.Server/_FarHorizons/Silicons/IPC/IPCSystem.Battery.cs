@@ -32,8 +32,11 @@ public sealed partial class IPCSystem
 
     private void OnBatteryGibbed(Entity<IPCBatteryComponent> ent, ref BeingGibbedEvent args) =>
         _container.EmptyContainer(ent.Comp.BatteryContainerSlot);
-    private void OnBatteryTimerStart(Entity<IPCBatteryComponent> ent, ref IPCBatteryDeathTimerStart args) =>
-        ent.Comp.Playing = _audio.PlayPvs(ent.Comp.WarningSound, ent);
+    private void OnBatteryTimerStart(Entity<IPCBatteryComponent> ent, ref IPCBatteryDeathTimerStart args)
+    {
+        if (!TryComp<IPCReviveComponent>(ent, out var revive) || revive.DamageSoundEnt == null)
+            ent.Comp.Playing = _audio.PlayPvs(ent.Comp.WarningSound, ent);
+    }
     private void OnBatteryTimerEnd(Entity<IPCBatteryComponent> ent, ref IPCBatteryDeathTimerEnd args)
     {
         if (ent.Comp.Playing == null)

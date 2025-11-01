@@ -151,7 +151,8 @@ public sealed partial class IPCSystem
             ent.Comp.DamageSoundEnt = null;
         } else if (ent.Comp.DamageSoundEnt == null && IsDamaged(ent, args.Damageable) && !_state.IsDead(ent))
         {
-            ent.Comp.DamageSoundEnt = _audio.PlayPvs(ent.Comp.DamagedSound, ent);
+            if (!TryComp<IPCBatteryComponent>(ent, out var battery) || battery.Playing == null)
+                ent.Comp.DamageSoundEnt = _audio.PlayPvs(ent.Comp.DamagedSound, ent);
         }
     }
 
