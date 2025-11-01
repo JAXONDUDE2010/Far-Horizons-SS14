@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -39,6 +40,24 @@ public sealed partial class IPCReviveComponent : Component
     [DataField]
     [AutoNetworkedField]
     public bool DefibBatteryDrain = false;
+
+    [DataField]
+    public SoundSpecifier? DamagedSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");
+
+    [DataField]
+    [AutoNetworkedField]
+    public DamageThreshold DamagedThreshold = default!;
+
+    public Entity<AudioComponent>? DamageSoundEnt = null;
+
+    [DataDefinition, Serializable, NetSerializable]
+    public sealed partial class DamageThreshold
+    {
+        [DataField]
+        public int Min = 100;
+        [DataField]
+        public int? Max = null;
+    }
 }
 
 [Serializable, NetSerializable]

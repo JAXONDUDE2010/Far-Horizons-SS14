@@ -19,6 +19,8 @@ public sealed partial class IPCSystem
 
         SubscribeLocalEvent<IPCReviveComponent, TargetBeforeDefibrillatorZapsEvent>(OnBeforeZap);
         SubscribeLocalEvent<IPCReviveComponent, IPCRebootDoAfterEvent>(OnReviveDoAfter);
+        SubscribeLocalEvent<IPCReviveComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<IPCReviveComponent, MobStateChangedEvent>(OnStateChanged);
     }
 
     private void OnReviveDoAfter(Entity<IPCReviveComponent> ent, ref IPCRebootDoAfterEvent args)
@@ -140,4 +142,29 @@ public sealed partial class IPCSystem
             : ent.Comp.RebootSuccessSound;
         _audio.PlayPvs(sound, ent);
     }
+
+    private void OnDamageChanged(Entity<IPCReviveComponent> ent, ref DamageChangedEvent args)
+    {
+        if (ent.Comp.DamageSoundEnt != null && !IsDamaged(ent, args.Damageable))
+        {
+            _audio.Stop(ent.Comp.DamageSoundEnt);
+            ent.Comp.DamageSoundEnt = null;
+        } else if (ent.Comp.DamageSoundEnt == null && IsDamaged(ent, args.Damageable) && !_state.IsDead(ent))
+        {
+            ent.Comp.DamageSoundEnt = _audio.PlayPvs(ent.Comp.DamagedSound, ent);
+        }
+    }
+
+    private void OnStateChanged(Entity<IPCReviveComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead && ent.Comp.DamageSoundEnt != null)
+        {
+            _audio.Stop(ent.Comp.DamageSoundEnt);
+            ent.Comp.DamageSoundEnt = null;
+        }
+    }
+
+    public bool IsDamaged(Entity<IPCReviveComponent> ent, DamageableComponent? damageable) =>
+        Resolve(ent, ref damageable) && damageable.TotalDamage >= ent.Comp.DamagedThreshold.Min &&
+            (ent.Comp.DamagedThreshold.Max == null || damageable.TotalDamage <= ent.Comp.DamagedThreshold.Max);
 }
