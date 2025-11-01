@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Content.Client._Starlight;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Hands.Systems;
 using Content.Server.Administration.Systems;
@@ -13,6 +11,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Control;
+//FarHorizons Start
+using Content.Shared.Starlight.Medical.Surgery.Effects.Step;  
+//FarHorizons End
 
 namespace Content.Client._Starlight.Medical.Surgery;
 // Based on the RMC14 build.
@@ -43,12 +44,20 @@ public sealed class SurgeryBui : BoundUserInterface
         _entitySystem = _entities.System<StarlightEntitySystem>();
 
         _hands.OnPlayerItemAdded += OnPlayerItemAdded;
+        _hands.OnPlayerSetActiveHand += OnPlayerSwaphand;//FarHorizons
     }
     private void OnPlayerItemAdded(string k1, EntityUid k2)
     {
         if (!_game.IsFirstTimePredicted) return;
         RefreshUI();
     }
+        //FarHorizons Start
+    private void OnPlayerSwaphand(string? k1)
+    {
+        if (!_game.IsFirstTimePredicted) return;
+        RefreshUI();
+    }
+    //FarHorizons End
     protected override void Open()
     {
         base.Open();
@@ -133,6 +142,7 @@ public sealed class SurgeryBui : BoundUserInterface
                 OnPartPressed(netPart, surgeries);
         }
 
+        _window.ResearchLevelLabel.Text = state.ResearchLevel;
         RefreshUI();
 
         if (!_window.IsOpen)
@@ -216,7 +226,6 @@ public sealed class SurgeryBui : BoundUserInterface
     {
         if (_window == null)
             return;
-
         _part = _entities.GetEntity(netPart);
         _surgery = (surgery, surgeryId);
 
@@ -257,15 +266,14 @@ public sealed class SurgeryBui : BoundUserInterface
             AddStep(stepId, netPart, surgeryId);
         }
 
-        View(ViewType.Steps);
         RefreshUI();
+        View(ViewType.Steps);
     }
 
     private void OnPartPressed(NetEntity netPart, List<(EntProtoId, string, bool)> surgeryIds)
     {
         if (_window == null)
             return;
-
         _part = _entities.GetEntity(netPart);
 
         _window.Surgeries.DisposeAllChildren();
@@ -304,7 +312,6 @@ public sealed class SurgeryBui : BoundUserInterface
             _window.Surgeries.AddChild(surgeryButton);
         }
 
-        RefreshUI();
         View(ViewType.Surgeries);
     }
 
@@ -316,7 +323,6 @@ public sealed class SurgeryBui : BoundUserInterface
         {
             return;
         }
-
         var next = _system.GetNextStep(Owner, _part.Value, _surgery.Value.Ent);
         var i = 0;
         foreach (var child in _window.Steps.Children)
@@ -337,12 +343,19 @@ public sealed class SurgeryBui : BoundUserInterface
             {
                 status = StepStatus.Next;
             }
+            //FarHorizons Start
+            else if (_entities.TryGetComponent(_part, out SurgeryProgressComponent? surgComp) && surgComp != null && (surgComp.ActiveRepeatableStep == $"{_surgery.Value.Proto}:{next.Value.Surgery.Comp.Steps[i]}"))
+            {
+                status = StepStatus.Next;
+            }
+            //FarHorizons End
             else if (i < next.Value.Step)
             {
                 status = StepStatus.Complete;
             }
 
-            stepButton.Button.Disabled = status != StepStatus.Next;
+            stepButton.Button.Disabled = !(status == StepStatus.Next 
+                || status == StepStatus.Complete);
 
             var stepName = new FormattedMessage();
             stepName.AddText(_entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityName);
@@ -395,18 +408,6 @@ public sealed class SurgeryBui : BoundUserInterface
         _window.DisabledPanel.Visible = false;
         _window.DisabledPanel.MouseFilter = MouseFilterMode.Ignore;
         return;
-
-        if (!_system.IsLyingDown(Owner))
-        {
-            _window.DisabledPanel.Visible = true;
-            if (_window.DisabledLabel.GetMessage() is null)
-            {
-                var text = new FormattedMessage();
-                text.AddMarkupOrThrow("[color=red][font size=16]They need to be lying down![/font][/color]");
-                _window.DisabledLabel.SetMessage(text);
-            }
-            _window.DisabledPanel.MouseFilter = MouseFilterMode.Stop;
-        }
     }
 
     private void View(ViewType type)

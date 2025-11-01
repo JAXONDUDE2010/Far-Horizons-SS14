@@ -26,4 +26,8 @@ public sealed partial class SurgeryStepComponent : Component
 
     [DataField]
     public ComponentRegistry? BodyRemove;
+    //FarHorizons Start
+    [DataField]
+    public bool Repeatable = false;
+    //FarHorizons End
 }
