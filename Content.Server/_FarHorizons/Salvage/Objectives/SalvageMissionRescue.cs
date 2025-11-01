@@ -68,10 +68,7 @@ public sealed partial class SalvageMissionRescue : BaseSalvageMissionObjectiveHa
         DeleteWithEffect(allTargets);
 
     }
-    public override void BeforeFTLToMap(EntityUid shuttle)
-    {
-
-    }
+    public override void BeforeFTLToMap(EntityUid shuttle){} // Override intentionally left empty
     public override void OnMapCreated()
     {
         var factions = IoCManager.Resolve<ISharedFactionManager>();
@@ -123,7 +120,8 @@ public sealed partial class SalvageMissionRescue : BaseSalvageMissionObjectiveHa
             if (Rand.Prob(0.4))
             {
                 var gasMaskEnt = EntMan.SpawnAtPosition(GasMask, pos);
-                inventory.TryEquip(ent, gasMaskEnt, MaskSlot, force: true);
+                if (!inventory.TryEquip(ent, gasMaskEnt, MaskSlot, force: true))
+                    EntMan.DeleteEntity(gasMaskEnt);
             }
 
             if (objectivesSpawned < Objective.NumTargets.GetValueOrDefault(Difficulty, 0))

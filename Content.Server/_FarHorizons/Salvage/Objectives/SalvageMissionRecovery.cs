@@ -18,7 +18,7 @@ public sealed partial class SalvageMissionRecovery : BaseSalvageMissionObjective
         SetRewardComponent(expedConsole, ResolveCompletion(allTargets.Count));
         DeleteWithEffect(allTargets);
     }
-    public override void BeforeFTLToMap(EntityUid shuttle){}
+    public override void BeforeFTLToMap(EntityUid shuttle){} // Override intentionally left empty
 
     public override void OnMapCreated()
     {
