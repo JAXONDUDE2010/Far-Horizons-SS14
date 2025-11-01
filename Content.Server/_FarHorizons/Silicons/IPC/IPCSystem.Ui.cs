@@ -1,4 +1,5 @@
 using Content.Shared._FarHorizons.Silicons.IPC;
+using Content.Shared._FarHorizons.Silicons.IPC.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;

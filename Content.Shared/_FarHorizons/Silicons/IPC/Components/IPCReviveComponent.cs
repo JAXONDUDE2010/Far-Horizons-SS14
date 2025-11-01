@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._FarHorizons.Silicons.IPC;
+namespace Content.Shared._FarHorizons.Silicons.IPC.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class IPCReviveComponent : Component
@@ -18,23 +18,18 @@ public sealed partial class IPCReviveComponent : Component
     public TimeSpan RebootTime;
 
     [DataField]
-    [AutoNetworkedField]
     public SoundSpecifier? RebootSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_charge.ogg");
 
     [DataField]
-    [AutoNetworkedField]
     public SoundSpecifier? RebootFailSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_failed.ogg");
 
     [DataField]
-    [AutoNetworkedField]
     public SoundSpecifier? RebootSuccessSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");
 
     [DataField]
-    [AutoNetworkedField]
     public LocId CantReviveMessage = "ipc-revive-cant-revive";
 
     [DataField]
-    [AutoNetworkedField]
     public LocId RebootingMessage = "ipc-revive-reboot-started";
 
     [DataField]
