@@ -211,7 +211,7 @@ public sealed class SurgeryBui : BoundUserInterface
         var stepName = new FormattedMessage();
         stepName.AddText(_entities.GetComponent<MetaDataComponent>(step).EntityName);
 
-        var stepButton = new SurgeryStepButton { Step = step };
+        var stepButton = new SurgeryStepButton { Step = step, TooltipTextSupplier = () => stepName.ToString() };
         stepButton.Button.OnPressed += _ => SendMessage(new SurgeryStepChosenBuiMsg()
         {
             Step = stepId,
@@ -320,9 +320,8 @@ public sealed class SurgeryBui : BoundUserInterface
         if (_window == null ||
             !_entities.HasComponent<SurgeryComponent>(_surgery?.Ent) ||
             !_entities.TryGetComponent(_part, out BodyPartComponent? part))
-        {
             return;
-        }
+
         var next = _system.GetNextStep(Owner, _part.Value, _surgery.Value.Ent);
         var i = 0;
         foreach (var child in _window.Steps.Children)
@@ -332,27 +331,19 @@ public sealed class SurgeryBui : BoundUserInterface
 
             var status = StepStatus.Incomplete;
             if (next == null)
-            {
                 status = StepStatus.Complete;
-            }
+
             else if (next.Value.Surgery.Owner != _surgery.Value.Ent)
-            {
                 status = StepStatus.Incomplete;
-            }
+
             else if (next.Value.Step == i)
-            {
                 status = StepStatus.Next;
-            }
             //FarHorizons Start
             else if (_entities.TryGetComponent(_part, out SurgeryProgressComponent? surgComp) && surgComp != null && (surgComp.ActiveRepeatableStep == $"{_surgery.Value.Proto}:{next.Value.Surgery.Comp.Steps[i]}"))
-            {
                 status = StepStatus.Next;
-            }
             //FarHorizons End
             else if (i < next.Value.Step)
-            {
                 status = StepStatus.Complete;
-            }
 
             stepButton.Button.Disabled = !(status == StepStatus.Next 
                 || status == StepStatus.Complete);
@@ -360,17 +351,18 @@ public sealed class SurgeryBui : BoundUserInterface
             var stepName = new FormattedMessage();
             stepName.AddText(_entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityName);
 
+            var stepDescription = _entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityDescription;
+            Func<string> stepTooltip = !string.IsNullOrEmpty(stepDescription) ? (() => stepDescription) : (() => stepName.ToString() ?? "Empty");
+
             if (status == StepStatus.Complete)
-            {
                 stepButton.Button.Modulate = Color.Green;
-            }
             else if (status == StepStatus.Next)
             {
                 stepButton.Button.Modulate = Color.White;
                 if (_player.LocalEntity is { } player &&
                     !_system.CanPerformStep(player, Owner, part.PartType, stepButton.Step, false, out var popup, out var reason, out _))
                 {
-                    stepButton.ToolTip = popup;
+                    stepButton.TooltipTextSupplier = popup != null ? (() => popup) : stepTooltip;
                     stepButton.Button.Disabled = true;
 
                     switch (reason)
@@ -390,8 +382,13 @@ public sealed class SurgeryBui : BoundUserInterface
                         case StepInvalidReason.TooHigh:
                             stepName.AddMarkupOrThrow(" [color=red](Item Too High)[/color]");
                             break;
+                        case StepInvalidReason.NotEnoughReagent:
+                            stepName.AddMarkupOrThrow(" [color=red](Missing Reagent)[/color]");
+                            break;
                     }
                 }
+                else
+                    stepButton.TooltipTextSupplier = stepTooltip;
             }
 
             var texture = _entities.GetComponentOrNull<SpriteComponent>(stepButton.Step)?.Icon?.Default;

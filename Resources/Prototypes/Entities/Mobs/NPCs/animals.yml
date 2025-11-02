@@ -494,6 +494,10 @@
     - Moffic
     - Mothroach
   # Starlight-end
+  # Starlight-start: Body emotes (wing flap!)
+  - type: BodyEmotes
+    soundsId: MothroachBodyEmotes
+  # Starlight-end
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -518,7 +522,7 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Squeak
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'FlapWings'] # Starlight: Add wing flap
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
@@ -1230,8 +1234,6 @@
   - type: Vocal
     sounds:
       Unsexed: Kangaroo
-  - type: Puller
-    needsHands: false
   - type: StaminaDamageOnHit
     damage: 8 #Stam damage values seem a bit higher than regular damage because of the decay, etc
     # This needs to be moved to boxinggloves
@@ -1361,8 +1363,6 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: Puller
-    needsHands: false
   - type: CanHostGuardian
   - type: NPCRetaliation
     attackMemoryLength: 10
@@ -2528,6 +2528,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
@@ -2746,6 +2748,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: possum
@@ -2820,6 +2824,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: fox
@@ -2904,6 +2910,8 @@
     rootTask:
       task: RuminantHostileCompound
   - type: MessyDrinker
+  - type: Puller
+    needsHands: false
   - type: Tag
     tags:
     - VimPilot
@@ -2951,6 +2959,8 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
+  - type: Puller
+    needsHands: false
 
 - type: entity
   parent: MobCorgiBase
@@ -3151,6 +3161,8 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Puller
+    needsHands: false
   - type: Tag
     tags:
     - VimPilot
@@ -3439,6 +3451,8 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Puller
+    needsHands: false
 
 - type: entity
   name: hamster
@@ -3834,8 +3848,6 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: Puller
-    needsHands: false
 
 - type: entity
   name: reindeer doe
