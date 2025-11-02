@@ -113,7 +113,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: RobocopLawset
+    laws: RobocopAI
     IsLawboard: true # Starlight
   - type: StaticPrice # Starlight-edit: Added lawboards to cargo
     price: 1000

@@ -19,9 +19,10 @@
       visible: false
   - type: BorgChassis
     maxModules: 2
-    tags:
-    - BorgModuleGeneric
-    - BorgModuleSyndicate
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSyndicate
     hasMindState: borg_e
     noMindState: borg_e_r
   - type: InteractionPopup
