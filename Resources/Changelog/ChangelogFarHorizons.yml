@@ -1292,5 +1292,19 @@ Entries:
   id: 27602
   time: '2025-11-01T18:08:36.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/276
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Upstream merge
+    type: Add
+  id: 28000
+  time: '2025-11-02T16:03:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/280
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: 'revert SL #1560 by R3v3l4t1on'
+    type: Remove
+  id: 28001
+  time: '2025-11-02T16:03:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/280
 Order: -1
 
