@@ -1306,5 +1306,33 @@ Entries:
   id: 28001
   time: '2025-11-02T16:03:53.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/280
+- author: AthenaAI
+  changes:
+  - message: Monkeys still being a ghost role after getting their brain removed.
+    type: Fix
+  id: 28400
+  time: '2025-11-04T22:39:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/284
+- author: AthenaAI
+  changes:
+  - message: Monkeys unable to move after getting a new brain.
+    type: Fix
+  id: 28401
+  time: '2025-11-04T22:39:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/284
+- author: AthenaAI
+  changes:
+  - message: Limbs making you bleed when you held them after amputation.
+    type: Fix
+  id: 28402
+  time: '2025-11-04T22:39:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/284
+- author: AthenaAI
+  changes:
+  - message: Surgery beds not drawing power properly.
+    type: Fix
+  id: 28403
+  time: '2025-11-04T22:39:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/284
 Order: -1
 
