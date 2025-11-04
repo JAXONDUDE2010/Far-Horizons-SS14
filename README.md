@@ -25,7 +25,7 @@ FAR HORIZONS is a server meticulously crafted for immersive storytelling! Our co
 Space-Station 14 has [docs site](https://docs.spacestation14.io/) documentation on SS14s content, engine, game design and more. We also have lots of resources for new contributors to the project.
 
 ## Project Activity
-![Alt](https://repobeats.axiom.co/api/embed/6d9d589842ff6980c7972b18cf09d8b5b0365de5.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/73e6e24e98aa2166ece0680349b3cec02b690748.svg "Repobeats analytics image")
 
 ---
 
