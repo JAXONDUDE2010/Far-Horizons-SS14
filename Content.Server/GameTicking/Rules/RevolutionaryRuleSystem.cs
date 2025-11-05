@@ -187,7 +187,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                             _specialLobbyContent.SetSpecialLobbyContent(uid);
                             
                             // End the round
-                            // _audio.PlayGlobal("/Audio/_Starlight/Misc/sov_win.ogg", filter, false);
+                            // _audioSystem.PlayGlobal("/Audio/_Starlight/Misc/sov_win.ogg", filter, false);
                             _roundEnd.EndRound();
                         });
                     }
