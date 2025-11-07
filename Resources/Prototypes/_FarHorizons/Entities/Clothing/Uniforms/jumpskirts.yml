@@ -8,3 +8,54 @@
     sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/brightperformer.rsi
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/brightperformer.rsi
+
+
+## Syndicate Station
+
+# Commander (Captain)
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtCaptainSyndi
+  name: commander's jumpskirt
+  description: It's a black jumpskirt with some gold markings denoting the rank of "Commander".
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndicaptain.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndicaptain.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCapFormalDressSyndi
+  name: commander's formal dress
+  description: A dress for special occasions.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndicapformaldress.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndicapformaldress.rsi
+
+# Personnel Chief (HoP)
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHoPSyndi
+  name: personnel chief's jumpskirt
+  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndihop.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndihop.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtHoPTurtleneckSyndi
+  name: personnel chief's turtleneck
+  description: It's the Personnel Chief's turtleneck.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndihop_turtleneck.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/syndihop_turtleneck.rsi

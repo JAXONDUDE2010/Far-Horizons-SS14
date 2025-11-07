@@ -5,6 +5,11 @@
   id: ClothingHeadHatBeretCE
   result: ClothingHeadHatBeretCE
 
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretHoP
+  result: ClothingHeadHatBeretHoP
+
 ## Non-Command Hats
 
 - type: latheRecipe

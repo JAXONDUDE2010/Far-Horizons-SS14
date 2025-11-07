@@ -92,3 +92,21 @@
   minLimit: 0
   loadouts:
   - MagistratePurpleScarf
+
+# Command
+
+- type: loadoutGroup
+  id: CommandEyewear
+  name: loadout-group-command-eyewear
+  minLimit: 0
+  loadouts:
+  - CommandGlasses
+  - CommandHud
+
+- type: loadoutGroup
+  id: CommandEyewearSyndi
+  name: loadout-group-command-eyewear-syndi
+  minLimit: 0
+  loadouts:
+  - CommandGlassesSyndi
+  - CommandHudSyndi

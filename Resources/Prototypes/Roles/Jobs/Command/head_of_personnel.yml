@@ -69,11 +69,12 @@
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetHoP
-    belt: BoxFolderClipboardThreePapers
+    belt: ClothingBeltHoP
     #eyes: ClothingEyesHudCommand #Starlight
   storage:
     back:
     - Flash
+    - BoxFolderHoPClipboard
 
 - type: chameleonOutfit
   id: HeadOfPersonnelChameleonOutfit

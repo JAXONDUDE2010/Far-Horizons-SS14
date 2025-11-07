@@ -98,9 +98,9 @@
   components:
   - type: RollUpSleeves
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/captain.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/captain.rsi #Far Horizons
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
@@ -358,7 +358,7 @@
   components:
   - type: RollUpSleeves
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hop.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/hop.rsi #Far Horizons
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -862,9 +862,9 @@
   description: A suit for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/capformal.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/capformal.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/capformal.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/capformal.rsi #Far Horizons
 
 - type: entity
   parent: ClothingUniformBase

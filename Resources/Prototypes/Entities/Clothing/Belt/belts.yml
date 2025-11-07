@@ -586,10 +586,10 @@
   description: An ornate sheath designed to hold an officer's blade.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/sheath.rsi
+    sprite: _FarHorizons/Clothing/Belt/sheath.rsi #Far Horizons
     state: sheath
   - type: Clothing
-    sprite: Clothing/Belt/sheath.rsi
+    sprite: _FarHorizons/Clothing/Belt/sheath.rsi #Far Horizons
   - type: Item
     size: Ginormous
   - type: ItemSlots

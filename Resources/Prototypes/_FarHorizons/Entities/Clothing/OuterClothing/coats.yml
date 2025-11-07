@@ -30,3 +30,35 @@
     damageCoefficient: 0.95
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCorpsman
+
+- type: entity
+  parent: [ BaseCommandContraband, ClothingOuterBase, AllowSuitStorageClothing ]
+  id: ClothingOuterCoatHoP
+  name: Head of Personnel's Jacket
+  description: A sleek coat for the administrative arm of the station.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/hop.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/hop.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+    
+
+## Syndicate Station
+
+
+- type: entity
+  parent: ClothingOuterCoatHoP
+  id: ClothingOuterCoatHoPSyndi
+  name: Personnel Chief's Jacket
+  description: A sleek coat for the administrative arm of the station.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/syndihop.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/syndihop.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
