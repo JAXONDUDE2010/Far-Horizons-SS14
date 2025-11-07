@@ -55,11 +55,11 @@
 # Head of Personnel
 
 - type: loadout
-  id: HopCoat
+  id: HoPCoat
   equipment:
     outerClothing: ClothingOuterCoatHoP
 
 - type: loadout
   id: HoPBeret
   equipment:
-    head: ClothingHeadHatberetHoP
+    head: ClothingHeadHatBeretHoP

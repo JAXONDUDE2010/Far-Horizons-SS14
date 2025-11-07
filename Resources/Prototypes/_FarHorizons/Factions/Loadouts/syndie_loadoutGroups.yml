@@ -100,7 +100,7 @@
   name: loadout-group-pc-head
   minLimit: 0
   loadouts:
-  - PCHead
+  - PCCap
   - PCBeret
 
 - type: loadoutGroup
