@@ -224,6 +224,7 @@
 ## Syndicate Station
 
 
+# Commander (Captain)
 
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
@@ -256,6 +257,8 @@
           tags:
           - CaptainSabre
   - type: Appearance
+
+# Personnel Chief (HoP)
 
 - type: entity
   parent: ClothingBeltHoP

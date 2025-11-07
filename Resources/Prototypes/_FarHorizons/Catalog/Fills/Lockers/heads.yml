@@ -22,7 +22,7 @@
     - id: CaptainIDCard
     - id: CigarGoldCase
       prob: 0.25
-    - id: ClothingBeltSheathFilled
+    - id: ClothingBeltSheathFilledSyndi
     - id: ClothingHeadsetAltCommandSyndi
     - id: ClothingOuterArmorCaptainCarapaceSyndi
     - id: CommsComputerCircuitboard
@@ -76,6 +76,6 @@
       entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
-          tableId: LockerFillCaptainLaser
+          tableId: LockerFillCommanderLaser
         - !type:NestedSelector
           tableId: FillCommanderHardsuit
