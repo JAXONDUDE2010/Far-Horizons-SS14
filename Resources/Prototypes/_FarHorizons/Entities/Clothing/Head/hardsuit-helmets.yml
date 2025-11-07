@@ -81,7 +81,7 @@
   - type: PointLight
     color: green
     radius: 3.5
-    energy: 4
+    energy: 5
   - type: Tag
     tags:
     - CorgiWearable
@@ -102,4 +102,4 @@
   - type: PointLight
     color: green
     radius: 3.5
-    energy: 4
+    energy: 5
