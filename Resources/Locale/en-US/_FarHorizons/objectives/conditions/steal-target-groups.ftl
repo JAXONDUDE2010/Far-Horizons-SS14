@@ -1,6 +1,12 @@
-# Corpsman item
+# Traitor Single Items
 
 steal-target-groups-corpsmanhypo = Corpsman Hypospray
-
-# Brigmedic item
 steal-target-groups-brigmedicbedsheet = Strange Brigmedic's Bedsheet
+
+# Thief Collection
+
+# Thief Single Item
+
+# Thief Structures
+
+# Thief Animal

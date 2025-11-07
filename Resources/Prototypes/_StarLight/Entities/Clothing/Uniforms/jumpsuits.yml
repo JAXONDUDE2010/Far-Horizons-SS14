@@ -331,18 +331,18 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoPTurtleneck
   name: head of personal's turtleneck
-  description: It's Head of Personal's turtleneck.
+  description: It's the Head of Personal's turtleneck. #Far Horizons
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/hop_turtleneck.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/hop_turtleneck.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/hop_turtleneck.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/hop_turtleneck.rsi #Far Horizons
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSBlack
   name: head of security's black suit
-  description: It's Head of Security's black suit.
+  description: It's the Head of Security's black suit. #Far Horizons
   components:
   - type: Sprite
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/hos_black.rsi

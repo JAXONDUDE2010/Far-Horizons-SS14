@@ -91,6 +91,7 @@
       size: Normal
     - type: Clothing
       sprite: _Starlight/Objects/Misc/hop_clipboard.rsi
+      slots: [belt, pocket] #Far Horizons
     - type: Storage
       maxItemSize: Small
       grid:

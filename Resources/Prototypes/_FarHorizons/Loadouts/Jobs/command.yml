@@ -1,0 +1,65 @@
+# Command
+
+- type: loadout
+  id: CommandGlasses
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: CommandHud
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: CommandGlassesSyndi
+  equipment:
+    eyes: ClothingEyesGlassesCommandSyndi
+
+- type: loadout
+  id: CommandHudSyndi
+  equipment:
+    eyes: ClothingEyesHudCommandSyndi
+
+# Magistrate
+
+- type: loadout
+  id: MagistrateCowboy
+  equipment:
+    head: ClothingHeadHatCowboyBlack
+
+- type: loadout
+  id: MagistratePwig
+  equipment:
+    head: ClothingHeadHatPwig
+
+- type: loadout
+  id: MagistrateBeret
+  equipment:
+    head: ClothingHeadHatBeretFrench
+
+- type: loadout
+  id: MagistrateJumpsuit
+  equipment:
+    jumpsuit: MagistrateUniformSuit
+
+- type: loadout
+  id: MagistrateJumpskirt
+  equipment:
+    jumpsuit: MagistrateUniformSkirt
+
+- type: loadout
+  id: MagistratePurpleScarf
+  equipment:
+    neck: ClothingNeckScarfStripedPurple
+
+# Head of Personnel
+
+- type: loadout
+  id: HoPCoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoP
+
+- type: loadout
+  id: HoPBeret
+  equipment:
+    head: ClothingHeadHatBeretHoP

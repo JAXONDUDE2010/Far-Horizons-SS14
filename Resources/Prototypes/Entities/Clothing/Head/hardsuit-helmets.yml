@@ -471,9 +471,9 @@
   description: Special hardsuit helmet, made for the captain of the station.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/capspace.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/capspace.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -582,9 +582,9 @@
   description: Lightweight hardsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/rd.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/rd.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/rd.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/rd.rsi #Far Horizons
   - type: PointLight
     color: "#d6adff"
   - type: PressureProtection

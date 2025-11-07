@@ -62,3 +62,9 @@
 
 - type: Tag
   id: Inorganic
+
+- type: Tag
+  id: BoxFolderHoPClipboard
+
+- type: Tag
+  id: CrayonBox

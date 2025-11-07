@@ -5,7 +5,9 @@
   equipment:
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltCommandSyndi
+    mask: ClothingMaskGasCaptainSyndi
+    belt: ClothingBeltSheathSyndi
   storage:
     back:
     - Flash
@@ -56,9 +58,9 @@
   id: SyndieHoPGear
   equipment:
     id: HoPPDA
-    gloves: ClothingHandsGlovesHop
+    gloves: ClothingHandsGlovesHopSyndi
     ears: ClothingHeadsetHoP
-    belt: BoxFolderClipboardThreePapers
+    belt: ClothingBeltHoPSyndi
   storage:
     back:
     - Flash

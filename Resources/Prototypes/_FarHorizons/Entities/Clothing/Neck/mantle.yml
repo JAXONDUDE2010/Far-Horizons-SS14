@@ -1,0 +1,14 @@
+
+
+# Personnel Chief (HoP)
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckMantleHOPSyndi
+  name: personnel chief's mantle
+  description: A good PC knows that paper pushing is only half the job... petting your dog and looking fashionable is the other half.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Neck/Mantles/syndihopmantle.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Neck/Mantles/syndihopmantle.rsi

@@ -200,9 +200,9 @@
   description: Upgraded sunglasses that provide flash immunity and show ID card status.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Glasses/commandglasses.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Glasses/commandglasses.rsi #Far Horizons
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

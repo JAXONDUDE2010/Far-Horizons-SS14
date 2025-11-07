@@ -1,0 +1,14 @@
+- type: entity
+  parent: [ClothingOuterArmorBaseCarapace, BaseCommandContraband]
+  id: ClothingOuterArmorCaptainCarapaceSyndi
+  name: commander's carapace
+  description: An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Armor/syndicaptain_carapace.rsi #Far Horizons
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Armor/syndicaptain_carapace.rsi #Far Horizons
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon

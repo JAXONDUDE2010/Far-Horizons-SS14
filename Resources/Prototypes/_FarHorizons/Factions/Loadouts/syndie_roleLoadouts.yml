@@ -3,16 +3,15 @@
 - type: roleLoadout
   id: SyndieCaptain
   groups:
-  - CaptainHead
-  - CaptainNeck
-  - CaptainJumpsuit
+  - CommanderHead
+  - CommanderNeck
+  - CommanderJumpsuit
   - CaptainBackpack
-  - CaptainOuterClothing
+  - CommanderOuterClothing
   - CaptainShoes
-  - CaptainEyewear
+  - CommanderEyewear
   - SurvivalExtended
   - Trinkets
-  - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: SyndieHeadOfSecurity
@@ -82,13 +81,13 @@
   id: SyndieHeadOfPersonnel
   groups:
   - GroupTankHarness
-  - HoPHead
-  - HoPNeck
-  - HoPJumpsuit
+  - PCHead
+  - PCNeck
+  - PCJumpsuit
   - HoPBackpack
-  - HoPOuterClothing
+  - PCOuterClothing
   - HoPShoes
-  - Glasses
+  - CommandEyewearSyndi
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -102,6 +101,7 @@
   - MagistrateNeck
   - MagistrateUniform
   - MagistrateShoes
+  - CommandEyewearSyndi
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
