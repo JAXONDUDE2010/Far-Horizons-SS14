@@ -18,7 +18,6 @@
       - id: ClothingNeckCloakCapSyndi
       - id: ClothingNeckCloakCapFormalSyndi
       - id: ClothingShoesBootsLaceup
-      - id: ClothingShoesHighheelBoots
 
 # Personnel Chief (HoP)
 
@@ -37,4 +36,3 @@
       - id: ClothingOuterCoatHoPSyndi
       - id: ClothingNeckMantleHOPSyndi
       - id: ClothingShoesBootsLaceup
-      - id: ClothingShoesHighheelBoots
