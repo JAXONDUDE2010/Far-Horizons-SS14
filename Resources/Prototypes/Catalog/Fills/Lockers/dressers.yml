@@ -13,6 +13,7 @@
       - id: ClothingOuterWinterCap
       - id: ClothingNeckCloakCap
       - id: ClothingShoesBootsLaceup #Far Horizons
+      - id: ClothingShoesHighheelBoots #Far Horizons
 
 - type: entity
   id: DresserChiefEngineerFilled
@@ -59,6 +60,7 @@
       - id: ClothingOuterCoatHoP
       - id: ClothingNeckMantleHOP
       - id: ClothingShoesBootsLaceup
+      - id: ClothingShoesHighheelBoots
     #Far Horizons-End
 
 - type: entity
