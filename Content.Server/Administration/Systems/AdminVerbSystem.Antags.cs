@@ -126,6 +126,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(pirate);
         
+        // Far Horzions start
         var wizardName = Loc.GetString("admin-verb-text-make-wizard");
         Verb wizard = new()
         {
@@ -141,6 +142,7 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
         args.Verbs.Add(wizard);
+        // Far Horizons end
 
         var headRevName = Loc.GetString("admin-verb-text-make-head-rev");
         Verb headRev = new()
