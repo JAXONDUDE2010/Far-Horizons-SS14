@@ -41,5 +41,6 @@ jobs:
     - id: GCP upload
       uses: google-github-actions/upload-cloud-storage@v3
       with:
-        path: out/
+        path: out
         destination: ${{ secrets.GCP_BUCKET }}
+        glob: '**/*.zip'
