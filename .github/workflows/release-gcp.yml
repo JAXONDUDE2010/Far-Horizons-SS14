@@ -32,13 +32,13 @@ jobs:
         echo "$CLIENT_HASH" > /tmp/CLIENT_HASH
         zip -u out/server-arm64.zip /tmp/CLIENT_HASH
 
-    - id: GCP auth
+    - name: GCP auth
       uses: google-github-actions/auth@v3
       with:
         workload_identity_provider: ${{ secrets.GCP_WIP }}
         service_account: ${{ secrets.GCP_SA }}
     
-    - id: GCP upload
+    - name: GCP upload
       uses: google-github-actions/upload-cloud-storage@v3
       with:
         path: out
