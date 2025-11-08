@@ -47,3 +47,4 @@ jobs:
         path: out
         destination: ${{ secrets.GCP_BUCKET }}
         glob: '**/*.zip'
+        parent: false
