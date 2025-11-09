@@ -1506,6 +1506,21 @@ Entries:
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/297
 - author: CorruptOmega
   changes:
+  - message: Mining and Salvage Specialists no longer get duplicated PDAs. They were
+      being way too greedy with their identity.
+    type: Fix
+  id: 31800
+  time: '2025-11-09T09:23:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/318
+- author: CorruptOmega
+  changes:
+  - message: Mining and Salvage Lockers now have the correct hardsuits filled in.
+    type: Fix
+  id: 31801
+  time: '2025-11-09T09:23:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/318
+- author: CorruptOmega
+  changes:
   - message: Commander and Personnel Chief now have a green light on their hardsuits
     type: Tweak
   id: 30600
