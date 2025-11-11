@@ -1570,5 +1570,27 @@ Entries:
   id: 33102
   time: '2025-11-11T14:48:06.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/331
+- author: CorruptOmega
+  changes:
+  - message: Adding Atmos Hardsuit Avali version by ESM.
+    type: Add
+  id: 32900
+  time: '2025-11-11T14:43:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/329
+- author: jhrushbe
+  changes:
+  - message: Fixed Gas Turbine making infinite gas when broken.
+    type: Fix
+  id: 33000
+  time: '2025-11-11T14:41:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/330
+- author: ScorchFollower
+  changes:
+  - message: Added a new tile, "Office Red Carpet" to fulfill all your syndicate mapping
+      desires.
+    type: Add
+  id: 32100
+  time: '2025-11-11T14:39:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/321
 Order: -1
 
