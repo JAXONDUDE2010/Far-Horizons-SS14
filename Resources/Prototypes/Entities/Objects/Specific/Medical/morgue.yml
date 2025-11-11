@@ -9,7 +9,7 @@
     heldPrefix: bag
   - type: Sprite
     drawdepth: BelowMobs # I guess body bags need appear above a coroner's table?
-    offset: "0,0.3"
+    offset: "0,0.23"
     sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
     layers:
     - state: bag
