@@ -1549,5 +1549,26 @@ Entries:
   id: 32000
   time: '2025-11-09T09:22:40.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/320
+- author: AthenaAI
+  changes:
+  - message: Swap the density of rollerbed and bodybags.
+    type: Tweak
+  id: 33100
+  time: '2025-11-11T14:48:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/331
+- author: AthenaAI
+  changes:
+  - message: Changed the strap time for rollerbeds from 2 seconds to 1 second.
+    type: Tweak
+  id: 33101
+  time: '2025-11-11T14:48:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/331
+- author: AthenaAI
+  changes:
+  - message: The ability to strap a bodybag RMC style.
+    type: Add
+  id: 33102
+  time: '2025-11-11T14:48:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/331
 Order: -1
 
