@@ -76,7 +76,7 @@
   description: A sterile satchel used in medical departments.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/medical.rsi
+    sprite: _FarHorizons/Clothing/Back/Satchels/medical.rsi #Far Horizons
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -85,7 +85,7 @@
   description: A sterile satchel with chemist colours.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/chemistry.rsi
+    sprite: _FarHorizons/Clothing/Back/Satchels/chemistry.rsi #Far Horizons
 
 - type: entity
   parent: ClothingBackpackSatchel
