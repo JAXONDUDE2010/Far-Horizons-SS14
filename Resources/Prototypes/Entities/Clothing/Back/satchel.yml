@@ -94,7 +94,7 @@
   description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/virology.rsi
+    sprite: _FarHorizons/Clothing/Back/Satchels/virology.rsi #Far Horizons
 
 - type: entity
   parent: ClothingBackpackSatchel
