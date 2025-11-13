@@ -3,3 +3,39 @@
   name: Urist McToaster
   parent: BaseMobProtogen
   id: MobProtogen
+
+- type: entity
+  save: false
+  name: Urist McVulpster
+  parent: BaseMobProtoVulp
+  id: MobProtoVulp
+
+- type: entity
+  save: false
+  name: Urist McVoxster
+  parent: BaseMobProtoVox
+  id: MobProtoVox
+
+- type: entity
+  save: false
+  name: Urist McEarster
+  parent: BaseMobProtoThaven
+  id: MobProtoThaven
+
+- type: entity
+  save: false
+  name: Urist McSlimester
+  parent: BaseMobProtoSlimePerson
+  id: MobProtoSlimePerson
+
+- type: entity
+  save: false
+  name: Urist McShadster
+  parent: BaseMobProtoKin
+  id: MobProtoKin
+
+- type: entity
+  save: false
+  name: Urist McRapster
+  parent: BaseMobProtoResomi
+  id: MobProtoResomi

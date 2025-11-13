@@ -1,3 +1,4 @@
+#region PROTOGEN ####
 - type: species
   id: Protogen
   name: species-name-protogen
@@ -11,44 +12,13 @@
   customName: true
   roundstartCyberwareCapacity: 6
   hasSubspecies: true # This is the "parent" species that will be displayed in species list as well as subspecies list
-  subspeciesName: subspecies-name-protogen-type1 # This name is dispayed when you're picking subspecies
-  loadout: ProtogenLoadout
-
-- type: species
-  id: ProtogenType2
-  name: species-name-protogen
-  roundStart: true
-  prototype: MobProtogen
-  sprites: MobProtogenSprites
-  defaultSkinTone: "#ffda93"
-  markingLimits: MobProtogenMarkingLimits
-  dollPrototype: MobProtogenDummy
-  skinColoration: Hues
-  customName: true
-  roundstartCyberwareCapacity: 6
-  subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
-  subspeciesName: subspecies-name-protogen-type2
-  loadout: ProtogenLoadout
-
-- type: species
-  id: ProtogenType3
-  name: species-name-protogen
-  roundStart: true
-  prototype: MobProtogen
-  sprites: MobProtogenSprites
-  defaultSkinTone: "#ffda93"
-  markingLimits: MobProtogenMarkingLimits
-  dollPrototype: MobProtogenDummy
-  skinColoration: Hues
-  customName: true
-  roundstartCyberwareCapacity: 6
-  subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
-  subspeciesName: subspecies-name-protogen-type3
+  subspeciesName: subspecies-name-protogen # This name is dispayed when you're picking subspecies
   loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtogenSprites
   sprites:
+#   Hair: MobHumanoidAnyMarking not used in this series, but serves as template for others.
     Head: MobProtogenHead
     Eyes: MobProtogenEyes
     Snout: MobHumanoidAnyMarking
@@ -68,11 +38,15 @@
 - type: markingPoints
   id: MobProtogenMarkingLimits
   points:
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtogenMediumArmor ]
     Hair:
       points: 1
       required: false
     FacialHair:
-      points: 1
+      points: 0
       required: false
     Snout:
       points: 1
@@ -191,3 +165,567 @@
   baseSprite:
     sprite: _FarHorizons/Mobs/Species/Protogen/parts.rsi
     state: r_foot
+
+#region VULPKANIN ####
+
+- type: species
+  id: ProtoVulp
+  name: subspecies-name-protovulp
+  roundStart: true
+  prototype: MobProtoVulp
+  sprites: MobProtoVulpSprites
+  defaultSkinTone: "#ffda93"
+  markingLimits: MobProtoVulpMarkingLimits
+  dollPrototype: MobProtoVulpDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
+  subspeciesName: subspecies-name-protovulp
+
+- type: speciesBaseSprites
+  id: MobProtoVulpSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Head: MobProtoVulpHead
+    Eyes: MobProtogenEyes #looks odd, but this just removes eyes since they're replaced by the LEDs.
+    Snout: MobHumanoidAnyMarking
+    Chest: MobProtoVulpTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobProtoVulpLArm
+    RArm: MobProtoVulpRArm
+    LHand: MobProtoVulpLHand
+    RHand: MobProtoVulpRHand
+    LLeg: MobProtoVulpLLeg
+    RLeg: MobProtoVulpRLeg
+    LFoot: MobProtoVulpLFoot
+    RFoot: MobProtoVulpRFoot
+
+- type: markingPoints
+  id: MobProtoVulpMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtoVulpMediumArmor ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtogenTail ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FoxEar ]
+    Head:
+      points: 3
+      required: true
+      defaultMarkings: [ ProtoVulpVisor, ProtoVulpLights, ProtoVulpLEDFace ]
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpMarkingMatchSkin
+  markingsMatchSkin: false
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpHead
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpHeadMale
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpHeadFemale
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpTorso
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpTorsoMale
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpTorsoFemale
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpLLeg
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpLArm
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpLHand
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpLFoot
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpRLeg
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpRArm
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpRHand
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobProtoVulpRFoot
+  baseSprite:
+    sprite: _FarHorizons/Mobs/Species/Proto-Vulp/parts.rsi
+    state: r_foot
+
+#region VOX ####
+
+- type: species
+  id: ProtoVox
+  name: subspecies-name-protovox
+  roundStart: true
+  prototype: MobProtoVox
+  sprites: MobProtoVoxSprites
+  defaultSkinTone: "#6c741d"
+  markingLimits: MobProtoVoxMarkingLimits
+  dollPrototype: MobProtoVoxDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protovox
+  sexes:
+  - Unsexed
+  maleFirstNames: NamesVox
+  femaleFirstNames: NamesVox
+  naming: First
+
+- type: speciesBaseSprites
+  id: MobProtoVoxSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Head: MobVoxHead
+    Eyes: MobProtogenEyes
+    Snout: MobHumanoidAnyMarking
+    Chest: MobVoxTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobVoxLArm
+    RArm: MobVoxRArm
+    LHand: MobVoxLHand
+    RHand: MobVoxRHand
+    LLeg: MobVoxLLeg
+    RLeg: MobVoxRLeg
+    LFoot: MobVoxLFoot
+    RFoot: MobVoxRFoot
+
+- type: markingPoints
+  id: MobProtoVoxMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtoVoxMediumArmor ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ VoxTail ]
+    HeadTop:
+      points: 1
+      required: false
+    Head:
+      points: 3
+      required: true
+      defaultMarkings: [ ProtoVoxVisor, ProtoVoxLights, ProtoVoxLEDFace ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobProtoVoxMarkingMatchSkin
+  markingsMatchSkin: false
+
+#region THAVEN ####
+
+- type: species
+  id: ProtoThaven
+  name: subspecies-name-protothaven
+  roundStart: true
+  prototype: MobProtoThaven
+  sprites: MobProtoThavenSprites
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobProtoThavenMarkingLimits
+  dollPrototype: MobProtoThavenDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protothaven
+  maleFirstNames: NamesThaven
+  femaleFirstNames: NamesThaven
+  naming: First
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobProtoThavenSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Head: MobThavenHead
+    Eyes: MobProtogenEyes
+    Snout: MobHumanoidAnyMarking
+    Chest: MobThavenTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobThavenLArm
+    RArm: MobThavenRArm
+    LHand: MobThavenLHand
+    RHand: MobThavenRHand
+    LLeg: MobThavenLLeg
+    RLeg: MobThavenRLeg
+    LFoot: MobThavenLFoot
+    RFoot: MobThavenRFoot
+
+- type: markingPoints
+  id: MobProtoThavenMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtoThavenMediumArmor ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Head:
+      points: 3
+      required: true
+      defaultMarkings: [ ProtoThavenVisor, ProtoThavenLights, ProtoThavenLEDFace ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+#region LASPI ####
+
+- type: species
+  id: ProtoSlimePerson
+  name: subspecies-name-protoslimeperson
+  roundStart: true
+  prototype: MobProtoSlimePerson
+  sprites: MobProtoSlimePersonSprites
+  defaultSkinTone: "#b8b8b8"
+  markingLimits: MobProtoSlimePersonMarkingLimits
+  dollPrototype: MobProtoSlimePersonDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protoslimeperson
+
+- type: speciesBaseSprites
+  id: MobProtoSlimePersonSprites
+  sprites:
+    Hair: MobSlimeMarkingAlfa
+    Head: MobSlimeHead
+    Eyes: MobProtogenEyes
+    Snout: MobHumanoidAnyMarking
+    Chest: MobSlimeTorso
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobSlimeLArm
+    RArm: MobSlimeRArm
+    LHand: MobSlimeLHand
+    RHand: MobSlimeRHand
+    LLeg: MobSlimeLLeg
+    RLeg: MobSlimeRLeg
+    LFoot: MobSlimeLFoot
+    RFoot: MobSlimeRFoot
+
+- type: markingPoints
+  id: MobProtoSlimePersonMarkingLimits
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoSlimePersonMediumArmor, ProtoSlimePersonVisor, ProtogenLights, ProtoSlimePersonLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Arms:
+      points: 4
+      required: false
+
+#region SHADEKIN ####
+
+- type: species
+  id: ProtoKin
+  name: subspecies-name-protokin
+  roundStart: true
+  prototype: MobProtoKin
+  sprites: MobProtoKinSprites
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobProtoKinMarkingLimits
+  dollPrototype: MobProtoKinDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protokin
+  maleFirstNames: names_shadekin
+  femaleFirstNames: names_shadekin
+  naming: First
+  minAge: 18
+  maxAge: 300
+  youngAge: 30
+  oldAge: 250
+
+- type: speciesBaseSprites
+  id: MobProtoKinSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Head: MobShadekinHead
+    Eyes: MobProtogenEyes
+    Snout: MobHumanoidAnyMarking
+    Chest: MobShadekinTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobShadekinLArm
+    RArm: MobShadekinRArm
+    LHand: MobShadekinLHand
+    RHand: MobShadekinRHand
+    LLeg: MobShadekinLLeg
+    RLeg: MobShadekinRLeg
+    LFoot: MobShadekinLFoot
+    RFoot: MobShadekinRFoot
+
+- type: markingPoints
+  id: MobProtoKinMarkingLimits
+  points:
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ ProtoKinMediumArmor ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [TailShadekin]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [EarsShadekin]
+    Head:
+      points: 3
+      required: true
+      defaultMarkings: [ ProtoKinVisor, ProtoKinLights, ProtoKinLEDFace ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+#region RESOMI ####
+
+- type: species
+  id: ProtoResomi
+  name: subspecies-name-protoresomi
+  roundStart: true
+  prototype: MobProtoResomi
+  sprites: MobProtoResomiSprites
+  defaultSkinTone: "#faf7f7"
+  markingLimits: MobProtoResomiMarkingLimits
+  dollPrototype: MobProtoResomiDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
+  subspeciesName: subspecies-name-protoresomi
+  maleFirstNames: names_resomi_first
+  femaleFirstNames: names_resomi_first
+  lastNames: names_resomi_packs
+  naming: FirstLast
+  minAge: 23
+  youngAge: 103
+  oldAge: 257
+  maxAge: 430
+  standardSize: 150
+  standardWeight: 40
+  standardDensity: 17
+
+- type: speciesBaseSprites
+  id: MobProtoResomiSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Eyes: MobProtogenEyes
+    Head: MobResomiHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobResomiTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobResomiLArm
+    RArm: MobResomiRArm
+    LHand: MobResomiLHand
+    RHand: MobResomiRHand
+    LLeg: MobResomiLLeg
+    RLeg: MobResomiRLeg
+    LFoot: MobResomiLFoot
+    RFoot: MobResomiRFoot
+
+- type: markingPoints
+  id: MobProtoResomiMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoResomiMediumArmor, ProtoResomiVisor, ProtoResomiLights, ProtoResomiLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 2
+      required: true
+      defaultMarkings: [ ResomiTail, ResomiTailFeathers ]
+    HeadTop:
+      points: 1
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
