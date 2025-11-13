@@ -12,6 +12,7 @@
   roundstartCyberwareCapacity: 6
   hasSubspecies: true # This is the "parent" species that will be displayed in species list as well as subspecies list
   subspeciesName: subspecies-name-protogen-type1 # This name is dispayed when you're picking subspecies
+  loadout: ProtogenLoadout
 
 - type: species
   id: ProtogenType2
@@ -27,6 +28,7 @@
   roundstartCyberwareCapacity: 6
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protogen-type2
+  loadout: ProtogenLoadout
 
 - type: species
   id: ProtogenType3
@@ -42,6 +44,7 @@
   roundstartCyberwareCapacity: 6
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protogen-type3
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtogenSprites
