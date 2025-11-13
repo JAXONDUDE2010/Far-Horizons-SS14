@@ -1606,5 +1606,12 @@ Entries:
   id: 33700
   time: '2025-11-13T19:05:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/337
+- author: princess_gurchi
+  changes:
+  - message: Fixed a bug that caused salvagers not to get paid that one time
+    type: Fix
+  id: 34100
+  time: '2025-11-13T21:37:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/341
 Order: -1
 
