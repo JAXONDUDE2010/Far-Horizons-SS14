@@ -50,3 +50,227 @@
       part: RightFootProtogen
     left foot:
       part: LeftFootProtogen
+
+#### VULPKANIN ####
+
+- type: body
+  id: ProtoVulp
+  name: "proto-vulp"
+  root: torso
+  slots:
+    head:
+      part: HeadProtoVulp
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoProtoVulp
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtogenStomach # Dear god.. they can eat CHOCOLATE.
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmProtoVulp
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmProtoVulp
+      connections:
+      - left hand
+    right hand:
+      part: RightHandProtoVulp
+    left hand:
+      part: LeftHandProtoVulp
+    right leg:
+      part: RightLegProtoVulp
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegProtoVulp
+      connections:
+      - left foot
+    right foot:
+      part: RightFootProtoVulp
+    left foot:
+      part: LeftFootProtoVulp
+
+#### Vox ####
+
+- type: body
+  id: ProtoVox
+  name: "proto-vox"
+  root: torso
+  slots:
+    head:
+      part: HeadVox
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoVox
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs # I can't imagine them NOT fixing their nitro dependancy. 
+        stomach: OrganProtogenStomach
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmVox
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmVox
+      connections:
+      - left hand
+    right hand:
+      part: RightHandProtoVox
+    left hand:
+      part: LeftHandProtoVox
+    right leg:
+      part: RightLegVox
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegVox
+      connections:
+      - left foot
+    right foot:
+      part: RightFootProtoVox
+    left foot:
+      part: LeftFootProtoVox
+
+#### Thaven ####
+
+- type: body
+  id: ProtoThaven
+  name: "proto-thaven"
+  root: torso
+  slots:
+    head:
+      part: HeadThaven
+      connections:
+      - torso
+      organs:
+        brain: OrganThavenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoThaven
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs # I can't imagine them NOT fixing their nitro dependancy. 
+        stomach: OrganProtogenStomach
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmThaven
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmThaven
+      connections:
+      - left hand
+    right hand:
+      part: RightHandThaven
+    left hand:
+      part: LeftHandThaven
+    right leg:
+      part: RightLegThaven
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegThaven
+      connections:
+      - left foot
+    right foot:
+      part: RightFootThaven
+    left foot:
+      part: LeftFootThaven
+
+#### Slime / Shadekin ####
+
+# I'd need to resprite their organs since they're unique compared to others. Not happening by deadline I set for myself, so revisit later.
+
+#### Resomi ####
+
+- type: body
+  id: ProtoResomi
+  name: "proto-resomi"
+  root: torso
+  slots:
+    head:
+      part: HeadResomi
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoResomi
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtogenStomach
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmResomi
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmResomi
+      connections:
+      - left hand
+    right hand:
+      part: RightHandResomi
+    left hand:
+      part: LeftHandResomi
+    right leg:
+      part: RightLegResomi
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegResomi
+      connections:
+      - left foot
+    right foot:
+      part: RightFootResomi
+    left foot:
+      part: LeftFootResomi

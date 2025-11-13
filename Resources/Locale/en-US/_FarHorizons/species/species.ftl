@@ -1,5 +1,10 @@
-﻿species-name-protogen = Protogen
-subspecies-name-protogen-type1 = Type1 Protogen
-subspecies-name-protogen-type2 = Type2 Protogen
-subspecies-name-protogen-type3 = Type3 Protogen
-species-name-ipc = IPC
+﻿species-name-ipc = IPC
+
+species-name-protogen = Protogen
+subspecies-name-protogen = Protogen
+subspecies-name-protovulp = Proto-Vulpkanin
+subspecies-name-protovox = Proto-Vox
+subspecies-name-protothaven = Proto-Thaven
+subspecies-name-protoslimeperson = Proto-Laspii
+subspecies-name-protokin = Proto-Kin
+subspecies-name-protoresomi = Proto-Resomi

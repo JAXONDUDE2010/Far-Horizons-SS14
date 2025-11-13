@@ -6,6 +6,8 @@
     Slash: 0.7 # Plasteel frames
     Piercing: 0.7
 
+# FUTURE - Move BRUTE damage values onto armor markings. Somehow.
+
 - type: damageModifierSet
   id: Protogen # Weaker IPC values, on account of being half-robot
   coefficients:
@@ -15,3 +17,49 @@
     Blunt: 1.1
     Slash: 0.8
     Piercing: 0.8
+
+- type: damageModifierSet
+  id: ProtoVulp # Inherets Protogen with Vulp-like twist (better/worse cold/heat)
+  coefficients:
+    Shock: 1.25
+    Heat: 1.25 # Fur my beloved
+    Cold: 0.45 # VERY Well Insulated
+    Blunt: 1.1
+    Slash: 0.8
+    Piercing: 0.8
+
+# Vox have nothing unique in damage modifiers :/
+
+# Thaven, despite having a reference to it.. Doesn't actually have a damage modifier? Ingame guidebook says they have one. Very odd.
+- type: damageModifierSet
+  id: ProtoThaven 
+  coefficients:
+    Shock: 1.25
+    Heat: 1.15
+    Cold: 0.45
+    Blunt: 1.1
+    Slash: 0.9
+    Piercing: 0.9
+
+- type: damageModifierSet
+  id: ProtoSlimePerson #Armor effectively nullifies Brute weaknesses, without providing buff.
+  coefficients:
+    Blunt: 0.7
+    Cold: 1.4 # Metal's not exactly insulating, but better than nothing.
+    Poison: 0.8
+
+- type: damageModifierSet
+  id: ProtoKin
+  coefficients:
+    Asphyxiation: 0 # They don't breathe, but there's still ways to get airloss damage via chem OD.
+    Cold: 0.40
+    Heat: 1.15
+    Cellular: 0.25
+    Bloodloss: 1.35
+    Shock: 1.25
+    Radiation: 1.3
+    Blunt: 1.1
+    Slash: 0.8
+    Piercing: 0.8
+
+# Resomi have nothing unique in damage modifiers :/
