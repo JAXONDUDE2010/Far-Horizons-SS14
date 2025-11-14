@@ -122,13 +122,18 @@
 - type: loadoutGroup
   id: NanoTrasenRepresentativeJumpsuit
   name: loadout-group-nanotrasenrepresentative-jumpsuit
+  minLimit: 1 #Far Horizons
   loadouts:
   - NanoTrasenRepresentativeJumpsuit
   - NanoTrasenRepresentativeJumpskirt
   - NanoTrasenRepresentativeJumpsuitFormal
+  - NTRJumpskirtFormal #Far Horizons
+  - NTRJumpsuitCC #Far Horizons
+  - NTRJumpskirtCC #Far Horizons
   - NanoTrasenRepresentativeTurtleneck
   - NanoTrasenRepresentativeTurtleneckSkirt
   - NanoTrasenRepresentativeNoble
+  - NTRJumpskirtNoble #Far Horizons
 
 - type: loadoutGroup
   id: NanoTrasenRepresentativeEyewear

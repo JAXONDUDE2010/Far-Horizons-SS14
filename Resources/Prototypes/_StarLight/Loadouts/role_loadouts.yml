@@ -18,10 +18,11 @@
   groups:
   - CommonBackpack
   - MagistrateHead #Far Horizons
+  - MagistrateEyewear #Far Horizons
   - MagistrateNeck
   - MagistrateUniform
+  - MagistrateOuterClothing #Far Horizons
   - MagistrateShoes
-  - CommandEyewear #Far Horizons
   - Survival
   - Trinkets
   - Scarves
@@ -61,6 +62,7 @@
 - type: roleLoadout
   id: JobIAA
   groups:
+  - IAAEyewear #Far Horizons
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack

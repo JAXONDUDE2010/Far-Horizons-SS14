@@ -55,11 +55,11 @@
 - type: startingGear
   id: NanoTrasenRepresentativeGear
   equipment:
-    #shoes: ClothingShoesBootsLaceup
-    head: ClothingHeadHatCapNtrep
+    #shoes: ClothingShoesBootsLaceup #Far Horizons
+    #head: ClothingHeadHatCapNtrep #Far Horizons
     id: NanoTrasenRepresentativePDA
     ears: ClothingHeadsetAltCommand
-    outerClothing: ClothingOuterCoatNtrep
+    #outerClothing: ClothingOuterCoatNtrep #Far Horizons
     belt: BoxFolderNanoTrasenClipboard
   storage:
     back:

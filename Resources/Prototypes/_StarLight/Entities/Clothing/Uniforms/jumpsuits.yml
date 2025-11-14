@@ -32,9 +32,9 @@
   name: Magistrate's Jumpsuit
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/magistrate.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/magistrate.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
@@ -43,9 +43,9 @@
   description: That suit that is better not to see.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrep.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrep.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
@@ -54,9 +54,9 @@
   description: That suit that is better not to see.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepformal.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepformal.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepformal.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepformal.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
@@ -65,9 +65,9 @@
   description: For a more casual look while on the job.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepturtleneck.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepturtleneck.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepturtleneck.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepturtleneck.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
@@ -76,9 +76,9 @@
   description: A more classical and elegant style of clothing, designed to emulate the fashion of old earth nobility.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepnoble.rsi #Far Horizons
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]

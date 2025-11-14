@@ -9,6 +9,53 @@
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/brightperformer.rsi
 
+# Magistrate
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCommandContraband ]
+  id: ClothingUniformJumpskirtTurtleneckMagistrate
+  name: magistrate's turtleneck jumpskirt
+  description: A state of the art turtleneck jumpskirt that the CFA supplies their law justicars.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/magistrateturtleneck.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/magistrateturtleneck.rsi
+
+# NTR
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCommandContraband ]
+  id: ClothingUniformJumpskirtNtrepCentComm
+  name: nt representive's centcomm jumpskirt
+  description: When you somehow want to look even more official than you did before.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepCC.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepCC.rsi
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCommandContraband ]
+  id: ClothingUniformJumpskirtNtrepFormal
+  name: nt representive's formal jumpskirt
+  description: For when CentComm tells you to dress to the nines, the NTR takes it to the tens instead.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepformal.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepformal.rsi
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCommandContraband ]
+  id: ClothingUniformJumpskirtNtrepNoble
+  name: nt representive's noble jumpskirt
+  description: For only the highest nobility within CentComm's representatives. May they be dazzled by your brilliance.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepnoble.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/ntrepnoble.rsi
 
 ## Syndicate Station
 

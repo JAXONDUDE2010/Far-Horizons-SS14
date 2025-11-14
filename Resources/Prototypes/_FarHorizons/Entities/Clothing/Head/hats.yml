@@ -88,6 +88,21 @@
     - PetWearable
     - CorgiWearable
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMagistrateCap
+  name: Magistrate's Cap
+  description: A well maintained cap that just exemplifies order.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Head/Hats/magistratecap.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Head/Hats/magistratecap.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
 ## Syndicate Station
 
 

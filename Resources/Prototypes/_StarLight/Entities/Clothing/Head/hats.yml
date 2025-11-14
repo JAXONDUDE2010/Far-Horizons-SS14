@@ -5,9 +5,9 @@
   description: The cap of justice over command!
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Head/Hats/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Head/Hats/ntrep.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hats/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Head/Hats/ntrep.rsi #Far Horizons
     
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]

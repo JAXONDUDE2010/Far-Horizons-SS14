@@ -11,13 +11,13 @@
         - EncryptionKeySecurity
         - EncryptionKeyCommon
     - type: Sprite
-      sprite: Clothing/Ears/Headsets/servicesecurity.rsi
+      sprite: _FarHorizons/Clothing/Ears/Headsets/law.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingHeadset, BaseLawContraband ]
   id: ClothingHeadsetMagistrate
   name: Magistrate headset
-  description: A headset for internal affairs agent to hear the captain's last words.
+  description: A headset for the magistrate to hear the far whispers of space law. #Far Horizons
   components:
     - type: ContainerFill
       containers:
@@ -27,7 +27,7 @@
         - EncryptionKeyCommon
         - EncryptionKeyCommand
     - type: Sprite
-      sprite: Clothing/Ears/Headsets/servicesecurity.rsi
+      sprite: _FarHorizons/Clothing/Ears/Headsets/law.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingHeadset, BaseMajorContraband ]
