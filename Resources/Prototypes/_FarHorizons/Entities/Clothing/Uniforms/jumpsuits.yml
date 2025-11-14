@@ -8,18 +8,32 @@
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_nt.rsi
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_nt.rsi
+    
+# Magistrate
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitSyndieChiefEngineer
-  name: chief engineer's jumpsuit
-  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of Chief Engineer.
+  parent: [ ClothingUniformBase, BaseCommandContraband ]
+  id: ClothingUniformJumpsuitTurtleneckMagistrate
+  name: magistrate's turtleneck jumpsuit
+  description: A state of the art turtleneck jumpsuit that the CFA supplies their law justicars.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_syndie.rsi
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_syndie.rsi
-    
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+
+# NTR
+
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCommandContraband ]
+  id: ClothingUniformJumpsuitNtrepCentComm
+  name: nt representive's centcomm jumpsuit
+  description: When you somehow want to look even more official than you did before.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepCC.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ntrepCC.rsi
 
 ## Syndicate Station
 
@@ -71,3 +85,16 @@
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/syndihop_turtleneck.rsi
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/syndihop_turtleneck.rsi
+
+# Technical Lead (Chief Engineer)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitSyndieChiefEngineer
+  name: chief engineer's jumpsuit
+  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of Chief Engineer.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_syndie.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/ce_syndie.rsi

@@ -54,9 +54,9 @@
   description: Visor with a built-in skills HUD, showing the employment history of nearby NT crew members.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Eyes/Hud/hudskill.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/hudskill.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Eyes/Hud/hudskill.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/hudskill.rsi #Far Horizons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons

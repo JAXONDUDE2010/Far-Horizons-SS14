@@ -18,13 +18,14 @@
   groups:
   - CommonBackpack
   - MagistrateHead #Far Horizons
+  - MagistrateEyewear #Far Horizons
   - MagistrateNeck
   - MagistrateUniform
+  - MagistrateOuterClothing #Far Horizons
   - MagistrateShoes
-  - CommandEyewear #Far Horizons
   - Survival
   - Trinkets
-  - Scarves
+  #- Scarves #Far Horizons - Disabled because they have their own stuff
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -61,12 +62,13 @@
 - type: roleLoadout
   id: JobIAA
   groups:
+  - IAAEyewear #Far Horizons
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
   - LawyerShoes
   - Trinkets
-  - Scarves
+  #- Scarves #Far Horizons - Disabled because they have their own stuff
   - Survival
   - GroupSpeciesBreathTool
 
@@ -81,7 +83,7 @@
   - BlueShieldNeck
   - BlueShieldEyewear
   - Trinkets
-  - Scarves
+  #- Scarves #Far Horizons - Disabled because they have their own stuff
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
 

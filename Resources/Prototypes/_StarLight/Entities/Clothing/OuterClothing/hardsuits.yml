@@ -43,9 +43,9 @@
   description: It used to be blue, but too many premium cigars turned it tobacco brown.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrepspace.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/ntrep.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrepspace.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/ntrep.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 10000

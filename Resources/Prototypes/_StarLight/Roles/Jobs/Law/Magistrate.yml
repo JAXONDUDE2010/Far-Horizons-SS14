@@ -44,9 +44,9 @@
   equipment:
     #jumpsuit: MagistrateUniformSuit #Far Horizons
     #shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity #Far Horizons
     gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterRobesJudge
+    #outerClothing: ClothingOuterRobesJudge #Far Horizons
     id: MagistratePDA
     ears: ClothingHeadsetMagistrate
     #head: ClothingHeadHatPwig #Far Horizons

@@ -31,9 +31,9 @@
   name: Nanotrasen representative's hardsuit helmet
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/ntrep.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/ntrep.rsi #Far Horizons
   - type: PointLight
     color: "#adeeff"
   - type: PressureProtection

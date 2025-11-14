@@ -10,9 +10,15 @@ loadout-group-corpsman-eyewear = Corpsman eyewear
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-gloves = Corpsman gloves
 
+loadout-group-iaa-eyewear = IAA Eyewear
+
 loadout-group-magistrate-hat = Magistrate Head
+loadout-group-magistrate-eyewear = Magistrate Eyewear
 loadout-group-magistrate-uniform = Magistrate Uniform
 loadout-group-magistrate-neck = Magistrate Neck
+loadout-group-magistrate-outer = Magistrate Outer Clothing
+
+loadout-group-ntr-outer = NanoTrasen Representatives Outer Clothing
 
 loadout-group-musician-head = Musician Head
 loadout-group-musician-shoes = Musician Shoes

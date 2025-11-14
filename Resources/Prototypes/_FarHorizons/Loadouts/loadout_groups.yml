@@ -71,13 +71,27 @@
   - Nitrile
   - BlackNitrile
 
-# Magistrate #
+# IAA
+
+- type: loadoutGroup
+  id: IAAEyewear
+  name: loadout-group-iaa-eyewear
+  loadouts:
+  - LawGlasses
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+  - CheapSunnies
+  - AssistantNoirGlasses
+
+# Magistrate
 
 - type: loadoutGroup
   id: MagistrateHead
   name: loadout-group-magistrate-hat
   minLimit: 0
   loadouts:
+  - MagistrateCap
   - MagistrateCowboy
   - MagistratePwig
   - MagistrateBeret
@@ -85,17 +99,45 @@
 - type: loadoutGroup
   id: MagistrateUniform
   name: loadout-group-magistrate-uniform
-  minLimit: 1
   loadouts:
   - MagistrateJumpsuit
   - MagistrateJumpskirt
+  - MagistrateJumpsuitTurtleneck
+  - MagistrateJumpskirtTurtleneck
 
 - type: loadoutGroup
   id: MagistrateNeck
   name: loadout-group-magistrate-neck
   minLimit: 0
   loadouts:
+  - MagistrateMantle
   - MagistratePurpleScarf
+
+- type: loadoutGroup
+  id: MagistrateOuterClothing
+  name: loadout-group-magistrate-outer
+  minLimit: 0
+  loadouts:
+  - MagistrateCoat
+  - MagistrateJudgeCoat
+
+- type: loadoutGroup
+  id: MagistrateEyewear
+  name: loadout-group-magistrate-eyewear
+  minLimit: 0
+  loadouts:
+  - MagistrateGlasses
+  - CommandGlasses
+  - CommandHud
+
+# NTR
+
+- type: loadoutGroup
+  id: NTROuterClothes
+  name: loadout-group-ntr-outer
+  minLimit: 0
+  loadouts:
+  - NTRCoat
 
 # Command
 
