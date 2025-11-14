@@ -1613,5 +1613,48 @@ Entries:
   id: 34100
   time: '2025-11-13T21:37:19.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/341
+- author: CorruptOmega
+  changes:
+  - message: Medical Bags Resprite done by Hanz
+    type: Add
+  id: 33800
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: New Paramedic Bags for Paramedic
+    type: Add
+  id: 33801
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: Doctors can now choose from Medical and Virology Bags
+    type: Add
+  id: 33802
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: CMO can now choose from ANY medical department bag
+    type: Add
+  id: 33803
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: Science Computers Resprited by Abby and animated by Jaxon
+    type: Add
+  id: 33804
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: Anomaly Generator now has a very small chance of becoming a ghost role.
+      Better hope you don't have a large supply of plasma in it. :)
+    type: Add
+  id: 33805
+  time: '2025-11-13T23:30:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
 Order: -1
 
