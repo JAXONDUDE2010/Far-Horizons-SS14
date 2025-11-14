@@ -1656,5 +1656,34 @@ Entries:
   id: 33805
   time: '2025-11-13T23:30:06.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/338
+- author: CorruptOmega
+  changes:
+  - message: Magistrate and NanoTrasen Rep resprites for clothes and hardsuits
+    type: Add
+  id: 34400
+  time: '2025-11-14T10:08:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/344
+- author: CorruptOmega
+  changes:
+  - message: Magistrate new loadout options
+    type: Add
+  id: 34401
+  time: '2025-11-14T10:08:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/344
+- author: CorruptOmega
+  changes:
+  - message: NanoTrasen Rep new loadout options
+    type: Add
+  id: 34402
+  time: '2025-11-14T10:08:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/344
+- author: CorruptOmega
+  changes:
+  - message: IAA can now rock new purple law sunglasses (Does not include sensitive
+      information from the crew)
+    type: Add
+  id: 34403
+  time: '2025-11-14T10:08:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/344
 Order: -1
 
