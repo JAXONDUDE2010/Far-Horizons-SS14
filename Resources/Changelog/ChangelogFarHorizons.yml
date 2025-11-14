@@ -1685,5 +1685,14 @@ Entries:
   id: 34403
   time: '2025-11-14T10:08:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/344
+- author: CorruptOmega
+  changes:
+  - message: Chef's have now been allowed to cook soups/chili again after their restriction.
+      For their previous heresy, they have to use an Oven instead of a Stove in specific
+      recipes from now on. Repent for your sins.
+    type: Fix
+  id: 34500
+  time: '2025-11-14T10:16:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/345
 Order: -1
 
