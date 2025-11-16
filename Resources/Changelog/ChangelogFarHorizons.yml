@@ -1929,5 +1929,91 @@ Entries:
   id: 35505
   time: '2025-11-16T07:25:52.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/355
+- author: jhrushbe
+  changes:
+  - message: Fuel rods can now be a thief target.
+    type: Add
+  id: 34900
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Engineering cyborgs can now hold reactor parts.
+    type: Add
+  id: 34901
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor now has a ghost warp point.
+    type: Add
+  id: 34902
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor sends more warnings before melting down, including an announcement.
+    type: Add
+  id: 34903
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reworked material system.
+    type: Tweak
+  id: 34904
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor parts, both in and out of the reactor, are colored according
+      to their material.
+    type: Tweak
+  id: 34905
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor meltdown explosion is now Radioactive.
+    type: Tweak
+  id: 34906
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor and Turbine now move gas with the same logic as volume pumps.
+    type: Tweak
+  id: 34907
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Turbine UI now has buttons to help set stator load.
+    type: Tweak
+  id: 34908
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor and Turbine connects to the pipe network physically rather than
+      by magic.
+    type: Tweak
+  id: 34909
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor Guidebook entry slightly edited to improve clarity.
+    type: Tweak
+  id: 34910
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
+- author: jhrushbe
+  changes:
+  - message: Reactor thermal power calculations were made more accurate.
+    type: Tweak
+  id: 34911
+  time: '2025-11-16T14:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/349
 Order: -1
 
