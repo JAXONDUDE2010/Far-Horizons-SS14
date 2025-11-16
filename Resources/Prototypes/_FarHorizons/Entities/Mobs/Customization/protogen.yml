@@ -10,7 +10,7 @@
   id: ProtogenTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: tail_protogen
@@ -19,7 +19,7 @@
   id: ProtogenTailBushy
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: bushy_tail_protogen
@@ -28,7 +28,7 @@
   id: ProtogenTailShark
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: shark_tail_protogen
@@ -37,7 +37,7 @@
   id: ProtogenEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: ears_protogen
@@ -46,7 +46,7 @@
   id: TwoProtogenEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: two_ears_protogen
@@ -464,3 +464,50 @@
     state: claws
 
 # Human didn't need anything special, but, dividers here regardless. #
+
+#region FELINID ####
+
+- type: marking
+  id: ProtoFelineMediumArmor
+  bodyPart: RFoot
+  markingCategory: Special
+  speciesRestriction: [ProtoFeline]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-feline/body_armor.rsi
+      state: medium
+
+- type: marking
+  id: ProtoFelineVisor
+  bodyPart: RFoot
+  markingCategory: Special
+  speciesRestriction: [ProtoFeline]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-feline/visor_shapes.rsi
+      state: visor
+  
+- type: marking
+  id: ProtoFelineLEDFace
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoFeline]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-feline/led_shapes_face.rsi
+      state: face
+
+- type: marking
+  id: ProtoFelineLights
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoFeline]
+  sprites:
+  - sprite: _FarHorizons/Mobs/Customization/proto-feline/led_shapes_body.rsi
+    state: body
+
+- type: marking
+  id: ProtoFelineClaws
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [ProtoFeline]
+  sprites:
+  - sprite: _FarHorizons/Mobs/Customization/proto-feline/led_shapes_body.rsi
+    state: claws

@@ -68,3 +68,10 @@ marking-ProtoMothLights = Circular LEDs
 marking-ProtoMothClaws = Long Moth Claws
 
 marking-ProtoMothMediumArmor = Standard Protogen-Moth Cybernetics
+
+marking-ProtoFelineVisor = Feline Visor
+marking-ProtoFelineLEDFace = Default Feline LEDs
+marking-ProtoFelineLights = Circular LEDs
+marking-ProtoFelineClaws = Long Feline Claws
+
+marking-ProtoFelineMediumArmor = Standard Protogen-Feline Cybernetics

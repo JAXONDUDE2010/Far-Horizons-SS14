@@ -183,6 +183,12 @@
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protovulp
   loadout: ProtogenLoadout
+  minHeight: 0.9
+  defaultHeight: 1
+  maxHeight: 1.2
+  standardSize: 170
+  standardWeight: 75
+  standardDensity: 110
 
 - type: speciesBaseSprites
   id: MobProtoVulpSprites
@@ -867,9 +873,8 @@
       points: 1
       required: false
     Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ MothWingsDefault ]
+      points: 2
+      required: false # if you want to combine a tail with a wing, needs to turn off requirment. Wingless moths..
     HeadTop:
       points: 1
       required: true
@@ -958,4 +963,87 @@
       required: false
     Arms:
       points: 2
+      required: false
+
+#region FELINID ####
+
+- type: species
+  id: ProtoFeline
+  name: subspecies-name-protofeline
+  roundStart: true
+  prototype: MobProtoFeline
+  sprites: MobProtoFelineSprites
+  defaultSkinTone: "#666666"
+  markingLimits: MobProtoFelineMarkingLimits
+  dollPrototype: MobProtoFelineDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protofeline
+  loadout: ProtogenLoadout
+  maleFirstNames: names_felionoid
+  femaleFirstNames: names_felionoid
+  naming: First
+  minHeight: 0.8
+  defaultHeight: 0.8
+  maxHeight: 0.9
+  standardSize: 170
+  standardWeight: 48
+  standardDensity: 45
+
+- type: speciesBaseSprites
+  id: MobProtoFelineSprites
+  sprites:
+    Eyes: MobProtogenEyes
+    Head: MobFelionoidHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobFelionoidTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobFelionoidLArm
+    RArm: MobFelionoidRArm
+    LHand: MobFelionoidLHand
+    RHand: MobFelionoidRHand
+    LLeg: MobFelionoidLLeg
+    RLeg: MobFelionoidRLeg
+    LFoot: MobFelionoidLFoot
+    RFoot: MobFelionoidRFoot
+
+- type: markingPoints
+  id: MobProtoFelineMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoFelineMediumArmor, ProtoFelineVisor, ProtoFelineLights, ProtoFelineLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FelionoidTailAnimated ]
+    HeadTop:
+      points: 2
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Arms:
+      points: 4
       required: false
