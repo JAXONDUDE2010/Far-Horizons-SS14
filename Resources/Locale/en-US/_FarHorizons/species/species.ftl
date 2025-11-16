@@ -8,3 +8,4 @@ subspecies-name-protothaven = Proto-Thaven
 subspecies-name-protoslimeperson = Proto-Laspii
 subspecies-name-protokin = Proto-Kin
 subspecies-name-protoresomi = Proto-Resomi
+subspecies-name-protoreptile = Proto-Reptile

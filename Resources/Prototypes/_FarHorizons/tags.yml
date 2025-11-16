@@ -29,4 +29,7 @@
   id: Protogen
 
 - type: Tag
+  id: ProtogenCybernetics
+
+- type: Tag
   id: OilPack

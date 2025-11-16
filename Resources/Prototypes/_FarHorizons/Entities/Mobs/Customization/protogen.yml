@@ -54,17 +54,35 @@
 - type: marking
   id: ProtogenLights
   bodyPart: RHand
-  markingCategory: Head
-  speciesRestriction: [Protogen]
+  markingCategory: Special
+  speciesRestriction: [Protogen, ProtoReptile]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_body.rsi
     state: body
 
 - type: marking
+  id: ProtogenLEDFace
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [Protogen, ProtoReptile]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
+      state: face
+
+- type: marking
+  id: ProtogenLEDFaceNoseless
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [Protogen, ProtoReptile]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
+      state: noseless
+
+- type: marking
   id: ProtogenMediumArmor
   bodyPart: RFoot
   markingCategory: Special
-  speciesRestriction: [Protogen]
+  speciesRestriction: [Protogen, ProtoReptile]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/body_armor.rsi
       state: medium
@@ -92,8 +110,8 @@
 - type: marking
   id: ProtoVulpVisor
   bodyPart: LFoot
-  markingCategory: Head
-  speciesRestriction: [ProtoVulp]
+  markingCategory: Special
+  speciesRestriction: [ProtoVulp, ProtoReptile]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vulp/visor_shapes.rsi
       state: vulpvisor
@@ -101,7 +119,7 @@
 - type: marking
   id: ProtoVulpSnoutLong
   bodyPart: RFoot
-  markingCategory: Snout
+  markingCategory: Special
   speciesRestriction: [ProtoVulp]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vulp/visor_markings.rsi
@@ -119,7 +137,7 @@
 - type: marking
   id: ProtoVulpLEDFace
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVulp]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_face.rsi
@@ -128,7 +146,7 @@
 - type: marking
   id: ProtoVulpLEDFaceLong
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVulp]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_face.rsi
@@ -146,7 +164,7 @@
 - type: marking
   id: ProtoVulpLights
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVulp]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_body.rsi
@@ -157,7 +175,7 @@
 - type: marking
   id: ProtoVoxVisor
   bodyPart: RFoot
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVox]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vox/visor_shapes.rsi
@@ -175,7 +193,7 @@
 - type: marking
   id: ProtoVoxLEDFace
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVox]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vox/led_shapes_face.rsi
@@ -184,7 +202,7 @@
 - type: marking
   id: ProtoVoxLights
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoVox]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-vox/led_shapes_body.rsi
@@ -204,7 +222,7 @@
 - type: marking
   id: ProtoThavenVisor
   bodyPart: RFoot
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoThaven]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-thaven/visor_shapes.rsi
@@ -222,7 +240,7 @@
 - type: marking
   id: ProtoThavenLEDFace
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoThaven]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-thaven/led_shapes_face.rsi
@@ -231,7 +249,7 @@
 - type: marking
   id: ProtoThavenLights
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoThaven]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-thaven/led_shapes_body.rsi
@@ -289,7 +307,7 @@
 - type: marking
   id: ProtoKinVisor
   bodyPart: RFoot
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoKin]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-kin/visor_shapes.rsi
@@ -298,7 +316,7 @@
 - type: marking
   id: ProtoKinLEDFace
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoKin]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-kin/led_shapes_face.rsi
@@ -307,7 +325,7 @@
 - type: marking
   id: ProtoKinLights
   bodyPart: RHand
-  markingCategory: Head
+  markingCategory: Special
   speciesRestriction: [ProtoKin]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-kin/led_shapes_body.rsi
@@ -350,3 +368,23 @@
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-resomi/led_shapes_body.rsi
     state: body
+
+#### REPTILIAN ####
+
+- type: marking
+  id: ProtoReptileLEDFaceBoxy
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoReptile]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
+      state: boxy
+
+- type: marking
+  id: ProtoReptileClaws
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [ProtoReptile]
+  sprites:
+  - sprite: _FarHorizons/Mobs/Customization/proto-vox/led_shapes_body.rsi
+    state: claws

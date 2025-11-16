@@ -11,7 +11,7 @@ marking-ProtogenLights = Circular LEDs
 marking-ProtoVulpPawSocksFeet = Paw Socks (Feet)
 marking-ProtoVulpPawSocksLegs = Paw Socks (Legs)
 
-marking-ProtoVulpVisor = Vulpine Visor
+marking-ProtoVulpVisor = Vulpine/Reptile Visor
 marking-ProtoVulpLEDFace = Default Vulpine LEDs
 marking-ProtoVulpSnoutLong = Long Vulpine Visor
 marking-ProtoVulpLEDFaceLong = Long Vulpine LEDs
@@ -49,3 +49,8 @@ marking-ProtoResomiLEDFace = Default Resomi LEDs
 marking-ProtoResomiLights = Circular LEDs
 
 marking-ProtoResomiMediumArmor = Standard Protogen-Resomi Cybernetics
+
+marking-ProtoReptileLEDFace = Default Reptile LEDs
+marking-ProtoReptileClaws = Long Reptile Claws
+
+marking-ProtoReptileMediumArmor = Standard Protogen-Reptile Cybernetics

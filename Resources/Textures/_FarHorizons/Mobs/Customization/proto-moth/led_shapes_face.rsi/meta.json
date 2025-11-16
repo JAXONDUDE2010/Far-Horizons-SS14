@@ -7,14 +7,6 @@
         {
             "name": "face",
             "directions": 4
-        },
-        {
-            "name": "noseless",
-            "directions": 4
-        },
-        {
-            "name": "boxy",
-            "directions": 4
         }
     ]
 }

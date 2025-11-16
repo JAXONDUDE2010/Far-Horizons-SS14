@@ -6,8 +6,6 @@
     Slash: 0.7 # Plasteel frames
     Piercing: 0.7
 
-# FUTURE - Move BRUTE damage values onto armor markings. Somehow.
-
 - type: damageModifierSet
   id: Protogen # Weaker IPC values, on account of being half-robot
   coefficients:
@@ -15,8 +13,6 @@
     Heat: 1.2 # Fur my beloved
     Cold: 0.5 # Well Insulated
     Blunt: 1.1
-    Slash: 0.8
-    Piercing: 0.8
 
 - type: damageModifierSet
   id: ProtoVulp # Inherets Protogen with Vulp-like twist (better/worse cold/heat)
@@ -25,8 +21,6 @@
     Heat: 1.25 # Fur my beloved
     Cold: 0.45 # VERY Well Insulated
     Blunt: 1.1
-    Slash: 0.8
-    Piercing: 0.8
 
 # Vox have nothing unique in damage modifiers :/
 
@@ -38,13 +32,13 @@
     Heat: 1.15
     Cold: 0.45
     Blunt: 1.1
-    Slash: 0.9
-    Piercing: 0.9
 
 - type: damageModifierSet
-  id: ProtoSlimePerson #Armor effectively nullifies Brute weaknesses, without providing buff.
+  id: ProtoSlimePerson # Roundstart armor nullifies the brute weaknesses pmuch
   coefficients:
     Blunt: 0.7
+    Slash: 1.2
+    Piercing: 1.2
     Cold: 1.4 # Metal's not exactly insulating, but better than nothing.
     Poison: 0.8
 
@@ -59,7 +53,14 @@
     Shock: 1.25
     Radiation: 1.3
     Blunt: 1.1
-    Slash: 0.8
-    Piercing: 0.8
 
 # Resomi have nothing unique in damage modifiers :/
+
+- type: damageModifierSet
+  id: ProtoReptile
+  coefficients: # Swaps heat with cold
+    Shock: 1.25
+    Cold: 1.2
+    Heat: 0.5
+    Slash: 0.9 # Something they should have with "tougher skin" according to the notes in the other modifer file
+    Blunt: 1.1

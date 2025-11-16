@@ -41,7 +41,7 @@
     Special:
       points: 1
       required: true
-      defaultMarkings: [ ProtogenMediumArmor ]
+      defaultMarkings: [ ProtogenMediumArmor, ProtogenLights ]
     Hair:
       points: 1
       required: false
@@ -56,9 +56,9 @@
       required: true
       defaultMarkings: [ ProtogenTail ]
     HeadTop:
-      points: 2
+      points: 1
       required: true
-      defaultMarkings: [ ProtogenEars, ProtogenLights ]
+      defaultMarkings: [ ProtogenEars ]
     Chest:
       points: 2
       required: false
@@ -182,6 +182,7 @@
   roundstartCyberwareCapacity: 6
   subspeciesOf: Protogen # This is alternative version of other species. It will only be displayed in subspecies list
   subspeciesName: subspecies-name-protovulp
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoVulpSprites
@@ -207,9 +208,9 @@
   id: MobProtoVulpMarkingLimits
   points:
     Special:
-      points: 1
+      points: 4
       required: true
-      defaultMarkings: [ ProtoVulpMediumArmor ]
+      defaultMarkings: [ ProtoVulpMediumArmor, ProtoVulpVisor, ProtoVulpLights, ProtoVulpLEDFace ]
     Hair:
       points: 1
       required: false
@@ -228,9 +229,8 @@
       required: true
       defaultMarkings: [ FoxEar ]
     Head:
-      points: 3
-      required: true
-      defaultMarkings: [ ProtoVulpVisor, ProtoVulpLights, ProtoVulpLEDFace ]
+      points: 2
+      required: false
     Chest:
       points: 2
       required: false
@@ -350,6 +350,7 @@
   maleFirstNames: NamesVox
   femaleFirstNames: NamesVox
   naming: First
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoVoxSprites
@@ -375,9 +376,9 @@
   id: MobProtoVoxMarkingLimits
   points:
     Special:
-      points: 1
+      points: 4
       required: true
-      defaultMarkings: [ ProtoVoxMediumArmor ]
+      defaultMarkings: [ ProtoVoxMediumArmor, ProtoVoxVisor, ProtoVoxLights, ProtoVoxLEDFace ]
     Hair:
       points: 1
       required: false
@@ -395,9 +396,8 @@
       points: 1
       required: false
     Head:
-      points: 3
-      required: true
-      defaultMarkings: [ ProtoVoxVisor, ProtoVoxLights, ProtoVoxLEDFace ]
+      points: 2
+      required: false
     Chest:
       points: 1
       required: false
@@ -435,6 +435,7 @@
   - Male
   - Female
   - Unsexed
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoThavenSprites
@@ -460,9 +461,9 @@
   id: MobProtoThavenMarkingLimits
   points:
     Special:
-      points: 1
+      points: 4
       required: true
-      defaultMarkings: [ ProtoThavenMediumArmor ]
+      defaultMarkings: [ ProtoThavenMediumArmor, ProtoThavenVisor, ProtoThavenLights, ProtoThavenLEDFace ]
     Hair:
       points: 1
       required: false
@@ -479,9 +480,8 @@
       points: 1
       required: false
     Head:
-      points: 3
-      required: true
-      defaultMarkings: [ ProtoThavenVisor, ProtoThavenLights, ProtoThavenLEDFace ]
+      points: 2
+      required: false
     Chest:
       points: 1
       required: false
@@ -508,6 +508,7 @@
   roundstartCyberwareCapacity: 6
   subspeciesOf: Protogen
   subspeciesName: subspecies-name-protoslimeperson
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoSlimePersonSprites
@@ -586,6 +587,7 @@
   maxAge: 300
   youngAge: 30
   oldAge: 250
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoKinSprites
@@ -611,9 +613,9 @@
   id: MobProtoKinMarkingLimits
   points:
     Special:
-      points: 1
+      points: 4
       required: true
-      defaultMarkings: [ ProtoKinMediumArmor ]
+      defaultMarkings: [ ProtoKinMediumArmor, ProtoKinVisor, ProtoKinLights, ProtoKinLEDFace ]
     Hair:
       points: 1
       required: false
@@ -632,9 +634,8 @@
       required: true
       defaultMarkings: [EarsShadekin]
     Head:
-      points: 3
-      required: true
-      defaultMarkings: [ ProtoKinVisor, ProtoKinLights, ProtoKinLEDFace ]
+      points: 2
+      required: false
     Chest:
       points: 1
       required: false
@@ -672,6 +673,7 @@
   standardSize: 150
   standardWeight: 40
   standardDensity: 17
+  loadout: ProtogenLoadout
 
 - type: speciesBaseSprites
   id: MobProtoResomiSprites
@@ -714,6 +716,83 @@
       points: 2
       required: true
       defaultMarkings: [ ResomiTail, ResomiTailFeathers ]
+    HeadTop:
+      points: 1
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+#region REPTILIAN ####
+
+- type: species
+  id: ProtoReptile
+  name: subspecies-name-protoreptile
+  roundStart: true
+  prototype: MobProtoReptile
+  sprites: MobProtoReptileSprites
+  defaultSkinTone: "#faf7f7"
+  markingLimits: MobProtoReptileMarkingLimits
+  dollPrototype: MobProtoReptileDummy
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protoreptile
+  maleFirstNames: NamesReptilianMale
+  femaleFirstNames: NamesReptilianFemale
+  naming: FirstDashFirst
+  loadout: ProtogenLoadout
+  
+- type: speciesBaseSprites
+  id: MobProtoReptileSprites
+  sprites:
+    Eyes: MobProtogenEyes
+    Head: MobReptilianHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobReptilianTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobReptilianLArm
+    RArm: MobReptilianRArm
+    LHand: MobReptilianLHand
+    RHand: MobReptilianRHand
+    LLeg: MobReptilianLLeg
+    RLeg: MobReptilianRLeg
+    LFoot: MobReptilianLFoot
+    RFoot: MobReptilianRFoot
+
+- type: markingPoints
+  id: MobProtoReptileMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtogenMediumArmor, ProtoVulpVisor, ProtogenLights, ProtoReptileLEDFaceBoxy ]
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ LizardTailSmooth ]
     HeadTop:
       points: 1
       required: false

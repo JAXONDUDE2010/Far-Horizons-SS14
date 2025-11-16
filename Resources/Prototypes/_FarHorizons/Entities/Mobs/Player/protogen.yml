@@ -39,3 +39,9 @@
   name: Urist McRapster
   parent: BaseMobProtoResomi
   id: MobProtoResomi
+
+- type: entity
+  save: false
+  name: Urisst' Mztosster
+  parent: BaseMobProtoReptile
+  id: MobProtoReptile

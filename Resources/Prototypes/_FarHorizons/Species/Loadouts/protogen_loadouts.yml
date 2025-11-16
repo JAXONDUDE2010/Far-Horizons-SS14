@@ -1,25 +1,31 @@
 - type: roleLoadout
   id: ProtogenLoadout
   groups:
-  - ProtogenCoolHat
+  - ProtogenCybernetics
 
 ---
 
 - type: loadoutGroup
-  id: ProtogenCoolHat
-  name: loadout-group-protogen-cool-hat
+  id: ProtogenCybernetics
+  name: loadout-group-protogen-cybernetics
   loadouts:
-  - ProtogenCoolHat1
-  - ProtogenCoolHat2
+  - ProtogenArmorLight
+  - ProtogenArmorMedium
+  - ProtogenArmorHeavy
 
 ---
 
 - type: loadout
-  id: ProtogenCoolHat1
+  id: ProtogenArmorLight
   equipment:
-    head: ClothingHeadHatCone
+    outerClothing2: ClothingOuterArmorProtogenLight
 
 - type: loadout
-  id: ProtogenCoolHat2
+  id: ProtogenArmorMedium
   equipment:
-    head: ClothingHeadHatSkub
+    outerClothing2: ClothingOuterArmorProtogenMedium
+
+- type: loadout
+  id: ProtogenArmorHeavy
+  equipment:
+    outerClothing2: ClothingOuterArmorProtogenHeavy
