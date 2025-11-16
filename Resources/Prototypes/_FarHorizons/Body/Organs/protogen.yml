@@ -159,6 +159,21 @@
     size: Small
     heldPrefix: stomach
   - type: Stomach
+    specialDigestible: # all this for the ram chip meme.
+      tags:
+      - Paper
+      - Pill
+      - Pizza
+      - Meat
+      - Fruit
+      - Donut
+      - Vegetable
+      - Cake
+      - FoodSnack
+      - Soup
+      - Crayon
+      - Pancake
+     # - Put computer boards here 
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -169,6 +184,47 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
 
+#### Moth Specific ####
+
+- type: entity
+  id: OrganProtoMothStomach
+  parent: [OrganAnimalStomach, BaseOrganStomach]
+  name: stomach
+  description: "Gross. This is hard to stomach."
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: Stomach
+    specialDigestible: # Why is this a whitelist instead of a blacklist.. Ugh. Can digest any correctly tagged food.
+      tags:
+      - ClothMade
+      - Paper
+      - Pill
+      - Pizza
+      - Meat
+      - Fruit
+      - Donut
+      - Vegetable
+      - Cake
+      - FoodSnack
+      - Soup
+      - Crayon
+      - Pancake
+      # - Put computer boards here 
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+####
 
 - type: entity
   id: OrganProtogenLiver

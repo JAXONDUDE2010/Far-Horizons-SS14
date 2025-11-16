@@ -9,3 +9,5 @@ subspecies-name-protoslimeperson = Proto-Laspii
 subspecies-name-protokin = Proto-Kin
 subspecies-name-protoresomi = Proto-Resomi
 subspecies-name-protoreptile = Proto-Reptile
+subspecies-name-protomoth = Proto-Moth
+subspecies-name-protohumie = Proto-Humie

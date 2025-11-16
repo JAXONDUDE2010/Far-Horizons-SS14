@@ -1,3 +1,4 @@
+#region PROTOGEN ####
 - type: body
   id: Protogen
   name: "protogen"
@@ -51,7 +52,7 @@
     left foot:
       part: LeftFootProtogen
 
-#### VULPKANIN ####
+#region VULPKANIN ####
 
 - type: body
   id: ProtoVulp
@@ -106,7 +107,7 @@
     left foot:
       part: LeftFootProtoVulp
 
-#### Vox ####
+#region VOX ####
 
 - type: body
   id: ProtoVox
@@ -161,7 +162,7 @@
     left foot:
       part: LeftFootProtoVox
 
-#### Thaven ####
+#region THAVEN ####
 
 - type: body
   id: ProtoThaven
@@ -216,11 +217,11 @@
     left foot:
       part: LeftFootThaven
 
-#### Slime / Shadekin ####
+#region Slime / Shadekin ####
 
 # I'd need to resprite their organs since they're unique compared to others. Not happening by deadline I set for myself, so revisit later.
 
-#### Resomi ####
+#region RESOMI ####
 
 - type: body
   id: ProtoResomi
@@ -275,7 +276,7 @@
     left foot:
       part: LeftFootResomi
 
-#### Reptile ####
+#region REPTILE ####
 
 - type: body
   name: "proto-reptile"
@@ -329,3 +330,113 @@
       part: RightFootReptilian
     left foot:
       part: LeftFootReptilian
+
+#region MOTH ####
+
+- type: body
+  id: ProtoMoth
+  name: "proto-moth"
+  root: torso
+  slots:
+    head:
+      part: HeadMoth
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoMoth
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtoMothStomach # Can eat everything.
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmMoth
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmMoth
+      connections:
+      - left hand
+    right hand:
+      part: RightHandMoth
+    left hand:
+      part: LeftHandMoth
+    right leg:
+      part: RightLegMoth
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegMoth
+      connections:
+      - left foot
+    right foot:
+      part: RightFootMoth
+    left foot:
+      part: LeftFootMoth
+
+#region HUMAN ####
+
+- type: body
+  id: ProtoHumie
+  name: "proto-humie"
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoHuman
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtogenStomach
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmHuman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman

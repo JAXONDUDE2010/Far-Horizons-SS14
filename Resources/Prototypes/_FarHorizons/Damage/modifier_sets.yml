@@ -22,7 +22,11 @@
     Cold: 0.45 # VERY Well Insulated
     Blunt: 1.1
 
-# Vox have nothing unique in damage modifiers :/
+- type: damageModifierSet
+  id: ProtoVox
+  coefficients:
+    Shock: 1.25
+    Blunt: 1.1
 
 # Thaven, despite having a reference to it.. Doesn't actually have a damage modifier? Ingame guidebook says they have one. Very odd.
 - type: damageModifierSet
@@ -36,6 +40,7 @@
 - type: damageModifierSet
   id: ProtoSlimePerson # Roundstart armor nullifies the brute weaknesses pmuch
   coefficients:
+    Shock: 1.25
     Blunt: 0.7
     Slash: 1.2
     Piercing: 1.2
@@ -46,7 +51,7 @@
   id: ProtoKin
   coefficients:
     Asphyxiation: 0 # They don't breathe, but there's still ways to get airloss damage via chem OD.
-    Cold: 0.40
+    Cold: 0.4
     Heat: 1.15
     Cellular: 0.25
     Bloodloss: 1.35
@@ -54,7 +59,11 @@
     Radiation: 1.3
     Blunt: 1.1
 
-# Resomi have nothing unique in damage modifiers :/
+- type: damageModifierSet
+  id: ProtoResomi
+  coefficients:
+    Shock: 1.25
+    Blunt: 1.1
 
 - type: damageModifierSet
   id: ProtoReptile
@@ -63,4 +72,18 @@
     Cold: 1.2
     Heat: 0.5
     Slash: 0.9 # Something they should have with "tougher skin" according to the notes in the other modifer file
+    Blunt: 1.1
+
+- type: damageModifierSet
+  id: ProtoMoth
+  coefficients:
+    Shock: 1.25
+    Cold: 0.4
+    Heat: 1.2
+    Blunt: 1.1
+
+- type: damageModifierSet
+  id: ProtoHumie
+  coefficients:
+    Shock: 1.25
     Blunt: 1.1

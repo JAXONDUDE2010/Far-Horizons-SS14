@@ -7,6 +7,10 @@
         {
             "name": "visor",
             "directions": 4
+        },
+        {
+            "name": "rounded",
+            "directions": 4
         }
     ]
 }

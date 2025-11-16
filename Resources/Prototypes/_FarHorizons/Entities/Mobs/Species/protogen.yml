@@ -279,6 +279,9 @@
   - type: Body
     prototype: ProtoVox
     requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ProtoVox
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -351,6 +354,8 @@
       visible: false
   - type: HumanoidAppearance
     species: ProtoVox
+    hideLayersOnEquip:
+    - Hair
     markingsDisplacement:
       Hair:
         sizeMaps:
@@ -793,6 +798,8 @@
     - type: Thirst
     - type: HumanoidAppearance 
       species: ProtoKin
+      hideLayersOnEquip:
+      - Hair
     - type: Icon
       sprite: _FarHorizons/Mobs/Species/Proto-Kin/parts.rsi
       state: full
@@ -1012,8 +1019,13 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Resomi_minor_burning
     alternateState: Resomi_burning
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ProtoResomi
   - type: HumanoidAppearance
     species: ProtoResomi
+    hideLayersOnEquip:
+    - Hair
   - type: Fixtures
     fixtures: 
       fix1:
@@ -1029,7 +1041,7 @@
   - type: Puller
     needsHands: false
   - type: Icon
-    sprite: Mobs/Species/Resomi/parts.rsi #Change
+    sprite: _FarHorizons/Mobs/Species/Proto-Resomi/parts.rsi
     state: full
   - type: Body
     prototype: ProtoResomi
@@ -1346,10 +1358,12 @@
     - Draconic
   - type: HumanoidAppearance
     species: ProtoReptile
+    hideLayersOnEquip:
+    - Hair
   - type: Puller
     needsHands: false
   - type: Icon
-    sprite: Mobs/Species/Reptilian/parts.rsi #Change
+    sprite: _FarHorizons/Mobs/Species/Proto-Reptile/parts.rsi
     state: full
   - type: Body
     prototype: ProtoReptile
@@ -1474,15 +1488,17 @@
     action: JumpMoth
   - type: HumanoidAppearance
     species: ProtoMoth
+    hideLayersOnEquip:
+    - Hair
   - type: Icon
-    sprite: Mobs/Species/Moth/parts.rsi #change
+    sprite: _FarHorizons/Mobs/Species/Proto-Moth/parts.rsi
     state: full
   - type: Body
     prototype: ProtoMoth
     requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: ProtoMoth #change
+    damageModifierSet: ProtoMoth
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Butcherable
@@ -1501,14 +1517,14 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: MothAccent
   - type: MovementSpeedModifier
-    baseWeightlessAcceleration: 1.5 # Move around more easily in space.
+    baseWeightlessAcceleration: 1.5
     baseWeightlessFriction: 1
     baseWeightlessModifier: 1
   - type: Flammable
     damage:
       types:
-        Heat: 2.5 # moths burn more easily
-  - type: Temperature # Moths hate the heat and thrive in the cold.
+        Heat: 2.5
+  - type: Temperature
     heatDamageThreshold: 320
     coldDamageThreshold: 230
     currentTemperature: 310.15
@@ -1542,7 +1558,7 @@
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "outerClothing2" ] # FH
+      - map: [ "outerClothing2" ]
       - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
@@ -1553,7 +1569,7 @@
       - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "eyes" ]
-      - map: [ "outerClothing" ] # Starlight
+      - map: [ "outerClothing" ]
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -1568,7 +1584,7 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
-      - map: [ "clownedon" ] # Dynamically generated
+      - map: [ "clownedon" ]
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
@@ -1630,11 +1646,11 @@
 
 - type: entity
   parent: BaseSpeciesDummy
-  id: MobMothDummy
+  id: MobProtoMothDummy
   categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
-    species: Moth
+    species: ProtoMoth
   - type: Inventory
     speciesId: moth
     templateId: protogen
@@ -1690,3 +1706,71 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+
+#region HUMAN ####
+
+- type: entity
+  parent: BaseMobProtogen
+  id: BaseMobProtoHumie
+  name: Urist McHandster
+  abstract: true
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Machine
+    - Trinary
+    - SolCommon
+    understands:
+    - GalacticCommon
+    - Machine
+    - Trinary
+    - SolCommon
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ProtoHumie
+  - type: HumanoidAppearance
+    species: ProtoHumie
+    hideLayersOnEquip:
+    - Hair
+  - type: Inventory
+    templateId: protogen
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: Wagging
+
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobProtoHumieDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory
+    templateId: protogen
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

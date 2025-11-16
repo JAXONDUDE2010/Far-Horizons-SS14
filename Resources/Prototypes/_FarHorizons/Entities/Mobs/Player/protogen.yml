@@ -45,3 +45,15 @@
   name: Urisst' Mztosster
   parent: BaseMobProtoReptile
   id: MobProtoReptile
+
+- type: entity
+  save: false
+  name: Urist McFluffster
+  parent: BaseMobProtoMoth
+  id: MobProtoMoth
+
+- type: entity
+  save: false
+  name: Urist McHandster
+  parent: BaseMobProtoHumie
+  id: MobProtoHumie

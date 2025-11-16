@@ -2,15 +2,22 @@ marking-ProtogenTailShark = shark tail
 marking-ProtogenTailBushy = bushy tail
 marking-ProtogenTail = tail
 
-marking-ProtogenEars = protogen ears
-marking-TwoProtogenEars = less protogen ears
+marking-ProtogenEars = four protogen ears
+marking-TwoProtogenEars = two protogen ears
 
 marking-ProtogenLights = Circular LEDs
+marking-ProtogenVisor = Protogen Visor
+marking-ProtogenLEDFace = Default Protogen LEDs
+marking-ProtogenLEDFaceNoseless = Noseless LEDs
+marking-ProtogenVisorRound = Round Visor
+marking-ProtogenLEDFaceRound = Round LEDs
 
+marking-ProtogenMediumArmor = Standard Protogen Cybernetics
 
 marking-ProtoVulpPawSocksFeet = Paw Socks (Feet)
 marking-ProtoVulpPawSocksLegs = Paw Socks (Legs)
 
+marking-ProtoVulpLights = Circular LEDs
 marking-ProtoVulpVisor = Vulpine/Reptile Visor
 marking-ProtoVulpLEDFace = Default Vulpine LEDs
 marking-ProtoVulpSnoutLong = Long Vulpine Visor
@@ -50,7 +57,14 @@ marking-ProtoResomiLights = Circular LEDs
 
 marking-ProtoResomiMediumArmor = Standard Protogen-Resomi Cybernetics
 
-marking-ProtoReptileLEDFace = Default Reptile LEDs
+marking-ProtoReptileLEDFaceBoxy = Default Reptile LEDs
 marking-ProtoReptileClaws = Long Reptile Claws
 
 marking-ProtoReptileMediumArmor = Standard Protogen-Reptile Cybernetics
+
+marking-ProtoMothVisor = Moth Visor
+marking-ProtoMothLEDFace = Default Moth LEDs
+marking-ProtoMothLights = Circular LEDs
+marking-ProtoMothClaws = Long Moth Claws
+
+marking-ProtoMothMediumArmor = Standard Protogen-Moth Cybernetics
