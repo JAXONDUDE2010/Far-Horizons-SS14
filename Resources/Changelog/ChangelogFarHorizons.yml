@@ -1781,5 +1781,100 @@ Entries:
   id: 33611
   time: '2025-11-14T15:01:51.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/336
+- author: CorruptOmega
+  changes:
+  - message: TEG <-> Nuclear Reactor passageway is now powered and doors correctly
+      bolt to make it an airlock intersection.
+    type: Tweak
+  id: 35000
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Secborg spawns in security instead of being locked in AI chambers roundstart.
+    type: Tweak
+  id: 35001
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Borg Charger in Security.
+    type: Add
+  id: 35002
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Secborg Robotics Console added in security.
+    type: Add
+  id: 35003
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: HoS Locker added to their room.
+    type: Add
+  id: 35004
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Gorillas no longer spawn in the zoo, as they could pry open doors to
+      escape. When door was swapped to a locked blast door they argued and broke multiple
+      reinforced windows.
+    type: Tweak
+  id: 35005
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Reindeers now in spawn in the zoo for unknown reasons! *subtly looks
+      up*
+    type: Add
+  id: 35006
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Space Kangaroo now spawns in empty zoo room.
+    type: Add
+  id: 35007
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: All zoo room buttons now correctly bolt their respective door from opening.
+    type: Tweak
+  id: 35008
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Mining and Salvage Shuttle Consoles added to Cargo.
+    type: Add
+  id: 35009
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Mining Ticket Machine added to Cargo.
+    type: Add
+  id: 35010
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: Mining lockers now are the hardsuit filled variants.
+    type: Tweak
+  id: 35011
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
+- author: CorruptOmega
+  changes:
+  - message: NTR Fax renamed so it's no longer "unknown".
+    type: Tweak
+  id: 35012
+  time: '2025-11-16T07:51:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/350
 Order: -1
 
