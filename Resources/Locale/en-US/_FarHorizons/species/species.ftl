@@ -12,3 +12,4 @@ subspecies-name-protoreptile = Proto-Reptile
 subspecies-name-protomoth = Proto-Moth
 subspecies-name-protohumie = Proto-Humie
 subspecies-name-protofeline = Proto-Feline
+subspecies-name-protodawi = Proto-Dawi

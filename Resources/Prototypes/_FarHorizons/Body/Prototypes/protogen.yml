@@ -554,8 +554,8 @@
 #region DWARF ####
 
 - type: body
-  id: Dwarf
-  name: "dwarf"
+  id: ProtoDawi
+  name: "proto dawi"
   root: torso
   slots:
     head:
@@ -563,9 +563,9 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-        tongue: OrganHumanTongue
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
         eye_implant: null
     torso:
       part: TorsoHuman
@@ -575,11 +575,11 @@
       - right leg
       - left leg
       organs:
-        heart: OrganDwarfHeart
-        lungs: OrganHumanLungs
-        stomach: OrganDwarfStomach
-        liver: OrganDwarfLiver
-        kidneys: OrganHumanKidneys
+        heart: OrganProtoDawiHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtoDawiStomach
+        liver: OrganProtoDawiLiver
+        kidneys: OrganProtogenKidneys
         cavity: null
     right arm:
       part: RightArmHuman

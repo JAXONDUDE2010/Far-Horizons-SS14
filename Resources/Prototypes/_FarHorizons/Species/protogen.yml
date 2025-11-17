@@ -931,7 +931,6 @@
 
 - type: markingPoints
   id: MobProtoHumieMarkingLimits
-  onlyWhitelisted: true
   points:
     Special:
       points: 4
@@ -1046,4 +1045,63 @@
       required: false
     Arms:
       points: 4
+      required: false
+
+#region DWARF ####
+
+- type: species
+  id: ProtoDawi
+  name: subspecies-name-protodawi
+  roundStart: true
+  prototype: MobProtoDawi
+  sprites: MobHumanSprites
+  markingLimits: MobProtoDawiMarkingLimits
+  dollPrototype: MobProtoDawiDummy
+  defaultSkinTone: "#666666"
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protodawi
+  loadout: ProtogenLoadout
+  minWidth: 1.25
+  defaultWidth: 1.25
+  maxWidth: 1.5
+  minHeight: 0.8
+  defaultHeight: 0.8
+  maxHeight: 0.8
+
+- type: markingPoints
+  id: MobProtoDawiMarkingLimits
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtogenMediumArmor, ProtogenVisorRound, ProtogenLights, ProtogenLEDFaceRound ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1 # dwarfs and beards go together like milk and cookies
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 2
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
       required: false

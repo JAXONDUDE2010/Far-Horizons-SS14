@@ -149,7 +149,7 @@
   id: OrganProtoKinCore
   parent: [BaseProtogenOrgan, BaseOrganHeart]
   name: Cybernetic Shadekin Core
-  description: "The result of a very dangerous one-time operation to restore a shadekin's core, it is bright once more- but not as bright as it could've been."
+  description: "The result of a one-time operation to restore a shadekin's core, it is bright once more- but not as bright as it could've been."
   components:
   - type: Sprite
     state: heart-on
@@ -206,8 +206,8 @@
 - type: entity
   id: OrganProtoMothStomach
   parent: [OrganAnimalStomach, BaseOrganStomach]
-  name: stomach
-  description: "Gross. This is hard to stomach."
+  name: Biological Reactor
+  description: "Some call it over-engineered, but it's vital to the function of a protogen. Turns organic matter into organic and electrical energy to power the protogen's cybernetics and flesh."
   components:
   - type: Sprite
     state: stomach
@@ -246,7 +246,8 @@
 - type: entity
   id: OrganProtoDawiHeart
   parent: OrganProtogenHeart
-  name: dawi heart
+  name: Cybernetic Heart
+  description: "Doesn't actually need to beat, simply mimics the movement to provide comfort for the user."
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
@@ -254,7 +255,8 @@
 - type: entity
   id: OrganProtoDawiLiver
   parent: OrganProtogenLiver
-  name: dawi liver
+  name: Cybernetic Liver
+  description: "Pairing suggestion: fermented RAM sticks and CPU drives."
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
@@ -262,7 +264,8 @@
 - type: entity
   id: OrganProtoDawiStomach
   parent: OrganProtogenStomach
-  name: dawi stomach
+  name: Biological Reactor
+  description: "Some call it over-engineered, but it's vital to the function of a protogen. Turns organic matter into organic and electrical energy to power the protogen's cybernetics and flesh."
   components:
   - type: Sprite
     state: stomach

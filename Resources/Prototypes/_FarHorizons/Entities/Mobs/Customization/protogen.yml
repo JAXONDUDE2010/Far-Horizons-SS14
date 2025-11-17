@@ -10,7 +10,7 @@
   id: ProtogenTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: tail_protogen
@@ -19,7 +19,7 @@
   id: ProtogenTailBushy
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: bushy_tail_protogen
@@ -28,7 +28,7 @@
   id: ProtogenTailShark
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: shark_tail_protogen
@@ -37,7 +37,7 @@
   id: ProtogenEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: ears_protogen
@@ -46,7 +46,7 @@
   id: TwoProtogenEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline]
+  speciesRestriction: [Protogen, ProtoVulp, ProtoVox, ProtoThaven, ProtoKin, ProtoResomi, ProtoHumie, ProtoMoth, ProtoFeline, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: two_ears_protogen
@@ -55,7 +55,7 @@
   id: ProtogenLights
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_body.rsi
     state: body
@@ -64,7 +64,7 @@
   id: ProtogenVisor
   bodyPart: LFoot
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/visor_shapes.rsi
       state: visor
@@ -73,7 +73,7 @@
   id: ProtogenVisorRound
   bodyPart: LFoot
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/visor_shapes.rsi
       state: rounded
@@ -82,7 +82,7 @@
   id: ProtogenLEDFace
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
       state: face
@@ -91,7 +91,7 @@
   id: ProtogenLEDFaceNoseless
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
       state: noseless
@@ -100,7 +100,7 @@
   id: ProtogenLEDFaceRound
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
       state: rounded
@@ -109,7 +109,7 @@
   id: ProtogenMediumArmor
   bodyPart: RFoot
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/body_armor.rsi
       state: medium
@@ -402,7 +402,7 @@
   id: ProtoReptileLEDFaceBoxy
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [ProtoReptile, ProtoHumie]
+  speciesRestriction: [ProtoReptile, ProtoHumie, ProtoDawi]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_face.rsi
       state: boxy
