@@ -11,6 +11,10 @@
         {
             "name": "long",
             "directions": 4
+        },
+        {
+            "name": "four-eyes",
+            "directions": 4
         }
     ]
 }

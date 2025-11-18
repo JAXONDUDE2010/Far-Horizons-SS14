@@ -3,6 +3,7 @@ marking-ProtogenTailBushy = bushy tail
 marking-ProtogenTail = tail
 
 marking-ProtogenEars = four protogen ears
+marking-ProtogenEarsTips = four protogen ears (tips)
 marking-TwoProtogenEars = two protogen ears
 
 marking-ProtogenLights = Circular LEDs
@@ -18,13 +19,20 @@ marking-ProtoVulpPawSocksFeet = Paw Socks (Feet)
 marking-ProtoVulpPawSocksLegs = Paw Socks (Legs)
 
 marking-ProtoVulpLights = Circular LEDs
+marking-ProtoVulpLightsAngled = Angled LEDs
 marking-ProtoVulpVisor = Vulpine/Reptile Visor
 marking-ProtoVulpLEDFace = Default Vulpine LEDs
+marking-ProtoVulpVisorFourEyes = Large Vulpine Visor
+marking-ProtoVulpLEDFaceFourEyes = Four-eyes Vulpine LEDs
 marking-ProtoVulpSnoutLong = Long Vulpine Visor
 marking-ProtoVulpLEDFaceLong = Long Vulpine LEDs
-marking-ProtoVulpClaws = Long Vulpine Claws
+
+marking-ProtoVulpClaws = Vulpine Claws
+marking-ProtoVulpClawsLong = Long Vulpine Claws
+marking-ProtoVulpVisorSideWings = Side Visor Wings
 
 marking-ProtoVulpMediumArmor = Standard Protogen-Vulpine Cybernetics
+marking-ProtoVulpMediumArmorAngled = Angled Standard Protogen-Vulpine Cybernetics
 
 marking-ProtoVoxVisor = Vox Visor
 marking-ProtoVoxLEDFace = Default Vox LEDs
@@ -95,3 +103,6 @@ marking-ProtoAvaliLights = Circular LEDs
 marking-ProtoAvaliWings = Hardlight Avali Wings
 
 marking-ProtoAvaliMediumArmor = Standard Protogen-Avali Cybernetics
+
+marking-ProtoArachnidVisor = Arachnid Visor
+marking-ProtoArachnidLEDFace = Default Arachnid LEDs

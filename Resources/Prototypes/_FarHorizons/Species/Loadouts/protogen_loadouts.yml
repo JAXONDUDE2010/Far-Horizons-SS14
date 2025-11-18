@@ -2,7 +2,7 @@
   id: ProtogenLoadout
   groups:
   - ProtogenCybernetics
-
+  - ProtogenTelecomms
 ---
 
 - type: loadoutGroup
@@ -12,6 +12,12 @@
   - ProtogenArmorLight
   - ProtogenArmorMedium
   - ProtogenArmorHeavy
+
+- type: loadoutGroup
+  id: ProtogenTelecomms
+  name: loadout-group-protogen-telecomms
+  loadouts:
+  - ProtogenTrinaryImplant
 
 ---
 
@@ -29,3 +35,9 @@
   id: ProtogenArmorHeavy
   equipment:
     outerClothing2: ClothingOuterArmorProtogenHeavy
+
+- type: loadout
+  id: ProtogenTrinaryImplant
+  storage:
+    back: 
+    - TrinaryImplanter

@@ -9,7 +9,19 @@
             "directions": 4
         },
         {
+            "name": "bodyangled",
+            "directions": 4
+        },
+        {
+            "name": "bodyangled_inner",
+            "directions": 4
+        },
+        {
             "name": "claws",
+            "directions": 4
+        },
+        {
+            "name": "clawslong",
             "directions": 4
         }
     ]

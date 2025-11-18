@@ -87,3 +87,9 @@
   name: Urist McAvalister
   parent: BaseMobProtoAvali
   id: MobProtoAvali
+
+- type: entity
+  save: false
+  name: Urist McWebster
+  parent: BaseMobProtoArachnid
+  id: MobProtoArachnid

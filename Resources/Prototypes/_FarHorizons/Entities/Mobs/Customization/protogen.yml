@@ -41,6 +41,8 @@
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
     state: ears_protogen
+  - sprite: _FarHorizons/Mobs/Customization/protogen/protogen.rsi
+    state: ears_protogen_tips
 
 - type: marking
   id: TwoProtogenEars
@@ -55,7 +57,7 @@
   id: ProtogenLights
   bodyPart: RHand
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi, ProtoArachnid]
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/protogen/led_shapes_body.rsi
     state: body
@@ -109,7 +111,7 @@
   id: ProtogenMediumArmor
   bodyPart: RFoot
   markingCategory: Special
-  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi]
+  speciesRestriction: [Protogen, ProtoReptile, ProtoHumie, ProtoDawi, ProtoArachnid]
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/protogen/body_armor.rsi
       state: medium
@@ -144,6 +146,15 @@
       state: vulpvisor
 
 - type: marking
+  id: ProtoVulpVisorFourEyes
+  bodyPart: LFoot
+  markingCategory: Special
+  speciesRestriction: [ProtoVulp]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-vulp/visor_shapes.rsi
+      state: vulpvisor-four-eyes
+
+- type: marking
   id: ProtoVulpSnoutLong
   bodyPart: RFoot
   markingCategory: Special
@@ -153,6 +164,15 @@
       state: snout
 
 - type: marking
+  id: ProtoVulpVisorSideWings
+  bodyPart: RFoot
+  markingCategory: Head
+  speciesRestriction: [ProtoVulp]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-vulp/visor_markings.rsi
+      state: side-visor-wings
+
+- type: marking
   id: ProtoVulpMediumArmor
   bodyPart: RFoot
   markingCategory: Special
@@ -160,6 +180,15 @@
   sprites:
     - sprite: _FarHorizons/Mobs/Customization/proto-vulp/body_armor.rsi
       state: medium
+
+- type: marking
+  id: ProtoVulpMediumArmorAngled
+  bodyPart: RFoot
+  markingCategory: Special
+  speciesRestriction: [ProtoVulp]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-vulp/body_armor.rsi
+      state: mediumangled
 
 - type: marking
   id: ProtoVulpLEDFace
@@ -180,6 +209,15 @@
       state: long
 
 - type: marking
+  id: ProtoVulpLEDFaceFourEyes
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoVulp]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_face.rsi
+      state: four-eyes
+
+- type: marking
   id: ProtoVulpClaws
   bodyPart: RHand
   markingCategory: Overlay
@@ -189,6 +227,15 @@
     state: claws
 
 - type: marking
+  id: ProtoVulpClawsLong
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [ProtoVulp]
+  sprites:
+  - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_body.rsi
+    state: clawslong
+
+- type: marking
   id: ProtoVulpLights
   bodyPart: RHand
   markingCategory: Special
@@ -196,6 +243,17 @@
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_body.rsi
     state: body
+
+- type: marking
+  id: ProtoVulpLightsAngled
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoVulp]
+  sprites:
+  - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_body.rsi
+    state: bodyangled
+  - sprite: _FarHorizons/Mobs/Customization/proto-vulp/led_shapes_body.rsi
+    state: bodyangled_inner
 
 #region VOX ####
 
@@ -645,3 +703,23 @@
   sprites:
   - sprite: _FarHorizons/Mobs/Customization/proto-avali/led_shapes_body.rsi
     state: wings
+
+#region ARACHNID
+
+- type: marking
+  id: ProtoArachnidVisor
+  bodyPart: RFoot
+  markingCategory: Special
+  speciesRestriction: [ProtoArachnid]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-arachnid/visor_shapes.rsi
+      state: visor
+  
+- type: marking
+  id: ProtoArachnidLEDFace
+  bodyPart: RHand
+  markingCategory: Special
+  speciesRestriction: [ProtoArachnid]
+  sprites:
+    - sprite: _FarHorizons/Mobs/Customization/proto-arachnid/led_shapes_face.rsi
+      state: face
