@@ -39,9 +39,9 @@
   id: MobProtogenMarkingLimits
   points:
     Special:
-      points: 1
+      points: 4
       required: true
-      defaultMarkings: [ ProtogenMediumArmor, ProtogenLights ]
+      defaultMarkings: [ ProtogenMediumArmor, ProtogenLights, ProtogenLEDFace, ProtogenVisor ]
     Hair:
       points: 1
       required: false
@@ -1054,7 +1054,7 @@
   name: subspecies-name-protodawi
   roundStart: true
   prototype: MobProtoDawi
-  sprites: MobHumanSprites
+  sprites: MobProtoHumieSprites
   markingLimits: MobProtoDawiMarkingLimits
   dollPrototype: MobProtoDawiDummy
   defaultSkinTone: "#666666"
@@ -1104,4 +1104,261 @@
       required: false
     Arms:
       points: 2
+      required: false
+
+#region DIONA ####
+
+- type: species
+  id: ProtoDionae
+  name: subspecies-name-protodionae
+  roundStart: true
+  prototype: MobProtoDionae
+  sprites: MobProtoDionaeSprites
+  markingLimits: MobProtoDionaeMarkingLimits
+  dollPrototype: MobProtoDionaeDummy
+  defaultSkinTone: "#cdb369"
+  skinColoration: Hues
+  customName: true
+  maleFirstNames: NamesDionaFirst
+  femaleFirstNames: NamesDionaFirst
+  lastNames: NamesDionaLast
+  naming: TheFirstofLast
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protodionae
+  loadout: ProtogenLoadout
+  standardSize: 200
+  standardWeight: 145
+  standardDensity: 130
+
+- type: speciesBaseSprites
+  id: MobProtoDionaeSprites
+  sprites:
+    Eyes: MobProtogenEyes
+    Head: MobDionaHead
+    Snout: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Chest: MobDionaTorso
+    LArm: MobDionaLArm
+    RArm: MobDionaRArm
+    LHand: MobDionaLHand
+    RHand: MobDionaRHand
+    LLeg: MobDionaLLeg
+    RLeg: MobDionaRLeg
+    LFoot: MobDionaLFoot
+    RFoot: MobDionaRFoot
+  
+- type: markingPoints
+  id: MobProtoDionaeMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoDionaeMediumArmor, ProtoDionaeVisor, ProtoDionaeLights, ProtoDionaeLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 2
+      required: false
+    Head:
+      points: 2
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Overlay:
+      points: 2
+      required: false
+
+#region CYCLORITE ####
+
+- type: species
+  id: ProtoCyclops
+  name: subspecies-name-protocyclops
+  roundStart: true
+  prototype: MobProtoCyclops
+  sprites: MobProtoCyclopsSprites
+  markingLimits: MobProtoCyclopsMarkingLimits
+  dollPrototype: MobProtoCyclopsDummy
+  defaultSkinTone: "#FFFFFF"
+  skinColoration: Hues
+  customName: true
+  maleFirstNames: names_cyclorite
+  femaleFirstNames: names_cyclorite
+  naming: First
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protocyclops
+  loadout: ProtogenLoadout
+  minHeight: 0.9
+  defaultHeight: 1
+  maxHeight: 1.2
+  standardSize: 170
+  standardWeight: 100
+  standardDensity: 110
+
+- type: speciesBaseSprites
+  id: MobProtoCyclopsSprites
+  sprites:
+    Eyes: MobProtogenEyes
+    Head: MobCycloriteHead
+    Snout: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Chest: MobCycloriteTorso
+    LArm: MobCycloriteLArm
+    RArm: MobCycloriteRArm
+    LHand: MobCycloriteLHand
+    RHand: MobCycloriteRHand
+    LLeg: MobCycloriteLLeg
+    RLeg: MobCycloriteRLeg
+    LFoot: MobCycloriteLFoot
+    RFoot: MobCycloriteRFoot
+  
+- type: markingPoints
+  id: MobProtoCyclopsMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoCyclopsMediumArmor, ProtoCyclopsVisor, ProtoCyclopsLights, ProtoCyclopsLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 2
+      required: false
+    Head:
+      points: 3
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+
+#region AVALI ####
+
+- type: species
+  id: ProtoAvali
+  name: subspecies-name-protoavali
+  roundStart: true
+  prototype: MobProtoAvali
+  sprites: MobProtoAvaliSprites
+  markingLimits: MobProtoAvaliMarkingLimits
+  dollPrototype: MobProtoAvaliDummy
+  defaultSkinTone: "#D2B48C"
+  skinColoration: Hues
+  customName: true
+  maleFirstNames: names_avali_first
+  femaleFirstNames: names_avali_first
+  lastNames: names_avali_packs
+  naming: FirstLast
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Protogen
+  subspeciesName: subspecies-name-protoavali
+  loadout: ProtogenLoadout
+  minAge: 23
+  youngAge: 103
+  oldAge: 257
+  maxAge: 430
+  minHeight: 0.8
+  defaultHeight: 0.91
+  maxHeight: 1
+  standardSize: 150 # gives a range of 130-150cm and 27-31kg
+  standardWeight: 31
+  standardDensity: 11
+
+- type: speciesBaseSprites
+  id: MobProtoAvaliSprites
+  sprites:
+    Eyes: MobProtogenEyes
+    Head: MobAvaliHead
+    Snout: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Chest: MobAvaliTorso
+    Tail: MobHumanoidAnyMarking
+    LArm: MobAvaliLArm
+    RArm: MobAvaliRArm
+    LHand: MobAvaliLHand
+    RHand: MobAvaliRHand
+    LLeg: MobAvaliLLeg
+    RLeg: MobAvaliRLeg
+    LFoot: MobAvaliLFoot
+    RFoot: MobAvaliRFoot
+
+- type: markingPoints
+  id: MobProtoAvaliMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Special:
+      points: 4
+      required: true
+      defaultMarkings: [ ProtoAvaliMediumArmor, ProtoAvaliVisor, ProtoAvaliLights, ProtoAvaliLEDFace ]
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ AvaliTailBase ]
+    HeadTop:
+      points: 2
+      required: false
+    Head:
+      points: 2
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ AvaliEarsBase ]
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
       required: false

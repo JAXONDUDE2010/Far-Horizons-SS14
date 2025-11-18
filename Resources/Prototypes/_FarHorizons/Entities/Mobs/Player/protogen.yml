@@ -69,3 +69,21 @@
   name: Urist McHands The ProtoDawi
   parent: BaseMobProtoDawi
   id: MobProtoDawi
+
+- type: entity
+  save: false
+  name: Urist McPlantster
+  parent: BaseMobProtoDionae
+  id: MobProtoDionae
+
+- type: entity
+  save: false
+  name: Urist McCyclopster
+  parent: BaseMobProtoCyclops
+  id: MobProtoCyclops
+
+- type: entity
+  save: false
+  name: Urist McAvalister
+  parent: BaseMobProtoAvali
+  id: MobProtoAvali

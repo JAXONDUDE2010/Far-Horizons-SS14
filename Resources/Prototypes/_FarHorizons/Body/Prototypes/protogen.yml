@@ -605,3 +605,165 @@
       part: RightFootHuman
     left foot:
       part: LeftFootHuman
+
+#region DIONA ####
+
+- type: body
+  id: ProtoDionae
+  name: "proto-dionae"
+  root: torso
+  slots:
+    head:
+      part: HeadDiona
+      connections:
+      - torso
+      organs:
+        brain: OrganDionaBrainNymph
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoDiona
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganDionaStomachNymph
+        lungs: OrganDionaLungsNymph
+        cavity: null
+    right arm:
+      part: RightArmDiona
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmDiona
+      connections:
+      - left hand
+    right hand:
+      part: RightHandDiona
+    left hand:
+      part: LeftHandDiona
+    right leg:
+      part: RightLegDiona
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegDiona
+      connections:
+      - left foot
+    right foot:
+      part: RightFootDiona
+    left foot:
+      part: LeftFootDiona
+
+#region CYCLORITE ####
+
+- type: body
+  id: ProtoCyclops
+  name: "proto-cyclops"
+  root: torso
+  slots:
+    head:
+      part: HeadCyclorite
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoCyclorite
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtogenHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtogenStomach
+        liver: OrganProtogenLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmCyclorite
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmCyclorite
+      connections:
+      - left hand
+    right hand:
+      part: RightHandCyclorite
+    left hand:
+      part: LeftHandCyclorite
+    right leg:
+      part: RightLegCyclorite
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegCyclorite
+      connections:
+      - left foot
+    right foot:
+      part: RightFootCyclorite
+    left foot:
+      part: LeftFootCyclorite
+
+#region AVALI ####
+
+- type: body
+  id: ProtoAvali
+  name: "proto-avali"
+  root: torso
+  slots:
+    head:
+      part: HeadAvali
+      connections:
+      - torso
+      organs:
+        brain: OrganProtogenBrain
+        eyes: OrganProtogenEyes
+        tongue: OrganProtogenTongue
+        eye_implant: null
+    torso:
+      part: TorsoAvali
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganProtoAvaliHeart
+        lungs: OrganProtogenLungs
+        stomach: OrganProtoAvaliStomach
+        liver: OrganProtoAvaliLiver
+        kidneys: OrganProtogenKidneys
+        cavity: null
+    right arm:
+      part: RightArmAvali
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmAvali
+      connections:
+      - left hand
+    right hand:
+      part: RightHandAvali
+    left hand:
+      part: LeftHandAvali
+    right leg:
+      part: RightLegAvali
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegAvali
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAvali
+    left foot:
+      part: LeftFootAvali

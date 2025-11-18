@@ -87,9 +87,39 @@
   coefficients:
     Shock: 1.25
     Blunt: 1.1
+    Cold: 0.5
+    Heat: 1.1 #Insulated but no fur
 
 - type: damageModifierSet
   id: ProtoFeline
   coefficients:
     Shock: 1.25
     Blunt: 1.1
+    Cold: 0.5
+    Heat: 1.2 #Short fur, not thick enough to add to insulation
+
+- type: damageModifierSet
+  id: ProtoDionae
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.9
+    Heat: 1.5
+    Cold: 0.5
+    Shock: 1.25
+
+- type: damageModifierSet
+  id: ProtoCyclops
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.8
+    Shock: 1.25
+    Cold: 0.45 #Rock
+    Heat: 1.15 #Same reason
+
+- type: damageModifierSet
+  id: ProtoAvali
+  coefficients:
+    Shock: 1.25
+    Blunt: 1.1
+    Cold: 0.3 # Two reasons- Literally cold blooded, as in, blood below freezing, and supreme insulation. 
+    Heat: 1.4
