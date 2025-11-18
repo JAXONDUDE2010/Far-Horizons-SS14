@@ -1,15 +1,15 @@
-using Content.Server.Medical.Components;
+using Content.Server.FarHorizons.Tools.Shipyard.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Verbs;
 using Content.Shared.Inventory;
 using Content.Shared.Damage;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed class MedTekCartridgeSystem : EntitySystem
+public sealed class HullSenseCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
@@ -18,30 +18,30 @@ public sealed class MedTekCartridgeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MedTekCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
-        SubscribeLocalEvent<MedTekCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
-        SubscribeLocalEvent<HealthAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddVerbAnalyzer);
+        SubscribeLocalEvent<HullSenseCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
+        SubscribeLocalEvent<HullSenseCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
+        SubscribeLocalEvent<IntegrityAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddVerbAnalyzer);
     }
 
-    private void OnCartridgeAdded(Entity<MedTekCartridgeComponent> ent, ref CartridgeAddedEvent args)
+    private void OnCartridgeAdded(Entity<HullSenseCartridgeComponent> ent, ref CartridgeAddedEvent args)
     {
-        var healthAnalyzer = EnsureComp<HealthAnalyzerComponent>(args.Loader);
+        var healthAnalyzer = EnsureComp<IntegrityAnalyzerComponent>(args.Loader);
     }
 
-    private void OnCartridgeRemoved(Entity<MedTekCartridgeComponent> ent, ref CartridgeRemovedEvent args)
+    private void OnCartridgeRemoved(Entity<HullSenseCartridgeComponent> ent, ref CartridgeRemovedEvent args)
     {
         // only remove when the program itself is removed
-        if (!_cartridgeLoaderSystem.HasProgram<MedTekCartridgeComponent>(args.Loader))
+        if (!_cartridgeLoaderSystem.HasProgram<HullSenseCartridgeComponent>(args.Loader))
         {
-            RemComp<HealthAnalyzerComponent>(args.Loader);
+            RemComp<IntegrityAnalyzerComponent>(args.Loader);
         }
     }
 
-    private void AddVerbAnalyzer(Entity<HealthAnalyzerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
+    private void AddVerbAnalyzer(Entity<IntegrityAnalyzerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
     {
         if (!args.Args.CanInteract || !args.Args.CanAccess)
             return;
-        if (!HasComp<DamageableComponent>(args.Args.Target) || !HasComp<MobStateComponent>(args.Args.Target))
+        if (!HasComp<DamageableComponent>(args.Args.Target) || HasComp<MobStateComponent>(args.Args.Target))
             return;
 
         var user = args.Args.User;
@@ -52,7 +52,7 @@ public sealed class MedTekCartridgeSystem : EntitySystem
         InnateVerb verb = new()
         {
             Act = () => _interactionSystem.InteractDoAfter(user, ent.Owner, target, patientCoordinates, canReach),
-            Text = "Analyze Patient",
+            Text = "Analyze Structure",
             IconEntity = GetNetEntity(ent),
             Priority = 2,
         };
