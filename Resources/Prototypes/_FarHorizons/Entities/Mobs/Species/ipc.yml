@@ -121,7 +121,7 @@
       - EncryptionKeyTrinary
   # Battery
   - type: IPCBattery
-    dieWithoutPowerAfter: 10.0 # 20 Seconds was too forgiving
+    dieWithoutPowerAfter: 15.0 # 10 was too short
     numWarnings: 2 #warn player that they are about to die
     warningText: ipc-warning-critical-charge
     warningSound:
