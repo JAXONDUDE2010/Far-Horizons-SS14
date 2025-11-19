@@ -71,6 +71,7 @@
       - DoorBumpOpener
       - AnomalyHost
       - IPC
+      - SiliconEmotesFH 
   - type: Stamina
     staminaAlert: "IPCStamina"
   - type: Damageable
@@ -95,7 +96,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
-    allowedEmotes: ['BeepRobot', 'PingRobot', 'BuzzRobot', 'Buzz-TwoRobot', 'ChimeRobot', 'HonkRobot']
+    allowedEmotes: ['Beep', 'Ping', 'Buzz', 'Buzz-Two', 'Chime', 'Honk']
   - type: Vocal
     sounds:
       Male: MaleIPC
@@ -135,7 +136,9 @@
       - APCHyperCapacity
       - SubstationBasic
       - SubstationWallBasic
-    noPowerDeathEmote: DefaultDeathgasp
+    noPowerDeathEmote: DeathgaspIPC
+  - type: Deathgasp
+    prototype: DeathgaspIPC
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true

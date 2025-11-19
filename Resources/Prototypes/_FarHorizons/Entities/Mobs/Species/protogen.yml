@@ -123,6 +123,7 @@
       - DoorBumpOpener
       - AnomalyHost
       - Protogen
+      - SiliconEmotesFH 
   - type: Temperature # Similar to vulp becasue they are ALSO a furred race
     heatDamageThreshold: 325
     coldDamageThreshold: 230
@@ -1199,6 +1200,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Resomi
+    - SiliconEmotesFH 
   - type: NightVision
   - type: FlashModifier
     modifier: 2
@@ -1853,6 +1855,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Felionoid
+    - SiliconEmotesFH 
   - type: Fixtures
     fixtures:
       fix1:
@@ -2061,6 +2064,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Diona
+    - SiliconEmotesFH 
   - type: HumanoidAppearance
     species: ProtoDionae
   - type: Hunger
@@ -2380,6 +2384,7 @@
         - DoorBumpOpener
         - AnomalyHost
         - Avali
+        - SiliconEmotesFH 
     - type: HumanoidAppearance
       species: ProtoAvali
     - type: Hunger # on 2x more
@@ -2559,6 +2564,7 @@
     - SpiderCraft
     - AnomalyHost
     - Arachnid
+    - SiliconEmotesFH 
   - type: Butcherable
     butcheringType: Spike
     spawned:
