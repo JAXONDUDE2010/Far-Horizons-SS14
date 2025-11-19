@@ -15,6 +15,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Inventory;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.UserInterface;
+using Robust.Shared.Timing;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -171,7 +172,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         UpdateReaderUi(ent, args.Loader);
     }
 
-    private void UpdateReaderUi(Entity<WantedListCartridgeComponent> ent, EntityUid loaderUid)
+    private void UpdateReaderUi(Entity<WantedListCartridgeComponent> ent, EntityUid loaderUid, string? targetName = null)
     {
         if (_station.GetOwningStation(ent) is not { } station)
             return;
@@ -186,7 +187,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
                 _records.TryGetRecord(key, out GeneralStationRecord? generalRecord);
                 return new WantedRecord(generalRecord!, r.Status, r.Reason, r.InitiatorName, r.History);
             });
-        var state = new WantedListUiState(records.ToList());       
+        var state = new WantedListUiState(records.ToList(), targetName);       
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
 
@@ -226,7 +227,13 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
             return;
         if (programUidNullable is not { } programUid)
             return;
+        if(!TryComp<ActivatableUIComponent>(item, out var activeComp))
+            return;
+        if(!TryComp<IdentityComponent>(target, out var idComp) || !TryComp<MetaDataComponent>(idComp.IdentityEntitySlot.ContainedEntity, out var metaComp))
+            return;
 
         _cartridge.ActivateProgram(item, programUid);
+        Timer.Spawn(TimeSpan.FromMilliseconds(300), () => UpdateReaderUi((programUid, program), item, metaComp.EntityName));
+        _activatableUISystem.InteractUIp(user, item, activeComp);
     }
 }
