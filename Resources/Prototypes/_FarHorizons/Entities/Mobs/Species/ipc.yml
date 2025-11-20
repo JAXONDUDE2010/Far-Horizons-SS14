@@ -17,6 +17,40 @@
     drawdepth: Mobs
     sprite: _FarHorizons/Mobs/Species/IPC/parts.rsi
     layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "outerClothing" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
     - map: ["enum.BorgVisualLayers.Body"]
       state: light
       visible: false
@@ -33,6 +67,10 @@
       state: light
       shader: unshaded
       visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -44,10 +82,20 @@
       Dead: BorgDead
   - type: WiresPanel
   - type: DamageVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    - "enum.HumanoidVisualLayers.Head"
+    - "enum.HumanoidVisualLayers.LArm"
+    - "enum.HumanoidVisualLayers.LLeg"
+    - "enum.HumanoidVisualLayers.RArm"
+    - "enum.HumanoidVisualLayers.RLeg"
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#b67823"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: MeleeWeapon
     hidden: true
     soundHit:
