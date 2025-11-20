@@ -236,7 +236,7 @@
     hideLayersOnEquip:
     - Hair
   - type: Inventory
-    speciesId: vulpkanin #to be replaced with proto[species] when new sprites are made
+    speciesId: protovulp #to be replaced with proto[species] when new sprites are made
     templateId: protogen
     displacements: 
       head:
@@ -269,7 +269,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Inventory
-    speciesId: vulpkanin #to be replaced with proto[species] when new sprites are made
+    speciesId: protovulp #to be replaced with proto[species] when new sprites are made
     templateId: protogen
     displacements: 
       jumpsuit:
@@ -277,6 +277,7 @@
           32:
             sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
             state: jumpsuit
+      shoes:
         sizeMaps:
           32:
             sprite: _FarHorizons/Mobs/Species/Proto-Vulp/displacement.rsi
