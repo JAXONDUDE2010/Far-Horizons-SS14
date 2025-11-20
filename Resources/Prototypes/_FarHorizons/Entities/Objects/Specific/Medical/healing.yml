@@ -51,7 +51,6 @@
     stackType: AmmoniaPack
     count: 1
 
-#TODO - SPRITE#
 - type: entity
   name: Oil Pack
   description: Contains Oil. Pretty simple compared to other packs.
@@ -73,7 +72,7 @@
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
-    delay: 1.6 # STARLIGHT
+    delay: 1.6
     modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"

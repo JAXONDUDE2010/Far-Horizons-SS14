@@ -466,7 +466,7 @@
     - sprite: _FarHorizons/Mobs/Customization/ipc/bishop/bishop_main.rsi
       state: l_arm-secondary
     - sprite: _FarHorizons/Mobs/Customization/ipc/bishop/bishop_main.rsi
-      state: l_arm-teritary
+      state: l_arm-tertiary
 
 - type: marking
   id: MarkingBishopLHand
@@ -508,7 +508,7 @@
     - sprite: _FarHorizons/Mobs/Customization/ipc/bishop/bishop_main.rsi
       state: r_arm-secondary
     - sprite: _FarHorizons/Mobs/Customization/ipc/bishop/bishop_main.rsi
-      state: r_arm-teritary
+      state: r_arm-tertiary
 
 - type: marking
   id: MarkingBishopRHand
