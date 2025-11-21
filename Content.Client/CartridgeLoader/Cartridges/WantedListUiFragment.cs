@@ -43,10 +43,10 @@ public sealed partial class WantedListUiFragment : BoxContainer
                 r.Status.ToString().Contains(args.Text, StringComparison.OrdinalIgnoreCase))
             : _wantedRecords;
 
-        UpdateState(found, false);
+        UpdateState(records: found, refresh: false);
     }
 
-    public void UpdateState(List<WantedRecord> records, bool refresh = true)
+    public void UpdateState(List<WantedRecord> records, string? targetName = null, bool refresh = true)
     {
         if (records.Count == 0)
         {
@@ -70,6 +70,12 @@ public sealed partial class WantedListUiFragment : BoxContainer
         PersonContainer.Visible = false;
 
         var dataList = records.Select(r => new StatusListData(r)).ToList();
+
+        if(targetName != null)
+        {
+            _selectedTargetName = targetName;
+            SearchBar.Text = targetName;
+        }
 
         RecordsList.GenerateItem = GenerateItem;
         RecordsList.ItemPressed = OnItemSelected;
