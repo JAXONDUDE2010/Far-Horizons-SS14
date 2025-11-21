@@ -2151,5 +2151,44 @@ Entries:
   id: 37700
   time: '2025-11-21T12:29:45.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/377
+- author: Killer Tamashi (Prototypes/Sprites) & Princess Gurchi (C#/Protoypes)
+  changes:
+  - message: New playable race - Protogens! Halfway between IPCs and Organics, they
+      have their own unique traits based on your subspecies selection.
+    type: Add
+  id: 13500
+  time: '2025-11-21T19:05:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/135
+- author: Killer Tamashi (Prototypes/Sprites) & Princess Gurchi (C#/Protoypes)
+  changes:
+  - message: New playable race - IPCs! "Ipc when"? ipc NOW
+    type: Add
+  id: 13501
+  time: '2025-11-21T19:05:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/135
+- author: Killer Tamashi (Prototypes/Sprites) & Princess Gurchi (C#/Protoypes)
+  changes:
+  - message: Various mechanics to support IPCs/Protogens (Subspecies Selection/Species
+      Loadout/IPC UI & Repair System/Trinary Comms)
+    type: Add
+  id: 13502
+  time: '2025-11-21T19:05:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/135
+- author: Killer Tamashi (Prototypes/Sprites) & Princess Gurchi (C#/Protoypes)
+  changes:
+  - message: Anyone with cybernetics/cyberlimbs are now effected by emp (Eg. If you
+      have cyber eyes you'll go blind for a bit)
+    type: Add
+  id: 13503
+  time: '2025-11-21T19:05:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/135
+- author: Killer Tamashi (Prototypes/Sprites) & Princess Gurchi (C#/Protoypes)
+  changes:
+  - message: Barotrauma no longer does direct temperature damage, and is instead dependent
+      on the temperature of the environment you're in
+    type: Tweak
+  id: 13504
+  time: '2025-11-21T19:05:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/135
 Order: -1
 
