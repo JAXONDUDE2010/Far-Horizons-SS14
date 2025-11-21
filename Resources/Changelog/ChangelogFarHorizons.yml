@@ -2107,5 +2107,42 @@ Entries:
   id: 37000
   time: '2025-11-21T10:40:52.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/370
+- author: CorruptOmega
+  changes:
+  - message: Cargo Resprites done by Abby
+    type: Tweak
+  id: 37100
+  time: '2025-11-21T10:51:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/371
+- author: CorruptOmega
+  changes:
+  - message: Cargo Bag Resprites done by Hanz
+    type: Tweak
+  id: 37101
+  time: '2025-11-21T10:51:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/371
+- author: CorruptOmega
+  changes:
+  - message: Cargo Belt - Starts with boxcutter and appraisal tool inside. - Given
+      to Cargo Tech and Mail Tech
+    type: Add
+  id: 37102
+  time: '2025-11-21T10:51:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/371
+- author: CorruptOmega
+  changes:
+  - message: Salvage Webbing (in belt slot) - Starts with survival knife and appraisal
+      tool inside - Given to QM, Salvage, Mining
+    type: Add
+  id: 37103
+  time: '2025-11-21T10:51:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/371
+- author: CorruptOmega
+  changes:
+  - message: Apparently fixed maxim hardsuit not equipping helmet correctly.
+    type: Fix
+  id: 37104
+  time: '2025-11-21T10:51:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/371
 Order: -1
 
