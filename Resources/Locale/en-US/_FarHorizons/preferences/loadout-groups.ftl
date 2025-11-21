@@ -23,6 +23,7 @@ loadout-group-magistrate-neck = Magistrate Neck
 loadout-group-magistrate-outer = Magistrate Outer Clothing
 
 loadout-group-mining-head = Mining Specialist Head
+loadout-group-mining-backpack = Mining Specialist Backpack
 
 loadout-group-ntr-outer = NanoTrasen Representatives Outer Clothing
 

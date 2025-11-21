@@ -91,7 +91,7 @@
   id: JobMiningSpecialist
   groups:
   - GroupTankHarness
-  - SalvageSpecialistBackpack
+  - MiningSpecialistBackpack # Far Horizons
   - MiningSpecialistHead
   - MiningSpecialistJumpsuit
   - SalvageSpecialistOuterClothing
