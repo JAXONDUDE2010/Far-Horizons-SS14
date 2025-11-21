@@ -6,6 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
+using Robust.Shared.Physics;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
@@ -47,15 +48,17 @@ public sealed class MedTekCartridgeSystem : EntitySystem
         var user = args.Args.User;
         var target = args.Args.Target;
 
-        var patientCoordinates = Transform(target).Coordinates;
-        var canReach = _transformSystem.InRange(patientCoordinates, Transform(user).Coordinates, ent.Comp.MaxScanRange!.Value);
-        InnateVerb verb = new()
+        if (TryComp(target, out TransformComponent? targetTransform))
         {
-            Act = () => _interactionSystem.InteractDoAfter(user, ent.Owner, target, patientCoordinates, canReach),
-            Text = "Analyze Patient",
-            IconEntity = GetNetEntity(ent),
-            Priority = 2,
-        };
-        args.Args.Verbs.Add(verb);
+            var patientCoordinates = targetTransform.Coordinates;
+            InnateVerb verb = new()
+            {
+                Act = () => _interactionSystem.InteractDoAfter(user, ent.Owner, target, patientCoordinates, true), // Setting canReach to true, because if it's false - args.Args.CanAccess will be false and this code won't run
+                Text = "Analyze Patient",
+                IconEntity = GetNetEntity(ent),
+                Priority = 2,
+            };
+            args.Args.Verbs.Add(verb);
+        }
     }    
 }
