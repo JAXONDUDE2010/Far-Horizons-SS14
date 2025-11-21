@@ -173,6 +173,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #NTNC Consortium BSOs
 - type: entity
@@ -215,6 +216,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Syndicate Infiltration Suit
 - type: entity
@@ -348,6 +350,7 @@
     - MonkeyWearable
     - WhitelistChameleon
     - FootstepSound
+    - IPCExternalCooling # Far Horizons
   - type: Item
     size: Huge
 
