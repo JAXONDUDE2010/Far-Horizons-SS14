@@ -2265,5 +2265,72 @@ Entries:
   id: 36504
   time: '2025-11-21T19:07:57.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/365
+- author: Killer Tamashi
+  changes:
+  - message: Added warning blurb to Protogen Guidebook about losing your cybernetic
+      form as Dionae if you split.
+    type: Add
+  id: 38400
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Updated Protogen Guidebook to reflect new damage protection values for
+      cybernetics
+    type: Tweak
+  id: 38401
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Changed protovulp's outer displacement to use SL's till a proper one
+      can be made
+    type: Tweak
+  id: 38402
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Changed IPC marking count on limbs to 4 (from 3)
+    type: Tweak
+  id: 38403
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Changed IPC guidebook to include the fact you can slot comms chips into
+      yourself
+    type: Tweak
+  id: 38404
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Protogens not being able to eat MREs (wizden didn't tag them properly)
+    type: Fix
+  id: 38405
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Mining Hardsuit not being "Insulated" for IPCs
+    type: Fix
+  id: 38406
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Fixed IPCs not fitting into Borg Chargers
+    type: Fix
+  id: 38407
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Laspi not having a functional music player
+    type: Fix
+  id: 38408
+  time: '2025-11-22T09:34:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
 Order: -1
 
