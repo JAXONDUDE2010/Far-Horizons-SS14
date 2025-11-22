@@ -2332,5 +2332,13 @@ Entries:
   id: 38408
   time: '2025-11-22T09:34:29.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/384
+- author: princess_gurchi
+  changes:
+  - message: Fixed an issue causing each weld on a protogen to permanently cut healing
+      effectiveness of welding in half
+    type: Fix
+  id: 38600
+  time: '2025-11-22T10:51:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/386
 Order: -1
 
