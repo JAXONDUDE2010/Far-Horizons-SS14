@@ -183,6 +183,7 @@
       - Crayon
       - Pancake
       - RamChip
+      - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -260,6 +261,7 @@
       - Crayon
       - Pancake
       - RamChip
+      - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -325,6 +327,7 @@
       - Crayon
       - Pancake
       - RamChip
+      - ReptilianFood
   - type: Metabolizer
     # mm very yummy
     maxReagents: 5
@@ -353,6 +356,7 @@
       - Crayon
       - Pancake
       - RamChip
+      - ReptilianFood
   - type: SolutionContainerManager
     solutions:
       stomach:
