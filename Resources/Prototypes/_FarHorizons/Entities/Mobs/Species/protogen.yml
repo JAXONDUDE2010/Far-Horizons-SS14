@@ -700,6 +700,9 @@
         type: SurgeryBui
       enum.VampireMutationUiKey.Key:
         type: VampireMutationBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
   - type: Icon
     sprite: _FarHorizons/Mobs/Species/Proto-Slime/parts.rsi
     state: full
