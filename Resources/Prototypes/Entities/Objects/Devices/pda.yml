@@ -109,8 +109,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
-      enum.IntegrityAnalyzerUiKey.Key:
-        type: IntegrityAnalyzerBoundUserInterface
+      enum.IntegrityAnalyzerUiKey.Key: #FarHorizons
+        type: IntegrityAnalyzerBoundUserInterface #FarHorizons
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -174,6 +174,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
 
+#FarHorizons Start
 - type: entity
   parent: BasePDA
   id: BaseEngineerPDA
@@ -187,6 +188,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - HullSenseCartridge
+#FarHorizons End
 
 - type: entity
   parent: BasePDA
@@ -733,7 +735,7 @@
     state: pda-hop
 
 - type: entity
-  parent: BaseEngineerPDA
+  parent: BaseEngineerPDA #FarHorizons
   id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
@@ -752,7 +754,7 @@
     state: pda-ce
 
 - type: entity
-  parent: BaseEngineerPDA
+  parent: BaseEngineerPDA #FarHorizons
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -998,7 +1000,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
-      - HullSenseCartridge
+      - HullSenseCartridge #FarHorizons
 
 - type: entity
   parent: CentcomPDA
@@ -1025,7 +1027,7 @@
       - WantedListCartridge
       - MedTekCartridge
       - AstroNavCartridge
-      - HullSenseCartridge
+      - HullSenseCartridge #FarHorizons
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1081,7 +1083,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseEngineerPDA
+  parent: BaseEngineerPDA #FarHorizons
   id: AtmosPDA
   name: atmos PDA
   description: Still smells like plasma.
@@ -1236,7 +1238,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
-      - HullSenseCartridge
+      - HullSenseCartridge #FarHorizons
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1498,7 +1500,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BaseEngineerPDA
+  parent: BaseEngineerPDA #FarHorizons
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
