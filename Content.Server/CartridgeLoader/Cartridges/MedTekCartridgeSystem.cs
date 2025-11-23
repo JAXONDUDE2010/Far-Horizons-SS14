@@ -1,26 +1,27 @@
 using Content.Server.Medical.Components;
 using Content.Shared.CartridgeLoader;
+//FarHorizons Start
 using Content.Shared.Verbs;
 using Content.Shared.Inventory;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
+//FarHorizons End
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class MedTekCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!; //FarHorizons
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MedTekCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
         SubscribeLocalEvent<MedTekCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
-        SubscribeLocalEvent<HealthAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddVerbAnalyzer);
+        SubscribeLocalEvent<HealthAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddVerbAnalyzer); //FarHorizons
     }
 
     private void OnCartridgeAdded(Entity<MedTekCartridgeComponent> ent, ref CartridgeAddedEvent args)
@@ -37,6 +38,7 @@ public sealed class MedTekCartridgeSystem : EntitySystem
         }
     }
 
+    //FarHorizons Start
     private void AddVerbAnalyzer(Entity<HealthAnalyzerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
     {
         if (!args.Args.CanInteract || !args.Args.CanAccess)
@@ -59,5 +61,6 @@ public sealed class MedTekCartridgeSystem : EntitySystem
             };
             args.Args.Verbs.Add(verb);
         }
-    }    
+    }   
+    //FarHorizons End 
 }
