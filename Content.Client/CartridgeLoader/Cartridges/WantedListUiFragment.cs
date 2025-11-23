@@ -43,10 +43,10 @@ public sealed partial class WantedListUiFragment : BoxContainer
                 r.Status.ToString().Contains(args.Text, StringComparison.OrdinalIgnoreCase))
             : _wantedRecords;
 
-        UpdateState(records: found, refresh: false);
+        UpdateState(records: found, refresh: false); //FarHorizons
     }
 
-    public void UpdateState(List<WantedRecord> records, string? targetName = null, bool refresh = true)
+    public void UpdateState(List<WantedRecord> records, string? targetName = null, bool refresh = true) //FarHorizons
     {
         if (records.Count == 0)
         {
@@ -71,11 +71,13 @@ public sealed partial class WantedListUiFragment : BoxContainer
 
         var dataList = records.Select(r => new StatusListData(r)).ToList();
 
+        //FarHorizons Start
         if(targetName != null)
         {
             _selectedTargetName = targetName;
             SearchBar.Text = targetName;
         }
+        //FarHorizons end
 
         RecordsList.GenerateItem = GenerateItem;
         RecordsList.ItemPressed = OnItemSelected;

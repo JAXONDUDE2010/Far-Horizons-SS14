@@ -2398,5 +2398,110 @@ Entries:
   id: 39201
   time: '2025-11-23T13:16:16.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/392
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialist backpacks sprited by Hanz
+    type: Add
+  id: 37900
+  time: '2025-11-23T13:15:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/379
+- author: CorruptOmega
+  changes:
+  - message: Ore bag resprite by Hanz
+    type: Tweak
+  id: 37901
+  time: '2025-11-23T13:15:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/379
+- author: CorruptOmega
+  changes:
+  - message: Cargo/Salvage/Mining backpacks are now considered Cargo Contraband for
+      future separation between Station faction and Gemini Stellar Logistics (Cargo)
+      faction.
+    type: Tweak
+  id: 37902
+  time: '2025-11-23T13:15:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/379
+- author: CorruptOmega
+  changes:
+  - message: FH Meta
+    type: Tweak
+  id: 35300
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Salvage Lead job spawn and locker
+    type: Add
+  id: 35301
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Rearranged Cargo's Salvage/Mining area and gave enough lockers/hardsuits
+      for them and swapped out doors.
+    type: Tweak
+  id: 35302
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Security Borg job spawn, Security Robotics Console, Borg Recharger to
+      security.
+    type: Add
+  id: 35303
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Squeezed AME into Nuclear Reactor hallway because the station should
+      probably still have that.
+    type: Tweak
+  id: 35304
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Gave Turbine room radiation shutters a second button to close/open them,
+      fixed CE access purge button to actually purge.
+    type: Tweak
+  id: 35305
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Gave a second reinforced wall to the outside of the nuclear reactor room.
+    type: Tweak
+  id: 35306
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Removed extra vitals monitors in surgery rooms and swapped out doors
+      to new Surgery access ones.
+    type: Tweak
+  id: 35307
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: New Science Robotics console in Robotics room, because that makes sense.
+    type: Add
+  id: 35308
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Swapped out Robotics doors with Robotics Accessed doors.
+    type: Tweak
+  id: 35309
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
+- author: CorruptOmega
+  changes:
+  - message: Rearranged HoP room to include their new Suit Storage.
+    type: Tweak
+  id: 35310
+  time: '2025-11-23T13:14:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/353
 Order: -1
 
