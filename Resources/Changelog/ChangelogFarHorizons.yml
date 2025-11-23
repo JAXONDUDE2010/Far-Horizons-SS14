@@ -2340,5 +2340,27 @@ Entries:
   id: 38600
   time: '2025-11-22T10:51:44.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/386
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Various hardsuits missing the "IPCExternalCooling" tag
+    type: Fix
+  id: 38900
+  time: '2025-11-23T00:30:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/389
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Sec Experimental not having Corpsman as one of the defined jobs.
+    type: Fix
+  id: 38901
+  time: '2025-11-23T00:30:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/389
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Protogens not being able to have surgery done on them. You can
+      now cut them up to your heart's content!
+    type: Fix
+  id: 38902
+  time: '2025-11-23T00:30:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/389
 Order: -1
 
