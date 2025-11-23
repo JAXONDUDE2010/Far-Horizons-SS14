@@ -173,6 +173,14 @@
   - MiningHardhat
   - CargoTechnicianHead
 
+- type: loadoutGroup
+  id: MiningSpecialistBackpack
+  name: loadout-group-mining-backpack
+  loadouts:
+  - MiningBackpack
+  - MiningDuffel
+  - MiningSatchel
+
 # NTR
 
 - type: loadoutGroup
