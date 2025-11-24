@@ -3,6 +3,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -44,6 +45,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         SubscribeLocalEvent<GrapplingGunComponent, GunShotEvent>(OnGrapplingShot);
         SubscribeLocalEvent<GrapplingGunComponent, ActivateInWorldEvent>(OnGunActivate);
         SubscribeLocalEvent<GrapplingGunComponent, HandDeselectedEvent>(OnGrapplingDeselected);
+        SubscribeLocalEvent<GrapplingGunComponent, DroppedEvent>(OnGrapplingDropped);
     }
 
     private void OnGrappleJointRemoved(EntityUid uid, GrapplingProjectileComponent component, JointRemovedEvent args)
@@ -78,6 +80,20 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
     private void OnGrapplingDeselected(EntityUid uid, GrapplingGunComponent component, HandDeselectedEvent args)
     {
         SetReeling(uid, component, false, args.User);
+    }
+
+    private void OnGrapplingDropped(EntityUid uid, GrapplingGunComponent component, ref DroppedEvent args)
+    {
+        // When the grappling gun is dropped, remove the projectile to prevent the player from being hooked while not holding the gun
+        if (component.Projectile is { } projectile)
+        {
+            if (_netManager.IsServer)
+                QueueDel(projectile);
+
+            component.Projectile = null;
+            SetReeling(uid, component, false, args.User);
+            _gun.ChangeBasicEntityAmmoCount(uid, 1);
+        }
     }
 
     private void OnGrapplingReel(RequestGrapplingReelMessage msg, EntitySessionEventArgs args)
