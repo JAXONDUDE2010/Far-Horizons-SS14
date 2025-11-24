@@ -4,4 +4,8 @@
 public interface ISurgeryToolComponent
 {
     public string ToolName { get; }
+    // FarHorizons Start
+    public string ToolType { get; }
+    public bool Analogue { get; }
+    // FarHorizons End
 }

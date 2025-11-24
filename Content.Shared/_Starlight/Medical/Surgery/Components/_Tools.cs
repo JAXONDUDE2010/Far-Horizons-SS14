@@ -16,6 +16,14 @@ public sealed partial class SurgeryToolComponent : Component
     [DataField, AutoNetworkedField]
     public float SuccessRate = 1f;
 
+    //FarHorizon Start
+    [DataField, AutoNetworkedField]
+    public float AnalogueSpeed = 1;
+    
+    [DataField, AutoNetworkedField]
+    public float AnalogueSuccessRate = 1f;
+    //FarHorizon End
+
     [DataField, AutoNetworkedField]
     public SoundSpecifier? StartSound;
 
@@ -49,46 +57,86 @@ public sealed partial class BodyScannerComponent : Component
 public sealed partial class BoneGelComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "bone gel";
+    //FarHorizons Start
+    public string ToolType => "BoneGel";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class BoneSawComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a bone saw";
+    //FarHorizons Start
+    public string ToolType => "BoneSaw";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class BoneSetterComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a bone setter";
+    //FarHorizons Start
+    public string ToolType => "BoneSetter";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class CauteryComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a cautery";
+    //FarHorizons Start
+    public string ToolType => "Cautery";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class HemostatComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a hemostat";
+    //FarHorizons Start
+    public string ToolType => "Hemostat";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class RetractorComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a retractor";
+    //FarHorizons Start
+    public string ToolType => "Retractor";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class ScalpelComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a scalpel";
+    //FarHorizons Start
+    public string ToolType => "Scalpel";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
 public sealed partial class SurgicalDrillComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a surgical drill";
+    //FarHorizons Start
+    public string ToolType => "SurgicalDrill";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+    //FarHorizons End
 }

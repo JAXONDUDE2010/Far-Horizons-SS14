@@ -310,10 +310,24 @@ public abstract partial class SharedSurgerySystem
                 var durationCap = duration * 2;
                 var durationToSuccessRate = 0f;
                 var bedSpeedMod = 2f;
+                var isAnalogue = false; 
+                var toolSpeed = toolComp.Speed;
+                var specificToolComp = EntityManager.GetComponents(tool)
+                    .OfType<ISurgeryToolComponent>();
 
+                foreach(var usedTool in specificToolComp)
+                {
+                    var requestedTool = stepComp.Tools?.FirstOrDefault().Key;
+                    if(requestedTool != null)
+                        if(usedTool.ToolType.Contains(requestedTool))
+                           isAnalogue = usedTool.Analogue;
+                }
+                if(isAnalogue)
+                    toolSpeed = toolComp.AnalogueSpeed;
+                    
                 if (TryComp(body, out BuckleComponent? buckle) && TryComp(buckle.BuckledTo, out SurgeryBedSpeedComponent? bedComp))
                     bedSpeedMod = bedComp.BedSpeedModifier;
-                duration = duration * toolComp.Speed * bedSpeedMod;
+                duration = duration * toolSpeed * bedSpeedMod;
                 if (duration > durationCap)
                 {
                     durationToSuccessRate = (float)(Math.Pow((duration - durationCap) % 10, 2) / 100);
