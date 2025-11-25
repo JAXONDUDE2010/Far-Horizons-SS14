@@ -5,12 +5,13 @@
   description: "A simple plastic cigarette lighter."
   components:
   - type: SurgeryTool
-    speed: 2.8 #FarHorizons
+    analogueSpeed: 2.8 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
   - type: Cautery
+    analogue: true #FarHorizons
   - type: IgnitionSource
     ignited: false
   - type: ItemToggle

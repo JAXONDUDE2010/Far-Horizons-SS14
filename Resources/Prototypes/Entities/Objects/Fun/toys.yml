@@ -1062,8 +1062,9 @@
     - DrinkSpaceGlue
   # 🌟Starlight-start🌟
   - type: BoneGel
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.4 #FarHorizons
+    analogueSpeed: 2.4 #FarHorizons
     startSound:
       path: "/Audio/Items/bikehorn.ogg"
     endSound:

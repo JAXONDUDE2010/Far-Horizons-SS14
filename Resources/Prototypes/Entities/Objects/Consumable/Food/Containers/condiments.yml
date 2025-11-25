@@ -374,9 +374,9 @@
       Glass: 50
   # 🌟Starlight-start🌟
   - type: BoneGel
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    successRate: 0.01 # How.
-    speed: 0.5
+    analogueSpeed: 3.0 #FarHorizons
     startSound:
       path: /Audio/Items/Medical/ointment_begin.ogg
     endSound:

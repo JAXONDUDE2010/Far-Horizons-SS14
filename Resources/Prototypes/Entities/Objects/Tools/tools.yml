@@ -45,8 +45,9 @@
     price: 30
   # 🌟Starlight-start🌟
   - type: Hemostat
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.3 #FarHorizons
+    analogueSpeed: 2.3 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
     endSound:
@@ -102,8 +103,9 @@
   - type: ItemPrice
     priceCategory: tool_basic
   - type: SurgicalDrill
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.6 #FarHorizons
+    analogueSpeed: 2.6 #FarHorizons
     endSound:
       path: /Audio/Weapons/smash.ogg
   # 🌟Starlight-end🌟
@@ -315,9 +317,10 @@
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
   # 🌟Starlight-start🌟
-  - type: SurgicalDrill
+  - type: SurgicalDrill 
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 1.8 #FarHorizons
+    analogueSpeed: 1.8 #FarHorizons
     startSound:
       path: /Audio/Items/drill_use.ogg
   # 🌟Starlight-end🌟

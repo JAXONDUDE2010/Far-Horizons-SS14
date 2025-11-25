@@ -55,12 +55,13 @@
     temperature: 1000
   # 🌟Starlight-start🌟
   - type: SurgeryTool
-    speed: 2.1 #FarHorizons
+    analogueSpeed: 2.1 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
   - type: Cautery
+    analogue: true #FarHorizons
   # 🌟Starlight-end🌟
   - type: LightBehaviour
     behaviours:

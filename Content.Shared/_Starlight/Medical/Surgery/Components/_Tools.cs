@@ -140,3 +140,50 @@ public sealed partial class SurgicalDrillComponent : Component, ISurgeryToolComp
     public bool Analogue { get; private set; } = false;
     //FarHorizons End
 }
+
+//FarHorizons Start
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class CrowbarSurgeryComponent : Component, ISurgeryToolComponent
+{
+    public string ToolName => "a crowbar";
+    public string ToolType => "Crowbar";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+}
+
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class ScrewdriverSurgeryComponent : Component, ISurgeryToolComponent
+{
+    public string ToolName => "a screwdriver";
+    public string ToolType => "Screwdriver";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+}
+
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class WelderSurgeryComponent : Component, ISurgeryToolComponent
+{
+    public string ToolName => "a welder";
+    public string ToolType => "Welder";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+}
+
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class WirecutterSurgeryComponent : Component, ISurgeryToolComponent
+{
+    public string ToolName => "a wirecutter";
+    public string ToolType => "Wirecutter";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+}
+
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
+public sealed partial class WrenchSurgeryComponent : Component, ISurgeryToolComponent
+{
+    public string ToolName => "a wrench";
+    public string ToolType => "Wrench";
+    [DataField]
+    public bool Analogue { get; private set; } = false;
+}
+//FarHorizons End

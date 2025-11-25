@@ -312,6 +312,7 @@ public abstract partial class SharedSurgerySystem
                 var bedSpeedMod = 2f;
                 var isAnalogue = false; 
                 var toolSpeed = toolComp.Speed;
+                var toolSuccessRate = toolComp.SuccessRate;
                 var specificToolComp = EntityManager.GetComponents(tool)
                     .OfType<ISurgeryToolComponent>();
 
@@ -323,7 +324,10 @@ public abstract partial class SharedSurgerySystem
                            isAnalogue = usedTool.Analogue;
                 }
                 if(isAnalogue)
+                {
                     toolSpeed = toolComp.AnalogueSpeed;
+                    toolSuccessRate = toolComp.AnalogueSuccessRate;
+                }
                     
                 if (TryComp(body, out BuckleComponent? buckle) && TryComp(buckle.BuckledTo, out SurgeryBedSpeedComponent? bedComp))
                     bedSpeedMod = bedComp.BedSpeedModifier;
@@ -336,7 +340,6 @@ public abstract partial class SharedSurgerySystem
                 }
                 if (toolComp.StartSound != null) _audio.PlayPvs(toolComp.StartSound, tool);
 
-                var toolSuccessRate = toolComp.SuccessRate;
                 var totalSuccesRate = Math.Clamp(toolSuccessRate - durationToSuccessRate, 0.25, 1);
 
                 if (totalSuccesRate < SmallestSuccessRate)

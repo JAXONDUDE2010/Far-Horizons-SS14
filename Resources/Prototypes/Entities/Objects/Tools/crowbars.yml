@@ -43,8 +43,9 @@
     - 0,0,0,1
   # 🌟Starlight-start🌟
   - type: BoneSetter
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 1.9 #FarHorizons
+    analogueSpeed: 1.9 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
   # 🌟Starlight-end🌟

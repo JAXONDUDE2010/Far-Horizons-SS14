@@ -26,8 +26,9 @@
       path: "/Audio/Weapons/bladeslice.ogg"
   # 🌟Starlight-start🌟
   - type: Hemostat
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.3 #FarHorizons
+    analogueSpeed: 2.3 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
   # 🌟Starlight-end🌟

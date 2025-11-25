@@ -86,8 +86,9 @@
       item-container: !type:Container
   # 🌟Starlight-start🌟
   - type: Retractor
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.3 #FarHorizons
+    analogueSpeed: 2.3 #FarHorizons
     startSound:
       path: /Audio/Mecha/sound_mecha_hydraulic.ogg
   # 🌟Starlight-end🌟
@@ -122,8 +123,9 @@
     - SmallMech
   # 🌟Starlight-start🌟
   - type: Retractor
+    analogue: true #FarHorizons
   - type: SurgeryTool
-    speed: 2.3 #FarHorizons
+    analogueSpeed: 2.3 #FarHorizons
     startSound:
       path: /Audio/Mecha/sound_mecha_hydraulic.ogg
   # 🌟Starlight-end🌟

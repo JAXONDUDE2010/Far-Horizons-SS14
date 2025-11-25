@@ -110,12 +110,13 @@
     tags:
     - ThermiteIgnitor
   - type: SurgeryTool
-    speed: 1.6 #FarHorizons
+    analogueSpeed: 1.6 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
   - type: Cautery
+    analogue: true #FarHorizons
   # 🌟Starlight-end🌟
 
 - type: entity
