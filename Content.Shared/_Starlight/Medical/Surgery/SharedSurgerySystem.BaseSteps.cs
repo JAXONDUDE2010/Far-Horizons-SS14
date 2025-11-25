@@ -327,21 +327,20 @@ public abstract partial class SharedSurgerySystem
                     
                 if (TryComp(body, out BuckleComponent? buckle) && TryComp(buckle.BuckledTo, out SurgeryBedSpeedComponent? bedComp))
                     bedSpeedMod = bedComp.BedSpeedModifier;
+
                 duration = duration * toolSpeed * bedSpeedMod;
                 if (duration > durationCap)
                 {
-                    durationToSuccessRate = (float)(Math.Pow((duration - durationCap) % 10, 2) / 100);
-                    if (durationToSuccessRate < 0.25)
-                        durationToSuccessRate = 0.25f;
+                    durationToSuccessRate = (float)Math.Clamp(Math.Pow(duration - durationCap, 2) / 100, 0.0, 0.75);
                     duration = durationCap;
                 }
                 if (toolComp.StartSound != null) _audio.PlayPvs(toolComp.StartSound, tool);
 
                 var toolSuccessRate = toolComp.SuccessRate;
-                var totalSuccesRate = toolSuccessRate - durationToSuccessRate;
+                var totalSuccesRate = Math.Clamp(toolSuccessRate - durationToSuccessRate, 0.25, 1);
 
                 if (totalSuccesRate < SmallestSuccessRate)
-                    SmallestSuccessRate = totalSuccesRate;
+                    SmallestSuccessRate = (float)totalSuccesRate;
                 
             }
         bool didSurgeryFail = false;
