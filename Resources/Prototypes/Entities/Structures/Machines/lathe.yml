@@ -275,6 +275,7 @@
     - ShuttleBoards
     - StarlightMechBoards
     - StarlightLawboards
+    - ReactorCircuitboards # FH edit
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - StarlightSecurityBoards
