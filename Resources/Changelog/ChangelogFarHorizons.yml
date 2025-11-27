@@ -2578,5 +2578,12 @@ Entries:
   id: 40501
   time: '2025-11-27T21:20:42.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/405
+- author: Scarlet Lightweaver
+  changes:
+  - message: Added CCbedsheets to the CC drobe as per request of a mentor
+    type: Add
+  id: 40700
+  time: '2025-11-27T21:43:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/407
 Order: -1
 
