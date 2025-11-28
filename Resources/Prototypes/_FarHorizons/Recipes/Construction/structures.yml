@@ -1,4 +1,4 @@
-﻿#Airlocks
+﻿# Airlocks
 - type: construction
   id: FHAirlock
   graph: FHAirlock
@@ -19,6 +19,21 @@
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Walls
+
+- type: construction
+  id: WallSyndie
+  graph: GirderSyndie
+  startNode: start
+  targetNode: wallsyndie
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked

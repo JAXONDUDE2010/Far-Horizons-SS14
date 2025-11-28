@@ -49,7 +49,7 @@
 - type: entity
   id: GenericHolotable
   parent: HolotableBase
-  name: generic holotable
+  name: Generic Holotable
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/HoloTables/holotable.rsi
@@ -67,7 +67,7 @@
 - type: entity
   id: EngineeringHolotable
   parent: HolotableBase
-  name: engineering holotable
+  name: Engineering Holotable
   components:
     - type: Sprite
       sprite: _FarHorizons/Structures/Machines/HoloTables/engineering_holotable.rsi
@@ -118,6 +118,67 @@
       - state: HoloMed
       - type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+  - type: Appearance
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#66ccde"
+
+- type: entity
+  id: AlertLevelHolotable
+  parent: HolotableBase
+  name: Alert Level Holotable
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+    layers:
+      - state: TableFrame
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+      - state: Holo
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+      - state: Light
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+        map: [ "enum.EmergencyLightVisualLayers.LightOff" ]
+      - state: LightEpsilon
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+        map: [ "enum.EmergencyLightVisualLayers.LightOn" ]
+      - state: green
+        map: [ "enum.TextScreenVisuals.AlertLevel" ]
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+  - type: Appearance
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#66ccde"
+  - type: Screen
+  - type: ScreenVisuals
+  - type: EmergencyLight
+
+- type: entity
+  id: WantedHolotable
+  parent: HolotableBase
+  name: Wanted Holotable
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+    layers:
+      - state: TableFrame
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+      - state: Holo
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+      - state: Light
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
+      - state: Wanted
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
   - type: Appearance
   - type: PointLight
     radius: 3
