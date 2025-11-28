@@ -2540,5 +2540,50 @@ Entries:
   id: 40100
   time: '2025-11-23T15:52:07.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/401
+- author: KarusKardin
+  changes:
+  - message: Removed collision from Vitals Monitor
+    type: Tweak
+  id: 40800
+  time: '2025-11-27T20:44:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/408
+- author: R3v3l4t1on
+  changes:
+  - message: IPC/Protogen can no longer speak Machine. They can still understand it
+      however.
+    type: Remove
+  id: 40300
+  time: '2025-11-27T20:43:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/403
+- author: R3v3l4t1on
+  changes:
+  - message: Silicons can now understand Trinary.
+    type: Fix
+  id: 40301
+  time: '2025-11-27T20:43:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/403
+- author: Killer Tamashi
+  changes:
+  - message: Fixed IPCs rolling incorrect antags (Vamp/II/Ling) you can still pick
+      them in the menu, but the game won't select you as one.
+    type: Fix
+  id: 40500
+  time: '2025-11-27T21:20:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/405
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Proto-Resomi being poisoned by Amox. Didn't have an Avali organ,
+      they do now.
+    type: Fix
+  id: 40501
+  time: '2025-11-27T21:20:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/405
+- author: Scarlet Lightweaver
+  changes:
+  - message: Added CCbedsheets to the CC drobe as per request of a mentor
+    type: Add
+  id: 40700
+  time: '2025-11-27T21:43:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/407
 Order: -1
 
