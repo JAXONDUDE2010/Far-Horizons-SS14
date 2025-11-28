@@ -2585,5 +2585,43 @@ Entries:
   id: 40700
   time: '2025-11-27T21:43:19.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/407
+- author: Killer Tamashi
+  changes:
+  - message: Added Briefing Rooms to security (utilizes existing rooms, doesn't make
+      new ones)
+    type: Add
+  id: 41100
+  time: '2025-11-28T14:54:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/411
+- author: Killer Tamashi
+  changes:
+  - message: Added new content to maps (Trinary Comms / Sec Experimental / Sec shuttle
+      Console)
+    type: Add
+  id: 41101
+  time: '2025-11-28T14:54:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/411
+- author: Killer Tamashi
+  changes:
+  - message: Changed fland's AI turrets to be Command, to work with Command turret
+      control panels as per request.
+    type: Tweak
+  id: 41102
+  time: '2025-11-28T14:54:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/411
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Oasis sec disposals being disconnected
+    type: Fix
+  id: 41103
+  time: '2025-11-28T14:54:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/411
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Certain armories missing turret control consoles
+    type: Fix
+  id: 41104
+  time: '2025-11-28T14:54:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/411
 Order: -1
 
