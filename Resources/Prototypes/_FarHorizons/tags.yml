@@ -21,3 +21,11 @@
 - type: Tag
   id: MagazineRifle40
 
+- type: Tag
+  id: ShotgunKammererCitadel
+
+- type: Tag
+  id: ShotgunKammerer5001
+
+- type: Tag
+  id: ShotgunBoxAmmo

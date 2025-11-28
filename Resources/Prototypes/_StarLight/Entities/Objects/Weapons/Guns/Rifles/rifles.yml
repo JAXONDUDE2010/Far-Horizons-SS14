@@ -226,7 +226,7 @@
   name: IFV-50 # Far Horizons
   parent: [ BaseWeaponRifle, BaseSecurityContraband ]
   id: WeaponRifleLeikha
-  description: A hard-hitting high end military grade battle rifle with a scope and a burst reciever. Uses .40 special ammo. # Far Horizons
+  description: A hard-hitting but slow firing high end military grade battle rifle with a scope and a burst reciever. Uses .40 special ammo. # Far Horizons
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/ifv-50.rsi # Far Horizons
@@ -238,8 +238,8 @@
   - type: Clothing
     sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/ifv-50.rsi # Far Horizons
   - type: Gun
-    fireRate: 2.5  # Far Horizons
-    burstFireRate: 5 # Far Horizons
+    fireRate: 3  # Far Horizons
+    burstFireRate: 5.5 # Far Horizons
     shotsPerBurst: 2 # Far Horizons
     burstCooldown: 0.55 # Far Horizons
     selectedMode: Burst # Far Horizons
