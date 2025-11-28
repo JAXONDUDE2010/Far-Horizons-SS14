@@ -1,3 +1,6 @@
+#Courtroom
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsCourtroom
   suffix: Courtroom, Locked
   components:
@@ -12,3 +15,12 @@
   components:
   - type: AccessReader
     access: [["SalvageLead"]]
+
+#Magistrate Office
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMagistrate
+  suffix: Magistrate, Locked
+  components:
+  - type: AccessReader
+    access: [["Magistrate"]]
