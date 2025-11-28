@@ -34,13 +34,14 @@
     stealthy: true
   - type: Pacified # THE STEALTH BORG DOES NOT FUCKING GET GUNS
 
-- type: entity
-  id: BorgChassisSecurity
-  parent: BorgChassisSelectable
-  name: security cyborg
-  components:
-  - type: BorgSwitchableType
-    selectedBorgType: security
+# Far Horizons name clash
+# - type: entity
+#   id: BorgChassisSecurity
+#   parent: BorgChassisSelectable
+#   name: security cyborg
+#   components:
+#   - type: BorgSwitchableType
+#     selectedBorgType: security
     
 - type: entity
   id: BorgChassisPurrfus

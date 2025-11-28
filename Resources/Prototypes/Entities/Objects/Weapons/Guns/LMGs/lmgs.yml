@@ -210,4 +210,3 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 25
-    - type: AmmoCounter
