@@ -602,7 +602,7 @@
 - type: entity
   parent: BaseWall
   id: WallReinforced
-  name: Reinforced Wall #Far Horizons - The Great Capitalization Crusade
+  name: Reinforced Wall [NT] #Far Horizons - The Great Capitalization Crusade
   components:
   - type: Pierceable
     level: HardenedMetal
