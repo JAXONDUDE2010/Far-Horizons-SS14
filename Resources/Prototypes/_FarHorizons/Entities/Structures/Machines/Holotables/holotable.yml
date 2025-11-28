@@ -1,12 +1,21 @@
 - type: entity
   id: HolotableBase
-  parent: BaseStructure
+  parent: [ BaseStructure, BaseSignPowered ]
   name: Holotable
   description: Holographic display table. Does absolutely nothing but look cool at the moment.
   abstract: true
   components:
     - type: Sprite
-      noRot: true
+      sprite: _FarHorizons/Structures/Machines/HoloTables/holotable.rsi
+      layers:
+        - state: Table-Frame
+          type: Icon
+          sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+        - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+          state: holotable
+          shader: unshaded
+          type: Icon
+          sprite: _FarHorizons/Structures/Machines/HoloTables/holotable.rsi
     - type: Anchorable
     - type: Transform
       noRot: true
@@ -45,6 +54,15 @@
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Metallic
+    - type: ApcPowerReceiver
+      powerLoad: 50
+    - type: LitOnPowered
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { visible: true }
+            False: { visible: false }
                   
 - type: entity
   id: GenericHolotable
@@ -54,9 +72,13 @@
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/HoloTables/holotable.rsi
     layers:
-      - map: ["holotable"]
+      - state: Table-Frame
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+      - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
         state: holotable
-      - type: Icon
+        shader: unshaded
+        type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/holotable.rsi
   - type: Appearance
   - type: PointLight
@@ -72,9 +94,14 @@
     - type: Sprite
       sprite: _FarHorizons/Structures/Machines/HoloTables/engineering_holotable.rsi
       layers:
-        - state: engiholo
-        - type: Icon
-          sprite: _FarHorizons/Structures/Machines/HoloTables/engineering_holotable.rsi
+      - state: Table-Frame
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
+      - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        state: engiholo
+        shader: unshaded
+        type: Icon
+        sprite: _FarHorizons/Structures/Machines/HoloTables/engineering_holotable.rsi
     - type: Appearance
     - type: PointLight
       radius: 3
@@ -107,16 +134,11 @@
     sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
     layers:
       - state: Table-Frame
-      - type: Icon
+        type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
-      - state: Holo-Proyector
-      - type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
-      - state: Holo-Table-Lights
-      - type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
-      - state: HoloMed
-      - type: Icon
+      - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        state: HoloMed
+        type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/medical_holotable.rsi
   - type: Appearance
   - type: PointLight
@@ -126,8 +148,9 @@
 
 - type: entity
   id: AlertLevelHolotable
-  parent: HolotableBase
+  parent: HolotableBase 
   name: Alert Level Holotable
+  description: Shows the current security alert level on station. If it's red that means you should stay in your department as much as possible.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
@@ -135,19 +158,8 @@
       - state: TableFrame
         type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-      - state: Holo
-        type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-      - state: Light
-        type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-        map: [ "enum.EmergencyLightVisualLayers.LightOff" ]
-      - state: LightEpsilon
-        type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-        map: [ "enum.EmergencyLightVisualLayers.LightOn" ]
-      - state: green
-        map: [ "enum.TextScreenVisuals.AlertLevel" ]
+      - map: [ "enum.TextScreenVisuals.AlertLevel" ]
+        state: green
         type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
   - type: Appearance
@@ -157,12 +169,14 @@
     color: "#66ccde"
   - type: Screen
   - type: ScreenVisuals
-  - type: EmergencyLight
+  - type: ApcPowerReceiver
+    powerLoad: 0
 
 - type: entity
   id: WantedHolotable
-  parent: HolotableBase
+  parent: [ HolotableBase, ComputerCriminalRecords ]
   name: Wanted Holotable
+  description: Shows the current wanted people on station, or at least it was supposed to before Security told the designers not to announce wanted suspects and it became a security records kiosk instead.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
@@ -170,13 +184,9 @@
       - state: TableFrame
         type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-      - state: Holo
-        type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-      - state: Light
-        type: Icon
-        sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
-      - state: Wanted
+      - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        state: Wanted
+        shader: unshaded
         type: Icon
         sprite: _FarHorizons/Structures/Machines/HoloTables/sec_holotable.rsi
   - type: Appearance

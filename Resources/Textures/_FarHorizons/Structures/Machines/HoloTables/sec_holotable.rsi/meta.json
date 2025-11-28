@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by ItsAbby, Animations by JAXONDUDE2010",
+  "copyright": "Sprited by ItsAbby, Animations by JAXONDUDE2010, wizardry performed by CorruptOmega to get it functioning how we want.",
   "size": {
     "x": 64,
     "y": 45
@@ -9,12 +9,6 @@
   "states": [
     {
       "name": "TableFrame" 
-    },
-    {
-      "name": "Light" 
-    },
-    {
-      "name": "LightEpsilon" 
     },
 	{
       "name": "green",
@@ -56,44 +50,6 @@
     },
     {
       "name": "blue",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "Holo",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "HoloEpsilon",
       "delays": [
         [
           0.1,
