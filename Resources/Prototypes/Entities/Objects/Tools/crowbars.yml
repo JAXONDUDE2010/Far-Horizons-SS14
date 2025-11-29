@@ -41,7 +41,7 @@
     size: Normal
     shape:
     - 0,0,0,1
-  # 🌟Starlight-start🌟
+  #FarHorizons Start
   - type: BoneSetter
     speed: 1.9 #FarHorizons
     startSound:
@@ -50,7 +50,7 @@
     startSound:
       path: /Audio/Items/crowbar.ogg
   - type: SurgeryTool
-  # 🌟Starlight-end🌟
+  #FarHorizons End
 
 # Standard (grey) Crowbar
 - type: entity

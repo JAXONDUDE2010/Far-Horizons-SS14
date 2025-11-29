@@ -45,8 +45,10 @@
   - type: Tag
     tags:
     - PaddyMech
+  #FarHorizons Start
   - type: Retractor
     speed: 1.5
     startSound:
       path: /Audio/Mecha/sound_mecha_hydraulic.ogg
   - type: SurgeryTool
+  #FarHorizons End

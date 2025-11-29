@@ -49,10 +49,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
-  # 🌟Starlight-start🌟
+  # FarHorizons Start
   - type: SurgeryTool
   - type: BoneSaw
-    speed: 1.7 #FarHorizons
+    speed: 1.7 
     startSound:
       path: /Audio/Items/jaws_cut.ogg
     endSound:
@@ -69,7 +69,7 @@
       path: /Audio/Items/jaws_cut.ogg
     endSound:
       path: /Audio/Items/change_jaws.ogg
-  # 🌟Starlight-end🌟
+  # FarHorizons End
 
 - type: entity
   name: syndicate jaws of life

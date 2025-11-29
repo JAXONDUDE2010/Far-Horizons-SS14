@@ -4,13 +4,15 @@
   id: Lighter
   description: "A simple plastic cigarette lighter."
   components:
+  #FarHorizons Start
   - type: SurgeryTool
   - type: Cautery
-    speed: 2.8 #FarHorizons
+    speed: 2.8 
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
+  #FarHorizons End
   - type: IgnitionSource
     ignited: false
   - type: ItemToggle

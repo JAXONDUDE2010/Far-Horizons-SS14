@@ -49,17 +49,15 @@
     tags:
       - DrinkSpaceGlue
   - type: Glue
-  # 🌟Starlight-start🌟
+  #FarHorizons Start
   - type: BoneGel
-    #FarHorizons Start
     speed: 2.4
     startSound:
       path: /Audio/Items/Medical/ointment_begin.ogg
     endSound:
       path: /Audio/Items/Medical/ointment_end.ogg
-    #FarHorizons End
   - type: SurgeryTool
-  # 🌟Starlight-end🌟
+  #FarHorizons End
 
 - type: entity
   parent: BaseSqueezeBottle

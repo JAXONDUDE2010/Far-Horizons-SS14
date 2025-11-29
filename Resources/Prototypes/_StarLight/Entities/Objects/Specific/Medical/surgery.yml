@@ -5,15 +5,15 @@
   parent: BaseToolSurgery
   abstract: true
   components:
+  #FarHorizons Start
   - type: BoneGel
-    #FarHorizons Start
     speed: 1.0 
     startSound:
       path: /Audio/Items/Medical/ointment_begin.ogg
     endSound:
       path: /Audio/Items/Medical/ointment_end.ogg
   - type: SurgeryTool
-    #FarHorizons End
+  #FarHorizons End
   - type: Tag
     tags:
     - BoneGel

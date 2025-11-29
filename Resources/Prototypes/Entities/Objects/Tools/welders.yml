@@ -109,9 +109,11 @@
   - type: Tag
     tags:
     - ThermiteIgnitor
+  # 🌟Starlight-end🌟
+  #FarHorizons Start
   - type: SurgeryTool
   - type: Cautery
-    speed: 1.6 #FarHorizons
+    speed: 1.6 
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
@@ -119,7 +121,7 @@
   - type: WelderSurgery
     startSound:
       /Audio/Items/welder.ogg
-  # 🌟Starlight-end🌟
+  #FarHorizons End
 
 - type: entity
   name: industrial welding tool
@@ -158,10 +160,12 @@
         maxVol: 250
   - type: Tool
     speedModifier: 1.3
+  #FarHorizons Start
   - type: WelderSurgery
     startSound:
       /Audio/Items/welder.ogg
     speed: 0.8
+  #FarHorizons End
 
 - type: entity
   name: experimental welding tool
@@ -192,10 +196,12 @@
         Quantity: 1
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
+  #FarHorizons Start
   - type: WelderSurgery
     startSound:
       /Audio/Items/welder.ogg
     speed: 0.6
+  #FarHorizons end
 
 - type: entity
   name: emergency welding tool
@@ -226,11 +232,13 @@
   - type: Tag
     tags:
       - EmergencyWelder #Starlight, distinction needed for use in crafting recipies.
+  #FarHorizons Start
   - type: SurgeryTool
   - type: WelderSurgery
     startSound:
       /Audio/Items/welder.ogg
     speed: 1.5
+  #FarHorizons End
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]

@@ -36,6 +36,8 @@
   # 🌟Starlight-start🌟
   - type: ItemPrice
     priceCategory: miscellaneous
+  # 🌟Starlight-end🌟
+  #FarHorizons Start
   - type: Retractor
     speed: 2.7 #FarHorizons
     startSound:
@@ -43,7 +45,7 @@
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor2.ogg
   - type: SurgeryTool
-  # 🌟Starlight-end🌟
+  #FarHorizons End
 
 - type: entity
   id: CableHVStack

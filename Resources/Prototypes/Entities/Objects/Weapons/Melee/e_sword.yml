@@ -90,21 +90,21 @@
     #   PelletClusterRubber: 0.50
   - type: IgnitionSource
     temperature: 700
-  # 🌟Starlight-start🌟
+  #FarHorizons Start
   - type: SurgeryTool
   - type: Cautery
-    speed: 1.5 #FarHorizons
+    speed: 1.5 
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
   - type: Scalpel
-    speed: 1.5 #FarHorizons
+    speed: 1.5 
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
-  # 🌟Starlight-end🌟
+  #FarHorizons End
 
 - type: entity
   name: energy sword

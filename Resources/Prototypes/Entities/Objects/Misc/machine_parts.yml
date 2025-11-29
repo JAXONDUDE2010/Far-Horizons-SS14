@@ -32,9 +32,11 @@
     # 🌟Starlight-start🌟
     - type: ItemPrice
       priceCategory: tool_cheap
+    # 🌟Starlight-end🌟
+    #FarHorizons Start
     - type: Hemostat
       speed: 2.3 #FarHorizons
       startSound:
         path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
     - type: SurgeryTool
-    # 🌟Starlight-end🌟
+    #FarHorizons End
