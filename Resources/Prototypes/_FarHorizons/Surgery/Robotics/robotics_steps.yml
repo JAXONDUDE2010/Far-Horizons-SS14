@@ -108,7 +108,7 @@
     tools:
     - type: WelderSurgery
   - type: Sprite
-    sprite: Objects\Tools\welder.rsi
+    sprite: Objects/Tools/welder.rsi
     state: icon
   - type: OnFailDamage
     damage: 
