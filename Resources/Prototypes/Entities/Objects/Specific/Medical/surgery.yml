@@ -82,6 +82,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: cauteryripper
   - type: SurgeryTool
+  - type: Cautery
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
@@ -135,6 +136,7 @@
   - type: Sprite
     state: abductor
   - type: SurgeryTool
+  - type: SurgicalDrill
     speed: 0.5
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -148,6 +150,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: drill
   - type: SurgeryTool
+  - type: SurgicalDrill
     speed: 0.5
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -164,6 +167,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: drillripper
   - type: SurgeryTool
+  - type: SurgicalDrill
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -225,6 +229,7 @@
   - type: Sprite
     state: abductor
   - type: SurgeryTool
+  - type: Scalpel
     speed: 0.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
@@ -240,6 +245,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: scalpel
   - type: SurgeryTool
+  - type: Scalpel
     speed: 0.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
@@ -258,6 +264,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: scalpelripper
   - type: SurgeryTool
+  - type: Scalpel
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
@@ -285,6 +292,7 @@
   - type: Item
     heldPrefix: shiv
   - type: SurgeryTool
+  - type: Scalpel
     speed: 1.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
@@ -306,6 +314,7 @@
       types:
         Slash: 12
   - type: SurgeryTool
+  - type: Scalpel
     speed: 0.6
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
@@ -376,6 +385,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 45
   - type: SurgeryTool
+  - type: Retractor
     speed: 0.6
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
@@ -395,6 +405,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 45
   - type: SurgeryTool
+  - type: Retractor
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
@@ -411,6 +422,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: retractor
   - type: SurgeryTool
+  - type: Retractor
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
@@ -430,6 +442,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: retractorripper
   - type: SurgeryTool
+  - type: Retractor
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
@@ -469,6 +482,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Starlight
     state: advanced-hemostat
   - type: SurgeryTool
+  - type: Hemostat
     speed: 0.6
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
@@ -483,6 +497,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Starlight
     state: abductor-hemostat
   - type: SurgeryTool
+  - type: Hemostat
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
@@ -497,6 +512,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: hemostat
   - type: SurgeryTool
+  - type: Hemostat
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
@@ -514,6 +530,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: hemostatripper
   - type: SurgeryTool
+  - type: Hemostat
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
@@ -558,6 +575,7 @@
     heldPrefix: setter
     storedRotation: 45  
   - type: SurgeryTool
+  - type: BoneSetter
     speed: 0.6
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
@@ -575,6 +593,7 @@
     heldPrefix: setter
     storedRotation: 45
   - type: SurgeryTool
+  - type: BoneSetter
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
@@ -589,6 +608,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: bonesetter
   - type: SurgeryTool
+  - type: BoneSetter
     speed: 0.4
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
@@ -606,6 +626,7 @@
     sprite: _Starlight/Objects/Specific/Medical/surgery.rsi
     state: bonesetterripper
   - type: SurgeryTool
+  - type: BoneSetter
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
@@ -689,6 +710,7 @@
   - type: Tool
     speedModifier: 1.5
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 0.5
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -710,6 +732,7 @@
   - type: Tool
     speedModifier: 2.0
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 0.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -727,6 +750,7 @@
   - type: Tool
     speedModifier: 0.4
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 0.1
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -745,6 +769,7 @@
   - type: Tool
     speedModifier: 0.4
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 0.1
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
@@ -766,6 +791,7 @@
   - type: Tool
     speedModifier: 1
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 1.2
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
