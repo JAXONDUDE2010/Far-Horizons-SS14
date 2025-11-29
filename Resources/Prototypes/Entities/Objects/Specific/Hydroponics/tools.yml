@@ -102,13 +102,12 @@
       Steel: 100
   # 🌟Starlight-start🌟
   - type: BoneSaw
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 2.3 #FarHorizons
+    speed: 2.3 #FarHorizons
     startSound:
       path: /Audio/Effects/chop.ogg
     endSound:
       path: /Audio/Effects/chop.ogg
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity

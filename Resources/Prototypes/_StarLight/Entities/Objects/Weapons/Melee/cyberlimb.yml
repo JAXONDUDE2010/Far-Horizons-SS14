@@ -44,12 +44,12 @@
     sprite: _Starlight/Objects/Weapons/Melee/cyberchainsaw.rsi
   # 🌟Starlight-start🌟
   - type: BoneSaw
-  - type: SurgeryTool
-    speed: 1.7 #FarHorizons
+    speed: 1.7 
     startSound:
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
   - type: Tag
     tags:

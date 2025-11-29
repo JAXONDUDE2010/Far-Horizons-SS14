@@ -33,13 +33,12 @@
         useSound: /Audio/Items/screwdriver.ogg
         SpeedModifier: 0.05
   - type: Scalpel
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 1.7 #FarHorizons
+    speed: 1.7 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  - type: SurgeryTool
 # Starlight end
 
 - type: entity

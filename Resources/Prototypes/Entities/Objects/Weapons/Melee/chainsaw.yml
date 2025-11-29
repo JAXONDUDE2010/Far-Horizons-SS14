@@ -48,10 +48,9 @@
   - type: UseDelay
     delay: 1
   - type: SurgeryTool
-    analogueSpeed: 2.0 #FarHorizons
+  - type: BoneSaw # 🌟Starlight🌟
+    speed: 2.0 #FarHorizons
     startSound:
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
-  - type: BoneSaw # 🌟Starlight🌟
-    analogue: true #FarHorizons

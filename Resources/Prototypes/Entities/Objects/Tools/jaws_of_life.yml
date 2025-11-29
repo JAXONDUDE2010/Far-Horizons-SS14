@@ -51,13 +51,12 @@
       collection: MetalThud
   # 🌟Starlight-start🌟
   - type: SurgeryTool
-    analogueSpeed: 1.7 #FarHorizons
+  - type: BoneSaw
+    speed: 1.7 #FarHorizons
     startSound:
       path: /Audio/Items/jaws_cut.ogg
     endSound:
       path: /Audio/Items/change_jaws.ogg
-  - type: BoneSaw
-    analogue: true #FarHorizons
   # 🌟Starlight-end🌟
 
 - type: entity

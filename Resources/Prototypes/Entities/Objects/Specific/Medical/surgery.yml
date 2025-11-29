@@ -33,11 +33,11 @@
     soundHit:
       path: /Audio/Effects/lightburn.ogg
   - type: SurgeryTool
+  - type: Cautery
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
-  - type: Cautery
   
 - type: entity
   name: abductor's cautery
@@ -121,9 +121,9 @@
   - type: StaticPrice
     price: 40
   - type: SurgeryTool
+  - type: SurgicalDrill
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/saw.ogg
-  - type: SurgicalDrill
   
 - type: entity
   name: abductor's drill
@@ -208,11 +208,12 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Scalpel
-  - type: SurgeryTool
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  - type: SurgeryTool
+
       
 - type: entity
   name: abductor's scalpel
@@ -320,13 +321,18 @@
   - type: Item
     heldPrefix: laser
   - type: Hemostat
-  - type: Cautery
-  - type: SurgeryTool
     speed: 0.3
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  - type: Cautery
+    speed: 0.3
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  - type: SurgeryTool
 
 # Scissors
 - type: entity
@@ -349,11 +355,11 @@
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/scissors.rsi #Starlight
   - type: Retractor
-  - type: SurgeryTool
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor2.ogg
+  - type: SurgeryTool
 
 - type: entity
   name: advanced retractor
@@ -447,9 +453,9 @@
     heldPrefix: hemostat
     storedRotation: 90
   - type: SurgeryTool
+  - type: Hemostat
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
-  - type: Hemostat
 
 - type: entity
   name: advanced hemostat
@@ -529,9 +535,9 @@
     heldPrefix: setter
     storedRotation: 90
   - type: BoneSetter
-  - type: SurgeryTool
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
+  - type: SurgeryTool
 
 - type: entity
   name: advanced bone setter
@@ -631,9 +637,9 @@
     qualities:
       - Sawing
   - type: SurgeryTool
+  - type: BoneSaw
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_saw.ogg
-  - type: BoneSaw
 
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
@@ -657,10 +663,10 @@
   - type: Tool
     speedModifier: 0.5
   - type: SurgeryTool
+  - type: BoneSaw
     speed: 0.8
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_saw.ogg
-  - type: BoneSaw
   
 - type: entity
   name: circular saw

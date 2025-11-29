@@ -49,13 +49,12 @@
     fireStacks: -4
   # 🌟Starlight-start🌟
   - type: BoneSaw
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 2.0 #FarHorizons
+    speed: 2.0 #FarHorizons
     startSound:
       path: "/Audio/Effects/chop.ogg"
     endSound:
       path: "/Audio/Effects/chop.ogg"
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity

@@ -43,12 +43,13 @@
     - 0,0,0,1
   # 🌟Starlight-start🌟
   - type: BoneSetter
-    analogue: true #FarHorizons
-  - type: CrowbarSurgery
-  - type: SurgeryTool
-    analogueSpeed: 1.9 #FarHorizons
+    speed: 1.9 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/bone_setter.ogg
+  - type: CrowbarSurgery
+    startSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 # Standard (grey) Crowbar

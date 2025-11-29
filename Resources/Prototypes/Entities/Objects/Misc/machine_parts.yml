@@ -33,9 +33,8 @@
     - type: ItemPrice
       priceCategory: tool_cheap
     - type: Hemostat
-      analogue: true #FarHorizons
-    - type: SurgeryTool
-      analogueSpeed: 2.3 #FarHorizons
+      speed: 2.3 #FarHorizons
       startSound:
         path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
+    - type: SurgeryTool
     # 🌟Starlight-end🌟

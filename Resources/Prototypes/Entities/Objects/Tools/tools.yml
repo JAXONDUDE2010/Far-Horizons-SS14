@@ -45,14 +45,15 @@
     price: 30
   # 🌟Starlight-start🌟
   - type: Hemostat
-    analogue: true #FarHorizons
-  - type: WirecutterSurgery
-  - type: SurgeryTool
-    analogueSpeed: 2.3 #FarHorizons
+    speed: 2.3 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  - type: WirecutterSurgery
+    startSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: SurgeryTool
   - type: ItemPrice
     priceCategory: tool_basic
   # 🌟Starlight-end🌟
@@ -104,12 +105,13 @@
   - type: ItemPrice
     priceCategory: tool_basic
   - type: SurgicalDrill
-    analogue: true #FarHorizons
-  - type: ScrewdriverSurgery
-  - type: SurgeryTool
-    analogueSpeed: 2.6 #FarHorizons
+    speed: 2.6 #FarHorizons
     endSound:
       path: /Audio/Weapons/smash.ogg
+  - type: ScrewdriverSurgery
+    startSound:
+      /Audio/Items/screwdriver.ogg
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity
@@ -159,6 +161,8 @@
   # Starlight-end
   # 🌟Starlight-start🌟
   - type: WrenchSurgery
+    startSound:
+      path: /Audio/Items/ratchet.ogg
   - type: SurgeryTool
   # 🌟Starlight-end🌟
 
@@ -217,6 +221,8 @@
     - InspectingPower
   # 🌟Starlight-start🌟
   - type: MultitoolSurgery
+    startSound:
+      path: /Audio/Items/multitool_drop.ogg
   - type: SurgeryTool
   # 🌟Starlight-end🌟
 
@@ -328,11 +334,10 @@
       path: "/Audio/Items/drill_hit.ogg"
   # 🌟Starlight-start🌟
   - type: SurgicalDrill 
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 1.8 #FarHorizons
+    speed: 1.8 #FarHorizons
     startSound:
       path: /Audio/Items/drill_use.ogg
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity

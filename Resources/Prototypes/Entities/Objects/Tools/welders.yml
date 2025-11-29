@@ -110,14 +110,15 @@
     tags:
     - ThermiteIgnitor
   - type: SurgeryTool
-    analogueSpeed: 1.6 #FarHorizons
+  - type: Cautery
+    speed: 1.6 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
-  - type: Cautery
-    analogue: true #FarHorizons
   - type: WelderSurgery
+    startSound:
+      /Audio/Items/welder.ogg
   # 🌟Starlight-end🌟
 
 - type: entity
@@ -217,6 +218,11 @@
   - type: Tag
     tags:
       - EmergencyWelder #Starlight, distinction needed for use in crafting recipies.
+  - type: SurgeryTool
+  - type: WelderSurgery
+    startSound:
+      /Audio/Items/welder.ogg
+    speed: 1.5
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]

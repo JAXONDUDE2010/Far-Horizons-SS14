@@ -41,11 +41,10 @@
       Wood: 100
   # 🌟Starlight-start🌟
   - type: SurgicalDrill
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 2.6 #FarHorizons
+    speed: 2.6 #FarHorizons
     endSound:
       path: "/Audio/Weapons/smash.ogg"
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity
@@ -76,13 +75,12 @@
         Structural: 15
   # 🌟Starlight-start🌟
   - type: SurgicalDrill
-    analogue: true #FarHorizons
-  - type: SurgeryTool
-    analogueSpeed: 1.8 #FarHorizons
+    speed: 1.8 #FarHorizons
     startSound:
       path: "/Audio/Items/drill_use.ogg"
     endSound:
       path: "/Audio/Items/drill_use.ogg"
+  - type: SurgeryTool
   # 🌟Starlight-end🌟
 
 - type: entity
