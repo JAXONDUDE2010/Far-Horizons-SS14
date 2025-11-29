@@ -241,6 +241,7 @@
   - type: DisarmMalus
     malus: 0.225
   - type: SurgeryTool
+  - type: Scalpel
     speed: 2.1 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg

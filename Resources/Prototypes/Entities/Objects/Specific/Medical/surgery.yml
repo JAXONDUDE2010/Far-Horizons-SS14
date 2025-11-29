@@ -47,6 +47,7 @@
   - type: Sprite
     state: abductor
   - type: SurgeryTool
+  - type: Cautery
     speed: 0.5
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
