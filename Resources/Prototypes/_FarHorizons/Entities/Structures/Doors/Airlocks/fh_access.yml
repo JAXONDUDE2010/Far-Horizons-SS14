@@ -954,7 +954,7 @@
 
 - type: entity
   parent: FHAirlockCentralCommandGlass
-  id: FHAirlockNanoTrasenRepresentativeLocked
+  id: FHAirlockNanoTrasenRepresentativeGlassLocked
   suffix: NTR, Locked
   components:
     - type: ContainerFill
