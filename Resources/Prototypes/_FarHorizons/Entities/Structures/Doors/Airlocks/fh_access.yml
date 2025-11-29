@@ -253,6 +253,24 @@
       board: [ DoorElectronicsCentralCommand ]
 
 - type: entity
+  parent: FHAirlockCentralCommand
+  id: FHAirlockBlueShieldOfficerLocked
+  suffix: BSO, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBlueShieldOfficer ]
+
+- type: entity
+  parent: FHAirlockCentralCommand
+  id: FHAirlockNanoTrasenRepresentativeLocked
+  suffix: NTR, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNanoTrasenRepresentative ]
+
+- type: entity
   parent: FHAirlockCommand
   id: FHAirlockCommandLocked
   suffix: Command, Locked
@@ -924,6 +942,24 @@
     - type: ContainerFill
       containers:
         board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: FHAirlockCentralCommandGlass
+  id: FHAirlockBlueShieldOfficerGlassLocked
+  suffix: BSO, Locked
+  components:
+    - type: ContainerFill
+      containers:
+        board: [ DoorElectronicsBlueShieldOfficer ]
+
+- type: entity
+  parent: FHAirlockCentralCommandGlass
+  id: FHAirlockNanoTrasenRepresentativeLocked
+  suffix: NTR, Locked
+  components:
+    - type: ContainerFill
+      containers:
+        board: [ DoorElectronicsNanoTrasenRepresentative ]
 
 - type: entity
   parent: FHAirlockCommandGlass

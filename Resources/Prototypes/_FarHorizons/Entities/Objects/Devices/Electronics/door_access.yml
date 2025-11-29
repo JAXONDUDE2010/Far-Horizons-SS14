@@ -1,3 +1,12 @@
+#BSO Office
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBlueShieldOfficer
+  suffix: BSO, Locked
+  components:
+  - type: AccessReader
+    access: [["BlueShield"]]
+
 #Courtroom
 - type: entity
   parent: DoorElectronics
@@ -6,6 +15,15 @@
   components:
   - type: AccessReader
     access: [["Command"], ["Security"], ["Lawyer"]]
+
+#NTR Office
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNanoTrasenRepresentative
+  suffix: NTR, Locked
+  components:
+  - type: AccessReader
+    access: [["Ntrep"]]
 
 #Salvage Lead Office
 - type: entity
