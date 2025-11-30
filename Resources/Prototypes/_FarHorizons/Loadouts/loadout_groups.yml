@@ -264,3 +264,68 @@
     - VirologyBackpack
     - VirologyDuffel
     - VirologySatchel
+
+#Surgeon
+
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-Surgeon-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonJumpsuit
+  name: loadout-group-Surgeon-jumpsuit
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: SurgeonOuterClothing
+  name: loadout-group-Surgeon-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoat
+  - WindbreakerMedical
+
+- type: loadoutGroup
+  id: SurgeonBackpack
+  name: loadout-group-Surgeon-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+  - LeatherSatchel
+
+- type: loadoutGroup
+  id: SurgeonShoes
+  name: loadout-group-Surgeon-shoes
+  loadouts:
+  - WhiteShoes
+  - MedicalWinterBoots
+  - Heels
+  - LaceupShoes
+  - LeatherShoes
+
+- type: loadoutGroup #Surgeon Doesnt have a unique PDA (to my knowledge), but i want to leave this here for when we add one.
+  id: SurgeonPDA
+  name: loadout-group-Surgeon-id
+  loadouts:
+  - MedicalDoctorPDA
+  - SeniorPhysicianPDA
+
+- type: loadoutGroup
+  id: SurgeonEquipmentGroup
+  name: loadout-group-Surgeon-equipment
+  minLimit: 1
+  loadouts:
+  - SurgeonDuffel
+  - SurgeonEquipment
+
