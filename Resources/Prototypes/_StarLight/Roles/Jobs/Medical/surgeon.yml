@@ -25,6 +25,8 @@
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
+#  inhand: FH
+#    - ClothingBackpackDuffelSurgeryFilled FH 
 
 - type: chameleonOutfit
   id: SurgeonChameleonOutfit
