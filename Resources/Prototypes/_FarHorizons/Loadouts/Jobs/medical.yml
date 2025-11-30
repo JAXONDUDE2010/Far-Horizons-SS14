@@ -63,7 +63,6 @@
 
 - type: loadout
   id: SurgeonEquipment
-  name: loadout-Surgeon-equipment
   dummyEntity: LoadoutDummySurgeonEquipment
   storage:
     back:
