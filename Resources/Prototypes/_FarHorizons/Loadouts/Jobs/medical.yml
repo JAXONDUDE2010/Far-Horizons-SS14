@@ -73,7 +73,8 @@
     - BoneSetter
     - Cautery
     - Saw
-    - Drill
+  equipment:
+    pocket1: Drill
 
 - type: loadout
   id: SurgeonDuffel

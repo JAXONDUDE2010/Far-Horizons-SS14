@@ -327,6 +327,6 @@
   name: loadout-group-Surgeon-equipment
   minLimit: 1
   loadouts:
-  - SurgeonEquipment
   - SurgeonDuffel
+  - SurgeonEquipment
 
