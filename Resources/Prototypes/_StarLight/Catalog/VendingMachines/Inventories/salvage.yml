@@ -37,7 +37,7 @@
   id: VendorSalvageClothingOuterHardsuitMaxim
   productEntity: ClothingOuterHardsuitMaxim
   cost:
-    SalvageTicket: 1200
+    SalvageTicket: 1200 #FH
   categories:
   - SalvageEquipment
   conditions:
