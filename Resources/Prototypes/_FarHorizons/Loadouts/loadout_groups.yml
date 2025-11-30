@@ -24,12 +24,12 @@
   id: CMOBackpack
   name: loadout-group-cmo-backpack
   loadouts:
-    - ChemistBackpack
-    - ChemistSatchel
-    - ChemistDuffel
     - MedicalDoctorBackpack
     - MedicalDoctorSatchel
     - MedicalDoctorDuffel
+    - ChemistBackpack
+    - ChemistSatchel
+    - ChemistDuffel
     - ParamedicBackpack
     - ParamedicDuffel
     - ParamedicSatchel
@@ -239,7 +239,6 @@
 - type: loadoutGroup
   id: ParamedicBackpack
   name: loadout-group-paramedic-backpack
-  minLimit: 0
   loadouts:
     - ParamedicBackpack
     - ParamedicDuffel
