@@ -321,3 +321,12 @@
   loadouts:
   - MedicalDoctorPDA
   - SeniorPhysicianPDA
+
+- type: loadoutGroup
+  id: SurgeonEquipmentGroup
+  name: loadout-group-Surgeon-equipment
+  minLimit: 1
+  loadouts:
+  - SurgeonEquipment
+  - SurgeonDuffel
+

@@ -45,6 +45,7 @@
   - Trinkets
   - Scarves
   - GroupSpeciesBreathToolMedical
+  - SurgeonEquipmentGroup #FH
 
 - type: roleLoadout
   id: JobNanoTrasenRepresentative
