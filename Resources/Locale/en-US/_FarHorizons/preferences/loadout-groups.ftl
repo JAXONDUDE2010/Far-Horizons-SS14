@@ -35,3 +35,10 @@ loadout-group-paramedic-backpack = Paramedic Backpack
 loadout-group-salvage-head = Salvage Specialist Head
 
 loadout-group-virologist-backpack = Virologist Backpack
+
+loadout-group-Surgeon-head = Surgeon Head
+loadout-group-Surgeon-jumpsuit = Surgeon Jumpsuit
+loadout-group-Surgeon-outerclothing = Surgeon Outer Clothing
+loadout-group-Surgeon-backpack = Surgeon Backpack
+loadout-group-Surgeon-id = Surgeon PDA
+loadout-group-Surgeon-shoes = Surgeon Shoes
