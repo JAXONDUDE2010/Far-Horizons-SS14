@@ -147,7 +147,7 @@
         whitelist:
           components:
           - ShuttleDestinationCoordinates
-  - type: Containercontainer
+  - type: ContainerContainer
     containers:
       board: !type:Container
         ents: []
