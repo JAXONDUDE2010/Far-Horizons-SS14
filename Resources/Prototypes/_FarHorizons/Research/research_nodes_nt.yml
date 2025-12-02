@@ -1,0 +1,1101 @@
+# Tier 1
+
+# Salvage Equipment
+
+- type: researchTreeNode
+  id: SalvEquip
+  name: Salvage Equipment
+  cost: 10000
+  tier: Tier1
+  unlocks:
+    - MiningDrill
+    - MineralScannerEmpty
+    - OreProcessorIndustrialMachineCircuitboard
+    - ClothingMaskWeldingGas
+    - ClothingShoesBootsJump
+    - MechEquipmentDrill
+    - WeaponProtoKineticAccelerator
+    - ShuttleGunKineticCircuitboard
+    - MechEquipmentKineticAccelerator
+    - RadarConsoleCircuitboard
+    - HandHeldMassScanner
+
+# Industry
+
+- type: researchTreeNode
+  id: IndustrialEng
+  name: Industrial Engineering
+  cost: 10000
+  tier: Tier1
+  unlocks:
+    - AutolatheHyperConvectionMachineCircuitboard
+    - ProtolatheHyperConvectionMachineCircuitboard
+    - CircuitImprinterHyperConvectionMachineCircuitboard
+    - SheetifierMachineCircuitboard
+
+- type: researchTreeNode
+  id: MechanicalCompress
+  name: Mechanical Compression
+  cost: 10000
+  tier: Tier1
+  requires: 
+    - IndustrialEng
+  unlocks:
+    - FlatpackerMachineCircuitboard
+
+- type: researchTreeNode
+  id: RipleyMech
+  name: Ripley APLU
+  cost: 7500
+  tier: Tier1
+  requires: 
+    - IndustrialEng
+  unlocks:
+    - RipleyHarness
+    - RipleyLArm
+    - RipleyRArm
+    - RipleyLLeg
+    - RipleyRLeg
+    - RipleyCentralElectronics
+    - RipleyPeripheralsElectronics
+    - MechEquipmentGrabber
+
+# Sec
+
+- type: researchTreeNode
+  id: RiotControl
+  name: Advanced Riot Control
+  cost: 8000
+  tier: Tier1
+  unlocks:
+    - Truncheon
+    - TelescopicShield
+    - HoloprojectorSecurity
+    - ClothingBackpackElectropack
+
+- type: researchTreeNode
+  id: SpecialAmmo
+  name: Special Munitions
+  cost: 10000
+  tier: Tier1
+  unlocks:
+    - BoxShotgunIncendiary
+    - MagazineRifleIncendiary
+    - MagazinePistolIncendiary
+    - MagazinePistolSubMachineGunIncendiary
+    - MagazineLightRifleIncendiary
+    - SpeedLoaderMagnumIncendiary
+    - MagazineShotgunIncendiary
+    - MagazineBoxPistolIncendiary
+    - MagazineBoxMagnumIncendiary
+    - MagazineBoxLightRifleIncendiary
+    - MagazineBoxRifleIncendiary
+    - LightRifleHeavyMagazineIncendiary
+    - MagazinePistolSubMachineGunIncendiary
+    - SpeedLoaderShotgunIncendiary
+    - MagazineRifleUranium
+    - MagazinePistolUranium
+    - MagazinePistolSubMachineGunUranium
+    - MagazineLightRifleUranium
+    - SpeedLoaderMagnumUranium
+    - MagazineBoxPistolUranium
+    - MagazineBoxMagnumUranium
+    - MagazineBoxLightRifleUranium
+    - MagazineBoxRifleUranium
+    - BoxShotgunUranium
+    - LightRifleHeavyMagazineUranium
+    - MagazinePistolSubMachineGunUranium
+    - SpeedLoaderShotgunUranium
+
+- type: researchTreeNode
+  id: LaserGun
+  name: Weaponized Laser Manipulation
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - WeaponLaserCarbine
+    - WeaponMechCombatFiredartLaser
+
+# Space
+
+- type: researchTreeNode
+  id: Atmospherics
+  name: Atmospherics
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - ThermomachineFreezerMachineCircuitBoard
+    - GasRecyclerMachineCircuitboard
+
+- type: researchTreeNode
+  id: AdvAtmospherics
+  name: Advanced Atmospherics
+  cost: 7500
+  tier: Tier1
+  requires: 
+    - Atmospherics
+  unlocks:
+    - HellfireFreezerMachineCircuitBoard
+    - PortableScrubberMachineCircuitBoard
+    - HolofanProjector
+
+- type: researchTreeNode
+  id: AstroTiles
+  name: Faux Astro-Tiles
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - FauxTileAstroGrass
+    - FauxTileMowedAstroGrass
+    - FauxTileJungleAstroGrass
+    - FauxTileDarkAstroGrass
+    - FauxTileLightAstroGrass
+    - FauxTileAstroIce
+    - FauxTileAstroSnow
+    - FauxTileAstroAsteroidSand
+    - FauxTileDesertAstroSand
+
+# Power
+
+- type: researchTreeNode
+  id: PowerGeneration
+  name: Power Generation
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - PortableGeneratorPacmanMachineCircuitboard
+    - PortableGeneratorSuperPacmanMachineCircuitboard
+    - PortableGeneratorJrPacmanMachineCircuitboard
+    - SolarControlComputerCircuitboard
+    - SolarTrackerElectronics
+    - EmitterCircuitboard
+
+- type: researchTreeNode
+  id: AdvPowerCells
+  name: Advanced Powercells
+  cost: 7500
+  tier: Tier1
+  requires:
+    - PowerGeneration
+  unlocks:
+    - PowerCellHigh
+    - TurboItemRechargerCircuitboard
+    - SMESAdvancedMachineCircuitboard
+
+- type: researchTreeNode
+  id: ExplosiveTech
+  name: Explosive Technology
+  cost: 10000
+  tier: Tier1
+  unlocks:
+    - SignallerAdvanced
+    - SignalTrigger
+    - VoiceTrigger
+    - TimerTrigger
+    - FlashPayload
+    - ExplosivePayload
+    - ChemicalPayload
+
+# Research
+
+- type: researchTreeNode
+  id: MagBoot
+  name: Localized Magnetism
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - ClothingShoesBootsMagSci
+    - ClothingShoesBootsMoon
+
+- type: researchTreeNode
+  id: AnomResearch
+  name: Basic Anomalous Research
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - AnomalyScanner
+    - AnomalyLocator
+    - AnomalyLocatorWide
+    - APECircuitboard
+    - AnomalyVesselCircuitboard
+
+- type: researchTreeNode
+  id: AnomCoreHarvesting
+  name: Anomaly Core Harvesting
+  cost: 10000
+  tier: Tier1
+  requires:
+    - AnomResearch
+  unlocks:
+    - WeaponGauntletGorilla
+
+- type: researchTreeNode
+  id: ArtiResearch
+  name: Basic XenoArcheology
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - NodeScanner
+    - AnalysisComputerCircuitboard
+    - ArtifactAnalyzerMachineCircuitboard
+
+- type: researchTreeNode
+  id: AltResearch
+  name: Alternative Research
+  cost: 5000
+  tier: Tier1
+  requires:
+    - AnomResearch
+    - ArtiResearch
+  unlocks:
+    - TechDiskComputerCircuitboard
+
+# Civ
+
+- type: researchTreeNode
+  id: AdvEntertainment
+  name: Advanced Entertainment
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - ComputerTelevisionCircuitboard
+    - SynthesizerInstrument
+    - DawInstrumentMachineCircuitboard
+    - MassMediaCircuitboard
+    - JukeboxCircuitBoard
+
+- type: researchTreeNode
+  id: AVComms
+  name: A/V Communication
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - SurveillanceCameraRouterCircuitboard
+    - SurveillanceCameraWirelessRouterCircuitboard
+    - SurveillanceWirelessCameraMovableCircuitboard
+    - SurveillanceWirelessCameraAnchoredCircuitboard
+    - SurveillanceCameraMonitorCircuitboard
+    - SurveillanceWirelessCameraMonitorCircuitboard
+    - TelecomServerCircuitboard
+    - HolopadMachineCircuitboard
+
+# Robotics
+
+- type: researchTreeNode
+  id: Robotics
+  name: Basic Robotics
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - ProximitySensor
+
+# Cybernetics
+
+- type: researchTreeNode
+  id: Cyberlimbs
+  name: Basic Cyberlimbs
+  cost: 4000
+  tier: Tier1
+  requires:
+    - Robotics
+  unlocks:
+    - LeftArmCyber
+    - RightArmCyber
+    - LeftHandCyber
+    - RightHandCyber
+    - LeftLegCyber
+    - RightLegCyber
+    - LeftFootCyber
+    - RightFootCyber
+  
+
+- type: researchTreeNode
+  id: BudgetCyberorgans
+  name: Budget CyberOrgans
+  cost: 4000
+  tier: Tier1
+  requires:
+    - Robotics
+  unlocks:
+    - BudgetCyberEyes
+    - BudgetCyberTongue
+    - BudgetCyberLiver
+    - BudgetCyberStomach
+    - BudgetCyberKidneys
+
+# Chem
+
+- type: researchTreeNode
+  id: AutomatedInjection
+  name: Automated Injection
+  cost: 4000
+  tier: Tier1
+  unlocks:
+    - SlowAutoinjector
+
+# Biology
+
+- type: researchTreeNode
+  id: Surgery
+  name: Basic Surgery
+  cost: 4000
+  tier: Tier1
+  unlocks:
+    - BoneSetter
+    - BoneGel
+    - Scalpel
+    - Retractor
+    - Cautery
+    - Saw
+    - Hemostat
+
+- type: researchTreeNode
+  id: MeatManipulation
+  name: Meat Manipulation
+  cost: 7500
+  tier: Tier1
+  unlocks:
+    - FatExtractorMachineCircuitboard
+    - BiofabricatorMachineCircuitboard
+    - BiomassReclaimerMachineCircuitboard
+
+- type: researchTreeNode
+  id: Hydroponics
+  name: Basic Hydroponics
+  cost: 5000
+  tier: Tier1
+  unlocks:
+    - SeedExtractorMachineCircuitboard
+    - HydroponicsTrayMachineCircuitboard
+    - ReagentGrinderIndustrialMachineCircuitboard
+
+---
+
+# Tier 2
+
+# Salvage/Mechs
+
+- type: researchTreeNode
+  id: MassExcav
+  name: Mass Excavation
+  cost: 12500
+  tier: Tier2
+  requires: 
+    - SalvEquip
+  unlocks:
+    - OreBagOfHolding
+    - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
+    - MechEquipmentDrillDiamond
+    - BorgModuleAdvancedMining
+
+- type: researchTreeNode
+  id: AdvancedTools
+  name: Advanced Tools
+  cost: 10000
+  tier: Tier2
+  requires: 
+    - MassExcav
+  unlocks:
+    - WelderExperimental
+    - PowerDrill
+    - JawsOfLife
+    - BorgModuleAdvancedTool
+    - Fulton
+    - FultonBeacon
+
+- type: researchTreeNode
+  id: RecreationalMech
+  name: Recreational Mechs
+  cost: 7500
+  tier: Tier2
+  requires: 
+    - RipleyMech
+    - MechanicalCompress
+  unlocks:
+    - HonkerHarness
+    - HonkerLArm
+    - HonkerRArm
+    - HonkerLLeg
+    - HonkerRLeg
+    - HonkerCentralElectronics
+    - HonkerPeripheralsElectronics
+    - HonkerTargetingElectronics
+    - MechEquipmentHorn
+    - HamtrHarness
+    - HamtrLArm
+    - HamtrRArm
+    - HamtrLLeg
+    - HamtrRLeg
+    - HamtrCentralElectronics
+    - HamtrPeripheralsElectronics
+    - MechEquipmentGrabberSmall
+    - VimHarness
+
+- type: researchTreeNode
+  id: IndustialMech
+  name: Industial Mechs
+  cost: 11050
+  tier: Tier2
+  requires: 
+    - MassExcav
+    - RecreationalMech
+  unlocks:
+    - ClarkeHarness
+    - ClarkeHead
+    - ClarkeLArm
+    - ClarkeRArm
+    - ClarkeTreads
+    - ClarkeCentralElectronics
+    - ClarkePeripheralsElectronics
+    - RipleyMKIIHarness
+    - RipleyUpgradeKit
+
+# Sec
+
+- type: researchTreeNode
+  id: KineticModifications
+  name: Kinetic Modifications
+  cost: 7500
+  tier: Tier2
+  requires: 
+    - SpecialAmmo
+  unlocks:
+    - PKAUpgradeDamage
+    - PKAUpgradeRange
+    - PKAUpgradeFireRate
+
+- type: researchTreeNode
+  id: APAmmo
+  name: Armor Penetration
+  cost: 11500
+  tier: Tier2
+  requires: 
+    - SpecialAmmo
+  unlocks:
+    - SpeedLoaderMagnumAP
+    - MagazinePistolAP
+    - MagazinePistol40AP
+    - MagazineRifleAP
+    - MagazineLightRifleAP
+    - MagazineBoxMagnumAP
+    - MagazineBoxPistolAP
+    - MagazineBoxPistol40AP
+    - MagazineBoxRifleAP
+    - MagazineBoxLightRifleAP
+    - LightRifleHeavyMagazineAP
+    - MagazinePistolSubMachineGunAP
+
+- type: researchTreeNode
+  id: PaddyMech
+  name: Paddy
+  cost: 8500
+  tier: Tier2
+  requires:
+    - KineticModifications
+    - RiotControl
+  unlocks:
+    - PaddyUpgradeKit
+
+# Space
+
+- type: researchTreeNode
+  id: Shuttlecraft
+  name: Shuttlecraft
+  cost: 10000
+  tier: Tier2
+  requires: 
+    - AdvAtmospherics
+    - AstroTiles
+  unlocks:
+    - ShuttleConsoleCircuitboard
+    - ThrusterMachineCircuitboard
+    - GyroscopeMachineCircuitboard
+    - MiniGravityGeneratorCircuitboard
+
+- type: researchTreeNode
+  id: PointDefense
+  name: Point Defense Weaponry
+  cost: 10000
+  tier: Tier2
+  requires: 
+    - Shuttlecraft
+  unlocks:
+    - WeaponTurretPointDefenseMachineCircuitboard
+  
+
+- type: researchTreeNode
+  id: ShuttleArmament
+  name: Shuttle Basic Armament
+  cost: 10500
+  tier: Tier2
+  requires: 
+    - PointDefense
+  unlocks:
+    - PowerCageRechargerCircuitboard
+    - PowerCageSmall
+    - PowerCageMedium
+    - MagazineGrenadeEmpty
+    - GrenadeFlash
+    - GrenadeBlast
+    - ShuttleGunSvalinnMachineGunCircuitboard
+    - ShuttleGunPerforatorCircuitboard
+    - ShuttleGunFriendshipCircuitboard
+
+# Lasers
+
+- type: researchTreeNode
+  id: IonGun
+  name: Ion Weaponry
+  cost: 8200
+  tier: Tier2
+  requires: 
+    - LaserGun
+  unlocks:
+    - WeaponIonRifle
+    - WeaponIonCarbine
+
+- type: researchTreeNode
+  id: RayGun
+  name: Wave Particle Harnessing
+  cost: 10000
+  tier: Tier2
+  requires: 
+    - LaserGun
+  unlocks:
+    - WeaponXrayCannon
+
+- type: researchTreeNode
+  id: LaserGun2
+  name: Concentrated Laser Weaponry
+  cost: 10000
+  tier: Tier2
+  requires: 
+    - LaserGun
+  unlocks:
+    - WeaponLaserCannon
+    - WeaponMechCombatSolarisLaser
+    - WeaponLaserImmolator
+
+# Power
+
+- type: researchTreeNode
+  id: BlastproofContainers
+  name: Blast-Proof Containers
+  cost: 9000
+  tier: Tier2
+  requires:
+    - ExplosiveTech
+  unlocks:
+    - LargeBeakerReinforced
+    - BeakerReinforced
+    - ChemistryVialReinforced
+    - EmptyBottleReinforced
+    - JugReinforced
+    - ReinforcedMiniatureEmptyChemistryVial
+
+- type: researchTreeNode
+  id: EnergyBarriers
+  name: Energy Barriers
+  cost: 5400
+  tier: Tier2
+  requires:
+    - AdvPowerCells
+  unlocks:
+    - EnergyDomeTurtle
+
+# Research
+
+- type: researchTreeNode
+  id: AdvAnomResearch
+  name: Advanced Anomaly Research
+  cost: 10000
+  tier: Tier2
+  requires:
+    - AnomCoreHarvesting
+  unlocks:
+    - WeaponPistolCHIMP
+    - AnomalySynchronizerCircuitboard
+    - AnomalyVesselExperimentalCircuitboard
+
+- type: researchTreeNode
+  id: ArtiRecycle
+  name: Artifact Recycling
+  cost: 5000
+  tier: Tier2
+  requires:
+    - ArtiResearch
+  unlocks:
+    - ArtifactCrusherMachineCircuitboard
+
+- type: researchTreeNode
+  id: GravManipulation
+  name: Gravity Manipulation
+  cost: 10000
+  tier: Tier2
+  requires:
+    - AdvAnomResearch
+    - AltResearch
+    - ArtiRecycle
+    - MagBoot
+  unlocks:
+    - WeaponForceGun
+    - WeaponTetherGun
+
+- type: researchTreeNode
+  id: DeterrenceTech
+  name: Deterrence Technologies
+  cost: 7500
+  tier: Tier2
+  requires:
+    - AdvAnomResearch
+    - AltResearch
+    - ArtiRecycle
+    - MagBoot
+  unlocks:
+    - WeaponParticleDecelerator
+    - HoloprojectorField
+
+# Civ
+
+- type: researchTreeNode
+  id: BananiumWeapons
+  name: Bananium Weapons
+  cost: 6000
+  tier: Tier2
+  requires:
+    - AdvEntertainment
+  unlocks:
+    - MechEquipmentHonkerBananaMortar
+    - MechEquipmentHonkerMousetrapMortar
+
+# Robotics
+
+- type: researchTreeNode
+  id: AILawboards
+  name: AI Lawboards
+  cost: 7000
+  tier: Tier2
+  requires:
+    - Robotics
+    - AVComms
+  unlocks:
+    - NTDefaultCircuitBoard
+    - AsimovCircuitBoard
+    - CorporateCircuitBoard
+    - CommandmentCircuitBoard
+    - PaladinCircuitBoard
+    - PanicmovCircuitBoard
+    - GenieCircuitBoard
+    - ReporterCircuitBoard
+    - LiveLetLiveCircuitBoard
+    - StationEfficiencyCircuitBoard
+    - RobocopCircuitBoard
+    - GameMasterCircuitBoard
+    - ArtistCircuitBoard
+    - NutimovCircuitBoard
+    - JermovCircuitBoard
+
+- type: researchTreeNode
+  id: ClowningTech
+  name: Clowning Utilities
+  cost: 4000
+  tier: Tier2
+  requires:
+    - BananiumWeapons
+    - AILawboards
+  unlocks:
+    - PushHorn
+    - BorgModuleAdvancedClowning
+
+- type: researchTreeNode
+  id: AdvMedBorg
+  name: Mechanized Treatment
+  cost: 5000
+  tier: Tier2
+  requires:
+    - AILawboards
+    - Cyberlimbs
+  unlocks:
+    - BorgModuleAdvancedChemical
+
+# Cybernetics
+
+- type: researchTreeNode
+  id: Harmpack
+  name: Dual Wielding Technology
+  cost: 10000
+  tier: Tier2
+  requires:
+    - Cyberlimbs
+  unlocks:
+    - ClothingBackpackHarmpack
+
+- type: researchTreeNode
+  id: EyeImplants
+  name: Basic Eye Implants
+  cost: 10000
+  tier: Tier2
+  requires:
+    - BudgetCyberorgans
+  unlocks:
+    - EyeImplantWelding
+    - EyeImplantMedical
+    - EyeImplantSecurity
+
+# Chem
+
+- type: researchTreeNode
+  id: AdvCleaning
+  name: Advanced Cleaning
+  cost: 10000
+  tier: Tier2
+  requires:
+    - AutomatedInjection
+  unlocks:
+    - AdvMopItem
+    - MegaSprayBottle
+    - BorgModuleAdvancedCleaning
+
+- type: researchTreeNode
+  id: AdvSpray
+  name: Advanced Spray
+  cost: 10000
+  tier: Tier2
+  requires:
+    - AutomatedInjection
+  unlocks:
+    - WeaponSprayNozzle
+    - ClothingBackpackWaterTank
+
+# Biology
+
+- type: researchTreeNode
+  id: AdvSurgery
+  name: Advanced Surgery
+  cost: 7000
+  tier: Tier2
+  requires:
+    - Surgery
+  unlocks:
+    - Drill
+    - SawAdvanced
+    - ScalpelAdvanced
+    - BoneSetterAdvanced
+    - RetractorAdvanced
+    - HemostatAdvanced
+
+- type: researchTreeNode
+  id: StasisBed
+  name: Biochemical Stasis
+  cost: 7500
+  tier: Tier2
+  requires:
+    - MeatManipulation
+    - Hydroponics
+  unlocks:
+    - StasisBedMachineCircuitboard
+    - CryoPodMachineCircuitboard
+    - CryostasisBeaker
+    - SyringeCryostasis
+
+---
+
+# Tier 3
+
+# Mechs
+
+- type: researchTreeNode
+  id: GygaxMech
+  name: Gygax
+  cost: 11600
+  tier: Tier3
+  requires:
+    - IndustialMech
+    - PaddyMech
+  unlocks:
+    - GygaxHarness
+    - GygaxArmor
+    - GygaxHead
+    - GygaxLArm
+    - GygaxLLeg
+    - GygaxRArm
+    - GygaxRLeg
+    - GygaxCentralElectronics
+    - GygaxPeripheralsElectronics
+    - GygaxTargetingElectronics
+    - WeaponMechCombatUltraRifle
+
+- type: researchTreeNode
+  id: DurandMech
+  name: Durand
+  cost: 16600
+  tier: Tier3
+  requires: 
+    - GygaxMech
+  unlocks:
+    - DurandHarness
+    - DurandArmor
+    - DurandHead
+    - DurandLArm
+    - DurandLLeg
+    - DurandRArm
+    - DurandRLeg
+    - DurandCentralElectronics
+    - DurandPeripheralsElectronics
+    - DurandTargetingElectronics
+    - WeaponMechCombatShotgun
+    - WeaponMechCombatShotgunIncendiary
+
+# Space
+
+- type: researchTreeNode
+  id: AdvShuttleWeapons
+  name: Advanced Shuttle Weapons
+  cost: 15000
+  tier: Tier3
+  requires: 
+    - ShuttleArmament
+  unlocks:
+    - GrenadeEMP
+    - PowerCageHigh
+    - ShuttleGunDusterCircuitboard
+
+- type: researchTreeNode
+  id: ScanGates
+  name: Scan Gates Technology
+  cost: 5000
+  tier: Tier3
+  requires:
+    - AdvShuttleWeapons
+  unlocks:
+    - ScanGateMachineCircuitboard
+
+# Power
+
+- type: researchTreeNode
+  id: ExplosiveMechAmmo
+  name: Explosive Mech Ammunition
+  cost: 15400
+  tier: Tier3
+  requires:
+    - BlastproofContainers
+  unlocks:
+    - WeaponMechCombatMissileRack8
+
+- type: researchTreeNode
+  id: Microreactor
+  name: Optimized Microgalvanism
+  cost: 10000
+  tier: Tier3
+  requires:
+    - AdvPowerCells
+    - BlastproofContainers
+  unlocks:
+    - PowerCellMicroreactor
+    - PowerCellHyper
+
+# Energy weapons
+
+- type: researchTreeNode
+  id: ThermalGun
+  name: Thermal Weaponry
+  cost: 15000
+  tier: Tier3
+  requires:
+    - RayGun
+  unlocks:
+    - WeaponLaserSvalinn
+    - WeaponTemperatureGun
+
+- type: researchTreeNode
+  id: AdvLaserPistol
+  name: Portable Microfusion Weaponry
+  cost: 15000
+  tier: Tier3
+  requires:
+    - Microreactor
+    - IonGun
+    - LaserGun2
+  unlocks:
+    - WeaponAdvancedLaser
+    - PortableRecharger
+    - WeaponMechCombatImmolationGun
+
+- type: researchTreeNode
+  id: Declone
+  name: Declone Technology
+  cost: 30000
+  tier: Tier3
+  requires:
+    - AdvLaserPistol
+  unlocks:
+    - WeaponDecloner
+
+# Physics / bluespace
+
+- type: researchTreeNode
+  id: QuantumLeaping
+  name: Quantum Leaping
+  cost: 10000
+  tier: Tier3
+  requires:
+    - GravManipulation
+  unlocks:
+    - DeviceQuantumSpinInverter
+
+- type: researchTreeNode
+  id: SpeedBoot
+  name: Quantum Fiber Weaving
+  cost: 10000
+  tier: Tier3
+  requires:
+    - DeterrenceTech
+  unlocks:
+    - ClothingShoesBootsSpeed
+
+- type: researchTreeNode
+  id: CargoTeleporter
+  name: Bluespace Cargo Transport
+  cost: 15000
+  tier: Tier3
+  requires:
+    - QuantumLeaping
+    - SpeedBoot
+  unlocks:
+    - CargoTelepadMachineCircuitboard
+
+- type: researchTreeNode
+  id: BluespaceBag
+  name: Bluespace Storage
+  cost: 15000
+  tier: Tier3
+  requires:
+    - CargoTeleporter
+  unlocks:
+    - ClothingBackpackHolding
+    - ClothingBackpackSatchelHolding
+    - ClothingBackpackDuffelHolding
+    - BluespaceBeaker
+    - SyringeBluespace
+    - OreBagOfHolding
+    - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
+    - MechEquipmentDrillDiamond
+    - BorgModuleAdvancedMining
+
+- type: researchTreeNode
+  id: Desynchronizer
+  name: Bluespace Time Manipulation
+  cost: 10000
+  tier: Tier3
+  requires:
+    - CargoTeleporter
+  unlocks:
+    - DeviceDesynchronizer
+
+# Cybernetics
+
+- type: researchTreeNode
+  id: FunctionalCyberlimbs
+  name: Functional Cyberlimbs
+  cost: 9320
+  tier: Tier3
+  requires:
+    - Harmpack
+  unlocks:
+    - LeftArmCyberReaper
+    - RightArmCyberReaper
+    - LeftArmCyberMechwright
+    - RightArmCyberMechwright
+    - LeftArmCyberBulwark
+    - RightArmCyberBulwark
+
+- type: researchTreeNode
+  id: NVEyes
+  name: Night Vision Cyber Eyes
+  cost: 7680
+  tier: Tier3
+  requires:
+    - EyeImplants
+  unlocks:
+    - CyberEyeNightVision
+
+- type: researchTreeNode
+  id: ThermalEyes
+  name: Thermal Vision Cyber Eyes
+  cost: 9320
+  tier: Tier3
+  requires:
+    - EyeImplants
+  unlocks:
+    - CyberEyeThermal
+
+# Cyborgs
+
+- type: researchTreeNode
+  id: BorgPlaceholder1
+  name: Placeholder Tech 1
+  cost: 1
+  tier: Tier3
+  requires:
+    - ClowningTech
+
+- type: researchTreeNode
+  id: BorgPlaceholder2
+  name: Placeholder Tech 2
+  cost: 1
+  tier: Tier3
+  requires:
+    - AdvMedBorg
+
+- type: researchTreeNode
+  id: BorgPlaceholder3
+  name: Placeholder Tech 3
+  cost: 1
+  tier: Tier3
+  requires:
+    - BorgPlaceholder1
+    - BorgPlaceholder2
+
+- type: researchTreeNode
+  id: SecBorg
+  name: Mechanical Security
+  cost: 25000
+  tier: Tier3
+  requires:
+    - BorgPlaceholder3
+    - FunctionalCyberlimbs
+    - NVEyes
+    - ThermalEyes
+  unlocks:
+    - SecborgEndoskeleton
+    - BorgModuleLaserCarbine
+
+# Chem
+
+- type: researchTreeNode
+  id: SyringeGun
+  name: Syringe Gun
+  cost: 15000
+  tier: Tier3
+  requires:
+    - AdvCleaning
+    - AdvSpray
+  unlocks:
+    - LauncherSyringe
+    - MiniSyringe
+
+- type: researchTreeNode
+  id: Cloning
+  name: Cloning Systems
+  cost: 25000
+  tier: Tier3
+  requires:
+    - StasisBed
+    - AdvSurgery
+    - SyringeGun
+  unlocks:
+    - CloningConsoleComputerCircuitboard 
+    - CloningPodMachineCircuitboard 
+    - MedicalScannerMachineCircuitboard

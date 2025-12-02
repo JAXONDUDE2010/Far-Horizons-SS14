@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._FarHorizons.Research.Components;
 using Content.Shared.Research.Components;
 
 namespace Content.Server.Research.Systems;
@@ -161,6 +162,12 @@ public sealed partial class ResearchSystem
 
         if (!Resolve(uid, ref component))
             return;
+
+        // Far Horizons
+        // Try to handle research with FHResearchSystem and fall back to vanilla if it failed
+        if (_fhResearch.HandleResearch(uid, points))
+            return;
+
         component.Points += points;
         var ev = new ResearchServerPointsChangedEvent(uid, component.Points, points);
         foreach (var client in component.Clients)
