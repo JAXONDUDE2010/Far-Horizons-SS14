@@ -3019,5 +3019,13 @@ Entries:
   id: 43607
   time: '2025-12-02T22:12:41.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/436
+- author: AthenaAI
+  changes:
+  - message: Adds hotbar actions to the Analyze Patient, Analyze Structure and Check
+      Crime Verbs added by the Expanded Cartridge PR.
+    type: Add
+  id: 43800
+  time: '2025-12-02T22:46:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/438
 Order: -1
 
