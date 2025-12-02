@@ -2667,7 +2667,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 5
+        Slash: 5
   # Visual & Audio
   - type: DamageVisuals
     damageOverlayGroups:
