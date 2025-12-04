@@ -3137,5 +3137,14 @@ Entries:
   id: 44403
   time: '2025-12-03T21:42:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/444
+- author: princess_gurchi
+  changes:
+  - message: Split EMP effects that IPCs take between all of their limbs. That means
+      robots can augment themselves with human parts to be better protected against
+      EMP
+    type: Tweak
+  id: 44700
+  time: '2025-12-04T17:26:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/447
 Order: -1
 
