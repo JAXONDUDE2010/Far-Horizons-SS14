@@ -235,13 +235,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 10000
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
   - type: Pierceable
     level: Metal
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 4 #FH
+        Heat: 3 #FH
       coefficients:
         Blunt: 0.6
         Slash: 0.6
@@ -250,6 +250,9 @@
         Radiation: 0.6
         Caustic: 0.6
     staminaModifier: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: ToggleClothing
@@ -423,6 +426,9 @@
     level: Metal
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 5 #FH
+        Heat: 4 #FH
       coefficients:
         Blunt: 0.5
         Slash: 0.5
