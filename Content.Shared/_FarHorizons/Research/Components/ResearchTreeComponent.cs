@@ -32,6 +32,9 @@ public sealed partial class FHResearchTreeComponent : Component
     [DataField]
     public TimeSpan WarningFrequency = TimeSpan.Zero;
 
+    [DataField]
+    public List<ProtoId<ResearchTreeUnlockFlagPrototype>> UnlockFlags = [];
+
     public TimeSpan LastWarning = TimeSpan.Zero;
 }
 

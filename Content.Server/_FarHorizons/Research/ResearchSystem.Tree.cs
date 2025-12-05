@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Threading.Channels;
 using Content.Shared._FarHorizons.Research;
 using Content.Shared._FarHorizons.Research.Components;
 using Content.Shared.Radio;
@@ -100,6 +99,8 @@ public sealed partial class FHResearchSystem
 
         foreach(var recipe in nodeProto.Unlocks)
             _research.AddLatheRecipe(ent, recipe, techDb);
+        
+        ent.Comp.UnlockFlags.AddRange(nodeProto.UnlockFlags);
 
         SendAnnouncement(ent, Loc.GetString("research-tree-unlock-broadcast", ("technology", nodeProto.Name), ("amount", nodeProto.Cost)), nodeProto.AnnounceTo);
     }
@@ -189,6 +190,10 @@ public sealed partial class FHResearchSystem
 
         return result;
     }
+
+    public bool IsFlagUnlocked(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeUnlockFlagPrototype> flag) =>
+        Resolve(ent, ref ent.Comp) && ent.Comp.UnlockFlags.Contains(flag);
+
     public HashSet<ProtoId<ResearchTreeTierPrototype>> GetUnlockedTiers(Entity<FHResearchTreeComponent> ent)
     {
         var spent = GetTotalPointsSpent(ent);

@@ -1,0 +1,11 @@
+- type: researchTreeUnlockFlag
+  id: UnlockFlagSurgeryPlastic
+  text: "Surgery unlock: Plastic Surgery"
+
+- type: researchTreeUnlockFlag
+  id: UnlockFlagSurgerySpeed1
+  text: "Surgery speed increase"
+
+- type: researchTreeUnlockFlag
+  id: UnlockFlagSurgerySpeed2
+  text: "Further surgery speed increase"

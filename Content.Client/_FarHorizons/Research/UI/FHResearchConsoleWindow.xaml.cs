@@ -217,5 +217,12 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
             var unlockLabel = new Label() {Text = "- " + Loc.GetString(unlockName)};
             UnlocksBox.AddChild(unlockLabel);
         }
+
+        foreach(var flag in _selected.UnlockFlags)
+        {
+            var flagProto = _protoMan.Index(flag);
+            var unlockLabel = new Label() {Text = "- " + Loc.GetString(flagProto.Text)};
+            UnlocksBox.AddChild(unlockLabel);
+        }
     }
 }

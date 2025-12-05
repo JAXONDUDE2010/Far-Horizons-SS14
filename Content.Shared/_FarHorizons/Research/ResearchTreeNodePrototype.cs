@@ -24,6 +24,8 @@ public sealed partial class ResearchTreeNodePrototype : IPrototype
     [DataField]
     public List<ProtoId<LatheRecipePrototype>> Unlocks = [];
     [DataField]
+    public List<ProtoId<ResearchTreeUnlockFlagPrototype>> UnlockFlags = [];
+    [DataField]
     public List<ProtoId<RadioChannelPrototype>> AnnounceTo = [];
 
     public int GetDepth(IPrototypeManager protoMan)
