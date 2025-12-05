@@ -13,30 +13,6 @@
     frictionNoInput: 6
     baseWalkSpeed: 4.5
     baseSprintSpeed: 6
-  - type: Repairable
-    fuelcost: 20
-    doAfterDelay: 20
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-      - !type:ExplodeBehavior
 
 - type: entity
   parent: BaseVehicle
@@ -71,6 +47,36 @@
     price: 750 # Grand Theft Auto.
 
 - type: entity
+  parent: BaseVehicleRideable
+  id: BaseVehicleRideableDamageable
+  name: VehicleDamageable
+  components:
+  - type: Repairable
+    fuelcost: 20
+    doAfterDelay: 20
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ExplodeBehavior
+
+- type: entity
   id: VehicleWheelchair
   parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
   name: wheelchair
@@ -80,15 +86,16 @@
       sprite: Objects/Vehicles/wheelchair.rsi
       layers:
       - state: vehicle
-        map: ["enum.MechVisualLayers.Base", "unfoldedLayer"]
+        map: ["enum.VehicleVisualLayers.Base", "unfoldedLayer"]
       - state: vehicle_folded
         map: ["foldedLayer"]
         visible: false
       noRot: true
     - type: Vehicle
+      baseState: vehicle
     - type: MovementSpeedModifier
-      baseWalkSpeed: 4
-      baseSprintSpeed: 2
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 4.5
     - type: Strap
       buckleOffset: "0,0"
       maxBuckleDistance: 1

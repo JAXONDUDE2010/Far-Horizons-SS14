@@ -22,7 +22,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared._FarHorizons.Vehicle.Components; // FarHorizons
+using Content.Shared._FarHorizons.Vehicles.Components; // FarHorizons
 
 namespace Content.Shared.Buckle;
 
@@ -138,7 +138,7 @@ public abstract partial class SharedBuckleSystem
         }
 
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
-        if (delta > 1e-5)
+        if (delta > 0.5)
             Unbuckle(buckle, (strapUid, strapComp), null);
     }
 
@@ -176,9 +176,9 @@ public abstract partial class SharedBuckleSystem
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Buckled 
-            && !HasComp<VehicleComponent>(component.BuckledTo)) //FarHorizons
-            args.Cancel();
+        if (component.Buckled) 
+            if(!HasComp<RiderComponent>(uid)) //FarHorizons
+                args.Cancel();
     }
 
     public bool IsBuckled(EntityUid uid, BuckleComponent? component = null)

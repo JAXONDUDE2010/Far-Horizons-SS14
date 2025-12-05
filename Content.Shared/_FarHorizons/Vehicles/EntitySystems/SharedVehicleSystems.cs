@@ -1,5 +1,5 @@
 
-namespace Content.Shared._FarHorizons.Vehicle.EntitySystems;
+namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
 public abstract partial class SharedVehicleSystems : EntitySystem
 {
