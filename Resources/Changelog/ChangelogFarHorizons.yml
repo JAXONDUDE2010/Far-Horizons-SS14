@@ -3146,5 +3146,46 @@ Entries:
   id: 44700
   time: '2025-12-04T17:26:55.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/447
+- author: Roro
+  changes:
+  - message: Added flat resists to Detective coats, Infiltrator hardsuit, Experimental
+      security hardsuit and other armors/coats so they can keep up with with existing
+      armor values.
+    type: Tweak
+  id: 45000
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added nonlethal loadout options for Detective and Warden, as well as
+      Sidearm option (just a MK58 anyway) for HoS.
+    type: Tweak
+  id: 45001
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added a 10% slowdown to Infiltrator hardsuit since it had none and having
+      no slowdown on a hardsuit is silly, now more of a variant rather than a direct
+      upgrade over the default bloodred.
+    type: Tweak
+  id: 45002
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added a hailer to Infiltrator hardsuit since it didnt have one.
+    type: Tweak
+  id: 45003
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Combat boots and Sec winter boots are now effectively jackboots (less
+      slowdown on lower health)
+    type: Tweak
+  id: 45004
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
 Order: -1
 
