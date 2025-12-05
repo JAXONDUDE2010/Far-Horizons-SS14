@@ -3091,5 +3091,101 @@ Entries:
   id: 43503
   time: '2025-12-03T16:22:11.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/435
+- author: Roro, Vonte
+  changes:
+  - message: Added the Proto-Kinetic Shotgun, a variant of the PKA, available in both
+      Salvage and Mining ticket vendors. Sprites by Vonte
+    type: Add
+  id: 43504
+  time: '2025-12-03T17:22:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/434
+- author: Roro, Vonte
+  changes:
+  - message: Tweaked resists on Spationaut Lead Hardsuit, 15% blunt to 30%, 15% slash
+      to 30%, 15% pierce to 30%, 20% caustic to 30% and added 30% heat resist as it
+      had none.
+    type: Tweak
+  id: 43505
+  time: '2025-12-03T17:22:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/434
+- author: princess_gurchi & suggestedone9 (shuttle design)
+  changes:
+  - message: NT-34 "Expeditioneer" - New salvage shuttle
+    type: Add
+  id: 44400
+  time: '2025-12-03T21:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/444
+- author: princess_gurchi & suggestedone9 (shuttle design)
+  changes:
+  - message: NT-99 "Asteroid Cracker" - New mining shuttle
+    type: Add
+  id: 44401
+  time: '2025-12-03T21:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/444
+- author: princess_gurchi & suggestedone9 (shuttle design)
+  changes:
+  - message: 'New salvage mission: Shutdown. Find and destroy devices around the dungeon.'
+    type: Add
+  id: 44402
+  time: '2025-12-03T21:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/444
+- author: princess_gurchi & suggestedone9 (shuttle design)
+  changes:
+  - message: Allow Collect salvage mission to spawn in caves, reducing overall "found
+      coordinates" mission probability
+    type: Tweak
+  id: 44403
+  time: '2025-12-03T21:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/444
+- author: princess_gurchi
+  changes:
+  - message: Split EMP effects that IPCs take between all of their limbs. That means
+      robots can augment themselves with human parts to be better protected against
+      EMP
+    type: Tweak
+  id: 44700
+  time: '2025-12-04T17:26:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/447
+- author: Roro
+  changes:
+  - message: Added flat resists to Detective coats, Infiltrator hardsuit, Experimental
+      security hardsuit and other armors/coats so they can keep up with with existing
+      armor values.
+    type: Tweak
+  id: 45000
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added nonlethal loadout options for Detective and Warden, as well as
+      Sidearm option (just a MK58 anyway) for HoS.
+    type: Tweak
+  id: 45001
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added a 10% slowdown to Infiltrator hardsuit since it had none and having
+      no slowdown on a hardsuit is silly, now more of a variant rather than a direct
+      upgrade over the default bloodred.
+    type: Tweak
+  id: 45002
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Added a hailer to Infiltrator hardsuit since it didnt have one.
+    type: Tweak
+  id: 45003
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
+- author: Roro
+  changes:
+  - message: Combat boots and Sec winter boots are now effectively jackboots (less
+      slowdown on lower health)
+    type: Tweak
+  id: 45004
+  time: '2025-12-05T09:41:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/450
 Order: -1
 

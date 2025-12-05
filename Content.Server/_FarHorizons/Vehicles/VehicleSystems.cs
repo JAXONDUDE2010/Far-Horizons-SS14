@@ -10,12 +10,15 @@ namespace Content.Server._FarHorizons.Vehicle;
 public sealed class VehicleSystems : SharedVehicleSystems
 {    
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<VehicleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
+
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
+        _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
 
     private void OnStrapped(Entity<VehicleComponent> ent, ref StrappedEvent args)
@@ -55,5 +58,11 @@ public sealed class VehicleSystems : SharedVehicleSystems
     {
         if (ent.Owner != args.PullerUid)
             args.Cancelled = true;
+    }
+
+    private void OnMoveEvent(ref MoveEvent ev)
+    {
+        if(!HasComp<RiderComponent>(ev.Entity.Owner)) return;
+        Logger.Info("Moving");
     }
 }

@@ -110,7 +110,7 @@
           mask:
             - MobMask
           layer:
-            - TableLayer
+            - Opaque
     - type: StaticPrice
       price: 70
     - type: Tag

@@ -137,8 +137,10 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
+        if(HasComp<RiderComponent>(buckle.Owner)) return;
+        
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
-        if (delta > 0.5)
+        if (delta > 1e-5)
             Unbuckle(buckle, (strapUid, strapComp), null);
     }
 
