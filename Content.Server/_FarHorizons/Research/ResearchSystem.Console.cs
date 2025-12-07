@@ -21,12 +21,12 @@ public sealed partial class FHResearchSystem
 
     private void OnRemoveQueueRequest(Entity<FHResearchConsoleComponent> ent, ref FHResearchConsoleRemoveQueueRequest args)
     {
-        if (TryGetServerWithTree(ent.Owner, out var server))
+        if (!ent.Comp.Readonly && TryGetServerWithTree(ent.Owner, out var server))
             RemoveResearchFromQueue((server.Value, server.Value.Comp), args.Node);
     }
     private void OnResearchRequest(Entity<FHResearchConsoleComponent> ent, ref FHResearchConsoleResearchRequest args)
     {
-        if (TryGetServerWithTree(ent.Owner, out var server))
+        if (!ent.Comp.Readonly && TryGetServerWithTree(ent.Owner, out var server))
             AddResearchToQueue((server.Value, server.Value.Comp), args.Node);
     }
     private void OnConsoleRegistrationChanged(Entity<FHResearchConsoleComponent> ent, ref ResearchRegistrationChangedEvent args) =>
@@ -47,6 +47,7 @@ public sealed partial class FHResearchSystem
         List<ProtoId<ResearchTreeNodePrototype>> queuedNodes = [];
         Dictionary<ProtoId<ResearchTreeNodePrototype>, int> researchProgress = [];
         int bankedPoints = 0;
+        bool readonlyConsole = false;
 
         if (TryGetServerWithTree(ent.Owner, out var server))
         {
@@ -59,17 +60,18 @@ public sealed partial class FHResearchSystem
             queuedNodes = server!.Value.Comp.Queue;
             researchProgress = server!.Value.Comp.Progress;
             bankedPoints = server!.Value.Comp.BankedPoints;
+            readonlyConsole = ent.Comp.Readonly;
         }
 
         if (build)
-            _ui.SetUiState(ent.Owner, FHResearchConsoleUiKey.Key, new FHResearchConsoleBUIFullState(nodes, unlockedTiers, unlockedNodes, researchedNodes, queuedNodes, researchProgress, bankedPoints));
+            _ui.SetUiState(ent.Owner, FHResearchConsoleUiKey.Key, new FHResearchConsoleBUIFullState(nodes, unlockedTiers, unlockedNodes, researchedNodes, queuedNodes, researchProgress, bankedPoints, readonlyConsole));
         else
             _ui.SetUiState(ent.Owner, FHResearchConsoleUiKey.Key, new FHResearchConsoleBUIPartialState(unlockedTiers, unlockedNodes, researchedNodes, queuedNodes, researchProgress, bankedPoints));
     }
 
     public void ShowError(Entity<FHResearchConsoleComponent?> ent, string message = "")
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.Readonly)
             return;
 
         _audio.PlayPvs(ent.Comp.ErrorSound, ent);

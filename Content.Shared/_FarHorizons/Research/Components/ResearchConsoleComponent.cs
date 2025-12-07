@@ -9,6 +9,9 @@ public sealed partial class FHResearchConsoleComponent : Component
 {
     [DataField]
     public SoundSpecifier ErrorSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
+
+    [DataField]
+    public bool Readonly = false;
 }
 
 [NetSerializable, Serializable]
@@ -25,7 +28,8 @@ public sealed class FHResearchConsoleBUIFullState(
     HashSet<ProtoId<ResearchTreeNodePrototype>> researchedNodes,
     List<ProtoId<ResearchTreeNodePrototype>> queuedNodes,
     Dictionary<ProtoId<ResearchTreeNodePrototype>, int> researchProgress,
-    int bankedPoints
+    int bankedPoints,
+    bool readonlyConsole
     ) : BoundUserInterfaceState
 {
     public HashSet<ProtoId<ResearchTreeNodePrototype>> Nodes = nodes;
@@ -35,6 +39,7 @@ public sealed class FHResearchConsoleBUIFullState(
     public List<ProtoId<ResearchTreeNodePrototype>> QueuedNodes = queuedNodes;
     public Dictionary<ProtoId<ResearchTreeNodePrototype>, int> ResearchProgress = researchProgress;
     public int BankedPoints = bankedPoints;
+    public bool Readonly = readonlyConsole;
 }
 
 [NetSerializable, Serializable]

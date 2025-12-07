@@ -22,6 +22,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
     private Dictionary<ProtoId<ResearchTreeNodePrototype>, int> _researchProgress = [];
     private Dictionary<ProtoId<ResearchTreeNodePrototype>, float> _researchProgressPercentage => _researchProgress.ToDictionary(p => p.Key, p => (float)p.Value / _protoMan.Index(p.Key).Cost);
     private int _bankedPoints = 0;
+    private bool _readonly = false;
 
     public Action? OnServerButtonPressed;
     public Action<ProtoId<ResearchTreeNodePrototype>>? OnResearchButtonPressed;
@@ -43,7 +44,8 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
         HashSet<ProtoId<ResearchTreeNodePrototype>> researched,
         List<ProtoId<ResearchTreeNodePrototype>> queued,
         Dictionary<ProtoId<ResearchTreeNodePrototype>, int> progress,
-        int bankedPoints)
+        int bankedPoints,
+        bool readonlyClient)
     {
         _selected = null;
         _allNodes = nodes;
@@ -53,8 +55,12 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
         _queue = queued;
         _researchProgress = progress;
         _bankedPoints = bankedPoints;
+        _readonly = readonlyClient;
 
         BankedPointsText.Text = _bankedPoints.ToString();
+
+        if (_readonly)
+            ResearchButton.Visible = false;
 
         TreeDisplay.BuildTree(_allNodes, _unlockedTiers, _unlockedNodes, _researchedNodes, _researchProgressPercentage);
         Selected(_selected?.ID);
@@ -134,13 +140,13 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
 
     private void ResearchNode(BaseButton.ButtonEventArgs args)
     {
-        if (_selected != null)
+        if (_selected != null && !_readonly)
             OnResearchButtonPressed?.Invoke(_selected.ID);
     }
 
     private void RemoveNodeFromQueue(BaseButton.ButtonEventArgs args)
     {
-        if (_selected != null)
+        if (_selected != null && !_readonly)
             OnRemoveQueueButtonPressed?.Invoke(_selected.ID);
     }
 
