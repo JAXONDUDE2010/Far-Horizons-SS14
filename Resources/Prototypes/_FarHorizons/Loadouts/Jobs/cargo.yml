@@ -12,6 +12,21 @@
   equipment:
     head: ClothingHeadHatHardhatMiner
 
+- type: loadout
+  id: MiningBackpack
+  equipment:
+    back: ClothingBackpackMining
+
+- type: loadout
+  id: MiningDuffel
+  equipment:
+    back: ClothingBackpackDuffelMining
+
+- type: loadout
+  id: MiningSatchel
+  equipment:
+    back: ClothingBackpackSatchelMining
+    
 # Salvage Technician
 
 - type: loadout

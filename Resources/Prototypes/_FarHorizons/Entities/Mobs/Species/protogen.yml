@@ -9,7 +9,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     understands:
     - GalacticCommon
@@ -552,6 +551,10 @@
   - type: Body
     prototype: ProtoThaven
     requiredLegs: 2
+  - type: HumanoidAppearance
+    species: ProtoThaven
+    hideLayersOnEquip:
+    - Hair
   - type: MeleeWeapon
     attackRate: 0.55
     soundHit:
@@ -686,6 +689,10 @@
     - Machine
     - Trinary
     - Bubblish
+  - type: HumanoidAppearance
+    species: ProtoSlimePerson
+    hideLayersOnEquip:
+    - Hair
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -1260,6 +1267,7 @@
     - AnomalyHost
     - Resomi
     - SiliconEmotesFH 
+    - Protogen
   - type: NightVision
   - type: FlashModifier
     modifier: 2
@@ -1857,9 +1865,13 @@
     - Trinary
     - Nekomimetic
     - Cat
+  - type: HumanoidAppearance
+    species: ProtoFeline
+    hideLayersOnEquip:
+    - Hair
   - type: Icon
     sprite: _FarHorizons/Mobs/Species/Proto-Feline/parts.rsi
-    state: full
+    state: fullcat
   - type: Body
     prototype: ProtoFeline
     requiredLegs: 2
@@ -1915,6 +1927,7 @@
     - AnomalyHost
     - Felionoid
     - SiliconEmotesFH 
+    - Protogen
   - type: Fixtures
     fixtures:
       fix1:
@@ -2124,6 +2137,7 @@
     - AnomalyHost
     - Diona
     - SiliconEmotesFH 
+    - Protogen
   - type: HumanoidAppearance
     species: ProtoDionae
   - type: Hunger
@@ -2444,6 +2458,7 @@
         - AnomalyHost
         - Avali
         - SiliconEmotesFH 
+        - Protogen
     - type: HumanoidAppearance
       species: ProtoAvali
     - type: Hunger # on 2x more
@@ -2624,6 +2639,7 @@
     - AnomalyHost
     - Arachnid
     - SiliconEmotesFH 
+    - Protogen
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -2651,7 +2667,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 5
+        Slash: 5
   # Visual & Audio
   - type: DamageVisuals
     damageOverlayGroups:

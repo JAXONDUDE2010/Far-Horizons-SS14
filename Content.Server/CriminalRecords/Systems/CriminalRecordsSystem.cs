@@ -10,13 +10,16 @@ using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
+//FarHorizons Start
 using Content.Shared.Verbs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Inventory;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Timing;
-
+using Content.Shared.Actions;
+using Content.Shared._FarHorizons.CartridgeLoader.Cartridges;
+//FarHorizons End
 namespace Content.Server.CriminalRecords.Systems;
 
 /// <summary>
@@ -33,7 +36,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
-    [Dependency] private readonly ActivatableUISystem _activatableUISystem = default!;
+    [Dependency] private readonly ActivatableUISystem _activatableUISystem = default!; //FarHorizons
 
     public override void Initialize()
     {
@@ -44,9 +47,13 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         SubscribeLocalEvent<WantedListCartridgeComponent, CartridgeUiReadyEvent>(OnCartridgeUiReady);
         SubscribeLocalEvent<WantedListCartridgeComponent, CriminalHistoryAddedEvent>(OnHistoryAdded);
         SubscribeLocalEvent<WantedListCartridgeComponent, CriminalHistoryRemovedEvent>(OnHistoryRemoved);
+        //FarHorizons Start
         SubscribeLocalEvent<WantedListCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
         SubscribeLocalEvent<WantedListCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
+        SubscribeLocalEvent<CrimeAnalyzerComponent, CrimeCheckActionEvent>(OnCrimeCheckAction);
+        SubscribeLocalEvent<CrimeAnalyzerComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<CrimeAnalyzerComponent, InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>>(AddVerbCheckCrime);
+        //FarHorizons End
     }
 
     private void OnGeneralRecordCreated(AfterGeneralRecordCreatedEvent ev)
@@ -172,7 +179,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         UpdateReaderUi(ent, args.Loader);
     }
 
-    private void UpdateReaderUi(Entity<WantedListCartridgeComponent> ent, EntityUid loaderUid, string? targetName = null)
+    private void UpdateReaderUi(Entity<WantedListCartridgeComponent> ent, EntityUid loaderUid, string? targetName = null) //FarHorizons
     {
         if (_station.GetOwningStation(ent) is not { } station)
             return;
@@ -187,10 +194,11 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
                 _records.TryGetRecord(key, out GeneralStationRecord? generalRecord);
                 return new WantedRecord(generalRecord!, r.Status, r.Reason, r.InitiatorName, r.History);
             });
-        var state = new WantedListUiState(records.ToList(), targetName);       
+        var state = new WantedListUiState(records.ToList(), targetName); //FarHorizons
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
 
+    //FarHorizons Start
     private void OnCartridgeAdded(Entity<WantedListCartridgeComponent> ent, ref CartridgeAddedEvent args) => EnsureComp<CrimeAnalyzerComponent>(args.Loader);
 
     private void OnCartridgeRemoved(Entity<WantedListCartridgeComponent> ent, ref CartridgeRemovedEvent args)
@@ -202,8 +210,6 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     }
     private void AddVerbCheckCrime(Entity<CrimeAnalyzerComponent> ent, ref InventoryRelayedEvent<GetVerbsEvent<InnateVerb>> args)
     {
-        if (!args.Args.CanInteract || !args.Args.CanAccess)
-            return;
         if (!HasComp<MobStateComponent>(args.Args.Target) || !TryComp<IdentityComponent>(args.Args.Target, out var idComp))
             return;
 
@@ -236,4 +242,20 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         Timer.Spawn(TimeSpan.FromMilliseconds(300), () => UpdateReaderUi((programUid, program), item, metaComp.EntityName));
         _activatableUISystem.InteractUIp(user, item, activeComp);
     }
+
+    private void OnGetActions(Entity<CrimeAnalyzerComponent> ent, ref GetItemActionsEvent args)
+    {
+        if (_cartridge.HasProgram<WantedListCartridgeComponent>(ent.Owner))
+        {
+            args.AddAction(ref ent.Comp.ActionEntity, ent.Comp.Action);
+        }
+    }
+    
+    private void OnCrimeCheckAction(Entity<CrimeAnalyzerComponent> ent, ref CrimeCheckActionEvent args)
+    {
+        var user = args.Performer;
+        var target = args.Target;
+        CheckCriminal(user, target, ent.Owner);
+    }
+    //FarHorizons End
 }

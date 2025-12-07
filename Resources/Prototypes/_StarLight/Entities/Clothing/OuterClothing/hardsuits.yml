@@ -174,6 +174,7 @@
     - Hardsuit
     - WhitelistChameleon
     - IPCExternalCooling # Far Horizons
+    - HardsuitSpatio #can now be used to make goliath hardsuit
 
 #NTNC Consortium BSOs
 - type: entity
@@ -234,13 +235,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 10000
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
   - type: Pierceable
     level: Metal
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 4 #FH
+        Heat: 3 #FH
       coefficients:
         Blunt: 0.6
         Slash: 0.6
@@ -249,6 +250,9 @@
         Radiation: 0.6
         Caustic: 0.6
     staminaModifier: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: ToggleClothing
@@ -301,7 +305,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-
+    - IPCExternalCooling # Far Horizons
 
 #USSP
 - type: entity
@@ -411,16 +415,20 @@
     zombificationResistanceCoefficient: 0.50
   - type: IdClothingBlocker
     allowedJobs:
-      - SecurityOfficer
-      - Brigmedic
-      - Warden
-      - HeadOfSecurity
-      - Captain
-      - Detective
+      - Captain #FH change (reorganized)
+      - HeadOfSecurity #FH change (reorganized)
+      - Warden #FH change (reorganized)
+      - Corpsman #FH change (added)
+      - Brigmedic #FH change (reorganized)
+      - Detective #FH change (reorganized)
+      - SecurityOfficer #FH change (reorganized)
   - type: Pierceable
     level: Metal
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 5 #FH
+        Heat: 4 #FH
       coefficients:
         Blunt: 0.5
         Slash: 0.5
@@ -442,6 +450,7 @@
   - type: Tag
     tags:
       - RequiredForLmgTag
+      - IPCExternalCooling # Far Horizons
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityExperimental
 
@@ -465,11 +474,12 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
+          Blunt: 0.7 #FH
+          Slash: 0.7 #FH
+          Piercing: 0.7 #FH
+          Heat: 0.7 #FH
           Radiation: 0.3
-          Caustic: 0.8
+          Caustic: 0.7 #FH
     - type: ClothingSpeedModifier
       walkModifier: 0.8
       sprintModifier: 0.8
@@ -481,6 +491,7 @@
         - Hardsuit
         - HardsuitSpatio
         - CorgiWearable
+        - IPCExternalCooling # Far Horizons
 
 #Mining Specialist Advanced hardsuit
 - type: entity
@@ -503,16 +514,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
+        Blunt: 0.65
+        Slash: 0.65
         Piercing: 0.85
         Heat: 0.65
         Cold: 0.65
         Radiation: 0.2
         Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -564,8 +576,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.75
+        Slash: 0.75
         Piercing: 0.9
         Heat: 0.7
         Cold: 0.7
