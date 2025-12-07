@@ -105,6 +105,24 @@ public sealed partial class FHResearchSystem
         SendAnnouncement(ent, Loc.GetString("research-tree-unlock-broadcast", ("technology", nodeProto.Name), ("amount", nodeProto.Cost)), nodeProto.AnnounceTo);
     }
 
+    public bool TryRemoveResearchedNode(Entity<FHResearchTreeComponent> ent, ProtoId<ResearchTreeNodePrototype> node)
+    {
+        if (!GetRemovableReseach(ent).Contains(node) || !TryComp(ent, out TechnologyDatabaseComponent? techDb))
+            return false;
+        
+        var nodeProto = _protoMan.Index(node);
+
+        ent.Comp.Researched.Remove(node);
+        foreach (var unlockedRecipe in nodeProto.Unlocks)
+            _research.RemoveLatheRecipe(ent, unlockedRecipe, techDb);
+
+        ent.Comp.UnlockFlags.RemoveAll(nodeProto.UnlockFlags.Contains);
+
+        RefreshUIOnClients((ent, ent.Comp));
+        
+        return true;
+    }
+
     public void AddResearchToQueue(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeNodePrototype> node)
     {
         if (!Resolve(ent, ref ent.Comp))
@@ -207,4 +225,7 @@ public sealed partial class FHResearchSystem
 
     public HashSet<ResearchTreeNodePrototype> GetTreeNodes(Entity<FHResearchTreeComponent> ent) =>
         _protoMan.Index(ent.Comp.Tree).Nodes.Select(p => _protoMan.Index(p)).ToHashSet();
+    
+    public List<ProtoId<ResearchTreeNodePrototype>> GetRemovableReseach(Entity<FHResearchTreeComponent> ent) =>
+        [.. ent.Comp.Researched.Where(p => !_protoMan.Index(p).Children(_protoMan).Any(e => ent.Comp.Researched.Contains(e.ID)))];
 }
