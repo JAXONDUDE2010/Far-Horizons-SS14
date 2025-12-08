@@ -96,6 +96,7 @@
     - type: Vehicle
       baseState: vehicle
     - type: VehicleBuckle
+      unbuckletime: 1
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 4.5

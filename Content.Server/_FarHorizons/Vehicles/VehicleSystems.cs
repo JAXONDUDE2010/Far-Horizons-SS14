@@ -6,7 +6,11 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Access.Components;
+using Content.Shared.DoAfter;
+using Content.Shared._FarHorizons.Vehicles;
 using System.Numerics;
+using Content.Shared.Buckle;
+using Content.Shared.Popups;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -14,12 +18,16 @@ public sealed class VehicleSystems : SharedVehicleSystems
 {    
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
         SubscribeLocalEvent<VehicleBuckleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+        SubscribeLocalEvent<VehicleBuckleComponent, VehicleUnbuckleDoAfter>(OnUnbuckleDoAfter);
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
@@ -56,9 +64,20 @@ public sealed class VehicleSystems : SharedVehicleSystems
 
     private void OnUnstrapAttempt(Entity<VehicleBuckleComponent> ent, ref UnstrapAttemptEvent args)
     {
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
+        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
+        if(args.User == null) return;
+        if(vehicleComp.Rider == null) return;
         if (vehicleComp.Rider != args.User)
+        {
             args.Cancelled = true;
+            _popup.PopupEntity($"Someone starts to remove you from the driver seat.", vehicleComp.Rider.Value, PopupType.LargeCaution);
+            var ev = new VehicleUnbuckleDoAfter();
+            var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.duration, ev, ent.Owner)
+            {
+                BreakOnMove = true
+            };
+            _doAfter.TryStartDoAfter(doAfter);
+        }
     }
 
     private void OnGetAdditionalAccess(Entity<VehicleBuckleComponent> ent, ref GetAdditionalAccessEvent args)
@@ -86,5 +105,14 @@ public sealed class VehicleSystems : SharedVehicleSystems
             _transform.SetLocalPosition(rider, new Vector2(0f, 0f), riderTransform);
         if(riderTransform.LocalRotation != 0)
             _transform.SetLocalRotation(rider, 0f, riderTransform);
+    }
+
+    private void OnUnbuckleDoAfter(Entity<VehicleBuckleComponent> ent, ref VehicleUnbuckleDoAfter args)
+    {
+        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
+        if(vehicleComp.Rider == null) return;
+        var user = vehicleComp.Rider.Value;
+        if(!TryComp<BuckleComponent>(user, out var buckleComp)) return;
+        _buckle.Unbuckle((user, buckleComp), user);
     }
 }
