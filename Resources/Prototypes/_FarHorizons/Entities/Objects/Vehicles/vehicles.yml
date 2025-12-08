@@ -13,6 +13,10 @@
     frictionNoInput: 6
     baseWalkSpeed: 4.5
     baseSprintSpeed: 6
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - FootstepSound
 
 - type: entity
   parent: BaseVehicle
@@ -20,10 +24,8 @@
   abstract: true
   name: Vehicle
   components:
-  - type: Strap
-    buckleOffset: "0.10, 0.36"
-    maxBuckleDistance: 1
   - type: InputMover
+  - type: MobMover
   - type: Rotatable
   - type: InteractionOutline
   - type: Pullable
@@ -86,13 +88,14 @@
       sprite: Objects/Vehicles/wheelchair.rsi
       layers:
       - state: vehicle
-        map: ["enum.VehicleVisualLayers.Base", "unfoldedLayer"]
+        map: ["enum.VehicleVisualLayers.AutoAnimate", "unfoldedLayer"]
       - state: vehicle_folded
         map: ["foldedLayer"]
         visible: false
       noRot: true
     - type: Vehicle
       baseState: vehicle
+    - type: VehicleBuckle
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 4.5
@@ -109,13 +112,8 @@
           restitution: 0.0
           mask:
             - MobMask
-          layer:
-            - Opaque
     - type: StaticPrice
       price: 70
-    - type: Tag
-      tags:
-        - DoorBumpOpener
 
 - type: entity
   parent: VehicleWheelchair

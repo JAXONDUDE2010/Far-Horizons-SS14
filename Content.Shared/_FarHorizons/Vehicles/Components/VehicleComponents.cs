@@ -13,4 +13,8 @@ public sealed partial class VehicleComponent : Component
     
     [DataField]
     public string? BaseState;
+
+    [DataField("autoAnimate")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool AutoAnimate = true;
 }

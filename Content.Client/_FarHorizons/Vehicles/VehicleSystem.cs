@@ -24,13 +24,16 @@ public sealed class VehicleSystems : SharedVehicleSystems
         if (args.Sprite == null)
             return;
    
-        if (!_sprite.TryGetLayer((uid, args.Sprite), VehicleVisualLayers.Base, out var _, false))
+        if (!_sprite.TryGetLayer((uid, args.Sprite), VehicleVisualLayers.AutoAnimate, out var _, false))
             return;
 
         var state = component.BaseState;
-        var drawDepth = DrawDepth.Mobs;
+        var drawDepth = DrawDepth.BelowMobs;
 
-        _sprite.LayerSetRsiState((uid, args.Sprite), VehicleVisualLayers.Base, state);
+        _sprite.LayerSetRsiState((uid, args.Sprite), VehicleVisualLayers.AutoAnimate, state);
         _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);
+
+        if (component.AutoAnimate && TryComp<SpriteComponent>(uid, out var spriteComp))
+            _sprite.LayerSetAutoAnimated((uid, spriteComp), VehicleVisualLayers.AutoAnimate, true);
     }
 }

@@ -84,6 +84,7 @@ public abstract partial class SharedBuckleSystem
 
     private void OnPullStarted(Entity<BuckleComponent> ent, ref PullStartedMessage args)
     {
+        if(HasComp<RiderComponent>(ent.Owner)) return; //FarHorizons
         Unbuckle(ent!, args.PullerUid);
     }
 
@@ -137,7 +138,7 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
-        if(HasComp<RiderComponent>(buckle.Owner)) return;
+        if(HasComp<RiderComponent>(buckle.Owner)) return; //FarHorizons
         
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
