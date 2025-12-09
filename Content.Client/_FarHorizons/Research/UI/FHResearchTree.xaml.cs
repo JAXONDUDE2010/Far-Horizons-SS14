@@ -51,10 +51,24 @@ public sealed partial class FHResearchTree : BoxContainer
     
     private readonly ResearchSearch _search;
     
-    private float _zoom = 1;
-    private const float MaxZoom = 2;
-    private const float MinZoom = 0.5f;
-    private const float ZoomSpeed = 0.1f;
+    private const float MaxZoom = 1.5f;
+    private const float MinZoom = 0.3f;
+    private const float ZoomSpeed = 0.2f;
+    private readonly TimeSpan _zoomAnimSpeed = TimeSpan.FromSeconds(0.15f);
+    private TimeSpan _zoomAnimFrom = TimeSpan.Zero;
+    private TimeSpan _zoomAnimTo = TimeSpan.Zero;
+    private float _zoomFrom = 1;
+    private float _zoomTo = 1;
+    private float _zoomProgress => Math.Clamp((float)(_timing.CurTime - _zoomAnimFrom).TotalSeconds / (float)(_zoomAnimTo - _zoomAnimFrom).TotalSeconds, 0f, 1f);
+    private float _zoom
+    {
+        get => (_zoomFrom * (1 - _zoomProgress)) + (_zoomTo * _zoomProgress);
+        set
+        {
+            _zoomFrom = value;
+            _zoomTo = value;
+        }
+    }
 
     public int NodeWidth = 100;
     public int NodeHeight = 30;
@@ -182,7 +196,10 @@ public sealed partial class FHResearchTree : BoxContainer
         if (args.Handled)
             return;
         
-        _zoom = Math.Clamp(_zoom + (args.Delta.Y * ZoomSpeed), MinZoom, MaxZoom);
+        _zoomFrom = _zoom;
+        _zoomTo = Math.Clamp(_zoom + (args.Delta.Y * ZoomSpeed), MinZoom, MaxZoom);
+        _zoomAnimFrom = _timing.CurTime;
+        _zoomAnimTo = _zoomAnimFrom + _zoomAnimSpeed;
     }
 
     protected override void KeyboardFocusEntered()
