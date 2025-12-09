@@ -8,11 +8,11 @@
   - Xenoarchaeology
   - Robotics
 
-- type: guideEntry
-  id: Technologies
-  name: guide-entry-technologies
-  text: "/ServerInfo/Guidebook/Science/Technologies.xml"
-  filterEnabled: True
+# - type: guideEntry
+#   id: Technologies
+#   name: guide-entry-technologies
+#   text: "/ServerInfo/Guidebook/Science/Technologies.xml"
+#   filterEnabled: True
 
 - type: guideEntry
   id: AnomalousResearch
