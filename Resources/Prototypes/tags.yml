@@ -473,9 +473,6 @@
   id: CubanCarp
 
 - type: Tag
-  id: Cyclorite
-
-- type: Tag
   id: DeathAcidifier
 
 - type: Tag
@@ -572,7 +569,7 @@
   id: DurandRLeg
 
 - type: Tag
-  id: Dwarf
+  id: Dwarf  # Far Horizons
 
 - type: Tag
   id: Ectoplasm
@@ -768,7 +765,7 @@
   id: HudSecurity
 
 - type: Tag
-  id: Human
+  id: Human  # Far Horizons
 
 - type: Tag
   id: GuideEmbeded
@@ -1087,7 +1084,7 @@
   id: MopBasic
 
 - type: Tag
-  id: Moth
+  id: Moth  # Far Horizons
 
 - type: Tag
   id: Mouse
@@ -1292,7 +1289,7 @@
   id: RemoteSignaller
 
 - type: Tag
-  id: Reptilian
+  id: Reptilian  # Far Horizons
 
 - type: Tag
   id: ReptilianFood
@@ -1376,9 +1373,6 @@
   id: SecwayKeys
 
 - type: Tag
-  id: Shadekin
-
-- type: Tag
   id: Sheet
 
 - type: Tag
@@ -1415,7 +1409,7 @@
   id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
-  id: SlimePerson
+  id: SlimePerson  # Far Horizons
 
 - type: Tag
   id: SlowImmune
@@ -1545,9 +1539,6 @@
   id: Taser
 
 - type: Tag
-  id: Thaven
-
-- type: Tag
   id: TimerBrigElectronics
 
 - type: Tag
@@ -1620,10 +1611,10 @@
   id: VoiceTrigger
 
 - type: Tag
-  id: Vox
+  id: Vox  # Far Horizons
 
 - type: Tag
-  id: Vulpkanin
+  id: Vulpkanin  # Far Horizons
 
 - type: Tag
   id: Wall
