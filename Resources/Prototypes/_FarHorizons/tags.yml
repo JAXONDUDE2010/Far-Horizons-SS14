@@ -119,6 +119,9 @@
   id: Leikha
 
 - type: Tag
+  id: ResearchTreeMapElectronics
+
+- type: Tag
   id: ReflectArmor
 
 - type: Tag
