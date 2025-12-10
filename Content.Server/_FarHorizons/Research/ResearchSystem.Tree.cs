@@ -123,10 +123,10 @@ public sealed partial class FHResearchSystem
         return true;
     }
 
-    public void AddResearchToQueue(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeNodePrototype> node)
+    public bool AddResearchToQueue(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeNodePrototype> node)
     {
         if (!Resolve(ent, ref ent.Comp))
-            return;
+            return false;
 
         if (ent.Comp.Queue.Count < ent.Comp.MaxQueueSize)
         {
@@ -142,19 +142,25 @@ public sealed partial class FHResearchSystem
                 HandleResearch(ent, points);
             } else
                 RefreshUIOnClients(ent);
-        } else
+        } else {
             SendErrorToClients(ent, Loc.GetString("research-tree-console-error-queue-full"));
+            return false;
+        }
+
+        return true;
     }
 
-    public void RemoveResearchFromQueue(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeNodePrototype> node)
+    public bool RemoveResearchFromQueue(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeNodePrototype> node)
     {
         if (!Resolve(ent, ref ent.Comp))
-            return;
+            return false;
 
-        ent.Comp.Queue.Remove(node);
+        if (!ent.Comp.Queue.Remove(node))
+            return false;
         ent.Comp.Queue = [.. ent.Comp.Queue.Intersect([.. GetUnlockedNodes((ent, ent.Comp))])];
 
         RefreshUIOnClients(ent);
+        return true;
     }
 
     public void SendErrorToClients(Entity<FHResearchTreeComponent?> ent, string message = "")

@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._FarHorizons.Research;
 using Content.Shared._FarHorizons.Research.Components;
@@ -6,6 +5,10 @@ using Content.Shared.Chat;
 using Content.Shared.Research.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Access.Components;
+using Content.Shared.Emag.Systems;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Server._FarHorizons.Research;
 
@@ -17,18 +20,87 @@ public sealed partial class FHResearchSystem
         SubscribeLocalEvent<FHResearchConsoleComponent, FHResearchConsoleRemoveQueueRequest>(OnRemoveQueueRequest);
         SubscribeLocalEvent<FHResearchConsoleComponent, BeforeActivatableUIOpenEvent>(OnConsoleBeforeUiOpened);
         SubscribeLocalEvent<FHResearchConsoleComponent, ResearchRegistrationChangedEvent>(OnConsoleRegistrationChanged);
+        SubscribeLocalEvent<FHResearchConsoleComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     private void OnRemoveQueueRequest(Entity<FHResearchConsoleComponent> ent, ref FHResearchConsoleRemoveQueueRequest args)
     {
-        if (!ent.Comp.Readonly && TryGetServerWithTree(ent.Owner, out var server))
-            RemoveResearchFromQueue((server.Value, server.Value.Comp), args.Node);
+        if (!this.IsPowered(ent, EntityManager))
+            return;
+
+        if (TryComp<AccessReaderComponent>(ent, out var access) && !_accessReader.IsAllowed(args.Actor, ent, access))
+        {
+            ShowError((ent, ent.Comp), Loc.GetString("research-console-no-access-popup"));
+            return;
+        }
+        
+        if (ent.Comp.Readonly || !TryGetServerWithTree(ent.Owner, out var server))
+            return;
+
+        if (!RemoveResearchFromQueue((server.Value, server.Value.Comp), args.Node))
+            return;
+        
+        if (!_emag.CheckFlag(ent, EmagType.Interaction))
+        {
+            var getIdentityEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
+            RaiseLocalEvent(getIdentityEvent);
+
+            var message = Loc.GetString(
+                "research-tree-console-remove-queue-radio-broadcast",
+                ("technology", Loc.GetString(_protoMan.Index(args.Node).Name)),
+                ("approver", getIdentityEvent.Title ?? string.Empty)
+            );
+
+            foreach (var channel in server.Value.Comp.AnnounceTo)
+                if (_protoMan.TryIndex(channel, out var channelProto))
+                    _radio.SendRadioMessage(ent, message, channelProto, ent, escapeMarkup: false);
+        }
     }
     private void OnResearchRequest(Entity<FHResearchConsoleComponent> ent, ref FHResearchConsoleResearchRequest args)
     {
-        if (!ent.Comp.Readonly && TryGetServerWithTree(ent.Owner, out var server))
-            AddResearchToQueue((server.Value, server.Value.Comp), args.Node);
+        if (!this.IsPowered(ent, EntityManager))
+            return;
+
+        if (TryComp<AccessReaderComponent>(ent, out var access) && !_accessReader.IsAllowed(args.Actor, ent, access))
+        {
+            ShowError((ent, ent.Comp), Loc.GetString("research-console-no-access-popup"));
+            return;
+        }
+
+        if (ent.Comp.Readonly || !TryGetServerWithTree(ent.Owner, out var server))
+            return;
+        
+        if (!AddResearchToQueue((server.Value, server.Value.Comp), args.Node))
+            return;
+        
+        if (!_emag.CheckFlag(ent, EmagType.Interaction))
+        {
+            var getIdentityEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
+            RaiseLocalEvent(getIdentityEvent);
+
+            var message = Loc.GetString(
+                "research-tree-console-add-queue-radio-broadcast",
+                ("technology", Loc.GetString(_protoMan.Index(args.Node).Name)),
+                ("approver", getIdentityEvent.Title ?? string.Empty)
+            );
+
+            foreach (var channel in server.Value.Comp.AnnounceTo)
+                if (_protoMan.TryIndex(channel, out var channelProto))
+                    _radio.SendRadioMessage(ent, message, channelProto, ent, escapeMarkup: false);
+        }
     }
+
+    private void OnEmagged(Entity<FHResearchConsoleComponent> ent, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(ent, EmagType.Interaction))
+            return;
+
+        args.Handled = true;
+    }
+
     private void OnConsoleRegistrationChanged(Entity<FHResearchConsoleComponent> ent, ref ResearchRegistrationChangedEvent args) =>
         UpdateUI((ent, ent.Comp), true);
 
@@ -71,7 +143,7 @@ public sealed partial class FHResearchSystem
 
     public void ShowError(Entity<FHResearchConsoleComponent?> ent, string message = "")
     {
-        if (!Resolve(ent, ref ent.Comp) || ent.Comp.Readonly)
+        if (!Resolve(ent, ref ent.Comp) || ent.Comp.Readonly || !this.IsPowered(ent, EntityManager))
             return;
 
         _audio.PlayPvs(ent.Comp.ErrorSound, ent);

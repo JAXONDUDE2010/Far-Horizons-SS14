@@ -3,6 +3,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Research.Systems;
 using Content.Shared._FarHorizons.Research.Components;
+using Content.Shared.Access.Systems;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Research.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -20,6 +22,8 @@ public sealed partial class FHResearchSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
