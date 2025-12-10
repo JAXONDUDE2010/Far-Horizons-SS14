@@ -1572,9 +1572,6 @@
   id: TrashBag
 
 - type: Tag
-  id: TrueProtogen
-
-- type: Tag
   id: Truncheon
 
 - type: Tag
