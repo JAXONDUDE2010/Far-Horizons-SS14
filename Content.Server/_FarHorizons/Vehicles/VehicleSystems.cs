@@ -4,7 +4,7 @@ using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Pulling.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.DoAfter;
 using Content.Shared._FarHorizons.Vehicles;
@@ -13,10 +13,11 @@ using Content.Shared.Buckle;
 using Content.Shared.Popups;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
-public sealed class VehicleSystems : SharedVehicleSystems
+public sealed partial class VehicleSystems : SharedVehicleSystems
 {    
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -25,15 +26,17 @@ public sealed class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<VehicleComponent, MapInitEvent>(OnModMapInit);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
         SubscribeLocalEvent<VehicleBuckleComponent, VehicleUnbuckleDoAfter>(OnUnbuckleDoAfter);
-        SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
+        SubscribeLocalEvent<RiderComponent, BeingPulledAttemptEvent>(OnPullAttempt);
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
 
@@ -98,10 +101,10 @@ public sealed class VehicleSystems : SharedVehicleSystems
         args.Entities.Add(ent.Comp.Rider.Value);
     }
 
-    private void OnPullAttempt(Entity<RiderComponent> ent, ref PullAttemptEvent args)
+    private void OnPullAttempt(Entity<RiderComponent> ent, ref BeingPulledAttemptEvent args)
     {
-        if (ent.Owner != args.PullerUid)
-            args.Cancelled = true;
+        if (ent.Owner != args.Puller)
+            args.Cancel();
     }
     
     private void OnMoveEvent(ref MoveEvent ev)
@@ -133,6 +136,7 @@ public sealed class VehicleSystems : SharedVehicleSystems
 
     private void OnUnbuckleDoAfter(Entity<VehicleBuckleComponent> ent, ref VehicleUnbuckleDoAfter args)
     {
+        if(args.Cancelled) return;
         if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
         if(vehicleComp.Rider == null) return;
         var user = vehicleComp.Rider.Value;
