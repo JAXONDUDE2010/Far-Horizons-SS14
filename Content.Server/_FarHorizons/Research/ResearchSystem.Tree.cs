@@ -102,7 +102,7 @@ public sealed partial class FHResearchSystem
         
         ent.Comp.UnlockFlags.AddRange(nodeProto.UnlockFlags);
 
-        SendAnnouncement(ent, Loc.GetString("research-tree-unlock-broadcast", ("technology", nodeProto.Name), ("amount", nodeProto.Cost)), nodeProto.AnnounceTo);
+        SendAnnouncement(ent, Loc.GetString("research-tree-unlock-broadcast", ("technology", Loc.GetString(nodeProto.Name)), ("amount", nodeProto.Cost)), nodeProto.AnnounceTo);
     }
 
     public bool TryRemoveResearchedNode(Entity<FHResearchTreeComponent> ent, ProtoId<ResearchTreeNodePrototype> node)
