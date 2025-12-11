@@ -37,7 +37,7 @@
     warningFrequency: 60
     announceTo:
       - Science
-  - type: ActiveRadio
+  - type: ActiveRadio # Far Horizons
     channels:
     - Security
     - Science
