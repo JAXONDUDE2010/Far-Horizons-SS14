@@ -1,22 +1,23 @@
 using Content.Shared._FarHorizons.Vehicles.EntitySystems;
 using Content.Shared._FarHorizons.VehicleBuckle.Components;
 using Content.Shared._FarHorizons.Vehicles.Components;
+using Content.Shared.Access.Components;
+using Content.Shared.Actions;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling.Events;
-using Content.Shared.Access.Components;
-using Content.Shared.DoAfter;
-using Content.Shared._FarHorizons.Vehicles;
-using System.Numerics;
-using Content.Shared.Buckle;
-using Content.Shared.Popups;
+using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Content.Shared.Stunnable;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Movement.Events;
-
+using Robust.Shared.Prototypes;
+using System.Numerics;
+using System.Linq;
 namespace Content.Server._FarHorizons.Vehicle;
 
 public sealed partial class VehicleSystems : SharedVehicleSystems
@@ -24,24 +25,28 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly TagSystem _tags = default!;
+
+    private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<VehicleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
-        SubscribeLocalEvent<RiderComponent, UpdateCanMoveEvent>(OnUpdateCanMoveEvent);
+        SubscribeLocalEvent<VehicleComponent, ItemSlotInsertAttemptEvent>(OnInsertAttemptEvent);
+
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
-        SubscribeLocalEvent<VehicleBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
-        SubscribeLocalEvent<VehicleBuckleComponent, VehicleUnbuckleDoAfter>(OnUnbuckleDoAfter);
+
         SubscribeLocalEvent<RiderComponent, BeingPulledAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<RiderComponent, StunnedEvent>(OnStunned);
         SubscribeLocalEvent<RiderComponent, KnockedDownEvent>(OnKnockdown);
+        SubscribeLocalEvent<RiderComponent, UpdateCanMoveEvent>(OnUpdateCanMoveEvent);
+
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
 
@@ -49,6 +54,15 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return;
         _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
+    }
+
+    private void OnInsertAttemptEvent(Entity<VehicleComponent> ent, ref ItemSlotInsertAttemptEvent args)
+    {
+        if(ent.Comp.Rider == null) return;
+        if(_tags.HasTag(args.Item, _vehicleKeyTag))
+        {
+            AddActions(ent.Comp.Rider.Value, ent.Owner, ent.Comp);
+        }
     }
 
     private void OnStrapped(Entity<VehicleBuckleComponent> ent, ref StrappedEvent args)
@@ -62,6 +76,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             _mover.SetRelay(args.Buckle.Owner, ent.Owner);
             vehicleComp.Rider = args.Buckle.Owner;
             _actionBlocker.UpdateCanMove(args.Buckle.Owner);
+            if (vehicleComp.requireIgnition
+                && TryComp(ent.Owner, out ItemSlotsComponent? itemComp)
+                && !itemComp.Slots.Values.Any(slot =>
+                    slot.ContainerSlot?.ContainedEntity is EntityUid item
+                    && _tags.HasTag(item, _vehicleKeyTag))) return;
+            AddActions(vehicleComp.Rider.Value, ent.Owner, vehicleComp);
         }
     }
     
@@ -75,24 +95,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             RemComp<RiderComponent>(args.Buckle.Owner);
         vehicleComp.Rider = null;
         _actionBlocker.UpdateCanMove(args.Buckle.Owner);
-    }
-
-    private void OnUnstrapAttempt(Entity<VehicleBuckleComponent> ent, ref UnstrapAttemptEvent args)
-    {
-        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
-        if(args.User == null) return;
-        if(vehicleComp.Rider == null) return;
-        if (vehicleComp.Rider != args.User)
-        {
-            args.Cancelled = true;
-            _popup.PopupEntity($"Someone starts to remove you from the driver seat.", vehicleComp.Rider.Value, PopupType.LargeCaution);
-            var ev = new VehicleUnbuckleDoAfter();
-            var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.duration, ev, ent.Owner)
-            {
-                BreakOnMove = true
-            };
-            _doAfter.TryStartDoAfter(doAfter);
-        }
+        _actions.RemoveProvidedActions(args.Buckle.Owner, ent.Owner);
     }
 
     private void OnGetAdditionalAccess(Entity<VehicleComponent> ent, ref GetAdditionalAccessEvent args)
@@ -159,21 +162,19 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
     }
 
-    private void OnUnbuckleDoAfter(Entity<VehicleBuckleComponent> ent, ref VehicleUnbuckleDoAfter args)
-    {
-        if(args.Cancelled) return;
-        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
-        if(vehicleComp.Rider == null) return;
-        var user = vehicleComp.Rider.Value;
-        if(!TryComp<BuckleComponent>(user, out var buckleComp)) return;
-        _buckle.Unbuckle((user, buckleComp), user);
-    }
-
     private void OnUpdateCanMoveEvent(Entity<RiderComponent> ent, ref UpdateCanMoveEvent args)
     {
-        if(TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp) && vehicleComp.requireKeys)
+        if(TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp) && vehicleComp.requireIgnition && !vehicleComp.Started)
         {
             args.Cancel();
         }
+    }
+
+    private void AddActions(EntityUid rider, EntityUid vehicle, VehicleComponent? component=null)
+    {
+        if (!Resolve(vehicle, ref component))
+            return;
+        if(component.requireIgnition)
+            _actions.AddAction(rider, ref component.TurnKeysActionEntity, component.TurnKeysAction, vehicle);
     }
 }

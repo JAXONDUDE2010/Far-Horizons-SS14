@@ -10,7 +10,6 @@ public sealed class VehicleSystems : SharedVehicleSystems
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();

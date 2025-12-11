@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseAction
+  id: ActionTurnKeys
+  name: Turn Keys
+  components:
+  - type: Action  
+    usedelay: 1
+    icon:
+      sprite: Objects/Vehicles/atv.rsi
+      state: keys
+    priority: -1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+  - type: InstantAction
+    event: 
+      !type:TurnKeysEvent

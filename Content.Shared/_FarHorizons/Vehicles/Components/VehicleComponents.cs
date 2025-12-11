@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
@@ -12,10 +13,22 @@ public sealed partial class VehicleComponent : Component
     public EntityUid? Rider;
 
     /// <summary>
-    /// check if a vehicle requires keys before allowing it to move
+    /// check if a vehicle requires ignition before allowing it to move
     /// </summary>
-    [DataField("requireKeys")]
-    public bool requireKeys = false;
+    [DataField("requireIgnition")]
+    public bool requireIgnition = false;
+
+    /// <summary>
+    /// check if a vehicle requires ignition before allowing it to move
+    /// </summary>
+    [DataField]
+    public bool Started = false;
+
+    /// <summary>
+    /// how long does it take the vehicle to start
+    /// </summary>
+    [DataField("startupTime")]
+    public TimeSpan startupTime = TimeSpan.FromSeconds(3f);
 
     /// <summary>
     /// the levels of friction the wearer is subected to, higher the number the more friction.
@@ -41,4 +54,11 @@ public sealed partial class VehicleComponent : Component
     [DataField("autoAnimate")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool AutoAnimate = true;
+
+    #region Action Prototypes
+    [DataField]
+    public EntProtoId TurnKeysAction = "ActionTurnKeys";
+    #endregion
+    [DataField] public EntityUid? TurnKeysActionEntity;
+
 }
