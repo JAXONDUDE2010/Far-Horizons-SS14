@@ -918,7 +918,7 @@
 
 - type: researchTreeNode
   id: AdvSurgery
-  name: research-tree-node-surgery
+  name: research-tree-node-surgery-2
   cost: 7000
   tier: Tier2
   requires:
