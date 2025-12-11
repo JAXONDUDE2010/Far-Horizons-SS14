@@ -247,16 +247,17 @@ public sealed class ResearchTreeGrid
 
     private static ((int x, int y) position, NodeSpace nodeSpace)? FindInColumn(List<List<NodeSpace?>> grid, NodeSpace nodeSpace, (int x, int y) position, int lineMergeDistance = -1)
     {
-        List<NodeSpace> matching = nodeSpace.IsNode ? 
-            [.. grid[position.x]
-                    .Where(p => p != null && p.IsNode && p.Node == nodeSpace.Node)
-                    .Select(p => p!)] : 
-            lineMergeDistance < 0 ? [] : 
-                [.. grid[position.x]
-                        [Math.Max(position.y - lineMergeDistance, 0)..]
+        List<NodeSpace> matching = [];
+        if (nodeSpace.IsNode) 
+            matching = [.. grid[position.x]
+                        .Where(p => p != null && p.IsNode && p.Node == nodeSpace.Node)
+                        .Select(p => p!)];
+        else if (lineMergeDistance >= 0)
+            matching = [.. grid[position.x][Math.Max(position.y - lineMergeDistance, 0)..]
                         .Take((lineMergeDistance * 2) + 1)
                         .Where(p => p != null && !p.IsNode && p.LineFor.Intersect(nodeSpace.LineFor).Any())
                         .Select(p => p!)];
+        
         return matching.Count == 0 ? null : ((position.x, grid[position.x].IndexOf(matching.First())), matching.First());
     }
 

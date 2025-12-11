@@ -104,12 +104,14 @@ public sealed partial class SearchDatabase
 
     }
 
-    private float SearchScore(string search, string target) => 
-        search == target ? 
-            1 : 
-            target.StartsWith(search) ? 
-                0.9f : 
-                target.Contains(search) ? 
-                    0.7f : 
-                    0f;
+    private static float SearchScore(string search, string target)
+    {
+        if (search == target)
+            return 1;
+        else if (target.StartsWith(search))
+            return 0.9f;
+        else if (target.Contains(search))
+            return 0.7f;
+        return 0;
+    }
 }
