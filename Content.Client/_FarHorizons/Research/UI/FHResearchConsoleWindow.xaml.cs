@@ -126,7 +126,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
                 }
             }
 
-            SelectedName.Text = _selected.Name;
+            SelectedName.Text = Loc.GetString(_selected.Name);
             SelectedCost.Text = _selected.Cost.ToString();
         } else {
             _selected = null;
@@ -166,7 +166,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
                 var node = _protoMan.Index(nodeId);
                 var button = new Button()
                 {
-                    Text = node.Name,
+                    Text = Loc.GetString(node.Name),
                     Margin = new(0, 5),
                 };
                 button.OnPressed += _ => TreeDisplay.Select(nodeId);
@@ -201,7 +201,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
         {
             var reqProto = _protoMan.Index(req);
             var reqLabel = new Label() {
-                Text = "- " + reqProto.Name, 
+                Text = "- " + Loc.GetString(reqProto.Name), 
                 FontColorOverride = _researchedNodes.Contains(req) ? Color.Green : Color.Red};
             RequirementsBox.AddChild(reqLabel);
         }

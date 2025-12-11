@@ -54,7 +54,7 @@ public sealed class ResearchTreeGrid
 
                 if (nodeSpace.IsNode)
                 {
-                    nodes.Add(new(nodeSpace.Node!, nodeSpace.Node!.Tier, nodeSpace.Node!.Name, (i, j), vSpacing, vMargin, vSize, font));
+                    nodes.Add(new(nodeSpace.Node!, nodeSpace.Node!.Tier, Loc.GetString(nodeSpace.Node!.Name), (i, j), vSpacing, vMargin, vSize, font));
                 } else {
                     DrawResearchEdge edge = new((i, j), (i, j), vSpacing, vMargin, vSize);
                     edge.Linked.AddRange(nodeSpace.LineFor.Select(p => (ProtoId<ResearchTreeNodePrototype>)p.Node!.ID));
