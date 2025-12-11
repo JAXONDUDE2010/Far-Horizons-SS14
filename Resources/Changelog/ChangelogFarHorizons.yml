@@ -3366,6 +3366,35 @@ Entries:
   id: 46001
   time: '2025-12-11T16:15:50.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/460
+- author: CorruptOmega and Spritelord Abby
+  changes:
+  - message: New Bulletproof Armour Resprite.
+    type: Add
+  id: 47000
+  time: '2025-12-11T21:04:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/470
+- author: CorruptOmega and Spritelord Abby
+  changes:
+  - message: New Airlocks and Glass Airlock Resprites v2
+    type: Add
+  id: 47001
+  time: '2025-12-11T21:04:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/470
+- author: CorruptOmega and Spritelord Abby
+  changes:
+  - message: New Wallmount Resprites for Defib Cabinet, Extinguisher Cabinet, Fireaxe
+      Cabinet, and the Noticeboard.
+    type: Add
+  id: 47002
+  time: '2025-12-11T21:04:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/470
+- author: CorruptOmega and Spritelord Abby
+  changes:
+  - message: Continued the Capitalization Crusade
+    type: Tweak
+  id: 47003
+  time: '2025-12-11T21:04:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/470
 - author: jhrushbe
   changes:
   - message: Added a small variant of the nuclear reactor and turbine.
