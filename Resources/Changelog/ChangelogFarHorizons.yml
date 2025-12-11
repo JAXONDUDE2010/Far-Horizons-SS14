@@ -3450,5 +3450,12 @@ Entries:
   id: 43903
   time: '2025-12-11T22:44:48.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/439
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Admins are admins and staff are staff in admin/dead chats.
+    type: Tweak
+  id: 47500
+  time: '2025-12-11T23:14:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/475
 Order: -1
 
