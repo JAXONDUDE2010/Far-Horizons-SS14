@@ -15,6 +15,22 @@
       Heat: 2
 
 - type: hitscan
+  id: BoltTaserRifle # Only use in rifles/longarms, do not use in sidearms.
+  name: Taser Bolt
+  parent: EnergyTrace
+  bullet:
+    sprite:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: omnilaser_greyscale
+    color: "#ffff33"
+  staminaDamage: 10 # Very weak, good for knocking down at range.
+  knockdownAmount: 1
+  maxLength: 8
+  damage:
+    types:
+      Heat: 4
+
+- type: hitscan
   id: HighBoltTaserFH
   name: High Power Taser
   parent: EnergyTrace

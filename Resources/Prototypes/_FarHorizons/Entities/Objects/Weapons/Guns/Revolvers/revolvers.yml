@@ -1,0 +1,21 @@
+- type: entity
+  name: Instigator
+  parent: [BaseWeaponRevolver, BaseSecurityContraband]
+  id: WeaponRevolverInstigator
+  description: A simple and reliable double action .40 revolver provided to senior officers, following popular demand of more firepower in a standard security grade sidearm. Named as such due to owners of this firearm having a proclivity to instigate fights.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Revolvers/instigator.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Revolvers/instigator.rsi
+  - type: Item
+    storedOffset: 0,-2
+  - type: RevolverAmmoProvider
+    capacity: 8
+    proto: CartridgePistol40SP
+    chambers: [ True, True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null, null ]
+    whitelist:
+      tags:
+        - CartridgePistolDP
+        #- SpeedLoaderMagnum

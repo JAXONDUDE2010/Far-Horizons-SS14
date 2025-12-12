@@ -154,66 +154,9 @@
   - type: ToggleableLightVisuals
     spriteLayer: light
 
-# HEAVILY MODIFIED BY FH.
-- type: entity
-  name: dominator
-  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
-  id: WeaponDominator
-  description: A high-tech weapon created by the law enforcement organization Sibyl System, designed specifically to fight crime.
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _Starlight/Objects/Weapons/Guns/Battery/dominator.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: disable-unshaded-0
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals #FH edit
-    magState: stun
-    steps: 4
-    zeroVisible: true
-  - type: Lock
-  - type: AccessReader
-    access: [["Security"]]
-  - type: HitscanBatteryAmmoProvider  #FH edit
-    proto: BoltTaserFH
-    fireCost: 166
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BoltTaserFH #FH edit
-      fireCost: 166
-      magState: stun
-      conditions:
-      - !type:AlertLevelCondition
-        alertLevels:
-        - green
-        - blue
-        - violet
-        - yellow
-        - red
-        - gamma
-    - proto: RedLaserBeamDominator #FH edit
-      fireCost: 50 #FH edit
-      magState: lethal
-      conditions:
-      - !type:AlertLevelCondition
-        alertLevels:
-        - blue #FH edit
-        - violet
-        - yellow
-        - red
-        - gamma
-    - proto: DestroyBeamDominator #FH edit
-      fireCost: 250
-      magState: destroy
-      conditions:
-      - !type:AlertLevelCondition
-        alertLevels:
-        - violet
-        - red
-        - gamma
+# FH - Dominator moved to /FarHorizons/_battery_guns.yml
+#
+#
 
 - type: entity
   name: X-01 multiphase energy gun

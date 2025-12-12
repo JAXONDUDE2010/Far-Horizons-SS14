@@ -260,25 +260,21 @@
     zeroVisible: true
   - type: Appearance
 
-- type: entity
-  name: laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+# FH - MOVED TO _FarHorizons/battery_guns.yml
+#- type: entity
+#  name: laser carbine
+#  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
+#  id: WeaponLaserCarbine
+#  description: Favoured by Nanotrasen Security for being cheap and easy to use.
 
 - type: entity
   name: practice laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable]
+  parent: [WeaponLaserCarbine, BaseGunWieldable] #FH
   id: WeaponLaserCarbinePractice
   description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
   components:
   - type: StaticPrice
-    price: 420
-  - type: Item
-    heldPrefix: mag4
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
+    price: 420 #FH - Removal
     zeroVisible: true
   - type: PacifismAllowedGun
   - type: HitscanBatteryAmmoProvider
