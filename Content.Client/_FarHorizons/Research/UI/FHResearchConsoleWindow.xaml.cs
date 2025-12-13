@@ -62,7 +62,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
         if (_readonly)
             ResearchButton.Visible = false;
 
-        TreeDisplay.BuildTree(_allNodes, _unlockedTiers, _unlockedNodes, _researchedNodes, _researchProgressPercentage);
+        TreeDisplay.BuildTree(_allNodes, _unlockedTiers, _unlockedNodes, _researchedNodes, _researchProgressPercentage, _queue);
         Selected(_selected?.ID);
         UpdateQueue();
     }
@@ -84,7 +84,7 @@ public sealed partial class FHResearchConsoleWindow : FancyWindow
 
         BankedPointsText.Text = _bankedPoints.ToString();
 
-        TreeDisplay.RefreshTree(_unlockedTiers, _unlockedNodes, _researchedNodes, _researchProgressPercentage);
+        TreeDisplay.RefreshTree(_unlockedTiers, _unlockedNodes, _researchedNodes, _researchProgressPercentage, _queue);
         Selected(_selected?.ID);
         UpdateQueue();
     }
