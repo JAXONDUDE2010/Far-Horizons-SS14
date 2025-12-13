@@ -456,7 +456,6 @@
     - SalvEquip
     - MechanicalCompress
   unlocks:
-    - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
     - MechEquipmentDrillDiamond
@@ -1140,10 +1139,6 @@
     - BluespaceBeaker
     - SyringeBluespace
     - OreBagOfHolding
-    - MiningDrillDiamond
-    - AdvancedMineralScannerEmpty
-    - MechEquipmentDrillDiamond
-    - BorgModuleAdvancedMining
     - DeviceDesynchronizer
   announceTo:
     - Supply
