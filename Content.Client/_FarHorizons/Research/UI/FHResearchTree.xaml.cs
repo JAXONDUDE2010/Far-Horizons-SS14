@@ -24,7 +24,7 @@ public sealed partial class FHResearchTree : BoxContainer
     public Action<ProtoId<ResearchTreeNodePrototype>?>? OnSelectionChanged;
 
     private bool _moving = false;
-    private bool _viewportInit = false;
+    private bool _viewportReady = false;
     private Vector2 _viewportPosition = Vector2.Zero;
     private Vector2 _pseudoViewport => (_viewportPosition * _zoom) + (_viewportSize / 2);
     private Vector2 _lastViewportPosition = Vector2.Zero;
@@ -102,7 +102,7 @@ public sealed partial class FHResearchTree : BoxContainer
         DefaultCursorShape = CursorShape.Arrow;
         _search = new(_timing, _prototypeManager, _font, _searchTexture);
 
-        _viewportInit = false;
+        _viewportReady = false;
     }
     
     public void BuildTree(
@@ -239,10 +239,10 @@ public sealed partial class FHResearchTree : BoxContainer
     {
         base.Draw(handle);
 
-        if (!_viewportInit)
+        if (!_viewportReady)
         {
             _viewportPosition = (-_viewportSize / 2) + new Vector2(NodeMarginHorizontal * 2, NodeMarginVertical * 2);
-            _viewportInit = true;
+            _viewportReady = true;
         }
 
         if (!_draw)
