@@ -16,7 +16,7 @@
   id: VendorMiningPTK
   productEntity: PTKFlatpack
   cost:
-    SalvageTicket: 200
+    SalvageTicket: 400
   categories:
   - MiningEquipment
   conditions:
