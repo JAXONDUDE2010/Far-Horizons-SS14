@@ -122,7 +122,8 @@
   abstract: true
   parent: [ BaseItem, StorePresetUplink ] 
   id: BaseSyndiOperativePDA
-  name: evil syndicate PDA (no coords...)
+  name: Nuclear Operative PDA
+  suffix: No Coordinates
   description: Personal Data Assistant used by Nuclear Operatives... it doesn't give you cancer...
   components:
   - type: Appearance
