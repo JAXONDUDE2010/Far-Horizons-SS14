@@ -28,14 +28,18 @@ public sealed partial class FHResearchSystem
         var query = EntityQueryEnumerator<FHResearchTreeComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if(_timing.CurTime < comp.NextUpdate ||
-               comp.BankedPoints <= comp.BankCapacity)
+            if(_timing.CurTime < comp.NextUpdate)
+                continue;
+            
+            var bankCap = GetCurrentBankCapacity((uid, comp));
+
+            if (comp.BankedPoints <= bankCap)
                 continue;
 
             comp.NextUpdate = _timing.CurTime + comp.RefreshRate;
 
             SendBankFullWarning((uid, comp));
-            comp.BankedPoints -= Math.Min(comp.BankedPoints - comp.BankCapacity, comp.PointBleed);
+            comp.BankedPoints -= Math.Min(comp.BankedPoints - bankCap, comp.PointBleed);
             RefreshUIOnClients((uid, comp));
         }
     }
@@ -86,7 +90,7 @@ public sealed partial class FHResearchSystem
         if (_timing.CurTime >= ent.Comp.NextWarning)
         {
             ent.Comp.NextWarning = _timing.CurTime + ent.Comp.WarningFrequency;
-            SendAnnouncement(ent, Loc.GetString("research-tree-bank-full-warning", ("amount", ent.Comp.BankCapacity)));
+            SendAnnouncement(ent, Loc.GetString("research-tree-bank-full-warning", ("amount", GetCurrentBankCapacity(ent))));
         }
     }
 
@@ -139,7 +143,7 @@ public sealed partial class FHResearchSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        if (ent.Comp.Queue.Count < ent.Comp.MaxQueueSize)
+        if (ent.Comp.Queue.Count < GetCurrentQueueSize((ent, ent.Comp)))
         {
             var nodeProto = _protoMan.Index(node);
             var nodes = GetTreeNodes((ent, ent.Comp));
@@ -224,6 +228,30 @@ public sealed partial class FHResearchSystem
         }
 
         return result;
+    }
+
+    public int GetCurrentBankCapacity(Entity<FHResearchTreeComponent> ent)
+    {
+        var cap = ent.Comp.BankCapacity;
+        foreach (var flag in ent.Comp.UnlockFlags)
+        {
+            var flagProto = _protoMan.Index(flag);
+            if (flagProto.Data is ResearchTreeUnlockFlagBankSizeBonus bankSizeBonus)
+                cap += bankSizeBonus.Bonus;
+        }
+        return cap;
+    }
+
+    public int GetCurrentQueueSize(Entity<FHResearchTreeComponent> ent)
+    {
+        var size = ent.Comp.MaxQueueSize;
+        foreach (var flag in ent.Comp.UnlockFlags)
+        {
+            var flagProto = _protoMan.Index(flag);
+            if (flagProto.Data is ResearchTreeUnlockFlagQueueSizeBonus queueSizeBonus)
+                size += queueSizeBonus.Bonus;
+        }
+        return size;
     }
 
     public bool IsFlagUnlocked(Entity<FHResearchTreeComponent?> ent, ProtoId<ResearchTreeUnlockFlagPrototype> flag) =>
