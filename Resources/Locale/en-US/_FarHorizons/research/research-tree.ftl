@@ -13,7 +13,7 @@ research-tree-console-error-queue-full = Error! Queue is full!
 research-tree-bank-full-warning = [bold]Attention![/bold] Maximum amount of research points ([bold]{$amount}[/bold]) has been reached. No more points can be saved on this server. Assign active research at R&D console to avoid losing progress.
 research-tree-unlock-broadcast = Unlocked [bold]{$technology}[/bold] for [bold]{$amount}[/bold] research.
 
-research-tree-console-add-queue-radio-broadcast = [bold]{$technology}[/bold] added to reserach queue by [bold]{$approver}[/bold].
-research-tree-console-remove-queue-radio-broadcast = [bold]{$technology}[/bold] removed from reserach queue by [bold]{$approver}[/bold].
+research-tree-console-add-queue-radio-broadcast = [bold]{$technology}[/bold] added to research queue by [bold]{$approver}[/bold].
+research-tree-console-remove-queue-radio-broadcast = [bold]{$technology}[/bold] removed from research queue by [bold]{$approver}[/bold].
 
 research-tree-map-electronics = Research Tree Map Electronics
