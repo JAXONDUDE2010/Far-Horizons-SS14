@@ -1220,10 +1220,10 @@
 - type: researchTreeNode
   id: SecBorg
   name: research-tree-node-mech-security
-  cost: 25000
+  cost: 35000
   tier: Tier3
   requires:
-    - BorgPlaceholder3
+    - QuantumDataManagement
     - FunctionalCyberlimbs
   unlocks:
     - SecborgEndoskeleton
