@@ -3536,5 +3536,34 @@ Entries:
   id: 48304
   time: '2025-12-13T12:04:01.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/483
+- author: princess_gurchi
+  changes:
+  - message: Add support for dynamic research queue size and point limit. Bonuses
+      can be unlocked through research
+    type: Add
+  id: 48600
+  time: '2025-12-13T15:25:10.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/486
+- author: princess_gurchi
+  changes:
+  - message: Queued techs are now highlit with different color in tree
+    type: Tweak
+  id: 48601
+  time: '2025-12-13T15:25:10.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/486
+- author: princess_gurchi
+  changes:
+  - message: All text in unlocks and requirements should now be readable
+    type: Tweak
+  id: 48602
+  time: '2025-12-13T15:25:10.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/486
+- author: princess_gurchi
+  changes:
+  - message: Fixed small UI stutter when opening research tree
+    type: Fix
+  id: 48603
+  time: '2025-12-13T15:25:10.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/486
 Order: -1
 
