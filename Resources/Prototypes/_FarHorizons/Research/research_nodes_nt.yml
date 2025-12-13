@@ -783,7 +783,7 @@
 - type: researchTreeNode
   id: AutomatedDevelopment #enables automatic printing for tech disk terminal
   name: research-tree-node-automated-development
-  cost: 10000
+  cost: 1
   tier: Tier2
   requires:
     - AVComms
