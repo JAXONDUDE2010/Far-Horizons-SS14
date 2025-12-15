@@ -143,6 +143,10 @@
     unbuckletime: 2
     dismountonstun: true
     dismountonknockdown: true
+    northOffset: "0, -0.12"
+    southOffset: "0, -0.12"
+    eastOffset: "0, -0.2"
+    westOffset: "-0, -0.2"
   - type: Sprite
     sprite: Objects/Vehicles/secway.rsi
     layers:
@@ -150,7 +154,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: Strap
-    buckleOffset: "0, -0.05"
     maxBuckleDistance: 1
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
@@ -164,3 +167,15 @@
           tags:
           - VehicleKey
           - SecwayKeys
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+        # Swappable batteries until we can get secway recharge stations
+        #disableEject: true
+        #swap: false 
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: PowerCellDraw
+    drawRate: 1
+    enabled: false

@@ -12,6 +12,7 @@ using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Containers;
 using System.Linq;
+using Content.Shared.PowerCell;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -62,12 +63,16 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         var user = vehicleComp.Rider.Value;
         if(!TryComp<BuckleComponent>(user, out var buckleComp)) return;
         _buckle.Unbuckle((user, buckleComp), user);
+        Dirty(ent.Owner, ent.Comp);
     }
 
     private void OnTurnKeysEvent(Entity<VehicleComponent> ent, ref TurnKeysEvent args)
     {
         if(ent.Comp.Rider == null) return;
-        _popup.PopupEntity($"You turn the key for the vehicle.", ent.Owner, PopupType.Medium);
+        if(!ent.Comp.Started)
+            _popup.PopupEntity($"You turn the keys to start the vehicle.", ent.Owner, PopupType.Medium);
+        if(ent.Comp.Started)
+            _popup.PopupEntity($"You turn the keys to stop the vehicle.", ent.Owner, PopupType.Medium);
         var ev = new TurnKeysDoAfter();
         var doAfter = new DoAfterArgs(EntityManager, ent.Comp.Rider.Value, ent.Comp.startupTime, ev, ent.Owner)
         {
@@ -82,6 +87,9 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         ent.Comp.Started = !ent.Comp.Started;
         if(ent.Comp.Rider != null)
             _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+        if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp))
+            pcdComp.Enabled = !pcdComp.Enabled;
+        Dirty(ent.Owner, ent.Comp);
     }
 
     private void OnEjectEvent(Entity<VehicleComponent> ent, ref ItemSlotEjectEvent args)
@@ -96,6 +104,9 @@ public abstract partial class SharedVehicleSystems : EntitySystem
                     ent.Comp.Started = false;
                 _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
                 _actions.RemoveProvidedActions(ent.Comp.Rider.Value, ent.Owner);
+                if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
+                    pcdComp.Enabled = false;
+                Dirty(ent.Owner, ent.Comp);
             }
             else
             {
@@ -125,6 +136,9 @@ public abstract partial class SharedVehicleSystems : EntitySystem
             if(ent.Comp.Rider == null) return;
             _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
             _actions.RemoveProvidedActions(ent.Comp.Rider.Value, ent.Owner);
+            if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
+                pcdComp.Enabled = false;
+            Dirty(ent.Owner, ent.Comp);
         }
     }
 }

@@ -1,7 +1,6 @@
 using Content.Shared._FarHorizons.Vehicles.EntitySystems;
 using Content.Shared._FarHorizons.VehicleBuckle.Components;
 using Content.Shared._FarHorizons.Vehicles.Components;
-using Content.Shared._Starlight.Actions.Components;
 using Content.Shared._Starlight.Actions.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -20,7 +19,10 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using System.Linq;
-using Robust.Shared.Timing;
+using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
+using Robust.Server.GameObjects;
+using Content.Shared._FarHorizons.Vehicles;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -34,6 +36,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     public override void Initialize()
     {
@@ -60,6 +65,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return;
         _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
+        _appearance.SetData(ent.Owner, VehicleVisuals.AutoAnimate, false);
     }
 
     private void OnInsertEvent(Entity<VehicleComponent> ent, ref ItemSlotInsertEvent args)
@@ -88,6 +94,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     slot.ContainerSlot?.ContainedEntity is EntityUid item
                     && _tags.HasTag(item, _vehicleKeyTag))) return;
             AddActions(vehicleComp.Rider.Value, ent.Owner, vehicleComp);
+            Dirty(ent.Owner, ent.Comp);
         }
     }
     
@@ -102,6 +109,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         vehicleComp.Rider = null;
         _actionBlocker.UpdateCanMove(args.Buckle.Owner);
         _actions.RemoveProvidedActions(args.Buckle.Owner, ent.Owner);
+        Dirty(ent.Owner, ent.Comp);
     }
 
     private void OnGetAdditionalAccess(Entity<VehicleComponent> ent, ref GetAdditionalAccessEvent args)
@@ -153,16 +161,22 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         var vehicle = ev.Entity.Owner; 
         if(!TryComp<VehicleComponent>(vehicle, out var vehicleComp)) return;
+        if(!TryComp<PhysicsComponent>(vehicle, out var vehiclePhys)) return;
+
+        if(Math.Abs(vehiclePhys.LinearVelocity.X) > 0.3 || Math.Abs(vehiclePhys.LinearVelocity.Y) > 0.3)
+            _appearance.SetData(vehicle, VehicleVisuals.AutoAnimate, true);
+        if(Math.Abs(vehiclePhys.LinearVelocity.X) < 0.3 && Math.Abs(vehiclePhys.LinearVelocity.Y) < 0.3)
+            _appearance.SetData(vehicle, VehicleVisuals.AutoAnimate, false);
+
         if( vehicleComp.Rider == null) return;
         var rider = vehicleComp.Rider.Value;
         if(!TryComp<PhysicsComponent>(rider, out var riderPhys)) return;
-        if(!TryComp<PhysicsComponent>(vehicle, out var vehiclePhys)) return;
         var riderTransform = Transform(rider);
         if(riderTransform.ParentUid !=  vehicle) return;
 
         if(HasComp<VehicleBuckleComponent>(vehicle) && TryComp<StrapComponent>(vehicle, out var strapComp))
         {
-            if(riderTransform.LocalPosition.X != 0 || riderTransform.LocalPosition.Y != 0)
+            if(riderTransform.LocalPosition.X != 0+strapComp.BuckleOffset.X || riderTransform.LocalPosition.Y != 0+strapComp.BuckleOffset.Y)
                 _transform.SetLocalPosition(rider, new Vector2(0f+strapComp.BuckleOffset.X, 0f+strapComp.BuckleOffset.Y), riderTransform);
             if(riderTransform.LocalRotation != 0)
                 _transform.SetLocalRotation(rider, 0f, riderTransform);
@@ -178,12 +192,24 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     _physics.ApplyLinearImpulse(rider, vehiclePhys.LinearVelocity*riderPhys.Mass, body: riderPhys);
                 }
         }
+
+        if(!_powerCell.HasDrawCharge(vehicle))
+            _actionBlocker.UpdateCanMove(rider);
     }
 
     private void OnUpdateCanMoveEvent(Entity<RiderComponent> ent, ref UpdateCanMoveEvent args)
     {
-        if(TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp) && vehicleComp.requireIgnition && !vehicleComp.Started)
+        if(!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp)) return;
+        if(vehicleComp.requireIgnition && !vehicleComp.Started)
         {
+            args.Cancel();
+        }
+        if(ent.Comp.Riding != null && !_powerCell.HasDrawCharge(ent.Comp.Riding.Value))
+        {
+            if(TryComp<PowerCellDrawComponent>(ent.Comp.Riding.Value, out var pcdComp) && pcdComp.Enabled)
+                pcdComp.Enabled = false;
+            if(vehicleComp.Started)
+                vehicleComp.Started = false;
             args.Cancel();
         }
     }
