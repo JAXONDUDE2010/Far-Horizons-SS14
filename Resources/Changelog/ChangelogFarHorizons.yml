@@ -3744,5 +3744,13 @@ Entries:
   id: 49313
   time: '2025-12-16T19:45:12.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: CorruptOmega
+  changes:
+  - message: Airlock opening and closing sounds were too damn loud. I told them to
+      be quieter. They listened.
+    type: Tweak
+  id: 49700
+  time: '2025-12-16T19:49:04.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/497
 Order: -1
 
