@@ -3640,5 +3640,109 @@ Entries:
   id: 49501
   time: '2025-12-14T17:13:54.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/495
+- author: jhrushbe
+  changes:
+  - message: Added variants of the nuclear reactor that start melted.
+    type: Add
+  id: 49300
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Added a "random" prefab for the nuclear reactor.
+    type: Add
+  id: 49301
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: The device ports on the nuclear reactor/gas turbine now use logic signals.
+    type: Tweak
+  id: 49302
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor's UI now has buttons on each of the rod positions.
+    type: Tweak
+  id: 49303
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Nuclear reactor monitors's UI now uses the nuclear reactor's UI.
+    type: Tweak
+  id: 49304
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Damaged gas turbines will now electrocute people who touch them.
+    type: Tweak
+  id: 49305
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Fuel rods will no longer show mercy to those who eat them.
+    type: Tweak
+  id: 49306
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor/gas turbine's pipe connections now span all three
+      pipe layers, like a manifold.
+    type: Tweak
+  id: 49307
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor's UI now shows a fuel level tooltip when you hover
+      your cursor over fuel rods.
+    type: Tweak
+  id: 49308
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: The gas turbine's UI now has editable fields for flow rate and stator
+      load.
+    type: Tweak
+  id: 49309
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug with nuclear reactor cooling that caused gas channels to
+      barely work.
+    type: Fix
+  id: 49310
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the small gas turbine showed as the large gas turbine
+      in the power monitoring UI.
+    type: Fix
+  id: 49311
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where nuclear reactor monitors would refuse to do their job
+      if there is more than one.
+    type: Fix
+  id: 49312
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
+- author: jhrushbe
+  changes:
+  - message: 'Added a new smite: Become Fuel Rod.'
+    type: Add
+  id: 49313
+  time: '2025-12-16T19:45:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/493
 Order: -1
 
