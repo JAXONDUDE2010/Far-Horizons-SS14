@@ -151,6 +151,8 @@ public sealed partial class FHResearchSystem
         ent.Comp.UnlockFlags.RemoveAll(remove.Contains);
         RemoveResearchModifiers(ent, remove);
 
+        ent.Comp.Queue = [];
+
         RefreshUIOnClients((ent, ent.Comp));
         
         return true;
