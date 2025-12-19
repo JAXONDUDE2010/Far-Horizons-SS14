@@ -96,13 +96,13 @@ story-gen-book-character39 = wizard
 
 # Starlight edit start
 story-gen-book-character40 = laspi
-story-gen-book-character42 = goblin
-story-gen-book-character43 = orc
-story-gen-book-character44 = IAA
-story-gen-book-character45 = shadekin
-story-gen-book-character46 = avali
-story-gen-book-character47 = resomi
-story-gen-book-character48 = thaven
+story-gen-book-character41 = goblin
+story-gen-book-character42 = orc
+story-gen-book-character43 = IAA
+story-gen-book-character44 = shadekin
+story-gen-book-character45 = avali
+story-gen-book-character46 = resomi
+story-gen-book-character47 = thaven
 # Starlight edit end
 
 story-gen-book-character-trait1 = stupid

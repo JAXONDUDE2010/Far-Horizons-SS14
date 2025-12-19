@@ -168,6 +168,32 @@
       inverted: true
 
 - type: trait
+  id: Darktongue
+  name: trait-language-darktongue-name
+  description: trait-language-darktongue-desc
+  category: LanguageTraits
+  cost: 1
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Darktongue
+      languagesUnderstood:
+        - Darktongue
+
+- type: trait
+  id: Classical
+  name: trait-language-classical-name
+  description: trait-language-classical-desc
+  category: LanguageTraits
+  cost: 1
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Classical
+      languagesUnderstood:
+        - Classical
+
+- type: trait
   id: SolCommon
   name: trait-language-solcommon-name
   description: trait-language-solcommon-desc
