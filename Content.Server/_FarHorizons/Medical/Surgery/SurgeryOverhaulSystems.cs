@@ -23,7 +23,10 @@ using Content.Shared.Medical.Healing;
 using Robust.Shared.Containers;
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
-using Content.Shared.Tag; 
+using Content.Shared.Tag;
+using Content.Server._FarHorizons.Research;
+using Content.Shared._FarHorizons.Research.Components;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._FarHorizons.Medical.SurgeryOverhaul.Systems;
 
@@ -35,7 +38,7 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedResearchSystem _research = default!;
+    [Dependency] private readonly FHResearchSystem _fhResearch = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly StarlightEntitySystem _entity = default!;
@@ -56,11 +59,33 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         SubscribeLocalEvent<NecrosisSurgeryStepComponent, SurgeryValidEvent>(OnNecrosisSurgeryStepValid);
         SubscribeLocalEvent<SurgeryTechnologyComponent, SurgeryValidEvent>(OnResearchSurgeryValid);
         SubscribeLocalEvent<SurgeryLimbExistConditionComponent, SurgeryValidEvent>(OnLimbExistConditionValid);
+        SubscribeLocalEvent<RequireSpecificOrganicPartComponent, SurgeryValidEvent>(OnRequireSpecifiOrganicPartValid);
         SubscribeLocalEvent<RequireOrganicPartComponent, SurgeryValidEvent>(OnRequireOrganicPartValid);
-        
+        SubscribeLocalEvent<RequireInorganicPartComponent, SurgeryValidEvent>(OnRequireInorganicPartValid);
 
         LoadSurgeriesForRotten();
     }
+
+    public bool TryGetConnectedResearchServer
+    (
+        EntityUid body,
+        [NotNullWhen(true)] out Entity<FHResearchTreeComponent>? server,
+        BuckleComponent? buckle = null
+    )
+    {
+        server = null;
+
+        if (Resolve(body, ref buckle) &&
+            TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) &&
+            linkComp.LinkedSources.Count != 0 &&
+            linkComp.LinkedSources.First() is EntityUid clientEnt &&
+            TryComp<ResearchClientComponent>(linkComp.LinkedSources.First(), out var clientComp) &&
+            _fhResearch.TryGetServerWithTree((clientEnt, clientComp), out var treeServer))
+            server = treeServer.Value;
+        
+        return server != null;
+    }
+
 //Surgeries
     private void OnAlterAppearanceComplete(EntityUid uid, SurgeryAlterAppearanceComponent comp, ref SurgeryStepCompleteEvent args)
     {
@@ -89,14 +114,12 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         DamageSpecifier TotalHeal;
         if (StepProto.TryGetComponent<HealingComponent>(out var healComp, _componentFactory))
         {
-            if (surgProto.TryGetComponent<SurgeryTechnologyComponent> (out var techvar, _componentFactory) && TryComp(args.Body, out BuckleComponent? buckle)
-                && TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) && linkComp.LinkedSources.Count > 0 &&
-                TryComp<TechnologyDatabaseComponent>(linkComp.LinkedSources.First(), out var techComp))
+            if (surgProto.TryGetComponent<SurgeryTechnologyComponent> (out var techvar, _componentFactory) &&
+                TryGetConnectedResearchServer(args.Body, out var server))
             {
                 foreach (var (key, value) in techvar.TechnologyModifier!)
                 {
-                    var TechProto = _prototypes.Index<TechnologyPrototype>(key.Id);
-                    if (_research.IsTechnologyUnlocked(uid, TechProto, techComp) && ResearchModifier > value)
+                    if (_fhResearch.IsFlagUnlocked((server.Value, server.Value.Comp), key))
                         ResearchModifier = value;
                 }
             }
@@ -185,17 +208,9 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
 
         if (ent.Comp.RequiredTechnology != null)
         {
-            var TechProto = _prototypes.Index<TechnologyPrototype>(ent.Comp.RequiredTechnology);
-            if (!TryComp(args.Body, out BuckleComponent? buckle) || !TryComp(buckle.BuckledTo, out DeviceLinkSinkComponent? linkComp) || linkComp.LinkedSources.Count == 0)
-            {
+            if (!TryGetConnectedResearchServer(args.Body, out var server) || 
+                !_fhResearch.IsFlagUnlocked((server.Value, server.Value.Comp), ent.Comp.RequiredTechnology.Value))
                 args.Cancelled = true;
-                return;
-            }
-            if (TryComp(linkComp.LinkedSources.First(), out TechnologyDatabaseComponent? techComp) && !_research.IsTechnologyUnlocked(args.Body, TechProto, techComp))
-            {
-                args.Cancelled = true;
-                return;
-            }
         }
     }
 
@@ -209,7 +224,7 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         container.ContainedEntities.Count > 0);
     } 
     
-    private void OnRequireOrganicPartValid(Entity<RequireOrganicPartComponent> ent, ref SurgeryValidEvent args)
+    private void OnRequireSpecifiOrganicPartValid(Entity<RequireSpecificOrganicPartComponent> ent, ref SurgeryValidEvent args)
     {
         if (args.Cancelled) return;
         
@@ -217,9 +232,24 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         bodyComp.RootContainer?.ContainedEntity is { } rootEnt &&
         _containers.TryGetContainer(rootEnt, ent.Comp.Slot, out var container) &&
         container.ContainedEntities.Count > 0)
-            if (_tag.HasTag(container.ContainedEntities.First(), "Inorganic"))
+            if (!_tag.HasTag(container.ContainedEntities.First(), "Organic"))
                 args.Cancelled = true;
-            
+    } 
+
+    private void OnRequireOrganicPartValid(Entity<RequireOrganicPartComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (args.Cancelled) return;
+        
+        if (!_tag.HasTag(args.Part, "Organic"))
+            args.Cancelled = true;
+    } 
+
+    private void OnRequireInorganicPartValid(Entity<RequireInorganicPartComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (args.Cancelled) return;
+        
+        if (!_tag.HasTag(args.Part, "Inorganic"))
+            args.Cancelled = true;
     } 
             
     private void LoadSurgeriesForRotten()

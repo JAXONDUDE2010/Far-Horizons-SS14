@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Content.Server._FarHorizons.DiscordLink;
 using Content.Server._NullLink.PlayerData;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -49,6 +50,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
+    [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -316,8 +318,11 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+
+        var prefix = GetAdminTitle(player);
+        
         var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
-                                        ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
+                                        ("adminChannelName", prefix),
                                         ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
 
         foreach (var client in clients)
@@ -437,6 +442,9 @@ internal sealed partial class ChatManager : IChatManager
 
         return isOverLength;
     }
+
+    // Far Horizons
+    public string GetAdminTitle(ICommonSession player) => _discordLinkManager.GetDiscordRoleHighestTitle(player.UserId.UserId);
 
     #endregion
 }

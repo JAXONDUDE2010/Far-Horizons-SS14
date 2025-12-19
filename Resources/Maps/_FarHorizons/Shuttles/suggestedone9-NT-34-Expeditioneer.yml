@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 12/03/2025 18:25:07
-  entityCount: 437
+  time: 12/16/2025 03:17:21
+  entityCount: 440
 maps: []
 grids:
 - 2
@@ -531,6 +531,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,0.5
+      parent: 2
+- proto: BoxBodyBag
+  entities:
+  - uid: 440
+    components:
+    - type: Transform
+      pos: -1.477756,-7.398177
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -1308,6 +1315,18 @@ entities:
     - type: Transform
       pos: -0.5,11.5
       parent: 2
+- proto: CrateSalvageContrabandStorageSecure
+  entities:
+  - uid: 438
+    components:
+    - type: Transform
+      pos: 0.5,-9.5
+      parent: 2
+  - uid: 439
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
+      parent: 2
 - proto: CrateTrashCart
   entities:
   - uid: 426
@@ -1335,6 +1354,8 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
 - proto: FloorDrain
   entities:
   - uid: 129
