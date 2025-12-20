@@ -3869,5 +3869,20 @@ Entries:
   id: 51201
   time: '2025-12-20T14:45:11.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/512
+- author: princess_gurchi
+  changes:
+  - message: Alt-click on research nodes in tree to quickly add/remove from queue
+    type: Add
+  id: 51300
+  time: '2025-12-20T21:13:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/513
+- author: princess_gurchi
+  changes:
+  - message: Removing research from queue now correctly removes all other research
+      down the chain of dependencies
+    type: Fix
+  id: 51301
+  time: '2025-12-20T21:13:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/513
 Order: -1
 
