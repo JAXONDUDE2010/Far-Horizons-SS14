@@ -17,6 +17,8 @@ public struct DrawResearchNode
         Font? font = null,
         List<string>? text = null,
         int textSize = 0,
+        Texture? iconTexture = null,
+        Color? iconColor = null,
         float? progress = null,
         float fontScale = 0.5f,
         bool hovered = false,
@@ -43,7 +45,8 @@ public struct DrawResearchNode
     public (int x, int y) Index = index;
     public Vector2 Spacing = spacing;
     public Vector2 Margin = margin;
-    public readonly Vector2 Position => Offset + new Vector2(Margin.X + (Index.x * (_size.X + Spacing.X)), Margin.Y + (Index.y * (_size.Y + Spacing.Y)));
+    public readonly Vector2 Position => 
+        Offset + new Vector2(Margin.X + (Index.x * (_size.X + _size.Y + Spacing.X)), Margin.Y + (Index.y * (_size.Y + Spacing.Y)));
     private Vector2? _offset = offset;
     public Vector2 Offset {
         readonly get => _offset ?? Vector2.Zero;
@@ -54,7 +57,7 @@ public struct DrawResearchNode
     {
         get
         {
-            var width = _size.X;
+            var width = _size.X + _size.Y;
             var height = _size.Y + TextSize;
 
             if (Progress != null && !Completed)
@@ -66,7 +69,7 @@ public struct DrawResearchNode
     public UIBox2 Box => 
         new(Position, Position + Size);
     public Vector2 Center => 
-        Position + (Size / 2);
+        Position + new Vector2(_size.Y, 0) + (new Vector2(_size.X, Size.Y) / 2);
     public Font? Font = font;
     public float FontScale = fontScale;
 
@@ -83,6 +86,14 @@ public struct DrawResearchNode
             return UnlockedColor;
         }
     }
+
+    public readonly Color IconColor => 
+        _iconColor == null || !Unlocked || Completed ? 
+            ForegroundColor : 
+            _iconColor.Value;
+
+    private Texture? _iconTexture = iconTexture;
+    private Color? _iconColor = iconColor;
 
     private const int NodeMargin = 2;
     private const int SelectedMargin = 2;
@@ -107,6 +118,8 @@ public struct DrawResearchNode
             other.Font,
             other.Text,
             other.TextSize,
+            other._iconTexture,
+            other._iconColor,
             other.Progress,
             other.FontScale,
             other.Highlight,
@@ -116,7 +129,7 @@ public struct DrawResearchNode
             other.Queued,
             other.QueueOrder,
             other.Offset){}
-    
+
     public DrawResearchNode WrapName(DrawingHandleScreen handle)
     {
         if (Text.Count != 0 || Font == null)
@@ -125,7 +138,7 @@ public struct DrawResearchNode
         List<string> text = [];
 
         var dimensions = handle.GetDimensions(Font!, Name, FontScale);
-        if (dimensions.X < Size.X - (NodeMargin * 2))
+        if (dimensions.X < _size.X - (NodeMargin * 2))
             text.Add(Name);
         else
         {
@@ -134,7 +147,7 @@ public struct DrawResearchNode
             {
                 var newLine = line == "" ? word : line + " " + word;
                 var newDimensions = handle.GetDimensions(Font!, newLine, FontScale);
-                if (newDimensions.X >= Size.X - (NodeMargin * 2))
+                if (newDimensions.X >= _size.X - (NodeMargin * 2))
                 {
                     text.Add(line);
                     line = word;
@@ -161,6 +174,15 @@ public struct DrawResearchNode
             FontScale = FontScale * zoom,
             TextSize = (int)(TextSize * zoom),
         };
+
+    public DrawResearchNode Icon((Texture? texture, Color? color) icon) => 
+        icon.texture == null ? 
+            this : 
+            new(this)
+            {
+                _iconTexture = icon.texture,
+                _iconColor = icon.color,
+            };
 
     public DrawResearchNode Translate(Vector2 offset) =>
         new(this)
@@ -234,6 +256,12 @@ public struct DrawResearchNode
                 Vector2 pos = new(Center.X - (dimensions.X / 2), Position.Y + (dimensions.Y * i) + (dimensions.Y / 2));
                 handle.DrawString(Font, pos, text, FontScale, Highlight ? BackgroundColor : ForegroundColor);
             }
+        }
+
+        if (_iconTexture != null)
+        {
+            var iconPos = new Vector2(Position.X + NodeMargin, Position.Y + (Size.Y / 2) - (_size.Y / 2));
+            handle.DrawTextureRect(_iconTexture!, new(iconPos, iconPos + new Vector2(_size.Y, _size.Y)), Highlight ? BackgroundColor : IconColor);
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Content.Client._FarHorizons.Research.UI.Helpers;
 
 public struct DrawResearchEdge((int, int) indA, (int, int) indB, Vector2 spacing, Vector2 margin, Vector2 size, bool highlight = false, List<ProtoId<ResearchTreeNodePrototype>>? linked = null, bool researched = false, Vector2? offset = null)
 {
-    public readonly Vector2 A => Offset + new Vector2(Margin.X + Size.X + (IndexA.x * (Size.X + Spacing.X)), Margin.Y + (Size.Y / 2) + (IndexA.y * (Size.Y + Spacing.Y)));
-    public readonly Vector2 B => Offset + new Vector2(Margin.X + (IndexB.x * (Size.X + Spacing.X)), Margin.Y + (Size.Y / 2) + (IndexB.y * (Size.Y + Spacing.Y)));
+    public readonly Vector2 A => Offset + new Vector2(Margin.X + Size.X + Size.Y + (IndexA.x * (Size.X + Size.Y + Spacing.X)), Margin.Y + (Size.Y / 2) + (IndexA.y * (Size.Y + Spacing.Y)));
+    public readonly Vector2 B => Offset + new Vector2(Margin.X + (IndexB.x * (Size.X + Size.Y + Spacing.X)), Margin.Y + (Size.Y / 2) + (IndexB.y * (Size.Y + Spacing.Y)));
 
     public (int x, int y) IndexA = indA;
     public (int x, int y) IndexB = indB;
