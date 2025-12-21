@@ -70,7 +70,6 @@
     - GygaxMech
     - DurandMech
     - AdvShuttleWeapons
-    - ScanGates
     - ExplosiveMechAmmo
     - Microreactor
     - ThermalGun
@@ -79,6 +78,7 @@
     - QuantumLeaping
     - SpeedBoot
     - BluespaceMastery
+    - ScanGates
     - QuantumDataManagement
     - FunctionalCyberlimbs
     - NVEyes
