@@ -24,7 +24,10 @@
 
     Warden: 90
     Detective: 80
-    Brigmedic: 73
+    #Far Horizons-Start
+    Brigmedic: 100
+    Corpsman: 110
+    #Far Horizons-End
     SecurityOfficer: 64
     SecurityCadet: 23
 
