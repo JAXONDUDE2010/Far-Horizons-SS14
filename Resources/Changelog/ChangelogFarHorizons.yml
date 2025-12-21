@@ -3920,5 +3920,12 @@ Entries:
   id: 51903
   time: '2025-12-21T08:10:52.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/519
+- author: princess_gurchi (code) & KarusKardin (icons, prototypes)
+  changes:
+  - message: Custom icons for research tree
+    type: Add
+  id: 51800
+  time: '2025-12-21T12:04:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/518
 Order: -1
 
