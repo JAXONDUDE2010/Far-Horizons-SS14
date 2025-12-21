@@ -80,7 +80,7 @@ public sealed partial class FHResearchTree : BoxContainer
     public int NodeWidth = 100;
     public int NodeHeight = 30;
 
-    public int NodeSpacingHorizontal = 75;
+    public int NodeSpacingHorizontal = 45;
     public int NodeSpacingVertical = 35;
 
     public int NodeMarginHorizontal = 10;
@@ -91,7 +91,8 @@ public sealed partial class FHResearchTree : BoxContainer
     private readonly Texture _searchTexture;
 
     private readonly SearchDatabase _searchDb = new();
-
+    private readonly IconCache _icons;
+    
     public FHResearchTree()
     {
         IoCManager.InjectDependencies(this);
@@ -101,6 +102,8 @@ public sealed partial class FHResearchTree : BoxContainer
         var fontResource = resourceCache.GetResource<FontResource>(FontPath);
         _font = new VectorFont(fontResource, 16);
         _searchTexture = resourceCache.GetResource<TextureResource>(SearchTexturePath).Texture;
+
+        _icons = new(_prototypeManager, resourceCache);
 
         CanKeyboardFocus = true;
         DefaultCursorShape = CursorShape.Arrow;
@@ -293,6 +296,7 @@ public sealed partial class FHResearchTree : BoxContainer
         {
             _nodes[i] = _nodes[i].WrapName(handle); // basically part of initialization, but it requires handle so it's here. Will only run first time
             _nodes[i]
+            .Icon(_icons.GetCachedIcon(_nodes[i].Proto))
             .Zoom(_zoom)
             .Translate(_pseudoViewport)
             .Hovered(_currentMousePosition)
