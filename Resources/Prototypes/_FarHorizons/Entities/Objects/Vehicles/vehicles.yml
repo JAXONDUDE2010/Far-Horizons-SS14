@@ -4,7 +4,7 @@
   - type: AmbientSound
     sound: "/Audio/Effects/Vehicle/vehicleengineidle.ogg"
     range: 10
-    volume: -10
+    volume: -5
     enabled: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 4.5
@@ -191,6 +191,9 @@
   - type: PowerCellDraw
     drawRate: 1
     enabled: false
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/borgwalk4.ogg
 
 - type: entity
   id: VehicleATV
@@ -210,6 +213,10 @@
     requireIgnition: true 
     baseState: vehicle
     startupTime: 2
+    startUp: 
+      path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+      params:
+        volume: -3
   - type: VehicleBuckle
     unbuckletime: 2
     dismountonstun: true
@@ -254,9 +261,11 @@
     solution: fueltank
     exactVolume: true
   - type: ReagantDraw
+    enabled: false
     solutionContainer: fueltank
     whitelistedReagants: 
     - WeldingFuel
+    drainRate: 0.25
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
@@ -264,3 +273,10 @@
     softness: 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_FarHorizons/Vehicles/atvwalk.ogg
+      params:
+        volume: -7
+        pitch: 0.9
+        variation: 0.10

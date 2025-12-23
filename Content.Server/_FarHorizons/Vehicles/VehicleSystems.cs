@@ -26,6 +26,9 @@ using Robust.Shared.Physics.Events;
 using Content.Server.Stunnable;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
+using Content.Shared._FarHorizons.ReagantDraw.Components;
+using Content.Shared._FarHorizons.ReagantDraw.EntitySystems;
+using Content.Shared.Audio;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -39,9 +42,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedReagantDrawSystem _reagantDraw = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
 
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -230,9 +235,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     _throwing.TryThrow(rider, vehiclePhys.LinearVelocity*riderPhys.Mass, riderPhys, riderTransform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
                 }
         }
-
-        if(!_powerCell.HasDrawCharge(vehicle))
-            _actionBlocker.UpdateCanMove(rider);
     }
 
     private void OnUpdateCanMoveEvent(Entity<RiderComponent> ent, ref UpdateCanMoveEvent args)
@@ -242,15 +244,25 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             args.Cancel();
         }
-        if(ent.Comp.Riding != null && !_powerCell.HasDrawCharge(ent.Comp.Riding.Value))
+        if(ent.Comp.Riding != null && (!_powerCell.HasDrawCharge(ent.Comp.Riding.Value) || !_reagantDraw.HasDrawReagant(ent.Comp.Riding.Value)))
         {
-            if(TryComp<PowerCellDrawComponent>(ent.Comp.Riding.Value, out var pcdComp) && pcdComp.Enabled)
-                pcdComp.Enabled = false;
             if(vehicleComp.Started)
                 vehicleComp.Started = false;
+                
+            if(TryComp<PowerCellDrawComponent>(ent.Comp.Riding.Value, out var pcdComp) && pcdComp.Enabled)
+            {
+                pcdComp.Enabled = false;
+                Dirty(ent.Owner, pcdComp);
+            }
+            if(TryComp<ReagantDrawComponent>(ent.Comp.Riding.Value, out var rdComp) && rdComp.Enabled)
+            {
+                rdComp.Enabled = false;
+                _ambientSound.SetAmbience(ent.Comp.Riding.Value, rdComp.Enabled);
+                 Dirty(ent.Comp.Riding.Value, rdComp);
+            }
+            Dirty(ent.Comp.Riding.Value, vehicleComp);
             args.Cancel();
         }
-        Dirty(ent.Owner, vehicleComp);
     }
 
     private void AddActions(EntityUid rider, EntityUid vehicle, VehicleComponent? component=null)

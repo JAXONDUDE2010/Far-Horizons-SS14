@@ -14,6 +14,10 @@ using Robust.Shared.Containers;
 using System.Linq;
 using Content.Shared.PowerCell;
 using Robust.Shared.Timing;
+using Content.Shared._FarHorizons.ReagantDraw.Components;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Audio;
+using Content.Shared._FarHorizons.ReagantDraw.EntitySystems;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -27,6 +31,10 @@ public abstract partial class SharedVehicleSystems : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly SharedPowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedReagantDrawSystem _reagantDraw = default!;
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
 
     public override void Initialize()
@@ -73,9 +81,13 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         if (!_gameTiming.IsFirstTimePredicted) return;
         if(ent.Comp.Rider == null) return;
         if(!ent.Comp.Started)
+        {
             _popup.PopupEntity($"You turn the keys to start the vehicle.", ent.Owner, PopupType.Medium);
+            _audio.PlayPredicted(ent.Comp.StartUp, ent.Owner, ent.Comp.Rider.Value);
+        }
         if(ent.Comp.Started)
             _popup.PopupEntity($"You turn the keys to stop the vehicle.", ent.Owner, PopupType.Medium);
+        
         var ev = new TurnKeysDoAfter();
         var doAfter = new DoAfterArgs(EntityManager, ent.Comp.Rider.Value, ent.Comp.startupTime, ev, ent.Owner)
         {
@@ -90,8 +102,18 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         ent.Comp.Started = !ent.Comp.Started;
         if(ent.Comp.Rider != null)
             _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+
         if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp))
+        {
             pcdComp.Enabled = !pcdComp.Enabled;
+            Dirty(ent.Owner, pcdComp);
+        }
+        if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp))
+        {
+            rdComp.Enabled = !rdComp.Enabled;
+            _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
+            Dirty(ent.Owner, rdComp);
+        }
         Dirty(ent.Owner, ent.Comp);
     }
 
@@ -109,7 +131,17 @@ public abstract partial class SharedVehicleSystems : EntitySystem
                 _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
                 _actions.RemoveProvidedActions(ent.Comp.Rider.Value, ent.Owner);
                 if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
+                {
                     pcdComp.Enabled = false;
+                    Dirty(ent.Owner, pcdComp);
+                }
+                if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp) && rdComp.Enabled)
+                {
+                    rdComp.Enabled = false;
+                    _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
+                    Dirty(ent.Owner, rdComp);
+                }
+
                 Dirty(ent.Owner, ent.Comp);
             }
             else
@@ -141,7 +173,16 @@ public abstract partial class SharedVehicleSystems : EntitySystem
             _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
             _actions.RemoveProvidedActions(ent.Comp.Rider.Value, ent.Owner);
             if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
+            {
                 pcdComp.Enabled = false;
+                Dirty(ent.Owner, pcdComp);
+            }   
+            if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp) && rdComp.Enabled)
+            {
+                rdComp.Enabled = false;
+                _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
+                Dirty(ent.Owner, rdComp);
+            }
             Dirty(ent.Owner, ent.Comp);
         }
     }

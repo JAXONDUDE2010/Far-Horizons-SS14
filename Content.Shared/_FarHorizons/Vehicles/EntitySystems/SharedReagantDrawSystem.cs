@@ -4,10 +4,11 @@ using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Containers;
+using Content.Shared._FarHorizons.ReagantDraw.Components;
 
 namespace Content.Shared._FarHorizons.ReagantDraw.EntitySystems;
 
-public sealed class SharedReagantDrain : EntitySystem
+public sealed class SharedReagantDrawSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
@@ -27,14 +28,15 @@ public sealed class SharedReagantDrain : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            //if (!comp.Enabled)
-                //continue;
+            if (!comp.Enabled)
+                continue;
 
             if (_timing.CurTime < comp.NextUpdateTime)
                 continue;
-
-            TryUseReagant(uid, comp.DrainRate * frameTime, comp);
+            
             comp.NextUpdateTime += comp.Delay;
+
+            TryUseReagant(uid, comp.DrainRate * (float)comp.Delay.TotalSeconds, comp);
         }
     }
 
@@ -73,7 +75,32 @@ public sealed class SharedReagantDrain : EntitySystem
         {
             Dirty(containedSolution, solutionComp);
         }
+
+        var ev = new ReagantChangedEvent(solution.Volume.Float(), solution.MaxVolume.Float());
+        RaiseLocalEvent(uid, ref ev);
+
         return solution.Volume.Float();
+    }
+
+    public bool HasDrawReagant(
+        EntityUid uid,
+        ReagantDrawComponent? reagantComp = null)
+    {
+        if (!Resolve(uid, ref reagantComp, false))
+            return true;
+
+        return HasReagant(uid, reagantComp.DrainRate, reagantComp);
+    }
+    
+    public bool HasReagant(EntityUid uid, float charge, ReagantDrawComponent reagantComp)
+    {
+        if(!_solutionContainer.ResolveSolution(uid, reagantComp.SolutionContainer, ref reagantComp.Solution, out var solution)) 
+            return false;
+
+        if (solution.Volume < charge)
+            return false;
+
+        return true;
     }
 
     private void OnSolutionTransferAttempt(Entity<ReagantDrawComponent> ent, ref SolutionTransferAttemptEvent args)

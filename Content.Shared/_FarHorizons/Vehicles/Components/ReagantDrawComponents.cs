@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._FarHorizons.ReagantDraw;
+namespace Content.Shared._FarHorizons.ReagantDraw.Components;
 
 [RegisterComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ReagantDrawComponent : Component
@@ -51,3 +51,9 @@ public sealed partial class ReagantDrawComponent : Component
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(1);
 }
+
+/// <summary>
+///     Raised when a reagant container's volume is changed
+/// </summary>
+[ByRefEvent]
+public readonly record struct ReagantChangedEvent(float Volume, float MaxVolume);

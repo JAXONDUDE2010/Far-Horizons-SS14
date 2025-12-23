@@ -1,5 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
@@ -56,6 +57,12 @@ public sealed partial class VehicleComponent : Component
 
     [DataField, AutoNetworkedField]
     public Direction? currentDirection;
+
+    /// <summary>
+    /// Sound played whenever the vehicle is started
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? StartUp;
 
     #region Appearance
     [DataField, AutoNetworkedField]
