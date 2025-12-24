@@ -277,6 +277,6 @@
     footstepSoundCollection:
       path: /Audio/_FarHorizons/Vehicles/atvwalk.ogg
       params:
-        volume: -7
+        volume: -8
         pitch: 0.9
         variation: 0.10

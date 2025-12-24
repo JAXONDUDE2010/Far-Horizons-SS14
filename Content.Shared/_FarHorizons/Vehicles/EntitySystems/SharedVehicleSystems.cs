@@ -112,9 +112,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         {
             rdComp.Enabled = !rdComp.Enabled;
             _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
-            Dirty(ent.Owner, rdComp);
         }
-        Dirty(ent.Owner, ent.Comp);
     }
 
     private void OnEjectEvent(Entity<VehicleComponent> ent, ref ItemSlotEjectEvent args)
@@ -139,10 +137,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
                 {
                     rdComp.Enabled = false;
                     _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
-                    Dirty(ent.Owner, rdComp);
                 }
-
-                Dirty(ent.Owner, ent.Comp);
             }
             else
             {
@@ -175,15 +170,12 @@ public abstract partial class SharedVehicleSystems : EntitySystem
             if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
             {
                 pcdComp.Enabled = false;
-                Dirty(ent.Owner, pcdComp);
             }   
             if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp) && rdComp.Enabled)
             {
                 rdComp.Enabled = false;
                 _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
-                Dirty(ent.Owner, rdComp);
             }
-            Dirty(ent.Owner, ent.Comp);
         }
     }
 }

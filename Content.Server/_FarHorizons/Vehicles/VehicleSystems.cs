@@ -235,34 +235,56 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     _throwing.TryThrow(rider, vehiclePhys.LinearVelocity*riderPhys.Mass, riderPhys, riderTransform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
                 }
         }
+
+        if((HasComp<PowerCellDrawComponent>(vehicle) && !_powerCell.HasDrawCharge(vehicle)) 
+        || (HasComp<ReagantDrawComponent>(vehicle) && !_reagantDraw.HasDrawReagant(vehicle)))
+            _actionBlocker.UpdateCanMove(rider);
     }
 
     private void OnUpdateCanMoveEvent(Entity<RiderComponent> ent, ref UpdateCanMoveEvent args)
     {
-        if(!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp)) return;
-        if(vehicleComp.requireIgnition && !vehicleComp.Started)
+        if (!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp))
+            return;
+
+        if (vehicleComp.requireIgnition && !vehicleComp.Started)
         {
             args.Cancel();
+            return;
         }
-        if(ent.Comp.Riding != null && (!_powerCell.HasDrawCharge(ent.Comp.Riding.Value) || !_reagantDraw.HasDrawReagant(ent.Comp.Riding.Value)))
+
+        if (ent.Comp.Riding == null)
+            return;
+
+        var riding = ent.Comp.Riding.Value;
+
+        TryComp<PowerCellDrawComponent>(riding, out var pcdComp);
+        TryComp<ReagantDrawComponent>(riding, out var rdComp);
+
+        var noPower =
+            (pcdComp != null && !_powerCell.HasDrawCharge(riding)) ||
+            (rdComp != null && !_reagantDraw.HasDrawReagant(riding));
+
+        if (!noPower)
+            return;
+
+        if (vehicleComp.Started)
+            vehicleComp.Started = false;
+
+        if (pcdComp?.Enabled == true)
         {
-            if(vehicleComp.Started)
-                vehicleComp.Started = false;
-                
-            if(TryComp<PowerCellDrawComponent>(ent.Comp.Riding.Value, out var pcdComp) && pcdComp.Enabled)
-            {
-                pcdComp.Enabled = false;
-                Dirty(ent.Owner, pcdComp);
-            }
-            if(TryComp<ReagantDrawComponent>(ent.Comp.Riding.Value, out var rdComp) && rdComp.Enabled)
-            {
-                rdComp.Enabled = false;
-                _ambientSound.SetAmbience(ent.Comp.Riding.Value, rdComp.Enabled);
-                 Dirty(ent.Comp.Riding.Value, rdComp);
-            }
-            Dirty(ent.Comp.Riding.Value, vehicleComp);
-            args.Cancel();
+            pcdComp.Enabled = false;
+            Dirty(ent.Owner, pcdComp);
         }
+
+        if (rdComp?.Enabled == true)
+        {
+            rdComp.Enabled = false;
+            _ambientSound.SetAmbience(riding, false);
+            Dirty(riding, rdComp);
+        }
+
+        Dirty(riding, vehicleComp);
+        args.Cancel();
     }
 
     private void AddActions(EntityUid rider, EntityUid vehicle, VehicleComponent? component=null)
