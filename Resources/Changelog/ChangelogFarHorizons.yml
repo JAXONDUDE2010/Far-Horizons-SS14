@@ -3951,5 +3951,13 @@ Entries:
   id: 52402
   time: '2025-12-22T04:08:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/524
+- author: CorruptOmega
+  changes:
+  - message: NanoTrasen has updated their network firewalls so that Netrunners can
+      no longer interact with everything on station.
+    type: Tweak
+  id: 52700
+  time: '2025-12-24T09:42:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/527
 Order: -1
 
