@@ -6,6 +6,9 @@
   id: SalvEquip
   name: research-tree-node-salvage-equipment
   cost: 10000
+  icon:
+    state: mechanical
+    color: "#A46106"
   tier: Tier1
   unlocks:
     - MiningDrill
@@ -28,6 +31,9 @@
   id: IndustrialEng
   name: research-tree-node-industrial-engineering
   cost: 10000
+  icon:
+    state: industry
+    color: "#A46106"
   tier: Tier1
   unlocks:
     - AutolatheHyperConvectionMachineCircuitboard
@@ -39,6 +45,9 @@
   id: MechanicalCompress
   name: research-tree-node-mechanical-compression
   cost: 10000
+  icon:
+    state: industry
+    color: "#A46106"
   tier: Tier1
   requires: 
     - IndustrialEng
@@ -49,6 +58,9 @@
   id: RipleyMech
   name: research-tree-node-ripley
   cost: 7500
+  icon:
+    state: mechanical
+    color: "#A46106"
   tier: Tier1
   requires: 
     - MechanicalCompress
@@ -70,6 +82,9 @@
   id: RiotControl
   name: research-tree-node-riot-control
   cost: 8000
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier1
   unlocks:
     - Truncheon
@@ -83,6 +98,9 @@
   id: SpecialAmmo
   name: research-tree-node-ammo
   cost: 10000
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier1
   requires:
     - RiotControl
@@ -123,6 +141,9 @@
   id: Atmospherics
   name: research-tree-node-atmos
   cost: 7500
+  icon:
+    state: engineering
+    color: "#EFB341"
   tier: Tier1
   unlocks:
     - ThermomachineFreezerMachineCircuitBoard
@@ -134,6 +155,9 @@
   id: AdvAtmospherics
   name: research-tree-node-atmos-2
   cost: 7500
+  icon:
+    state: engineering
+    color: "#EFB341"
   tier: Tier1
   requires: 
     - Atmospherics
@@ -150,6 +174,9 @@
   id: LaserGun
   name: research-tree-node-laser
   cost: 7500
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier1
   unlocks:
     - WeaponLaserCarbine
@@ -163,6 +190,9 @@
   id: PowerGeneration
   name: research-tree-node-generators
   cost: 7500
+  icon:
+    state: power
+    color: "#EFB341"
   tier: Tier1
   unlocks:
     - PortableGeneratorPacmanMachineCircuitboard
@@ -178,6 +208,9 @@
   id: AdvPowerCells
   name: research-tree-node-powercells
   cost: 7500
+  icon:
+    state: power
+    color: "#EFB341"
   tier: Tier1
   requires:
     - PowerGeneration
@@ -192,7 +225,12 @@
   id: ExplosiveTech
   name: research-tree-node-explosives
   cost: 10000
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier1
+  requires:
+    - Atmospherics
   unlocks:
     - SignallerAdvanced
     - SignalTrigger
@@ -208,6 +246,9 @@
   id: NuclearPowerGeneration
   name: research-tree-node-nuclear-reactor
   cost: 7500
+  icon:
+    state: power
+    color: "#EFB341"
   tier: Tier1
   requires:
     - PowerGeneration
@@ -232,6 +273,9 @@
   id: MagBoot
   name: research-tree-node-magnet
   cost: 7500
+  icon:
+    state: mechanical
+    color: "#EFB341"
   tier: Tier1
   requires:
     - AnomResearch
@@ -244,6 +288,9 @@
   id: AnomResearch
   name: research-tree-node-anom
   cost: 5000
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier1
   unlocks:
     - AnomalyScanner
@@ -256,6 +303,9 @@
   id: AnomCoreHarvesting
   name: research-tree-node-anom-core
   cost: 10000
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier1
   requires:
     - AnomResearch
@@ -266,6 +316,9 @@
   id: ArtiResearch
   name: research-tree-node-arti
   cost: 5000
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier1
   unlocks:
     - NodeScanner
@@ -276,6 +329,9 @@
   id: AltResearch
   name: research-tree-node-alt-research
   cost: 5000
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier1
   requires:
     - MagBoot
@@ -290,6 +346,9 @@
   id: AdvEntertainment
   name: research-tree-node-entertainment
   cost: 7500
+  icon:
+    state: computing
+    color: "#9FED58"
   tier: Tier1
   requires:
     - AVComms
@@ -306,6 +365,9 @@
   id: AVComms
   name: research-tree-node-av-comms
   cost: 5000
+  icon:
+    state: electronics
+    color: "#9FED58"
   tier: Tier1
   unlocks:
     - SurveillanceCameraRouterCircuitboard
@@ -326,6 +388,9 @@
   id: Robotics
   name: research-tree-node-robotics
   cost: 5000
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier1
   requires:
     - AVComms
@@ -338,6 +403,9 @@
   id: Cyberlimbs
   name: research-tree-node-cyberlimbs
   cost: 4000
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier1
   requires:
     - Robotics
@@ -357,6 +425,9 @@
   id: BudgetCyberorgans
   name: research-tree-node-cyberorgans
   cost: 4000
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier1
   requires:
     - Robotics
@@ -375,6 +446,9 @@
   id: AutomatedInjection
   name: research-tree-node-injection
   cost: 4000
+  icon:
+    state: medical
+    color: "#D381C9"
   tier: Tier1
   unlocks:
     - SlowAutoinjector
@@ -385,6 +459,9 @@
   id: AdvSpray
   name: research-tree-node-spray
   cost: 10000
+  icon:
+    state: medical
+    color: "#D381C9"
   tier: Tier1
   requires:
     - AutomatedInjection
@@ -400,6 +477,9 @@
   id: Surgery
   name: research-tree-node-surgery
   cost: 4000
+  icon:
+    state: medical
+    color: "#D381C9"
   tier: Tier1
   unlocks:
     - BoneSetter
@@ -419,6 +499,9 @@
   id: MeatManipulation
   name: research-tree-node-meat
   cost: 7500
+  icon:
+    state: biology
+    color: "#9FED58"
   tier: Tier1
   requires:
     - Hydroponics
@@ -433,6 +516,9 @@
   id: Hydroponics
   name: research-tree-node-hydroponics
   cost: 5000
+  icon:
+    state: biology
+    color: "#9FED58"
   tier: Tier1
   unlocks:
     - SeedExtractorMachineCircuitboard
@@ -451,6 +537,9 @@
   id: MassExcav
   name: research-tree-node-excav
   cost: 12500
+  icon:
+    state: mechanical
+    color: "#A46106"
   tier: Tier2
   requires: 
     - SalvEquip
@@ -467,9 +556,12 @@
   id: RecreationalMech
   name: research-tree-node-rec-mech
   cost: 7500
+  icon:
+    state: mechanical
+    color: "#9FED58"
   tier: Tier2
   requires: 
-    - MechanicalCompress
+    - RipleyMech
   unlocks:
     - HonkerHarness
     - HonkerLArm
@@ -496,6 +588,9 @@
   id: IndustialMech
   name: research-tree-node-industrial-mech
   cost: 11050
+  icon:
+    state: mechanical
+    color: "#A46106"
   tier: Tier2
   requires: 
     - MassExcav
@@ -519,6 +614,9 @@
   id: KineticModifications
   name: research-tree-node-kinetic-mods
   cost: 7500
+  icon:
+    state: kinetic
+    color: "#A46106"
   tier: Tier2
   requires: 
     - SpecialAmmo
@@ -534,6 +632,9 @@
   id: APAmmo
   name: research-tree-node-ap-ammo
   cost: 11500
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier2
   requires: 
     - SpecialAmmo
@@ -557,6 +658,9 @@
   id: PaddyMech
   name: research-tree-node-paddy
   cost: 8500
+  icon:
+    state: mechanical
+    color: "#003860"
   tier: Tier2
   requires:
     - KineticModifications
@@ -571,6 +675,9 @@
   id: Shuttlecraft
   name: research-tree-node-shuttle
   cost: 10000
+  icon:
+    state: engineering
+    color: "#EFB341"
   tier: Tier2
   requires: 
     - AdvAtmospherics
@@ -587,6 +694,9 @@
   id: PointDefense
   name: research-tree-node-point-defense
   cost: 10000
+  icon:
+    state: kinetic
+    color: "#EFB341"
   tier: Tier2
   requires: 
     - Shuttlecraft
@@ -601,6 +711,9 @@
   id: ShuttleArmament
   name: research-tree-node-shuttle-gun
   cost: 10500
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier2
   requires: 
     - PointDefense
@@ -625,6 +738,9 @@
   id: LaserGun2
   name: research-tree-node-laser-2
   cost: 10000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier2
   requires: 
     - LaserGun
@@ -639,6 +755,9 @@
   id: IonGun
   name: research-tree-node-ion
   cost: 8200
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier2
   requires: 
     - LaserGun2
@@ -653,6 +772,9 @@
   id: RayGun
   name: research-tree-node-ray
   cost: 10000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier2
   requires: 
     - LaserGun2
@@ -665,6 +787,9 @@
   id: EnergyBarriers
   name: research-tree-node-ebarrier
   cost: 5400
+  icon:
+    state: power
+    color: "#003860"
   tier: Tier2
   unlocks:
     - EnergyDomeTurtle
@@ -678,6 +803,9 @@
   id: BlastproofContainers
   name: research-tree-node-blast-proof-containers
   cost: 9000
+  icon:
+    state: science
+    color: "#52B4E9"
   tier: Tier2
   requires:
     - ExplosiveTech
@@ -696,6 +824,9 @@
   id: AdvancedTools
   name: research-tree-node-adv-tools
   cost: 10000
+  icon:
+    state: engineering
+    color: "#EFB341"
   tier: Tier2
   requires:
     - AdvPowerCells
@@ -713,6 +844,9 @@
   id: NuclearPowerRecycling
   name: research-tree-node-nuclear-2
   cost: 12500
+  icon:
+    state: power
+    color: "#EFB341"
   tier: Tier2
   requires:
     - NuclearPowerGeneration
@@ -735,6 +869,9 @@
   id: AdvAnomResearch
   name: research-tree-node-anom-2
   cost: 10000
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AltResearch
@@ -747,6 +884,9 @@
   id: ArtiRecycle
   name: research-tree-node-arti-recycle
   cost: 5000
+  icon:
+    state: industry
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AltResearch
@@ -757,6 +897,9 @@
   id: GravManipulation
   name: research-tree-node-grav-manipulation
   cost: 10000
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier2
   requires:
     - ArtiRecycle
@@ -768,6 +911,9 @@
   id: DeterrenceTech
   name: research-tree-node-detterence
   cost: 7500
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AdvAnomResearch
@@ -784,6 +930,9 @@
   id: AutomatedDevelopment #enables automatic printing for tech disk terminal
   name: research-tree-node-automated-development
   cost: 1
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AltResearch
@@ -792,6 +941,9 @@
   id: AdvDataCompression #Increase buffer to 30k
   name: research-tree-node-adv-data-compression
   cost: 15000
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AutomatedDevelopment
@@ -802,6 +954,9 @@
   id: SapientResearchAlgorithms #increase queue size to 5
   name: research-tree-node-sapient-research-algorithms
   cost: 15000
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AdvDataCompression
@@ -812,6 +967,9 @@
   id: ResearchUplink #enables automatic printing for tech disk terminal
   name: research-tree-node-research-uplink
   cost: 1
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AdvDataCompression
@@ -822,6 +980,9 @@
   id: AstroTiles
   name: research-tree-node-astro-tiles
   cost: 5000
+  icon:
+    state: engineering
+    color: "#9FED58"
   tier: Tier2
   requires:
     - AdvEntertainment
@@ -843,6 +1004,9 @@
   id: BananiumWeapons
   name: research-tree-node-bananium-weapons
   cost: 6000
+  icon:
+    state: mechanical
+    color: "#9FED58"
   tier: Tier2
   requires:
     - AstroTiles
@@ -858,6 +1022,9 @@
   id: AILawboards
   name: research-tree-node-ai-lawboard
   cost: 7000
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier2
   requires:
     - Robotics
@@ -882,6 +1049,9 @@
   id: ClowningTech
   name: research-tree-node-clown-tech
   cost: 4000
+  icon:
+    state: mechanical
+    color: "#9FED58"
   tier: Tier2
   requires:
     - BananiumWeapons
@@ -896,10 +1066,12 @@
   id: AdvMedBorg
   name: research-tree-node-mech-treatment
   cost: 5000
+  icon:
+    state: medical
+    color: "#D381C9"
   tier: Tier2
   requires:
     - AILawboards
-    - Cyberlimbs
   unlocks:
     - BorgModuleAdvancedChemical
   announceTo:
@@ -911,6 +1083,9 @@
   id: Harmpack
   name: research-tree-node-dual-wield
   cost: 10000
+  icon:
+    state: mechanical
+    color: "#003860"
   tier: Tier2
   requires:
     - Cyberlimbs
@@ -923,6 +1098,9 @@
   id: EyeImplants
   name: research-tree-node-eye-implants
   cost: 10000
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier2
   requires:
     - BudgetCyberorgans
@@ -941,6 +1119,9 @@
   id: AdvCleaning
   name: research-tree-node-cleaning
   cost: 10000
+  icon:
+    state: mechanical
+    color: "#9FED58"
   tier: Tier2
   requires:
     - AdvSpray
@@ -957,6 +1138,9 @@
   id: AdvSurgery
   name: research-tree-node-surgery-2
   cost: 7000
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier2
   requires:
     - Surgery
@@ -976,9 +1160,13 @@
   id: StasisBed
   name: research-tree-node-stasis
   cost: 7500
+  icon:
+    state: biology
+    color: "#52B4E9"
   tier: Tier2
   requires:
     - MeatManipulation
+    - AdvSurgery
   unlocks:
     - StasisBedMachineCircuitboard
     - CryoPodMachineCircuitboard
@@ -997,6 +1185,9 @@
   id: GygaxMech
   name: research-tree-node-gygax
   cost: 11600
+  icon:
+    state: mechanical
+    color: "#003860"
   tier: Tier3
   requires:
     - IndustialMech
@@ -1020,6 +1211,9 @@
   id: DurandMech
   name: research-tree-node-durand
   cost: 16600
+  icon:
+    state: mechanical
+    color: "#003860"
   tier: Tier3
   requires: 
     - GygaxMech
@@ -1045,9 +1239,13 @@
   id: AdvShuttleWeapons
   name: research-tree-node-shuttle-gun-2
   cost: 15000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier3
   requires: 
     - ShuttleArmament
+    - ExplosiveMechAmmo
   unlocks:
     - GrenadeEMP
     - PowerCageHigh
@@ -1057,24 +1255,15 @@
     - Supply
     - Engineering
 
-- type: researchTreeNode
-  id: ScanGates
-  name: research-tree-node-scan-gate
-  cost: 5000
-  tier: Tier3
-  requires:
-    - AdvShuttleWeapons
-  unlocks:
-    - ScanGateMachineCircuitboard
-  announceTo:
-    - Security
-
 # Power
 
 - type: researchTreeNode
   id: ExplosiveMechAmmo
   name: research-tree-node-mech-explosives
   cost: 15400
+  icon:
+    state: kinetic
+    color: "#003860"
   tier: Tier3
   requires:
     - BlastproofContainers
@@ -1087,6 +1276,9 @@
   id: Microreactor
   name: research-tree-node-microreactor
   cost: 10000
+  icon:
+    state: power
+    color: "#EFB341"
   tier: Tier3
   requires:
     - AdvancedTools
@@ -1103,6 +1295,9 @@
   id: ThermalGun
   name: research-tree-node-thermal-gun
   cost: 15000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier3
   requires:
     - RayGun
@@ -1116,6 +1311,9 @@
   id: AdvLaserPistol
   name: research-tree-node-adv-laser
   cost: 15000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier3
   requires:
     - Microreactor
@@ -1131,6 +1329,9 @@
   id: Declone
   name: research-tree-node-declone
   cost: 30000
+  icon:
+    state: laser
+    color: "#003860"
   tier: Tier3
   requires:
     - AdvLaserPistol
@@ -1145,6 +1346,9 @@
   id: QuantumLeaping
   name: research-tree-node-quantum-leaping
   cost: 10000
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier3
   requires:
     - GravManipulation
@@ -1155,6 +1359,9 @@
   id: SpeedBoot
   name: research-tree-node-quantum-fiber
   cost: 10000
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier3
   requires:
     - DeterrenceTech
@@ -1165,6 +1372,9 @@
   id: BluespaceMastery
   name: research-tree-node-bluespace
   cost: 30000
+  icon:
+    state: science
+    color: "#D381C9"
   tier: Tier3
   requires:
     - QuantumDataManagement
@@ -1187,9 +1397,27 @@
 # Computing
 
 - type: researchTreeNode
+  id: ScanGates
+  name: research-tree-node-scan-gate
+  cost: 5000
+  icon:
+    state: electronics
+    color: "#003860"
+  tier: Tier3
+  requires:
+    - SapientResearchAlgorithms
+  unlocks:
+    - ScanGateMachineCircuitboard
+  announceTo:
+    - Security
+
+- type: researchTreeNode
   id: QuantumDataManagement #increase queue size to 10 and buffer size to 100k
   name: research-tree-node-quantum-data-management
   cost: 25000
+  icon:
+    state: computing
+    color: "#D381C9"
   tier: Tier3
   requires:
     - SapientResearchAlgorithms
@@ -1204,6 +1432,9 @@
   id: FunctionalCyberlimbs
   name: research-tree-node-functional-cyberlimb
   cost: 9320
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier3
   requires:
     - Harmpack
@@ -1223,6 +1454,9 @@
   id: NVEyes
   name: research-tree-node-nv-eyes
   cost: 7680
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier3
   requires:
     - EyeImplants
@@ -1235,6 +1469,9 @@
   id: ThermalEyes
   name: research-tree-node-tv-eyes
   cost: 9320
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier3
   requires:
     - EyeImplants
@@ -1249,6 +1486,9 @@
   id: BorgPlaceholder1
   name: research-tree-node-placeholder-1
   cost: 1
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier3
   requires:
     - ClowningTech
@@ -1257,6 +1497,9 @@
   id: BorgPlaceholder2
   name: research-tree-node-placeholder-2
   cost: 1
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier3
   requires:
     - AdvMedBorg
@@ -1265,6 +1508,9 @@
   id: BorgPlaceholder3
   name: research-tree-node-placeholder-3
   cost: 1
+  icon:
+    state: electronics
+    color: "#D381C9"
   tier: Tier3
   requires:
     - BorgPlaceholder1
@@ -1274,6 +1520,9 @@
   id: SecBorg
   name: research-tree-node-mech-security
   cost: 35000
+  icon:
+    state: electronics
+    color: "#003860"
   tier: Tier3
   requires:
     - BorgPlaceholder3
@@ -1290,6 +1539,9 @@
   id: SyringeGun
   name: research-tree-node-syringe-gun
   cost: 15000
+  icon:
+    state: medical
+    color: "#52B4E9"
   tier: Tier3
   requires:
     - AdvCleaning
@@ -1303,10 +1555,12 @@
   id: Cloning
   name: research-tree-node-cloning
   cost: 25000
+  icon:
+    state: biology
+    color: "#52B4E9"
   tier: Tier3
   requires:
     - StasisBed
-    - AdvSurgery
     - SyringeGun
   unlocks:
     - CloningConsoleComputerCircuitboard 

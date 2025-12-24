@@ -3853,5 +3853,111 @@ Entries:
   id: 51000
   time: '2025-12-19T20:12:50.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/510
+- author: princess_gurchi
+  changes:
+  - message: Replaced reactors that spawn in dungeons with those that randomly generate
+      their configuration
+    type: Tweak
+  id: 51200
+  time: '2025-12-20T14:45:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/512
+- author: princess_gurchi
+  changes:
+  - message: Fixed doors being placed on top of windows and other doors in Nuclear
+      Power Plant dungeon
+    type: Fix
+  id: 51201
+  time: '2025-12-20T14:45:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/512
+- author: princess_gurchi
+  changes:
+  - message: Alt-click on research nodes in tree to quickly add/remove from queue
+    type: Add
+  id: 51300
+  time: '2025-12-20T21:13:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/513
+- author: princess_gurchi
+  changes:
+  - message: Removing research from queue now correctly removes all other research
+      down the chain of dependencies
+    type: Fix
+  id: 51301
+  time: '2025-12-20T21:13:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/513
+- author: princess_gurchi
+  changes:
+  - message: Added 2 second cooldown on EMP effects that humanoids receive. That includes
+      IPC, Protogens and anyone with cybernetics.
+    type: Tweak
+  id: 51500
+  time: '2025-12-20T21:16:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/515
+- author: lightening_orb
+  changes:
+  - message: bugs on fland
+    type: Fix
+  id: 51900
+  time: '2025-12-21T08:10:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/519
+- author: lightening_orb
+  changes:
+  - message: bugs on meta
+    type: Fix
+  id: 51901
+  time: '2025-12-21T08:10:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/519
+- author: lightening_orb
+  changes:
+  - message: manor engi
+    type: Tweak
+  id: 51902
+  time: '2025-12-21T08:10:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/519
+- author: lightening_orb
+  changes:
+  - message: Manor Reactor
+    type: Add
+  id: 51903
+  time: '2025-12-21T08:10:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/519
+- author: princess_gurchi (code) & KarusKardin (icons, prototypes)
+  changes:
+  - message: Custom icons for research tree
+    type: Add
+  id: 51800
+  time: '2025-12-21T12:04:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/518
+- author: AirJab
+  changes:
+  - message: CAD Has decided that Corpsman should no longer be a unpaid volunteer
+      role and has raised there pay rate to 100
+    type: Fix
+  id: 52400
+  time: '2025-12-22T04:08:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/524
+- author: AirJab
+  changes:
+  - message: after seeing the great efforts of brigmedics across the sector, CAD has
+      decided to pay brigmedics more than chemists at a rate of 90.
+    type: Tweak
+  id: 52401
+  time: '2025-12-22T04:08:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/524
+- author: AirJab
+  changes:
+  - message: After careful consideration and Review CAD has Decided to lower the wages
+      of chemists (90>80) and surgeons (90>70). Glory to NanoTrasen!!
+    type: Tweak
+  id: 52402
+  time: '2025-12-22T04:08:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/524
+- author: CorruptOmega
+  changes:
+  - message: NanoTrasen has updated their network firewalls so that Netrunners can
+      no longer interact with everything on station.
+    type: Tweak
+  id: 52700
+  time: '2025-12-24T09:42:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/527
 Order: -1
 

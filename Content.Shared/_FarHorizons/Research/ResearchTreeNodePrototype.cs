@@ -5,6 +5,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Research;
 
+[DataDefinition]
+public sealed partial class ResearchTreeNodeIcon
+{
+    [DataField]
+    public string Path = "/Textures/_FarHorizons/Interface/Research/icons.rsi";
+    [DataField]
+    public string State = "science";
+    [DataField]
+    public string Color = "";
+}
+
 [Prototype]
 public sealed partial class ResearchTreeNodePrototype : IPrototype
 {
@@ -27,6 +38,9 @@ public sealed partial class ResearchTreeNodePrototype : IPrototype
     public List<ProtoId<ResearchTreeUnlockFlagPrototype>> UnlockFlags = [];
     [DataField]
     public List<ProtoId<RadioChannelPrototype>> AnnounceTo = [];
+
+    [DataField]
+    public ResearchTreeNodeIcon Icon = new();
 
     public int GetDepth(IPrototypeManager protoMan)
     {
@@ -54,4 +68,13 @@ public sealed partial class ResearchTreeNodePrototype : IPrototype
 
     public List<ResearchTreeNodePrototype> Children(IPrototypeManager protoMan) =>
         [.. protoMan.EnumeratePrototypes<ResearchTreeNodePrototype>().Where(p => p.Requires.Contains(ID))];
+
+    public List<ResearchTreeNodePrototype> DependencyChain(IPrototypeManager protoMan)
+    {
+        List<ResearchTreeNodePrototype> dependencies = [.. Requires.Select(p => protoMan.Index(p))];
+        List<ResearchTreeNodePrototype> extras = [];
+        foreach (var dep in dependencies)
+            extras.AddRange(dep.DependencyChain(protoMan));
+        return [.. dependencies.Union(extras).Distinct()];
+    }
 }

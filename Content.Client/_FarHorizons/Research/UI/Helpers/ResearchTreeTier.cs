@@ -16,8 +16,10 @@ public struct DrawResearchTier (string name, Font? font, int? left, int? right, 
 
     public Color BgColor = bgColor;
 
-    public readonly Vector2 LeftPos => new(Left == null ? 0 : Offset.X + Margin.X - (Spacing.X / 2) + (Left!.Value * (Size.X + Spacing.X)), 0);
-    public readonly Vector2 RightPos => new(Right == null ? 3000 : Offset.X + Margin.X - (Spacing.X / 2) + (Right!.Value * (Size.X + Spacing.X)), 3000);
+    public readonly Vector2 LeftPos => 
+        new(Left == null ? 0 : Offset.X + Margin.X - (Spacing.X / 2) + (Left!.Value * (Size.X + Size.Y + Spacing.X)), 0);
+    public readonly Vector2 RightPos => 
+        new(Right == null ? 3000 : Offset.X + Margin.X - (Spacing.X / 2) + (Right!.Value * (Size.X + Size.Y + Spacing.X)), 3000);
     public readonly UIBox2 Box => new(LeftPos, RightPos);
 
     private Vector2? _offset = offset;
