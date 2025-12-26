@@ -26,6 +26,7 @@
   - type: ObserverRole
   - type: MindRole
     sortWeight: -10
+    fallbackPlayTimeTracker: Observer
 
 #Ghost Roles
 - type: entity
@@ -353,14 +354,3 @@
     antagPrototype: Changeling
     subtype: role-subtype-changeling # Starlight
   - type: SLChangelingRole
-  
-# Vampire
-
-#- type: entity #Far Horizons - Disabling because this is duplicate from SL files.
-#  parent: BaseMindRoleAntag
-#  id: MindRoleVampire
-#  name: Vampire Role
-#  components:
-#  - type: MindRole
-#    antagPrototype: Vampire
-#  - type: VampireRole

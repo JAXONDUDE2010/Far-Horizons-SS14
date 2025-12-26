@@ -12,6 +12,7 @@
     time: 0 # Far Horizons - Temporary // 21600 # 6h STARLIGHT
   guides: [ NuclearOperatives ]
   previewStartingGear: SyndicateOperativeGearFull
+  playTimeTracker: AntagNukeops # Starlight
 
 - type: antag
   id: NukeopsMedic
@@ -43,6 +44,7 @@
 
   guides: [ NuclearOperatives ]
   previewStartingGear: SyndicateOperativeMedicFull
+  playTimeTracker: AntagNukeopsMedic # Starlight
 
 - type: antag
   id: NukeopsCommander
@@ -62,6 +64,7 @@
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
   previewStartingGear: SyndicateCommanderGearFull
+  playTimeTracker: AntagNukeopsCommander # Starlight
 
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink
