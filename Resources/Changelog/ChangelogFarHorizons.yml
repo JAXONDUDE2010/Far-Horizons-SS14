@@ -4138,5 +4138,41 @@ Entries:
   id: 52623
   time: '2025-12-27T11:57:41.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: AthenaAI
+  changes:
+  - message: Legs Paralyzed disability you won't be able to stand up and will be only
+      able to crawl unless you are on a wheelchair.
+    type: Add
+  id: 52900
+  time: '2025-12-27T15:24:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/529
+- author: AthenaAI
+  changes:
+  - message: Wheelchairs slightly slower acceleration but you are about as fast a
+      standard person.
+    type: Add
+  id: 52901
+  time: '2025-12-27T15:24:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/529
+- author: AthenaAI
+  changes:
+  - message: Secway a new standard of transport for security requires at least a hand
+      to manage properly and uses batteries to charge. It makes you twice as fast
+      while burning only a fifth of your donut calories. Comes with a medium battery
+      for a 10 minute lifespan.
+    type: Add
+  id: 52902
+  time: '2025-12-27T15:24:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/529
+- author: AthenaAI
+  changes:
+  - message: ATV a new fun toy for the station requires both hands to manage properly.
+      It has extremely high speed but a collision at high speeds will mean you being
+      ejected and launched against a wall. Requires welding fuel lasts 10 minutes
+      on a full tank.
+    type: Add
+  id: 52903
+  time: '2025-12-27T15:24:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/529
 Order: -1
 
