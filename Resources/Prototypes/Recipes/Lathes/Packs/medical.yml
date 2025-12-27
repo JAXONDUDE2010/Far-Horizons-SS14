@@ -53,6 +53,7 @@
   - RollerBedSpawnFolded
   - CheapRollerBedSpawnFolded
   - EmergencyRollerBedSpawnFolded
+  - VehicleWheelchairFolded
 
 - type: latheRecipePack
   id: MedicalClothingStatic
