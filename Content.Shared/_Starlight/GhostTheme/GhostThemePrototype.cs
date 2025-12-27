@@ -24,7 +24,7 @@ public sealed class GhostThemePrototype : IPrototype
     public ExtendedSpriteSpecifier SpriteSpecifier { get; private set; } = default!;
     
     [DataField("requirement")]
-    public AdditionalPermissionsTypes? Requirement;
+    public AdditionalPermissionsTypes? Requirement;  // Far Horizons
     
     [DataField("requiredCkey")]
     public string? Ckey = null;

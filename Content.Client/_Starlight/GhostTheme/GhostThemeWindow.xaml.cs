@@ -103,6 +103,7 @@ public sealed partial class GhostThemeWindow : DefaultWindow
         {
             var toolTipText = "";
 
+            // Far Horizons - commented out for now
             // if (ghostTheme.Requirement != null && _prototypeManager.TryIndex(ghostTheme.Requirement, out var req))
             // {
             //     toolTipText = Loc.GetString(
