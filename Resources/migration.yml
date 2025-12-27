@@ -178,6 +178,8 @@ SpyCrewMonitorEmpty: null
 SyndiCrewMonitor: null
 SyndiCrewMonitorEmpty: null
 
+##FarHorizons Start
+
 #SpawnVehicleWheelchair: null
 #SpawnVehicleWheelchairFolded: null
 #VehicleWheelchair: null
@@ -206,6 +208,8 @@ MobTaxiBot: null
 SpawnVehicleJanicart: null
 VehicleJanicart: null
 VehicleJanicartDestroyed: null
+
+##FarHorizons End
 
 # 2024-02-01
 YellowOxygenTank: OxygenTank
