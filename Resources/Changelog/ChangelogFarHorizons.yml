@@ -3959,5 +3959,184 @@ Entries:
   id: 52700
   time: '2025-12-24T09:42:26.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/527
+- author: jhrushbe
+  changes:
+  - message: Added the gas turbine monitor.
+    type: Add
+  id: 52600
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Added the ability to recycle nuclear reactor parts at 50% efficiency.
+    type: Add
+  id: 52601
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Added more variants of the nuclear reactor that come exclusive to the
+      salvage dungeon.
+    type: Add
+  id: 52602
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Added a second tab to the gas turbine's UI that shows statistics on the
+      parts within the turbine.
+    type: Add
+  id: 52603
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Added a holoprojector that blocks radiation.
+    type: Add
+  id: 52604
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Nuclear reactor prefabs are now defined as prototypes rather than consts.
+    type: Tweak
+  id: 52605
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Melted nuclear reactors now look melted when spawned.
+    type: Tweak
+  id: 52606
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor can now show temperatures in kelvin as well.
+    type: Tweak
+  id: 52607
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor parts are now capable of being a fuel rod, gas channel,
+      and control rod at the same time.
+    type: Tweak
+  id: 52608
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactor monitor's connection range has been greatly extended.
+    type: Tweak
+  id: 52609
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where a melted-down nuclear reactor's UI could still be opened.
+    type: Fix
+  id: 52610
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Potentially fixed a bug where a melted-down nuclear reactor would use
+      ammonia to cut holes in space-time.
+    type: Fix
+  id: 52611
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the input/output lights of a nuclear reactor would
+      not shut off after meltdown.
+    type: Fix
+  id: 52612
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor and gas turbine were capable of
+      being placed in ways that broke pipe logic.
+    type: Fix
+  id: 52613
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a floating point error in the nuclear reactor's UI.
+    type: Fix
+  id: 52614
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor being unable to effectively transfer gas due
+      to undersized outlet.
+    type: Fix
+  id: 52615
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where CO2 had no effect on the nuclear reactor.
+    type: Fix
+  id: 52616
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor's UI showed the control rod level
+      from the previous tick.
+    type: Fix
+  id: 52617
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed an issue with the nuclear reactor's sound for control rods moving.
+    type: Fix
+  id: 52618
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor monitor had no collision.
+    type: Fix
+  id: 52619
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where disconnecting a device from a nuclear reactor/gas turbine
+      caused the port to get stuck on the last transmitted state.
+    type: Fix
+  id: 52620
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor monitor would not connect on map
+      init.
+    type: Fix
+  id: 52621
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor monitor would not disconnect from
+      a nuclear reactor regardless of distance.
+    type: Fix
+  id: 52622
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
+- author: jhrushbe
+  changes:
+  - message: Fixed a typo in the nuclear materials list.
+    type: Fix
+  id: 52623
+  time: '2025-12-27T11:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/526
 Order: -1
 
