@@ -50,7 +50,6 @@
   name: VehicleDamageable
   components:
   - type: Repairable
-    fuelcost: 20
     doAfterDelay: 20
   - type: Damageable
     damageContainer: Inorganic
@@ -114,7 +113,6 @@
       baseWalkSpeed: 2.5
     - type: Strap
       buckleOffset: "0,0"
-      maxBuckleDistance: 1
     - type: Fixtures
       fixtures:
         fix1:
@@ -176,7 +174,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: Strap
-    maxBuckleDistance: 1
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 9
@@ -277,7 +274,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: Strap
-    maxBuckleDistance: 1
   - type: ItemSlots
     slots:
       key_slot:

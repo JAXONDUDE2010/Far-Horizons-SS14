@@ -24,7 +24,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehicleATVFilledwithKeys
+      - VehicleATVFueledwithKeys
 
 - type: entity
   name: Wheelchair Spawner

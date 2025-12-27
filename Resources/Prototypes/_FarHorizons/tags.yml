@@ -162,3 +162,6 @@
 
 - type: Tag
   id: AnomalyLocator
+
+- type: Tag
+  id: VehicleKey
