@@ -8,6 +8,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Shared._FarHorizons.Materials;
 using Content.Shared._FarHorizons.Materials.Systems;
+using Content.Shared.Nutrition;
+using Content.Shared.Damage;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -52,6 +54,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<ReactorPartComponent, IngestedEvent>(OnIngest);
     }
 
     private void OnExamine(Entity<ReactorPartComponent> ent, ref ExaminedEvent args)
@@ -113,6 +116,30 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("reactor-part-burning"));
             else if (comp.Temperature > Atmospherics.T0C + 80)
                 args.PushMarkup(Loc.GetString("reactor-part-hot"));
+        }
+    }
+
+    private void OnIngest(Entity<ReactorPartComponent> ent, ref IngestedEvent args)
+    {
+        var comp = ent.Comp;
+        if (comp.Properties == null)
+            return;
+
+        var properties = comp.Properties;
+
+        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
+            return;
+
+        var dict = damageable.Damage.DamageDict;
+
+        var dmgKey = "Radiation";
+        var dmg = properties.NeutronRadioactivity * 20 + properties.Radioactivity * 10 + properties.FissileIsotopes * 5;
+
+        if (!dict.TryAdd(dmgKey, dmg))
+        {
+            var prev = dict[dmgKey];
+            dict.Remove(dmgKey);
+            dict.Add(dmgKey, prev + dmg);
         }
     }
 
@@ -184,12 +211,12 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
         reactorPart.Melted = true;
         reactorPart.IconStateCap += "_melted_" + _random.Next(1, 4 + 1);
-        reactorSystem.UpdateGridVisual(reactorEnt.Comp);
+        reactorSystem.UpdateGridVisual(reactorEnt);
         reactorPart.NeutronCrossSection = 5f;
         reactorPart.ThermalCrossSection = 20f;
         reactorPart.IsControlRod = false;
 
-        if(reactorPart.RodType == ReactorPartComponent.RodTypes.GasChannel)
+        if(reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
             reactorPart.GasThermalCrossSection = 0.1f;
     }
 
@@ -261,7 +288,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
     /// <returns>Post-processing list of neutrons</returns>
     public virtual List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, EntityUid uid, out float thermalEnergy)
     {
-        thermalEnergy = 0;
+        var preCalcTemp = reactorPart.Temperature;
         var flux = new List<ReactorNeutron>(neutrons);
 
         if (reactorPart.Properties == null)
@@ -280,8 +307,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
-                    reactorPart.Temperature += 75f; // 50 * 0.65, SS13 value compensated for SS14's worse gas heat caps
-                    thermalEnergy += 75f * reactorPart.ThermalMass;
+                    reactorPart.Temperature += 75f; // Was 50, increased to make neutron reactions stronger
                 }
                 else if (neutron.velocity <= 5 && Prob(_rate * reactorPart.Properties.Radioactivity * _bias)) // stimulated emission
                 {
@@ -292,8 +318,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
-                    reactorPart.Temperature += 50f; // 25 * 0.65
-                    thermalEnergy += 50f * reactorPart.ThermalMass;
+                    reactorPart.Temperature += 50f; // Was 25, increased to make neutron reactions stronger
                 }
                 else
                 {
@@ -309,7 +334,6 @@ public abstract class SharedReactorPartSystem : EntitySystem
                         neutrons.Remove(neutron);
 
                     reactorPart.Temperature += 1; // ... not worth the adjustment
-                    thermalEnergy += 1 * reactorPart.ThermalMass;
                 }
             }
         }
@@ -324,7 +348,6 @@ public abstract class SharedReactorPartSystem : EntitySystem
             reactorPart.Properties.Radioactivity += _product / 2;
             //This code has been deactivated so neutrons would have a bigger impact
             //reactorPart.Temperature += 13; // 20 * 0.65
-            //thermalEnergy += 13 * reactorPart.ThermalMass;
         }
         if (Prob(reactorPart.Properties.Radioactivity * _rate * reactorPart.NeutronCrossSection))
         {
@@ -337,10 +360,9 @@ public abstract class SharedReactorPartSystem : EntitySystem
             reactorPart.Properties.FissileIsotopes += _product / 2;
             //This code has been deactivated so neutrons would have a bigger impact
             //reactorPart.Temperature += 6.5f; // 10 * 0.65
-            //thermalEnergy += 6.5f * reactorPart.ThermalMass;
         }
 
-        if (reactorPart.RodType == ReactorPartComponent.RodTypes.ControlRod)
+        if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.ControlRod))
         {
             if (!reactorPart.Melted && (reactorPart.NeutronCrossSection != reactorPart.ConfiguredInsertionLevel))
             {
@@ -348,14 +370,14 @@ public abstract class SharedReactorPartSystem : EntitySystem
                     reactorPart.NeutronCrossSection -= Math.Min(0.1f, reactorPart.NeutronCrossSection - reactorPart.ConfiguredInsertionLevel);
                 else
                     reactorPart.NeutronCrossSection += Math.Min(0.1f, reactorPart.ConfiguredInsertionLevel - reactorPart.NeutronCrossSection);
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/relay_click.ogg"), uid);
             }
         }
 
-        if (reactorPart.RodType == ReactorPartComponent.RodTypes.GasChannel)
+        if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
             neutrons = ProcessNeutronsGas(reactorPart, neutrons);
 
         neutrons ??= [];
+        thermalEnergy = (reactorPart.Temperature - preCalcTemp) * reactorPart.ThermalMass;
         return neutrons;
     }
 

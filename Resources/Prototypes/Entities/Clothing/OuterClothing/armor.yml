@@ -68,9 +68,9 @@
   description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Armor/bulletproof.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Armor/bulletproof.rsi #Far Horizons
   - type: Pierceable
     level: Metal
   - type: Armor

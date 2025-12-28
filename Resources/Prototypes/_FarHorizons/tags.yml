@@ -29,6 +29,9 @@
   id: CombatShotgun
 
 - type: Tag
+  id: Cyclorite
+
+- type: Tag
   id: Drozd
 
 - type: Tag
@@ -104,6 +107,9 @@
   id: Inorganic
 
 - type: Tag
+  id: Organic
+
+- type: Tag
   id: LaserRifle
 
 - type: Tag
@@ -111,6 +117,9 @@
 
 - type: Tag
   id: Leikha
+
+- type: Tag
+  id: ResearchTreeMapElectronics
 
 - type: Tag
   id: ReflectArmor
@@ -125,10 +134,22 @@
   id: RamChip
 
 - type: Tag
+  id: SalvageReactor
+
+- type: Tag
   id: SP91RC
 
 - type: Tag
+  id: Shadekin
+
+- type: Tag
   id: SiliconEmotesFH
+
+- type: Tag
+  id: Thaven
+
+- type: Tag
+  id: TrueProtogen
 
 - type: Tag
   id: NodeScanner
@@ -141,3 +162,6 @@
 
 - type: Tag
   id: AnomalyLocator
+
+- type: Tag
+  id: VehicleKey

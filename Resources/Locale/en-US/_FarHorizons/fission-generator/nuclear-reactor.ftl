@@ -4,6 +4,7 @@ reactor-smoke-stop = The {$owner} stops smoking.
 reactor-fire-start = The {$owner} begins to burn!
 reactor-fire-stop = The {$owner} stops burning.
 
+reactor-unanchor-melted = You cannot unanchor the nuclear reactor, it's melted into the hull!
 reactor-unanchor-warning = You cannot unanchor the nuclear reactor while it's not empty or hotter than 80C!
 reactor-anchor-warning = Invalid anchor position.
 
@@ -39,7 +40,7 @@ comp-nuclear-reactor-ui-reactor-temp = Temperature
 comp-nuclear-reactor-ui-reactor-rads = Radiation
 comp-nuclear-reactor-ui-reactor-therm = Thermal Power
 comp-nuclear-reactor-ui-reactor-control = Control Rods
-comp-nuclear-reactor-ui-therm-format = { POWERWATTS($power) }
+comp-nuclear-reactor-ui-therm-format = { POWERWATTS($power) }t
 
 comp-nuclear-reactor-ui-footer-left = Danger: high radiation.
-comp-nuclear-reactor-ui-footer-right = 0.6 REV 2
+comp-nuclear-reactor-ui-footer-right = 0.8 REV 3

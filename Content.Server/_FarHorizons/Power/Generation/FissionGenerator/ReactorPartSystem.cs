@@ -1,5 +1,4 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
@@ -24,9 +23,9 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="reactorEnt">The entity representing the reactor this part is inserted into.</param>
     /// <param name="inGas">The gas to be processed.</param>
     /// <returns></returns>
-    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
+    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas)
     {
-        if (reactorPart.RodType != ReactorPartComponent.RodTypes.GasChannel)
+        if (!reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
             return null;
 
         GasMixture? ProcessedGas = null;
@@ -71,7 +70,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
         {
-            reactorPart.AirContents = inGas.RemoveVolume(Math.Min(reactorPart.GasVolume * _atmosphereSystem.PumpSpeedup() * args.dt, inGas.Volume));
+            reactorPart.AirContents = inGas.RemoveVolume(reactorPart.GasVolume);
             reactorPart.AirContents.Volume = reactorPart.GasVolume;
 
             if (reactorPart.AirContents != null && reactorPart.AirContents.TotalMoles < 1)
@@ -105,7 +104,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
                 if (neutronCount > 1)
                     for (var i = 0; i < neutronCount; i++)
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
-                else
+                else if (neutronCount < 1)
                     neutrons.Remove(neutron);
             }
         }
@@ -117,22 +116,22 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// Determines the number of additional neutrons the gas makes.
     /// </summary>
     /// <param name="reactorPart"></param>
-    /// <returns></returns>
+    /// <returns>Change in number of neutrons</returns>
     private int GasNeutronInteract(ReactorPartComponent reactorPart)
     {
         if (reactorPart.AirContents == null)
-            return 0;
+            return 1;
 
-        var neutronCount = 0;
+        var neutronCount = 1;
         var gas = reactorPart.AirContents;
 
         if (gas.GetMoles(Gas.Plasma) > 1)
         {
             var reactMolPerLiter = 0.25;
+            var reactMol = reactMolPerLiter * gas.Volume;
 
             var plasma = gas.GetMoles(Gas.Plasma);
-            var plasmaReactCount = (int)Math.Round((plasma - (plasma % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
-                + (Prob(plasma - (plasma % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            var plasmaReactCount = (int)Math.Round((plasma - (plasma % reactMol)) / reactMol) + (Prob(plasma - (plasma % reactMol)) ? 1 : 0);
             plasmaReactCount = _random.Next(0, plasmaReactCount + 1);
             gas.AdjustMoles(Gas.Plasma, plasmaReactCount * -0.5f);
             gas.AdjustMoles(Gas.Tritium, plasmaReactCount * 2);
@@ -142,10 +141,10 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         if (gas.GetMoles(Gas.CarbonDioxide) > 1)
         {
             var reactMolPerLiter = 0.4;
+            var reactMol = reactMolPerLiter * gas.Volume;
 
             var co2 = gas.GetMoles(Gas.CarbonDioxide);
-            var co2ReactCount = (int)Math.Round((co2 - (co2 % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
-                + (Prob(co2 - (co2 % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            var co2ReactCount = (int)Math.Round((co2 - (co2 % reactMol)) / reactMol) + (Prob(co2 - (co2 % reactMol)) ? 1 : 0);
             co2ReactCount = _random.Next(0, co2ReactCount + 1);
             reactorPart.Temperature += Math.Min(co2ReactCount, neutronCount);
             neutronCount -= Math.Min(co2ReactCount, neutronCount);
@@ -154,14 +153,15 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         if (gas.GetMoles(Gas.Tritium) > 1)
         {
             var reactMolPerLiter = 0.5;
+            var reactMol = reactMolPerLiter * gas.Volume;
 
             var tritium = gas.GetMoles(Gas.Tritium);
-            var tritiumReactCount = (int)Math.Round((tritium - (tritium % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
-                + (Prob(tritium - (tritium % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            var tritiumReactCount = (int)Math.Round((tritium - (tritium % reactMol)) / reactMol) + (Prob(tritium - (tritium % reactMol)) ? 1 : 0);
+            tritiumReactCount = _random.Next(0, tritiumReactCount + 1);
             if (tritiumReactCount > 0)
             {
                 gas.AdjustMoles(Gas.Tritium, -1 * tritiumReactCount);
-                reactorPart.Temperature += 1;
+                reactorPart.Temperature += 1 * tritiumReactCount;
                 switch (_random.Next(0, 5))
                 {
                     case 0:

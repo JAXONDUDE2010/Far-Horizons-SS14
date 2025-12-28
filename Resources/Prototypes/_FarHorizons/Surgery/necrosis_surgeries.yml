@@ -14,9 +14,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_liver"
 
 - type: entity
@@ -35,9 +35,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_kidneys"
 
 - type: entity
@@ -56,9 +56,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_stomach"
 
 - type: entity
@@ -77,9 +77,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_lungs"
 
 - type: entity
@@ -98,9 +98,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_lungs"
 
 - type: entity
@@ -119,9 +119,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_heart"
 
 - type: entity
@@ -140,9 +140,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
-  - type: RequireOrganicPart
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
+  - type: RequireSpecificOrganicPart
     slot: "body_organ_slot_heart"
 
 - type: entity
@@ -162,11 +162,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: left arm
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_left arm"
 
 - type: entity
@@ -186,11 +186,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: right arm
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_right arm"
 
 - type: entity
@@ -210,11 +210,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: left leg
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_left leg"
 
 - type: entity
@@ -234,11 +234,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: right leg
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_right leg"
 
 - type: entity
@@ -258,11 +258,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: left arm
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_left arm"
 
 - type: entity
@@ -282,11 +282,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: right arm
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_right arm"
 
 - type: entity
@@ -306,11 +306,11 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: left leg
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_left leg"
 
 - type: entity
@@ -330,9 +330,9 @@
   - type: DisableSurgery
   - type: SurgeryTechnology
     technologyModifier:
-      SurgeryTech : 25
-      SurgeryTechAdvanced : 15
+      UnlockFlagSurgerySpeed1 : 25
+      UnlockFlagSurgerySpeed2 : 15
   - type: SurgeryLimbExistCondition
     slot: right leg
-  - type: RequireOrganicPart
+  - type: RequireSpecificOrganicPart
     slot: "body_part_slot_right leg"

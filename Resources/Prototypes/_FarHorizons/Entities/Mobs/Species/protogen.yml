@@ -101,7 +101,8 @@
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
-  - type: HumanoidEMP
+  - type: HumanoidEMP # HumanoidEMP is needed to receive EMP effects, it may carry its own innate effects, but doesn't have to
+    effectCooldown: 2
     effect:
       stunAmount: 5.0
       knockdownAmount: 2.0
@@ -272,6 +273,15 @@
   - type: ContentEye
     targetZoom: "1.125, 1.125"
     maxZoom: "1.125, 1.125"
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Vulpkanin
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -456,6 +466,15 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Vox
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -617,6 +636,15 @@
           32:
             sprite: _Starlight/Mobs/Species/Thaven/displacement.rsi
             state: hands
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Thaven
 
 
 - type: entity
@@ -804,6 +832,15 @@
   - type: ShowThirstIcons
   - type: SolutionScanner
   - type: Wagging
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - SlimePerson
 
 - type: entity
   parent: MobHumanDummy
@@ -889,7 +926,8 @@
         enum.InstrumentUiKey.Key:
           type: InstrumentBoundUserInterface
           requireInputValidation: false
-    - type: HumanoidEMP
+    - type: HumanoidEMP # HumanoidEMP is needed to receive EMP effects, it may carry its own innate effects, but doesn't have to
+      effectCooldown: 2
       effect:
         stunAmount: 5.0
         knockdownAmount: 2.0
@@ -1030,6 +1068,15 @@
       alternateState: Standing
     - type: UniversalHealModifier
       modifier: 0.5
+    - type: Tag
+      tags:
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+        - AnomalyHost
+        - SiliconEmotesFH
+        - Protogen
+        - Shadekin
 
 - type: entity
   save: false
@@ -1493,6 +1540,15 @@
           32:
             sprite: Mobs/Species/Reptilian/displacement.rsi
             state: mask
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Reptilian
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -1713,6 +1769,15 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Moth
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -1829,6 +1894,15 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Wagging
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Human
 
 
 - type: entity
@@ -2094,6 +2168,15 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Dwarf
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -2380,6 +2463,15 @@
           32:
             sprite: _Starlight/Mobs/Species/Cyclorite/displacement.rsi
             state: outer
+  - type: Tag
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SiliconEmotesFH
+      - Protogen
+      - Cyclorite
 
 - type: entity
   parent: BaseSpeciesDummy

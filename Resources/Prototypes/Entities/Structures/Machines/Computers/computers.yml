@@ -511,17 +511,18 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: ResearchClient
-  - type: ResearchConsole
+  - type: FHResearchConsole # Far Horizons
+  - type: Speech # Far Horizons
+    speechVerb: Robotic
   - type: ActiveRadio
     channels:
     - Science
-  - type: TechnologyDatabase
   - type: ActivatableUI
-    key: enum.ResearchConsoleUiKey.Key
+    key: enum.FHResearchConsoleUiKey.Key # Far Horizons
   - type: UserInterface
     interfaces:
-      enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleBoundUserInterface
+      enum.FHResearchConsoleUiKey.Key: # Far Horizons
+        type: FHResearchConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
