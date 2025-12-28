@@ -153,3 +153,24 @@
     - id: ClothingMaskBreath
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+
+- type: entity
+  id: SuitStorageCombatMedic
+  parent: SuitStorageBase
+  suffix: S, Combat Medic
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCMHarduit
+  - type: AccessReader
+    access: [["Brigmedic"]]
+
+- type: entityTable
+  id: FillCMHarduit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitCorpsman
+    - id: ClothingMaskBreath
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
