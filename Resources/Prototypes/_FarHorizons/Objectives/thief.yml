@@ -17,6 +17,7 @@
     job: StationEngineer #TODO: make it so this also includes AtmosphericTechnician
   - type: StealCondition
     stealGroup: ReactorFuelRodSteal
+    verifyMapExistence: false
     minCollectionSize: 1
     maxCollectionSize: 3
   - type: Objective
@@ -30,3 +31,15 @@
 #    stealGroup: ClothingHeadHatGuardianCap
 #  - type: Objective
 #    difficulty: 1.2
+
+- type: entity
+  parent: BaseThiefStealStructureObjective
+  id: VehicleSecwayStealObjective
+  components:
+  - type: NotJobRequirement
+    job: SecurityOfficer
+  - type: StealCondition
+    stealGroup: VehicleSecwaySteal
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 1
