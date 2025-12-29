@@ -1,0 +1,27 @@
+- type: entity
+  id: SyndicateAutolatheMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: EVIL autolathe machine board #TODO: Better Name
+  description: A machine printed circuit board for an autolathe.
+  components:
+    - type: MachineBoard
+      prototype: SyndicateAutolathe
+      stackRequirements:
+        Manipulator: 4
+        Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SyndicateAutolatheSubzeroMachineCircuitboard
+  name: EVIL hyper convection autolathe machine board
+  description: A machine printed circuit board for a hyper convection autolathe.
+  components:
+  - type: MachineBoard
+    prototype: SyndicateAutolatheSubzero
+    stackRequirements:
+      Manipulator: 3
+      Glass: 1
+    tagRequirements:
+      Igniter:
+        amount: 1
+        defaultPrototype: Igniter
