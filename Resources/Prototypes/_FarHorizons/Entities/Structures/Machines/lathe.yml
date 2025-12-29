@@ -47,8 +47,8 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
-#    dynamicPacks:
-    #NEEDS SYNDICATE DYNAMICS
+    dynamicPacks:
+    - StarlightAutolatheLootable
 #  - type: EmagLatheRecipes
 #    emagStaticPacks:
     #NEEDS SYNDICATE EMAG RECIPIES
