@@ -4210,5 +4210,43 @@ Entries:
   id: 53104
   time: '2025-12-27T16:01:09.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/531
+- author: AthenaAI
+  changes:
+  - message: You can no longer use latent psionics to remove riders or steal keys
+      from vehicles if they move away.
+    type: Fix
+  id: 53400
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Virtual items not making you drop your things if you didn't have empty
+      hands.
+    type: Fix
+  id: 53401
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Secway steal objective. Good Luck Agent.
+    type: Add
+  id: 53402
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Reactor Rods or Brigmedic's musically inclined bedsheets not showing
+      as steal objectives (I was here might aswell)
+    type: Fix
+  id: 53403
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Wheelchair recipe to medical's fabricator
+    type: Add
+  id: 53404
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
 Order: -1
 
