@@ -28,18 +28,6 @@
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.4
-        density: 360
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - TableLayer
   - type: Appearance
   - type: StaticPrice
     price: 750 # Grand Theft Auto.
@@ -51,9 +39,10 @@
   components:
   - type: Repairable
     doAfterDelay: 20
+    fuelCost: 20
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -175,6 +164,18 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: Strap
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 360
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - TableLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 9
@@ -279,6 +280,18 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     noRot: true
   - type: Strap
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 360
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - TableLayer
   - type: ItemSlots
     slots:
       key_slot:
@@ -351,3 +364,90 @@
       containers:
         key_slot:
         - VehicleKeyATV
+
+- type: entity
+  id: VehicleClownCar
+  parent: BaseVehicleRideableDamageable
+  name: Clown Car
+  description: What sort of horrors lie within...
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 10
+    baseSprintSpeed: 15
+  - type: Vehicle
+    acceleration: 2
+    friction: 4.5
+    frictionNoInput: 4.5
+    requireIgnition: true 
+    baseState: clowncar
+    startupTime: 2
+    startUp: 
+      path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+      params:
+        volume: -3
+    hornSound: 
+      path: /Audio/Effects/Vehicle/carhorn.ogg
+      params:
+        volume: -3
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _FarHorizons/Objects/Vehicles/clown.rsi
+    scale: 1.5, 1.5
+    layers:
+    - state: clowncar
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    noRot: true
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: Keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ATVKeys
+  - type: ContainerContainer
+    containers:
+      key_slot: !type:ContainerSlot
+      entity_storage: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      fueltank:
+        maxVol: 150
+  - type: RefillableSolution
+    solution: fueltank
+  - type: ExaminableSolution
+    solution: fueltank
+    exactVolume: true
+  - type: ReagantDraw
+    enabled: false
+    solutionContainer: fueltank
+    whitelistedReagants: 
+    - WeldingFuel
+    drainRate: 0.25
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 10
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_FarHorizons/Vehicles/atvwalk.ogg
+      params:
+        volume: -11
+        pitch: 1.15
+        variation: 0.10
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 360
+        restitution: 0.0
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
