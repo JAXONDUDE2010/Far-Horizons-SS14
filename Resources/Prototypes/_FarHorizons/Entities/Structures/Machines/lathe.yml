@@ -1,11 +1,13 @@
 - type: entity
   id: SyndicateAutolathe
   parent: BaseLatheLube
-  name: EVIl Autolathe #TODO: Proper Name
+  name: EVIL Autolathe 
+  #TODO: Proper Name
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
   - type: Sprite
-    sprite: _FarHorizons\Structures\Machines\syndicateautolathe.rsi #TODO: CUSTOM SPRITE
+    sprite: _FarHorizons/Structures/Machines/syndicateautolathe.rsi 
+    #TODO: CUSTOM SPRITE
     snapCardinals: true
     layers:
     - state: icon
