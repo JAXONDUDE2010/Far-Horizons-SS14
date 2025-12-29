@@ -1,27 +1,64 @@
 - type: entity
-  id: SyndicateAutolatheMachineCircuitboard
+  id: AutofabMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: EVIL autolathe machine board #TODO: Better Name
-  description: A machine printed circuit board for an autolathe.
+  name: Autofab Machine Board
+  description: A machine printed circuit board for an Autofab.
   components:
     - type: MachineBoard
-      prototype: SyndicateAutolathe
+      prototype: Autofab
       stackRequirements:
         Manipulator: 4
         Glass: 1
 
 - type: entity
   parent: BaseMachineCircuitboard
-  id: SyndicateAutolatheSubzeroMachineCircuitboard
-  name: EVIL hyper convection autolathe machine board
-  description: A machine printed circuit board for a hyper convection autolathe.
+  id: AutofabSubzeroMachineCircuitboard
+  name: Subzero Autofab Machine Board
+  description: A machine printed circuit board for a hyper convection Autofab.
   components:
   - type: MachineBoard
-    prototype: SyndicateAutolatheSubzero
+    prototype: AutofabSubzero
     stackRequirements:
       Manipulator: 3
       Glass: 1
     tagRequirements:
+      Igniter:
+        amount: 1
+        defaultPrototype: Igniter
+
+- type: entity
+  id: ProtofabMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Protofab Machine Board
+  description: A machine printed circuit board for a Protofab.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: Protofab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ProtofabSubzeroMachineCircuitboard
+  name: Subzero Protofab Machine Board
+  description: A machine printed circuit board for a Subzero Protofab.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: ProtofabHyperConvection
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
       Igniter:
         amount: 1
         defaultPrototype: Igniter

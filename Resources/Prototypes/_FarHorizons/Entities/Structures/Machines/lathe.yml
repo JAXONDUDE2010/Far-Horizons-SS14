@@ -1,27 +1,24 @@
 - type: entity
   abstract: true
-  id: BaseSubzerolathe
+  id: BaseSubzerofab
   components:
   - type: Lathe
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
-  - type: LatheHeatProducing
-    EnergyPerSecond: -30000
+  - type: LatheHeatProducing #TODO: Find way to make negative using YML
   - type: ReagentSpeed
     modifiers:
-      SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
-      SpaceGlue: 5 # no change from normal lathe, overheat!!!
+      SpaceLube: 0.8
+      SpaceGlue: 5
 
 - type: entity
-  id: SyndicateAutolathe
+  id: Autofab
   parent: BaseLatheLube
-  name: EVIL Autolathe 
-  #TODO: Proper Name
+  name: Autofab 
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Machines/syndicateautolathe.rsi 
-    #TODO: CUSTOM SPRITE
+    sprite: _FarHorizons/Structures/Machines/autofab.rsi #TODO: CUSTOM SPRITE
     snapCardinals: true
     layers:
     - state: icon
@@ -34,7 +31,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
-    board: SyndicateAutolatheMachineCircuitboard
+    board: AutofabMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -80,12 +77,87 @@
     - blueprint
 
 - type: entity
-  id: SyndicateAutolatheSubzero
-  parent: [SyndicateAutolathe, BaseSubzerolathe]
-  name: EVIL hyper convection autolathe
-  description: A highly-experimental autolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
+  id: AutofabSubzero
+  parent: [Autofab, BaseSubzerofab]
+  name: Subzero Autofab
+  description: A highly-experimental Autofab that harnesses the power of extreme Cold to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe_hypercon.rsi #TODO: CUSTOM SPRITE
   - type: Machine
-    board: SyndicateAutolatheSubzeroMachineCircuitboard
+    board: AutofabSubzeroMachineCircuitboard
+
+- type: entity
+  id: Protofab
+  parent: BaseLatheLube
+  name: Protofab
+  description: Converts raw materials into advanced items.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/protolathe.rsi #TODO: CUSTOM SPRITE
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ProtofabMachineCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ChemistryStatic
+    dynamicPacks: #TODO: Syndicate Packs
+    - AdvancedTools
+    - ScienceEquipment
+    - ScienceExplosives
+    - ScienceClothing
+    - PowerCells
+    - ScienceWeapons
+    - Mining
+    - AtmosTools
+    - EngineeringWeapons
+    - Chemistry
+    - Janitor
+    - Instruments
+    - Equipment
+    - StarlightProtolatheLootable
+  - type: EmagLatheRecipes
+    emagDynamicPacks: #TODO: EMAG
+    - StarlightSurgeryDynamic
+    - StarlightCyberlimbDynamic
+    - StarlightCyberOrgansDynamic
+    - StarlightImplantDynamic
+    - StarlightBudgetCyberOrgansDynamic
+
+    - StarlightSecurityAmmoDynamic
+    - StarlightSecurityExplosives
+    - StarlightSecurityEquipment
+    - StarlightSecurityWeapons
+    - StarlightDefenseStatic
+
+- type: entity
+  id: ProtofabSubzero
+  parent: [Protofab, BaseSubzerofab]
+  name: Subzero Protofab
+  description: A highly-experimental Protofab that harnesses the power of extreme Cold to slowly create objects more cost-effectively.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/protolathe_hypercon.rsi
+  - type: Machine
+    board: ProtofabSubzeroMachineCircuitboard
