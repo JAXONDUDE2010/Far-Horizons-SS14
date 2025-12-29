@@ -1,0 +1,64 @@
+- type: entity
+  id: SyndicateAutolathe
+  parent: BaseLatheLube
+  name: EVIl Autolathe #TODO: Proper Name
+  description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons\Structures\Machines\syndicateautolathe.rsi #TODO: CUSTOM SPRITE
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: SyndicateAutolatheMachineCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - PaperworkStatic
+    - CargoStatic
+    - MaterialsStatic
+    - BasicChemistryStatic
+    - RollerBedsStatic
+    - LightsStatic
+    - ServiceStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
+#    dynamicPacks:
+    #NEEDS SYNDICATE DYNAMICS
+#  - type: EmagLatheRecipes
+#    emagStaticPacks:
+    #NEEDS SYNDICATE EMAG RECIPIES
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
