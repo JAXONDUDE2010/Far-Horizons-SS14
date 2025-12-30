@@ -36,15 +36,16 @@
   # 🌟Starlight-start🌟
   - type: ItemPrice
     priceCategory: miscellaneous
+  # 🌟Starlight-end🌟
+  #FarHorizons Start
   - type: Retractor
-  - type: SurgeryTool
-    successRate: 0.6 # really not ideal, but in a pinch...
-    speed: 1.5
+    speed: 2.7 #FarHorizons
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Starlight/Medical/Surgery/retractor2.ogg
-  # 🌟Starlight-end🌟
+  - type: SurgeryTool
+  #FarHorizons End
 
 - type: entity
   id: CableHVStack
@@ -83,6 +84,29 @@
           Quantity: 2
         - ReagentId: Carbon #steel-reinforced
           Quantity: 1
+  - type: ConditionalHealing
+    healingDefinitions:
+      - allowedTags: [ IPC, Protogen, ProtoArachnid, ProtoAvali, ProtoCyclops, ProtoDawi, ProtoDionae, ProtoFeline, ProtoHumie, ProtoMoth, ProtoReptile, ProtoResomi, ProtoSlimePerson, ProtoThaven, ProtoVox, ProtoVulp, ProtoKin ]
+        healing:
+          damageContainers:
+            - Biological
+          delay: 2
+          damage:
+            types:
+              Heat: -10
+              Cold: -10
+              Shock: -10
+              Caustic: -10
+          healingBeginSound:
+            path: "/Audio/Items/Medical/ointment_begin.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
+          healingEndSound:
+            path: "/Audio/Items/Medical/ointment_end.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
 
 - type: entity
   parent: CableHVStack
@@ -139,6 +163,29 @@
           Quantity: 3
         - ReagentId: Copper
           Quantity: 2
+  - type: ConditionalHealing
+    healingDefinitions:
+      - allowedTags: [ IPC, Protogen, ProtoArachnid, ProtoAvali, ProtoCyclops, ProtoDawi, ProtoDionae, ProtoFeline, ProtoHumie, ProtoMoth, ProtoReptile, ProtoResomi, ProtoSlimePerson, ProtoThaven, ProtoVox, ProtoVulp, ProtoKin ]
+        healing:
+          damageContainers:
+            - Biological
+          delay: 2
+          damage:
+            types:
+              Heat: -5
+              Cold: -5
+              Shock: -5
+              Caustic: -2
+          healingBeginSound:
+            path: "/Audio/Items/Medical/ointment_begin.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
+          healingEndSound:
+            path: "/Audio/Items/Medical/ointment_end.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
 
 - type: entity
   parent: CableMVStack
@@ -194,6 +241,28 @@
           Quantity: 3
         - ReagentId: Copper
           Quantity: 2
+  - type: ConditionalHealing
+    healingDefinitions:
+      - allowedTags: [ IPC, Protogen, ProtoArachnid, ProtoAvali, ProtoCyclops, ProtoDawi, ProtoDionae, ProtoFeline, ProtoHumie, ProtoMoth, ProtoReptile, ProtoResomi, ProtoSlimePerson, ProtoThaven, ProtoVox, ProtoVulp, ProtoKin ]
+        healing:
+          damageContainers:
+            - Biological
+          delay: 2
+          damage:
+            types:
+              Heat: -3
+              Cold: -3
+              Shock: -3
+          healingBeginSound:
+            path: "/Audio/Items/Medical/ointment_begin.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
+          healingEndSound:
+            path: "/Audio/Items/Medical/ointment_end.ogg"
+            params:
+              volume: 1.0
+              variation: 0.125
 
 - type: entity
   parent: CableApcStack

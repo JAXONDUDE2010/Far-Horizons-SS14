@@ -7,7 +7,7 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 9000 # 2.5 hrs
-  icon: "JobIconShaftMiner"
+  icon: "JobIconSalvageSpec" # Starlight - New distinct icon
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
   canBeAntag: false
@@ -16,6 +16,8 @@
   - Salvage
   - Maintenance
   - External
+  extendedAccess:
+  - Mining # Starlight
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -23,9 +25,10 @@
 - type: startingGear
   id: SalvageSpecialistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
-    id: SalvagePDA
+    #id: SalvagePDA #Far Horizons - Disabling because you spawn with one from loadout.
     ears: ClothingHeadsetCargo
+    belt: ClothingBeltSalvageWebbing #Far Horizons
+    gloves: ClothingHandsGlovesCargo #Far Horizons
   #storage:
     #back:
     #- Stuff
@@ -38,6 +41,7 @@
     eyes: ClothingEyesGlassesCheapSunglasses
     mask: ClothingMaskGasExplorer
     outerClothing: ClothingOuterWinterMiner
+    belt: ClothingBeltSalvageWebbing #Far Horizons
     neck: ClothingNeckScarfStripedBrown
-    gloves: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesCargo #Far Horizons
 

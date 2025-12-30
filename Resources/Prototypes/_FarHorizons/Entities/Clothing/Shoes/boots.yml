@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsBrightPerformer
+  name: bright performer's boots
+  description: These boots provide great traction for when you're up on stage.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Shoes/Boots/bright-performer.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Shoes/Boots/bright-performer.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsCargo
+  name: cargo boots
+  description: Some rugged boots for giving the cargo department plenty of traction.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Shoes/Boots/cargotech.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Shoes/Boots/cargotech.rsi
+  - type: Matchbox

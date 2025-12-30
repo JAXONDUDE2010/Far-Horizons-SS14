@@ -3,16 +3,17 @@
   name: guide-entry-science
   text: "/ServerInfo/Guidebook/Science/Science.xml"
   children:
-  - Technologies
+#  - Technologies # Far Horizons edit
   - AnomalousResearch
   - Xenoarchaeology
   - Robotics
 
-- type: guideEntry
-  id: Technologies
-  name: guide-entry-technologies
-  text: "/ServerInfo/Guidebook/Science/Technologies.xml"
-  filterEnabled: True
+# Far Horizons edit
+# - type: guideEntry
+#   id: Technologies
+#   name: guide-entry-technologies
+#   text: "/ServerInfo/Guidebook/Science/Technologies.xml"
+#   filterEnabled: True
 
 - type: guideEntry
   id: AnomalousResearch

@@ -10,13 +10,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -62,16 +55,6 @@
   - WeaponTetherGun
   - WeaponGauntletGorilla
 
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
-
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
   id: ScienceExplosives
@@ -100,6 +83,7 @@
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  - ResearchTreeMapElectronics #FH
 
 - type: latheRecipePack
   id: CameraBoards
@@ -131,3 +115,4 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  - WallmountMassScannerElectronics # Starlight

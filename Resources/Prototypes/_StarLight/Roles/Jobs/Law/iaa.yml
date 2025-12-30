@@ -17,12 +17,12 @@
   canBeAntag: false
   displayWeight: 40
   access:
-  - Service
   - Brig
   - Maintenance
-  - External
   - Lawyer
   - Command #Far Horizons
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

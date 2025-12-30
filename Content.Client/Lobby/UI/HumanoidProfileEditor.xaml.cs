@@ -9,6 +9,10 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
+// Cosmatic Drift Record System-start
+using Content.Client._CD.Records.UI;
+using Content.Shared._CD.Records;
+// Cosmatic Drift Record System-end
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Guidebook;
@@ -120,6 +124,10 @@ namespace Content.Client.Lobby.UI
         private List<VoicePrototype> _voices = [];
 
         private List<VoicePrototype> _siliconVoices = []; // 🌟Starlight🌟
+
+        // Cosmatic Drift Record System-start
+        private readonly RecordEditorGui _recordsTab; // Tracks CD records UI state
+        // Cosmatic Drift Record System-end
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -259,6 +267,17 @@ namespace Content.Client.Lobby.UI
                 UpdateCustomSpecieNameEdit(); // Starlight
             };
 
+            UpdateSubspecies();
+            // Far Horizons start
+            SubspeciesButton.OnItemSelected += args =>
+            {
+                SubspeciesButton.SelectId(args.Id);
+                SetSpecies(_subspecies[args.Id].ID);
+                UpdateHairPickers();
+                UpdateCustomSpecieNameEdit(); // Starlight
+            };
+            // Far Horizons end
+
             //starlight start
             #region Size
             UpdateSizeControls();
@@ -275,7 +294,7 @@ namespace Content.Client.Lobby.UI
 
             WidthResetButton.OnPressed += _ =>
             {
-                if(Profile is null) return;
+                if (Profile is null) return;
                 if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesPrototype)) WidthSlider.Value = speciesPrototype.DefaultWidth;
             };
 
@@ -559,6 +578,9 @@ namespace Content.Client.Lobby.UI
                 _ => _entManager.System<TextToSpeechSystem>().RequestPreviewTts(Profile?.SiliconVoice ?? "");
 
             SetupTabs();
+            // Cosmatic Drift Record System-start
+            _recordsTab = CreateRecordEditorTab(); // Instantiate the CD record editor UI
+            // Cosmatic Drift Record System-end
             SetupInfoEditors();
             RefreshCharacterInfo();
             // 🌟Starlight🌟 end
@@ -603,6 +625,23 @@ namespace Content.Client.Lobby.UI
             TabContainer.SetTabTitle(6, Loc.GetString("humanoid-profile-editor-ic-info-tab"));
             TabContainer.SetTabTitle(7, Loc.GetString("humanoid-profile-editor-ooc-info-tab"));
         }
+        // Cosmatic Drift Record System-start: Build the CD record editor tab and hook persistence callbacks
+        private RecordEditorGui CreateRecordEditorTab()
+        {
+            // Create the record editor in code so that we can provide a callback for saving edits back to the profile.
+            var recordEditor = new RecordEditorGui(UpdateProfileRecords)
+            {
+                HorizontalExpand = true,
+                VerticalExpand = true
+            };
+
+            TabContainer.AddChild(recordEditor);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-cd-records-tab"));
+            recordEditor.Update(Profile);
+            return recordEditor;
+        }
+        // Cosmatic Drift Record System-end
+
         private void UpdateSiliconVoicesControls()
         {
             if (Profile is null)
@@ -671,7 +710,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshTraits()
         {
-            TraitsList.DisposeAllChildren();
+            TraitsList.RemoveAllChildren();
 
             var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
 
@@ -791,10 +830,15 @@ namespace Content.Client.Lobby.UI
 
             for (var i = 0; i < _species.Count; i++)
             {
+                // Far Horizons, hide subspecies from list
+                if (_species[i].SubspeciesOf != null)
+                    continue;
+
                 var name = Loc.GetString(_species[i].Name);
                 SpeciesButton.AddItem(name, i);
 
-                if (Profile?.Species.Equals(_species[i].ID) == true)
+                if (Profile?.Species.Equals(_species[i].ID) == true || 
+                    _species.Find(p => p.ID == Profile?.Species)?.SubspeciesOf == _species[i].ID) // Far Horizons
                 {
                     SpeciesButton.SelectId(i);
                 }
@@ -803,7 +847,9 @@ namespace Content.Client.Lobby.UI
             // If our species isn't available then reset it to default.
             if (Profile != null)
             {
-                if (!speciesIds.Contains(Profile.Species))
+                // Far Horizons
+                var parentSpecies = _species.Find(p => p.ID == Profile?.Species)?.SubspeciesOf ?? Profile.Species;
+                if (!speciesIds.Contains(parentSpecies))
                 {
                     SetSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
                 }
@@ -812,7 +858,7 @@ namespace Content.Client.Lobby.UI
 
         public void RefreshAntags()
         {
-            AntagList.DisposeAllChildren();
+            AntagList.RemoveAllChildren();
             var items = new[]
             {
                 ("humanoid-profile-editor-antag-preference-yes-button", 0),
@@ -926,6 +972,7 @@ namespace Content.Client.Lobby.UI
             JobOverride = null;
 
             UpdateNameEdit();
+            UpdateSubspecies(); // Far Horizons
             UpdateCustomSpecieNameEdit(); // Starlight
             UpdateCharacterInfoEditorText(); //Starlight
             UpdateSexControls();
@@ -943,12 +990,17 @@ namespace Content.Client.Lobby.UI
             UpdateVoicesControls();
             UpdateSiliconVoicesControls(); // 🌟Starlight🌟
             UpdateCybernetics(); // Starlight
+            UpdateSpeciesLoadout(); // Far Horizons
 
             RefreshAntags();
             RefreshJobs();
             RefreshLoadouts();
             RefreshSpecies();
             RefreshTraits();
+            // Ensure the record editor reflects the freshly-loaded profile data.
+            // Cosmatic Drift Record System-start
+            _recordsTab.Update(Profile); // Refresh record editor when a profile is loaded
+            // Cosmatic Drift Record System-end
             RefreshCharacterInfo(); //starlight
             Preview.Initialize(this, _entManager, _preferencesManager, _prototypeManager, _playerManager, _factions); // Far Horizons factions
             ReloadPreview();
@@ -968,7 +1020,6 @@ namespace Content.Client.Lobby.UI
             SetProfile(humanoid, slot);
         }
 
-
         /// <summary>
         /// A slim reload that only updates the entity itself and not any of the job entities, etc.
         /// </summary>
@@ -986,7 +1037,11 @@ namespace Content.Client.Lobby.UI
             // I.e., do what jobs/antags do.
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
+            // Far Horizons start
+            var speciesId = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
+            var speciesProto = _species.Find(p => p.ID == speciesId) ?? _species.First();
+            var species = speciesProto.SubspeciesOf ?? speciesProto.ID;
+            // Far Horizons end
             var page = DefaultSpeciesGuidebook;
             if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 page = new ProtoId<GuideEntryPrototype>(species.Id); // Gross. See above todo comment.
@@ -1005,7 +1060,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshJobs()
         {
-            JobList.DisposeAllChildren();
+            JobList.RemoveAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
 
@@ -1318,42 +1373,43 @@ namespace Content.Client.Lobby.UI
             switch (strategy.InputType)
             {
                 case SkinColorationStrategyInput.Unary:
-                {
-                    if (!Skin.Visible)
                     {
-                        Skin.Visible = true;
-                        RgbSkinColorContainer.Visible = false;
+                        if (!Skin.Visible)
+                        {
+                            Skin.Visible = true;
+                            RgbSkinColorContainer.Visible = false;
+                        }
+
+                        var color = strategy.FromUnary(Skin.Value);
+
+                        Markings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+
+                        break;
                     }
-
-                    var color = strategy.FromUnary(Skin.Value);
-
-                    Markings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-
-                    break;
-                }
                 case SkinColorationStrategyInput.Color:
-                {
-                    if (!RgbSkinColorContainer.Visible)
                     {
-                        Skin.Visible = false;
-                        RgbSkinColorContainer.Visible = true;
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
+
+                        Markings.CurrentSkinColor = color;
+                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+
+                        break;
                     }
-
-                    var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
-
-                    Markings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-
-                    break;
-                }
             }
 
             ReloadProfilePreview();
         }
 
         // Starlight
-        private void OnCyberneticsUpdated(List<CyberneticImplant> cybernetics) {
+        private void OnCyberneticsUpdated(List<CyberneticImplant> cybernetics)
+        {
             Profile = Profile?.WithCybernetics(cybernetics.Select(p => p.ID).ToList());
             ReloadPreview();
         }
@@ -1405,13 +1461,16 @@ namespace Content.Client.Lobby.UI
         }
 
         //starlight start
-        private void UpdateSizeText() {
-            if(Profile is null) return;
-            if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesPrototype)) {
+        private void UpdateSizeText()
+        {
+            if (Profile is null) return;
+            if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesPrototype))
+            {
                 var height = speciesPrototype.StandardSize * (Profile.Appearance.Height - 1f) * 2f + speciesPrototype.StandardSize;
                 var weight = speciesPrototype.StandardWeight + speciesPrototype.StandardDensity * (Profile.Appearance.Width * Profile.Appearance.Height * Profile.Appearance.Height - 1);
                 HeightDescribeLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", Math.Round(height)));
                 WidthDescribeLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("weight", Math.Round(weight, 1)));
+                _recordsTab?.UpdateComputedMetrics(Profile); // Chromatic Drift Records: Update the records tab with new computed metrics
             }
         }
 
@@ -1435,6 +1494,7 @@ namespace Content.Client.Lobby.UI
         private void SetSpecies(string newSpecies)
         {
             Profile = Profile?.WithSpecies(newSpecies);
+            UpdateSubspecies(); // Far Horizons
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
             // In case there's job restrictions for the species
@@ -1444,6 +1504,7 @@ namespace Content.Client.Lobby.UI
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             UpdateSizeControls(); //starlight
+            UpdateSpeciesLoadout(); // Far Horizons
             ReloadPreview();
         }
 
@@ -1471,6 +1532,18 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
             SetDirty();
         }
+        // Cosmatic Drift Record System-start: Persist in-editor record edits back into the profile model
+        private void UpdateProfileRecords(PlayerProvidedCharacterRecords records)
+        {
+            if (Profile is null)
+                return;
+
+            // Persist the record edits on the working profile so they will be saved later.
+            // Store the freshly edited records back onto the profile blob.
+            Profile = Profile.WithCDCharacterRecords(records);
+            SetDirty();
+        }
+        // Cosmatic Drift Record System-end
 
         public bool IsDirty
         {
@@ -1593,29 +1666,29 @@ namespace Content.Client.Lobby.UI
             switch (strategy.InputType)
             {
                 case SkinColorationStrategyInput.Unary:
-                {
-                    if (!Skin.Visible)
                     {
-                        Skin.Visible = true;
-                        RgbSkinColorContainer.Visible = false;
+                        if (!Skin.Visible)
+                        {
+                            Skin.Visible = true;
+                            RgbSkinColorContainer.Visible = false;
+                        }
+
+                        Skin.Value = strategy.ToUnary(Profile.Appearance.SkinColor);
+
+                        break;
                     }
-
-                    Skin.Value = strategy.ToUnary(Profile.Appearance.SkinColor);
-
-                    break;
-                }
                 case SkinColorationStrategyInput.Color:
-                {
-                    if (!RgbSkinColorContainer.Visible)
                     {
-                        Skin.Visible = false;
-                        RgbSkinColorContainer.Visible = true;
+                        if (!RgbSkinColorContainer.Visible)
+                        {
+                            Skin.Visible = false;
+                            RgbSkinColorContainer.Visible = true;
+                        }
+
+                        _rgbSkinColorSelector.Color = strategy.ClosestSkinColor(Profile.Appearance.SkinColor);
+
+                        break;
                     }
-
-                    _rgbSkinColorSelector.Color = strategy.ClosestSkinColor(Profile.Appearance.SkinColor);
-
-                    break;
-                }
             }
         }
 
@@ -1623,15 +1696,14 @@ namespace Content.Client.Lobby.UI
         {
             SpeciesInfoButton.StyleClasses.Clear();
 
-            var species = Profile?.Species;
-            if (species is null)
-                return;
+            var species = Profile?.Species ?? _species.First(); // Far Horizons
 
             if (!_prototypeManager.Resolve<SpeciesPrototype>(species, out var speciesProto))
                 return;
 
             // Don't display the info button if no guide entry is found
-            if (!_prototypeManager.HasIndex<GuideEntryPrototype>(species))
+            // Far Horizons, guide book from paren species
+            if (!_prototypeManager.HasIndex<GuideEntryPrototype>(speciesProto.SubspeciesOf ?? species))
                 return;
 
             const string style = "SpeciesInfoDefault";
@@ -1775,7 +1847,8 @@ namespace Content.Client.Lobby.UI
         }
 
         // Starlight
-        private void UpdateCybernetics(){
+        private void UpdateCybernetics()
+        {
             if (Profile is null)
             {
                 return;
@@ -1882,3 +1955,4 @@ namespace Content.Client.Lobby.UI
         }
     }
 }
+

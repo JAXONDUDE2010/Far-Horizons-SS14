@@ -6,7 +6,6 @@ using Content.Server.Body.Systems;
 using Content.Server._FarHorizons.Factions;
 using Content.Server.GameTicking;
 using Content.Server.Humanoid;
-using Content.Server.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
@@ -20,6 +19,7 @@ using Content.Shared.DetailExaminable;
 using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.IdentityManagement;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -197,6 +197,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(_factions.OverrideJobStartingGear((factionProto?.ID, prototype))!); // Far Horizons starting gear faction override
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
         }
+
+        // Far Horizons species loadouts
+        if (species.Loadout != null && _prototypeManager.TryIndex(species.Loadout.Value, out var speciesLoadoutProto) && profile != null && profile.SpeciesLoadout != null)
+            EquipRoleLoadout(entity.Value, profile.SpeciesLoadout, speciesLoadoutProto);
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);

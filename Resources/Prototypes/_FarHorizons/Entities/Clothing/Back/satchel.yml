@@ -1,3 +1,27 @@
+# Cargo
+
+- type: entity
+  parent: [ ClothingBackpackSatchel, BaseCargoContraband ] 
+  id: ClothingBackpackSatchelMining
+  name: mining satchel
+  description: It's a well worn satchel covered in asteroid dust and scuff marks from rocks hitting it.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Back/Satchels/mining.rsi
+
+# Medical
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelParamedic
+  name: paramedic satchel
+  description: A medical satchel that has seen a fair amount of use in the depths of space.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Back/Satchels/paramedic.rsi
+
+# Security
+
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelCorpsman

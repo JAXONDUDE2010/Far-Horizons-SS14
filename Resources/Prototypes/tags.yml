@@ -569,6 +569,9 @@
   id: DurandRLeg
 
 - type: Tag
+  id: Dwarf  # Far Horizons
+
+- type: Tag
   id: Ectoplasm
 
 - type: Tag
@@ -760,6 +763,9 @@
 
 - type: Tag
   id: HudSecurity
+
+- type: Tag
+  id: Human  # Far Horizons
 
 - type: Tag
   id: GuideEmbeded
@@ -1078,6 +1084,9 @@
   id: MopBasic
 
 - type: Tag
+  id: Moth  # Far Horizons
+
+- type: Tag
   id: Mouse
 
 - type: Tag
@@ -1266,6 +1275,9 @@
 - type: Tag
   id: RawMaterial
 
+- type: Tag
+  id: ReactorPart #FarHorizons
+
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
   id: Recyclable
@@ -1275,6 +1287,9 @@
 
 - type: Tag
   id: RemoteSignaller
+
+- type: Tag
+  id: Reptilian  # Far Horizons
 
 - type: Tag
   id: ReptilianFood
@@ -1394,6 +1409,9 @@
   id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
+  id: SlimePerson  # Far Horizons
+
+- type: Tag
   id: SlowImmune
 
 - type: Tag
@@ -1462,6 +1480,9 @@
 
 - type: Tag
   id: StationAi
+
+- type: Tag
+  id: StationAiCoreElectronics
 
 - type: Tag
   id: StationMapElectronics
@@ -1585,6 +1606,12 @@
 
 - type: Tag
   id: VoiceTrigger
+
+- type: Tag
+  id: Vox  # Far Horizons
+
+- type: Tag
+  id: Vulpkanin  # Far Horizons
 
 - type: Tag
   id: Wall

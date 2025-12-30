@@ -1,0 +1,96 @@
+# Hat
+
+- type: loadout
+  id: ChemistBeret
+  equipment:
+    head: ClothingHeadHatBeretChemist
+
+- type: loadout
+  id: VirologyBeret
+  equipment:
+    head: ClothingHeadHatBeretVirologist
+
+# Uniform
+
+- type: loadout
+  id: VirologyJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVirology
+
+- type: loadout
+  id: VirologyJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtVirology
+
+# Backpack
+
+- type: loadout
+  id: ParamedicBackpack
+  equipment:
+    back: ClothingBackpackParamedic
+
+- type: loadout
+  id: VirologyBackpack
+  equipment:
+    back: ClothingBackpackVirology
+
+# Duffel
+
+- type: loadout
+  id: ParamedicDuffel
+  equipment:
+    back: ClothingBackpackDuffelParamedic
+    
+- type: loadout
+  id: VirologyDuffel
+  equipment:
+    back: ClothingBackpackDuffelVirology
+
+# PDA
+
+- type: loadout
+  id: SurgeonPDA
+  equipment:
+    id: SurgeonPDA
+
+- type: loadout
+  id: SeniorSurgeonPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    id: SeniorSurgeonPDA
+
+# Satchel
+
+- type: loadout
+  id: ParamedicSatchel
+  equipment:
+    back: ClothingBackpackSatchelParamedic
+    
+- type: loadout
+  id: VirologySatchel
+  equipment:
+    back: ClothingBackpackSatchelVirology
+
+# Surgeon Equipment
+
+- type: loadout
+  id: SurgeonEquipment
+  dummyEntity: LoadoutDummySurgeonEquipment
+  storage:
+    back:
+    - Scalpel 
+    - BoneGel
+    - Retractor
+    - Hemostat
+    - BoneSetter
+    - Cautery
+    - Saw
+  equipment:
+    pocket1: Drill
+
+- type: loadout
+  id: SurgeonDuffel
+  inhand:
+    - ClothingBackpackDuffelSurgeryFilled

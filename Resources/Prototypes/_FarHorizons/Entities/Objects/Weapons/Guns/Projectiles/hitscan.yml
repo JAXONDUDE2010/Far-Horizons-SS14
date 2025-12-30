@@ -96,7 +96,7 @@
 
 - type: hitscan
   id: DestroyBeamDominator
-  name: destroying beam
+  name: Destroying Beam #Far Horizons - The Great Capitalization Crusade
   parent: LaserTrace
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -113,7 +113,7 @@
 
 - type: hitscan
   id: RedLaserBeamDominator
-  name: laser beam
+  name: Laser Beam #Far Horizons - The Great Capitalization Crusade
   parent: LaserTrace
   damage:
     types:

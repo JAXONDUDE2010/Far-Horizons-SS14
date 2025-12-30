@@ -1,3 +1,27 @@
+# Cargo
+
+- type: entity
+  parent: [ ClothingBackpackDuffel, BaseCargoContraband ] 
+  id: ClothingBackpackDuffelMining
+  name: mining duffel bag
+  description: It's a well worn duffel bag covered in asteroid dust and scuff marks from rocks hitting it.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Back/Duffels/mining.rsi
+
+# Medical
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelParamedic
+  name: paramedic duffel bag
+  description: A large duffel bag for holding extra medical supplies for in the depths of space.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Back/Duffels/paramedic.rsi
+
+# Security
+
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSecurityContraband]
   id: ClothingBackpackDuffelCorpsman

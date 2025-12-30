@@ -1,0 +1,37 @@
+- type: entity
+  parent: [BaseStructureFlatpack, BaseEngineeringContraband]
+  id: NuclearReactorFlatpack
+  name: nuclear reactor flatpack
+  description: A flatpack used for constructing a nuclear reactor. Parts sold separately.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/flatpack.rsi
+    layers:
+    - state: large
+  - type: Flatpack
+    entity: NuclearReactorEmpty
+
+- type: entity
+  parent: [BaseStructureFlatpack, BaseEngineeringContraband]
+  id: GasTurbineFlatpack
+  name: gas turbine flatpack
+  description: A flatpack used for constructing a gas turbine.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/flatpack.rsi
+    layers:
+    - state: large
+  - type: Flatpack
+    entity: Turbine
+
+- type: entity
+  parent: BaseFlatpack
+  id: PTKFlatpack
+  name: PTK-800 Flatpack
+  description: A flatpack used for constructing a PTK-800 "Matter Dematerializer".
+  components:
+  - type: Flatpack
+    entity: ShuttleGunKinetic
+  - type: Sprite
+    layers:
+    - state: emitter

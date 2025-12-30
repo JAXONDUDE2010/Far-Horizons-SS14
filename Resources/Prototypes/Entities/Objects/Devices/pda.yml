@@ -64,7 +64,8 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
+    radius: 1.7
+    falloff: 3
     softness: 5
     autoRot: true
   - type: Ringer
@@ -108,6 +109,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.IntegrityAnalyzerUiKey.Key: #FarHorizons
+        type: IntegrityAnalyzerBoundUserInterface #FarHorizons
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -170,6 +173,22 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+
+#FarHorizons Start
+- type: entity
+  parent: BasePDA
+  id: BaseEngineerPDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - HullSenseCartridge
+#FarHorizons End
 
 - type: entity
   parent: BasePDA
@@ -716,7 +735,7 @@
     state: pda-hop
 
 - type: entity
-  parent: BasePDA
+  parent: BaseEngineerPDA #FarHorizons
   id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
@@ -735,7 +754,7 @@
     state: pda-ce
 
 - type: entity
-  parent: BasePDA
+  parent: BaseEngineerPDA #FarHorizons
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -981,6 +1000,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - HullSenseCartridge #FarHorizons
 
 - type: entity
   parent: CentcomPDA
@@ -1007,6 +1027,7 @@
       - WantedListCartridge
       - MedTekCartridge
       - AstroNavCartridge
+      - HullSenseCartridge #FarHorizons
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1062,7 +1083,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: BaseEngineerPDA #FarHorizons
   id: AtmosPDA
   name: atmos PDA
   description: Still smells like plasma.
@@ -1110,7 +1131,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: [ BasePDA, BaseSyndicateContraband ]
+  parent: [ BaseNukeOpsPDA, BaseSyndicateContraband ] #FH edit
   id: SyndiPDA
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
@@ -1131,6 +1152,60 @@
     preinstalled:
       - NotekeeperCartridge
       - NanoTaskCartridge
+
+- type: entity
+  parent: [ SyndiPDA, BaseSyndicateContraband ]
+  id: SyndiOperativePDA
+  name: syndicate operative PDA
+  description: Death to NT!
+  components:
+  - type: Pda
+    id: SyndiOperativeIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi
+  - type: Icon
+    state: pda-syndi
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCorpsmanPDA
+  name: syndicate corpsman PDA
+  description: Commander... I need to cook!
+  components:
+  - type: Pda
+    id: SyndiCorpsmanIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi-agent
+  - type: Icon
+    state: pda-syndi-agent
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - MedTekCartridge
+
+- type: entity
+  parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
+  id: SyndiCommanderPDA
+  name: syndicate commander PDA
+  description: So what are we, some kind of Nukie squad?
+  components:
+  - type: Pda
+    id: SyndiCommanderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-syndi
+  - type: Icon
+    state: pda-syndi
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1163,6 +1238,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - HullSenseCartridge #FarHorizons
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1424,7 +1500,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BasePDA
+  parent: BaseEngineerPDA #FarHorizons
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
@@ -1535,31 +1611,6 @@
        pda-pirate
   - type: Icon
     state: pda-pirate
-
-- type: entity
-  parent: [ BaseMedicalPDA, BaseSyndicateContraband ]
-  id: SyndiAgentPDA
-  name: syndicate corpsman PDA
-  description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
-  components:
-  - type: Pda
-    id: SyndicateAgentIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-syndi-agent
-  - type: PdaBorderColor
-    borderColor: "#891417"
-    accentVColor: "#FFFFFF"
-  - type: Icon
-    state: pda-syndi-agent
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
 
 - type: entity
   parent: [BasePDA, SelectableLock]

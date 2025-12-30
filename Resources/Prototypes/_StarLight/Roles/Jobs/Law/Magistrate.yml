@@ -30,15 +30,10 @@
   - Lawyer
   - Brig
   - Security
-  - Medical
-  - Research
-  - Engineering
-  - Cargo
-  - Salvage
   - Command
   - Maintenance
-  extendedAccess:
-  - Hydroponics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -51,9 +46,9 @@
   equipment:
     #jumpsuit: MagistrateUniformSuit #Far Horizons
     #shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity #Far Horizons
     gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterRobesJudge
+    #outerClothing: ClothingOuterRobesJudge #Far Horizons
     id: MagistratePDA
     ears: ClothingHeadsetMagistrate
     #head: ClothingHeadHatPwig #Far Horizons

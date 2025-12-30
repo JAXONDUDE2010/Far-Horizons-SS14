@@ -14,3 +14,9 @@
     - SpeedLoaderShotgunBeanbag
     - SpeedLoaderShotgunBeanbag
     - SpeedLoaderMagnumBasic
+
+# Eyes
+- type: loadout
+  id: BrigmedicVisor
+  equipment:
+    eyes: ClothingEyesVisorBrigmedic

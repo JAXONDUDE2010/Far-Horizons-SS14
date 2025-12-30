@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -13,6 +14,13 @@ using Content.Shared.Starlight.Medical.Surgery.Steps;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+//FarHorizons Start
+using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
+using Content.Shared.Stunnable;
+using Content.Shared.Medical.Healing;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+//FarHorizons End
 
 namespace Content.Shared.Starlight.Medical.Surgery;
 // Based on the RMC14.
@@ -20,6 +28,7 @@ namespace Content.Shared.Starlight.Medical.Surgery;
 public abstract partial class SharedSurgerySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly HealingSystem _healing = default!;
     private void InitializeSteps()
     {
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepCompleteEvent>(OnStepComplete);
@@ -29,7 +38,6 @@ public abstract partial class SharedSurgerySystem
         SubscribeLocalEvent<SurgeryTargetComponent, AccessibleOverrideEvent>(OnOverrideAccess);
 
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryCanPerformStepEvent>(OnCanPerformStep);
-
         Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key, subs => subs.Event<SurgeryStepChosenBuiMsg>(OnSurgeryTargetStepChosen));
     }
     private void OnTargetDoAfter(Entity<SurgeryTargetComponent> ent, ref SurgeryDoAfterEvent args)
@@ -47,30 +55,39 @@ public abstract partial class SharedSurgerySystem
                 Dirty(args.Target.Value, dirtyPart, Comp<MetaDataComponent>(args.Target.Value));
             return;
         }
-
-        if (!_random.Prob(args.SuccessRate))
+        //Far Horizons Start
+        if (args.DidSurgeryFail)
         {
-            if (_net.IsClient) return;
-            _popup.PopupEntity("Because of a careless tool, your hand shook. You need to start this step all over again!", args.User, PopupType.SmallCaution);
+            var StepProto = _prototypes.Index<EntityPrototype>(args.Step);
+            if (StepProto.TryGetComponent<OnFailDamageComponent>(out var comp, _compFactory) && TryComp<BodyPartComponent>(args.Target, out var bodyComp))
+            {
+                _damageableSystem.TryChangeDamage(bodyComp.Body, comp.Damage!);
+                TryEmoteWithChat(bodyComp.Body!.Value, comp.Emote);
+            }
+            _popup.PopupEntity("Because of a careless tool, your hand shook and you damaged your patient. You need to start this step all over again!", args.User, PopupType.SmallCaution);
+            args.Handled = true;
             return;
         }
-
-        var ev = new SurgeryStepEvent(args.User, ent, part, GetTools(args.User))
+        else
         {
-            StepProto = args.Step,
-            SurgeryProto = args.Surgery,
-        };
-        RaiseLocalEvent(step, ref ev);
-
-        if (ev.IsCancelled) return;
-        var evComplete = new SurgeryStepCompleteEvent(args.User, ent, part, GetTools(args.User))
-        {
-            StepProto = args.Step,
-            SurgeryProto = args.Surgery,
-            IsFinal = surgery.Comp.Steps[^1] == args.Step,
-        };
-        RaiseLocalEvent(step, ref evComplete);
-
+            var ev = new SurgeryStepEvent(args.User, ent, part, GetTools(args.User))
+            {
+                StepProto = args.Step,
+                SurgeryProto = args.Surgery,
+            };
+            RaiseLocalEvent(step, ref ev);
+            if (ev.IsCancelled) return;
+            var evComplete = new SurgeryStepCompleteEvent(args.User, ent, part, GetTools(args.User))
+            {
+                StepProto = args.Step,
+                SurgeryProto = args.Surgery,
+                IsFinal = surgery.Comp.Steps[^1] == args.Step,
+            };
+            RaiseLocalEvent(step, ref evComplete);
+            if (_entitySystem.TryGetSingleton(args.Step, out var stepEnt) && TryComp(stepEnt, out HealingComponent? healing) && TryComp(ent, out DamageableComponent? damage))
+                args.Repeat = _healing.HasDamage((stepEnt, healing), (ent, damage));
+        }
+        //Far Horizons End
         RefreshUI(ent);
     }
 
@@ -79,37 +96,77 @@ public abstract partial class SharedSurgerySystem
         var progress = Comp<SurgeryProgressComponent>(args.Part);
         progress.CompletedSteps.Clear();
         progress.CompletedSurgeries.Clear();
+        progress.ActiveRepeatableStep = default; //FarHorizons
     }
+    //FarHorizons Start
     private void OnStepComplete(Entity<SurgeryStepComponent> ent, ref SurgeryStepCompleteEvent args)
     {
-        if (TryComp<SurgeryClearProgressComponent>(ent, out _)) return;
-        if (TryComp<SurgeryProgressComponent>(args.Part, out var progress))
+        if (TryComp<SurgeryClearProgressComponent>(ent, out _))
+            return;
+
+        if (!TryComp<SurgeryProgressComponent>(args.Part, out var progress))
         {
-            progress.CompletedSteps.Add($"{args.SurgeryProto}:{args.StepProto}");
-            if (!progress.StartedSurgeries.Contains(args.SurgeryProto) && !args.IsFinal)
-                progress.StartedSurgeries.Add(args.SurgeryProto);
-            if (progress.StartedSurgeries.Contains(args.SurgeryProto) && args.IsFinal)
-                progress.StartedSurgeries.Remove(args.SurgeryProto);
+            progress = new SurgeryProgressComponent();
+            AddComp(args.Part, progress);
+        }
+
+        var stepKey = $"{args.SurgeryProto}:{args.StepProto}";
+
+        if (!ent.Comp.Repeatable)
+        {
+            if (!progress.CompletedSteps.Contains(stepKey))
+                progress.CompletedSteps.Add(stepKey);
         }
         else
         {
-            progress = new SurgeryProgressComponent { CompletedSteps = [$"{args.SurgeryProto}:{args.StepProto}"]};
-            if(!args.IsFinal)
-                progress.StartedSurgeries.Add(args.SurgeryProto);
-            AddComp(args.Part, progress);
+            progress.ActiveRepeatableStep = stepKey;
         }
+
+        if (progress.ActiveRepeatableStep is { } active && active != stepKey)
+        {
+            if (!progress.CompletedSteps.Contains(active))
+                progress.CompletedSteps.Add(active);
+            progress.ActiveRepeatableStep = default;
+        }
+
+        if (!progress.StartedSurgeries.Contains(args.SurgeryProto) && !args.IsFinal)
+            progress.StartedSurgeries.Add(args.SurgeryProto);
+
+        if (progress.StartedSurgeries.Contains(args.SurgeryProto) && args.IsFinal)
+            progress.StartedSurgeries.Remove(args.SurgeryProto);
+
         if (args.IsFinal)
             progress.CompletedSurgeries.Add(args.SurgeryProto);
     }
+    //FarHorizons End
     private void OnStep(Entity<SurgeryStepComponent> ent, ref SurgeryStepEvent args)
     {
+        if(!_entitySystem.TryGetSingleton(args.StepProto, out var stepEnt)
+            || !TryComp(stepEnt, out SurgeryStepComponent? stepComp)) return;
+
         foreach (var reg in (ent.Comp.Tools ?? []).Values)
         {
             var tool = args.Tools.FirstOrDefault(x => HasComp(x, reg.Component.GetType()));
             if (tool == default) return;
+            
+            var specificToolComp = EntityManager.GetComponents(tool)
+                .OfType<ISurgeryToolComponent>();
 
-            if (_net.IsServer && TryComp(tool, out SurgeryToolComponent? toolComp) && toolComp.EndSound != null)
-                _audio.PlayPvs(toolComp.EndSound, tool);
+            SoundSpecifier? endSound = null;
+            foreach(var usedTool in specificToolComp)
+            {  
+                var requestedTool = stepComp.Tools?.FirstOrDefault().Key;
+                if(requestedTool != null)
+                    if(usedTool.ToolType.Contains(requestedTool))
+                    {
+                        endSound = usedTool.EndSound;
+                    }
+            }
+
+            if (_net.IsServer && TryComp(tool, out SurgeryToolComponent? toolComp) && endSound != null)
+                _audio.PlayPvs(endSound, tool);
+            if (ent.Comp.ReagentId != null && _solutionContainerSystem.TryGetSolution(tool, "drink", out var solution))
+                _solutionContainerSystem.RemoveReagent(solution.Value, new ReagentQuantity(ent.Comp.ReagentId, ent.Comp.ReagentQuantity));
         }
 
         foreach (var reg in (ent.Comp.Add ?? []).Values)
@@ -153,7 +210,8 @@ public abstract partial class SharedSurgerySystem
     private void OnCanPerformStep(Entity<SurgeryStepComponent> ent, ref SurgeryCanPerformStepEvent args)
     {
         if (HasComp<SurgeryOperatingTableConditionComponent>(ent)
-            && (!TryComp(args.Body, out BuckleComponent? buckle) || !HasComp<OperatingTableComponent>(buckle.BuckledTo)))
+            && (!TryComp(args.Body, out BuckleComponent? buckle) || !HasComp<OperatingTableComponent>(buckle.BuckledTo)
+             || !HasComp<KnockedDownComponent>(args.Body))) // FarHorizons
         {
             args.Invalid = StepInvalidReason.NeedsOperatingTable;
             return;
@@ -198,6 +256,16 @@ public abstract partial class SharedSurgerySystem
 
                 return;
             }
+            //Far Horizons Start
+            else if (_hands.GetActiveItem(args.User) != tool && !_tag.HasTag(tool, "CyberHandItem"))
+            {
+                    args.Invalid = StepInvalidReason.MissingTool;
+
+                    if (reg.Component is ISurgeryToolComponent toolComp)
+                        args.Popup = $"You need {toolComp.ToolName} on your main hand to perform this step!";
+                    return;
+            }
+            //Far Horizons End
             else if (TryComp<ItemToggleComponent>(tool, out var togglable) && !togglable.Activated)
             {
                 args.Invalid = StepInvalidReason.DisabledTool;
@@ -210,6 +278,13 @@ public abstract partial class SharedSurgerySystem
             else if (TryComp<SurgeryItemSizeConditionComponent>(ent, out var itemSizeComp) && TryComp<ItemComponent>(tool, out var item) && _item.GetSizePrototype(item.Size) > _item.GetSizePrototype(itemSizeComp.Size))
             {
                 args.Invalid = StepInvalidReason.TooHigh;
+                return;
+            }
+            else if (ent.Comp.ReagentId != null && _solutionContainerSystem.GetTotalPrototypeQuantity(tool, ent.Comp.ReagentId) < ent.Comp.ReagentQuantity)
+            {
+                args.Invalid = StepInvalidReason.NotEnoughReagent;
+                if (reg.Component is ISurgeryToolComponent toolComp)
+                    args.Popup = $"You need at least {ent.Comp.ReagentQuantity}u of {ent.Comp.ReagentId} in {toolComp.ToolName} to perform this step!";
                 return;
             }
 
@@ -229,7 +304,8 @@ public abstract partial class SharedSurgerySystem
         {
             return;
         }
-        if (!PreviousStepsComplete(body, part, surgery, args.Step) || IsStepComplete(part, args.Surgery, args.Step))
+        if ((!PreviousStepsComplete(body, part, surgery, args.Step) || IsStepComplete(part, args.Surgery, args.Step)) && !(TryComp<SurgeryProgressComponent>(part, out var surgComp) 
+        && surgComp.ActiveRepeatableStep == $"{args.Surgery}:{args.Step}")) //Far Horizons
         {
             var progress = Comp<SurgeryProgressComponent>(part);
             Dirty(part, progress);
@@ -245,25 +321,65 @@ public abstract partial class SharedSurgerySystem
 
         var duration = stepComp.Duration;
         float SmallestSuccessRate = 1f;
-
         foreach (var tool in validTools)
             if (TryComp(tool, out SurgeryToolComponent? toolComp))
             {
-                duration *= toolComp.Speed;
-                if (toolComp.StartSound != null) _audio.PlayPvs(toolComp.StartSound, tool);
+                //FarHorizons Start
+                var durationCap = duration * 2;
+                var durationToSuccessRate = 0f;
+                var bedSpeedMod = 2f;
+                var toolSpeed = 1f;
+                var toolSuccessRate = 1f;
+                SoundSpecifier? startSound = null;
+                var specificToolComp = EntityManager.GetComponents(tool)
+                    .OfType<ISurgeryToolComponent>();
 
-                if(toolComp.SuccessRate < SmallestSuccessRate)
-                    SmallestSuccessRate = toolComp.SuccessRate;
+                foreach(var usedTool in specificToolComp)
+                {
+                    var requestedTool = stepComp.Tools?.FirstOrDefault().Key;
+                    if(requestedTool != null)
+                        if(usedTool.ToolType.Contains(requestedTool))
+                        {
+                            toolSpeed = usedTool.Speed;
+                            toolSuccessRate = usedTool.SuccessRate;
+                            startSound = usedTool.StartSound;
+                        }
+                }
+                    
+                if (TryComp(body, out BuckleComponent? buckle) && TryComp(buckle.BuckledTo, out SurgeryBedSpeedComponent? bedComp))
+                    bedSpeedMod = bedComp.BedSpeedModifier;
+
+                duration = duration * toolSpeed * bedSpeedMod;
+                if (duration > durationCap)
+                {
+                    durationToSuccessRate = (float)Math.Clamp(Math.Pow(duration - durationCap, 2) / 100, 0.0, 0.75);
+                    duration = durationCap;
+                }
+                if (startSound != null) _audio.PlayPvs(startSound, tool);
+
+                var totalSuccesRate = Math.Clamp(toolSuccessRate - durationToSuccessRate, 0.25, 1);
+
+                if (totalSuccesRate < SmallestSuccessRate)
+                    SmallestSuccessRate = (float)totalSuccesRate;
+                
             }
-
+        bool didSurgeryFail = false;
+        if (!_random.Prob(SmallestSuccessRate))
+            didSurgeryFail = true;
+        //FarHorizons End
+        
         if (TryComp(body, out TransformComponent? xform))
             _rotateToFace.TryFaceCoordinates(user, _transform.GetMapCoordinates(body, xform).Position);
 
-        var ev = new SurgeryDoAfterEvent(args.Surgery, args.Step, SmallestSuccessRate);
+        var ev = new SurgeryDoAfterEvent(args.Surgery, args.Step, didSurgeryFail);
         var doAfter = new DoAfterArgs(EntityManager, user, duration, ev, body, part)
         {
+            //FarHorizons Start
+            NeedHand = true,
+            BreakOnHandChange = true,
+            //FarHorizons End
             BreakOnMove = true,
-            DuplicateCondition = DuplicateConditions.SameTarget,
+            //DuplicateCondition = DuplicateConditions.SameTarget,
             ForceNet = true
         };
         _doAfter.TryStartDoAfter(doAfter);
@@ -298,7 +414,8 @@ public abstract partial class SharedSurgerySystem
         }
         var surgeryProto = Prototype(surgery);
         for (var i = 0; i < surgery.Comp.Steps.Count; i++)
-            if (!progress.CompletedSteps.Contains($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}"))
+            if (!progress.CompletedSteps.Contains($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}") &&
+                !progress.ActiveRepeatableStep.Equals($"{surgeryProto?.ID}:{surgery.Comp.Steps[i]}")) //FarHorizons
                 return ((surgery, surgery.Comp), i);
 
         return null;
@@ -310,9 +427,9 @@ public abstract partial class SharedSurgerySystem
         {
             foreach (var requirement in requirements)
             {
-                if (!_entitySystem.TryGetSingleton(requirement, out var requiredEnt)
+                if ((!_entitySystem.TryGetSingleton(requirement, out var requiredEnt)
                     || !TryComp(requiredEnt, out SurgeryComponent? requiredComp)
-                    || !PreviousStepsComplete(body, part, (requiredEnt, requiredComp), step)
+                    || !PreviousStepsComplete(body, part, (requiredEnt, requiredComp), step))
                     && IsSurgeryValid(body, part, requirement, step, out _, out _, out _))
                     return false;
             }
@@ -367,8 +484,15 @@ public abstract partial class SharedSurgerySystem
     public bool IsStepComplete(EntityUid part, EntProtoId surgery, EntProtoId step)
     {
         if (TryComp<SurgeryProgressComponent>(part, out var comp))
+        {
+            //FarHorizons Start
+            if (comp.ActiveRepeatableStep == $"{surgery}:{step}")
+                return true;
             return comp.CompletedSteps.Contains($"{surgery}:{step}");
+        }
+        //FarHorizons End
         AddComp<SurgeryProgressComponent>(part);
         return false;
     }
-}
+    protected virtual void TryEmoteWithChat(EntityUid body, string? emote) { } // FarHorizons
+ }

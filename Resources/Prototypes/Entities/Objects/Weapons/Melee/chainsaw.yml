@@ -47,11 +47,12 @@
         maxVol: 300
   - type: UseDelay
     delay: 1
+  #FarHorizons Start
   - type: SurgeryTool
-    successRate: 0.6 # 🌟Starlight🌟
-    speed: 0.2 #Chainsaws are very fast 🌟Starlight🌟
+  - type: BoneSaw 
+    speed: 2.0 
     startSound:
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
-  - type: BoneSaw # 🌟Starlight🌟
+  #FarHorizons End

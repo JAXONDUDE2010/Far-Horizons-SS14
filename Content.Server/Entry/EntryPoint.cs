@@ -1,7 +1,9 @@
+using Content.Server._FarHorizons.DiscordLink;
 using Content.Server._NullLink;
 using Content.Server._NullLink.Core;
 using Content.Server._NullLink.EventBus;
 using Content.Server._NullLink.PlayerData;
+using Content.Server._Starlight.BugReports; // Staright
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -130,10 +132,13 @@ namespace Content.Server.Entry
                 //🌟Starlight🌟 start
                 IoCManager.Resolve<ITTSManager>().Initialize();
                 IoCManager.Resolve<HolidaySystem>().Initialize();
+                IoCManager.Resolve<IBugReportManager>().Initialize();
                 //🌟Starlight🌟 end
 
                 //Far Horizons
                 IoCManager.Resolve<IServerFactionManager>().Init();
+                IoCManager.Resolve<DiscordOauthServer>().Initialize();
+                IoCManager.Resolve<DiscordRequestsAdapter>().Initialize();
             }
         }
 
@@ -183,6 +188,9 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<INullLinkEventBusManager>().Initialize();
                 IoCManager.Resolve<INullLinkPlayerManager>().Initialize();
                 // NullLink end
+
+                // Far Horizons
+                IoCManager.Resolve<IDiscordLinkManager>().Initialize();
             }
         }
 
@@ -219,7 +227,9 @@ namespace Content.Server.Entry
             IoCManager.Resolve<INullLinkPlayerManager>().Shutdown();
             IoCManager.Resolve<INullLinkEventBusManager>().Shutdown();
             IoCManager.Resolve<IActorRouter>().Shutdown();
+            IoCManager.Resolve<IBugReportManager>().Shutdown();
             // Nullink end
+
             //Far Horizons
             IoCManager.Resolve<IServerFactionManager>().Shutdown();
         }

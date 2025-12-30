@@ -43,6 +43,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Engineering Hardsuit
 - type: entity
@@ -82,6 +83,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Spationaut Hardsuit
 - type: entity
@@ -91,9 +93,9 @@
   description: A lightweight hardsuit designed for industrial EVA in zero gravity.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/spatio.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/spatio.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -119,18 +121,19 @@
     - WhitelistChameleon
     - HardsuitSpatio
     - CorgiWearable
+    - IPCExternalCooling # Far Horizons
 
 #Salvage Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
+  parent: [ClothingOuterHardsuitBase, BaseSalvageMiningContraband] # Starlight
   id: ClothingOuterHardsuitSalvage
-  name: mining hardsuit
+  name: salvage hardsuit # Starlight - rename for mining hardsuit addition
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/salvage.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/salvage.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -141,9 +144,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.6
-        Piercing: 0.65
+      # region starlight: lowered values
+        Blunt: 0.8 
+        Slash: 0.8 
+        Piercing: 0.75 
+        # end region starlight
         Heat: 0.7
         Radiation: 0.3
         Caustic: 0.7
@@ -158,6 +163,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Goliath Hardsuit
 - type: entity
@@ -167,9 +173,9 @@
   description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/goliath.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/goliath.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -177,6 +183,9 @@
     damageCoefficient: 0.3
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 3 #FH
+        Heat: 3 #FH
       coefficients:
         Blunt: 0.7
         Slash: 0.7
@@ -198,65 +207,77 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Maxim Hardsuit
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSalvageContraband ] #Starlight salvContra
   id: ClothingOuterHardsuitMaxim
   name: salvager maxim hardsuit
-  description: Fire. Heat. These things forge great weapons, they also forge great salvagers.  Has built-in battery-powered energy barrier technology.
+  description: Fire. Heat. These things forge great weapons, they also forge great salvagers. #Has built-in battery-powered energy barrier technology.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/maxim.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/maxim.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/maxim.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/maxim.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
   - type: Pierceable
     level: Metal
   - type: Armor
     modifiers:
+      flatReductions: #FH
+        Piercing: 3 #FH
+        Heat: 3 #FH - Makes up for losing bubble shield, makes this a very solid combat hardsuit, if bubble shield is fixed, remove these.
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.3
-        Radiation: 0.1
+      # region starlight: maxim lowered values
+        Blunt: 0.65 
+        Slash: 0.65 
+        Piercing: 0.65 
+        Heat: 0.6 
+        Radiation: 0.3 
+        Caustic: 0.8 
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85 
+    sprintModifier: 0.85 
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.4 
+    # end region starlight
+  - type: HeldSpeedModifier #Starlight addition
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitMaxim  
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
-      toggleable-clothing: !type:ContainerSlot
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellSmall
-        whitelist:
-          tags:
-            - PowerCell
-            - PowerCellSmall
-  - type: EnergyDomeGenerator
-    damageEnergyDraw: 6
-    domePrototype: EnergyDomeSmallPink
-  - type: PowerCellDraw
-    enabled: false
-    drawRate: 8
-    useRate: 0
-  - type: UseDelay
-    delay: 10.0
+    clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+    # region starlight: bubble shield removal
+  #- type: ContainerContainer
+    #containers:
+      #cell_slot: !type:ContainerSlot
+      #toggleable-clothing: !type:ContainerSlot
+  #- type: PowerCellSlot
+    #cellSlotId: cell_slot
+  #- type: ItemSlots
+    #slots:
+      #cell_slot:
+        #name: power-cell-slot-component-slot-name-default
+        #startingItem: PowerCellSmall
+        #whitelist:
+          #tags:
+            #- PowerCell
+            #- PowerCellSmall
+  #- type: EnergyDomeGenerator
+    #damageEnergyDraw: 6
+    #domePrototype: EnergyDomeSmallPink
+  #- type: PowerCellDraw
+    #enabled: false
+    #drawRate: 8
+    #useRate: 0
+  #- type: UseDelay
+    #delay: 10.0
+
+#Starlight edit. maxim bubble shield was buggy, made no sense for salvs, and was on a suit with better stats than a blood red.
+# end region starlight
 
 #Security Hardsuit
 - type: entity
@@ -299,6 +320,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Brigmedic Hardsuit
 - type: entity
@@ -384,9 +406,9 @@
   description: A formal armored spacesuit, made for the station's captain.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/capspace.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/capspace.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -418,6 +440,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -459,6 +482,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -493,6 +517,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Research Director's Hardsuit
 - type: entity
@@ -502,9 +527,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/rd.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/rd.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -535,6 +560,7 @@
     - HighRiskItem
     - CorgiWearable
     - Hardsuit
+    - IPCExternalCooling # Far Horizons
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
   - type: StaticPrice
@@ -613,9 +639,9 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/luxury.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/luxury.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -698,6 +724,7 @@
     - WhitelistChameleon
     - CorgiWearable
     - ScurretWearable
+    - IPCExternalCooling # Far Horizons
   - type: StaticPrice
     price: 5000
 
@@ -720,6 +747,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -814,6 +842,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -869,6 +898,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 
 #Cybersun Juggernaut Hardsuit
@@ -957,6 +987,8 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
+    - RequiredForLmgTag #Starlight
 
 #Wizard Hardsuit
 - type: entity
@@ -999,6 +1031,7 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #Ling Space Suit
 - type: entity
@@ -1207,6 +1240,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - IPCExternalCooling # Far Horizons
 
 #ERT Janitor Hardsuit
 - type: entity

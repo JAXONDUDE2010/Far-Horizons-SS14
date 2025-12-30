@@ -14,14 +14,19 @@
   access:
   - Medical
   - Maintenance
+  - Surgery 
+  extendedAccess:
+  - Paramedic
+  #- Surgery #Far Horizons - They already get this.
+  - Chemistry
 
 - type: startingGear
   id: SurgeonGear
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
-  inhand:
-    - ClothingBackpackDuffelSurgeryFilled
+#  inhand: FH
+#    - ClothingBackpackDuffelSurgeryFilled FH 
 
 - type: chameleonOutfit
   id: SurgeonChameleonOutfit

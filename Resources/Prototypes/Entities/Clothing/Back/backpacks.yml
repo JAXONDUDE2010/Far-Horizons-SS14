@@ -1,7 +1,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingBackpack
-  name: backpack
+  name: Backpack #Far Horizons - The Great Capitalization Crusade
   description: You wear this on your back and put items into it.
   components:
   - type: Sprite
@@ -25,6 +25,7 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: SwitchableEquipMode # Starlight
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -38,7 +39,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackClown
-  name: giggles von honkerton
+  name: Giggles Von Honkerton #Far Horizons - The Great Capitalization Crusade
   description: It's a backpack made by Honk! Co.
   components:
   - type: Sprite
@@ -56,7 +57,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackIan
-  name: Ian's backpack
+  name: Ian's Backpack #Far Horizons - The Great Capitalization Crusade
   description: Sometimes he wears it.
   components:
   - type: Sprite
@@ -68,7 +69,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackSecurity
-  name: security backpack
+  name: Security Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a very robust backpack.
   components:
   - type: Sprite
@@ -77,7 +78,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
-  name: brigmedic backpack
+  name: Brigmedic Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a very sterile backpack.
   components:
   - type: Sprite
@@ -86,7 +87,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackEngineering
-  name: engineering backpack
+  name: Engineering Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a tough backpack for the daily grind of station life.
   components:
   - type: Sprite
@@ -95,7 +96,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackAtmospherics
-  name: atmospherics backpack
+  name: Atmospherics Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a backpack made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
@@ -104,16 +105,16 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackMedical
-  name: medical backpack
+  name: Medical Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a backpack especially designed for use in a sterile environment.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/medical.rsi
+    sprite: _FarHorizons/Clothing/Back/Backpacks/medical.rsi #Far Horizons
 
 - type: entity
   parent: [ClothingBackpack, BaseCommandContraband]
   id: ClothingBackpackCaptain
-  name: captain's backpack
+  name: Captain's Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a special backpack made exclusively for Nanotrasen officers.
   components:
   - type: Sprite
@@ -122,25 +123,28 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackMime
-  name: mime backpack
+  name: Mime Backpack #Far Horizons - The Great Capitalization Crusade
   description: A silent backpack made for those silent workers. Silence Co.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/mime.rsi
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackChemistry
-  name: chemistry backpack
+  name: Chemistry Backpack #Far Horizons - The Great Capitalization Crusade
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/chemistry.rsi
+    sprite: _FarHorizons/Clothing/Back/Backpacks/chemistry.rsi #Far Horizons
 
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackHydroponics
-  name: hydroponics backpack
+  name: Hydroponics Backpack #Far Horizons - The Great Capitalization Crusade
   description: It's a backpack made of all-natural fibers.
   components:
   - type: Sprite
@@ -149,7 +153,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackScience
-  name: science backpack
+  name: Science Backpack #Far Horizons - The Great Capitalization Crusade
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
@@ -158,43 +162,43 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackVirology
-  name: virology backpack
+  name: Virology Backpack #Far Horizons - The Great Capitalization Crusade
   description: A backpack made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/virology.rsi
+    sprite: _FarHorizons/Clothing/Back/Backpacks/virology.rsi #Far Horizons
 
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackGenetics
-  name: genetics backpack
+  name: Genetics Backpack #Far Horizons - The Great Capitalization Crusade
   description: A backpack designed to be super tough, just in case someone hulks out on you.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/genetics.rsi
 
 - type: entity
-  parent: ClothingBackpack
+  parent: [ ClothingBackpack, BaseCargoContraband ] #Far Horizons
   id: ClothingBackpackCargo
-  name: cargo backpack
+  name: Cargo Backpack #Far Horizons - The Great Capitalization Crusade
   description: A robust backpack for stealing cargo's loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Backpacks/cargo.rsi
+      sprite: _FarHorizons/Clothing/Back/Backpacks/cargo.rsi #Far Horizons
 
 - type: entity
-  parent: ClothingBackpack
+  parent: [ ClothingBackpack, BaseCargoContraband ] #Far Horizons
   id: ClothingBackpackSalvage
-  name: salvage bag
+  name: Salvage Backpack #Far Horizons - The Great Capitalization Crusade
   description: A robust backpack for stashing your loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Backpacks/salvage.rsi
+      sprite: _FarHorizons/Clothing/Back/Backpacks/salvage.rsi #Far Horizons
 
 - type: entity
   parent: [ ClothingBackpack, BaseSalvageContraband ] #Starlight salvContra
   id: ClothingBackpackMerc
-  name: mercenary bag
+  name: Mercenary Backpack #Far Horizons - The Great Capitalization Crusade
   description: A backpack that has been in many dangerous places, a reliable combat backpack.
   components:
     - type: Sprite
@@ -204,7 +208,7 @@
 - type: entity
   parent: [ ClothingBackpack, BaseCentcommContraband ]
   id: ClothingBackpackERTLeader
-  name: ERT leader backpack
+  name: ERT Leader Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
   components:
   - type: Sprite
@@ -216,7 +220,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTSecurity
-  name: ERT security backpack
+  name: ERT Security Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Security Officers of an Emergency Response Team.
   components:
   - type: Sprite
@@ -225,7 +229,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTMedical
-  name: ERT medical backpack
+  name: ERT Medical Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Medical Officers of an Emergency Response Team.
   components:
   - type: Sprite
@@ -234,7 +238,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTEngineer
-  name: ERT engineer backpack
+  name: ERT Engineer Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Engineers of an Emergency Response Team.
   components:
   - type: Sprite
@@ -243,7 +247,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTJanitor
-  name: ERT janitor backpack
+  name: ERT Janitor Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Janitors of an Emergency Response Team.
   components:
   - type: Sprite
@@ -252,7 +256,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTClown
-  name: ERT clown backpack
+  name: ERT Clown Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Clowns of an Emergency Response Team.
   components:
   - type: Sprite
@@ -261,7 +265,7 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTChaplain
-  name: ERT chaplain backpack
+  name: ERT Chaplain Backpack #Far Horizons - The Great Capitalization Crusade
   description: A spacious backpack with lots of pockets, worn by Chaplains of an Emergency Response Team.
   components:
   - type: Sprite
@@ -270,7 +274,7 @@
 - type: entity
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackDeathSquad
-  name: death squad backpack
+  name: Death Squad Backpack #Far Horizons - The Great Capitalization Crusade
   description: Holds the kit of CentComm's most feared agents.
   components:
     - type: Storage
@@ -281,7 +285,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSyndicateContraband]
   id: ClothingBackpackSyndicate
-  name: syndicate backpack
+  name: Syndicate Backpack #Far Horizons - The Great Capitalization Crusade
   description:
   components:
   - type: Sprite
@@ -291,7 +295,7 @@
   - type: Storage
     grid:
     - 0,0,7,3
-    - 8,1,8,3
+    - 8,0,8,3
   - type: StaticPrice
     price: 1000
 
@@ -299,7 +303,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackHolding
-  name: bag of holding
+  name: Bag of Holding #Far Horizons - The Great Capitalization Crusade
   description: A backpack that opens into a localized pocket of bluespace.
   components:
   - type: Sprite
@@ -321,7 +325,7 @@
 - type: entity
   parent: ClothingBackpackClown
   id: ClothingBackpackCluwne
-  name: jiggles von jonkerton
+  name: Jiggles Von Jonkerton #Far Horizons - The Great Capitalization Crusade
   suffix: Unremoveable
   description: It's a backpack made by Jonk! Co.
   components:
@@ -340,7 +344,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackElectropack
-  name: electropack
+  name: Electropack #Far Horizons - The Great Capitalization Crusade
   suffix: SelfUnremovable
   description: Shocks on the signal. It is used to keep a particularly dangerous criminal under control.
   components:
@@ -364,7 +368,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackDebug
-  name: wackpack
+  name: Wackpack #Far Horizons - The Great Capitalization Crusade
   description: What the fuck is this?
   suffix: Debug
   components:
@@ -380,7 +384,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackDebug2
-  name: big wackpack
+  name: Big Wackpack #Far Horizons - The Great Capitalization Crusade
   description: What the fuck is this?
   suffix: Debug
   components:
@@ -391,7 +395,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackDebug3
-  name: gay wackpack
+  name: Gay Wackpack #Far Horizons - The Great Capitalization Crusade
   description: What the fuck is this?
   suffix: Debug
   components:
@@ -412,7 +416,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackDebug4
-  name: offset wackpack
+  name: Offset Wackpack #Far Horizons - The Great Capitalization Crusade
   description: What the fuck is this?
   suffix: Debug
   components:

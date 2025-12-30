@@ -1,7 +1,9 @@
+using Content.Server._FarHorizons.DiscordLink;
 using Content.Server._NullLink;
 using Content.Server._NullLink.Core;
 using Content.Server._NullLink.EventBus;
 using Content.Server._NullLink.PlayerData;
+using Content.Server._Starlight.BugReports; // Starlight
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -100,6 +102,7 @@ namespace Content.Server.IoC
             IoCManager.Register<IPlayerRolesManager, PlayerRolesManager>();     
             IoCManager.Register<ITTSManager, TTSManager>();
             IoCManager.Register<ItemPriceManager, ItemPriceManager>();
+            IoCManager.Register<IBugReportManager, BugReportManager>();
             // nulllink
             IoCManager.Register<IActorRouter, ActorRouter>(); 
             IoCManager.Register<INullLinkPlayerManager, NullLinkPlayerManager>();
@@ -108,6 +111,9 @@ namespace Content.Server.IoC
             // Far Horizons
             IoCManager.Register<IServerFactionManager, ServerFactionManager>();
             IoCManager.Register<ISharedFactionManager, ServerFactionManager>();
+            IoCManager.Register<IDiscordLinkManager, DiscordLinkManager>();
+            IoCManager.Register<DiscordOauthServer>();
+            IoCManager.Register<DiscordRequestsAdapter>();
         }
     }
 }

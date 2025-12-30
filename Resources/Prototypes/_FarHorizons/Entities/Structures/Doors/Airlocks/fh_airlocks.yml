@@ -1,4 +1,6 @@
-﻿- type: entity
+﻿#region Standard
+
+- type: entity
   parent: FHAirlock
   id: FHAirlockEngineering
   suffix: Engineering
@@ -134,14 +136,22 @@
 - type: entity
   parent: FHAirlockCargo
   id: FHAirlockMining
-  suffix: Mining(Salvage)
+  suffix: Mining/Salvage
   components:
     - type: Sprite
       sprite: _FarHorizons/Structures/Doors/Airlocks/Standard/mining.rsi
     - type: Wires
       layoutId: AirlockCargo
-    - type: Paintable
-      group: null
+
+- type: entity
+  parent: FHAirlockSalvage
+  id: FHAirlockSalvageLead
+  suffix: Salvage Lead
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Structures/Doors/Airlocks/Standard/salvage.rsi
+    - type: Wires
+      layoutId: AirlockCargo
 
 - type: entity
   parent: FHAirlockCommand # if you get centcom door somehow it counts as command, also inherit panel
@@ -151,7 +161,23 @@
     - type: Sprite
       sprite: _FarHorizons/Structures/Doors/Airlocks/Standard/centcomm.rsi
 
-# Glass
+- type: entity
+  parent: FHAirlock
+  id: FHAirlockSurgery
+  suffix: Surgery
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Doors/Airlocks/Standard/surgery.rsi
+
+- type: entity
+  parent: FHAirlock
+  id: FHAirlockRobotics
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Doors/Airlocks/Standard/robotics.rsi
+
+#region Glass
 
 - type: entity
   parent: FHAirlockGlass
@@ -201,6 +227,16 @@
   parent: FHAirlockGlass
   id: FHAirlockSalvageGlass
   suffix: Salvage
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/salvage.rsi
+    - type: Wires
+      layoutId: AirlockCargo
+
+- type: entity
+  parent: FHAirlockSalvageGlass
+  id: FHAirlockSalvageLeadGlass
+  suffix: Salvage Lead
   components:
     - type: Sprite
       sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/salvage.rsi
@@ -290,3 +326,29 @@
   components:
     - type: Sprite
       sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/centcomm.rsi
+
+- type: entity
+  parent: FHAirlockGlass
+  id: FHAirlockMiningGlass
+  suffix: Mining/Salvage
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/salvage.rsi
+    - type: Wires
+      layoutId: AirlockCargo
+
+- type: entity
+  parent: FHAirlockGlass
+  id: FHAirlockSurgeryGlass
+  suffix: Surgery
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/surgery.rsi
+
+- type: entity
+  parent: FHAirlockGlass
+  id: FHAirlockRoboticsGlass
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Doors/Airlocks/Glass/robotics.rsi
