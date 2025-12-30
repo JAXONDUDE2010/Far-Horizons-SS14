@@ -119,7 +119,7 @@
 
 - type: entity
   name: sp-8t
-  parent: [WeaponPistolDP, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband] # FH - Changed inheritance from MK to Pistol
   id: WeaponPistolSP8T
   components:
   - type: Gun
@@ -134,7 +134,7 @@
 
 - type: entity
   name: sp-8ar
-  parent: [WeaponPistolDP, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband] # FH - Changed inheritance from MK to Pistol
   id: WeaponPistolSP8AR
   components:
   - type: Gun
@@ -221,7 +221,7 @@
 
 - type: entity
   name: Jungle Hawk
-  parent: [ BaseSyndicateContraband, WeaponPistolN1984 ]
+  parent: [ BaseSyndicateContraband, BaseWeaponPistol] # FH - Changed inheritance from N1984 to Pistol
   id: WeaponPistolDeagle
   description: A high-caliber handgun designed for putting down large game.
   components:
@@ -240,7 +240,7 @@
 
 - type: entity
   name: m1911
-  parent: [WeaponPistolN1984, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband] # FH - Changed inheritance from N1984 to Pistol
   id: WeaponPistolM1911
   description: A classic .45 handgun with a small magazine capacity.
   components:
