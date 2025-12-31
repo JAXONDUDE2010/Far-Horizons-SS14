@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: shotgun
+    - to: magazine
       steps:
       - tag: MagazinePistol
         icon:
@@ -16,5 +16,5 @@
           sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
           state: red
         name: crafting-menu-name-MagazinePistol
-  - node: shotgun
+  - node: magazine
     entity: MagazinePistolDouble

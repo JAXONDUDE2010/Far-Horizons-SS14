@@ -137,7 +137,7 @@
   - type: Appearance
   - type: Construction
     graph: MagazinePistolDoubleGraph
-    node: shell
+    node: magazine
 
 - type: entity
   id: MagazinePistolDoubleFilled

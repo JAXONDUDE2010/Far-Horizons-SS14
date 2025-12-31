@@ -13,7 +13,7 @@
   id: MagazinePistolDouble
   graph: MagazinePistolDoubleGraph
   startNode: start
-  targetNode: shotgun
+  targetNode: magazine
   category: construction-category-weapons
   objectType: Item
   description: crafting-menu-text-MagazinePistolDouble
