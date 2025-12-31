@@ -79,7 +79,7 @@
     - OilPack
   - type: Sprite
     sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
-    state: ammoniapack
+    state: oilpack
   - type: Healing
     damageContainers:
       - Biological
