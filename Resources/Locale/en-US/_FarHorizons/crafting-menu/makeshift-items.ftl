@@ -6,3 +6,4 @@ crafting-menu-text-MagazinePistolDouble = It's just.. Two pistol magazines toget
 
 crafting-menu-name-Enforcer = Enforcer
 crafting-menu-name-MagazinePistol = Pistol Magazine (.35)
+crafting-menu-name-CombatKnife = Combat Knife

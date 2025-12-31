@@ -136,7 +136,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Construction
-    graph: DoublePistolMagazineGraph
+    graph: MagazinePistolDoubleGraph
     node: shell
 
 - type: entity
