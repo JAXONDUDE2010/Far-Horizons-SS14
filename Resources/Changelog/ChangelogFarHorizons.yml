@@ -4210,5 +4210,103 @@ Entries:
   id: 53104
   time: '2025-12-27T16:01:09.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/531
+- author: AthenaAI
+  changes:
+  - message: You can no longer use latent psionics to remove riders or steal keys
+      from vehicles if they move away.
+    type: Fix
+  id: 53400
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Virtual items not making you drop your things if you didn't have empty
+      hands.
+    type: Fix
+  id: 53401
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Secway steal objective. Good Luck Agent.
+    type: Add
+  id: 53402
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Reactor Rods or Brigmedic's musically inclined bedsheets not showing
+      as steal objectives (I was here might aswell)
+    type: Fix
+  id: 53403
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: AthenaAI
+  changes:
+  - message: Wheelchair recipe to medical's fabricator
+    type: Add
+  id: 53404
+  time: '2025-12-29T21:36:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/534
+- author: KarusKardin
+  changes:
+  - message: modified some tech icons for readability
+    type: Tweak
+  id: 53600
+  time: '2025-12-29T21:49:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/536
+- author: CorruptOmega
+  changes:
+  - message: New Syndicate Security sprites done by Abby. Check out some of their
+      cool new swag! (Sorry Syndi Corpsman, due to Syndicate High Command budget cuts
+      you didn't get new equipment yet)
+    type: Add
+  id: 53500
+  time: '2025-12-29T23:53:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/535
+- author: CorruptOmega
+  changes:
+  - message: New Syndicate side prototypes for security stuff. So the stuff not only
+      looks different but is actually named different.
+    type: Add
+  id: 53501
+  time: '2025-12-29T23:53:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/535
+- author: CorruptOmega
+  changes:
+  - message: Added EliteSharkManiac's Engineering Bird Resprite. Look a little more
+      official with bird designed hardsuits!
+    type: Add
+  id: 53502
+  time: '2025-12-29T23:53:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/535
+- author: CorruptOmega
+  changes:
+  - message: Removed the rest of my sanity for this month.
+    type: Remove
+  id: 53503
+  time: '2025-12-29T23:53:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/535
+- author: CorruptOmega
+  changes:
+  - message: Continued the Capitalization Crusade.
+    type: Tweak
+  id: 53504
+  time: '2025-12-29T23:53:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/535
+- author: Killer Tamashi
+  changes:
+  - message: Fixed IPCs being able to heal with bloodpacks
+    type: Fix
+  id: 54100
+  time: '2025-12-31T22:30:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/541
+- author: Killer Tamashi
+  changes:
+  - message: Fixed oilpacks looking like ammonia packs
+    type: Fix
+  id: 54101
+  time: '2025-12-31T22:30:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/541
 Order: -1
 
