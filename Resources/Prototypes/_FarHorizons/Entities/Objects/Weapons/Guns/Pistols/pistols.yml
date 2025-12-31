@@ -103,6 +103,7 @@
   - type: Tag
     tags:
     - Enforcer
+    - Sidearm
 
 - type: entity
   name: Due Process
