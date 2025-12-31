@@ -3,7 +3,7 @@
   id: WeaponPistolEnforcinator
   graph: EnforcinatorGraph
   startNode: start
-  targetNode: shotgun
+  targetNode: doublepistol
   category: construction-category-weapons
   objectType: Item
   description: crafting-menu-text-Enforcinator

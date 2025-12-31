@@ -4,7 +4,7 @@
   graph:
   - node: start
     edges:
-    - to: shotgun
+    - to: doublepistol
       steps:
       - tag: Enforcer
         icon:
@@ -52,5 +52,5 @@
           sprite: Objects/Weapons/Melee/combat_knife.rsi
           state: icon
         name: crafting-menu-name-CombatKnife
-  - node: shotgun
+  - node: doublepistol
     entity: UnfinishedEnforcinator

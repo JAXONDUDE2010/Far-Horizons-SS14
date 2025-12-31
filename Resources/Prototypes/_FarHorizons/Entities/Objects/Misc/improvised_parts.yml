@@ -14,4 +14,4 @@
     - id: WeaponPistolEnforcinator
   - type: Construction
     graph: EnforcinatorGraph
-    node: tool
+    node: doublepistol
