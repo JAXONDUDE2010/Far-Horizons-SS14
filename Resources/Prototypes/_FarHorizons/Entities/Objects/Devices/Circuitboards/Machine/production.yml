@@ -150,7 +150,7 @@
   id: SyndicateUniformPrinterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: Syndicate Uniform Printer Machine Board
-  description: A machine printed circuit board for a Syndicate Unifrom Printer.
+  description: A machine printed circuit board for a Syndicate Uniform Printer.
   components:
   - type: MachineBoard
     prototype: SyndicateUniformPrinter

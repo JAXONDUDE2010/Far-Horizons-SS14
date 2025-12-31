@@ -5,7 +5,8 @@
   - type: Lathe
     materialUseMultiplier: 0.5
     timeMultiplier: 1.5
-  - type: LatheHeatProducing #TODO: Find way to make negative using YML
+  - type: LatheHeatProducing #TODO: Find balanced Value for Subzero 
+    energyPerSecond: -40000
   - type: ReagentSpeed
     modifiers:
       SpaceLube: 0.8
@@ -408,7 +409,7 @@
     staticPacks: #TODO: Uniform Packs
     - ClothingCivilian
     - ClothingCargo #should Syndicate have cargo clothing?
-    - ClothingSyndicateCommand
+    - ClothingCommandSyndicate
     - ClothingEngineering
     - ClothingMedical
     - ClothingScience

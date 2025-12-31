@@ -1,12 +1,22 @@
 - type: latheRecipePack
-  id: ClothingSyndicateCommand
+  id: ClothingCommandSyndicate
   recipes:
   #Captain
-  - 
+  - ClothingHeadHatCapcapSyndi
+  - ClothingHeadHatCaptainSyndi
+  - ClothingUniformJumpsuitCaptainSyndi
+  - ClothingUniformJumpsuitCapFormalSyndi
+  - ClothingUniformJumpskirtCaptainSyndi
+  - ClothingUniformJumpskirtCapFormalDressSyndi
   #HOP
-  -
+  - ClothingHeadHatHopcapSyndi
+  - ClothingHeadHatBeretHoPSyndi
+  - ClothingUniformJumpsuitHoPSyndi
+  - ClothingUniformJumpsuitHoPTurtleneckSyndi
+  - ClothingUniformJumpskirtHoPSyndi
+  - ClothingUniformJumpskirtHoPTurtleneckSyndi
   #ORS
-  -
+
   #SOA
 
   #Generic

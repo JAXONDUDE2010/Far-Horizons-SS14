@@ -44,5 +44,71 @@
   id: ClothingUniformJumpskirtVirology
   result: ClothingUniformJumpsuitVirology
 
-##Syndicate
 
+
+## Syndicate
+
+## Command Hats
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatCapcapSyndi
+  result: ClothingHeadHatCapcapSyndi
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatCaptainSyndi
+  result: ClothingHeadHatCaptainSyndi
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatHopcapSyndi
+  result: ClothingHeadHatHopcapSyndi
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretHoPSyndi
+  result: ClothingHeadHatBeretHoPSyndi
+
+## Command Jumpsuits
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCaptainSyndi
+  result: ClothingUniformJumpsuitCaptainSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCapFormalSyndi
+  result: ClothingUniformJumpsuitCapFormalSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoPSyndi
+  result: ClothingUniformJumpsuitHoPSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoPTurtleneckSyndi
+  result: ClothingUniformJumpsuitHoPTurtleneckSyndi
+
+## Command Jumpskirts
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCaptainSyndi
+  result: ClothingUniformJumpskirtCaptainSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCapFormalDressSyndi
+  result: ClothingUniformJumpskirtCapFormalDressSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoPSyndi
+  result: ClothingUniformJumpskirtHoPSyndi
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoPTurtleneckSyndi
+  result: ClothingUniformJumpskirtHoPTurtleneckSyndi
