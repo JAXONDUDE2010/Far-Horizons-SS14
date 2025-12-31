@@ -413,8 +413,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 Act = () =>
                 {
                     TryRemove(args.User, uid, component);
-                    if(HasComp<RiderComponent>(component.Passengers.First()))
-                        RemoveRider(component.Passengers.First(), uid, vehicleComp);
+                    if(HasComp<RiderComponent>(args.User))
+                        RemoveRider(args.User, uid, vehicleComp);
                 }
             };
             args.Verbs.Add(exitVerb);
