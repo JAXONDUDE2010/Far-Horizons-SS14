@@ -268,7 +268,6 @@
     solution: melee
   - type: InjectableSolution
     solution: melee
-    transferAmount: 2
   - type: SolutionTransfer
     maxTransferAmount: 20
   - type: SolutionContainerVisuals

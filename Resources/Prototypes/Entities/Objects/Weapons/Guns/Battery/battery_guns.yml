@@ -278,7 +278,6 @@
   components:
   - type: StaticPrice
     price: 420 #FH - Removal
-    zeroVisible: true
   - type: PacifismAllowedGun
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice

@@ -34,7 +34,6 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -53,7 +52,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#326ec8"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -72,7 +70,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#000000"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -91,7 +88,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#B68F0E"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -110,7 +106,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#BFC8CA"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -129,7 +124,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#65fe08"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
@@ -148,7 +142,6 @@
     - state: base-tip-8
       map: [ "enum.GunVisualLayers.Tip" ]
       color: "#1A8C1A"
-    zeroVisible: false
   - type: Appearance
 
 - type: entity
