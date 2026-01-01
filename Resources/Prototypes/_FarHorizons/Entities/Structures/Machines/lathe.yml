@@ -410,16 +410,16 @@
     - ClothingCivilian
     - ClothingCargo #should Syndicate have cargo clothing?
     - ClothingCommandSyndicate
-    - ClothingEngineering
-    - ClothingMedical
-    - ClothingScience
-    - ClothingSecurity
-    - ClothingService
-    - WinterCoats
-    - Ties
+    - ClothingEngineeringSyndicate #Only has Head Uniform
+#    - ClothingMedicalSyndicate
+#    - ClothingScience
+    - ClothingSecuritySyndicate
+#    - ClothingServiceSyndicate
+    - WinterCoatsSyndicate
+    - TiesSyndicate
     - Scarves
     - Carpets
-    - Bedsheets
+    - BedsheetsSyndicate
     dynamicPacks:
     - StarlightUniformPrinterLootable
 #  - type: EmagLatheRecipes #TODO: EMGA
