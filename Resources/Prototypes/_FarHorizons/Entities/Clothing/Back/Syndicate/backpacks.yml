@@ -16,7 +16,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSyndicateContraband]
   id: ClothingBackpackSyndicateBrigmedic
-  name: Brigmedic Backpack
+  name: Medical Officer Backpack
   suffix: S
   description: It's a very sterile backpack.
   components:
