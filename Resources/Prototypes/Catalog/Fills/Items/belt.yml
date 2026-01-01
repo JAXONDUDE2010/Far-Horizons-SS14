@@ -61,15 +61,7 @@
       storagebase: !type:NestedSelector
         tableId: BeltSecurityEntityTable
 
-- type: entity
-  id: ClothingBeltSecurityWebbingFilled
-  parent: ClothingBeltSecurityWebbing
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:NestedSelector
-        tableId: BeltSecurityEntityTable
+#FH - Removal of filled sec webbing- it's redundant
 
 - type: entity
   id: ClothingBeltJanitorFilled

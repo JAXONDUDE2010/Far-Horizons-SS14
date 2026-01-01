@@ -48,7 +48,7 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-    - name: neck2
+    - name: pin
       slotTexture: pin
       slotFlags: NECK
       uiWindowPos: 1,2
@@ -146,9 +146,24 @@
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
+      uiWindowPos: 2,1
+      strippingWindowPos: 1,7
+      displayName: belt
+      blacklist:
+        tags:
+        - Webbing
+    - name: rig
+      slotTexture: rig
+      fullTextureName: template_small
+      slotFlags: BELT
+      slotGroup: SecondHotbar
+      stripTime: 6
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
-      displayName: Belt
+      displayName: Chest Rig
+      whitelist:
+        tags:
+        - Webbing
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -206,7 +221,7 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-    - name: neck2
+    - name: pin
       slotTexture: pin
       slotFlags: NECK
       uiWindowPos: 1,2
@@ -304,9 +319,24 @@
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
+      uiWindowPos: 2,1
+      strippingWindowPos: 1,7
+      displayName: belt
+      blacklist:
+        tags:
+        - Webbing
+    - name: rig
+      slotTexture: rig
+      fullTextureName: template_small
+      slotFlags: BELT
+      slotGroup: SecondHotbar
+      stripTime: 6
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
-      displayName: Belt
+      displayName: Chest Rig
+      whitelist:
+        tags:
+        - Webbing
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -371,7 +401,7 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-    - name: neck2
+    - name: pin
       slotTexture: pin
       slotFlags: NECK
       uiWindowPos: 1,2
@@ -482,9 +512,24 @@
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
+      uiWindowPos: 2,1
+      strippingWindowPos: 1,7
+      displayName: belt
+      blacklist:
+        tags:
+        - Webbing
+    - name: rig
+      slotTexture: rig
+      fullTextureName: template_small
+      slotFlags: BELT
+      slotGroup: SecondHotbar
+      stripTime: 6
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
-      displayName: Belt
+      displayName: Chest Rig
+      whitelist:
+        tags:
+        - Webbing
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -526,7 +571,7 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-    - name: neck2
+    - name: pin
       slotTexture: pin
       slotFlags: NECK
       uiWindowPos: 1,2
@@ -577,9 +622,24 @@
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
+      uiWindowPos: 2,1
+      strippingWindowPos: 1,7
+      displayName: belt
+      blacklist:
+        tags:
+        - Webbing
+    - name: rig
+      slotTexture: rig
+      fullTextureName: template_small
+      slotFlags: BELT
+      slotGroup: SecondHotbar
+      stripTime: 6
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
-      displayName: Belt
+      displayName: Chest Rig
+      whitelist:
+        tags:
+        - Webbing
     - name: back
       slotTexture: back
       fullTextureName: template_small

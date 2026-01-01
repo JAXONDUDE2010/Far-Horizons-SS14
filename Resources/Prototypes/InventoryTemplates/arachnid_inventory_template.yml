@@ -27,7 +27,7 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2 #FH
       displayName: Neck
-    - name: neck2 #FH
+    - name: pin #FH
       slotTexture: pin
       slotFlags: NECK
       uiWindowPos: 1,2
@@ -74,13 +74,28 @@
       displayName: ID
     - name: belt
       slotTexture: belt
+      fullTextureName: template_small #FH
+      slotFlags: BELT #FH
+      slotGroup: SecondHotbar #FH
+      stripTime: 6 #FH
+      uiWindowPos: 2,1 #FH
+      strippingWindowPos: 1,7 #FH
+      displayName: belt
+      blacklist: #FH
+        tags:
+        - Webbing
+    - name: rig #FH
+      slotTexture: rig #FH
       fullTextureName: template_small
       slotFlags: BELT
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 3,1
       strippingWindowPos: 1,6 #FH
-      displayName: Belt
+      displayName: Chest Rig
+      whitelist:
+        tags:
+        - Webbing
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -159,7 +174,7 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,5
-      strippingWindowPos: 1,7 #FH
+      strippingWindowPos: 2,7 #FH
       dependsOn: outerClothing
       dependsOnComponents:
       - type: AllowSuitStorage

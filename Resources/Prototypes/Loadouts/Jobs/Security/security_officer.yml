@@ -131,7 +131,7 @@
 - type: loadout
   id: SecurityWebbing
   equipment:
-    belt: ClothingBeltSecurityWebbingFilled
+    belt: ClothingBeltSecurityWebbing #FH
 
 # Outerclothing
 - type: loadout
