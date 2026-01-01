@@ -156,7 +156,7 @@
 
 - type: entity
   id: ClothingBeltMilitaryWebbingMedFilled
-  parent: ClothingBeltMilitaryWebbingMed
+  parent: ClothingBeltMilitaryWebbing #FH
   suffix: Filled
   components:
   - type: StorageFill
@@ -166,6 +166,7 @@
       - id: ChemistryBottleEphedrine
         amount: 2
       - id: ChemistryBottleOmnizine
+      - id: MedkitCombatFilled #FH
 
 - type: entity
   parent: ClothingBeltWand

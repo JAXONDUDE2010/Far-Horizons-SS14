@@ -121,8 +121,8 @@
     ears: ClothingHeadsetAltSyndicateAgent #Starlight
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiCorpsmanPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
-    rig: ClothingBeltOperativeWebbing #FH
+    belt: ClothingBeltMilitaryWebbingMedFilled #FH
+    rig: ClothingBeltMilitaryWebbingMed #FH
   storage:
     back:
     - SyndiHypo
@@ -134,7 +134,6 @@
     - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
-    - MedkitCombatFilled #FH
 
 - type: chameleonOutfit
   id: NukeopsMedicOutfit
