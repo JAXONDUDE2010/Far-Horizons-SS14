@@ -69,7 +69,7 @@
   abstract: true
   id: BaseSubstation
   parent: [ CoreSubstation, BaseMachine, ConstructibleMachine ]
-  Name: Substation #Far Horizons - The Great Capitalization Crusade
+  name: Substation #Far Horizons - The Great Capitalization Crusade
   description: Reduces the voltage of electricity put into it.
   placement:
     mode: SnapgridCenter
@@ -146,7 +146,7 @@
   id: BaseSubstationWall
   parent: CoreSubstation
   categories: [ HideSpawnMenu ]
-  Name: Wallmount Substation #Far Horizons - The Great Capitalization Crusade
+  name: Wallmount Substation #Far Horizons - The Great Capitalization Crusade
   description: A substation designed for compact shuttles and spaces.
   placement:
     mode: SnapgridCenter
@@ -257,7 +257,7 @@
 - type: entity
   id: BaseSubstationWallFrame
   categories: [ HideSpawnMenu ]
-  Name: Wallmount Substation Frame #Far Horizons - The Great Capitalization Crusade
+  name: Wallmount Substation Frame #Far Horizons - The Great Capitalization Crusade
   description: A substation frame for construction.
   placement:
     mode: SnapgridCenter
