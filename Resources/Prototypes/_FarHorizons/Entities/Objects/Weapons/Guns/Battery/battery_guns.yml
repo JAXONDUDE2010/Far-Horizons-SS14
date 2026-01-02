@@ -424,7 +424,7 @@
         variation: 0.07
   - type: HitscanBatteryAmmoProvider
     proto: BoltTaserSpread
-    fireCost: 200
+    fireCost: 300
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BoltTaserSpread
