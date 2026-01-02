@@ -73,7 +73,6 @@
       tags:
       - ShellShotgun
       - SpeedLoaderShotgun
-      - ShotgunBoxAmmo
     proto: ShellShotgun
     capacity: 3
     chambers: [ True, True, True ]
