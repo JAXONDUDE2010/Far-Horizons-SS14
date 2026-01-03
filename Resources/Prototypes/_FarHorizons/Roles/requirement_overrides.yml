@@ -4,64 +4,67 @@
     NanoTrasenRepresentative:
       - !type:DepartmentTimeRequirement
         department: Command
-        time: 3600 # 1 hour in Command
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 72000 # 20 hours overall playtime
     BlueShield:
       - !type:DepartmentTimeRequirement
         department: Security
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 72000 # 20 hours overall playtime
     Magistrate:
       - !type:DepartmentTimeRequirement
         department: Security
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 72000 # 20 hours overall playtime
     IAA:
       - !type:DepartmentTimeRequirement
         department: Security
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 14400  # 4 hours
     Captain:
       - !type:DepartmentTimeRequirement
         department: Command
-        time: 3600 # 1 hour in Command
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     HeadOfPersonnel:
+      - !type:DepartmentTimeRequirement
+        department: Civilian
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     HeadOfSecurity:
       - !type:DepartmentTimeRequirement
         department: Security
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     ChiefEngineer:
       - !type:DepartmentTimeRequirement
         department: Engineering
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     ResearchDirector:
       - !type:DepartmentTimeRequirement
         department: Science
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     ChiefMedicalOfficer:
       - !type:DepartmentTimeRequirement
         department: Medical
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     Quartermaster:
       - !type:DepartmentTimeRequirement
         department: Cargo
-        time: 3600 # 1 hour
+        time: 14400  # 4 hours
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
     MedicalDoctor:
@@ -100,12 +103,18 @@
     SecBorg:
       - !type:OverallPlaytimeRequirement
         time: 14400  # 4 hours
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 3600 # 1 hour as Borg
     Corpsman:
       - !type:OverallPlaytimeRequirement
         time: 14400  # 4 hours
     StationAi:
       - !type:OverallPlaytimeRequirement
         time: 36000 # 10 hours overall playtime
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 14400  # 4 hours
     Borg:
       - !type:OverallPlaytimeRequirement
         time: 0
