@@ -84,9 +84,9 @@
   description: A highly-experimental Autofab that harnesses the power of extreme Cold to slowly create objects more cost-effectively.
   components:
   - type: Sprite
-    sprite: Structures/Machines/autolathe_hypercon.rsi #TODO: CUSTOM SPRITE
+    sprite: _FarHorizons/Structures/Machines/autofab.rsi #TODO: CUSTOM SPRITE
   - type: Machine
-    board: AutofabSubzeroMachineCircuitboard
+    board: AutofabSubzeroMachineCircuitboards
 
 - type: entity
   id: Protofab
