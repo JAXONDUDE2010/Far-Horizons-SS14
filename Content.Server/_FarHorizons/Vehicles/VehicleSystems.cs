@@ -311,10 +311,10 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if (speed < ent.Comp.CrashingSpeed) return;
             
-        if(HasComp<VehicleBuckleComponent>(ent.Owner) && TryComp<BuckleComponent>(rider, out var buckleComp))
+        if(TryComp<VehicleBuckleComponent>(ent.Owner, out var vbComp) && TryComp<BuckleComponent>(rider, out var buckleComp))
         {
             if(TryComp<PhysicsComponent>(ent.Owner, out var vehiclePhys) && TryComp<PhysicsComponent>(rider, out var riderPhys))
-                if(_buckle.TryUnbuckle(rider, null, buckleComp))
+                if(_buckle.TryUnbuckle(rider, null, buckleComp) && vbComp.EjectOnCrash)
                 {
                     var riderXform = Transform(rider);
                     _stun.TryCrawling(rider, TimeSpan.FromSeconds(3));

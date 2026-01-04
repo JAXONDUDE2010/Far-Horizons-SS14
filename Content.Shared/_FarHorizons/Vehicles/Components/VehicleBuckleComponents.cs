@@ -33,6 +33,12 @@ public sealed partial class VehicleBuckleComponent : Component
     public bool armoraffectsvehicle = false;
     
     /// <summary>
+    /// Should knockdowns dismount the driver?
+    /// </summary>
+    [DataField("ejectOnCrash"), AutoNetworkedField]
+    public bool EjectOnCrash = false;
+
+    /// <summary>
     /// What the buckle offset is used for north
     /// </summary>
     [DataField("northOffset"), AutoNetworkedField]
