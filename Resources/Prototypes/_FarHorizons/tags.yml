@@ -170,9 +170,6 @@
   id: VehicleKey
 
 - type: Tag
-  id: VehicleKey
-
-- type: Tag
   id: ClowncarKeys
   
 - type: Tag
