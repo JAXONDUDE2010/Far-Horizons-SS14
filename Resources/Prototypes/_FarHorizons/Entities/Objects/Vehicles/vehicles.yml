@@ -59,6 +59,8 @@
         containers:
         - passenger_slot
         - storagebase
+  - type: Physics
+    canCollide: False
 
 - type: entity
   id: VehicleWheelchair
@@ -277,6 +279,7 @@
     unbuckletime: 2
     dismountonstun: true
     dismountonknockdown: true
+    ejectOnCrash: true
     northOffset: "0, -0.12"
     southOffset: "0, -0.12"
     eastOffset: "0, -0.2"
@@ -402,7 +405,7 @@
       params:
         volume: -3
     hornSound: 
-      path: /Audio/Effects/Vehicle/carhorn.ogg
+      path: /Audio/Items/Toys/pushHornHonk.ogg
       params:
         volume: -3
     riderWhitelist:
@@ -413,6 +416,8 @@
     passengerWhitelist:
       components:
         - Body
+    soundHit:
+      collection: MetalThud
   - type: Sprite
     drawdepth: Mobs
     sprite: _FarHorizons/Objects/Vehicles/clowncar.rsi

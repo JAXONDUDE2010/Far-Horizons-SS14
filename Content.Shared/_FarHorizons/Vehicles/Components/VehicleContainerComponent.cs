@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Containers;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._FarHorizons.VehicleContainer.Components;
 
@@ -43,4 +44,7 @@ public sealed partial class VehicleContainerComponent : Component
 
     [DataField]
     public EntityWhitelist? PassengerWhitelist;
+
+    [DataField("soundHit", required: true), ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier SoundHit = default!;
 }

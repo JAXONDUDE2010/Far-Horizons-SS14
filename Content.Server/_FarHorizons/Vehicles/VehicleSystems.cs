@@ -81,6 +81,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly WieldableSystem _wield = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
 
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -94,7 +95,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<VehicleComponent, ItemSlotInsertEvent>(OnInsertEvent);
-        SubscribeLocalEvent<VehicleComponent, StartCollideEvent>(HandleCollide);
         SubscribeLocalEvent<VehicleComponent, ItemSlotEjectEvent>(OnEjectEvent);
         SubscribeLocalEvent<VehicleComponent, EjectKeysDoAfter>(OnEjectKeysDoAfter);
         SubscribeLocalEvent<VehicleComponent, TurnKeysDoAfter>(OnTurnKeysDoAfter);
@@ -298,7 +298,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         Dirty(ent.Owner, ent.Comp);
     }
 
-    private void HandleCollide(Entity<VehicleComponent> ent, ref StartCollideEvent args)
+    protected override void HandleCollide(Entity<VehicleComponent> ent, ref StartCollideEvent args)
     {
         if(ent.Comp.Rider == null) return;
         var rider = ent.Comp.Rider.Value;
@@ -371,6 +371,18 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         TryUpdateVisualState(ent.Owner);
         Dirty(ent.Owner, ent.Comp);
     }
+
+    protected override void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
+    {
+        if(!TryComp<LockComponent>(ent.Owner, out var lockComp)) return;
+        _lock.ToggleLock(ent.Owner, args.Performer, lockComp);
+
+        if(!_lock.IsLocked(ent.Owner))
+            _popup.PopupEntity($"You popped open the trunk", ent.Owner, PopupType.Small);
+        else
+            _popup.PopupEntity($"You closed the trunk", ent.Owner, PopupType.Small);
+    }
+
     #endregion
     #region VehicleBuckle Events
     private void OnStrapped(Entity<VehicleBuckleComponent> ent, ref StrappedEvent args)

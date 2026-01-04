@@ -3,8 +3,9 @@ using Content.Shared._FarHorizons.VehicleContainer.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.DragDrop;
 using Content.Shared.Lock;
-using Content.Shared.Popups;
-using Robust.Shared.Network;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -13,13 +14,14 @@ public abstract partial class SharedVehicleSystems : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<VehicleComponent, TurnKeysEvent>(OnTurnKeysEvent);
         SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHornActionEvent);
         SubscribeLocalEvent<VehicleComponent, ToggleTrunkActionEvent>(OnToggleTrunk);
+        SubscribeLocalEvent<VehicleComponent, StartCollideEvent>(HandleCollide);
 
         SubscribeLocalEvent<VehicleContainerComponent, CanDropTargetEvent>(OnCanDragDrop);
     }
@@ -62,10 +64,10 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         _appearance.SetData(entity.Owner, VehicleVisuals.VisualState, finalState);
     }
 
-    private void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
+    protected virtual void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
     {
         if(!TryComp<LockComponent>(ent.Owner, out var lockComp)) return;
-        _lock.ToggleLock(ent.Owner, args.Performer, lockComp);
+
         if(!_lock.IsLocked(ent.Owner))
         {
             _audio.PlayPredicted(lockComp.UnlockSound, ent.Owner, ent.Comp.Rider!.Value);
@@ -73,6 +75,26 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         else
         {
             _audio.PlayPredicted(lockComp.LockSound, ent.Owner, ent.Comp.Rider!.Value);
+        }
+    }
+
+    protected virtual void HandleCollide(Entity<VehicleComponent> ent, ref StartCollideEvent args)
+    {
+        if(ent.Comp.Rider == null) return;
+        var rider = ent.Comp.Rider.Value;
+        
+        if(!ent.Comp.AllowCrashing) return;
+
+        if (!args.OurFixture.Hard || !args.OtherFixture.Hard) return;
+
+        var speed = args.OurBody.LinearVelocity.Length();
+
+        if (speed < ent.Comp.CrashingSpeed) return;
+            
+        if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
+        {
+            if (_gameTiming.IsFirstTimePredicted)
+                _audio.PlayPvs(vcComp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
     }
 
