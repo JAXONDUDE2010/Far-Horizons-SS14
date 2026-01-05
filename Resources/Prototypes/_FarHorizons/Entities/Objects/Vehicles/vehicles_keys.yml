@@ -40,7 +40,7 @@
 - type: entity
   parent: [VehicleKeyBase, BaseSecurityContraband]
   id: VehicleKeySecwayTurbo
-  name: Secway Turbo electronic Key
+  name: Secway Turbo Electronic Key
   description: Enforcing justice at the speed of sound. Not compatible with Secways due to software differences.
   components:
   - type: Tag
