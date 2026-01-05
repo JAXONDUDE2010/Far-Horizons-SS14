@@ -22,7 +22,6 @@
   components:
   - type: InputMover
   - type: MobMover
-  - type: Rotatable
   - type: InteractionOutline
   - type: Pullable
   - type: Physics
@@ -31,6 +30,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 750 # Grand Theft Auto.
+  - type: GravityAffected
 
 - type: entity
   parent: BaseVehicleRideable
