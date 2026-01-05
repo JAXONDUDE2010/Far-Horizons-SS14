@@ -65,7 +65,7 @@
 - type: entity
   id: VehicleWheelchair
   parent: [BaseVehicleRideable, BaseFoldable, BaseItem]
-  name: wheelchair
+  name: Wheelchair
   description: A chair with big wheels. It looks like you can move in these on your own.
   components:
     - type: Sprite
@@ -137,7 +137,7 @@
 - type: entity
   id: VehicleSecway
   parent: BaseVehicleRideable
-  name: secway
+  name: Secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
   - type: Vehicle

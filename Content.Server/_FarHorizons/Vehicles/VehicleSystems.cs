@@ -53,7 +53,10 @@ using Content.Shared.Damage.Components;
 using Content.Server.Damage.Systems;
 using Content.Server.Destructible;
 using Content.Shared.Repairable;
-
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Effects;
+using Robust.Shared.Player;
+using Robust.Shared.Physics.Systems;
 namespace Content.Server._FarHorizons.Vehicle;
 
 public sealed partial class VehicleSystems : SharedVehicleSystems
@@ -82,8 +85,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly WieldableSystem _wield = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
+    private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
     public override void Initialize()
     {
@@ -305,28 +312,43 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         
         if(!ent.Comp.AllowCrashing) return;
 
-        if (!args.OurFixture.Hard || !args.OtherFixture.Hard) return;
-
         var speed = args.OurBody.LinearVelocity.Length();
-
         if (speed < ent.Comp.CrashingSpeed) return;
-            
-        if(TryComp<VehicleBuckleComponent>(ent.Owner, out var vbComp) && TryComp<BuckleComponent>(rider, out var buckleComp))
+        
+        if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {
-            if(TryComp<PhysicsComponent>(ent.Owner, out var vehiclePhys) && TryComp<PhysicsComponent>(rider, out var riderPhys))
-                if(_buckle.TryUnbuckle(rider, null, buckleComp) && vbComp.EjectOnCrash)
-                {
-                    var riderXform = Transform(rider);
-                    _stun.TryCrawling(rider, TimeSpan.FromSeconds(3));
-                    _throwing.TryThrow(rider, vehiclePhys.LinearVelocity, riderPhys, riderXform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
-                }
-        }
-        else if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
-        {
-            foreach(var passenger in vcComp.PassengerSlot.ContainedEntities)
+            if(TryComp<VehicleBuckleComponent>(ent.Owner, out var vbComp) && TryComp<BuckleComponent>(rider, out var buckleComp))
             {
-                _stun.TryAddStunDuration(passenger, TimeSpan.FromSeconds(3));
+                if(TryComp<PhysicsComponent>(ent.Owner, out var vehiclePhys) && TryComp<PhysicsComponent>(rider, out var riderPhys))
+                    if(_buckle.TryUnbuckle(rider, null, buckleComp) && vbComp.EjectOnCrash)
+                    {
+                        var riderXform = Transform(rider);
+                        _stun.TryCrawling(rider, TimeSpan.FromSeconds(3));
+                        _throwing.TryThrow(rider, vehiclePhys.LinearVelocity, riderPhys, riderXform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
+                    }
             }
+            else if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
+            {
+                foreach(var passenger in vcComp.PassengerSlot.ContainedEntities)
+                {
+                    _stun.TryAddStunDuration(passenger, TimeSpan.FromSeconds(3));
+                }
+            }
+        }
+        else if(args.OurFixture.Hard && !args.OtherFixture.Hard)
+        {
+            if(!HasComp<DamageableComponent>(args.OtherEntity)) return; 
+            Logger.Info($"{speed}");
+            Logger.Info($"{args.OurBody.LinearVelocity}");
+            DamageTypePrototype? _blunt = _prototypes.Index<DamageTypePrototype>(_bluntname);
+            DamageSpecifier? _damage = new(_blunt, Math.Clamp(10 * (1 + (0.5 * speed / ent.Comp.CrashingSpeed)), 10, 20));
+            _damageable.TryChangeDamage(args.OtherEntity, _damage, origin: ent.Comp.Rider.Value);
+            _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity, }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));
+            if(TryComp<PhysicsComponent>(ent.Owner, out var vehiclePhys))
+            {
+                _physics.SetLinearVelocity(ent.Owner, args.OurBody.LinearVelocity/4, body: vehiclePhys);
+            }
+
         }
     }
 
@@ -724,12 +746,13 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(!TryComp<VehicleComponent>(vehicle, out var vehicleComp)) return;
         if(!TryComp<PhysicsComponent>(vehicle, out var vehiclePhys)) return;
 
-        if(Math.Abs(vehiclePhys.LinearVelocity.X) > 0.3 || Math.Abs(vehiclePhys.LinearVelocity.Y) > 0.3)
+        var speed = vehiclePhys.LinearVelocity.Length();
+        if(speed > 0.3)
         {
             vehicleComp.isMoving = true;
             TryUpdateVisualState(vehicle);
         }
-        if(Math.Abs(vehiclePhys.LinearVelocity.X) < 0.3 && Math.Abs(vehiclePhys.LinearVelocity.Y) < 0.3)
+        if(speed < 0.3)
         {
             vehicleComp.isMoving = false;
             TryUpdateVisualState(vehicle);
@@ -751,8 +774,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
         
         if(!TryComp<MovementSpeedModifierComponent>(vehicle, out var moveComp)) return;
-        if(Math.Abs(vehiclePhys.LinearVelocity.X) > 3*moveComp.CurrentSprintSpeed || 
-            Math.Abs(vehiclePhys.LinearVelocity.Y) > 3*moveComp.CurrentSprintSpeed)
+        if(speed > 3*moveComp.CurrentSprintSpeed)
         {
             if(TryComp<BuckleComponent>(rider, out var buckleComp))
                 if(_buckle.TryUnbuckle(rider, null, buckleComp))
