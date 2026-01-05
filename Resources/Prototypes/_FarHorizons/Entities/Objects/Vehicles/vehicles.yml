@@ -146,6 +146,7 @@
   parent: [BaseVehicleRideable, BaseSecurityContraband]
   name: Secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
+  suffix: NT
   components:
   - type: Vehicle
     acceleration: 2
