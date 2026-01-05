@@ -2,6 +2,7 @@
   name: Secway Spawner
   id: SpawnVehicleSecway
   parent: MarkerBase
+  suffix: NanoTransen
   components:
   - type: Sprite
     layers:
@@ -16,6 +17,7 @@
   name: Secway Spawner
   id: SpawnVehicleSecwayS
   parent: MarkerBase
+  suffix: Syndicate
   components:
   - type: Sprite
     layers:
