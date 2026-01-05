@@ -13,6 +13,7 @@
   id: VehicleKeySecway
   name: Secway Electronic Key
   description: The USB to the future.
+  suffix: NT
   components:
   - type: Tag
     tags:
