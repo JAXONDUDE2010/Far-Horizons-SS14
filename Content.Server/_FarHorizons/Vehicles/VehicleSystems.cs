@@ -57,6 +57,8 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Effects;
 using Robust.Shared.Player;
 using Robust.Shared.Physics.Systems;
+using Content.Server.Emp;
+
 namespace Content.Server._FarHorizons.Vehicle;
 
 public sealed partial class VehicleSystems : SharedVehicleSystems
@@ -108,6 +110,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleComponent, ReagantContainerSlotEmptyEvent>(OnEmptyReagantContainer);
         SubscribeLocalEvent<VehicleComponent, PowerCellSlotEmptyEvent>(OnPowerCellEmpty);
         SubscribeLocalEvent<VehicleComponent, RepairFinishedEvent>(OnRepairFinished);
+        SubscribeLocalEvent<VehicleComponent, EmpPulseEvent>(OnEmpPulse);
 
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
@@ -338,17 +341,16 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         else if(args.OurFixture.Hard && !args.OtherFixture.Hard)
         {
             if(!HasComp<DamageableComponent>(args.OtherEntity)) return; 
-            Logger.Info($"{speed}");
-            Logger.Info($"{args.OurBody.LinearVelocity}");
+            
             DamageTypePrototype? _blunt = _prototypes.Index<DamageTypePrototype>(_bluntname);
             DamageSpecifier? _damage = new(_blunt, Math.Clamp(10 * (1 + (0.5 * speed / ent.Comp.CrashingSpeed)), 10, 20));
             _damageable.TryChangeDamage(args.OtherEntity, _damage, origin: ent.Comp.Rider.Value);
             _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity, }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));
-            if(TryComp<PhysicsComponent>(ent.Owner, out var vehiclePhys))
-            {
-                _physics.SetLinearVelocity(ent.Owner, args.OurBody.LinearVelocity/4, body: vehiclePhys);
-            }
+            
+            if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return; 
 
+            Timer.Spawn(TimeSpan.FromSeconds(2), () => _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed * 4, msmComp.BaseSprintSpeed * 4, msmComp.Acceleration));
+            _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed/4, msmComp.BaseSprintSpeed/4, msmComp.Acceleration);
         }
     }
 
@@ -403,6 +405,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             _popup.PopupEntity($"You popped open the trunk", ent.Owner, PopupType.Small);
         else
             _popup.PopupEntity($"You closed the trunk", ent.Owner, PopupType.Small);
+    }
+
+    private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args)
+    {
+        Logger.Info($"{ent.Owner}");
     }
 
     #endregion
@@ -761,7 +768,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if( vehicleComp.Rider == null) return;
         var rider = vehicleComp.Rider!.Value;
-        if(!TryComp<PhysicsComponent>(rider, out var riderPhys)) return;
         var riderTransform = Transform(rider);
         if(riderTransform.ParentUid !=  vehicle) return;
 
@@ -771,17 +777,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 _transform.SetLocalPosition(rider, new Vector2(0f+strapComp.BuckleOffset.X, 0f+strapComp.BuckleOffset.Y), riderTransform);
             if(riderTransform.LocalRotation != 0)
                 _transform.SetLocalRotation(rider, 0f, riderTransform);
-        }
-        
-        if(!TryComp<MovementSpeedModifierComponent>(vehicle, out var moveComp)) return;
-        if(speed > 3*moveComp.CurrentSprintSpeed)
-        {
-            if(TryComp<BuckleComponent>(rider, out var buckleComp))
-                if(_buckle.TryUnbuckle(rider, null, buckleComp))
-                {
-                    _stun.TryCrawling(rider, TimeSpan.FromSeconds(3));
-                    _throwing.TryThrow(rider, vehiclePhys.LinearVelocity, riderPhys, riderTransform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
-                }
         }
 
         if((HasComp<PowerCellDrawComponent>(vehicle) && !_powerCell.HasDrawCharge(vehicle)) 

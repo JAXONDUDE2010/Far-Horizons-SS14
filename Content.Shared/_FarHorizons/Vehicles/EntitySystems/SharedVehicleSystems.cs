@@ -6,6 +6,7 @@ using Content.Shared.Lock;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using Content.Shared.Damage;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -85,16 +86,20 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         
         if(!ent.Comp.AllowCrashing) return;
 
-        if (!args.OurFixture.Hard || !args.OtherFixture.Hard) return;
-
         var speed = args.OurBody.LinearVelocity.Length();
 
         if (speed < ent.Comp.CrashingSpeed) return;
-            
-        if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
+        
+        if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {
             if (_gameTiming.IsFirstTimePredicted)
-                _audio.PlayPvs(vcComp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+                _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+        }
+        else if(args.OurFixture.Hard && !args.OtherFixture.Hard)
+        {
+            if(HasComp<DamageableComponent>(args.OtherEntity))
+                if (_gameTiming.IsFirstTimePredicted)
+                    _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
     }
 

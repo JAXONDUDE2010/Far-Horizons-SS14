@@ -44,7 +44,4 @@ public sealed partial class VehicleContainerComponent : Component
 
     [DataField]
     public EntityWhitelist? PassengerWhitelist;
-
-    [DataField("soundHit", required: true), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier SoundHit = default!;
 }

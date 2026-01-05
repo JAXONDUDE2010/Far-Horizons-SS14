@@ -119,6 +119,12 @@ public sealed partial class VehicleComponent : Component
     [DataField]
     public SoundSpecifier? HornSound;
 
+    /// <summary>
+    /// Sound played whenever running over someone or crashing
+    /// </summary>
+    [DataField("soundHit", required: true), ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier SoundHit = default!;
+
     [DataField]
     public EntityWhitelist? RiderWhitelist;
 
