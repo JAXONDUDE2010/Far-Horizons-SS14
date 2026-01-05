@@ -11,8 +11,9 @@
 - type: entity
   parent: [VehicleKeyBase, BaseSecurityContraband]
   id: VehicleKeySecway
-  name: Secway electronic Key
+  name: Secway Electronic Key
   description: The USB to the future.
+  suffix: NT
   components:
   - type: Tag
     tags:
@@ -25,8 +26,9 @@
 - type: entity
   parent: [VehicleKeyBase, BaseSecurityContraband]
   id: VehicleKeySecwayS
-  name: Secway electronic Key
+  name: Secway Electronic Key
   description: The EVIL USB to the future.
+  suffix: S
   components:
   - type: Tag
     tags:
@@ -39,8 +41,9 @@
 - type: entity
   parent: [VehicleKeyBase, BaseSecurityContraband]
   id: VehicleKeySecwayTurbo
-  name: Secway Turbo electronic Key
+  name: Secway Turbo Electronic Key
   description: Enforcing justice at the speed of sound. Not compatible with Secways due to software differences.
+  suffix: NT
   components:
   - type: Tag
     tags:
@@ -66,6 +69,7 @@
   id: VehicleKeySTV
   name: STV Key
   description: Universal STV key, does not fit in ATVs.
+  suffix: NT
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Vehicles/sectv.rsi

@@ -91,7 +91,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
- #Far Horizons - Start
   - type: ItemToggle
     onUse: false
     soundActivate:
@@ -116,7 +115,6 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 360
- #Far Horizons - End
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Pierceable
