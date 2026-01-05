@@ -68,6 +68,7 @@
   id: VehicleKeySTV
   name: STV Key
   description: Universal STV key, does not fit in ATVs.
+  suffix: NT
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Vehicles/sectv.rsi
