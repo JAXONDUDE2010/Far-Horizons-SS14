@@ -222,7 +222,7 @@
 - type: entity
   id: VehicleSecwayBattery
   parent: VehicleSecway
-  suffix: Battery
+  suffix: Battery, NT
   components: 
     - type: ContainerFill
       containers:
