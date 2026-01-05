@@ -232,7 +232,7 @@
 - type: entity
   id: VehicleSecwayBatterywithKeys
   parent: VehicleSecway
-  suffix: Battery, Keys
+  suffix: Battery, Keys, NT
   components: 
     - type: ContainerFill
       containers:
