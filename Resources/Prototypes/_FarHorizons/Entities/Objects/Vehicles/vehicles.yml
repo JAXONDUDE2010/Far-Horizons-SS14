@@ -241,6 +241,25 @@
         - VehicleKeySecway
 
 - type: entity
+  id: VehicleSecwayBatterywithKeysS
+  parent: VehicleSecway
+  suffix: Battery, Keys, S
+  components:
+    - type: Sprite
+      drawdepth: OverMobs
+      sprite: _FarHorizons/Objects/Vehicles/syndicatesecway.rsi
+      layers:
+      - state: vehicle
+        map: ["enum.VehicleVisualLayers.AutoAnimate"]
+      noRot: true 
+    - type: ContainerFill
+      containers:
+        cell_slot:
+        - PowerCellMedium
+        key_slot:
+        - VehicleKeySecway
+
+- type: entity
   id: VehicleSecwayTurboBatterywithKeys
   parent: [VehicleSecway, BaseSecurityContraband]
   name: Secway Turbo
