@@ -12,3 +12,5 @@ vehicle-verb-leave = Leave Vehicle
 vehicle-verb-remove = Remove Passenger
 
 vehicle-remove-passenger-attempt = Someone starts to remove a passenger from the vehicle
+
+vehicle-examine-broken = This vehicle is completely broken.

@@ -43,6 +43,7 @@
   - type: Repairable
     doAfterDelay: 20
     qualityNeeded: Anchoring
+  - type: Pierceable 
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -50,18 +51,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Breakage"]
-      - !type:ExplodeBehavior
-      - !type:EmptyContainersBehaviour
-        containers:
-        - passenger_slot
-        - storagebase
 
 - type: entity
   id: VehicleWheelchair
@@ -139,7 +135,7 @@
 
 - type: entity
   id: VehicleSecway
-  parent: BaseVehicleRideable
+  parent: BaseVehicleRideableDamageable
   name: Secway
   description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
@@ -149,6 +145,7 @@
     frictionNoInput: 4.5
     requireIgnition: true 
     baseState: vehicle
+    brokenState: vehicle
     startupTime: 2
     handsNeeded: 1
     riderWhitelist:
@@ -190,7 +187,7 @@
         mask:
         - MobMask
         layer:
-        - TableLayer
+        - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
     baseSprintSpeed: 9
@@ -205,8 +202,8 @@
           - SecwayKeys
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        disableEject: true
         # Swappable batteries until we can get secway recharge stations
-        #disableEject: true
         #swap: false 
   - type: ContainerContainer
     containers:
@@ -251,7 +248,7 @@
 
 - type: entity
   id: VehicleATV
-  parent: BaseVehicleRideable
+  parent: BaseVehicleRideableDamageable
   name: ATV
   description: All-Tile Vehicle.
   components:
@@ -268,6 +265,7 @@
     allowCrashing: true
     crashingSpeed: 10 
     baseState: vehicle
+    brokenState: vehicle
     startupTime: 2
     startUp: 
       path: /Audio/Effects/Vehicle/vehiclestartup.ogg
@@ -314,7 +312,7 @@
         mask:
         - MobMask
         layer:
-        - TableLayer
+        - MobLayer
   - type: ItemSlots
     slots:
       key_slot:
@@ -515,6 +513,22 @@
     unlockOnClick: false
     popupMessage: false
     showExamine: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+      - !type:ExplodeBehavior
+      - !type:EmptyContainersBehaviour
+        containers:
+        - passenger_slot
+        - storagebase
 
 - type: entity
   id: VehicleClownCarFueled

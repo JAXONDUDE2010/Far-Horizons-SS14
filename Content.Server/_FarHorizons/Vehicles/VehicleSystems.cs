@@ -56,7 +56,6 @@ using Content.Shared.Repairable;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Effects;
 using Robust.Shared.Player;
-using Robust.Shared.Physics.Systems;
 using Content.Server.Emp;
 
 namespace Content.Server._FarHorizons.Vehicle;
@@ -89,8 +88,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -111,6 +108,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleComponent, PowerCellSlotEmptyEvent>(OnPowerCellEmpty);
         SubscribeLocalEvent<VehicleComponent, RepairFinishedEvent>(OnRepairFinished);
         SubscribeLocalEvent<VehicleComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<VehicleComponent, BreakageEventArgs>(OnBreakageEvent);
 
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
@@ -122,7 +120,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleContainerComponent, VehicleEntryDoAfter>(OnVehicleEntryDoAfter);
         SubscribeLocalEvent<VehicleContainerComponent, VehicleRemoveDoAfter>(OnVehicleRemoveDoAfter);
         SubscribeLocalEvent<VehicleContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
-        SubscribeLocalEvent<VehicleContainerComponent, BreakageEventArgs>(OnBreakageEvent);
         SubscribeLocalEvent<VehicleContainerComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<VehicleContainerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
 
@@ -173,27 +170,19 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             if(ent.Comp.Rider == args.User || ent.Comp.Rider == null)
             {
-                if(ent.Comp.Started)
-                    ent.Comp.Started = false;
                 if(ent.Comp.Rider != null)
                 {
                     _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
                     if(ent.Comp.TurnKeysActionEntity != null)
                         _actions.RemoveProvidedAction(ent.Comp.Rider.Value, ent.Owner, ent.Comp.TurnKeysActionEntity.Value);
+
+                    for (var i = 0; i < ent.Comp.HandsNeeded; i++)
+                    {
+                        _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
+                    }
                 }
                     
-                if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
-                {
-                    pcdComp.Enabled = false;
-                    Dirty(ent.Owner, pcdComp);
-                }
-                if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp) && rdComp.Enabled)
-                {
-                    rdComp.Enabled = false;
-                    Dirty(ent.Owner, rdComp);
-                    _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
-                }
-                Dirty(ent.Owner, ent.Comp);
+                TurnOffVehicle(ent.Owner, ent.Comp);
             }
             else
             {
@@ -219,26 +208,19 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             var keys = container.Containers.Values.FirstOrDefault(x => _tags.HasTag(x.ContainedEntities.First(), _vehicleKeyTag))!.ContainedEntities.First();
             _handsSystem.PickupOrDrop(args.User, keys);
-            if(ent.Comp.Started)
-                ent.Comp.Started = false;
+
             if(ent.Comp.Rider == null) return;
             _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+
+            for (var i = 0; i < ent.Comp.HandsNeeded; i++)
+            {
+                _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
+            }
 
             if(ent.Comp.TurnKeysActionEntity != null)
                 _actions.RemoveProvidedAction(ent.Comp.Rider.Value, ent.Owner, ent.Comp.TurnKeysActionEntity.Value);
 
-            if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp) && pcdComp.Enabled)
-            {
-                pcdComp.Enabled = false;
-                Dirty(ent.Owner, pcdComp);
-            }   
-            if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp) && rdComp.Enabled)
-            {
-                rdComp.Enabled = false;
-                _ambientSound.SetAmbience(ent.Owner, rdComp.Enabled);
-                Dirty(ent.Owner, rdComp);
-            }
-            Dirty(ent.Owner, ent.Comp);
+            TurnOffVehicle(ent.Owner, ent.Comp);
         }
     }
 
@@ -363,13 +345,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     private void OnEmptyReagantContainer(Entity<VehicleComponent> ent, ref ReagantContainerSlotEmptyEvent args)
     {
-        if(!TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp)) return;
-
-        ent.Comp.Started = false;
-        rdComp.Enabled = false;
-        _ambientSound.SetAmbience(ent.Owner, false);
-        Dirty(ent.Owner, rdComp);
-        Dirty(ent.Owner, ent.Comp);
+        TurnOffVehicle(ent.Owner, ent.Comp);
 
         if(ent.Comp.Rider != null)  
             _actionBlocker.UpdateCanMove(ent.Owner);
@@ -377,13 +353,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     private void OnPowerCellEmpty(Entity<VehicleComponent> ent, ref PowerCellSlotEmptyEvent args)
     {
-        if(!TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp)) return;
-
-        ent.Comp.Started = false;
-        pcdComp.Enabled = false;
-        _ambientSound.SetAmbience(ent.Owner, false);
-        Dirty(ent.Owner, pcdComp);
-        Dirty(ent.Owner, ent.Comp);
+        TurnOffVehicle(ent.Owner, ent.Comp);
 
         if(ent.Comp.Rider != null)  
             _actionBlocker.UpdateCanMove(ent.Owner);
@@ -392,6 +362,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     private void OnRepairFinished(Entity<VehicleComponent> ent, ref RepairFinishedEvent args)
     {
         ent.Comp.isBroken = false;
+        
+        if(TryComp<VehicleBuckleComponent>(ent, out var vbComp))
+        {
+            _buckle.StrapSetEnabled(ent, false);
+        }
         TryUpdateVisualState(ent.Owner);
         Dirty(ent.Owner, ent.Comp);
     }
@@ -407,9 +382,30 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             _popup.PopupEntity(Loc.GetString("vehicle-toggle-trunk-close"), ent.Owner, PopupType.Small);
     }
 
-    private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args)
+    private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args) => TurnOffVehicle(ent.Owner, ent.Comp);
+
+    private void OnBreakageEvent(EntityUid ent, VehicleComponent component, BreakageEventArgs args)
     {
-        Logger.Info($"{ent.Owner}");
+        if(TryComp<VehicleContainerComponent>(ent, out var vcComp))
+        {
+            if(vcComp.PassengerSlot.ContainedEntities.Count != 0)
+            {
+                foreach(var passengers in vcComp.PassengerSlot.ContainedEntities.ToArray())
+                {
+                    RemoveRider(passengers, ent, component);
+                }
+            }
+        }
+        if(TryComp<VehicleBuckleComponent>(ent, out var vbComp))
+        {
+            _buckle.StrapSetEnabled(ent, false);
+        }
+        
+        component.isBroken = true;
+
+        TryUpdateVisualState(ent);
+
+        TurnOffVehicle(ent, component);
     }
 
     #endregion
@@ -575,37 +571,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         args.Handled = true;
     }
-
-    private void OnBreakageEvent(EntityUid ent, VehicleContainerComponent component, BreakageEventArgs args)
-    {
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
-        if(component.PassengerSlot.ContainedEntities.Count != 0)
-        {
-            foreach(var passengers in component.PassengerSlot.ContainedEntities.ToArray())
-            {
-                RemoveRider(passengers, ent, vehicleComp);
-            }
-        }
-        vehicleComp.isBroken = true;
-
-        TryUpdateVisualState(ent);
-
-        if(vehicleComp.Started)
-            vehicleComp.Started = false;
-
-        if(TryComp<PowerCellDrawComponent>(ent, out var pcdComp) && pcdComp.Enabled)
-        {
-            pcdComp.Enabled = false;
-            Dirty(ent, pcdComp);
-        }   
-        if(TryComp<ReagantDrawComponent>(ent, out var rdComp) && rdComp.Enabled)
-        {
-            rdComp.Enabled = false;
-            _ambientSound.SetAmbience(ent, rdComp.Enabled);
-            Dirty(ent, rdComp);
-        }
-        Dirty(ent, vehicleComp);
-    }
  
     private void OnDamageChanged(EntityUid ent, VehicleContainerComponent component, DamageChangedEvent args)
     {
@@ -754,15 +719,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         var speed = vehiclePhys.LinearVelocity.Length();
         if(speed > 0.3)
-        {
             vehicleComp.isMoving = true;
-            TryUpdateVisualState(vehicle);
-        }
-        if(speed < 0.3)
-        {
+        else if(speed < 0.3)
             vehicleComp.isMoving = false;
-            TryUpdateVisualState(vehicle);
-        }  
+            
+        TryUpdateVisualState(vehicle);  
         Dirty(vehicle, vehicleComp);
 
         if( vehicleComp.Rider == null) return;
@@ -837,6 +798,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if (!Resolve(vehicle, ref component))
             return;
 
+        if(component.isBroken) return;
+
         if(component.requireIgnition && TryComp(vehicle, out ItemSlotsComponent? itemComp)
                 && itemComp.Slots.Values.Any(slot =>
                     slot.ContainerSlot?.ContainedEntity is EntityUid item
@@ -892,6 +855,28 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         _container.Remove(Rider.Value, component.PassengerSlot);
         Dirty(Rider.Value, component);
         return true;
+    }
+
+    private void TurnOffVehicle(EntityUid vehicle, VehicleComponent? component=null)
+    {
+        if(!Resolve(vehicle, ref component))
+            return;
+
+        if(component.Started)
+            component.Started = false;
+
+        if(TryComp<PowerCellDrawComponent>(vehicle, out var pcdComp) && pcdComp.Enabled)
+        {
+            pcdComp.Enabled = false;
+            Dirty(vehicle, pcdComp);
+        }   
+        if(TryComp<ReagantDrawComponent>(vehicle, out var rdComp) && rdComp.Enabled)
+        {
+            rdComp.Enabled = false;
+            _ambientSound.SetAmbience(vehicle, rdComp.Enabled);
+            Dirty(vehicle, rdComp);
+        }
+        Dirty(vehicle, component);
     }
     #endregion
 }

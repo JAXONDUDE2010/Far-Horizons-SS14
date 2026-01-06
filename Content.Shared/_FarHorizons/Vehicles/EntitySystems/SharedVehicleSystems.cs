@@ -1,5 +1,4 @@
 using Content.Shared._FarHorizons.Vehicles.Components;
-using Content.Shared._FarHorizons.VehicleContainer.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.DragDrop;
 using Content.Shared.Lock;
@@ -7,6 +6,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -23,8 +23,8 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHornActionEvent);
         SubscribeLocalEvent<VehicleComponent, ToggleTrunkActionEvent>(OnToggleTrunk);
         SubscribeLocalEvent<VehicleComponent, StartCollideEvent>(HandleCollide);
-
-        SubscribeLocalEvent<VehicleContainerComponent, CanDropTargetEvent>(OnCanDragDrop);
+        SubscribeLocalEvent<VehicleComponent, CanDropTargetEvent>(OnCanDragDrop);
+        SubscribeLocalEvent<VehicleComponent, ExaminedEvent>(OnExamine);
     }
 
     protected virtual void OnTurnKeysEvent(Entity<VehicleComponent> ent, ref TurnKeysEvent args)
@@ -103,9 +103,18 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         }
     }
 
-    private void OnCanDragDrop(Entity<VehicleContainerComponent> ent, ref CanDropTargetEvent args)
+    private void OnCanDragDrop(Entity<VehicleComponent> ent, ref CanDropTargetEvent args)
     {
+        args.CanDrop = !ent.Comp.isBroken;
         args.Handled = true;
-        args.CanDrop = true;
+    }
+
+    private void OnExamine(Entity<VehicleComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        if(ent.Comp.isBroken)
+            args.PushMarkup(Loc.GetString("vehicle-examine-broken"));
     }
 }
