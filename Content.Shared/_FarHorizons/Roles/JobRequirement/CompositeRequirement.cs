@@ -19,12 +19,6 @@ namespace Content.Shared._FarHorizons.Roles.JobRequirement;
 [Serializable, NetSerializable]
 public sealed partial class CompositeRequirement : Shared.Roles.JobRequirement
 {
-    /// <summary>
-    /// What particular role they need the time requirement with.
-    /// </summary>
-    [DataField(required: true)]
-    public ProtoId<PlayTimeTrackerPrototype> Role;
-
     [DataField(required: true)]
     public List<Shared.Roles.JobRequirement> Requirements;
 
@@ -39,34 +33,32 @@ public sealed partial class CompositeRequirement : Shared.Roles.JobRequirement
         IReadOnlyDictionary<string, TimeSpan>? playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
+        reason = new FormattedMessage();
         bool requirementsOutput = true;
-        FormattedMessage? reasonOutput = null;
+        bool altRequirementsOutput = true;
+        
         foreach (var requirement in Requirements)
         {
-            if (!requirement.Check(entManager, player, protoManager, profile, playTimes, out reasonOutput))
-            {
-                requirementsOutput = false;
-                break;
-            }
+            if (requirement.Check(entManager, player, protoManager, profile, playTimes, out var reasonOutput)) 
+                continue;
+            requirementsOutput = false;
+            reason.AddMessage(reasonOutput);
+            reason.PushNewline();
         }
-        bool altRequirementsOutput = true;
         foreach (var alternativeRequirement in AlternativeRequirements)
         {
-            
-            if (!alternativeRequirement.Check(entManager, player, protoManager, profile, playTimes, out reasonOutput))
+            if (alternativeRequirement.Check(entManager, player, protoManager, profile, playTimes,
+                    out var reasonOutput)) continue;
+            if (!requirementsOutput)
             {
-                altRequirementsOutput = false;
-                break;
+                reason.AddText("OR");
+                reason.PushNewline();
             }
+            altRequirementsOutput = false;
+            reason.AddMessage(reasonOutput);
+            reason.PushNewline();
         }
 
-        if (!requirementsOutput || !altRequirementsOutput)
-        {
-            reason = reasonOutput!;
-            return false;
-        }
-
-        reason = null;
-        return true;
+        return requirementsOutput || altRequirementsOutput;
     }
 }
