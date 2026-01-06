@@ -26,21 +26,22 @@ using Content.Shared._NullLink;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
+using Content.Shared.IoC;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Starlight;
 using Content.Client._NullLink;
 using Content.Shared._FarHorizons.Factions;
 using Content.Client._FarHorizons.Factions;
+using Content.Shared._Starlight.DocumentManager;
 
 namespace Content.Client.IoC
 {
     internal static class ClientContentIoC
     {
-        public static void Register()
+        public static void Register(IDependencyCollection collection)
         {
-            var collection = IoCManager.Instance!;
-
+            SharedContentIoC.Register(collection);
             collection.Register<IParallaxManager, ParallaxManager>();
             collection.Register<GeneratedParallaxCache>();
             collection.Register<IChatManager, ChatManager>();
@@ -75,12 +76,14 @@ namespace Content.Client.IoC
             // NullLink start
             collection.Register<INullLinkPlayerRolesManager, NullLinkPlayerRolesManager>();  
             collection.Register<ISharedNullLinkPlayerRolesReqManager, PlayerRolesReqManager>();
+            collection.Register<INullLinkPlayTimeManager, NullLinkPlayTimeManager>();
             // NullLink end
 
             // Far Horizons start
             collection.Register<ISharedFactionManager, ClientFactionManager>();
             collection.Register<DiscordLinkManager>();  
             // Far Horizons end
+            collection.Register<PreWrittenDocumentManager>(); // Starlight
         }
     }
 }

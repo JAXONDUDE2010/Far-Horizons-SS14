@@ -18,6 +18,7 @@
     - type: Tag #Far Horizons
       tags:
       - NodeScanner
+      - Xenoarchaeology
     - type: ActivatableUI
       key: enum.NodeScannerUiKey.Key
       singleUser: true
