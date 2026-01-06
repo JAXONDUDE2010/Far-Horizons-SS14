@@ -57,11 +57,13 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Effects;
 using Robust.Shared.Player;
 using Content.Server.Emp;
+using Content.Shared.Administration.Logs;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
 public sealed partial class VehicleSystems : SharedVehicleSystems
 {    
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
@@ -196,6 +198,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     CancelDuplicate = false
 
                 };
+                _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Medium, $"{ToPrettyString(args.User.Value)} began to attempt to steal keys from {ToPrettyString(ent.Owner)}");
                 _doAfter.TryStartDoAfter(doAfter);
             }
         }
@@ -230,10 +233,13 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(!ent.Comp.Started)
         {
             _popup.PopupEntity(Loc.GetString("vehicle-turn-keys-start"), ent.Owner, PopupType.Medium);
+            _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(ent.Comp.Rider.Value)} started the engine of {ToPrettyString(ent.Owner)}");
+
         }
         if(ent.Comp.Started)
         {
             _popup.PopupEntity(Loc.GetString("vehicle-turn-keys-stop"), ent.Owner, PopupType.Medium);
+            _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(ent.Comp.Rider.Value)} stopped the engine of {ToPrettyString(ent.Owner)}");
         }        
         var ev = new TurnKeysDoAfter();
         var doAfter = new DoAfterArgs(EntityManager, ent.Comp.Rider.Value, ent.Comp.startupTime, ev, ent.Owner)
@@ -310,6 +316,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                         var riderXform = Transform(rider);
                         _stun.TryCrawling(rider, TimeSpan.FromSeconds(3));
                         _throwing.TryThrow(rider, vehiclePhys.LinearVelocity, riderPhys, riderXform, _projQuery, vehiclePhys.LinearVelocity.Length(), playSound: false);
+                        _adminLogger.Add(Shared.Database.LogType.Landed, Shared.Database.LogImpact.Medium, $"{ToPrettyString(rider)} was launched from vehicle {ToPrettyString(ent.Owner)}");
                     }
             }
             else if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
@@ -317,6 +324,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 foreach(var passenger in vcComp.PassengerSlot.ContainedEntities)
                 {
                     _stun.TryAddStunDuration(passenger, TimeSpan.FromSeconds(3));
+                    _adminLogger.Add(Shared.Database.LogType.Landed, Shared.Database.LogImpact.Medium, $"{ToPrettyString(passenger)} was stunned inside of vehicle {ToPrettyString(ent.Owner)}");
                 }
             }
         }
@@ -333,6 +341,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
             Timer.Spawn(TimeSpan.FromSeconds(2), () => _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed * 4, msmComp.BaseSprintSpeed * 4, msmComp.Acceleration));
             _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed/4, msmComp.BaseSprintSpeed/4, msmComp.Acceleration);
+            _adminLogger.Add(Shared.Database.LogType.Landed, Shared.Database.LogImpact.High, $"{ToPrettyString(ent.Comp.Rider.Value)} ran over {ToPrettyString(args.OtherEntity)} dealing a total of {_damage.DamageDict}");
         }
     }
 
@@ -361,11 +370,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     private void OnRepairFinished(Entity<VehicleComponent> ent, ref RepairFinishedEvent args)
     {
+        _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(args.User)} repaired the vehicle {ToPrettyString(ent.Owner)}");
         ent.Comp.isBroken = false;
         
         if(TryComp<VehicleBuckleComponent>(ent, out var vbComp))
         {
-            _buckle.StrapSetEnabled(ent, false);
+            _buckle.StrapSetEnabled(ent, true);
         }
         TryUpdateVisualState(ent.Owner);
         Dirty(ent.Owner, ent.Comp);
@@ -374,6 +384,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     protected override void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
     {
         if(!TryComp<LockComponent>(ent.Owner, out var lockComp)) return;
+        _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(args.Performer)} toggled the trunk from {ToPrettyString(ent.Owner)}");
         _lock.ToggleLock(ent.Owner, args.Performer, lockComp);
 
         if(!_lock.IsLocked(ent.Owner))
@@ -430,6 +441,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if (vehicleComp.Rider != args.User)
         {
             args.Cancelled = true;
+            _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(args.User)} attempted to steal vehicle {ToPrettyString(ent.Owner)}");
             _popup.PopupEntity(Loc.GetString("vehicle-steal-vehicle-attempt"), vehicleComp.Rider.Value, PopupType.LargeCaution);
             var ev = new VehicleUnbuckleDoAfter();
             var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.duration, ev, ent.Owner, ent.Owner)
@@ -489,7 +501,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     {
                         BreakOnMove = true,
                     };
-
+                    
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }
             };
@@ -522,6 +534,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                     {
                         BreakOnMove = true,
                     };
+                    _adminLogger.Add(Shared.Database.LogType.Verb, Shared.Database.LogImpact.Medium, $"{ToPrettyString(args.User)} attempted to remove a passenger from {ToPrettyString(uid)}");
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }
@@ -751,6 +764,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         var riderComp = EnsureComp<RiderComponent>(rider);
         riderComp.Riding = vehicle;
         Dirty(rider, riderComp);
+        _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} entered vehicle {ToPrettyString(vehicle)}");
 
         if(_whitelist.IsWhitelistFail(vehicleComp.RiderWhitelist, rider)) return;
         if(vehicleComp.Rider != null) return;
@@ -780,7 +794,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             RemComp<RelayInputMoverComponent>(rider);
         if(HasComp<RiderComponent>(rider))
             RemComp<RiderComponent>(rider);
-            
+        _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} exited vehicle {ToPrettyString(vehicle)}");
+
         if(rider != vehicleComp.Rider) return;
         vehicleComp.Rider = null;
         _actionBlocker.UpdateCanMove(rider);
