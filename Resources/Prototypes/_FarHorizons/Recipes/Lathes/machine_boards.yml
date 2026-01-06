@@ -44,3 +44,13 @@
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: BoardEngraverSubzeroMachineCircuitboard
   result: BoardEngraverSubzeroMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: CybersunAssemblerMachineCircuitboard
+  result: CybersunAssemblerMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: SyndicateUniformPrinterMachineCircuitboard
+  result: SyndicateUniformPrinterMachineCircuitboard

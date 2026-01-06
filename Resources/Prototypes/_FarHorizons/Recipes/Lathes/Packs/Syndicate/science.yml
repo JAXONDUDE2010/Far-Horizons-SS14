@@ -6,7 +6,28 @@
   - ProtofabMachineCircuitboard
   - AutofabMachineCircuitboard
   - BoardEngraverMachineCircuitboard
-#  - ExosuitFabricatorMachineCircuitboard 
-# TODO: Syndi Exosuit fab
+  - CybersunAssemblerMachineCircuitboard
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
+
+## Dynamics
+
+- type: latheRecipePack
+  id: SyndicateScienceBoards
+  recipes:
+  - TurboItemRechargerCircuitboard
+  - AutofabSubzeroMachineCircuitboard
+  - ProtofabSubzeroMachineCircuitboard
+  - BoardEngraverSubzeroMachineCircuitboard
+  - TechDiskComputerCircuitboard
+  - FlatpackerMachineCircuitboard
+  - SheetifierMachineCircuitboard
+  - PowerCageRechargerCircuitboard
+  - AnalysisComputerCircuitboard
+  - AnomalyVesselCircuitboard
+  - AnomalyVesselExperimentalCircuitboard
+  - AnomalySynchronizerCircuitboard
+  - APECircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+  - ArtifactCrusherMachineCircuitboard
+  - ResearchTreeMapElectronics #FH
