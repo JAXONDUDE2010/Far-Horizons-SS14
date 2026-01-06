@@ -60,7 +60,7 @@
         - passenger_slot
         - storagebase
   - type: Physics
-    canCollide: False
+    canCollide: True
 
 - type: entity
   id: VehicleWheelchair
