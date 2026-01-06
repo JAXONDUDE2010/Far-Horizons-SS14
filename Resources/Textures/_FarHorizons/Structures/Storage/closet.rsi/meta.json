@@ -344,6 +344,9 @@
             "name": "genpop_open"
         },
         {
+            "name": "green_door"
+        },
+        {
             "name": "grey_door"
         },
         {
@@ -564,6 +567,9 @@
         },        
         {
             "name": "warden_door"
+        },        
+        {
+            "name": "warden_open"
         },
         {
             "name": "welded"
