@@ -198,7 +198,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             else
             {
                 args.Cancelled = true;
-                _popup.PopupEntity($"Someone is trying to steal the keys from the ignition.", ent.Owner, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("vehicle-steal-keys-attempt"), ent.Owner, PopupType.LargeCaution);
                 var ev = new EjectKeysDoAfter();
                 var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.timeToStealKeys, ev, ent.Owner, ent.Owner)
                 {
@@ -247,11 +247,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(ent.Comp.Rider == null) return;
         if(!ent.Comp.Started)
         {
-            _popup.PopupEntity($"You turn the keys to start the vehicle.", ent.Owner, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("vehicle-turn-keys-start"), ent.Owner, PopupType.Medium);
         }
         if(ent.Comp.Started)
         {
-            _popup.PopupEntity($"You turn the keys to stop the vehicle.", ent.Owner, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("vehicle-turn-keys-stop"), ent.Owner, PopupType.Medium);
         }        
         var ev = new TurnKeysDoAfter();
         var doAfter = new DoAfterArgs(EntityManager, ent.Comp.Rider.Value, ent.Comp.startupTime, ev, ent.Owner)
@@ -402,9 +402,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         _lock.ToggleLock(ent.Owner, args.Performer, lockComp);
 
         if(!_lock.IsLocked(ent.Owner))
-            _popup.PopupEntity($"You popped open the trunk", ent.Owner, PopupType.Small);
+            _popup.PopupEntity(Loc.GetString("vehicle-toggle-trunk-open"), ent.Owner, PopupType.Small);
         else
-            _popup.PopupEntity($"You closed the trunk", ent.Owner, PopupType.Small);
+            _popup.PopupEntity(Loc.GetString("vehicle-toggle-trunk-close"), ent.Owner, PopupType.Small);
     }
 
     private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args)
@@ -434,7 +434,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if (vehicleComp.Rider != args.User)
         {
             args.Cancelled = true;
-            _popup.PopupEntity($"Someone starts to remove you from the driver seat.", vehicleComp.Rider.Value, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("vehicle-steal-vehicle-attempt"), vehicleComp.Rider.Value, PopupType.LargeCaution);
             var ev = new VehicleUnbuckleDoAfter();
             var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.duration, ev, ent.Owner, ent.Owner)
             {
@@ -486,7 +486,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             var enterVerb = new AlternativeVerb
             {
-                Text = "Enter Vehicle",
+                Text = Loc.GetString("vehicle-verb-enter"),
                 Act = () =>
                 {
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.EntryTime, new VehicleEntryDoAfter(), uid, target: args.User)
@@ -503,7 +503,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             var exitVerb = new AlternativeVerb
             {
-                Text = "Leave Vehicle",
+                Text = Loc.GetString("vehicle-verb-leave"),
                 Act = () =>
                 {
                     TryRemove(args.User, uid, component);
@@ -518,10 +518,10 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             var removeVerb = new AlternativeVerb
             {
-                Text = "Remove Passenger",
+                Text = Loc.GetString("vehicle-verb-remove"),
                 Act = () =>
                 {
-                    _popup.PopupEntity($"Someone starts to remove a passenger from the vehicle.", uid, PopupType.LargeCaution);
+                    _popup.PopupEntity(Loc.GetString("vehicle-remove-passenger-attempt"), uid, PopupType.LargeCaution);
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.RemoveTime, new VehicleRemoveDoAfter(), uid, target: uid)
                     {
                         BreakOnMove = true,
@@ -714,7 +714,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(ent.Comp.Riding != null && TryComp<VehicleComponent>(ent.Comp.Riding.Value, out var vehicleComp) && !vehicleComp.DisallowWieldingGuns) return;
 
-        args.Message = "You can't wield this while riding the vehicle";
         args.Cancel();
     }
 
@@ -853,6 +852,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if(component.HornSound != null)
             _actions.AddAction(rider, ref component.HornVehicleActionEntity, component.HornVehicleAction, vehicle);
+
+        if(component.SirenToggleAction != null)
+            _actions.AddAction(rider, component.SirenToggleAction, vehicle);
     }
 
     private bool TryInsert(EntityUid? Rider, EntityUid Vehicle, VehicleContainerComponent? component=null)
