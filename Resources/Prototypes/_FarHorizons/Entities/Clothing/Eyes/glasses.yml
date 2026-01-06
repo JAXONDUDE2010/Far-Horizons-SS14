@@ -5,7 +5,7 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlassesLaw
   name: Law Glasses
-  suffix: NT
+  suffix: CFA
   description: A set of slick looking glasses for the law department.
   components:
   - type: Sprite
