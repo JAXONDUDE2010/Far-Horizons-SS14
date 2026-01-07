@@ -174,6 +174,7 @@ namespace Content.IntegrationTests.Tests
             "StarlightSilica",
             "StarlightCluster",
             "StarlightFland",
+            "StarlightStationBuilding",
             #endregion
             #region Far Horizons
             "FHMeta",

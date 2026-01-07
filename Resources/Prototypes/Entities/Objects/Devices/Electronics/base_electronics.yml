@@ -12,7 +12,7 @@
     state: generic
   - type: PhysicalComposition
     materialComposition:
-      Glass: 200
+      Glass: 150 # FH reduced so price isn't too high with added solutionss
     chemicalComposition:
       Silicon: 20
   - type: Circuitboard

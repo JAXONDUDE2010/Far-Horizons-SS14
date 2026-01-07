@@ -13,7 +13,7 @@ public sealed class RCDTest : InteractionTest
 {
     private static readonly EntProtoId RCDProtoId = "RCD";
     private static readonly ProtoId<RCDPrototype> RCDSettingWall = "WallSolid";
-    private static readonly ProtoId<RCDPrototype> RCDSettingAirlock = "Airlock";
+    private static readonly ProtoId<RCDPrototype> RCDSettingAirlock = "FHAirlock"; // Far Horizons
     private static readonly ProtoId<RCDPrototype> RCDSettingPlating = "Plating";
     private static readonly ProtoId<RCDPrototype> RCDSettingFloorSteel = "FloorSteel";
     private static readonly ProtoId<RCDPrototype> RCDSettingDeconstruct = "Deconstruct";

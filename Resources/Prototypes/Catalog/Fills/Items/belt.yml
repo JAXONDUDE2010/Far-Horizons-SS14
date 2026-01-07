@@ -96,7 +96,6 @@
       storagebase: !type:AllSelector
         children:
         - id: Brutepack
-          amount: 2
         - id: Ointment
         - id: Bloodpack
         - id: AmmoniaPack #Far Horizons
