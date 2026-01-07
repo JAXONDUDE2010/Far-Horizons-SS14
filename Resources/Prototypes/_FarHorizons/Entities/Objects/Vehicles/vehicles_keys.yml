@@ -78,3 +78,17 @@
     tags:
     - VehicleKey
     - STVKeys
+
+- type: entity
+  parent: VehicleKeyBase
+  id: VehicleKeyClowncar
+  name: Clowncar keys
+  description: The keys to an incomprehensible evil...
+  components:
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ClowncarKeys
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Vehicles/clowncar.rsi
+    state: keys
