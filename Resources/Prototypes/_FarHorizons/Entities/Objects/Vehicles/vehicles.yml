@@ -422,6 +422,20 @@
         volume: -11
         pitch: 1.15
         variation: 0.10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+      - !type:EmptyContainersBehaviour
+        containers:
+        - storagebase
 
 - type: entity
   id: VehicleATVFueled
