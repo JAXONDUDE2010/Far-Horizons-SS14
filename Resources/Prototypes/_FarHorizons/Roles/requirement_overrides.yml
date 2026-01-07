@@ -167,11 +167,17 @@
       - !type:OverallPlaytimeRequirement
         time: 14400  # 4 hours
     SecBorg:
-      - !type:OverallPlaytimeRequirement
-        time: 14400  # 4 hours
-      - !type:RoleTimeRequirement
-        role: JobBorg
-        time: 3600 # 1 hour as Borg
+      - !type:CompositeRequirement
+        requirements:
+          - !type:OverallPlaytimeRequirement
+            time: 14400  # 4 hours
+          - !type:RoleTimeRequirement
+            role: JobBorg
+            time: 3600 # 1 hour as Borg
+        alternativeRequirements:
+          - !type:RoleTimeRequirement
+            role: SecBorg
+            time: 3600 # 1 hour
     Corpsman:
       - !type:OverallPlaytimeRequirement
         time: 14400  # 4 hours
