@@ -6,7 +6,7 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 0 # Far Horizons - Temporary // 86400 # 24h STARLIGHT
+    time: 7200 # 2 hours - Far Horizons - Temporary // 86400 # 24h STARLIGHT
   - !type:DepartmentTimeRequirement
     department: Security
     time: 0 # Far Horizons - Temporary // 21600 # 6h STARLIGHT
@@ -21,7 +21,7 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 0 # Far Horizons - Temporary // 86400 # 24h STARLIGHT
+    time: 7200 # 2 hours - Far Horizons - Temporary // 86400 # 24h STARLIGHT
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 0 # Far Horizons - Temporary // 21600 # 6h STARLIGHT
@@ -42,7 +42,7 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 7200 # 2 hours Far Horizons - Temporary // 86400 # 24h STARLIGHT
+    time: 14400 # 4 Hours - Far Horizons - Temporary // 86400 # 24h STARLIGHT
   - !type:DepartmentTimeRequirement
     department: Security
     time: 0 # Far Horizons - Temporary // 43200 # 12h STARLIGHT
