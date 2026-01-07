@@ -34,6 +34,7 @@ using Content.Client._NullLink;
 using Content.Shared._FarHorizons.Factions;
 using Content.Client._FarHorizons.Factions;
 using Content.Shared._Starlight.DocumentManager;
+using Content.Shared._FarHorizons.DiscordLink;
 
 namespace Content.Client.IoC
 {
@@ -81,6 +82,7 @@ namespace Content.Client.IoC
 
             // Far Horizons start
             collection.Register<ISharedFactionManager, ClientFactionManager>();
+            collection.Register<IDiscordLinkManagerShared, DiscordLinkManager>();  // double-registered for compatibility
             collection.Register<DiscordLinkManager>();  
             // Far Horizons end
             collection.Register<PreWrittenDocumentManager>(); // Starlight

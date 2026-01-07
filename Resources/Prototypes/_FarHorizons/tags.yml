@@ -23,6 +23,9 @@
   id: BulletproofArmor
 
 - type: Tag
+  id: ClowncarKeys
+  
+- type: Tag
   id: CrayonBox
 
 - type: Tag
@@ -165,7 +168,7 @@
 
 - type: Tag
   id: VehicleKey
-
+  
 - type: Tag
   id: SecwayKeys
 

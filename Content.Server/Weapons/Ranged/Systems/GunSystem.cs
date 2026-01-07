@@ -59,6 +59,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using static Content.Server.Starlight.TextToSpeech.TTSManager;
 #endregion Starlight
+using Content.Shared.Atmos.Components;
+using Content.Shared._FarHorizons.VehicleContainer.Components;
+using Content.Shared._FarHorizons.Vehicles.Components;
+using Content.Shared._FarHorizons.VehicleBuckle.Components;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
