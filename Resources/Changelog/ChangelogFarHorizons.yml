@@ -4401,5 +4401,26 @@ Entries:
   id: 55801
   time: '2026-01-04T15:43:47.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/558
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added role req exemptions.
+    type: Add
+  id: 56300
+  time: '2026-01-07T07:44:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/563
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added CompositeRequirement.
+    type: Add
+  id: 56301
+  time: '2026-01-07T07:44:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/563
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Fixed mentors.
+    type: Fix
+  id: 56302
+  time: '2026-01-07T07:44:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/563
 Order: -1
 
