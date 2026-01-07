@@ -4422,5 +4422,27 @@ Entries:
   id: 56302
   time: '2026-01-07T07:44:31.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/563
+- author: Abby-Spriting and CorruptOmega-Prototyping
+  changes:
+  - message: Locker resprites for a lot of roles.
+    type: Add
+  id: 56500
+  time: '2026-01-07T07:48:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/565
+- author: Abby-Spriting and CorruptOmega-Prototyping
+  changes:
+  - message: Locker prototypes copied over to our directory so that future edits are
+      easier.
+    type: Tweak
+  id: 56501
+  time: '2026-01-07T07:48:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/565
+- author: Abby-Spriting and CorruptOmega-Prototyping
+  changes:
+  - message: Capitalized more names of objects.
+    type: Tweak
+  id: 56502
+  time: '2026-01-07T07:48:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/565
 Order: -1
 
