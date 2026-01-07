@@ -1129,6 +1129,7 @@
   description: "Think three times before opening the airlock to hydroponics, a red threat might be hiding there."
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/posters.rsi #Far Horizons un-resprite poster
     state: poster56_legit
 
 #maps

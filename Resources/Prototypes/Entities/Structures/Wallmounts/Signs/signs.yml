@@ -105,6 +105,7 @@
   description: A direction sign, pointing out which way evac is.
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi #Far Horizons unresprite
     layers:
     - state: direction_evac
     - state: direction_evac_glow
@@ -316,6 +317,7 @@
   description: A sign indicating where the Arrivals shuttle will dock.
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi #Far Horizons unresprite
     state: arrivals
 
 - type: entity

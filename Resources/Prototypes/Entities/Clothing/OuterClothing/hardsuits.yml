@@ -919,10 +919,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
-    layers:
-      - state: icon
-      - state: icon-unshaded
-        shader: unshaded
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg #starlight
