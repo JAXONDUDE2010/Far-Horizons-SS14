@@ -51,7 +51,7 @@
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
-          True: { state: "icon" } #Far Horizons - Idk where this magical icon-on was hiding, but we don't got that.
+          True: { state: "magnet" }
           False: { state: "icon" }
   # Starlight Edit End
 
