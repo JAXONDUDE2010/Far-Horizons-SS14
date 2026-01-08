@@ -164,6 +164,12 @@
   id: SalvageReactor
 
 - type: Tag
+  id: SecwayTurboKeys
+
+- type: Tag
+  id: Seismic
+
+- type: Tag
   id: SP91RC
 
 - type: Tag
@@ -171,6 +177,9 @@
 
 - type: Tag
   id: SiliconEmotesFH
+
+- type: Tag
+  id: STVKeys
 
 - type: Tag
   id: ShotgunKammererCitadel
@@ -189,9 +198,6 @@
 
 - type: Tag
   id: TrueProtogen
-
-- type: Tag
-  id: Seismic
 
 - type: Tag
   id: VehicleKey
