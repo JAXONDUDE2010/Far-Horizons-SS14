@@ -205,7 +205,7 @@
   - type: Lock
   - type: AccessReader
     access: [["Security"]]
-  - type: Battery 
+  - type: PredictedBattery 
     maxCharge: 1500
     startingCharge: 1500
   - type: BatteryAmmoProvider
@@ -385,7 +385,7 @@
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1200
     startingCharge: 1200
   - type: BatterySelfRecharger
@@ -457,6 +457,6 @@
     sprite: _FarHorizons/Objects/Weapons/Guns/Battery/laser_shotgun_inhands_64x.rsi
     heldPrefix: stun
   - type: GunRequiresWield
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 2400
     startingCharge: 2400
