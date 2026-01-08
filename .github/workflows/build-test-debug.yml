@@ -15,12 +15,8 @@ on:
 jobs:
   build:
     if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
-    #runs-on: happyrobot33
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Master
@@ -57,7 +53,8 @@ jobs:
     - name: Run Content.IntegrationTests
       shell: pwsh
       run: |
-        $env:DOTNET_gcServer=1
+        $env:DOTNET_gcServer=0
+        $env:DOTNET_GCHeapHardLimit=4294967296
         dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --logger trx -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
         
     - name: Test results
