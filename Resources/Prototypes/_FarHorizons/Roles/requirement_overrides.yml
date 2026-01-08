@@ -11,7 +11,7 @@
             time: 72000 # 20 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: NanoTrasenRepresentative
+            role: JobNanoTrasenRepresentative
             time: 3600 # 1 hour
     BlueShield:
       - !type:CompositeRequirement
@@ -23,7 +23,7 @@
             time: 72000 # 20 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: BlueShield
+            role: JobBlueShield
             time: 3600 # 1 hour
     Magistrate:
       - !type:CompositeRequirement
@@ -35,7 +35,7 @@
             time: 72000 # 20 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: Magistrate
+            role: JobMagistrate
             time: 3600 # 1 hour
     IAA:
       - !type:CompositeRequirement
@@ -47,7 +47,7 @@
             time: 14400  # 4 hours
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: IAA
+            role: JobIAA
             time: 3600 # 1 hour
     Captain:
       - !type:CompositeRequirement
@@ -59,7 +59,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: Captain
+            role: JobCaptain
             time: 3600 # 1 hour
     HeadOfPersonnel:
       - !type:CompositeRequirement
@@ -71,7 +71,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: HeadOfPersonnel
+            role: JobHeadOfPersonnel
             time: 3600 # 1 hour
     HeadOfSecurity:
       - !type:CompositeRequirement
@@ -83,7 +83,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: HeadOfSecurity
+            role: JobHeadOfSecurity
             time: 3600 # 1 hour
     ChiefEngineer:
       - !type:CompositeRequirement
@@ -95,7 +95,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: ChiefEngineer
+            role: JobChiefEngineer
             time: 3600 # 1 hour
     ResearchDirector:
       - !type:CompositeRequirement
@@ -107,7 +107,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: ResearchDirector
+            role: JobResearchDirector
             time: 3600 # 1 hour
     ChiefMedicalOfficer:
       - !type:CompositeRequirement
@@ -119,7 +119,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: ChiefMedicalOfficer
+            role: JobChiefMedicalOfficer
             time: 3600 # 1 hour
     Quartermaster:
       - !type:CompositeRequirement
@@ -131,7 +131,7 @@
             time: 36000 # 10 hours overall playtime
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: Quartermaster
+            role: JobQuartermaster
             time: 3600 # 1 hour
     MedicalDoctor:
       - !type:OverallPlaytimeRequirement
@@ -176,7 +176,7 @@
             time: 3600 # 1 hour as Borg
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: SecBorg
+            role: JobSecBorg
             time: 3600 # 1 hour
     Corpsman:
       - !type:OverallPlaytimeRequirement
@@ -191,7 +191,7 @@
             time: 14400  # 4 hours
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: StationAi
+            role: JobStationAi
             time: 3600 # 1 hour
     Borg:
       - !type:OverallPlaytimeRequirement
@@ -218,7 +218,7 @@
             time: 7200 # 2 hours
         alternativeRequirements:
           - !type:RoleTimeRequirement
-            role: SalvageLead
+            role: JobSalvageLead
             time: 3600 # 1 hour
     SalvageSpecialist:
       - !type:OverallPlaytimeRequirement
