@@ -89,6 +89,6 @@
     - FullAuto
     minAngle: 1
     maxAngle: 4
-  - type: Battery 
+  - type: PredictedBattery 
     maxCharge: 900 # ~1:30 minutes for recharge
     startingCharge: 900
