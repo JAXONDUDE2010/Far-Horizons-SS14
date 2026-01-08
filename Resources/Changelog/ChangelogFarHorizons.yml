@@ -4819,5 +4819,55 @@ Entries:
   id: 54029
   time: '2026-01-08T19:36:46.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/540
+- author: Killer Tamashi
+  changes:
+  - message: Added Secway Turbo (speed 9, ordered from cargo at 8.5k a piece)
+    type: Add
+  id: 56200
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Added STV (Security Tile Vehicle, Ordered from cargo at 5.5k a piece,
+      500 more expensive than normal ATV.)
+    type: Add
+  id: 56201
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Added sirens to Security Hardsuit (and others)
+    type: Add
+  id: 56202
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Added Secway as a purchasable Cargo item (2k a piece)
+    type: Add
+  id: 56203
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Nerfed Secway speed (9 -> 5.5)
+    type: Tweak
+  id: 56204
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Resprited Secways (See above)
+    type: Tweak
+  id: 56205
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Secway not having lights (but no siren yet!)
+    type: Fix
+  id: 56206
+  time: '2026-01-08T20:21:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/562
 Order: -1
 
