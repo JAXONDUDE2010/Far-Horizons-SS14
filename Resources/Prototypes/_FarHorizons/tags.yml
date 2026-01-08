@@ -41,6 +41,12 @@
   id: ExternalContainerInjectorVial
 
 - type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator
+
+- type: Tag
   id: Hypospray
 
 - type: Tag
