@@ -129,12 +129,17 @@
     Heat: 1.4
 
 - type: damageModifierSet
-  id: StructuralReactorCasing
+  id: StructuralReactorCasing # StructuralMetallicStrong(er), it's going to take more than a mere baseball bat to do any real damage
   coefficients:
-    Blunt: 0            #you
-    Slash: 0            #aint
-    Piercing: 0         #gonna
-    Shock: 0            #do
-    Structural: 0.25    #shit
+    Blunt: 0.1          # you
+    Slash: 0.1          # aint
+    Piercing: 0.1       # gonna
+    Shock: 0.2          # do
+    Heat: 0.1           # shit
+    Structural: 0.25
   flatReductions:
+    Blunt: 10
+    Slash: 10
+    Piercing: 10
+    Heat: 10
     Structural: 10
