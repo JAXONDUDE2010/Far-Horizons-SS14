@@ -126,7 +126,7 @@
     availableModes:
     - SemiAuto
     - FullAuto
-  - type: Battery 
+  - type: PredictedBattery 
     maxCharge: 1500
     startingCharge: 1500
   - type: BatteryAmmoProvider
