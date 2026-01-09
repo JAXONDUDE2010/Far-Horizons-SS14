@@ -5,14 +5,14 @@ using Content.Shared.DoAfter;
 namespace Content.Shared._FarHorizons.Towing.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class TowingComponent : Component
+public sealed partial class TiedComponent : Component
 {
     /// <summary>
-    /// how long does it take to tie up an entity
+    /// how long does it take to untie an entity
     /// </summary>
-    [DataField("tieUpTime"), AutoNetworkedField]
-    public TimeSpan TieUpTime = TimeSpan.FromSeconds(2);
+    [DataField, AutoNetworkedField]
+    public TimeSpan UntieTime = TimeSpan.FromSeconds(2);
 }
 
 [Serializable, NetSerializable]
-public sealed partial class TieUpDoAfter : SimpleDoAfterEvent;
+public sealed partial class UnTieDoAfter : SimpleDoAfterEvent;
