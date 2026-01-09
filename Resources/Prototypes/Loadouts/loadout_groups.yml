@@ -1395,7 +1395,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - DetectiveHorrificNecktie
+  - DetectiveHorrificNecktie #Far Horizons
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
