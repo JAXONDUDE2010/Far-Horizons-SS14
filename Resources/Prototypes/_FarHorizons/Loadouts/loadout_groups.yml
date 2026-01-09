@@ -159,11 +159,57 @@
 - type: loadoutGroup
   id: MagistrateEyewear
   name: loadout-group-magistrate-eyewear
-  minLimit: 0
   loadouts:
   - MagistrateGlasses
-  - CommandGlasses
-  - CommandHud
+  - MagistrateHUD
+
+# Security-Related
+
+- type: loadoutGroup
+  id: HoSSidearm
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityRevolverInspectorM500
+  - SecurityRevolverInspector
+  - SecurityRevolverOathbreaker
+  - SecurityRevolverInstigator
+  - SecurityPistolN1984
+  - SecurityPistolDueProcess
+  - SecurityPistolEnforcerFH
+  - SecurityPistolPathology
+  - SecurityMk58
+
+- type: loadoutGroup
+  id: WardenSidearm 
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityPistolDueProcess
+  - SecurityMk58
+  - SecurityRevolverInstigator
+
+- type: loadoutGroup
+  id: CorpsmanSidearm  
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityPistolPathology
+  - SecurityMk58
+  - SecurityRevolverInstigator
+
+- type: loadoutGroup
+  id: DetectiveSidearm 
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityRevolverInspectorM500
+  - SecurityRevolverInspector
+  - SecurityRevolverInstigator
+
+- type: loadoutGroup
+  id: BrigmedicSidearm  
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityRevolverOathbreaker
+  - SecurityMk58
+  - SecurityRevolverInstigator
 
 # Mining Specialist
 
@@ -197,18 +243,9 @@
 - type: loadoutGroup
   id: CommandEyewear
   name: loadout-group-command-eyewear
-  minLimit: 0
   loadouts:
   - CommandGlasses
   - CommandHud
-
-- type: loadoutGroup
-  id: CommandEyewearSyndi
-  name: loadout-group-command-eyewear-syndi
-  minLimit: 0
-  loadouts:
-  - CommandGlassesSyndi
-  - CommandHudSyndi
   
 # Musician
 

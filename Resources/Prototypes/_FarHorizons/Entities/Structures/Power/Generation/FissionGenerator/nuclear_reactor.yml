@@ -349,7 +349,7 @@
 
 - type: entity
   id: NuclearReactorSmallRandomSalvage
-  parent: NuclearReactorSmall
+  parent: NuclearReactorSmallSalvage
   suffix: "Random, Salvage"
   components:
   - type: NuclearReactor
