@@ -1,0 +1,12 @@
+- type: ghostTheme
+  id: Moth
+  name: Moth
+  description: Perhaps the guiding light was us all along?
+  spriteSpecifier:
+    sprite:
+      sprite: _Starlight/Entities/Mobs/Customization/GhostThemes/ghost.rsi
+      state: ghost-moff
+    color: "fffff"
+  requirements:
+  - !type:DiscordRolesRequirement
+    requirement: MentorRolesReq
