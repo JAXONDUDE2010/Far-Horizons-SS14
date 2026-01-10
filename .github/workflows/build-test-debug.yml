@@ -13,7 +13,7 @@ on:
       - '**.yaml'
 
 jobs:
-  build:
+  test:
     if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
 
     runs-on: ubuntu-latest
@@ -26,49 +26,20 @@ jobs:
       run: |
         git submodule update --init --recursive
 
-    - name: Pull engine updates
-      uses: space-wizards/submodule-dependency@v0.1.5
-
-    - name: Update Engine Submodules
-      run: |
-        cd RobustToolbox/
-        git submodule update --init --recursive
-
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
         dotnet-version: 9.0.x
 
-    - name: Install dependencies
-      run: |
-        dotnet restore
-#        apt install -y libfreetype6 libfreetype-dev
-
     - name: Build Project
-      run: dotnet build --configuration DebugOpt --no-restore /m
+      run: dotnet build -c DebugOpt
 
     - name: Run Content.Tests
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj --logger trx -- NUnit.ConsoleOut=0
+      run: dotnet test --no-build -c DebugOpt Content.Tests/Content.Tests.csproj --logger trx -- NUnit.ConsoleOut=0
 
     - name: Run Content.IntegrationTests
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=0
-        $env:DOTNET_GCHeapHardLimit=4294967296
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --logger trx -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
-        
-    - name: Test results
-      continue-on-error: true
-      if: always()
-      run: |
-        dotnet tool install -g dotnet-trx
-        trx
-
-  ci-success:
-    name: Build & Test Debug
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    steps:
-      - name: CI succeeded
-        run: exit 0
+        $env:DOTNET_GCHeapHardLimitPercent=60
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --logger trx -- NUnit.ConsoleOut=0 NUnit.NumberOfTestWorkers=1 NUnit.RetryCount=1 NUnit.MapWarningTo=Failed
