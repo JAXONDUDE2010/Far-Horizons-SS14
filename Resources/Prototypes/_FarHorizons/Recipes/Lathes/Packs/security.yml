@@ -115,6 +115,6 @@
   id: FarHorizonsSecurityAmmoEmagDynamic
   recipes:
 # Magazine
-  - MagazineLightRifleIncendiary - FH Edit
-  - MagazineLightRifleUranium - FH Edit
-  - MagazineLightRifleAP - FH Edit
+  - MagazineLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazineLightRifleAP
