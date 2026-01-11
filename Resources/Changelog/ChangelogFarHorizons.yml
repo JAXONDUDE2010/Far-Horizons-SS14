@@ -5108,5 +5108,12 @@ Entries:
   id: 63600
   time: '2026-01-11T15:29:46.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/636
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Fixed corpwars grid.
+    type: Fix
+  id: 63900
+  time: '2026-01-11T16:47:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/639
 Order: -1
 
