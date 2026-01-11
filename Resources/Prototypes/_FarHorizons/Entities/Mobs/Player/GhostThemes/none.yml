@@ -1,12 +1,10 @@
 - type: ghostTheme
   id: Moth
   name: Moth
-  description: Perhaps the guiding light was us all along?
+  description: a cute moff!
+  colorizeable: true
   spriteSpecifier:
     sprite:
       sprite: _FarHorizons/Mobs/Customization/GhostThemes/moff.rsi
       state: ghost-moff
     color: "#ffffff"
-  requirements:
-  - !type:DiscordRolesRequirement
-    requirement: MentorRolesReq
