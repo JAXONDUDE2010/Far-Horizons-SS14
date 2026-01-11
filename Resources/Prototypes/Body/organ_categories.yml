@@ -94,6 +94,18 @@
   connectsTo: Head # I know it doesn't make sense, but surgery and organ system in general currently exists with just a single layer of dependencies. Having to handle organs that connect to organs that connect to organs isn't something we support right now
 
 - type: organCategory
+  id: HandRightImplant
+  connectsTo: ArmRight # Same situation as EyeImplant.
+
+- type: organCategory
+  id: HandLeftImplant
+  connectsTo: ArmLeft # Same situation as EyeImplant.
+
+- type: organCategory
+  id: BrainImplant
+  connectsTo: Head # Same situation as EyeImplant.
+
+- type: organCategory
   id: Cavity
   connectsTo: Torso
 

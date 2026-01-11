@@ -36,6 +36,11 @@ public sealed partial class ReagentGrinderComponent : Component
     public GrinderAutoMode AutoMode = GrinderAutoMode.Off;
 
     public EntityUid? AudioStream;
+
+    #region Starlight
+    [DataField]
+    public bool NeedsPower = true;
+    #endregion Starlight
 }
 
 [RegisterComponent, NetworkedComponent]

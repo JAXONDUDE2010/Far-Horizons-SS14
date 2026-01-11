@@ -414,3 +414,478 @@
     - type: Construction
       graph: RipperRightGraph
       node: right
+
+#Engineer
+- type: entity
+  id: LeftArmCyberEngineer
+  name: Left Engineer Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_engineer_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_engineer_arm
+    - type: LimbItemStorage
+      items:
+        - JawsOfLifeCyber
+        - PowerDrillCyber
+        - WelderExperimentalCyber
+        - RCDCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_engineer_arm_TOOLS
+      stateOff: l_engineer_arm
+
+- type: entity
+  id: RightArmCyberEngineer
+  name: Right Engineer Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_engineer_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_engineer_arm
+    - type: LimbItemStorage
+      items:
+        - JawsOfLifeCyber
+        - PowerDrillCyber
+        - WelderExperimentalCyber
+        - RCDCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound: 
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_engineer_arm_TOOLS
+      stateOff: r_engineer_arm
+
+# Spacer
+- type: entity
+  id: LeftArmCyberSpacer
+  name: Left Spacer Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  description: Augmented arm for the salvager of the modern age.
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_spacer_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_spacer_arm
+    - type: LimbItemStorage
+      items:
+        - ProtokineticAcceleratorCyber
+        - WeaponGrapplingGunCyber
+        - WeaponCrusherDaggerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_spacer_arm_TOOLS
+      stateOff: l_spacer_arm
+
+- type: entity
+  id: RightArmCyberSpacer
+  name: Right Spacer Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  description: Augmented arm for the salvager of the modern age.
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_spacer_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_spacer_arm
+    - type: LimbItemStorage
+      items:
+        - ProtokineticAcceleratorCyber
+        - WeaponGrapplingGunCyber
+        - WeaponCrusherDaggerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_spacer_arm_TOOLS
+      stateOff: r_spacer_arm
+
+# GORILLA
+- type: entity
+  id: LeftArmCyberGorilla
+  name: Left G.O.R.I.L.L.A Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_gorilla_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_gorilla_arm
+    - type: LimbItemStorage
+      items:
+        - WeaponGauntletGorillaCyber
+        - WeaponPistolCHIMPCyber
+        - AnomalyScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_gorilla_arm_TOOLS
+      stateOff: l_gorilla_arm
+
+
+- type: entity
+  id: RightArmCyberGorilla
+  name: Right G.O.R.I.L.L.A Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_gorilla_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_gorilla_arm
+    - type: LimbItemStorage
+      items:
+        - WeaponGauntletGorillaCyber
+        - WeaponPistolCHIMPCyber
+        - AnomalyScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_gorilla_arm_TOOLS
+      stateOff: r_gorilla_arm
+
+# Angel
+- type: entity
+  id: LeftArmCyberAngel
+  name: Left Angel Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_angel_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_angel_arm
+    - type: LimbItemStorage
+      items:
+        - AutoinjectorCyber
+        - AutoinjectorCyberTricordrazine
+        - AutoinjectorCyberInaprovaline
+        - DefibrillatorCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_angel_arm_TOOLS
+      stateOff: l_angel_arm
+
+- type: entity
+  id: RightArmCyberAngel
+  name: Right Angel Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_angel_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_angel_arm
+    - type: LimbItemStorage
+      items:
+        - AutoinjectorCyberTricordrazine
+        - AutoinjectorCyberInaprovaline
+        - DefibrillatorCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_angel_arm_TOOLS
+      stateOff: r_angel_arm
+
+# Zeus
+- type: entity
+  id: LeftArmCyberZeus
+  name: Left Zeus Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_zeus_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_zeus_arm
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberStunFist
+        - MeleeWeaponCyberEmpFist
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_zeus_arm
+      stateOff: l_zeus_arm
+
+- type: entity
+  id: RightArmCyberZeus
+  name: Right Zeus Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_zeus_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_zeus_arm
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberStunFist
+        - MeleeWeaponCyberEmpFist
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_zeus_arm
+      stateOff: r_zeus_arm
+
+# Riplet
+- type: entity
+  id: LeftArmCyberRiplet
+  name: Left Riplet Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_riplet_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_riplet_arm
+    - type: LimbItemStorage
+      items:
+        - CyberEquipmentGrabber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_riplet_arm_TOOLS
+      stateOff: l_riplet_arm
+
+- type: entity
+  id: RightArmCyberRiplet
+  name: Right Riplet Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_riplet_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_riplet_arm
+    - type: LimbItemStorage
+      items:
+        - CyberEquipmentGrabber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_riplet_arm_TOOLS
+      stateOff: r_riplet_arm
+
+# Persephone
+- type: entity
+  id: LeftArmCyberPersephone
+  name: Left Persephone Arm
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_persephone_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_persephone_arm
+    - type: LimbItemStorage
+      items:
+        - CyberToolMiniHoe
+        - CyberToolClippers
+        - CyberToolDropper
+        - CyberToolHatchet
+        - CyberToolScythe
+        - CyberToolSpade
+        - CyberReagentGrinder
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_persephone_arm_TOOLS
+      stateOff: l_persephone_arm
+
+- type: entity
+  id: RightArmCyberPersephone
+  name: Right Persephone Arm
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_persephone_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_persephone_arm
+    - type: LimbItemStorage
+      items:
+        - CyberToolMiniHoe
+        - CyberToolClippers
+        - CyberToolDropper
+        - CyberToolHatchet
+        - CyberToolScythe
+        - CyberToolSpade
+        - CyberReagentGrinder
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_persephone_arm_TOOLS
+      stateOff: r_persephone_arm
+
+# Hydraulic Legs
+- type: entity
+  id: LeftLegCyberHydraulic
+  name: Left Hydraulic Cyber Leg
+  parent: [ OrganCyberLegLeft, WithLeftCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_leg_hydraulic
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_leg_hydraulic
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.15
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+- type: entity
+  id: RightLegCyberHydraulic
+  name: Right Hydraulic Cyber Leg
+  parent: [ OrganCyberLegRight, WithRightCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_leg_hydraulic
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_leg_hydraulic
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.15
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+# Pilebunker Legs
+- type: entity
+  id: LeftLegCyberPilebunker
+  name: Left Pilebunker Leg
+  parent: [ OrganCyberLegLeft, WithLeftCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_leg_pilebunker
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_leg_pilebunker
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.25
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: -2
+    - type: LimbWithAction
+      action: JumpPilebunkerLeg
+
+- type: entity
+  id: RightLegCyberPilebunker
+  name: "right pilebunker leg"
+  parent: [ OrganCyberLegRight, WithRightCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_leg_pilebunker
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_leg_pilebunker
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.25
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: -2
+    - type: LimbWithAction
+      action: JumpPilebunkerLeg

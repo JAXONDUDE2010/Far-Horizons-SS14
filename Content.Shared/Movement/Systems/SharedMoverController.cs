@@ -5,6 +5,7 @@ using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Friction;
@@ -32,6 +33,7 @@ using Robust.Shared.Serialization.Manager.Exceptions;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared.Body;
 
 namespace Content.Shared.Movement.Systems;
 
@@ -575,6 +577,18 @@ public abstract partial class SharedMoverController : VirtualController
         {
             sound = moverModifier.FootstepSoundCollection;
             return sound != null;
+        }
+
+        // STARLIGHT: Check cyberlegs before outer clothing
+        if (TryComp<BodyComponent>(uid, out var body) && body.Organs != null)
+        {
+            foreach (var legEntity in body.Organs.ContainedEntities)
+            {
+                if (!TryComp<FootstepModifierComponent>(legEntity, out var legFootstep))
+                    continue;
+                sound = legFootstep.FootstepSoundCollection;
+                return sound != null;
+            }
         }
 
         // STARLIGHT: Check for outer clothing (hardsuits) before shoes
