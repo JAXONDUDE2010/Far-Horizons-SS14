@@ -1,7 +1,4 @@
 ﻿using Content.Shared.Damage;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 namespace Content.Shared.Starlight.Medical.Surgery.Steps.Parts;

@@ -1132,7 +1132,13 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
-
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+  
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepInsertHandImplant
@@ -1160,11 +1166,16 @@
     - type: Scalpel
   - type: SurgeryStepEmoteEffect
   - type: SurgeryStepOrganExtract
-    organ:
-    - type: HandImplant
+    slot: HandImplant
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
 
 # brain implants
 
@@ -1195,12 +1206,17 @@
     - type: Scalpel
   - type: SurgeryStepEmoteEffect
   - type: SurgeryStepOrganExtract
-    organ:
-    - type: BrainImplant
+    slot: BrainImplant
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
-
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+  
 # tongue
 
 - type: entity

@@ -595,6 +595,138 @@
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
       - state: eye_implant_welding
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryExtractHandImplant
+  name: Extract Hand Implant
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenIncision
+    - SurgeryOpenIncisionSlime
+    steps:
+    - SurgeryStepLocateImplant
+    - SurgeryStepExposeNerves
+    - SurgeryStepRemoveHandImplant
+  - type: SurgeryOrganExistCondition
+    category: HandImplant
+  - type: SurgeryPartCondition
+    parts: [ HandRight, HandLeft ] #FarHorizons
+  - type: SurgerySpeciesCondition
+    speciesBlacklist:
+    - IPC
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: hand_implant_insulated
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryImplantHandImplant
+  name: Implant Hand Implant
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenIncision
+    - SurgeryOpenIncisionSlime
+    steps:
+    - SurgeryStepPrepareImplantSiteHand
+    - SurgeryStepInsertHandImplant
+    - SurgeryStepRejoinNerves
+  - type: SurgeryOrganDontExistCondition
+    category: [ HandImplant ] #FarHorizons
+  - type: SurgeryPartCondition
+    parts: [ HandRight, HandLeft ] #FarHorizons
+  - type: SurgerySpeciesCondition
+    speciesBlacklist:
+    - IPC
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: hand_implant_insulated
+
+#
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryExtractBrainImplant
+  name: Extract Brain Implant
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenIncision
+    steps:
+    - SurgeryStepPreparePatient
+    - SurgeryStepShaveHead
+    - SurgeryStepDisinfectScalp
+    - SurgeryStepMakeIncisionScalp
+    - SurgeryStepRetractScalp
+    - SurgeryStepDrillBurrHoles
+    - SurgeryStepCutSkull
+    - SurgeryStepRemoveBoneFlap
+    - SurgeryStepClampDuraMater
+    - SurgeryStepInciseDuraMater
+    - SurgeryStepRetractDuraMater
+    - SurgeryStepSeverCranialNerves
+    - SurgeryStepRemoveBrainImplant
+    - SurgeryStepReconnectCranialNerves
+    - SurgeryStepReplaceDuraMater
+    - SurgeryStepSealDuraMater
+    - SurgeryStepReplaceBoneFlap
+    - SurgeryStepSecureBoneFlap
+    - SurgeryStepReplaceScalp
+  - type: SurgerySpeciesCondition
+    speciesBlacklist:
+    - SlimePerson
+    - IPC
+  - type: SurgeryPartCondition
+    parts: [ Head, AnimalHead ] #FarHorizons
+  - type: SurgeryOrganExistCondition
+    category: BrainImplant
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: brain_implant_translator
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryImplantBrainImplant
+  name: Implant Brain Implant
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenIncision
+    steps:
+    - SurgeryStepCleanImplantSite
+    - SurgeryStepPrepareScalp
+    - SurgeryStepMakeIncisionScalp
+    - SurgeryStepRetractScalp
+    - SurgeryStepDrillBurrHoles
+    - SurgeryStepCutSkull
+    - SurgeryStepRemoveBoneFlap
+    - SurgeryStepPrepareDuraMater
+    - SurgeryStepInciseDuraMater
+    - SurgeryStepRetractDuraMater
+    - SurgeryStepInsertBrainImplant
+    - SurgeryStepReconnectCranialNerves
+    - SurgeryStepReplaceDuraMater
+    - SurgeryStepSealDuraMater
+    - SurgeryStepReplaceBoneFlap
+    - SurgeryStepSecureBoneFlap
+    - SurgeryStepReplaceScalp
+  - type: SurgerySpeciesCondition
+    speciesBlacklist:
+    - SlimePerson
+    - IPC
+  - type: SurgeryPartCondition
+    parts: [ Head, AnimalHead ] #FarHorizons
+  - type: SurgeryOrganDontExistCondition
+    category: [ BrainImplant ] #FarHorizons
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: brain_implant_translator
+
 #
 - type: entity
   parent: SurgeryBase

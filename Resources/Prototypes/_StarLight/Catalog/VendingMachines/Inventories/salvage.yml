@@ -460,15 +460,6 @@
 
 
 #Cybernetics
-- type: listing
-  id: VendorSalvageBrainImplantCommsExpedition
-  productEntity: BrainImplantCommsExpedition
-  cost:
-    SalvageTicket: 100
-  categories:
-  - SalvageCybernetics
-  conditions:
-  - !type:BuyerAccessCondition
 
 - type: listing
   id: VendorSalvageLeftArmCyberSpacer

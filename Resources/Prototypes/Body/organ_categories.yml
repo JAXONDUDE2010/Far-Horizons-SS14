@@ -95,11 +95,11 @@
 
 - type: organCategory
   id: HandRightImplant
-  connectsTo: ArmRight # Same situation as EyeImplant.
+  connectsTo: HandRight 
 
 - type: organCategory
   id: HandLeftImplant
-  connectsTo: ArmLeft # Same situation as EyeImplant.
+  connectsTo: HandLeft
 
 - type: organCategory
   id: BrainImplant

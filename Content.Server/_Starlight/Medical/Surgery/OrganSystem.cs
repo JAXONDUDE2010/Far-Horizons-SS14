@@ -20,7 +20,7 @@ public sealed partial class OrganSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -44,12 +44,14 @@ public sealed partial class OrganSystem : EntitySystem
 
     private void OnFunctionalOrganImplanted(Entity<FunctionalOrganComponent> ent, ref OrganGotInsertedEvent args)
     {
-        foreach (var comp in (ent.Comp.Components ?? []).Values)
+        foreach (var (_, compEntry) in ent.Comp.Components ?? [])
         {
-            if (!EntityManager.HasComponent(args.Target, comp.Component.GetType()))
+            var compType = compEntry.Component.GetType();
+            if (!EntityManager.HasComponent(args.Target, compType))
             {
-                EntityManager.AddComponent(args.Target, comp.Component);
-                UpdateEntity(args.Target, comp.Component, ent.Owner);
+                var newComp = IoCManager.Resolve<IComponentFactory>().GetComponent(compType);
+                EntityManager.AddComponent(args.Target, newComp);
+                UpdateEntity(args.Target, compEntry.Component, ent.Owner);
             }
         }
     }
@@ -61,7 +63,7 @@ public sealed partial class OrganSystem : EntitySystem
         {
             if (EntityManager.HasComponent(args.Target, comp.Component.GetType()))
             {
-                EntityManager.RemoveComponent(args.Target, EntityManager.GetComponent(args.Target, comp.Component.GetType()));
+                EntityManager.RemoveComponentDeferred(args.Target, EntityManager.GetComponent(args.Target, comp.Component.GetType()));
                 UpdateEntity(args.Target, comp.Component, ent.Owner);
             }
         }
