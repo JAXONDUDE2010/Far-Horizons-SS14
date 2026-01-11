@@ -459,6 +459,11 @@
     emagStaticPacks:
     - StarlightSyndicateModulesSecfab
   #endregion Starlight secfab emagging
+  #region FarHorizons secfab emagging
+    - FarHorizonsSecurityAmmoEmagStatic
+    emagDynamicPacks:
+    - FarHorizonsSecurityAmmoEmagDynamic
+  #FH - End
   - type: MaterialStorage
     whitelist:
       tags:
