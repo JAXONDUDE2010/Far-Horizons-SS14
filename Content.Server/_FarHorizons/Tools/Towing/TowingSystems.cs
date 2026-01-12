@@ -36,7 +36,7 @@ public sealed partial class TowingSystem : EntitySystem
         if(TryComp<PhysicsComponent>(args.Target, out var physicsComponent) && physicsComponent.BodyType == BodyType.Static) return;
         var tieVerb = new UtilityVerb
         {
-            Text = "Tie Rope",
+            Text = Loc.GetString("towing-rope-tie"),
             Act = () =>
             {
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.TieUpTime, new TieUpDoAfter(), ent, target: args.Target, used: ent)
@@ -115,7 +115,7 @@ public sealed partial class TowingSystem : EntitySystem
         if(!HasComp<TiedComponent>(args.Target)) return;
         var untieRopeVerb = new AlternativeVerb
         {
-            Text = "Untie Rope",
+            Text = Loc.GetString("towing-rope-untie"),
             Act = () =>
             {
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.UntieTime, new UnTieDoAfter(), args.Target, target: args.Target)
@@ -173,7 +173,7 @@ public sealed partial class TowingSystem : EntitySystem
         if(HasComp<TiedComponent>(args.Target)) return;
         var untieRopeVerb = new AlternativeVerb
         {
-            Text = "Deploy Hitch",
+            Text = Loc.GetString("towing-hitch-deploy"),
             Act = () =>
             {
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.HitchDeploy, new DeployHitchDoAfter(), args.User, target: args.Target)

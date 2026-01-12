@@ -147,7 +147,6 @@
     requireIgnition: true 
     baseState: vehicle
     brokenState: vehicle
-    sirenToggleAction: ActionVehicleToggleSecuritySiren
     startupTime: 2
     handsNeeded: 1
     riderWhitelist:
@@ -303,7 +302,7 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           # Swappable batteries until we can get secway recharge stations
-          #disableEject: true
+          disableEject: true
           #swap: false
     - type: PowerCellDraw
       drawRate: 1.5 # Eats through cells
@@ -334,7 +333,7 @@
     allowCrashing: true
     crashingSpeed: 10 
     baseState: vehicle
-    brokenState: vehicle
+    brokenState: vehicle_broken
     startupTime: 2
     startUp: 
       path: /Audio/Effects/Vehicle/vehiclestartup.ogg
@@ -364,7 +363,7 @@
     westDrawDepth: BelowMobs
   - type: Sprite
     drawdepth: OverMobs
-    sprite: Objects/Vehicles/atv.rsi
+    sprite: _FarHorizons/Objects/Vehicles/atv.rsi
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.Base"]
@@ -497,8 +496,7 @@
       allowCrashing: true
       crashingSpeed: 10 
       baseState: vehicle
-      brokenState: vehicle
-      sirenToggleAction: ActionVehicleToggleSecuritySiren
+      brokenState: vehicle_broken
       startupTime: 2
       startUp: 
         path: /Audio/Effects/Vehicle/vehiclestartup.ogg
@@ -513,6 +511,7 @@
           - HumanoidAppearance
       soundHit:
         collection: MetalThud
+      hasSiren: true
     - type: UserInterface
       interfaces:
         enum.StorageUiKey.Key:
@@ -552,6 +551,9 @@
       containers:
         key_slot:
         - VehicleKeySTV
+    - type: RotatingLight
+      enabled: false
+      speed: 360
 
 - type: entity
   id: VehicleClownCar

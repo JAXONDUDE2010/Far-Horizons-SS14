@@ -55,7 +55,6 @@ using Content.Shared.Repairable;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Effects;
 using Robust.Shared.Player;
-using Content.Server.Emp;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
@@ -92,6 +91,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -140,6 +140,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
+
     #region Vehicle Generic Events
     private void OnMapInit(Entity<VehicleComponent> ent, ref MapInitEvent args)
     {
@@ -419,6 +420,19 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         TryUpdateVisualState(ent);
 
         TurnOffVehicle(ent, component);
+    }
+
+    protected override void OnToggleFlashlightAction(Entity<VehicleComponent> ent, ref ToggleFlashlightActionEvent args)
+    {
+        if(!TryComp<UnpoweredFlashlightComponent>(ent.Owner, out var flashComp) || !TryComp<PointLightComponent>(ent.Owner, out var pointComp)) return;
+        flashComp.LightOn = !flashComp.LightOn;
+        _pointLight.SetEnabled(ent.Owner, !pointComp.Enabled);
+        Dirty(ent.Owner, flashComp);
+    }
+
+    protected override void OnToggleSirenAction(Entity<VehicleComponent> ent, ref ToggleSirenActionEvent args)
+    {
+
     }
 
     #endregion
@@ -827,13 +841,13 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
 
         if(TryComp<UnpoweredFlashlightComponent>(vehicle, out var flashComp))
-            _actions.AddAction(rider, ref flashComp.ToggleActionEntity, flashComp.ToggleAction, vehicle);
+            _actions.AddAction(rider, ref component.ToggleFlashlightActionEntity, component.ToggleFlashlightAction, vehicle);
 
         if(component.HornSound != null)
             _actions.AddAction(rider, ref component.HornVehicleActionEntity, component.HornVehicleAction, vehicle);
 
-        if(component.SirenToggleAction != null)
-            _actions.AddAction(rider, component.SirenToggleAction, vehicle);
+        if(component.hasSiren)
+            _actions.AddAction(rider, ref component.ToggleSirenActionEntity, component.ToggleSirenAction, vehicle);
     }
 
     private bool TryInsert(EntityUid? Rider, EntityUid Vehicle, VehicleContainerComponent? component=null)

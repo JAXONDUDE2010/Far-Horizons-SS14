@@ -150,5 +150,18 @@ public sealed partial class VehicleComponent : Component
     [DataField, AutoNetworkedField] public EntityUid? ToggleTrunkActionEntity;
 
     [DataField, AutoNetworkedField]
-    public EntProtoId? SirenToggleAction = "ActionVehicleToggleSecuritySiren";
+    public EntProtoId ToggleFlashlightAction = "ActionToggleLightVehicle";
+    
+    [DataField, AutoNetworkedField] public EntityUid? ToggleFlashlightActionEntity;
+
+    /// <summary>
+    /// Does the vehicle have a siren?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool hasSiren = false;
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId ToggleSirenAction = "ActionVehicleToggleSecuritySiren";
+    
+    [DataField, AutoNetworkedField] public EntityUid? ToggleSirenActionEntity;
 }

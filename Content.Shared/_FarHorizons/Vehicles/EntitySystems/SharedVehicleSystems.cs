@@ -8,6 +8,7 @@ using Robust.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Damage.Components;
+using Content.Shared.Light.Components;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -26,6 +27,8 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         SubscribeLocalEvent<VehicleComponent, StartCollideEvent>(HandleCollide);
         SubscribeLocalEvent<VehicleComponent, CanDropTargetEvent>(OnCanDragDrop);
         SubscribeLocalEvent<VehicleComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<VehicleComponent, ToggleFlashlightActionEvent>(OnToggleFlashlightAction);
+        SubscribeLocalEvent<VehicleComponent, ToggleSirenActionEvent>(OnToggleSirenAction);
     }
 
     protected virtual void OnTurnKeysEvent(Entity<VehicleComponent> ent, ref TurnKeysEvent args)
@@ -117,5 +120,15 @@ public abstract partial class SharedVehicleSystems : EntitySystem
 
         if(ent.Comp.isBroken)
             args.PushMarkup(Loc.GetString("vehicle-examine-broken"));
+    }
+
+    protected virtual void OnToggleFlashlightAction(Entity<VehicleComponent> ent, ref ToggleFlashlightActionEvent args)
+    {
+        
+    }
+
+    protected virtual void OnToggleSirenAction(Entity<VehicleComponent> ent, ref ToggleSirenActionEvent args)
+    {
+
     }
 }
