@@ -35,4 +35,12 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    // Far Horizons start
+    [DataField]
+    public bool Anonymous = false;
+
+    [DataField]
+    public string AnonymousAlias = "Anonymous";
+    // Far Horizons end
 }
