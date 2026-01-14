@@ -227,16 +227,6 @@
     stealGroup: VehicleSecwaySteal
 
 - type: entity
-  id: VehicleSecwayBattery
-  parent: VehicleSecway
-  suffix: Battery, NT
-  components: 
-    - type: ContainerFill
-      containers:
-        cell_slot:
-        - PowerCellMedium
-
-- type: entity
   id: VehicleSecwayBatterywithKeys
   parent: VehicleSecway
   suffix: Battery, Keys, NT
@@ -247,6 +237,9 @@
         - PowerCellMedium
         key_slot:
         - VehicleKeySecway
+        vehicle_mods_container:
+        - SecwayLight
+        - SecSiren
 
 - type: entity
   id: VehicleSecwayBatterywithKeysS
@@ -266,6 +259,9 @@
         - PowerCellMedium
         key_slot:
         - VehicleKeySecway
+        vehicle_mods_container:
+        - SecwayLight
+        - SecSiren
 
 - type: entity
   id: VehicleSecwayTurboBatterywithKeys
@@ -307,6 +303,9 @@
         - PowerCellMedium
         key_slot:
         - VehicleKeySecwayTurbo
+        vehicle_mods_container:
+        - SecwayLight
+        - SecSiren
 
 - type: entity
   id: VehicleATV
@@ -542,6 +541,9 @@
       containers:
         key_slot:
         - VehicleKeySTV
+        vehicle_mods_container:
+        - ATVHeadlight
+        - SecSiren
 
 - type: entity
   id: VehicleClownCar
@@ -682,20 +684,6 @@
         - storagebase
 
 - type: entity
-  id: VehicleClownCarFueled
-  parent: VehicleClownCar
-  suffix: Fueled
-  components: 
-    - type: ContainerContainer
-    - type: SolutionContainerManager
-      solutions:
-        fueltank:
-          reagents:
-          - ReagentId: WeldingFuel
-            Quantity: 150
-          maxVol: 150
-
-- type: entity
   id: VehicleClownCarFueledwithKeys
   parent: VehicleClownCar
   suffix: Fueled, Keys
@@ -711,3 +699,5 @@
       containers:
         key_slot:
         - VehicleKeyClowncar
+        vehicle_mods_container:
+        - ATVHeadlight

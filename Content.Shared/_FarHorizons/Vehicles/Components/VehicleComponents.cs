@@ -148,4 +148,19 @@ public sealed partial class VehicleComponent : Component
     public EntProtoId ToggleTrunkAction = "ActionToggleTrunk";
     
     [DataField, AutoNetworkedField] public EntityUid? ToggleTrunkActionEntity;
+
+    /// <summary>
+    /// UID for the invisible headlight
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? Headlight;
+    
+    [DataField, AutoNetworkedField]
+    public EntProtoId ToggleSirenAction = "ActionVehicleToggleSecuritySiren";
+
+    /// <summary>
+    /// UID for the invisible sirenlight
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? Sirenlight;
 }

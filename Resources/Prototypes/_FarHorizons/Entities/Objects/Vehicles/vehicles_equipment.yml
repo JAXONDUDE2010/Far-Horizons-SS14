@@ -2,7 +2,7 @@
   id: ATVHeadlight
   parent: BaseItem
   name: ATV Headlight
-  description: Standard headlight for ATV's mostly used to distract tiders as you run over them like deers.
+  description: Standard headlight for ATVs mostly used to distract tiders as you run over them like deers.
   components:
     - type: UnpoweredFlashlight
     - type: PointLight
@@ -17,3 +17,55 @@
       layers:
         - map: [ enum.LightBulbVisualLayers.Base ]
           state: normal
+
+- type: entity
+  id: SecwayLight
+  parent: BaseItem
+  name: Secway light
+  description: Standard light for the Secways excellent for seeing those maints grilles before you crash at them.
+  components:
+    - type: UnpoweredFlashlight
+    - type: PointLight
+      enabled: false
+      radius: 5
+      softness: 2
+      mask: /Textures/Effects/LightMasks/cone.png
+      autoRot: true
+      containerOccluded: true
+    - type: Sprite
+      sprite: Objects/Power/light_bulb.rsi
+      layers:
+        - map: [ enum.LightBulbVisualLayers.Base ]
+          state: normal
+
+- type: entity
+  id: SecSiren
+  parent: BaseItem
+  name: Security Siren
+  description: Turn this thing on and those tiders will scatter like roaches or they will jump you who knows..?
+  components:
+    - type: ItemToggle
+      onUse: false
+      soundActivate:
+        path: /Audio/Items/flashlight_on.ogg
+      soundDeactivate:
+        path: /Audio/Items/flashlight_off.ogg
+    - type: ItemTogglePointLight
+    - type: PointLight
+      enabled: false
+      radius: 5
+      color: red
+      mask: /Textures/Effects/LightMasks/double_cone.png
+    - type: RotatingLight
+      speed: 360
+    - type: ItemAction
+      actions:
+        - ActionVehicleToggleSecuritySiren
+    - type: Sprite
+      sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security.rsi
+      state: siren
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Effects/Vehicle/policesiren.ogg
+        params:
+          volume: -4

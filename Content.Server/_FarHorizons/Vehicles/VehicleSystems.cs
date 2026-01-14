@@ -59,6 +59,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Coordinates;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -147,6 +148,24 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return;
         _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
         _appearance.SetData(ent.Owner, VehicleVisuals.VisualState, false);
+
+        if(_container.TryGetContainer(ent.Owner, _vehicleModsSlot, out var modSlot))
+        {
+            foreach (var item in modSlot.ContainedEntities)
+            {
+                if(HasComp<PointLightComponent>(item))
+                {
+                    var metaData = MetaData(item);
+                    var light = SpawnAtPosition(metaData.EntityPrototype!.ID, ent.Owner.ToCoordinates());
+                    _transform.SetParent(light, ent.Owner);
+                    if(HasComp<RotatingLightComponent>(light))
+                        ent.Comp.Sirenlight = light;
+                    else
+                        ent.Comp.Headlight = light;
+                }
+            }
+        }
+        Dirty(ent.Owner, ent.Comp);
     }
 
     private void OnComponentStartup(Entity<VehicleComponent> ent, ref ComponentStartup args)
@@ -802,6 +821,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         vehicleComp.Rider = null;
         _actionBlocker.UpdateCanMove(rider);
         _actions.RemoveProvidedActions(rider, vehicle);
+        if(vehicleComp.Headlight != null)
+            _actions.RemoveProvidedActions(rider, vehicleComp.Headlight.Value);
+        if(vehicleComp.Sirenlight != null)
+            _actions.RemoveProvidedActions(rider, vehicleComp.Sirenlight.Value);
+
         if(_container.TryGetContainer(vehicle, _vehicleModsSlot, out var items))
             foreach(var item in items.ContainedEntities)
                 _actions.RemoveProvidedActions(rider, item);
@@ -833,14 +857,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(component.HornSound != null)
             _actions.AddAction(rider, ref component.HornVehicleActionEntity, component.HornVehicleAction, vehicle);
 
-        if(_container.TryGetContainer(vehicle, _vehicleModsSlot, out var modSlot))
-        {
-            foreach (var item in modSlot.ContainedEntities)
-            {
-                if(TryComp<UnpoweredFlashlightComponent>(item, out var flashComp))
-                    _actions.AddAction(rider, ref flashComp.ToggleActionEntity, flashComp.ToggleAction, item);
-            }
-        }
+        if(component.Headlight != null && TryComp<UnpoweredFlashlightComponent>(component.Headlight, out var headLight))
+            _actions.AddAction(rider, ref headLight.ToggleActionEntity, headLight.ToggleAction, component.Headlight.Value);
+
+        if(component.Sirenlight != null && HasComp<PointLightComponent>(component.Sirenlight))
+            _actions.AddAction(rider, component.ToggleSirenAction, component.Sirenlight.Value);
     }
 
     private bool TryInsert(EntityUid? Rider, EntityUid Vehicle, VehicleContainerComponent? component=null)
