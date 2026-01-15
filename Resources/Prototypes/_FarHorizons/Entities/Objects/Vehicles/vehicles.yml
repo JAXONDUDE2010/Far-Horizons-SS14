@@ -146,7 +146,7 @@
     frictionNoInput: 4.5
     requireIgnition: true 
     baseState: vehicle
-    brokenState: vehicle
+    brokenState: vehicle_broken
     startupTime: 2
     handsNeeded: 1
     riderWhitelist:
