@@ -59,6 +59,9 @@
       mask: /Textures/Effects/LightMasks/double_cone.png
     - type: RotatingLight
       speed: 360
+    - type: ItemAction
+      actions:
+        - ActionVehicleToggleSecuritySiren
     - type: Sprite
       sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security.rsi
       state: siren
