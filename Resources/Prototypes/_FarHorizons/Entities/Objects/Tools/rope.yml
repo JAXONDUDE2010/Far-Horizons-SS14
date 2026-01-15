@@ -21,13 +21,9 @@
     - type: Sprite
       noRot: false
       sprite: _FarHorizons/Tools/Towing/rope.rsi
-      layers:
-        - state: hook
+      state: hook
     - type: Icon
-      noRot: false
       sprite: _FarHorizons/Tools/Towing/rope.rsi
-      layers:
-        - state: hook
-      state: rope
+      state: hook
     - type: Hitch
     - type: Towing
