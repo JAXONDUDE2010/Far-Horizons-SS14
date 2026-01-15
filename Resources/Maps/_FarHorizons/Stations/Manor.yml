@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 02:08:18
+  time: 01/15/2026 22:23:55
   entityCount: 31877
 maps:
 - 1
@@ -91725,11 +91725,6 @@ entities:
       parent: 2
 - proto: FHAirlockMaintRnDLocked
   entities:
-  - uid: 15471
-    components:
-    - type: Transform
-      pos: 49.5,30.5
-      parent: 2
   - uid: 15472
     components:
     - type: Transform
@@ -91742,6 +91737,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 72.5,10.5
       parent: 2
+- proto: FHAirlockMaintRoboticsLocked
+  entities:
+  - uid: 15471
+    components:
+    - type: Transform
+      pos: 49.5,30.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: FHAirlockMaintSalvageLocked
   entities:
   - uid: 15474
@@ -92385,12 +92389,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 52.5,24.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 31547
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 52.5,23.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: filingCabinetDrawerRandom
   entities:
   - uid: 15575
