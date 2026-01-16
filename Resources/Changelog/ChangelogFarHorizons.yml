@@ -5168,5 +5168,12 @@ Entries:
   id: 64602
   time: '2026-01-16T11:17:01.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/646
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Fixed IPCs and borgis being able to rename their ID for free
+    type: Fix
+  id: 65200
+  time: '2026-01-16T11:42:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/652
 Order: -1
 
