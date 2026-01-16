@@ -2,7 +2,7 @@
   id: ATVHeadlight
   parent: BaseItem
   name: ATV Headlight
-  description: Standard headlight for ATVs mostly used to distract tiders as you run over them like deers.
+  description: Standard headlight for ATVs. Mostly used to distract tiders as you run over them like they're deer in the middle of the road. 
   components:
     - type: UnpoweredFlashlight
     - type: PointLight
@@ -21,8 +21,8 @@
 - type: entity
   id: SecwayLight
   parent: BaseItem
-  name: Secway light
-  description: Standard light for the Secways excellent for seeing those maints grilles before you crash at them.
+  name: Secway Light
+  description: Standard light for Secways. Excellent for seeing those maints grilles before you crash into them! 
   components:
     - type: UnpoweredFlashlight
     - type: PointLight
@@ -42,7 +42,7 @@
   id: SecSiren
   parent: BaseItem
   name: Security Siren
-  description: Turn this thing on and those tiders will scatter like roaches or they will jump you who knows..?
+  description: Turn this thing on and those tiders will scatter like roaches, or they will jump you... Who knows?
   components:
     - type: ItemToggle
       onUse: false

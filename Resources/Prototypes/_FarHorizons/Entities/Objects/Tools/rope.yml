@@ -2,7 +2,7 @@
   parent: BaseItem
   id: TowingRope
   name: Towing Rope
-  description: A handy dandy rope to tie things together
+  description: A handy dandy rope to tie things together.
   components:
     - type: Sprite
       sprite: _FarHorizons/Tools/Towing/rope.rsi
@@ -16,7 +16,7 @@
   parent: BaseItem
   id: HitchHook
   name: Hitch Hook
-  description: Attach this to the other of something to pull it.
+  description: Attach this to something in order to move it with a tow line!
   components:
     - type: Sprite
       noRot: false
