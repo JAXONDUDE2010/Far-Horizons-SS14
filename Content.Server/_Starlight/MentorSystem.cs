@@ -9,37 +9,36 @@ using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using Content.Server._FarHorizons.DiscordLink;
+using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
-using Content.Shared.Starlight;
-using Content.Shared.Starlight.CCVar;
-using Content.Shared.Starlight.MHelp;
+using Content.Server._NullLink.PlayerData;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Starlight.CCVar;
+using Content.Shared.Starlight.MHelp;
 using Content.Shared.Starlight;
+using Content.Shared._NullLink;
 using JetBrains.Annotations;
 using Robust.Server.Player;
-using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Ghost;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
-using Content.Server.Administration.Logs;
-using Content.Shared._NullLink;
-using Content.Server._NullLink.PlayerData;
+using Content.Shared._FarHorizons.DiscordLink;
 
 namespace Content.Server.Administration.Systems;
 
@@ -50,7 +49,6 @@ public sealed partial class MentorSystem : SharedMentorSystem
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlayerRolesManager _playerRolesManager = default!;
-    [Dependency] private readonly ISharedNullLinkPlayerRolesReqManager _playerRoles = default!;
     [Dependency] private readonly INullLinkPlayerManager _nullLinkPlayers = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -104,7 +102,7 @@ public sealed partial class MentorSystem : SharedMentorSystem
         var adminData = _adminManager.GetAdminData(senderSession);
 
         var senderIsAdmin = adminData?.HasFlag(AdminFlags.Adminhelp) ?? false;
-        var senderIsMentor = _playerRoles.IsMentor(senderSession);
+        var senderIsMentor = _discordLinkManager.HasPermission(senderSession.UserId.UserId, AdditionalPermissionsTypes.Mentor);
         if (!senderIsAdmin && !senderIsMentor && _rateLimit.CountAction(senderSession, RateLimitKey) != RateLimitStatus.Allowed)
             return;
         
@@ -195,7 +193,7 @@ public sealed partial class MentorSystem : SharedMentorSystem
         var adminData = _adminManager.GetAdminData(senderSession);
 
         var senderIsAdmin = adminData?.HasFlag(AdminFlags.Adminhelp) ?? false;
-        var senderIsMentor = _playerRoles.IsMentor(senderSession);
+        var senderIsMentor = _discordLinkManager.HasPermission(senderSession.UserId.UserId, AdditionalPermissionsTypes.Mentor);
         if (!senderIsAdmin && !senderIsMentor && _rateLimit.CountAction(senderSession, RateLimitKey) != RateLimitStatus.Allowed)
             return;
         if (message.Ticket is not Guid ticketId)
@@ -238,7 +236,7 @@ public sealed partial class MentorSystem : SharedMentorSystem
         var adminData = _adminManager.GetAdminData(senderSession);
 
         var senderIsAdmin = adminData?.HasFlag(AdminFlags.Adminhelp) ?? false;
-        var senderIsMentor = _playerRoles.IsMentor(senderSession);
+        var senderIsMentor = _discordLinkManager.HasPermission(senderSession.UserId.UserId, AdditionalPermissionsTypes.Mentor);
         if (!(senderIsAdmin || senderIsMentor)) //only admins/mentors can use mtpto
             return;
         if (message.Ticket is not Guid ticketId)

@@ -23,14 +23,14 @@
         - MagazineMagnum
         - CombatKnife
         - HandGrenade
+        - Radio
+        - Knife
+        - Cartridge
       components:
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - CartridgeAmmo
         - DoorRemote
         - Whistle
-        - BalloonPopper
+        - BallisticAmmoProvider
+        - CartridgeAmmo
   - type: Appearance
   - type: Tag
     tags: 
