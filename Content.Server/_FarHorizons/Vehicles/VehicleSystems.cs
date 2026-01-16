@@ -199,7 +199,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             {
                 if(ent.Comp.Rider != null)
                 {
-                    _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+                    if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
+                        _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
                     if(ent.Comp.TurnKeysActionEntity != null)
                         _actions.RemoveProvidedAction(ent.Comp.Rider.Value, ent.Owner, ent.Comp.TurnKeysActionEntity.Value);
 
@@ -238,7 +239,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             _handsSystem.PickupOrDrop(args.User, keys);
 
             if(ent.Comp.Rider == null) return;
-            _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+            if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
+                _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
 
             for (var i = 0; i < ent.Comp.HandsNeeded; i++)
             {
@@ -381,8 +383,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         TurnOffVehicle(ent.Owner, ent.Comp);
 
-        if(ent.Comp.Rider != null)  
-            _actionBlocker.UpdateCanMove(ent.Owner);
+        if(ent.Comp.Rider != null)
+            if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
+                _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
     }
 
     private void OnPowerCellEmpty(Entity<VehicleComponent> ent, ref PowerCellSlotEmptyEvent args)
@@ -390,7 +393,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         TurnOffVehicle(ent.Owner, ent.Comp);
 
         if(ent.Comp.Rider != null)  
-            _actionBlocker.UpdateCanMove(ent.Owner);
+            if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
+                _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
     }
 
     private void OnRepairFinished(Entity<VehicleComponent> ent, ref RepairFinishedEvent args)
@@ -777,7 +781,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if((HasComp<PowerCellDrawComponent>(vehicle) && !_powerCell.HasDrawCharge(vehicle)) 
         || (HasComp<ReagantDrawComponent>(vehicle) && !_reagantDraw.HasDrawReagant(vehicle)))
-            _actionBlocker.UpdateCanMove(rider);
+            if(TryComp<InputMoverComponent>(rider, out var imComp) && imComp.CanMove)
+                _actionBlocker.UpdateCanMove(rider);
     }
 
     private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleSirenActionEvent args)
@@ -797,7 +802,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         riderComp.Riding = vehicle;
         Dirty(rider, riderComp);
         _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} entered vehicle {ToPrettyString(vehicle)}");
-        _actionBlocker.UpdateCanMove(rider);
+        if(TryComp<InputMoverComponent>(rider, out var imComp) && imComp.CanMove)
+            _actionBlocker.UpdateCanMove(rider);
 
         if(_whitelist.IsWhitelistFail(vehicleComp.RiderWhitelist, rider)) return;
         if(vehicleComp.Rider != null) return;
@@ -806,7 +812,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         Dirty(vehicle, vehicleComp);
         
         AddActions(vehicleComp.Rider.Value, vehicle, vehicleComp);
-
         if(vehicleComp.Started)
         {
             for (var i = 0; i < vehicleComp.HandsNeeded; i++)
@@ -814,7 +819,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 if (_virtualItem.TrySpawnVirtualItem(vehicle, rider, out var virtItem))
                 {
                     EnsureComp<UnremoveableComponent>(virtItem.Value);
-                    _handsSystem.TryForcePickupAnyHand(rider, virtItem.Value);
+                    Timer.Spawn(0, () => _handsSystem.TryForcePickupAnyHand(rider, virtItem.Value, checkActionBlocker: false));
                 }
             }
         }
@@ -827,7 +832,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(HasComp<RiderComponent>(rider))
             RemComp<RiderComponent>(rider);
         _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} exited vehicle {ToPrettyString(vehicle)}");
-        _actionBlocker.UpdateCanMove(rider);
+        if(TryComp<InputMoverComponent>(rider, out var imComp) && !imComp.CanMove)
+            _actionBlocker.UpdateCanMove(rider);
 
         if(rider != vehicleComp.Rider) return;
         vehicleComp.Rider = null;

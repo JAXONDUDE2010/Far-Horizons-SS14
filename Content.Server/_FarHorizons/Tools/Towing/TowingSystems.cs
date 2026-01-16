@@ -121,6 +121,9 @@ public sealed partial class TowingSystem : EntitySystem
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.UntieTime, new UnTieDoAfter(), args.Target, target: args.Target)
                     {
                         BreakOnMove = true,
+                        BreakOnDamage = true,
+                        BreakOnDropItem = true,
+                        BreakOnHandChange = true
                     };
                         
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
@@ -171,6 +174,7 @@ public sealed partial class TowingSystem : EntitySystem
     {
         if(!args.CanAccess || !args.CanInteract || args.Hands == null) return;
         if(HasComp<TiedComponent>(args.Target)) return;
+        if(TryComp<TowingComponent>(args.Target, out var TowComp) && TowComp.EntityA != null) return;
         var untieRopeVerb = new AlternativeVerb
         {
             Text = Loc.GetString("towing-hitch-deploy"),
@@ -179,6 +183,9 @@ public sealed partial class TowingSystem : EntitySystem
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.HitchDeploy, new DeployHitchDoAfter(), args.User, target: args.Target)
                     {
                         BreakOnMove = true,
+                        BreakOnDamage = true,
+                        BreakOnDropItem = true,
+                        BreakOnHandChange = true
                     };
                         
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
@@ -189,7 +196,7 @@ public sealed partial class TowingSystem : EntitySystem
 
     public void OnDeployHitchDoAfter(Entity<HandsComponent> ent, ref DeployHitchDoAfter args)
     {
-        if(args.Target == null) return;
+        if(args.Target == null || args.Cancelled) return;
         var target = args.Target.Value;
 
         var hook = SpawnAtPosition(_hitchHook, target.ToCoordinates());
