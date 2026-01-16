@@ -96,7 +96,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
-    private static readonly string _vehicleModsSlot = "vehicle_mods_container";
     private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
     public override void Initialize()
@@ -153,7 +152,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
         _appearance.SetData(ent.Owner, VehicleVisuals.VisualState, false);
 
-        if(_container.TryGetContainer(ent.Owner, _vehicleModsSlot, out var modSlot))
+        if(_container.TryGetContainer(ent.Owner, ent.Comp.VehicleModsSlot, out var modSlot))
         {
             foreach (var item in modSlot.ContainedEntities)
             {
@@ -838,7 +837,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(vehicleComp.Sirenlight != null)
             _actions.RemoveProvidedActions(rider, vehicleComp.Sirenlight.Value);
 
-        if(_container.TryGetContainer(vehicle, _vehicleModsSlot, out var items))
+        if(_container.TryGetContainer(vehicle, vehicleComp.VehicleModsSlot, out var items))
             foreach(var item in items.ContainedEntities)
                 _actions.RemoveProvidedActions(rider, item);
         

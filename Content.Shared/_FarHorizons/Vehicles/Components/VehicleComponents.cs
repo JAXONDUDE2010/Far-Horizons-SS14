@@ -163,4 +163,10 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Sirenlight;
+
+    /// <summary>
+    /// Container that holds all the equipment for a vehicle
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string VehicleModsSlot = "vehicle_mods_container";
 }
