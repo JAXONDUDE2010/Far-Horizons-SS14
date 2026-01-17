@@ -68,7 +68,7 @@
 - type: entity
   parent: ClothingBeltWebbingBase
   id: ClothingBeltBrigmedicWeb
-  name: tactical trauma rig
+  name: Tactical Trauma Rig
   description: A stylish alternative to the belt.
   components:
   - type: Sprite
