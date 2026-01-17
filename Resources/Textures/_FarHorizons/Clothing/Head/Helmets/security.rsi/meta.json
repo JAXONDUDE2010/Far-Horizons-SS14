@@ -15,7 +15,15 @@
       "directions": 4
     },
     {
+      "name": "equipped-HELMET_LightON",
+      "directions": 4
+    },
+    {
       "name": "equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET_Vox_LightON",
       "directions": 4
     },
     {

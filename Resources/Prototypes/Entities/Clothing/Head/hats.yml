@@ -432,7 +432,7 @@
     - CorgiWearable
     - ClothMade
     - Recyclable
-    - HamsterWearable
+  #  - HamsterWearable #Far Horizons
     - WhitelistChameleon
 
 - type: entity
