@@ -121,8 +121,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
 
-#FH - Removal of ClothingBeltBrigmedicWeb for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: ClothingBeltWebbingBase #FH
+#  id: ClothingBeltBrigmedicWeb
+#  name: tactical trauma rig
+#  description: A stylish alternative to the belt.
+#  components:
+#  - type: Sprite
+#    sprite: _Starlight/Clothing/Belt/brigmedicwebbing.rsi
+#  - type: Clothing
+#    sprite: _Starlight/Clothing/Belt/brigmedicwebbing.rsi
+#  - type: Appearance
 
 - type: entity
   parent: [ClothingBeltBrigmedic]
@@ -136,17 +146,81 @@
     sprite: _Starlight/Clothing/Belt/corpsmanbelt.rsi
   - type: Appearance
 
-#FH - Removal of ClothingSovietBandolier for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ClothingBeltAmmoProviderBase, BaseSovietContraband] #FH - Edit
+#  id: ClothingSovietBandolier
+#  name: marine bandolier
+#  description: Smells of oil, sweat, and questionable decisions.
+#  components:
+#  - type: Sprite
+#    sprite: _Starlight/Clothing/Belt/soviet_bandolier.rsi
+#  - type: Clothing
+#    sprite: _Starlight/Clothing/Belt/soviet_bandolier.rsi
+#  - type: Item
+#    size: Normal
+#  - type: BallisticAmmoProvider #FH - Edit Start
+#    whitelist:
+#      tags:
+#        - Cartridge
+#    mayTransfer: true
+#    capacity: 100
+#  - type: Tag
+#    tags: 
+#    - Webbing
+ #FH - Edit End
 
-#FH - Removal of ClothingBeltOperativeWebbing for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ClothingBeltWebbingBase, ContentsExplosionResistanceBase, BaseMajorContraband] #FH - Edit
+#  id: ClothingBeltOperativeWebbing
+#  name: operative webbing
+#  description: Standard-rendered in a low-vis to mid-vis B3 pattern, this module is a streamlined workhorse and a go-to pick for various galactic paramilitaries that operate within the black market.
+#  components:
+#  - type: Sprite
+#    sprite: _Starlight/Clothing/Belt/militarywebbing_dark.rsi
+#  - type: Clothing
+#    sprite: _Starlight/Clothing/Belt/militarywebbing_dark.rsi
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.05
+#FH - Removal
 
-#FH - Removal of ClothingBeltOperativeWebbingMedFilled for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  id: ClothingBeltOperativeWebbingMedFilled
+#  parent: ClothingBeltMilitaryWebbing #FH
+#  suffix: Filled
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: ChemistryBottleEpinephrine
+#        amount: 2
+#      - id: ChemistryBottleEphedrine
+#        amount: 2
+#      - id: ChemistryBottleOmnizine
+#      - id: MedkitCombatFilled
 
-#FH - Removal of ClothingBeltOperativeWebbingGrenadeFilled for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  id: ClothingBeltOperativeWebbingGrenadeFilled
+#  parent: ClothingBeltWebbingBase #FH
+#  name: grenadier operative webbing
+#  suffix: Filled
+#  components:
+#  - type: Sprite #FH
+#    sprite: _Starlight/Clothing/Belt/militarywebbing_dark.rsi #FH
+#  - type: Clothing #FH
+#    sprite: _Starlight/Clothing/Belt/militarywebbing_dark.rsi #FH
+#  - type: Item
+#    size: Ginormous
+#  - type: StorageFill
+#    contents:
+#      - id: ExGrenade
+#        amount: 4
+#      - id: SyndieMiniBomb
+#        amount: 2
+#      - id: EmpGrenade
+#        amount: 2
 
 # USSP 
 
@@ -270,11 +344,26 @@
   - type: StaticPrice
     price: 1000
 
-#FH - Removal of ClothingBeltSovietMarineWebbing for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ClothingBeltWebbingBase, ContentsExplosionResistanceBase, BaseSovietContraband] #FH
+#  id: ClothingBeltSovietMarineWebbing
+#  name: SSF marine chest rig
+#  description:  A set of tactical webbing worn by the iconic soviet elite marines.
+#  components:
+#  - type: Sprite
+#    sprite: _Starlight/Clothing/Belt/soviet_webbing.rsi
+#  - type: Clothing
+#    sprite: _Starlight/Clothing/Belt/soviet_webbing.rsi
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.1
 
-#FH - Removal of ClothingBeltSovietMarineWebbingLoadout for organization
-#
+#- type: entity
+#  parent: ClothingBeltSovietMarineWebbing
+#  id: ClothingBeltSovietMarineWebbingLoadout
+#  name: SSF marine chest rig
+#  description:  A set of tactical webbing worn by the iconic soviet elite marines.
+#FH - Removal
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
@@ -298,5 +387,19 @@
   - type: StaticPrice
     price: 900
 
-#FH - Removal of ClothingBeltSalvageMercWebbing for organization
-#
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ BaseSalvageContraband, ClothingBeltStorageBase ]
+#  id: ClothingBeltSalvageMercWebbing
+#  name: scrapper webbing
+#  description: Ideal for storing everything from tools, ammo, and salvage.
+#  components:
+#    - type: Storage
+#      grid:
+#        - 0,0,1,0 #left
+#        - 0,1,0,1 #left - cube
+#        - 3,0,10,1
+#    - type: Sprite
+#      sprite: _Starlight/Clothing/Belt/salvage.rsi
+#    - type: Clothing
+#      sprite: _Starlight/Clothing/Belt/salvage.rsi
