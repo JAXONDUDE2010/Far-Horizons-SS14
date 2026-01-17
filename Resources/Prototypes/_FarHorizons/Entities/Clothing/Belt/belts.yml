@@ -321,42 +321,6 @@
 
 #region Security
 
-- type: entity
-  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase ]
-  id: ClothingBeltWebbingBase
-  name: Security Webbing
-  description: Can hold bits and bobs, but it's main purpose is to hold spare magazines and grenades.
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Clothing/Belt/securitywebbing.rsi
-  - type: Clothing
-    sprite: _FarHorizons/Clothing/Belt/securitywebbing.rsi
-  - type: ExplosionResistance # Prevents unwanted detonation of contents, i.e grenades.
-    damageCoefficient: 0.1
-  - type: Storage
-    grid:
-    - 0,0,3,1
-    - 0,3,3,4
-    whitelist:
-      tags:
-        - CigPack
-        - MagazinePistol
-        - MagazineMagnum
-        - CombatKnife
-        - HandGrenade
-        - Radio
-        - Knife
-        - Cartridge
-      components:
-        - DoorRemote
-        - Whistle
-        - BallisticAmmoProvider
-        - CartridgeAmmo
-  - type: Appearance
-  - type: Tag
-    tags: 
-    - Webbing
-
 #region Syndicate Station #####
 
 
