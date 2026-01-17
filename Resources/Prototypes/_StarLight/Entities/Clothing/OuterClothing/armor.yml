@@ -329,6 +329,8 @@
       level: Metal
     - type: Armor
       modifiers:
+        flatReductions: #FH - Edit
+          Piercing: 5 #FH - Edit
         coefficients:
           Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
           Slash: 0.7
