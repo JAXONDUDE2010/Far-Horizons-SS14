@@ -294,7 +294,7 @@
 - type: entity
   parent: ClothingBeltSovietMarineWebbing
   id: ClothingBeltSovietMarineWebbingLoadout
-  name: SSF marine chest rig
+  name: SSF Marine Chest Rig
   description:  A set of tactical webbing worn by the iconic soviet elite marines.
 
 - type: entity
