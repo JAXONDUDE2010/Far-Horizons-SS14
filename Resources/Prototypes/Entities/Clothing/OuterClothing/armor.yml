@@ -252,7 +252,7 @@
         Caustic: 0.5
     # Starlight-start
     staminaModifier: 0.35
-    ignoreKnockdown: true
+#    ignoreKnockdown: true - FH
     # Starlight-end
   - type: ExplosionResistance
     damageCoefficient: 0.5
