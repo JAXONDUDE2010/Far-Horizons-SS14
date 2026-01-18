@@ -104,26 +104,27 @@
 
 ## Belts without visualizers
 
-- type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
-  id: ClothingBeltBandolier
-  name: Bandolier #Far Horizons - The Great Capitalization Crusade
-  description: A bandolier for holding shotgun ammunition.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/bandolier.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/bandolier.rsi
-  - type: Item
-    size: Huge
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - ShellShotgun
-    capacity: 14
-  - type: Tag #FH
-    tags: 
-    - Webbing
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
+#  id: ClothingBeltBandolier
+#  name: bandolier
+#  description: A bandolier for holding shotgun ammunition.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Belt/bandolier.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/bandolier.rsi
+#  - type: Item
+#    size: Huge
+#  - type: BallisticAmmoProvider
+#    whitelist:
+#      tags:
+#        - ShellShotgun
+#    capacity: 14
+#  - type: Tag #FH
+#    tags: 
+#    - Webbing
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
@@ -145,74 +146,78 @@
 
 ## Holsters
 
-- type: entity
-  parent: ClothingBeltStorageBase
-  id: ClothingBeltHolster
-  name: Shoulder Holster #Far Horizons - The Great Capitalization Crusade
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/holster.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/holster.rsi
-  - type: Storage
-    grid:
-    - 0,0,3,1
-  - type: Tag #FH
-    tags: 
-    - Webbing
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: ClothingBeltStorageBase
+#  id: ClothingBeltHolster
+#  name: shoulder holster
+#  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Belt/holster.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/holster.rsi
+#  - type: Storage
+#    grid:
+#    - 0,0,3,1
+#  - type: Tag #FH
+#    tags: 
+#    - Webbing
 
-- type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
-  id: ClothingBeltSyndieHolster
-  name: Syndicate Shoulder Holster #Far Horizons - The Great Capitalization Crusade
-  description: A deep shoulder holster capable of holding many types of ballistics.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/syndieholster.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/syndieholster.rsi
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-      - Gun
-      - BallisticAmmoProvider
-      - CartridgeAmmo
-  - type: StaticPrice
-    price: 500
-  - type: Tag #FH
-    tags: 
-    - Webbing
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
+#  id: ClothingBeltSyndieHolster
+#  name: syndicate shoulder holster
+#  description: A deep shoulder holster capable of holding many types of ballistics.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Belt/syndieholster.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/syndieholster.rsi
+#  - type: Storage
+#    maxItemSize: Huge
+#    grid:
+#    - 0,0,3,3
+#    whitelist:
+#      components:
+#      - Gun
+#      - BallisticAmmoProvider
+#      - CartridgeAmmo
+#  - type: StaticPrice
+#    price: 500
+#  - type: Tag #FH
+#    tags: 
+#    - Webbing
 
 ## Webbing
 
 # Weirdly the only webbing with a storage whitelist and item mapper.
 # Might be worth making less common (armory only?) and removing the whitelist to eliminate the inconsistency.
-- type: entity
-  parent: ClothingBeltWebbingBase #FarHorizons
-  id: ClothingBeltSecurityWebbing
-  name: Security Carrier #Far Horizons - The Great Capitalization Crusade
-  description: Unique and versatile chest rig, can hold spare magazines. #FH
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Clothing/Belt/securitywebbing.rsi #Far Horizons
-  - type: Clothing
-    sprite: _FarHorizons/Clothing/Belt/securitywebbing.rsi #Far Horizons
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: ClothingBeltWebbingBase #FarHorizons
+#  id: ClothingBeltSecurityWebbing
+#  name: security carrier
+#  description: Unique and versatile chest rig, can hold spare magazines. #FH
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Belt/securitywebbing.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/securitywebbing.rsi
 
-- type: entity
-  parent: [ ClothingBeltWebbingBase, BaseSalvageContraband ] #FarHorizons
-  id: ClothingBeltMercWebbing
-  name: Mercenary Webbing #Far Horizons - The Great Capitalization Crusade
-  description: Ideal for storing spare ammo, grenades and other bits and bobs. #FH - Edit
-  components:
+# FH - Moved to webbings.rsi
+#- type: entity
+#  parent: [ ClothingBeltWebbingBase, BaseSalvageContraband ] #FarHorizons
+#  id: ClothingBeltMercWebbing
+#  name: mercenary webbing
+#  description: Ideal for storing spare ammo, grenades and other bits and bobs. #FH - Edit
+#  components:
 # FH - Removal
-  - type: Sprite
-    sprite: Clothing/Belt/mercwebbing.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/mercwebbing.rsi
+#  - type: Sprite
+#    sprite: Clothing/Belt/mercwebbing.rsi
+#  - type: Clothing
+#    sprite: Clothing/Belt/mercwebbing.rsi
 
 #Far Horizons-Start - I reject your Salvage Webbing and substitute my own.
 #- type: entity
