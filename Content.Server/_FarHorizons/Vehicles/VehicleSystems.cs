@@ -60,9 +60,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Coordinates;
-using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Toggleable;
-using Content.Shared.Interaction;
 using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Server._FarHorizons.Vehicle;
@@ -141,7 +138,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<RiderComponent, RefreshMovementSpeedModifiersEvent>(OnMovementSpeedRefreshRiderEvent);
 
         SubscribeLocalEvent<TransformComponent, JetJumpActionEvent>(OnJetJumpActionEvent);
-        SubscribeLocalEvent<ItemToggleComponent, ToggleSirenActionEvent>(OnSirenToggle);
 
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
@@ -784,15 +780,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         || (HasComp<ReagantDrawComponent>(vehicle) && !_reagantDraw.HasDrawReagant(vehicle)))
             if(TryComp<InputMoverComponent>(rider, out var imComp) && imComp.CanMove)
                 _actionBlocker.UpdateCanMove(rider);
-    }
-
-    private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleSirenActionEvent args)
-    {
-        if(!HasComp<UnpoweredFlashlightComponent>(ent.Owner) && !HasComp<ItemToggleComponent>(ent.Owner)) return;
-        var evToggle = new ToggleActionEvent();
-        var evActivate = new ActivateInWorldEvent(args.Performer, ent.Owner, false);
-        RaiseLocalEvent(ent.Owner, evToggle);
-        RaiseLocalEvent(ent.Owner, evActivate);
     }
     
     #endregion
