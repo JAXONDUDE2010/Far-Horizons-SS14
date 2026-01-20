@@ -750,8 +750,9 @@ SpeedLoaderPistolPractice: null
 GlowstickBase: GlowstickGreen
 
 # 2025-12-06
-SpawnPointZookeeper: null
-SpawnPointBoxer: null
+#SpawnPointZookeeper: null
+#SpawnPointBoxer: null
+# Far Horizons unremoved
 
 # 2025-12-07
 FigureSpawner: MechFigurineSpawner50

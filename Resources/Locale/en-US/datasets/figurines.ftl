@@ -306,14 +306,6 @@ figurines-footsoldier-3 = Glory to the Syndicate!
 figurines-footsoldier-4 = Death to NanoTrasen!
 figurines-footsoldier-5 = I'd rather die than join NanoTrasen.
 
-figurines-wizard-1 = EI NATH!!
-figurines-wizard-2 = Real wizards point blank fireballs.
-figurines-wizard-3 = Skidaddle skadoodle!
-figurines-wizard-4 = Say you wanna live long, say you wanna be free?
-figurines-wizard-5 = We gonna rock, down, to...
-figurines-wizard-6 = And YOU get a gun! And YOU get a gun!
-figurines-wizard-7 = HoS, this wizard barged into my room.
-figurines-wizard-8 = UNNNNLIMITED POWAAAH! 10 WizCoin minimum wage though.
 figurines-holoclown-1 = I'm helping my older brother.
 figurines-holoclown-2 = Hello, officer!
 figurines-holoclown-3 = Who are you calling blue?
@@ -361,13 +353,13 @@ figurines-thief-4 = I have NO idea where your pet is...
 figurines-thief-5 = Huh, I didn't know that wall could open up...
 
 figurines-wizard-1 = EI NATH!!
-figurines-wizard-2 = ONI'SOMA!!
+figurines-wizard-2 = Real wizards point blank fireballs.
 figurines-wizard-3 = Skidaddle skadoodle!
-figurines-wizard-4 = Real wizards support trans rights.
-figurines-wizard-5 = Which one of you NERDS is ready to be shoved in a locker?
-figurines-wizard-6 = I'm not the wizard! I'm the captain! I got mind-swapped!
-figurines-wizard-7 = Now you see me, now you don't!
-figurines-wizard-8 = Guns are for losers who can't explode people with their mind.
+figurines-wizard-4 = Say you wanna live long, say you wanna be free?
+figurines-wizard-5 = We gonna rock, down, to...
+figurines-wizard-6 = And YOU get a gun! And YOU get a gun!
+figurines-wizard-7 = HoS, this wizard barged into my room.
+figurines-wizard-8 = UNNNNLIMITED POWAAAH! 10 WizCoin minimum wage though.
 
 # Animals
 

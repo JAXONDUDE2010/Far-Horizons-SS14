@@ -8,7 +8,6 @@ job-description-boxer = Fight your way to the top! Challenge the head of personn
 job-description-brigmedic = Produce medicinal drugs and chemical mixtures of dubious legality for yourself and the Corpsman, give prisoners medical treatment for punching a security officer in the face and ensure security stays in tip-top shape medically, not mentally, from the safety of the brig.
 # FHedit - End
 job-description-centcomoperator = Response to station's requets and play games at your break time.
-job-description-brigmedic = Fight in the rear of the security service, for the lives of your comrades! You are the first and last hope of your squad. Hippocrates bless you.
 job-description-cadet = Learn the basics of arresting criminals and managing the brig. Listen to your supervisors and feel free to ask them for any help.
 job-description-captain = Keep the station running, delegate work to the other heads of staff, and exert your will.
 job-description-cargotech = Deal with requisitions and deliveries, pilot the cargo shuttle to the trade station and back, and work with others to make ludicrous amounts of cash and then waste it all gambling.

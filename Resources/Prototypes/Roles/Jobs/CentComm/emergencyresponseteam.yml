@@ -67,14 +67,6 @@
     - MedkitCombatFilled # End of first line
     - MedkitCombatFilled
     - TelescopicShield
-    belt:
-    - Stunbaton
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - WeaponPistolN1984
-    - MagazineMagnum
-    - EmergencyMedipen
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -260,7 +252,6 @@
     pocket2: GasAnalyzer
   storage:
     back:
-    - trayScanner
     - RCD
     - RCDAmmo
     - RCDAmmo
@@ -301,14 +292,6 @@
     - RCDAmmo
     - MetalFoamGrenade
     - AirGrenade
-    belt:
-    - JawsOfLife
-    - PowerDrill
-    - WelderIndustrialAdvanced
-    - Multitool
-    - WeaponPistolMk58
-    - MagazinePistolSP
-    - EmergencyMedipen
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -413,12 +396,6 @@
     - TelescopicShield
     - HoloprojectorSecurity
     - PowerCellHigh
-    belt:
-    - Stunbaton
-    - Handcuffs
-    - Handcuffs
-    - CrowbarRed
-    - MagazinePistolSP
 
 - type: startingGear
   id: ERTSecurityGearArmedRifle
@@ -532,13 +509,6 @@
     - BeakerSmallSigy
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    belt:
-    - DefibrillatorCompact
-    - MedkitCombatFilled
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistolSP
-    - EmergencyMedipen
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -558,15 +528,6 @@
     - MedkitCombatFilled
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    belt:
-    - Truncheon
-    - Zipties
-    - CrowbarRed
-    - MagazineRifleSP
-    - MagazineRifleSP
-    - MagazineRifleIncendiary
-    - MagazineRifleUranium # End of first line
-    - Zipties
 
 - type: chameleonOutfit
   id: ERTMedicalChameleonOutfit
@@ -649,15 +610,6 @@
     - GrenadeCleanade
     - GrenadeCleanade
     - GrenadeCleanade
-    belt:
-    - MegaSprayBottleSpaceCleaner
-    - Holoprojector
-    - LightReplacer
-    - WireBrush
-    - CrowbarRed
-    - WeaponPistolMk58
-    - MagazinePistolSP
-    - EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTJanitorChameleonOutfit
