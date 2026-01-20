@@ -16,39 +16,18 @@ concurrency:
   group: pr-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
-jobs:
-  build:
+jobs:  
+  yaml-lint:
     if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
     runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-test-env
-      - uses: actions/upload-artifact@v4
-        with:
-          name: build-pr-${{ github.event.pull_request.number }}
-          path: |
-            bin/
-            RobustToolbox/bin/
-          retention-days: 1
-  
-  yaml-lint:
-    needs: build
-    runs-on: ubuntu-24.04
-
-    steps:
-      - uses: actions/checkout@v4
-      - run: git submodule update --init --recursive
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 10.0.x
-      - uses: actions/download-artifact@v5
-        with:
-          name: build-pr-${{ github.event.pull_request.number }}
       - run: dotnet run --no-build -c DebugOpt --project Content.YAMLLinter/Content.YAMLLinter.csproj
   
   unit-tests:
-    needs: build
+    if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
     runs-on: ubuntu-24.04
 
     steps:
@@ -63,7 +42,7 @@ jobs:
       - run: dotnet test --no-build -c DebugOpt Content.Tests/Content.Tests.csproj --settings .farhorizons/.integrationtests
   
   integration-tests:
-    needs: build
+    if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
     runs-on: ubuntu-24.04
 
     steps:
