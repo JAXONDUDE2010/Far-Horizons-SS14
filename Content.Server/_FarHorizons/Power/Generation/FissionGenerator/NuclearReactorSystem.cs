@@ -370,7 +370,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         // If there's still input gas left over
         _atmosphereSystem.Merge(outlet.Air, GasInput);
 
-        comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + TempRads, 0, comp.MaximumRadiation);
+        comp.RadiationLevel = Math.Max(comp.RadiationLevel + TempRads, 0);
 
         comp.NeutronCount = NeutronCount;
         comp.MeltedParts = MeltedComps;
@@ -402,7 +402,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var reactor = ent.Comp;
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
-        comp.Intensity = Math.Max(reactor.RadiationLevel, reactor.Melted ? reactor.MeltdownRadiation : 0);
+        // Linear scaling up to maximum, logarithmic beyond that
+        comp.Intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 
@@ -764,6 +765,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
                ReactorTemp = reactor.Temperature,
                ReactorRads = reactor.RadiationLevel,
+               ReactorRadsMax = reactor.MaximumRadiation,
                ReactorTherm = reactor.ThermalPower,
 
                ControlRodActual = reactor.AvgInsertion,
