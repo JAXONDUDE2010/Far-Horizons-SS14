@@ -37,7 +37,7 @@ jobs:
   
   integration-tests:
     if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
 
     steps:
       - uses: actions/checkout@v4
@@ -49,6 +49,6 @@ jobs:
       - uses: ./.github/actions/setup-test-env
       - run: dotnet test --no-build -c DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --settings .farhorizons/.integrationtests
         env:
-          DOTNET_gcServer: "0"
+          DOTNET_gcServer: "1"
       - if: failure() # Check for OOMKiller on fail
         run: dmesg | grep -i "out of memory" || true
