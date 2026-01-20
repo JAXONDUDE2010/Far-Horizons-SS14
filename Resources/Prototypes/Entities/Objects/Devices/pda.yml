@@ -236,7 +236,7 @@
 - type: entity
   parent: BasePDA
   id: TechnicalAssistantPDA
-  Name: Technical Assistant PDA #Far Horizons - The Great Capitalization Crusade
+  name: Technical Assistant PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it yellow?
   components:
   - type: Pda
@@ -255,7 +255,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: MedicalInternPDA
-  Name: Medical Intern PDA #Far Horizons - The Great Capitalization Crusade
+  name: Medical Intern PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it white?
   components:
   - type: Pda
@@ -277,7 +277,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: SecurityCadetPDA
-  Name: Security Cadet PDA #Far Horizons - The Great Capitalization Crusade
+  name: Security Cadet PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it red?
   components:
   - type: Pda
@@ -296,7 +296,7 @@
 - type: entity
   parent: BasePDA
   id: ResearchAssistantPDA
-  Name: Research Assistant PDA #Far Horizons - The Great Capitalization Crusade
+  name: Research Assistant PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it purple?
   components:
   - type: Pda
@@ -315,7 +315,7 @@
 - type: entity
   parent: BasePDA
   id: ServiceWorkerPDA
-  Name: Service Worker PDA #Far Horizons - The Great Capitalization Crusade
+  name: Service Worker PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it gray?
   components:
   - type: Pda
@@ -334,7 +334,7 @@
 - type: entity
   parent: BasePDA
   id: ChefPDA
-  Name: Chef PDA #Far Horizons - The Great Capitalization Crusade
+  name: Chef PDA #Far Horizons - The Great Capitalization Crusade
   description: Covered in grease and flour.
   components:
   - type: Pda
@@ -354,7 +354,7 @@
 - type: entity
   parent: BasePDA
   id: BotanistPDA
-  Name: Botanist PDA #Far Horizons - The Great Capitalization Crusade
+  name: Botanist PDA #Far Horizons - The Great Capitalization Crusade
   description: Has an earthy scent.
   components:
   - type: Pda
@@ -373,7 +373,7 @@
 - type: entity
   parent: BasePDA
   id: ClownPDA
-  Name: Clown PDA #Far Horizons - The Great Capitalization Crusade
+  name: Clown PDA #Far Horizons - The Great Capitalization Crusade
   description: Looks can be deceiving.
   components:
   - type: Pda
@@ -433,7 +433,7 @@
 - type: entity
   parent: BasePDA
   id: MimePDA
-  Name: Mime PDA #Far Horizons - The Great Capitalization Crusade
+  name: Mime PDA #Far Horizons - The Great Capitalization Crusade
   description: Suprisingly not on mute.
   components:
   - type: Pda
@@ -480,7 +480,7 @@
   - type: Muted # for random sentience event
 
 - type: entity
-  Name: Chaplain PDA #Far Horizons - The Great Capitalization Crusade
+  name: Chaplain PDA #Far Horizons - The Great Capitalization Crusade
   parent: BasePDA
   id: ChaplainPDA
   description: God's chosen PDA.
@@ -509,7 +509,7 @@
     - DoorBumpOpener
 
 - type: entity
-  Name: Quartermaster PDA #Far Horizons - The Great Capitalization Crusade
+  name: Quartermaster PDA #Far Horizons - The Great Capitalization Crusade
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
@@ -537,7 +537,7 @@
 - type: entity
   parent: BasePDA
   id: CargoPDA
-  Name: Cargo PDA #Far Horizons - The Great Capitalization Crusade
+  name: Cargo PDA #Far Horizons - The Great Capitalization Crusade
   description: PDA for the guys that order the pizzas.
   components:
   - type: Pda
@@ -555,7 +555,7 @@
 - type: entity
   parent: BasePDA
   id: SalvagePDA
-  Name: Salvage PDA #Far Horizons - The Great Capitalization Crusade
+  name: Salvage PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like ash.
   components:
   - type: Pda
@@ -582,7 +582,7 @@
 - type: entity
   parent: BasePDA
   id: BartenderPDA
-  Name: Bartender PDA #Far Horizons - The Great Capitalization Crusade
+  name: Bartender PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like beer.
   components:
   - type: Pda
@@ -600,7 +600,7 @@
 - type: entity
   parent: BaseWidePDA
   id: LibrarianPDA
-  Name: Librarian PDA #Far Horizons - The Great Capitalization Crusade
+  name: Librarian PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like books.
   components:
   - type: Pda
@@ -635,7 +635,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: LawyerPDA
-  Name: Lawyer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Lawyer PDA #Far Horizons - The Great Capitalization Crusade
   description: For lawyers to poach dubious clients.
   components:
   - type: Pda
@@ -670,7 +670,7 @@
 - type: entity
   parent: BasePDA
   id: JanitorPDA
-  Name: Janitor PDA #Far Horizons - The Great Capitalization Crusade
+  name: Janitor PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like bleach.
   components:
   - type: Pda
@@ -688,7 +688,7 @@
 - type: entity
   parent: BasePDA
   id: CaptainPDA
-  Name: Captain PDA #Far Horizons - The Great Capitalization Crusade
+  name: Captain PDA #Far Horizons - The Great Capitalization Crusade
   description: Surprisingly no different from your PDA.
   components:
   - type: Pda
@@ -712,7 +712,7 @@
 - type: entity
   parent: BasePDA
   id: HoPPDA
-  Name: Head Of Personnel PDA #Far Horizons - The Great Capitalization Crusade
+  name: Head Of Personnel PDA #Far Horizons - The Great Capitalization Crusade
   description: Looks like it's been chewed on.
   components:
   - type: Pda
@@ -737,7 +737,7 @@
 - type: entity
   parent: BaseEngineerPDA #FarHorizons
   id: CEPDA
-  Name: Chief Engineer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Chief Engineer PDA #Far Horizons - The Great Capitalization Crusade
   description: Looks like it's barely been used.
   components:
   - type: Pda
@@ -756,7 +756,7 @@
 - type: entity
   parent: BaseEngineerPDA #FarHorizons
   id: EngineerPDA
-  Name: Engineer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Engineer PDA #Far Horizons - The Great Capitalization Crusade
   description: Rugged and well-worn.
   components:
   - type: Pda
@@ -775,7 +775,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: CMOPDA
-  Name: Chief Medical Officer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Chief Medical Officer PDA #Far Horizons - The Great Capitalization Crusade
   description: Extraordinarily shiny and sterile.
   components:
   - type: Pda
@@ -795,7 +795,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: MedicalPDA
-  Name: Medical PDA #Far Horizons - The Great Capitalization Crusade
+  name: Medical PDA #Far Horizons - The Great Capitalization Crusade
   description: Shiny and sterile.
   components:
   - type: Pda
@@ -828,7 +828,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: ParamedicPDA
-  Name: Paramedic PDA #Far Horizons - The Great Capitalization Crusade
+  name: Paramedic PDA #Far Horizons - The Great Capitalization Crusade
   description: Shiny and sterile.
   components:
   - type: Pda
@@ -847,7 +847,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: ChemistryPDA
-  Name: Chemist PDA # Starlight #Far Horizons - The Great Capitalization Crusade
+  name: Chemist PDA # Starlight #Far Horizons - The Great Capitalization Crusade
   description: It has a few discolored blotches here and there.
   components:
   - type: Pda
@@ -866,7 +866,7 @@
 - type: entity
   parent: BasePDA
   id: RnDPDA
-  Name: Research Director PDA #Far Horizons - The Great Capitalization Crusade
+  name: Research Director PDA #Far Horizons - The Great Capitalization Crusade
   description: It appears surprisingly ordinary.
   components:
   - type: Pda
@@ -886,7 +886,7 @@
 - type: entity
   parent: BasePDA
   id: SciencePDA
-  Name: Science PDA #Far Horizons - The Great Capitalization Crusade
+  name: Science PDA #Far Horizons - The Great Capitalization Crusade
   description: It's covered with an unknown gooey substance.
   components:
   - type: Pda
@@ -905,7 +905,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: HoSPDA
-  Name: Head Of Security PDA #Far Horizons - The Great Capitalization Crusade
+  name: Head Of Security PDA #Far Horizons - The Great Capitalization Crusade
   description: Whosoever bears this PDA is the law.
   components:
   - type: Pda
@@ -932,7 +932,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: WardenPDA
-  Name: Warden PDA #Far Horizons - The Great Capitalization Crusade
+  name: Warden PDA #Far Horizons - The Great Capitalization Crusade
   description: The OS appears to have been jailbroken.
   components:
   - type: Pda
@@ -951,7 +951,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: SecurityPDA
-  Name: Security PDA #Far Horizons - The Great Capitalization Crusade
+  name: Security PDA #Far Horizons - The Great Capitalization Crusade
   description: Red to hide the stains of assistant blood.
   components:
   - type: Pda
@@ -1051,7 +1051,7 @@
 - type: entity
   parent: BasePDA
   id: MusicianPDA
-  Name: Musician PDA #Far Horizons - The Great Capitalization Crusade
+  name: Musician PDA #Far Horizons - The Great Capitalization Crusade
   description: It fills you with inspiration.
   components:
   - type: Pda
@@ -1085,7 +1085,7 @@
 - type: entity
   parent: BaseEngineerPDA #FarHorizons
   id: AtmosPDA
-  Name: Atmos PDA #Far Horizons - The Great Capitalization Crusade
+  name: Atmos PDA #Far Horizons - The Great Capitalization Crusade
   description: Still smells like plasma.
   components:
   - type: Pda
@@ -1104,7 +1104,7 @@
 - type: entity
   parent: BasePDA
   id: ClearPDA
-  Name: Clear PDA #Far Horizons - The Great Capitalization Crusade
+  name: Clear PDA #Far Horizons - The Great Capitalization Crusade
   description: 99 and 44/100ths percent pure plastic.
   components:
   - type: Pda
@@ -1133,7 +1133,7 @@
 - type: entity
   parent: [ BaseNukeOpsPDA, BaseSyndicateContraband ] #FH edit
   id: SyndiPDA
-  Name: Syndicate PDA #Far Horizons - The Great Capitalization Crusade
+  name: Syndicate PDA #Far Horizons - The Great Capitalization Crusade
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
   components:
   - type: Pda
@@ -1156,7 +1156,7 @@
 - type: entity
   parent: [ SyndiPDA, BaseSyndicateContraband ]
   id: SyndiOperativePDA
-  Name: Syndicate Operative PDA #Far Horizons - The Great Capitalization Crusade
+  name: Syndicate Operative PDA #Far Horizons - The Great Capitalization Crusade
   description: Death to NT!
   components:
   - type: Pda
@@ -1172,7 +1172,7 @@
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
   id: SyndiCorpsmanPDA
-  Name: Syndicate Corpsman PDA #Far Horizons - The Great Capitalization Crusade
+  name: Syndicate Corpsman PDA #Far Horizons - The Great Capitalization Crusade
   description: Commander... I need to cook!
   components:
   - type: Pda
@@ -1194,7 +1194,7 @@
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
   id: SyndiCommanderPDA
-  Name: Syndicate Commander PDA #Far Horizons - The Great Capitalization Crusade
+  name: Syndicate Commander PDA #Far Horizons - The Great Capitalization Crusade
   description: So what are we, some kind of Nukie squad?
   components:
   - type: Pda
@@ -1306,7 +1306,7 @@
 - type: entity
   parent: BasePDA
   id: PsychologistPDA
-  Name: Psychologist PDA #Far Horizons - The Great Capitalization Crusade
+  name: Psychologist PDA #Far Horizons - The Great Capitalization Crusade
   description: Looks immaculately cleaned.
   components:
   - type: Pda
@@ -1325,7 +1325,7 @@
 - type: entity
   parent: BasePDA
   id: ReporterPDA
-  Name: Reporter PDA #Far Horizons - The Great Capitalization Crusade
+  name: Reporter PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like freshly printed press.
   components:
   - type: Pda
@@ -1349,7 +1349,7 @@
 - type: entity
   parent: BasePDA
   id: ZookeeperPDA
-  Name: Zookeeper PDA #Far Horizons - The Great Capitalization Crusade
+  name: Zookeeper PDA #Far Horizons - The Great Capitalization Crusade
   description: Made with genuine synthetic leather. Crikey!
   components:
   - type: Pda
@@ -1367,7 +1367,7 @@
 - type: entity
   parent: BasePDA
   id: BoxerPDA
-  Name: Boxer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Boxer PDA #Far Horizons - The Great Capitalization Crusade
   description: Float like a butterfly, ringtone like a bee.
   components:
   - type: Pda
@@ -1386,7 +1386,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: DetectivePDA
-  Name: Detective PDA #Far Horizons - The Great Capitalization Crusade
+  name: Detective PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like rain... pouring down the rooftops...
   components:
   - type: Pda
@@ -1412,7 +1412,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: BrigmedicPDA
-  Name: Brigmedic PDA #Far Horizons - The Great Capitalization Crusade
+  name: Brigmedic PDA #Far Horizons - The Great Capitalization Crusade
   description: I wonder whose pulse is on the screen? I hope it doesn't stop...
   components:
   - type: Pda
@@ -1440,7 +1440,7 @@
 - type: entity
   parent: ClownPDA
   id: CluwnePDA
-  Name: Cluwne PDA #Far Horizons - The Great Capitalization Crusade
+  name: Cluwne PDA #Far Horizons - The Great Capitalization Crusade
   suffix: Unremoveable
   description: Cursed cluwne PDA.
   components:
@@ -1475,7 +1475,7 @@
 - type: entity
   parent: ClownPDA
   id: CluwneBeastPDA
-  Name: Cluwne PDA #Far Horizons - The Great Capitalization Crusade
+  name: Cluwne PDA #Far Horizons - The Great Capitalization Crusade
   suffix: Unremoveable
   description: Cursed cluwne PDA.
   components:
@@ -1502,7 +1502,7 @@
 - type: entity
   parent: BaseEngineerPDA #FarHorizons
   id: SeniorEngineerPDA
-  Name: Senior Engineer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Senior Engineer PDA #Far Horizons - The Great Capitalization Crusade
   description: Seems to have been taken apart and put back together several times.
   components:
   - type: Pda
@@ -1521,7 +1521,7 @@
 - type: entity
   parent: BasePDA
   id: SeniorResearcherPDA
-  Name: Senior Researcher PDA #Far Horizons - The Great Capitalization Crusade
+  name: Senior Researcher PDA #Far Horizons - The Great Capitalization Crusade
   description: Looks like it's been through years of chemical burns and explosions.
   components:
   - type: Pda
@@ -1541,7 +1541,7 @@
 - type: entity
   parent: BaseMedicalPDA
   id: SeniorPhysicianPDA
-  Name: Senior Physician PDA #Far Horizons - The Great Capitalization Crusade
+  name: Senior Physician PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells faintly like iron and chemicals.
   components:
   - type: Pda
@@ -1561,7 +1561,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: SeniorOfficerPDA
-  Name: Senior Officer PDA #Far Horizons - The Great Capitalization Crusade
+  name: Senior Officer PDA #Far Horizons - The Great Capitalization Crusade
   description: Beaten, battered and broken, but just barely useable.
   components:
   - type: Pda
@@ -1580,7 +1580,7 @@
 - type: entity
   parent: BasePDA
   id: SeniorCourierPDA
-  Name: Senior Courier PDA #Far Horizons - The Great Capitalization Crusade
+  name: Senior Courier PDA #Far Horizons - The Great Capitalization Crusade
   description: Smells like postage stamps and shuttle fuel.
   components:
   - type: Pda
@@ -1599,7 +1599,7 @@
 - type: entity
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
-  Name: Pirate PDA #Far Horizons - The Great Capitalization Crusade
+  name: Pirate PDA #Far Horizons - The Great Capitalization Crusade
   description: Yargh!
   components:
   - type: Pda
@@ -1615,7 +1615,7 @@
 - type: entity
   parent: [BasePDA, SelectableLock]
   id: ChameleonPDA
-  Name: Assistant PDA #Far Horizons - The Great Capitalization Crusade
+  name: Assistant PDA #Far Horizons - The Great Capitalization Crusade
   description: Why isn't it gray?
   suffix: Chameleon
   components:
@@ -1646,7 +1646,7 @@
 - type: entity
   parent: BaseWidePDA
   id: WizardPDA
-  Name: Wizard PDA #Far Horizons - The Great Capitalization Crusade
+  name: Wizard PDA #Far Horizons - The Great Capitalization Crusade
   description: You hear faint whispers coming from it.
   components:
   - type: Pda
