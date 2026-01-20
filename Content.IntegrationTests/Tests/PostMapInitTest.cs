@@ -236,12 +236,13 @@ namespace Content.IntegrationTests.Tests
         {
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
+            await server.WaitIdleAsync();
 
             var resourceManager = server.ResolveDependency<IResourceManager>();
             var protoManager = server.ResolveDependency<IPrototypeManager>();
             var loader = server.System<MapLoaderSystem>();
 
-            var mapFolder = new ResPath("/Maps");
+            var mapFolder = new ResPath("/Maps/_FarHorizons"); // Far Horizons - we only care about our own maps
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
                 .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
@@ -586,6 +587,7 @@ namespace Content.IntegrationTests.Tests
         {
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
+            await server.WaitIdleAsync();
 
             var mapLoader = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<MapLoaderSystem>();
             var resourceManager = server.ResolveDependency<IResourceManager>();
@@ -595,7 +597,7 @@ namespace Content.IntegrationTests.Tests
 
             var gameMaps = protoManager.EnumeratePrototypes<GameMapPrototype>().Select(o => o.MapPath).ToHashSet();
 
-            var mapFolder = new ResPath("/Maps");
+            var mapFolder = new ResPath("/Maps/_FarHorizons"); // Far Horizons - we only care about our own maps
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
                 .Where(filePath => filePath.Extension == "yml" && !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
