@@ -5374,5 +5374,78 @@ Entries:
   id: 66113
   time: '2026-01-18T01:18:29.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/661
+- author: R3v3l4t1on
+  changes:
+  - message: The L6C module has the ability to carry extra ammo again.
+    type: Fix
+  id: 66900
+  time: '2026-01-18T14:29:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/669
+- author: princess_gurchi
+  changes:
+  - message: IPC alerts and UI properly updates to reflect their battery charge level
+    type: Fix
+  id: 66000
+  time: '2026-01-18T16:12:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/660
+- author: princess_gurchi
+  changes:
+  - message: fixed IPC "death timer" not reacting to them getting charged
+    type: Fix
+  id: 66001
+  time: '2026-01-18T16:12:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/660
+- author: princess_gurchi
+  changes:
+  - message: BatteryDrainer fixed to work with predicted batteries better
+    type: Fix
+  id: 66002
+  time: '2026-01-18T16:12:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/660
+- author: Killer Tamashi
+  changes:
+  - message: Added AoS (Arrest on Sight) to the criminal records computer
+    type: Add
+  id: 66800
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
+- author: Killer Tamashi
+  changes:
+  - message: Made Combat Hardsuits (eg. security/syndicate) immune to taser knockdown,
+      but that does NOT mean they're immune to stun
+    type: Tweak
+  id: 66801
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
+- author: Killer Tamashi
+  changes:
+  - message: Removed taser knockdown immunity from webvests (you trade damage protection
+      for knockdown protection)
+    type: Tweak
+  id: 66802
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
+- author: Killer Tamashi
+  changes:
+  - message: Changed Hostile to Kill on Sight
+    type: Tweak
+  id: 66803
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
+- author: Killer Tamashi
+  changes:
+  - message: Changed Eliminated, Discharged, Wanted and KoS icons.
+    type: Tweak
+  id: 66804
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
+- author: Killer Tamashi
+  changes:
+  - message: Changed BSO & Security Experimental stun values (50% -> 60% resist) &
+      (50% -> 70% resist)
+    type: Tweak
+  id: 66805
+  time: '2026-01-18T17:08:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/668
 Order: -1
 

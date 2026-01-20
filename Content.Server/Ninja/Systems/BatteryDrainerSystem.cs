@@ -43,7 +43,8 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         // handles even if battery is full so you can actually see the poup
         args.Handled = true;
 
-        if (_battery.IsFull(battery))
+        // Far Horizons fix - battery -> predictedBattery
+        if (_predictedBattery.IsFull(battery))
         {
             _popup.PopupEntity(Loc.GetString("battery-drainer-full"), uid, uid, PopupType.Medium);
             return;
@@ -70,7 +71,8 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         base.OnDoAfterAttempt(ent, ref args);
 
-        if (ent.Comp.BatteryUid is not { } battery || _battery.IsFull(battery))
+        // Far Horizons fix - battery -> predictedBattery
+        if (ent.Comp.BatteryUid is not { } battery || _predictedBattery.IsFull(battery))
             args.Cancel();
     }
 
