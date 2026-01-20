@@ -1,0 +1,31 @@
+- type: entity
+  name: Floor Buffer
+  id: FloorBuffer
+  parent: BaseItem
+  description: Quickly clean anything in your way by just running over it!
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/moproach_shoes.rsi
+      state: mopshoes
+    - type: SolutionContainerVisuals
+      maxFillLevels: 2
+    - type: FloorBuffer
+      solutionContainer: watertank
+    - type: SolutionContainerManager
+      solutions:
+        watertank:
+          maxVol: 100
+    - type: RefillableSolution
+      solution: watertank
+    - type: ExaminableSolution
+      solution: watertank
+      exactVolume: true
+    - type: ReagantDraw
+      enabled: false
+      solutionContainer: watertank
+      whitelistedReagants: 
+      - Water
+      drainRate: 1
+    - type: SolutionTransfer
+      canSend: false
+      transferAmount: 20

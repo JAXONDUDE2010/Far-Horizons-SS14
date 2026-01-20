@@ -253,6 +253,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     protected override void OnTurnKeysEvent(Entity<VehicleComponent> ent, ref TurnKeysEvent args)
     {
+        if(args.Handled) return;
         if(ent.Comp.Rider == null) return;
         if(!ent.Comp.Started)
         {
@@ -281,8 +282,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         
         if(!ent.Comp.Started)
         {
-            if((HasComp<PowerCellDrawComponent>(ent.Owner) && !_powerCell.HasDrawCharge(ent.Owner)) 
-            || (HasComp<ReagantDrawComponent>(ent.Owner) && !_reagantDraw.HasDrawReagant(ent.Owner)))
+            if((ent.Comp.CellPowered && HasComp<PowerCellDrawComponent>(ent.Owner) && !_powerCell.HasDrawCharge(ent.Owner)) 
+            || (!ent.Comp.CellPowered && HasComp<ReagantDrawComponent>(ent.Owner) && !_reagantDraw.HasDrawReagant(ent.Owner)))
                 return;
 
             for (var i = 0; i < ent.Comp.HandsNeeded; i++)
@@ -304,11 +305,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
 
         ent.Comp.Started = !ent.Comp.Started;
-        if(TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp))
+        if(ent.Comp.CellPowered && TryComp<PowerCellDrawComponent>(ent.Owner, out var pcdComp))
         {
             _powerCell.SetDrawEnabled((ent.Owner, pcdComp), ent.Comp.Started);
         }
-        if(TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp))
+        if(!ent.Comp.CellPowered && TryComp<ReagantDrawComponent>(ent.Owner, out var rdComp))
         {
             rdComp.Enabled = ent.Comp.Started;
             Dirty(ent.Owner, rdComp);
@@ -378,20 +379,14 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     private void OnEmptyReagantContainer(Entity<VehicleComponent> ent, ref ReagantContainerSlotEmptyEvent args)
     {
-        TurnOffVehicle(ent.Owner, ent.Comp);
-
-        if(ent.Comp.Rider != null)
-            if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
-                _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+        if(!ent.Comp.CellPowered)
+            TurnOffVehicle(ent.Owner, ent.Comp);
     }
 
     private void OnPowerCellEmpty(Entity<VehicleComponent> ent, ref PowerCellSlotEmptyEvent args)
     {
-        TurnOffVehicle(ent.Owner, ent.Comp);
-
-        if(ent.Comp.Rider != null)  
-            if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
-                _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
+        if(ent.Comp.CellPowered)
+            TurnOffVehicle(ent.Owner, ent.Comp);
     }
 
     private void OnRepairFinished(Entity<VehicleComponent> ent, ref RepairFinishedEvent args)
@@ -409,6 +404,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     protected override void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
     {
+        if(args.Handled) return;
         if(!TryComp<LockComponent>(ent.Owner, out var lockComp)) return;
         _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(args.Performer)} toggled the trunk from {ToPrettyString(ent.Owner)}");
         _lock.ToggleLock(ent.Owner, args.Performer, lockComp);
@@ -417,6 +413,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             _popup.PopupEntity(Loc.GetString("vehicle-toggle-trunk-open"), ent.Owner, PopupType.Small);
         else
             _popup.PopupEntity(Loc.GetString("vehicle-toggle-trunk-close"), ent.Owner, PopupType.Small);
+        args.Handled = true;
     }
 
     private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args) => TurnOffVehicle(ent.Owner, ent.Comp);
@@ -696,12 +693,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if (vehicleComp.Started)
             vehicleComp.Started = false;
 
-        if (pcdComp?.Enabled == vehicleComp.Started)
+        if (vehicleComp.CellPowered && pcdComp?.Enabled == vehicleComp.Started)
         {
             _powerCell.SetDrawEnabled((riding, pcdComp), false);
         }
 
-        if (rdComp?.Enabled == true)
+        if (!vehicleComp.CellPowered && rdComp?.Enabled == true)
         {
             rdComp.Enabled = vehicleComp.Started;
             _ambientSound.SetAmbience(riding, false);
@@ -775,11 +772,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             if(riderTransform.LocalRotation != 0)
                 _transform.SetLocalRotation(rider, 0f, riderTransform);
         }
-
-        if((HasComp<PowerCellDrawComponent>(vehicle) && !_powerCell.HasDrawCharge(vehicle)) 
-        || (HasComp<ReagantDrawComponent>(vehicle) && !_reagantDraw.HasDrawReagant(vehicle)))
-            if(TryComp<InputMoverComponent>(rider, out var imComp) && imComp.CanMove)
-                _actionBlocker.UpdateCanMove(rider);
     }
     
     #endregion
@@ -867,6 +859,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if(component.Sirenlight != null && HasComp<PointLightComponent>(component.Sirenlight))
             _actions.AddAction(rider, component.ToggleSirenAction, component.Sirenlight.Value);
+
+        _actions.GrantContainedActions(rider, vehicle);
     }
 
     private bool TryInsert(EntityUid? Rider, EntityUid Vehicle, VehicleContainerComponent? component=null)
@@ -914,16 +908,21 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(component.Started)
             component.Started = false;
 
-        if(TryComp<PowerCellDrawComponent>(vehicle, out var pcdComp) && pcdComp.Enabled)
+        if(component.CellPowered && TryComp<PowerCellDrawComponent>(vehicle, out var pcdComp) && pcdComp.Enabled)
         {
             _powerCell.SetDrawEnabled((vehicle, pcdComp), false);
         }   
-        if(TryComp<ReagantDrawComponent>(vehicle, out var rdComp) && rdComp.Enabled)
+        if(!component.CellPowered && TryComp<ReagantDrawComponent>(vehicle, out var rdComp) && rdComp.Enabled)
         {
             rdComp.Enabled = false;
             _ambientSound.SetAmbience(vehicle, rdComp.Enabled);
             Dirty(vehicle, rdComp);
         }
+
+        if(component.Rider != null)  
+            if(TryComp<InputMoverComponent>(component.Rider.Value, out var imComp) && imComp.CanMove)
+                _actionBlocker.UpdateCanMove(component.Rider.Value);
+
         Dirty(vehicle, component);
     }
     #endregion

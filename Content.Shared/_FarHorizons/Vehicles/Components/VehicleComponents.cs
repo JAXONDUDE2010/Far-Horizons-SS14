@@ -27,6 +27,12 @@ public sealed partial class VehicleComponent : Component
     public bool Started = false;
 
     /// <summary>
+    /// Is it powered by a power cell?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CellPowered = true;
+
+    /// <summary>
     /// check if a person is allow to wield a weapon for two handed bonuses
     /// </summary>
     [DataField("disallowWielding"), AutoNetworkedField]

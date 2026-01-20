@@ -29,7 +29,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         SubscribeLocalEvent<VehicleComponent, StartCollideEvent>(HandleCollide);
         SubscribeLocalEvent<VehicleComponent, CanDropTargetEvent>(OnCanDragDrop);
         SubscribeLocalEvent<VehicleComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<ItemToggleComponent, ToggleSirenActionEvent>(OnSirenToggle);
+        SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
     }
 
     protected virtual void OnTurnKeysEvent(Entity<VehicleComponent> ent, ref TurnKeysEvent args)
@@ -72,6 +72,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
 
     protected virtual void OnToggleTrunk(Entity<VehicleComponent> ent, ref ToggleTrunkActionEvent args)
     {
+        if(args.Handled) return;
         if(!TryComp<LockComponent>(ent.Owner, out var lockComp)) return;
 
         if(!_lock.IsLocked(ent.Owner))
@@ -82,6 +83,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         {
             _audio.PlayPredicted(lockComp.LockSound, ent.Owner, ent.Comp.Rider!.Value);
         }
+        args.Handled = true;
     }
 
     protected virtual void HandleCollide(Entity<VehicleComponent> ent, ref StartCollideEvent args)
@@ -123,12 +125,12 @@ public abstract partial class SharedVehicleSystems : EntitySystem
             args.PushMarkup(Loc.GetString("vehicle-examine-broken"));
     }
 
-    private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleSirenActionEvent args)
+    private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)
     {
+        if(args.Handled) return;
         if(!HasComp<UnpoweredFlashlightComponent>(ent.Owner) && !HasComp<ItemToggleComponent>(ent.Owner)) return;
-        var evToggle = new ToggleActionEvent();
         var evActivate = new ActivateInWorldEvent(args.Performer, ent.Owner, false);
-        RaiseLocalEvent(ent.Owner, evToggle);
         RaiseLocalEvent(ent.Owner, evActivate);
+        args.Handled = true;
     }
 }

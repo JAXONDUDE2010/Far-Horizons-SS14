@@ -11,6 +11,13 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Actions;
+using Content.Shared.Toggleable;
+using Content.Shared.Movement.Systems;
+using Content.Shared._FarHorizons.ReagantDraw.Components;
+using Content.Server._FarHorizons.ReagantDraw.EntitySystems;
+using Content.Shared._FarHorizons.Vehicles.Components;
+using Content.Shared.Movement.Components;
 
 namespace Content.Server._FarHorizons.Tools.FloorBuffer.Systems;
 
@@ -20,12 +27,19 @@ public sealed class FloorBufferSystem : EntitySystem
     [Dependency] private readonly DecalSystem _decals = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly SharedReagantDrawSystem _reagantDraw = default!;
     static readonly public ProtoId<ReagentPrototype> ReplacementReagent = "Water";
     public override void Initialize()
     {
+        SubscribeLocalEvent<FloorBufferComponent, ComponentStartup>(OnCompStart);
+        SubscribeLocalEvent<FloorBufferComponent, ToggleActionEvent>(OnToggleAction);
+        SubscribeLocalEvent<FloorBufferComponent, RefreshMovementSpeedModifiersEvent>(OnMovementRefresh);
         base.Initialize();
     }
-    
+    private void OnCompStart(Entity<FloorBufferComponent> ent, ref ComponentStartup args) => _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction, ent.Owner);
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -37,7 +51,16 @@ public sealed class FloorBufferSystem : EntitySystem
                 continue;
             if(!TryComp<MapGridComponent>(xForm.GridUid, out var grid))
                 continue;
-            
+                        
+            if(TryComp<ReagantDrawComponent>(uid, out var rdComp) && !_reagantDraw.HasDrawReagant(uid))
+            {
+                
+                floorComp.Enabled = false;
+                rdComp.Enabled = false;
+                Dirty(uid, rdComp);
+                _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            }
+
             if ((Phys.LinearVelocity.Equals(Vector2.Zero) && Phys.AngularVelocity.Equals(0f)) || Phys.BodyStatus == BodyStatus.InAir)
                 continue;
 
@@ -46,11 +69,37 @@ public sealed class FloorBufferSystem : EntitySystem
         }
     }
 
+    private void OnToggleAction(EntityUid uid, FloorBufferComponent component, ToggleActionEvent args)
+    {
+        if (args.Handled)
+            return;
+        
+        if(TryComp<ReagantDrawComponent>(uid, out var rdComp))
+        {
+            rdComp.Enabled = !rdComp.Enabled;
+            Dirty(uid, rdComp);
+        }
+
+        component.Enabled = !component.Enabled;
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        args.Handled = true;
+    }
+
+    private void OnMovementRefresh(Entity<FloorBufferComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        if(ent.Comp.Enabled)
+            args.ModifySpeed(ent.Comp.SpeedReduction, ent.Comp.SpeedReduction);
+        else
+            if(TryComp<VehicleComponent>(ent.Owner, out var vehicle) && vehicle.Rider!= null && TryComp<MovementSpeedModifierComponent>(vehicle.Rider.Value, out var msmComp))
+                args.ModifySpeed(msmComp.WalkSpeedModifier, msmComp.SprintSpeedModifier);
+            else
+                args.ModifySpeed(1.0f, 1.0f);
+    }
     private void CleanDecalssandPuddles(TileRef tile, MapGridComponent grid)
     {
         if(TryComp<DecalGridComponent>(tile.GridUid, out var decalGrid))
         {
-            var decals = _decals.GetDecalsIntersecting(tile.GridUid, _lookup.GetLocalBounds(tile, grid.TileSize).Enlarged(0.5f).Translated(new Vector2(-0.5f,-0.5f)));
+            var decals = _decals.GetDecalsIntersecting(tile.GridUid, _lookup.GetLocalBounds(tile, grid.TileSize).Enlarged(0.25f).Translated(new Vector2(-0.25f,-0.25f)));
             foreach(var decal in decals)
             {
                 if(!decal.Decal.Cleanable)
@@ -66,8 +115,8 @@ public sealed class FloorBufferSystem : EntitySystem
                 || !_solutionContainer.TryGetSolution(entity, puddleComp.SolutionName, out var solutionComp, out var solution))
                 continue;
             
-            var replaceTotal = _solutionContainer.SplitSolutionWithout(solutionComp.Value, solution.Volume, ReplacementReagent);
-            _solutionContainer.TryAddSolution(solutionComp.Value, new Solution(ReplacementReagent, replaceTotal.Volume/2));
+            var replaceTotal = _solutionContainer.SplitSolutionWithout(solutionComp.Value, solution.Volume*0.05, ReplacementReagent);
+            _solutionContainer.TryAddSolution(solutionComp.Value, new Solution(ReplacementReagent, replaceTotal.Volume));
         }
     }
 }
