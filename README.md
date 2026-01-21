@@ -32,10 +32,10 @@ Space-Station 14 has [docs site](https://docs.spacestation14.io/) documentation 
 ## License
 
 > [!CAUTION]
-> Unless stated otherwise in the file, the repository code is licensed under one of two licenses: [MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE.TXT) - this applies to original code by Space Wizards Federation and later Far Horizons changes; And [modified MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE-Starlight.TXT) - this applies to changes originally forked and later ported from StarLight. As well as all submissions to this repository prior to commit commitID.
+> Unless stated otherwise in the file, the repository code is licensed under one of two licenses: [MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE.TXT) - this applies to original code by Space Wizards Federation and later Far Horizons changes; And [modified MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE-Starlight.TXT) - this applies to changes originally forked and later ported from StarLight. As well as all submissions to this repository prior to commit 5b5744cd91479b9a283be62626ec9d13fcb27f9a.
 
 > [!CAUTION]
-> Prior to commit commitID, every code submission in this repository was licensed under [modified MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE-Starlight.TXT). These additions were not retroactively relicensed.
+> Prior to commit 5b5744cd91479b9a283be62626ec9d13fcb27f9a, every code submission in this repository was licensed under [modified MIT](https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/blob/Far-Horizons/LICENSE-Starlight.TXT). These additions were not retroactively relicensed.
 
 Please note that assets are licensed separately from code and specify their license in their respective metadata or attributions file.
 
