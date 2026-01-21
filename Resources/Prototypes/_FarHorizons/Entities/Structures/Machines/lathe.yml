@@ -83,7 +83,7 @@
   id: AutofabSubzero
   parent: [Autofab, BaseSubzerofab]
   name: Subzero Autofab
-  description: A highly-experimental Autofab that harnesses the power of extreme Cold to slowly create objects more cost-effectively.
+  description: A highly-experimental Autofab that harnesses the power of extreme cold to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/NS/autofab.rsi #TODO: CUSTOM SPRITE
@@ -158,7 +158,7 @@
   id: ProtofabSubzero
   parent: [Protofab, BaseSubzerofab]
   name: Subzero Protofab
-  description: A highly-experimental Protofab that harnesses the power of extreme Cold to slowly create objects more cost-effectively.
+  description: A highly-experimental Protofab that harnesses the power of extreme cold to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/NS/protofab.rsi #TODO: CUSTOM SPRITE
@@ -227,7 +227,7 @@
   id: BoardEngraverSubzero
   parent: [BoardEngraver, BaseSubzerofab]
   name: Subzero Board Engraver
-  description: A highly-experimental circuit imprinter that harnesses the power of extreme heat to slowly create objects more cost-effectively.
+  description: A highly-experimental Board Engraver that harnesses the power of extreme cold to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: Structures/Machines/circuit_imprinter_hypercon.rsi
