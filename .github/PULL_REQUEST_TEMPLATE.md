@@ -21,6 +21,7 @@ If your PR contains in-game changes you must provide screenshots/videos of the c
 
 <!-- This is a placeholder. Replace "FAR HORIZONS TEAM" with your name and the rest with your changelog! -->
 **Changelog**
+
 :cl: FAR HORIZONS TEAM
 - add: Added fun.
 - remove: Removed things that annoy me personally.
