@@ -1,4 +1,4 @@
-using Content.Server._FarHorizons.Tools.FloorBuffer.Components;
+using Content.Shared._FarHorizons.Tools.FloorBuffer.Components;
 using Content.Server.Decals;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Decals;
@@ -16,11 +16,12 @@ using Content.Shared.Toggleable;
 using Content.Shared.Movement.Systems;
 using Content.Shared._FarHorizons.ReagantDraw.Components;
 using Content.Server._FarHorizons.ReagantDraw.EntitySystems;
+using Content.Shared._FarHorizons.Tools.FloorBuffer.Systems;
 using Content.Shared.Hands;
 
 namespace Content.Server._FarHorizons.Tools.FloorBuffer.Systems;
 
-public sealed class FloorBufferSystem : EntitySystem
+public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly DecalSystem _decals = default!;
@@ -34,7 +35,6 @@ public sealed class FloorBufferSystem : EntitySystem
     {
         SubscribeLocalEvent<FloorBufferComponent, ComponentStartup>(OnCompStart);
         SubscribeLocalEvent<FloorBufferComponent, GetItemActionsEvent>(OnGetActions);
-        SubscribeLocalEvent<FloorBufferComponent, ToggleActionEvent>(OnToggleAction);
         SubscribeLocalEvent<FloorBufferComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementRefreshHeld);
         SubscribeLocalEvent<FloorBufferComponent, RefreshMovementSpeedModifiersEvent>(OnMovementRefresh);
         base.Initialize();
@@ -68,7 +68,6 @@ public sealed class FloorBufferSystem : EntitySystem
                         
             if(TryComp<ReagantDrawComponent>(uid, out var rdComp) && !_reagantDraw.HasDrawReagant(uid))
             {
-                
                 floorComp.Enabled = false;
                 rdComp.Enabled = false;
                 Dirty(uid, rdComp);
@@ -83,7 +82,7 @@ public sealed class FloorBufferSystem : EntitySystem
         }
     }
 
-    private void OnToggleAction(EntityUid uid, FloorBufferComponent component, ToggleActionEvent args)
+    protected override void OnToggleAction(EntityUid uid, FloorBufferComponent component, ToggleActionEvent args)
     {
         if (args.Handled)
             return;

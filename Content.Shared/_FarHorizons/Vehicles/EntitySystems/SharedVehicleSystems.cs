@@ -100,13 +100,13 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {
             if (_gameTiming.IsFirstTimePredicted)
-                _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+                _audio.PlayPredicted(ent.Comp.SoundHit, ent.Owner, rider, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
         else if(args.OurFixture.Hard && !args.OtherFixture.Hard)
         {
             if(HasComp<DamageableComponent>(args.OtherEntity))
                 if (_gameTiming.IsFirstTimePredicted)
-                    _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+                    _audio.PlayPredicted(ent.Comp.SoundHit, ent.Owner, rider, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
     }
 

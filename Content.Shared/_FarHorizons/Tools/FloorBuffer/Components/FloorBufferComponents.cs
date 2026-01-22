@@ -1,10 +1,9 @@
-using Content.Server._FarHorizons.Tools.FloorBuffer.Systems;
+using Content.Shared._FarHorizons.Tools.FloorBuffer.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._FarHorizons.Tools.FloorBuffer.Components;
+namespace Content.Shared._FarHorizons.Tools.FloorBuffer.Components;
 
-[RegisterComponent]
-[Access(typeof(FloorBufferSystem))]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class FloorBufferComponent : Component
 {
     /// <summary>
@@ -30,4 +29,7 @@ public sealed partial class FloorBufferComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
+
+    [ViewVariables]
+    public EntityUid? StreamEntity;
 }

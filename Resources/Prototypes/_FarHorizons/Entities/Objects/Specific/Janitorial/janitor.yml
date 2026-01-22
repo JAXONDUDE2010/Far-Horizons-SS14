@@ -29,3 +29,6 @@
     - type: SolutionTransfer
       canSend: false
       transferAmount: 20
+    - type: Absorbent
+      pickupAmount: 10
+      solutionName: watertank
