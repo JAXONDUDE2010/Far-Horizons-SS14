@@ -5645,5 +5645,66 @@ Entries:
   id: 68000
   time: '2026-01-23T00:33:34.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/680
+- author: jhrushbe
+  changes:
+  - message: Added the radiation blocking projector to the radiation suit closet and
+      crate.
+    type: Add
+  id: 67700
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Plasma fuel rods will now offgas plasma into the nuclear reactor's coolant
+      when heated.
+    type: Add
+  id: 67701
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Uncapped the gas turbine's stator load.
+    type: Tweak
+  id: 67702
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fuel rods are now considered Engineering contraband.
+    type: Tweak
+  id: 67703
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Nuclear reactor radiation is no longer capped and follows a logarithmic
+      scale beyond the "maximum".
+    type: Tweak
+  id: 67704
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: The gas turbine will no longer spawn popups whenever someone interacts
+      with it.
+    type: Tweak
+  id: 67705
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor's and gas turbine's alarms.
+    type: Fix
+  id: 67706
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor and gas turbine monitors being unable to be
+      researched.
+    type: Fix
+  id: 67707
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
 Order: -1
 
