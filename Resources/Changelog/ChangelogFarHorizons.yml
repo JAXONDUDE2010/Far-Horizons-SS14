@@ -5547,5 +5547,96 @@ Entries:
   id: 54208
   time: '2026-01-23T00:06:02.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: Robotics Windoor Variant
+    type: Add
+  id: 64900
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Robotics Lockable Button Variant
+    type: Add
+  id: 64901
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Correctly Capitalized Signal Buttons and Windoors
+    type: Tweak
+  id: 64902
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Fland - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64903
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Fland - Replaced maint airlock with Robotics Locked Maint Airlock
+    type: Tweak
+  id: 64904
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Manor - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64905
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Manor - Replaced airlocks with Robotics Locked airlocks
+    type: Tweak
+  id: 64906
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Meta - Replaced airlocks with Robotics Locked airlocks
+    type: Tweak
+  id: 64907
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Meta - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64908
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Oasis - Replaced maint airlock with robotics variant
+    type: Tweak
+  id: 64909
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Sci Maint Crossing now uses the correct FH airlock
+    type: Fix
+  id: 64910
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64911
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Replaced Airlocks with Robotics Locked Airlocks
+    type: Tweak
+  id: 64912
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
 Order: -1
 
