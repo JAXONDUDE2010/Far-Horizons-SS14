@@ -83,3 +83,17 @@
   - type: ConditionalSpawner
     prototypes:
       - VehicleWheelchairFolded
+
+- type: entity
+  name: Janicart Spawner
+  id: SpawnVehicleJanicart
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/janicart.rsi
+        state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - VehicleJanicartBatterywithKeys

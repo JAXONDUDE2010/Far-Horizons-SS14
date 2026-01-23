@@ -77,11 +77,11 @@ public abstract partial class SharedVehicleSystems : EntitySystem
 
         if(!_lock.IsLocked(ent.Owner))
         {
-            _audio.PlayPredicted(lockComp.UnlockSound, ent.Owner, ent.Comp.Rider!.Value);
+            _audio.PlayPvs(lockComp.UnlockSound, ent.Owner);
         }
         else
         {
-            _audio.PlayPredicted(lockComp.LockSound, ent.Owner, ent.Comp.Rider!.Value);
+            _audio.PlayPvs(lockComp.LockSound, ent.Owner);
         }
         args.Handled = true;
     }
@@ -100,13 +100,13 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {
             if (_gameTiming.IsFirstTimePredicted)
-                _audio.PlayPredicted(ent.Comp.SoundHit, ent.Owner, rider, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+                _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
         else if(args.OurFixture.Hard && !args.OtherFixture.Hard)
         {
             if(HasComp<DamageableComponent>(args.OtherEntity))
                 if (_gameTiming.IsFirstTimePredicted)
-                    _audio.PlayPredicted(ent.Comp.SoundHit, ent.Owner, rider, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
+                    _audio.PlayPvs(ent.Comp.SoundHit, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
     }
 
@@ -128,9 +128,9 @@ public abstract partial class SharedVehicleSystems : EntitySystem
     private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)
     {
         if(args.Handled) return;
-        if(!HasComp<UnpoweredFlashlightComponent>(ent.Owner) && !HasComp<ItemToggleComponent>(ent.Owner)) return;
-        var evActivate = new ActivateInWorldEvent(args.Performer, ent.Owner, false);
-        RaiseLocalEvent(ent.Owner, evActivate);
+        if(!TryComp<UnpoweredFlashlightComponent>(ent.Owner, out var flashComp) || !HasComp<ItemToggleComponent>(ent.Owner)) return;
+        var toggleUsed = new ItemToggledEvent(true, Activated: flashComp.LightOn, args.Performer);
+        RaiseLocalEvent(ent.Owner, ref toggleUsed);
         args.Handled = true;
     }
 }

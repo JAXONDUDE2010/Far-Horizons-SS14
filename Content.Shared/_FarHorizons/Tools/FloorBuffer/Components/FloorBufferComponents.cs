@@ -1,15 +1,15 @@
-using Content.Shared._FarHorizons.Tools.FloorBuffer.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Tools.FloorBuffer.Components;
 
-[RegisterComponent, AutoGenerateComponentState]
+[NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
 public sealed partial class FloorBufferComponent : Component
 {
     /// <summary>
     /// Is component enabled?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Enabled = false;
 
     /// <summary>
@@ -29,7 +29,4 @@ public sealed partial class FloorBufferComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
-
-    [ViewVariables]
-    public EntityUid? StreamEntity;
 }

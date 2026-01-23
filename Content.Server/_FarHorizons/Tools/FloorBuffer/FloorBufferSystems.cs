@@ -16,12 +16,13 @@ using Content.Shared.Toggleable;
 using Content.Shared.Movement.Systems;
 using Content.Shared._FarHorizons.ReagantDraw.Components;
 using Content.Server._FarHorizons.ReagantDraw.EntitySystems;
-using Content.Shared._FarHorizons.Tools.FloorBuffer.Systems;
 using Content.Shared.Hands;
+using Robust.Shared.Audio;
+using Content.Shared.Audio;
 
-namespace Content.Server._FarHorizons.Tools.FloorBuffer.Systems;
+namespace Content.Shared._FarHorizons.Tools.FloorBuffer.Systems;
 
-public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
+public sealed partial class FloorBufferSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly DecalSystem _decals = default!;
@@ -30,6 +31,7 @@ public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedReagantDrawSystem _reagantDraw = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     static readonly public ProtoId<ReagentPrototype> ReplacementReagent = "Water";
     public override void Initialize()
     {
@@ -37,13 +39,20 @@ public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
         SubscribeLocalEvent<FloorBufferComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<FloorBufferComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementRefreshHeld);
         SubscribeLocalEvent<FloorBufferComponent, RefreshMovementSpeedModifiersEvent>(OnMovementRefresh);
+        SubscribeLocalEvent<FloorBufferComponent, ToggleActionEvent>(OnToggleAction);
         base.Initialize();
     }
-    private void OnCompStart(Entity<FloorBufferComponent> ent, ref ComponentStartup args) 
-        => _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction, ent.Owner);
+    private void OnCompStart(Entity<FloorBufferComponent> ent, ref ComponentStartup args)
+    {
+        _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction, ent.Owner);
+        Dirty(ent.Owner, ent.Comp);
+    }
 
-    private void OnGetActions(EntityUid ent, FloorBufferComponent component, GetItemActionsEvent args) 
-        => args.AddAction(ref component.ToggleActionEntity, component.ToggleAction);
+    private void OnGetActions(EntityUid ent, FloorBufferComponent component, GetItemActionsEvent args)
+    {
+        args.AddAction(ref component.ToggleActionEntity, component.ToggleAction);
+        Dirty(ent, component);
+    }
 
     public override void Update(float frameTime)
     {
@@ -70,6 +79,8 @@ public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
             {
                 floorComp.Enabled = false;
                 rdComp.Enabled = false;
+                _ambient.SetAmbience(uid, false);
+                Dirty(uid, floorComp);
                 Dirty(uid, rdComp);
                 _movementSpeed.RefreshMovementSpeedModifiers(moveTarget);
             }
@@ -82,7 +93,7 @@ public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
         }
     }
 
-    protected override void OnToggleAction(EntityUid uid, FloorBufferComponent component, ToggleActionEvent args)
+    private void OnToggleAction(EntityUid uid, FloorBufferComponent component, ToggleActionEvent args)
     {
         if (args.Handled)
             return;
@@ -98,6 +109,8 @@ public sealed partial class FloorBufferSystem : SharedFloorBufferSystem
             _movementSpeed.RefreshMovementSpeedModifiers(args.Performer);
         else
             _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _ambient.SetAmbience(uid, component.Enabled);
+        Dirty(uid, component);
         args.Handled = true;
     }
 
