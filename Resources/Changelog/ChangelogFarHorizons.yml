@@ -5706,5 +5706,13 @@ Entries:
   id: 67707
   time: '2026-01-23T10:28:01.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: princess_gurchi
+  changes:
+  - message: 'New salvage enemy type: Silicon. With 6 different enemies to fight.
+      Only available at moderate and challenging difficulty'
+    type: Add
+  id: 68600
+  time: '2026-01-23T16:51:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/686
 Order: -1
 
