@@ -5461,5 +5461,250 @@ Entries:
   id: 67400
   time: '2026-01-22T16:29:15.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/674
+- author: CorruptOmega
+  changes:
+  - message: Passenger ID/PDA now correctly says Passenger instead of assistant
+    type: Fix
+  id: 67600
+  time: '2026-01-22T16:47:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/676
+- author: CorruptOmega
+  changes:
+  - message: More capitalization
+    type: Fix
+  id: 67601
+  time: '2026-01-22T16:47:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/676
+- author: CorruptOmega
+  changes:
+  - message: Happy Honk Meals increased in cost due to the amount of stuff inside
+      them. And because I'm tired of tests failing.
+    type: Fix
+  id: 67602
+  time: '2026-01-22T16:47:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/676
+- author: KarusKardin
+  changes:
+  - message: added Autofab (NeoSol Autolathe)
+    type: Add
+  id: 54200
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Protofab (NeoSol Protolathe)
+    type: Add
+  id: 54201
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Board Engraver (NeoSol Circuit Imprinter)
+    type: Add
+  id: 54202
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Overwatch Techfab (NeoSol Security Techfab)
+    type: Add
+  id: 54203
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Interdyne Techfab (NeoSol Medical Techfab)
+    type: Add
+  id: 54204
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Cybersun Assembler (NeoSol Exosuit Fabricator)
+    type: Add
+  id: 54205
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added NeoSol Uniform Printer
+    type: Add
+  id: 54206
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: added Subzero Fabricators (NeoSol alterative to Hyperconvection lathes.
+      Currently, unobtainable)
+    type: Add
+  id: 54207
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: Abby's Techfab Sprites
+    type: Add
+  id: 54208
+  time: '2026-01-23T00:06:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/542
+- author: KarusKardin
+  changes:
+  - message: Robotics Windoor Variant
+    type: Add
+  id: 64900
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Robotics Lockable Button Variant
+    type: Add
+  id: 64901
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Correctly Capitalized Signal Buttons and Windoors
+    type: Tweak
+  id: 64902
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Fland - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64903
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Fland - Replaced maint airlock with Robotics Locked Maint Airlock
+    type: Tweak
+  id: 64904
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Manor - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64905
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Manor - Replaced airlocks with Robotics Locked airlocks
+    type: Tweak
+  id: 64906
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Meta - Replaced airlocks with Robotics Locked airlocks
+    type: Tweak
+  id: 64907
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Meta - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64908
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Oasis - Replaced maint airlock with robotics variant
+    type: Tweak
+  id: 64909
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Sci Maint Crossing now uses the correct FH airlock
+    type: Fix
+  id: 64910
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Replaced windoors with Robotics Locked Windoors
+    type: Tweak
+  id: 64911
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: KarusKardin
+  changes:
+  - message: Omega - Replaced Airlocks with Robotics Locked Airlocks
+    type: Tweak
+  id: 64912
+  time: '2026-01-23T00:30:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/649
+- author: princess_gurchi
+  changes:
+  - message: Converted bunch of gun sounds to mono to avoid client crashes
+    type: Fix
+  id: 68000
+  time: '2026-01-23T00:33:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/680
+- author: jhrushbe
+  changes:
+  - message: Added the radiation blocking projector to the radiation suit closet and
+      crate.
+    type: Add
+  id: 67700
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Plasma fuel rods will now offgas plasma into the nuclear reactor's coolant
+      when heated.
+    type: Add
+  id: 67701
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Uncapped the gas turbine's stator load.
+    type: Tweak
+  id: 67702
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fuel rods are now considered Engineering contraband.
+    type: Tweak
+  id: 67703
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Nuclear reactor radiation is no longer capped and follows a logarithmic
+      scale beyond the "maximum".
+    type: Tweak
+  id: 67704
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: The gas turbine will no longer spawn popups whenever someone interacts
+      with it.
+    type: Tweak
+  id: 67705
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor's and gas turbine's alarms.
+    type: Fix
+  id: 67706
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor and gas turbine monitors being unable to be
+      researched.
+    type: Fix
+  id: 67707
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
 Order: -1
 
