@@ -10,13 +10,14 @@
     - Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/plastic_flaps.rsi
-    state: plasticflaps
+    sprite: _FarHorizons/Structures/plastic_flaps.rsi #FH
+    state: plasticflaps #FH
     drawdepth: Mobs
   - type: Physics
     bodyType: Static
   - type: Transform
     anchored: true
+    noRot: false #FH
   - type: Fixtures
     fixtures:
       fix1:
@@ -114,3 +115,4 @@
   - type: Airtight
   - type: StaticPrice
     price: 100
+  - type: Occluder #FH
