@@ -5792,5 +5792,36 @@ Entries:
   id: 69300
   time: '2026-01-24T19:24:14.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/693
+- author: princess_gurchi
+  changes:
+  - message: Explosive borgs in salvage expeditions will no longer go off by touching
+      other NPC borgs
+    type: Tweak
+  id: 69800
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Expedition borgs now have higher hit chance to account for their lower
+      attack speed
+    type: Tweak
+  id: 69801
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Rebalanced borg dungeon spawning rule to have more borg
+    type: Tweak
+  id: 69802
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Expedition borgs will now properly defend themselves if a player borg,
+      who NPC borgs welcomed as one of their own, attacks them
+    type: Tweak
+  id: 69803
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
 Order: -1
 
