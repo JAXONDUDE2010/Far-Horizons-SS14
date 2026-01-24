@@ -405,7 +405,7 @@
 - type: entity
   id: ShelfArmoryLeikhaLarge
   parent: ShelfArmoryBase
-  name: Large IFV-50 Rack
+  name: Large IFV-50 Rack #FH
   description: Holds four Leikha Rifles and Enforcer Pistols.
   components:
   - type: EntityStorageVisuals
