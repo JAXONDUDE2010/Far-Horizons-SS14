@@ -34,7 +34,7 @@
     whitelist:
       tags:
         - RocketAmmo120mm
-    prototype: RocketAmmo120mmHE 
+    proto: RocketAmmo120mmHE
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
