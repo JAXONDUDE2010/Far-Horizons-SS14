@@ -44,7 +44,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
                     .Where(p => !p.Components.ContainsKey("TraitorCodePaperComponent") && // FH - Prevets codeword system from freaking out
                                 !p.Components.ContainsKey("ParadoxCloneRuleComponent") && // FH - No people to clone in tests
-                                !p.Components.ContainsKey("RevSupplyRift")) // FH - no crates
+                                !p.Components.ContainsKey("RevSupplyRift")) // FH - I'm pretty sure revolutionary rift was breaking the game by spawning too many crates in tests, those crates weren't deleted properly and crashed tests
                     .Select(p => p.ID)
                     .ToList();
 
@@ -110,7 +110,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
                     .Where(p => !p.Components.ContainsKey("TraitorCodePaperComponent") && // FH - Prevets codeword system from freaking out
                                 !p.Components.ContainsKey("ParadoxCloneRuleComponent") && // FH - No people to clone in tests
-                                !p.Components.ContainsKey("RevSupplyRift")) // FH - no crates
+                                !p.Components.ContainsKey("RevSupplyRift")) // FH - I'm pretty sure revolutionary rift was breaking the game by spawning too many crates in tests, those crates weren't deleted properly and crashed tests
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -173,7 +173,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                 .Where(p => !p.Components.ContainsKey("TraitorCodePaperComponent") && // FH - Prevets codeword system from freaking out
                             !p.Components.ContainsKey("ParadoxCloneRuleComponent") && // FH - No people to clone in tests
-                            !p.Components.ContainsKey("RevSupplyRift")) // FH - no crates
+                            !p.Components.ContainsKey("RevSupplyRift")) // FH - I'm pretty sure revolutionary rift was breaking the game by spawning too many crates in tests, those crates weren't deleted properly and crashed tests
                 .Select(p => p.ID)
                 .ToList();
 
@@ -256,7 +256,7 @@ namespace Content.IntegrationTests.Tests
 
                 "TraitorCodePaperComponent", // FH - Prevets codeword system from freaking out
                 "ParadoxCloneRuleComponent", // FH - No people to clone in tests
-                "RevSupplyRift", // FH - no crates
+                "RevSupplyRift", // FH - I'm pretty sure revolutionary rift was breaking the game by spawning too many crates in tests, those crates weren't deleted properly and crashed tests
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
