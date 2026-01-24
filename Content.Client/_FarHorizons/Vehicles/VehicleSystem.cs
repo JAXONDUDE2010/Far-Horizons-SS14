@@ -64,10 +64,6 @@ public sealed class VehicleSystems : SharedVehicleSystems
             case VehicleVisualState.Broken:
                 SetLayerState(VehicleVisualLayers.Base, component.BrokenState, (uid, sprite));
                 break;
-
-            case VehicleVisualState.Folded:
-                SetVisibleState(VehicleVisualLayers.Base, component.BaseState, false, (uid, sprite));
-                break;
         }
     }
 
@@ -76,19 +72,10 @@ public sealed class VehicleSystems : SharedVehicleSystems
         if (string.IsNullOrEmpty(state))
             return;
 
-        _sprite.LayerSetVisible(sprite.AsNullable(), layer, true);
         _sprite.LayerSetAutoAnimated(sprite.AsNullable(), layer, false);
         _sprite.LayerSetRsiState(sprite.AsNullable(), layer, state);
     }
-
-    private void SetVisibleState(VehicleVisualLayers layer, string? state, bool visibility, Entity<SpriteComponent> sprite)
-    {
-        if (string.IsNullOrEmpty(state))
-            return;
-
-        _sprite.LayerSetVisible(sprite.AsNullable(), layer, visibility);
-    }
-
+    
     private void OnMoveInputEvent(Entity<VehicleBuckleComponent> ent, ref MoveInputEvent args)
     {
         if(!TryComp<SpriteComponent>(ent.Owner, out var spriteComp)) return;

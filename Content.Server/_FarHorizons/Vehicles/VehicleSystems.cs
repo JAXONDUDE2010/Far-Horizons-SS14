@@ -76,7 +76,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedReagantDrawSystem _reagantDraw = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
@@ -147,7 +146,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return;
         _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
-        _appearance.SetData(ent.Owner, VehicleVisuals.VisualState, false);
 
         if(_container.TryGetContainer(ent.Owner, ent.Comp.VehicleModsSlot, out var modSlot))
         {
