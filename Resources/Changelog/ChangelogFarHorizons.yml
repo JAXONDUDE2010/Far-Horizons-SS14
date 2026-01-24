@@ -5778,5 +5778,12 @@ Entries:
   id: 68702
   time: '2026-01-24T01:36:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: IrkallaEpsilon
+  changes:
+  - message: Avali Zero G movement now works
+    type: Fix
+  id: 69600
+  time: '2026-01-24T15:01:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/696
 Order: -1
 
