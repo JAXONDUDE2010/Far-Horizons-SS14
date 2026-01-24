@@ -25,6 +25,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Damage.Systems;
 using Content.Server.Audio;
 using Content.Shared.Audio;
+using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -48,8 +49,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
-
-    public event Action<string>? TurbineRepairMessage;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
@@ -58,6 +58,15 @@ public sealed class TurbineSystem : SharedTurbineSystem
         "/Audio/Effects/metal_slam5.ogg",
         "/Audio/Effects/metal_scrape2.ogg"
     ];
+
+    private sealed class LogData
+    {
+        public TimeSpan CreationTime;
+        public float? SetFlowRate;
+        public float? SetStatorLoad;
+    }
+
+    private readonly Dictionary<KeyValuePair<EntityUid, EntityUid>, LogData> _logQueue = [];
 
     public override void Initialize()
     {
@@ -384,20 +393,89 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
     private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
     {
-        turbine.FlowRate = Math.Clamp(args.FlowRate, 0f, turbine.FlowRateMax);
-        Dirty(uid, turbine);
+        if(TrySetFlowRate())
+        {
+            // Data is sent to a log queue to avoid spamming the admin log when adjusting values rapidly
+            var key = new KeyValuePair<EntityUid, EntityUid>(args.Actor, uid);
+            if(!_logQueue.TryGetValue(key, out var value))
+                _logQueue.Add(key, new LogData
+                {
+                    CreationTime = _gameTiming.RealTime,
+                    SetFlowRate = turbine.FlowRate
+                });
+            else
+                value.SetFlowRate = turbine.FlowRate;
+        }
+            
         UpdateUI(uid, turbine);
-        _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
-            $"{ToPrettyString(args.Actor):player} set the flow rate on {ToPrettyString(uid):device} to {args.FlowRate}");
+
+        return;
+
+        bool TrySetFlowRate()
+        {
+            var newSet = Math.Clamp(args.FlowRate, 0f, turbine.FlowRateMax);
+            if (turbine.FlowRate != newSet)
+            {
+                turbine.FlowRate = newSet;
+                return true;
+            }
+            return false; 
+        }
     }
 
     private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
     {
-        turbine.StatorLoad = Math.Max(args.StatorLoad, 1000f);
-        Dirty(uid, turbine);
+        if (TrySetStatorLoad())
+        {
+            // Data is sent to a log queue to avoid spamming the admin log when adjusting values rapidly
+            var key = new KeyValuePair<EntityUid, EntityUid>(args.Actor, uid);
+            if (!_logQueue.TryGetValue(key, out var value))
+                _logQueue.Add(key, new LogData
+                {
+                    CreationTime = _gameTiming.RealTime,
+                    SetStatorLoad = turbine.StatorLoad
+                });
+            else
+                value.SetStatorLoad = turbine.StatorLoad;
+        }
+
         UpdateUI(uid, turbine);
-        _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,
-            $"{ToPrettyString(args.Actor):player} set the stator load on {ToPrettyString(uid):device} to {args.StatorLoad}");
+
+        return;
+
+        bool TrySetStatorLoad()
+        {
+            var newSet = Math.Max(args.StatorLoad, 1000f);
+            if (turbine.StatorLoad != newSet)
+            {
+                turbine.StatorLoad = newSet;
+                return true;
+            }
+            return false; 
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        var toRemove = new List<KeyValuePair<EntityUid, EntityUid>>();
+        foreach (var log in _logQueue)
+        {
+            if ((_gameTiming.RealTime - log.Value.CreationTime).TotalSeconds < 2)
+                continue;
+
+            toRemove.Add(log.Key);
+
+            if (log.Value.SetFlowRate != null)
+                _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
+                    $"{ToPrettyString(log.Key.Key):player} set the flow rate on {ToPrettyString(log.Key.Value):device} to {log.Value.SetFlowRate}");
+
+            if (log.Value.SetStatorLoad != null)
+                _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,
+                    $"{ToPrettyString(log.Key.Key):player} set the stator load on {ToPrettyString(log.Key.Value):device} to {log.Value.SetStatorLoad}");
+        }
+
+        foreach (var uid in toRemove)
+            _logQueue.Remove(uid);
     }
     #endregion
 
