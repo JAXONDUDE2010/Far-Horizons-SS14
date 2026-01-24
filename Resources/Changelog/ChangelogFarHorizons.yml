@@ -5645,5 +5645,138 @@ Entries:
   id: 68000
   time: '2026-01-23T00:33:34.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/680
+- author: jhrushbe
+  changes:
+  - message: Added the radiation blocking projector to the radiation suit closet and
+      crate.
+    type: Add
+  id: 67700
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Plasma fuel rods will now offgas plasma into the nuclear reactor's coolant
+      when heated.
+    type: Add
+  id: 67701
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Uncapped the gas turbine's stator load.
+    type: Tweak
+  id: 67702
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fuel rods are now considered Engineering contraband.
+    type: Tweak
+  id: 67703
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Nuclear reactor radiation is no longer capped and follows a logarithmic
+      scale beyond the "maximum".
+    type: Tweak
+  id: 67704
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: The gas turbine will no longer spawn popups whenever someone interacts
+      with it.
+    type: Tweak
+  id: 67705
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor's and gas turbine's alarms.
+    type: Fix
+  id: 67706
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: jhrushbe
+  changes:
+  - message: Fixed the nuclear reactor and gas turbine monitors being unable to be
+      researched.
+    type: Fix
+  id: 67707
+  time: '2026-01-23T10:28:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/677
+- author: princess_gurchi
+  changes:
+  - message: 'New salvage enemy type: Silicon. With 6 different enemies to fight.
+      Only available at moderate and challenging difficulty'
+    type: Add
+  id: 68600
+  time: '2026-01-23T16:51:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/686
+- author: KarusKardin
+  changes:
+  - message: Abby's Abductor Wall Sprites
+    type: Add
+  id: 68900
+  time: '2026-01-23T18:52:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/689
+- author: KarusKardin
+  changes:
+  - message: Abby's Cryo Pod Sprites
+    type: Add
+  id: 68901
+  time: '2026-01-23T18:52:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/689
+- author: KarusKardin
+  changes:
+  - message: Abby's Plastic Flap Sprites
+    type: Add
+  id: 68902
+  time: '2026-01-23T18:52:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/689
+- author: KarusKardin
+  changes:
+  - message: Abby's Reinforced Uranium/Plasma Sprites
+    type: Add
+  id: 68903
+  time: '2026-01-23T18:52:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/689
+- author: Killer Tamashi
+  changes:
+  - message: Added new Revolutionary metashield. Should cut down LOOC screaming by,
+      like, half! Probably...
+    type: Add
+  id: 67300
+  time: '2026-01-23T19:03:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/673
+- author: Killer Tamashi
+  changes:
+  - message: Changed all mentions of "Corporate Law" in the guidebook to "Space Law"
+    type: Tweak
+  id: 67301
+  time: '2026-01-23T19:03:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/673
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added PermissionRequirement (JobRequirement).
+    type: Add
+  id: 68700
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Ghost Themes now expect JobRequirement for requirements.
+    type: Tweak
+  id: 68701
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Removed null link.
+    type: Remove
+  id: 68702
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
 Order: -1
 
