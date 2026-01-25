@@ -31,9 +31,9 @@
       amount: 4
     - id: WeaponPistolEnforcer
       amount: 4
-    - id: MagazineRifleSP
+    - id: MagazineRifle40SP #FH
       amount: 8
-    - id: MagazineRifleHP
+    - id: MagazineRifle40HP #FH
       amount: 4
     - id: MagazinePistolSP
       amount: 8
@@ -54,9 +54,13 @@
     - id: WeaponPistolEnforcer
       amount: 4
     - id: MagazineRifleSP
-      amount: 8
-    - id: MagazineRifleHP
+      amount: 4 #FH
+    - id: MagazineRifle40SP #FH
       amount: 4
+    - id: MagazineRifleHP
+      amount: 2 #FH
+    - id: MagazineRifle40HP #FH
+      amount: 2
     - id: MagazinePistolSP
       amount: 8
     - id: MagazinePistolHP
