@@ -5757,5 +5757,178 @@ Entries:
   id: 67301
   time: '2026-01-23T19:03:12.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/673
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added PermissionRequirement (JobRequirement).
+    type: Add
+  id: 68700
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Ghost Themes now expect JobRequirement for requirements.
+    type: Tweak
+  id: 68701
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Removed null link.
+    type: Remove
+  id: 68702
+  time: '2026-01-24T01:36:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/687
+- author: IrkallaEpsilon
+  changes:
+  - message: Avali Zero G movement now works
+    type: Fix
+  id: 69600
+  time: '2026-01-24T15:01:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/696
+- author: Roro
+  changes:
+  - message: Web vest has stamina resist again
+    type: Fix
+  id: 69300
+  time: '2026-01-24T19:24:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/693
+- author: princess_gurchi
+  changes:
+  - message: Explosive borgs in salvage expeditions will no longer go off by touching
+      other NPC borgs
+    type: Tweak
+  id: 69800
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Expedition borgs now have higher hit chance to account for their lower
+      attack speed
+    type: Tweak
+  id: 69801
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Rebalanced borg dungeon spawning rule to have more borg
+    type: Tweak
+  id: 69802
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: princess_gurchi
+  changes:
+  - message: Expedition borgs will now properly defend themselves if a player borg,
+      who NPC borgs welcomed as one of their own, attacks them
+    type: Tweak
+  id: 69803
+  time: '2026-01-24T23:36:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/698
+- author: jhrushbe
+  changes:
+  - message: Added a hold-down function to the +/- buttons in the nuclear reactor
+      and gas turbine interfaces.
+    type: Add
+  id: 69400
+  time: '2026-01-24T23:56:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/694
+- author: jhrushbe
+  changes:
+  - message: Stopped showing excessive data when examining a gas turbine.
+    type: Tweak
+  id: 69401
+  time: '2026-01-24T23:56:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/694
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where gas turbines could not be repaired.
+    type: Fix
+  id: 69402
+  time: '2026-01-24T23:56:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/694
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor would give the gas turbine's unanchor
+      warning messages.
+    type: Fix
+  id: 69403
+  time: '2026-01-24T23:56:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/694
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the gas turbine would shatter reality if given "NaN"
+      as a stator load or flow rate value.
+    type: Fix
+  id: 69404
+  time: '2026-01-24T23:56:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/694
+- author: Killer Tamashi
+  changes:
+  - message: Removed Syndicate Hat "Syndiland Hat" from NT-Assistant loadout. Gonna
+      need to find it in maints.
+    type: Remove
+  id: 70000
+  time: '2026-01-25T00:12:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/700
+- author: Killer Tamashi
+  changes:
+  - message: Fixed IFV-50 rack/Mixed rifle rack not having .38 magazines
+    type: Fix
+  id: 70001
+  time: '2026-01-25T00:12:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/700
+- author: Killer Tamashi
+  changes:
+  - message: Fixed IFV-50 rack not being called IFV-50 rack
+    type: Fix
+  id: 70002
+  time: '2026-01-25T00:12:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/700
+- author: Killer Tamashi
+  changes:
+  - message: Fixed WT mags spawning on maps, should be properly replaced with SMG
+      magazines
+    type: Fix
+  id: 70003
+  time: '2026-01-25T00:12:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/700
+- author: Killer Tamashi
+  changes:
+  - message: Nerfed sec jobslot count on Oasis from 21 to 16.
+    type: Tweak
+  id: 70200
+  time: '2026-01-25T00:45:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/702
+- author: ScorchFollower
+  changes:
+  - message: Added M81A1 "Fissure" Rocket Launcher, a large, shoulder-fired rocket
+      launcher developed by the Syndicate. Now found in nuclear operative uplinks!
+      And surpluses...
+    type: Add
+  id: 68400
+  time: '2026-01-25T16:18:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/684
+- author: ScorchFollower
+  changes:
+  - message: Added M81 chest rig, a large rig designed to go with the M81A1 "Fissure"
+    type: Add
+  id: 68401
+  time: '2026-01-25T16:18:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/684
+- author: ScorchFollower
+  changes:
+  - message: Added Syndicate M81A1 Crate, a specialized crate designed to hold large
+      weaponry while also ensuring its security & safety. Only found alongside the
+      M81A1 "Fissure" Bundle at the moment.
+    type: Add
+  id: 68402
+  time: '2026-01-25T16:18:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/684
+- author: ScorchFollower
+  changes:
+  - message: '"Da rocket launcher update"'
+    type: Add
+  id: 68403
+  time: '2026-01-25T16:18:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/684
 Order: -1
 
