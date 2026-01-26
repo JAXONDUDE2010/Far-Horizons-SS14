@@ -81,7 +81,7 @@
       - Thaveyan
       - Carptongue
   - type: Inventory
-    templateId: thaven
+    templateId: human # it was just a copy of human anyways
     displacements:
       jumpsuit:
         sizeMaps:
