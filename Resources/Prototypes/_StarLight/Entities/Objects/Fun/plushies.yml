@@ -1235,6 +1235,7 @@
       onUse: false
       verbToggleOn: plushie-voicebox-activate
       verbToggleOff: plushie-voicebox-deactivate
+    - type: Appearance
     - type: Flammable
       fireSpread: true
       alwaysCombustible: true
