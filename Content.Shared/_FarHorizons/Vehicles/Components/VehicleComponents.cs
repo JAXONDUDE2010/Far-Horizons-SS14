@@ -69,12 +69,6 @@ public sealed partial class VehicleComponent : Component
     public int HandsNeeded = 2;
 
     /// <summary>
-    /// UID for the virtual item for the allowhands check
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? VirtualItem;
-
-    /// <summary>
     /// how long does it take the vehicle to start
     /// </summary>
     [DataField("startupTime"), AutoNetworkedField]

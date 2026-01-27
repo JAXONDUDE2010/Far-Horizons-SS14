@@ -47,7 +47,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         if (args.Handled || ent.Comp.HornSound == null)
             return;
         if(ent.Comp.Rider == null) return;
-        _audio.PlayPredicted(ent.Comp.HornSound, ent.Owner, ent.Comp.Rider.Value);
+        _audio.PlayPvs(ent.Comp.HornSound, ent.Owner);
         args.Handled = true;
     }
 

@@ -61,6 +61,7 @@ using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -92,6 +93,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -136,6 +139,10 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<RiderComponent, ShooterImpulseEvent>(OnShooterEvent);
         SubscribeLocalEvent<RiderComponent, RefreshMovementSpeedModifiersEvent>(OnMovementSpeedRefreshRiderEvent);
 
+        SubscribeLocalEvent<GunComponent, ItemWieldedEvent>(OnGunWielded);
+        SubscribeLocalEvent<GunComponent, ItemUnwieldedEvent>(OnGunUnwielded);
+        SubscribeLocalEvent<GunComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+
         SubscribeLocalEvent<TransformComponent, JetJumpActionEvent>(OnJetJumpActionEvent);
 
         _transform.OnGlobalMoveEvent += OnMoveEvent;
@@ -154,8 +161,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 if(HasComp<PointLightComponent>(item))
                 {
                     var metaData = MetaData(item);
-                    var light = SpawnAtPosition(metaData.EntityPrototype!.ID, ent.Owner.ToCoordinates());
-                    _transform.SetParent(light, ent.Owner);
+                    var light = SpawnAttachedTo(metaData.EntityPrototype!.ID, ent.Owner.ToCoordinates());
                     if(HasComp<RotatingLightComponent>(light))
                         ent.Comp.Sirenlight = light;
                     else
@@ -732,6 +738,33 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(ent.Comp.Riding == null) return;
         Timer.Spawn(0, () => _movementSpeed.RefreshMovementSpeedModifiers(ent.Comp.Riding.Value)); // Race conditions :strangle:
+    }
+
+    #endregion
+    #region Gun Events
+    private void OnGunUnwielded(EntityUid uid, GunComponent component, ItemUnwieldedEvent args)
+    {
+        if(HasComp<RiderComponent>(args.User))
+            _gun.RefreshModifiers(uid);
+    }
+
+    private void OnGunWielded(EntityUid uid, GunComponent component, ref ItemWieldedEvent args)
+    {
+        if(HasComp<RiderComponent>(args.User))
+            _gun.RefreshModifiers(uid);
+    }
+
+    private void OnGunRefreshModifiers(Entity<GunComponent> ent, ref GunRefreshModifiersEvent args)
+    {
+        var transform = Transform(ent.Owner);
+        if(!TryComp<RiderComponent>(transform.ParentUid, out var riderComp)) return;
+        if(riderComp.Riding == null) return;
+        if(!HasComp<PowerCellDrawComponent>(riderComp.Riding.Value) 
+            || !HasComp<ReagantDrawComponent>(riderComp.Riding.Value)) return;
+        args.MinAngle += Angle.FromDegrees(30);
+        args.MaxAngle += Angle.FromDegrees(30);
+        args.AngleDecay += Angle.FromDegrees(-10);
+        args.AngleIncrease += Angle.FromDegrees(-10);
     }
 
     #endregion
