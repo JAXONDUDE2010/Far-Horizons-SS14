@@ -97,7 +97,7 @@
   parent: VehicleKeyBase
   id: VehicleKeyJanicart
   name: Janicart Key
-  description: The keys to an incomprehensible evil...
+  description: The keys to the cleanest steed in the station.
   components:
   - type: Tag
     tags:
@@ -105,4 +105,18 @@
     - JanicartKeys
   - type: Sprite
     sprite: Objects/Vehicles/janicart.rsi
+    state: keys
+
+- type: entity
+  parent: VehicleKeyBase
+  id: VehicleKeyMotorcycle
+  name: Motorcycle Key
+  description: The keys to a bad ass vehicle.
+  components:
+  - type: Tag
+    tags:
+    - VehicleKey
+    - MotorcycleKeys
+  - type: Sprite
+    sprite: Objects/Vehicles/motorbike.rsi
     state: keys
