@@ -130,7 +130,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private void OnHitscan(HitscanEvent ev)
     {
-        var delay = 0f;
+        var delay = 0f;  // FH - fixes
         foreach (var trace in ev.Traces)
         {
             delay = FireEffect(ev, delay, trace);
