@@ -11,6 +11,8 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Buckle;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -20,6 +22,7 @@ public abstract partial class SharedVehicleSystems : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
 
     public override void Initialize()
     {
@@ -128,7 +131,18 @@ public abstract partial class SharedVehicleSystems : EntitySystem
             args.PushMarkup(Loc.GetString("vehicle-examine-broken"));
     }
 
-    private void OnPullAttempt(Entity<RiderComponent> ent, ref PullAttemptEvent args) => args.Cancelled = true;
+    private void OnPullAttempt(Entity<RiderComponent> ent, ref PullAttemptEvent args)
+    {
+        if(TryComp<MobStateComponent>(ent.Owner, out var mbState) 
+        && (mbState.CurrentState == Mobs.MobState.Critical 
+            || mbState.CurrentState == Mobs.MobState.Dead 
+            || mbState.CurrentState == Mobs.MobState.Invalid))
+        {
+            _buckle.Unbuckle(ent.Owner, args.PullerUid);
+            return;
+        }
+        args.Cancelled = true;
+    }
 
     private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)
     {
