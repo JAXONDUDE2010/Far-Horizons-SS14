@@ -57,12 +57,6 @@ public sealed partial class VehicleComponent : Component
     public bool isBroken = false;
 
     /// <summary>
-    /// just to check for if the vehicle is folded
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool isFolded = false;
-
-    /// <summary>
     /// How many hands are blocked by the vehicle
     /// </summary>
     [DataField("handsNeeded")]
