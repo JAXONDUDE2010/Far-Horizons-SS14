@@ -761,10 +761,16 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(riderComp.Riding == null) return;
         if(!HasComp<PowerCellDrawComponent>(riderComp.Riding.Value) 
             || !HasComp<ReagantDrawComponent>(riderComp.Riding.Value)) return;
-        args.MinAngle += Angle.FromDegrees(30);
-        args.MaxAngle += Angle.FromDegrees(30);
-        args.AngleDecay += Angle.FromDegrees(-10);
-        args.AngleIncrease += Angle.FromDegrees(-10);
+        if(HasComp<VehicleContainerComponent>(riderComp.Riding.Value))
+        {
+            args.MinAngle += Angle.FromDegrees(30);
+            args.MaxAngle += Angle.FromDegrees(30);
+        }
+        else if(HasComp<VehicleBuckleComponent>(riderComp.Riding.Value))
+        {
+            args.MinAngle += Angle.FromDegrees(15);
+            args.MaxAngle += Angle.FromDegrees(15);
+        }
     }
 
     #endregion
