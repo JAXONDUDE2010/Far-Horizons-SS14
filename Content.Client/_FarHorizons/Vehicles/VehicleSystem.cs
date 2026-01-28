@@ -1,6 +1,5 @@
 using Content.Shared._FarHorizons.Vehicles;
 using Content.Shared._FarHorizons.Vehicles.Components;
-using Content.Shared._FarHorizons.VehicleBuckle.Components;
 using Content.Shared._FarHorizons.Vehicles.EntitySystems;
 using Robust.Client.GameObjects;
 using Content.Shared.Movement.Events;

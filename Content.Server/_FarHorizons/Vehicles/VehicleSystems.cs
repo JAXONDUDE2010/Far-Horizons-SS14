@@ -1,5 +1,4 @@
 using Content.Shared._FarHorizons.Vehicles.EntitySystems;
-using Content.Shared._FarHorizons.VehicleBuckle.Components;
 using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared._Starlight.Actions.Events;
 using Content.Shared.Access.Components;
@@ -35,7 +34,6 @@ using Robust.Shared.Containers;
 using Content.Shared.Light.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Interaction.Components;
-using Content.Shared._FarHorizons.VehicleContainer.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.Verbs;
 using Content.Shared.Destructible;
@@ -93,7 +91,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-
     private static readonly ProtoId<TagPrototype> _vehicleKeyTag = "VehicleKey";
     private static readonly string _bluntname = "Blunt";
     private EntityQuery<ProjectileComponent> _projQuery;
@@ -115,6 +112,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleComponent, RepairedEvent>(OnRepairFinished);
         SubscribeLocalEvent<VehicleComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<VehicleComponent, BreakageEventArgs>(OnBreakageEvent);
+        SubscribeLocalEvent<VehicleComponent, DamageChangedEvent>(OnDamageChanged);
 
         SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
@@ -126,7 +124,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<VehicleContainerComponent, VehicleEntryDoAfter>(OnVehicleEntryDoAfter);
         SubscribeLocalEvent<VehicleContainerComponent, VehicleRemoveDoAfter>(OnVehicleRemoveDoAfter);
         SubscribeLocalEvent<VehicleContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
-        SubscribeLocalEvent<VehicleContainerComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<VehicleContainerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
 
         SubscribeLocalEvent<RiderComponent, StunnedEvent>(OnStunned);
@@ -418,6 +415,25 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         args.Handled = true;
     }
 
+    private void OnDamageChanged(EntityUid ent, VehicleComponent component, DamageChangedEvent args)
+    {
+        if(!args.DamageIncreased || args.DamageDelta == null) return;
+        if (TryComp<VehicleContainerComponent>(ent, out var vcComp)
+            && vcComp.PassengerSlot.ContainedEntities.Count != 0)
+        {
+            var damage = args.DamageDelta * vcComp.DamageTransferMultiplier;
+            foreach(var passenger in vcComp.PassengerSlot.ContainedEntities)
+            {
+                _damageable.TryChangeDamage(passenger, damage / vcComp.PassengerSlot.ContainedEntities.Count, origin: args.Origin);
+            }
+        }
+        else if(HasComp<VehicleBuckleComponent>(ent) && component.Rider != null)
+        {
+            _damageable.TryChangeDamage(component.Rider.Value, args.DamageDelta, origin: args.Origin);
+            _color.RaiseEffect(Color.Red, new List<EntityUid>() { component.Rider.Value, }, Filter.Pvs(component.Rider.Value, entityManager: EntityManager));
+        }
+    }
+
     private void OnEmpPulse(Entity<VehicleComponent> ent, ref EmpPulseEvent args) => TurnOffVehicle(ent.Owner, ent.Comp);
 
     private void OnBreakageEvent(EntityUid ent, VehicleComponent component, BreakageEventArgs args)
@@ -607,20 +623,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(!TryRemove(ent.Comp.PassengerSlot.ContainedEntities.First(), ent.Owner, ent.Comp)) return;
 
         args.Handled = true;
-    }
- 
-    private void OnDamageChanged(EntityUid ent, VehicleContainerComponent component, DamageChangedEvent args)
-    {
-        if (args.DamageIncreased &&
-            args.DamageDelta != null &&
-            component.PassengerSlot.ContainedEntities.Count != 0)
-        {
-            var damage = args.DamageDelta * component.DamageTransferMultiplier;
-            foreach(var passenger in component.PassengerSlot.ContainedEntities)
-            {
-                _damageable.TryChangeDamage(passenger, damage / component.PassengerSlot.ContainedEntities.Count);
-            }
-        }
     }
 
     private void OnEntInserted(EntityUid ent, VehicleContainerComponent component, EntInsertedIntoContainerMessage args)
