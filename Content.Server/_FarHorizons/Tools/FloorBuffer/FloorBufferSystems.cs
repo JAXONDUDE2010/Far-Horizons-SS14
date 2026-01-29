@@ -35,14 +35,14 @@ public sealed partial class FloorBufferSystem : EntitySystem
     static readonly public ProtoId<ReagentPrototype> ReplacementReagent = "Water";
     public override void Initialize()
     {
-        SubscribeLocalEvent<FloorBufferComponent, ComponentStartup>(OnCompStart);
+        SubscribeLocalEvent<FloorBufferComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<FloorBufferComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<FloorBufferComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementRefreshHeld);
         SubscribeLocalEvent<FloorBufferComponent, RefreshMovementSpeedModifiersEvent>(OnMovementRefresh);
         SubscribeLocalEvent<FloorBufferComponent, ToggleActionEvent>(OnToggleAction);
         base.Initialize();
     }
-    private void OnCompStart(Entity<FloorBufferComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<FloorBufferComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction, ent.Owner);
         Dirty(ent.Owner, ent.Comp);
