@@ -40,3 +40,7 @@
     - type: Actions
     - type: ActionsContainer
     - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          showEnts: false
+          occludes: true
