@@ -474,7 +474,7 @@
     solutionContainer: fueltank
     whitelistedReagants: 
     - WeldingFuel
-    drainRate: 0.5
+    drainRate: 0.33
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/_FarHorizons/Vehicles/atvwalk.ogg
