@@ -6057,5 +6057,21 @@ Entries:
   id: 72300
   time: '2026-01-28T23:27:52.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/723
+- author: princess_gurchi
+  changes:
+  - message: Autodock/Autoundock button for all shuttles
+    type: Add
+  id: 72500
+  time: '2026-01-29T16:15:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/725
+- author: princess_gurchi
+  changes:
+  - message: 'Space Rescue Ping: every non-antag hardsuit and EVA suit, as well as
+      every non-emaged station borg are now visible on mass scanners and shuttle consoles.
+      The corporate would prefer you retrieve lost bodies to cut the cloning costs.'
+    type: Add
+  id: 72501
+  time: '2026-01-29T16:15:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/725
 Order: -1
 
