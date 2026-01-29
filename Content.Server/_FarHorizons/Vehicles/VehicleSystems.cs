@@ -59,6 +59,7 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Hands;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -133,6 +134,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         SubscribeLocalEvent<RiderComponent, WieldAttemptEvent>(OnWieldAttemptEvent);
         SubscribeLocalEvent<RiderComponent, ShooterImpulseEvent>(OnShooterEvent);
         SubscribeLocalEvent<RiderComponent, RefreshMovementSpeedModifiersEvent>(OnMovementSpeedRefreshRiderEvent);
+        SubscribeLocalEvent<RiderComponent, DidEquipHandEvent>(OnHandEquipped);
 
         SubscribeLocalEvent<GunComponent, ItemWieldedEvent>(OnGunWielded);
         SubscribeLocalEvent<GunComponent, ItemUnwieldedEvent>(OnGunUnwielded);
@@ -735,6 +737,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(ent.Comp.Riding == null) return;
         Timer.Spawn(0, () => _movementSpeed.RefreshMovementSpeedModifiers(ent.Comp.Riding.Value)); // Race conditions :strangle:
     }
+    private void OnHandEquipped(Entity<RiderComponent> ent, ref DidEquipHandEvent args)
+    {
+        if(!HasComp<GunComponent>(args.Equipped)) return;
+        _gun.RefreshModifiers(args.Equipped);
+    }
 
     #endregion
     #region Gun Events
@@ -755,17 +762,19 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         var transform = Transform(ent.Owner);
         if(!TryComp<RiderComponent>(transform.ParentUid, out var riderComp)) return;
         if(riderComp.Riding == null) return;
-        if(!HasComp<PowerCellDrawComponent>(riderComp.Riding.Value) 
-            || !HasComp<ReagantDrawComponent>(riderComp.Riding.Value)) return;
-        if(HasComp<VehicleContainerComponent>(riderComp.Riding.Value))
+        if(HasComp<PowerCellDrawComponent>(riderComp.Riding.Value) 
+            ^ HasComp<ReagantDrawComponent>(riderComp.Riding.Value))
         {
-            args.MinAngle += Angle.FromDegrees(30);
-            args.MaxAngle += Angle.FromDegrees(30);
-        }
-        else if(HasComp<VehicleBuckleComponent>(riderComp.Riding.Value))
-        {
-            args.MinAngle += Angle.FromDegrees(15);
-            args.MaxAngle += Angle.FromDegrees(15);
+            if(HasComp<VehicleContainerComponent>(riderComp.Riding.Value))
+            {
+                args.MinAngle += Angle.FromDegrees(30);
+                args.MaxAngle += Angle.FromDegrees(30);
+            }
+            else if(HasComp<VehicleBuckleComponent>(riderComp.Riding.Value))
+            {
+                args.MinAngle += Angle.FromDegrees(20);
+                args.MaxAngle += Angle.FromDegrees(20);
+            }
         }
     }
 
@@ -818,6 +827,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(TryComp<InputMoverComponent>(rider, out var imComp) && imComp.CanMove)
             _actionBlocker.UpdateCanMove(rider);
 
+        foreach(var item in _handsSystem.EnumerateHeld(rider))
+        {
+            if(HasComp<GunComponent>(item))
+                _gun.RefreshModifiers(item);
+        }
+
         if(_whitelist.IsWhitelistFail(vehicleComp.RiderWhitelist, rider)) return;
         if(vehicleComp.Rider != null) return;
         _mover.SetRelay(rider, vehicle);
@@ -847,6 +862,12 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} exited vehicle {ToPrettyString(vehicle)}");
         if(TryComp<InputMoverComponent>(rider, out var imComp) && !imComp.CanMove)
             _actionBlocker.UpdateCanMove(rider);
+
+        foreach(var item in _handsSystem.EnumerateHeld(rider))
+        {
+            if(HasComp<GunComponent>(item))
+                _gun.RefreshModifiers(item);
+        }
 
         if(rider != vehicleComp.Rider) return;
         vehicleComp.Rider = null;
