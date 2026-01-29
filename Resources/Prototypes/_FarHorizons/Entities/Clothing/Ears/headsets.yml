@@ -91,6 +91,67 @@
     sound:
       path: /Audio/_Starlight/Effects/Radio/hos.ogg
 
+- type: entity
+  parent: [ClothingHeadset, BaseCommandContraband]
+  id: ClothingHeadsetCESyndi
+  name: Technical Lead Headset
+  suffix: S
+  description: A headset for the technical lead to ignore all emergency calls on.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+  - type: RadioChime
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/ce.ogg
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  id: ClothingHeadsetAltCESyndi
+  name: Technical Lead Over-Ear Headset
+  suffix: S
+  description: A headset for the technical lead to ignore all emergency calls on.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+  - type: RadioChime
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/ce.ogg
+
+#region Engineering
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetEngineeringSyndi
+  name: Engineering Headset
+  suffix: S
+  description: A headset for engineers to chat while the station burns around them.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Ears/Headsets/engineering-syndi.rsi
+
 #region Security
 
 
