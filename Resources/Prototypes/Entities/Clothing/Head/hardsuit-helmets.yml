@@ -478,9 +478,57 @@
   description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Head/Hardsuits/security.rsi #Far Horizons
+  #Far Horizons-Start
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/security.rsi
+    layers:
+      - state: icon
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+        - state: on-equipped-HELMET 
+          shader: unshaded
+      head-dog:
+        - state: on-equipped-HELMET-dog
+          shader: unshaded
+      head-reptilian:
+        - state: on-equipped-HELMET-reptilian
+          shader: unshaded
+      head-resomi:
+        - state: on-equipped-HELMET-resomi
+          shader: unshaded
+      head-vox:
+        - state: on-equipped-HELMET-vox
+          shader: unshaded
+      head-vulpkanin:
+        - state: on-equipped-HELMET-vulpkanin
+          shader: unshaded
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Head/Hardsuits/security.rsi #Far Horizons
+    clothingVisuals:
+      head:
+        - state: off-equipped-HELMET
+      #  - state: equipped-head-unshaded
+      #    shader: unshaded
+      head-dog:
+        - state: off-equipped-HELMET-dog
+      #  - state: equipped-head-unshaded-dog
+      #    shader: unshaded
+      head-reptilian:
+        - state: off-equipped-HELMET-reptilian
+      #  - state: equipped-head-unshaded-reptilian
+      #    shader: unshaded
+      head-resomi:
+        - state: off-equipped-HELMET-resomi
+      #  - state: equipped-head-unshaded-resomi
+      #    shader: unshaded # Starlight end🌟
+      head-vox:
+        - state: off-equipped-HELMET-vox
+      #  - state: equipped-head-unshaded-vox
+      #    shader: unshaded
+      head-vulpkanin:
+        - state: off-equipped-HELMET-vulpkanin
+      #  - state: equipped-head-unshaded-vulpkanin
+      #    shader: unshaded
+# Far Horizons-End
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -507,9 +555,9 @@
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/brigmedic.rsi #Far Horizons
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/brigmedic.rsi
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/brigmedic.rsi #Far Horizons
   - type: PointLight
     color: "#00FFFF"
   - type: Armor
@@ -536,9 +584,9 @@
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/Head/Hardsuits/security-warden.rsi #Starlight
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/security-warden.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hardsuits/security-warden.rsi #Starlight
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/security-warden.rsi #Far Horizons
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

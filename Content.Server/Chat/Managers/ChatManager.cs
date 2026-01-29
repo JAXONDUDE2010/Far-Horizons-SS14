@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Content.Server._FarHorizons.DiscordLink;
-using Content.Server._NullLink.PlayerData;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
@@ -41,7 +40,6 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IServerNetManager _netManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly INullLinkPlayerManager _playerRoles = default!; // NullLink
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
@@ -51,6 +49,9 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly DiscordChatLink _discordLink = default!;
     [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill _sawmill = default!;
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -69,6 +70,8 @@ internal sealed partial class ChatManager : IChatManager
 
         _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+
+        _sawmill = _logManager.GetSawmill("SERVER");
 
         RegisterRateLimits();
     }
@@ -117,7 +120,7 @@ internal sealed partial class ChatManager : IChatManager
     {
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", FormattedMessage.EscapeText(message)));
         ChatMessageToAll(ChatChannel.Server, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride);
-        Logger.InfoS("SERVER", message);
+        _sawmill.Info(message);
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Server announcement: {message}");
     }
@@ -291,9 +294,6 @@ internal sealed partial class ChatManager : IChatManager
 
         var playerName = player.Name;
         var playerTitle = "";
-
-        if(_playerRoles.TryGetPlayerData(player.UserId, out var playerData))
-            playerTitle = playerData.Title ?? "";
 
         if (_adminManager.HasAdminFlag(player, AdminFlags.NameColor))
         {

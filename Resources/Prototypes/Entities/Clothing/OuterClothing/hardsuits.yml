@@ -339,6 +339,7 @@
         Heat: 0.6 #FH edit
         Caustic: 0.7
     staminaModifier: 0.5 # SL: Default stun resistance
+    ignoreKnockdown: true #FH - Taser no worky on combat hardsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -409,6 +410,7 @@
         Heat: 0.7 # Starlight Edit
         Caustic: 0.7
     staminaModifier: 0.7
+    ignoreKnockdown: true #FH - Taser no worky on combat hardsuits
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.6 #FH edit
   - type: ClothingSpeedModifier
@@ -475,6 +477,7 @@
         Heat: 0.6 #FH edit
         Caustic: 0.7
     staminaModifier: 0.5 # SL: Default stun resistance
+    ignoreKnockdown: true #FH - Taser no worky on combat hardsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -514,6 +517,7 @@
         Radiation: 0.5
         Caustic: 0.6
     staminaModifier: 0.6
+    ignoreKnockdown: true #FH - Taser no worky on combat hardsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -665,9 +669,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/security-red.rsi #Starlight
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security-red.rsi #Far Horizons
   - type: Clothing
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/security-red.rsi #Starlight
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security-red.rsi #Far Horizons
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -711,7 +715,8 @@
         Heat: 0.5 #FH edit
         Radiation: 0.5
         Caustic: 0.6
-    staminaModifier: 0.6
+    staminaModifier: 0.5 #FH - Default is 50%, not sure why this was forgotten
+    ignoreKnockdown: true #FH - Taser no worky on combat hardsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -748,7 +753,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
   name: Luxury Mining Hardsuit #Far Horizons - The Great Capitalization Crusade
-  suffix: NT #Far Horizons - Dual Station Clarity
+  suffix: GSL #Far Horizons - Dual Station Clarity
   description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
   categories: [ DoNotMap ]
   components:
@@ -1249,6 +1254,13 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
+    clothingVisuals:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   # Starlight-start
   - type: ExplosionResistance
     damageCoefficient: 0.2
@@ -1267,7 +1279,7 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTChaplain
   name: ERT Chaplain's Hardsuit #Far Horizons - The Great Capitalization Crusade
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
@@ -1278,15 +1290,17 @@
       - state: icon
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
-    clothingVisuals: # STARLIGHT
+    clothingVisuals:
       outerClothing:
         - state: equipped-OUTERCLOTHING
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTEngineer
   name: ERT Engineer's Hardsuit #Far Horizons - The Great Capitalization Crusade
   description: A protective hardsuit worn by the engineers of an emergency response team.
@@ -1295,6 +1309,13 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+    clothingVisuals:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
@@ -1311,6 +1332,13 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
+    clothingVisuals:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
 
@@ -1327,6 +1355,13 @@
       - state: icon
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+    clothingVisuals:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -1354,7 +1389,7 @@
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTJanitor
   name: ERT Janitor's Hardsuit #Far Horizons - The Great Capitalization Crusade
   description: A protective hardsuit worn by the janitors of an emergency response team.
@@ -1363,6 +1398,13 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
+    clothingVisuals:
+      outerClothing:
+        - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-reptilian
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
 

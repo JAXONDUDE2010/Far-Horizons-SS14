@@ -77,6 +77,11 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
+    /// <summary>
+    /// Default projectile speed
+    /// </summary>
+    public const float ProjectileSpeed = 40f;
+
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
     private const float InteractNextFire = 0.3f;
@@ -463,7 +468,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 20f)
+    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = ProjectileSpeed)
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -482,6 +487,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             shooter = pilotComp.Mech;
         }
+        //FarHorizon-edit: start
+        else if(user != null && TryComp<RiderComponent>(user.Value, out var riderComp))
+        {
+            shooter = riderComp.Riding;
+        }
+        //FarHorizon-edit: end
         else
         {
             shooter = user ?? gunUid;
@@ -590,6 +601,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
     {
+        //FarHorizons-edit: start
         var userId = user;
         var userPhys = userPhysics;
         if(TryComp<RiderComponent>(userId, out var riderComp))
@@ -599,13 +611,14 @@ public abstract partial class SharedGunSystem : EntitySystem
             if(TryComp<PhysicsComponent>(userId, out var vehiclePhys))
                 userPhys = vehiclePhys;
         }
+        //FarHorizons-edit: end
         var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates).Position;
         var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var shotDirection = (toMap - fromMap).Normalized();
 
         const float impulseStrength = 25.0f;
         var impulseVector =  shotDirection * impulseStrength;
-        Physics.ApplyLinearImpulse(userId, -impulseVector, body: userPhys);
+        Physics.ApplyLinearImpulse(userId, -impulseVector, body: userPhys); //FarHorizons-edit
     }
 
     public void RefreshModifiers(Entity<GunComponent?> gun)
@@ -730,6 +743,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     public override void Update(float frameTime)
     {
         UpdateBattery(frameTime);
+        UpdateBallistic(frameTime);
     }
 }
 

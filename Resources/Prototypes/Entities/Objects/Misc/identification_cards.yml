@@ -36,7 +36,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: &icon-rsi Interface/Misc/job_icons.rsi
+    - sprite: &icon-rsi _FarHorizons/Interface/Misc/job_icons.rsi #Far Horizons
       offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
       state: Assistant
   - type: PresetIdCard
@@ -58,7 +58,7 @@
   components:
   - type: PresetIdCard
     job: Assistant
-    customJobTitle: Off-duty
+    customJobTitle: Off-Duty #Far Horizons - The Great Capitalization Crusade
 
 - type: entity
   parent: AssistantIDCard
@@ -875,7 +875,7 @@
       color: *color-supply-top
     - state: stripe_bottom
       color: *color-supply-bottom
-    - sprite: &starlight-icon-rsi _Starlight/Interface/Misc/job_icons.rsi
+    - sprite: *icon-rsi #Far Horizons
       offset: *icon-offset
       state: SalvageSpecialist # Starlight - Salvage -> SalvageSpecialist
   - type: PresetIdCard
@@ -1105,6 +1105,18 @@
 #     - state: idcluwne
 #   - type: IdCard
 #     jobTitle: job-title-cluwne
+
+- type: entity
+  parent: IDCardStandard
+  id: XenoborgIDCard
+  name: Xenoborg ID Card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
 
 - type: entity
   parent: IDCardStandard

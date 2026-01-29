@@ -140,6 +140,7 @@
         Heat: 0.55
         Caustic: 0.65
     staminaModifier: 0.6
+    ignoreKnockdown: true # Taser no worky on combat hardsuits
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.5
   - type: ClothingSpeedModifier
@@ -197,6 +198,7 @@
         Radiation: 0.5
         Caustic: 0.6
     staminaModifier: 0.6
+    ignoreKnockdown: true # Taser no worky on combat hardsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

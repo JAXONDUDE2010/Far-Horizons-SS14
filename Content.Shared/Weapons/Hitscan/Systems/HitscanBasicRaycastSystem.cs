@@ -20,6 +20,8 @@ using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared._Starlight.NullSpace;
+
+using Content.Shared._FarHorizons.Vehicles.Components; // FarHorizons
 #endregion Starlight
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
@@ -60,7 +62,18 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         // Starlight end
         var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
         var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
-        var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
+        //FarHorizons-edit start
+        var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false).ToList();
+
+        if (TryComp<RiderComponent>(shooter, out var rider) && rider.Riding != null)
+        {
+            var ridden = rider.Riding;
+            rayCastResults.RemoveAll(x => x.HitEntity == ridden.Value);
+        }
+
+        if (args.OutputTrace != null)
+            rayCastResults.RemoveAll(x => x.Distance < 0.75); // This is hacky, but for some reason passing ignoredEnt to _physics.IntersectRay doesn't prevent ricochet from escaping the wall it was spawned from, remove this when this fixed in engine
+        //FarHorizons-edit end
 
         var target = args.Target;
         // If you are in a container, use the raycast result
@@ -105,6 +118,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
             Gun = args.Gun,
             Shooter = args.Shooter,
             HitEntity = result?.HitEntity,
+            HitPosition = result?.HitPos, // Far Horizons - uuuuh, someone forgot to put it here
             OutputTrace = args.OutputTrace, // Starlight
         };
 
