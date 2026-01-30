@@ -6211,5 +6211,13 @@ Entries:
   id: 73306
   time: '2026-01-30T12:09:39.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/733
+- author: Killer Tamashi
+  changes:
+  - message: Added new Station Management SoP! (NTR/Magi/BSO/IAA) Be sure to check
+      it before you play the roles!
+    type: Add
+  id: 73200
+  time: '2026-01-30T16:21:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/732
 Order: -1
 
