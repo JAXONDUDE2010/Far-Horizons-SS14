@@ -280,10 +280,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (comp.RetractPortState == SignalState.Momentary)
             comp.RetractPortState = SignalState.Low;
 
-        // Even though it's probably bad for performace, we have to do the for x, for y loops 3 times
-        // to ensure the processes do not interfere with each other
-
-        // Rod interactions
+        // Record of neutron movement for this tick
+        var flux = new List<(ReactorNeutron neutron, Vector2i source, Vector2i? destination)>();
         for (var x = 0; x < gridWidth; x++)
         {
             for (var y = 0; y < gridHeight; y++)
@@ -324,53 +322,46 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 TotalNRads += ReactorComp.Properties.NeutronRadioactivity;
                 TotalRads += ReactorComp.Properties.Radioactivity;
                 TotalSpent += ReactorComp.Properties.FissileIsotopes;
-            }
-        }
-        AvgControlRodInsertion /= ControlRods;
 
-        // Sound for the control rods moving, basically an audio cue that the reactor's doing something important
-        if (ControlRods > 0 && !MathHelper.CloseTo(comp.AvgInsertion, AvgControlRodInsertion))
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/relay_click.ogg"), uid);
+                foreach (var neutron in comp.FluxGrid[x, y])
+                {
+                    NeutronCount++;
 
-        // Snapshot of the flux grid that won't get messed up by the neutron calculations
-        var flux = new List<ReactorNeutron>[gridWidth, gridHeight];
-        for (var x = 0; x < gridWidth; x++)
-        {
-            for (var y = 0; y < gridHeight; y++)
-            {
-                flux[x, y] = new List<ReactorNeutron>(comp.FluxGrid[x, y]);
+                    var dir = neutron.dir.AsFlag();
+                    // Bit abuse
+                    var xmod = ((dir & DirectionFlag.East) == DirectionFlag.East ? 1 : 0) - ((dir & DirectionFlag.West) == DirectionFlag.West ? 1 : 0);
+                    var ymod = ((dir & DirectionFlag.North) == DirectionFlag.North ? 1 : 0) - ((dir & DirectionFlag.South) == DirectionFlag.South ? 1 : 0);
+
+                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= gridWidth - 1
+                        && y + ymod <= gridHeight - 1)
+                    {
+                        flux.Add((neutron, new Vector2i(x, y), new Vector2i(x + xmod, y + ymod)));
+                    }
+                    else
+                    {
+                        flux.Add((neutron, new Vector2i(x, y), null));
+                        TempRads++; // neutrons hitting the casing get blasted in to the room - have fun with that engineers!
+                    }
+                }
+
                 comp.NeutronGrid[x, y] = comp.FluxGrid[x, y].Count;
             }
         }
 
         // Move neutrons
-        for (var x = 0; x < gridWidth; x++)
+        foreach (var (neutron, source, destination) in flux)
         {
-            for (var y = 0; y < gridHeight; y++)
-            {
-                foreach (var neutron in flux[x, y])
-                {
-                    NeutronCount++;
+            comp.FluxGrid[source.X, source.Y].Remove(neutron);
 
-                    var dir = (byte)neutron.dir.AsFlag();
-                    // Bit abuse
-                    var xmod = ((dir >> 1) % 2) - ((dir >> 3) % 2);
-                    var ymod = ((dir >> 2) % 2) - (dir % 2);
-
-                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= gridWidth - 1
-                        && y + ymod <= gridHeight - 1)
-                    {
-                        comp.FluxGrid[x + xmod, y + ymod].Add(neutron);
-                        comp.FluxGrid[x, y].Remove(neutron);
-                    }
-                    else
-                    {
-                        comp.FluxGrid[x, y].Remove(neutron);
-                        TempRads++; // neutrons hitting the casing get blasted in to the room - have fun with that engineers!
-                    }
-                }
-            }
+            if (destination.HasValue)
+                comp.FluxGrid[destination.Value.X, destination.Value.Y].Add(neutron);
         }
+
+        AvgControlRodInsertion /= ControlRods;
+
+        // Sound for the control rods moving, basically an audio cue that the reactor's doing something important
+        if (ControlRods > 0 && !MathHelper.CloseTo(comp.AvgInsertion, AvgControlRodInsertion))
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/relay_click.ogg"), uid);
 
         var CasingGas = ProcessCasingGas(comp, GasInput);
         if (CasingGas != null)
