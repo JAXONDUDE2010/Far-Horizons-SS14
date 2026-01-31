@@ -6219,5 +6219,19 @@ Entries:
   id: 73200
   time: '2026-01-30T16:21:56.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/732
+- author: princess_gurchi
+  changes:
+  - message: Stopped nukie bases from continuously spawning throughout nukie round
+    type: Fix
+  id: 73700
+  time: '2026-01-31T14:36:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/737
+- author: princess_gurchi
+  changes:
+  - message: Ported nukie base overloaded APC fix from SL (fixed by CawsForConcern)
+    type: Fix
+  id: 73701
+  time: '2026-01-31T14:36:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/737
 Order: -1
 
