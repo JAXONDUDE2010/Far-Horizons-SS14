@@ -25,7 +25,8 @@
   equipment:
     #id: MiningPDA #Far Horizons - Disabling because they can choose between PDA's in loadout.
     ears: ClothingHeadsetMining
-    belt: ClothingBeltSalvageWebbing #Far Horizons
+    rig: ClothingBeltSalvageWebbing #Far Horizons - They have this on top of a belt.
+    belt: ClothingBeltSalvage #Far Horizons - They also get a rig now
     gloves: ClothingHandsGlovesCargo #Far Horizons
   storage: #Far Horizons
     back:

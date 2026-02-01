@@ -111,6 +111,28 @@
     sprite: _FarHorizons/Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: _FarHorizons/Clothing/Belt/salvagewebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    - 0,3,3,4
+    whitelist:
+      tags:
+        - CigPack
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - HandGrenade
+        - Radio
+        - Knife
+        - Cartridge
+        - Write
+        - Paper
+        - PocketFireExtinguish
+      components:
+        - DoorRemote
+        - Whistle
+        - BallisticAmmoProvider
+        - CartridgeAmmo
   - type: StorageFill
     contents:
       - id: SurvivalKnife
