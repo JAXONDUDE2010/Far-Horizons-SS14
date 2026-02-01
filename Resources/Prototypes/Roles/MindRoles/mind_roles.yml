@@ -351,6 +351,7 @@
   components:
   - type: MindRole
     antagPrototype: Changeling
+    subtype: role-subtype-changeling # Starlight
   - type: SLChangelingRole
   
 # Vampire
