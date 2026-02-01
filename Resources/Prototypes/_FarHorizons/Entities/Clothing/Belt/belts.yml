@@ -153,8 +153,12 @@
   - type: StorageFill
     contents:
       - id: HandLabeler
-      - id: WeaponMeleeBoxcutter
-      - id: AppraisalTool
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: NetworkConfigurator 
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -426,7 +430,21 @@
 
 #region Security
 
-#region Syndicate Station #####
+
+
+
+
+
+
+
+
+
+
+
+
+#region Syndicate
+
+
 
 
 
