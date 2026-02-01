@@ -54,7 +54,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     private int _targetX = 0;
     private int _targetY = 0;
 
-    public event Action<Vector2d>? ItemActionButtonPressed;
+    public event Action<Vector2i>? ItemActionButtonPressed;
     public event Action? EjectButtonPressed;
 
     public event Action<float>? ControlRodModify;

@@ -1,13 +1,9 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
-using Robust.Shared.Random;
-using Content.Shared._FarHorizons.Materials.Systems;
-using Content.Shared.Examine;
-using Content.Shared.Nutrition;
-using Content.Shared.Radiation.Components;
-using Content.Shared.Damage.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -15,13 +11,11 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
 
-public sealed class ReactorPartSystem : SharedReactorPartSystem
+public sealed partial class ReactorPartSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <summary>
     /// Changes the overall rate of events
@@ -43,183 +37,6 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// </summary>
     private readonly float _product = 0.005f;
 
-    /// <summary>
-    /// Temperature (in C) when people's hands can be burnt
-    /// </summary>
-    private readonly static float _hotTemp = 80;
-
-    /// <summary>
-    /// Temperature (in C) when insulated gloves can no longer protect
-    /// </summary>
-    private readonly static float _burnTemp = 400;
-
-    private readonly static float _burnDiv = (_burnTemp - _hotTemp) / 5; // The 5 is how much heat damage insulated gloves protect from
-
-    private readonly float _threshold = 1f;
-    private float _accumulator = 0f;
-
-    #region Item Methods
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<ReactorPartComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<ReactorPartComponent, IngestedEvent>(OnIngest);
-    }
-
-    private void OnInit(EntityUid uid, ReactorPartComponent component, ref MapInitEvent args)
-    {
-        var radvalue = (component.Properties.Radioactivity * 0.1f) + (component.Properties.NeutronRadioactivity * 0.15f) + (component.Properties.FissileIsotopes * 0.125f);
-        if (radvalue > 0)
-        {
-            var radcomp = EnsureComp<RadiationSourceComponent>(uid);
-            radcomp.Intensity = radvalue;
-        }
-
-        if (component.Properties.NeutronRadioactivity > 0)
-        {
-            var lightcomp = _lightSystem.EnsureLight(uid);
-            _lightSystem.SetEnergy(uid, component.Properties.NeutronRadioactivity, lightcomp);
-            _lightSystem.SetColor(uid, Color.FromHex("#22bbff"), lightcomp);
-            _lightSystem.SetRadius(uid, 1.2f, lightcomp);
-        }
-    }
-
-    private void OnExamine(Entity<ReactorPartComponent> ent, ref ExaminedEvent args)
-    {
-        var comp = ent.Comp;
-        if (!args.IsInDetailsRange)
-            return;
-
-        using (args.PushGroup(nameof(ReactorPartComponent)))
-        {
-            switch (comp.Properties.NeutronRadioactivity)
-            {
-                case > 8:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-5"));
-                    break;
-                case > 6:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-4"));
-                    break;
-                case > 4:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-3"));
-                    break;
-                case > 2:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-2"));
-                    break;
-                case > 1:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-1"));
-                    break;
-                case > 0:
-                    args.PushMarkup(Loc.GetString("reactor-part-nrad-0"));
-                    break;
-            }
-
-            switch (comp.Properties.Radioactivity)
-            {
-                case > 8:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-5"));
-                    break;
-                case > 6:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-4"));
-                    break;
-                case > 4:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-3"));
-                    break;
-                case > 2:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-2"));
-                    break;
-                case > 1:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-1"));
-                    break;
-                case > 0:
-                    args.PushMarkup(Loc.GetString("reactor-part-rad-0"));
-                    break;
-            }
-
-            if (comp.Temperature > Atmospherics.T0C + _burnTemp)
-                args.PushMarkup(Loc.GetString("reactor-part-burning"));
-            else if (comp.Temperature > Atmospherics.T0C + _hotTemp)
-                args.PushMarkup(Loc.GetString("reactor-part-hot"));
-        }
-    }
-
-    private void OnIngest(Entity<ReactorPartComponent> ent, ref IngestedEvent args)
-    {
-        var comp = ent.Comp;
-        if (comp.Properties == null)
-            return;
-
-        var properties = comp.Properties;
-
-        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
-            return;
-
-        var dict = damageable.Damage.DamageDict;
-
-        var dmgKey = "Radiation";
-        var dmg = (properties.NeutronRadioactivity * 20) + (properties.Radioactivity * 10) + (properties.FissileIsotopes * 5);
-
-        if (!dict.TryAdd(dmgKey, dmg))
-        {
-            var prev = dict[dmgKey];
-            dict.Remove(dmgKey);
-            dict.Add(dmgKey, prev + dmg);
-        }
-    }
-
-    public override void Update(float frameTime)
-    {
-        _accumulator += frameTime;
-        if (_accumulator > _threshold)
-        {
-            AccUpdate();
-            _accumulator = 0;
-        }
-    }
-
-    private void AccUpdate()
-    {
-        var query = EntityQueryEnumerator<ReactorPartComponent>();
-        while (query.MoveNext(out var uid, out var component))
-        {
-            var gasMix = _atmosphereSystem.GetTileMixture(uid, true) ?? GasMixture.SpaceGas;
-            var DeltaT = (component.Temperature - gasMix.Temperature) * 0.01f;
-
-            if (Math.Abs(DeltaT) < 0.1)
-                continue;
-
-            // This viloates the laws of physics, but if energy is conserved, then pulling out a hot rod will turn the room into an oven
-            // Also does not take into account thermal mass
-            component.Temperature -= DeltaT;
-            if (!gasMix.Immutable) // This prevents it from heating up space itself
-                gasMix.Temperature += DeltaT;
-
-            var burncomp = EnsureComp<DamageOnInteractComponent>(uid);
-
-            burncomp.IsDamageActive = component.Temperature > Atmospherics.T0C + _hotTemp;
-
-            if (burncomp.IsDamageActive)
-            {
-                var damage = Math.Max((component.Temperature - Atmospherics.T0C - _hotTemp) / _burnDiv, 0);
-
-                // Giant string of if/else that makes sure it will interfere only as much as it needs to
-                if (burncomp.Damage == null)
-                    burncomp.Damage = new() { DamageDict = new() { { "Heat", damage } } };
-                else if (burncomp.Damage.DamageDict == null)
-                    burncomp.Damage.DamageDict = new() { { "Heat", damage } };
-                else if (!burncomp.Damage.DamageDict.ContainsKey("Heat"))
-                    burncomp.Damage.DamageDict.Add("Heat", damage);
-                else
-                    burncomp.Damage.DamageDict["Heat"] = damage;
-            }
-
-            Dirty(uid, burncomp);
-        }
-    }
-    #endregion
-
-    #region Reactor Methods
     /// <summary>
     /// Processes gas flowing through a reactor part.
     /// </summary>
@@ -302,7 +119,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="AdjacentComponents">List of reactor parts next to the reactorPart.</param>
     /// <param name="reactorSystem">The SharedNuclearReactorSystem.</param>
     /// <exception cref="Exception">Calculations resulted in a sub-zero value.</exception>
-    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, SharedNuclearReactorSystem reactorSystem)
+    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, NuclearReactorSystem reactorSystem)
     {
         var reactor = reactorEnt.Comp;
 
@@ -387,7 +204,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="reactorPart">Reactor part to be melted</param>
     /// <param name="reactorEnt">Reactor housing the reactor part</param>
     /// <param name="reactorSystem">The SharedNuclearReactorSystem</param>
-    public void Melt(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, SharedNuclearReactorSystem reactorSystem)
+    public void Melt(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, NuclearReactorSystem reactorSystem)
     {
         if (reactorPart.Melted)
             return;
@@ -610,5 +427,4 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// </summary>
     /// <param name="chance">The chance percentage between 0 and 100.</param>
     private bool Prob(double chance) => _random.NextDouble() <= chance / 100;
-    #endregion
 }

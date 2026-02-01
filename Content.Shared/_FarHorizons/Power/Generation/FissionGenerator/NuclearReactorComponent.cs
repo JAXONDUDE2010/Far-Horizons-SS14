@@ -1,12 +1,12 @@
-using Robust.Shared.GameStates;
-using Robust.Shared.Audio;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Atmos;
-using Robust.Shared.Prototypes;
-using Content.Shared.Materials;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Materials;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Numerics;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

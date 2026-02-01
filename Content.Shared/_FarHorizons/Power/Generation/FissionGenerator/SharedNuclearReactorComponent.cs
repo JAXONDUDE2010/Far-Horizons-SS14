@@ -40,9 +40,9 @@ public sealed partial class ReactorSlotBUIData
 }
 
 [Serializable, NetSerializable]
-public sealed class ReactorItemActionMessage(Vector2d position) : BoundUserInterfaceMessage
+public sealed class ReactorItemActionMessage(Vector2i position) : BoundUserInterfaceMessage
 {
-    public Vector2d Position { get; } = position;
+    public Vector2i Position { get; } = position;
 }
 
 [Serializable, NetSerializable]

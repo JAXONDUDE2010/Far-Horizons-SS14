@@ -1,15 +1,15 @@
-using Robust.Shared.Map;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Client.Examine;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
+using Robust.Shared.Map;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
+public sealed class NuclearReactorSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

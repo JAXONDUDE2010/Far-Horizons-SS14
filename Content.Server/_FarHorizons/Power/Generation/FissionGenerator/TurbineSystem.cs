@@ -1,31 +1,38 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
+using Content.Server.Audio;
+using Content.Server.DeviceLinking.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.Tools;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
+using Content.Shared.Audio;
+using Content.Shared.Construction.Components;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.Electrocution;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Repairable;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
-using Content.Server.NodeContainer.Nodes;
-using Content.Shared.DeviceLinking.Events;
-using Content.Server.DeviceLinking.Systems;
-using Content.Shared.Construction.Components;
-using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
-using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Damage.Systems;
-using Content.Server.Audio;
-using Content.Shared.Audio;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -34,23 +41,27 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
-public sealed class TurbineSystem : SharedTurbineSystem
+public sealed class TurbineSystem : EntitySystem
 {
+    [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly DeviceLinkSystem _signal = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ToolSystem _toolSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
@@ -84,6 +95,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
         SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
+        SubscribeLocalEvent<TurbineComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<TurbineComponent, TurbineChangeFlowRateMessage>(OnTurbineFlowRateChanged);
         SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
@@ -93,6 +105,9 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         SubscribeLocalEvent<TurbineComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<TurbineComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+        
+        SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
+        SubscribeLocalEvent<TurbineComponent, RepairDoAfterEvent>(OnRepairTurbineFinished);
     }
 
     private const string BladeContainer = "blade_slot";
@@ -317,6 +332,17 @@ public sealed class TurbineSystem : SharedTurbineSystem
         UpdateUI(uid, comp);
     }
 
+    private void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref comp, ref appearance, false))
+            return;
+
+        _appearance.SetData(uid, TurbineVisuals.TurbineRuined, comp.Ruined);
+
+        _appearance.SetData(uid, TurbineVisuals.DamageSpark, comp.IsSparking);
+        _appearance.SetData(uid, TurbineVisuals.DamageSmoke, comp.IsSmoking);
+    }
+
     private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)
     {
         var wantToTransfer = comp.FlowRate * _atmosphereSystem.PumpSpeedup() * dt;
@@ -325,6 +351,17 @@ public sealed class TurbineSystem : SharedTurbineSystem
         var molesSpaceLeft = (comp.OutputPressure - outlet.Air.Pressure) * outlet.Air.Volume / (outlet.Air.Temperature * Atmospherics.R);
         var actualMolesTransfered = Math.Clamp(transferMoles, 0, Math.Max(0, molesSpaceLeft));
         return Math.Max(0, actualMolesTransfered * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Pressure);
+    }
+
+    private static bool AdjustStatorLoad(TurbineComponent turbine, float change)
+    { 
+        var newSet = Math.Max(turbine.StatorLoad + change, 1000f);
+        if (turbine.StatorLoad != newSet)
+        {
+            turbine.StatorLoad = newSet;
+            return true;
+        }
+        return false; 
     }
 
     private void TearApart(EntityUid uid, TurbineComponent comp)
@@ -559,12 +596,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             return false;
         }
 
-        if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out inlet))
-            return false;
-        if (!_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out outlet))
-            return false;
-
-        return true;
+        return _nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out inlet) && _nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out outlet);
     }
     #endregion
 
@@ -572,6 +604,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         QueueDel(comp.InletEnt);
         QueueDel(comp.OutletEnt);
+        QueueDel(comp.AlarmAudioOvertemp);
+        QueueDel(comp.AlarmAudioUnderspeed);
     }
 
     private void OnDamaged(EntityUid uid, TurbineComponent comp, ref DamageChangedEvent args)
@@ -676,4 +710,154 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.PowerMultiplier = (float)Math.Max(0.2, 0.2 * statorComp.Properties.ElectricalConductivity);
         }
     }
+
+    
+    private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
+    {
+        var comp = ent.Comp;
+        if (!Comp<TransformComponent>(ent).Anchored || !args.IsInDetailsRange) // Not anchored? Out of range? No status.
+            return;
+
+        using (args.PushGroup(nameof(TurbineComponent)))
+        {
+            if(comp.CurrentStator == null)
+                args.PushMarkup(Loc.GetString("gas-turbine-examine-stator-null"));
+
+            if (comp.CurrentBlade == null)
+                args.PushMarkup(Loc.GetString("gas-turbine-examine-blade-null"));
+            else
+            {
+                switch (comp.RPM)
+                {
+                    case float n when n is >= 0 and <= 1:
+                        args.PushMarkup(Loc.GetString("turbine-spinning-0")); // " The blades are not spinning."
+                        break;
+                    case float n when n is > 1 and <= 60:
+                        args.PushMarkup(Loc.GetString("turbine-spinning-1")); // " The blades are turning slowly."
+                        break;
+                    case float n when n > 60 && n <= comp.BestRPM * 0.5:
+                        args.PushMarkup(Loc.GetString("turbine-spinning-2")); // " The blades are spinning."
+                        break;
+                    case float n when n > comp.BestRPM * 0.5 && n <= comp.BestRPM * 1.2:
+                        args.PushMarkup(Loc.GetString("turbine-spinning-3")); // " The blades are spinning quickly."
+                        break;
+                    case float n when n > comp.BestRPM * 1.2 && n <= float.PositiveInfinity:
+                        args.PushMarkup(Loc.GetString("turbine-spinning-4")); // " The blades are spinning out of control!"
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (comp.Ruined)
+            {
+                args.PushMarkup(Loc.GetString("turbine-ruined")); // " It's completely broken!"
+            }
+            else if (comp.BladeHealth <= 0.25 * comp.BladeHealthMax)
+            {
+                args.PushMarkup(Loc.GetString("turbine-damaged-3")); // " It's critically damaged!"
+            }
+            else if (comp.BladeHealth <= 0.5 * comp.BladeHealthMax)
+            {
+                args.PushMarkup(Loc.GetString("turbine-damaged-2")); // " The turbine looks badly damaged."
+            }
+            else if (comp.BladeHealth <= 0.75 * comp.BladeHealthMax)
+            {
+                args.PushMarkup(Loc.GetString("turbine-damaged-1")); // " The turbine looks a bit scuffed."
+            }
+            else
+            {
+                args.PushMarkup(Loc.GetString("turbine-damaged-0")); // " It appears to be in good condition."
+            }
+        }
+    }
+
+    #region Repairs
+    private void RepairTurbine(EntityUid uid, TurbineComponent comp, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if(_toolSystem.HasQuality(args.Used, comp.RepairTool))
+        {
+            if (comp.CurrentBlade == null)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("gas-turbine-repair-fail-blade"), args.User, args.User, PopupType.Medium);
+                args.Handled = true;
+                return;
+            }
+
+            if (comp.CurrentStator == null)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("gas-turbine-repair-fail-stator"), args.User, args.User, PopupType.Medium);
+                args.Handled = true;
+                return;
+            }
+
+            if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
+                return;
+
+            args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairDoAfterEvent(), comp.RepairFuelCost);
+        }
+    }
+
+    private void OnRepairTurbineFinished(EntityUid uid, TurbineComponent comp, ref RepairDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (comp.Ruined)
+        {
+            comp.Ruined = false;
+            if (comp.BladeHealth <= 0) { comp.BladeHealth = 1; }
+            UpdateHealthIndicators(uid, comp);
+        }
+        else if (comp.BladeHealth < comp.BladeHealthMax)
+        {
+            comp.BladeHealth++;
+            UpdateHealthIndicators(uid, comp);
+        }
+        else if (comp.BladeHealth >= comp.BladeHealthMax)
+        {
+            // This should technically never occur, but just in case...
+        }
+
+        _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", uid), ("tool", args.Used!)), uid, args.User);
+
+        if (!_entityManager.TryGetComponent<DamageableComponent>(uid, out var damageableComponent))
+            return;
+
+        _damageableSystem.SetAllDamage((uid, damageableComponent), 0);
+    }
+
+    private void UpdateHealthIndicators(EntityUid uid, TurbineComponent comp)
+    {
+        if (comp.BladeHealth <= 0.75 * comp.BladeHealthMax && !comp.IsSparking)
+        {
+            comp.IsSparking = true;
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/PowerSink/electric.ogg"), uid, AudioParams.Default.WithPitchScale(0.75f));
+            _popupSystem.PopupEntity(Loc.GetString("turbine-spark", ("owner", uid)), uid, PopupType.MediumCaution);
+        }
+        else if (comp.BladeHealth > 0.75 * comp.BladeHealthMax && comp.IsSparking)
+        {
+            comp.IsSparking = false;
+            _popupSystem.PopupEntity(Loc.GetString("turbine-spark-stop", ("owner", uid)), uid, PopupType.Medium);
+        }
+
+        if (comp.BladeHealth <= 0.5 * comp.BladeHealthMax && !comp.IsSmoking)
+        {
+            comp.IsSmoking = true;
+            _popupSystem.PopupEntity(Loc.GetString("turbine-smoke", ("owner", uid)), uid, PopupType.MediumCaution);
+        }
+        else if (comp.BladeHealth > 0.5 * comp.BladeHealthMax && comp.IsSmoking)
+        {
+            comp.IsSmoking = false;
+            _popupSystem.PopupEntity(Loc.GetString("turbine-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
+        }
+
+        _entityManager.EnsureComponent<ElectrifiedComponent>(uid).Enabled = comp.IsSparking;
+
+        UpdateAppearance(uid, comp);
+    }
+    #endregion
 }

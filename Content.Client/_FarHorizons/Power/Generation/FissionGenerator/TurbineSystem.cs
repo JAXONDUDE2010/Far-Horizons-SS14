@@ -1,22 +1,14 @@
-using Robust.Shared.Map;
-using Robust.Client.GameObjects;
-using Content.Shared.Repairable;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Content.Client.Popups;
 using Content.Client.Examine;
-using Robust.Client.Animations;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Popups;
+using Robust.Client.Animations;
+using Robust.Client.GameObjects;
+using Robust.Shared.Map;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-// Ported and modified from goonstation by Jhrushbe.
-// CC-BY-NC-SA-3.0
-// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
-
-public sealed class TurbineSystem : SharedTurbineSystem
+public sealed class TurbineSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
@@ -33,14 +25,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         SubscribeLocalEvent<TurbineComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<TurbineComponent, ItemSlotEjectAttemptEvent>(OnEjectAttempt);
-    }
-
-    protected override void OnRepairTurbineFinished(EntityUid uid, TurbineComponent comp, ref RepairDoAfterEvent args)
-    {
-        if (args.Cancelled)
-            return;
-
-        _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", uid), ("tool", args.Used!)), uid, args.User);
     }
 
     private void TurbineExamined(EntityUid uid, TurbineComponent comp, ClientExaminedEvent args) => Spawn(comp.ArrowPrototype, new EntityCoordinates(uid, 0, 0));
