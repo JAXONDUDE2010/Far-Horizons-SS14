@@ -13,6 +13,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingBeltSalvage #Far Horizons
+    - id: ClothingBeltSalvageWebbing #Far Horizons
     - id: SurvivalKnife
     - id: HandheldGPSBasic
 #    - id: RadioHandheld # Starlight - radio replaced with expedition radio

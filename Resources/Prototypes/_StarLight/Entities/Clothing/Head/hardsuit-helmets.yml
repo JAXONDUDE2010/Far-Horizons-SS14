@@ -317,8 +317,6 @@
   components:
   - type: Sprite
     sprite: _Starlight/Clothing/Head/Hardsuits/experimental_security.rsi
-  - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hardsuits/experimental_security.rsi
   #Far Horizons-Start
   - type: ToggleableVisuals
     clothingVisuals:
@@ -344,6 +342,7 @@
         - state: on-equipped-HELMET-vulpkanin
           shader: unshaded
   - type: Clothing
+    sprite: _Starlight/Clothing/Head/Hardsuits/experimental_security.rsi
     clothingVisuals:
       head:
         - state: off-equipped-HELMET
