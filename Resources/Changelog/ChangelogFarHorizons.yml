@@ -6233,6 +6233,45 @@ Entries:
   id: 73701
   time: '2026-01-31T14:36:42.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/737
+- author: CorruptOmega
+  changes:
+  - message: Added Salvage Utility belt, with side slots for labeler and grappling
+      gun. Can also carry paper and pens cause sometimes they do paperwork (:Doubt:)
+    type: Add
+  id: 73600
+  time: '2026-02-01T16:10:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/736
+- author: CorruptOmega
+  changes:
+  - message: Salvage Utility Belt also spawns with a labeler for those organized chaos
+      gremlins.
+    type: Add
+  id: 73601
+  time: '2026-02-01T16:10:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/736
+- author: CorruptOmega
+  changes:
+  - message: Salvage Utility Rig can now carry pocket fire extinguishers and papers/pens.
+      (No they don't start with them)
+    type: Tweak
+  id: 73602
+  time: '2026-02-01T16:10:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/736
+- author: CorruptOmega
+  changes:
+  - message: Salvagers/Miners/Quartermaster now spawn with Salvage Utility Belt in
+      belt slot and Salvage Utility Rig in rig slot
+    type: Tweak
+  id: 73603
+  time: '2026-02-01T16:10:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/736
+- author: CorruptOmega
+  changes:
+  - message: Our tag list is now organized again you chaos machines.
+    type: Fix
+  id: 73604
+  time: '2026-02-01T16:10:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/736
 - author: Sprites by Abby, Prototyping by CorruptOmega
   changes:
   - message: Added NeoSol Engineering resprite done by Abby.
