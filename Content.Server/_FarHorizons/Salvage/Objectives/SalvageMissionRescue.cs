@@ -164,8 +164,12 @@ public sealed partial class SalvageMissionRescue : BaseSalvageMissionObjectiveHa
             stationSpawning.EquipRoleLoadout(ent, loadout, loadoutProto);
 
             if (inventory != null)
+            {
                 if (inventory.TryUnequip(ent, "id", out var id, true, true))
                     EntMan.DeleteEntity(id);
+                if (inventory.TryUnequip(ent, "ears", out var ears, true, true))
+                    EntMan.DeleteEntity(ears);
+            }
         }
 
         return ent;
