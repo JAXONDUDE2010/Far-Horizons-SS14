@@ -1,8 +1,26 @@
 - type: salvageMissionObjective
   id: MissionObjectiveFree
+  handlerId: "MissionObjectiveFreeHandler"
   name: salvage-mission-objective-name-free
   description: salvage-mission-objective-description-free
   announcement: salvage-mission-objective-announcement-free
+  numTargets:
+    Easy: 15 # Instead of mission targets, this is a number of spawned bodies
+    Moderate: 20
+    Challenging: 30
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
+
+- type: salvageMissionObjective
+  id: MissionObjectiveFreeDanger
+  name: salvage-mission-objective-name-free-danger
+  description: salvage-mission-objective-description-free-danger
+  announcement: salvage-mission-objective-announcement-free-danger
+  allowedDifficulties:
+    - Difficult
+    - Impossible
 
 - type: salvageMissionObjective
   id: MissionObjectiveRecover
@@ -20,6 +38,10 @@
     Challenging: 6
   bonus: 225
   bonusCap: 4
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
   allowedDungeons:
     - Experiment
     - LavaBrig
@@ -45,6 +67,10 @@
     Challenging: 2
   bonus: 375
   bonusCap: 5
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
   allowedFactions:
     - Xenos
     - Carps
@@ -65,6 +91,10 @@
     Challenging: 3
   bonus: 450
   bonusCap: 3
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
   allowedDungeons:
     - Experiment
     - LavaBrig
@@ -87,6 +117,10 @@
     Challenging: 6
   bonus: 275
   bonusCap: 2
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
   allowedDungeons:
     - Experiment
     - LavaBrig
@@ -109,6 +143,10 @@
     Challenging: 4
   bonus: 345
   bonusCap: 3
+  allowedDifficulties:
+    - Easy
+    - Moderate
+    - Challenging
   allowedDungeons:
     - Experiment
     - LavaBrig
