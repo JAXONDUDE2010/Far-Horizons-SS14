@@ -102,7 +102,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         _projQuery = GetEntityQuery<ProjectileComponent>();
         
-        SubscribeLocalEvent<VehicleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<VehicleComponent, ItemSlotInsertEvent>(OnInsertEvent);
@@ -148,28 +147,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     }
 
     #region Vehicle Generic Events
-    private void OnMapInit(Entity<VehicleComponent> ent, ref MapInitEvent args)
-    {
-        if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return;
-        _movementSpeed.ChangeFrictionAndAcceleration(ent.Owner, ent.Comp.Friction, ent.Comp.FrictionNoInput, ent.Comp.Acceleration, msmComp);
-
-        if(_container.TryGetContainer(ent.Owner, ent.Comp.VehicleModsSlot, out var modSlot))
-        {
-            foreach (var item in modSlot.ContainedEntities)
-            {
-                if(HasComp<PointLightComponent>(item))
-                {
-                    var metaData = MetaData(item);
-                    var light = SpawnAttachedTo(metaData.EntityPrototype!.ID, ent.Owner.ToCoordinates());
-                    if(HasComp<RotatingLightComponent>(light))
-                        ent.Comp.Sirenlight = light;
-                    else
-                        ent.Comp.Headlight = light;
-                }
-            }
-        }
-        Dirty(ent.Owner, ent.Comp);
-    }
 
     private void OnComponentStartup(Entity<VehicleComponent> ent, ref ComponentStartup args)
     {
@@ -185,7 +162,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(ent.Comp.Rider == null) return;
         if(_tags.HasTag(args.Item, _vehicleKeyTag))
         {
-            Timer.Spawn(0, () => AddActions(ent.Comp.Rider.Value, ent.Owner, ent.Comp)); // Race conditions :strangle:
         }
     }
 
@@ -201,8 +177,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 {
                     if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
                         _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
-                    if(ent.Comp.TurnKeysActionEntity != null)
-                        _actions.RemoveProvidedAction(ent.Comp.Rider.Value, ent.Owner, ent.Comp.TurnKeysActionEntity.Value);
 
                     for (var i = 0; i < ent.Comp.HandsNeeded; i++)
                     {
@@ -246,9 +220,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             {
                 _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
             }
-
-            if(ent.Comp.TurnKeysActionEntity != null)
-                _actions.RemoveProvidedAction(ent.Comp.Rider.Value, ent.Owner, ent.Comp.TurnKeysActionEntity.Value);
 
             TurnOffVehicle(ent.Owner, ent.Comp);
         }
@@ -528,7 +499,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     private void OnMoveInputEvent(Entity<VehicleBuckleComponent> ent, ref MoveInputEvent args)
     {
         if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
-        if(!vehicleComp.Started && vehicleComp.requireIgnition) return;
+        if(!vehicleComp.Started && vehicleComp.RequireIgnition) return;
         if(args.Dir == Direction.Invalid) return;
         if(args.Dir == vehicleComp.currentDirection) return;
         vehicleComp.currentDirection = args.Dir;
@@ -685,7 +656,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if (!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp))
             return;
 
-        if (vehicleComp.requireIgnition && !vehicleComp.Started)
+        if (vehicleComp.RequireIgnition && !vehicleComp.Started)
         {
             args.Cancel();
             return;
@@ -862,7 +833,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         vehicleComp.Rider = rider;
         Dirty(vehicle, vehicleComp);
         
-        AddActions(vehicleComp.Rider.Value, vehicle, vehicleComp);
         if(vehicleComp.Started)
         {
             for (var i = 0; i < vehicleComp.HandsNeeded; i++)
@@ -894,15 +864,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
         if(rider != vehicleComp.Rider) return;
         vehicleComp.Rider = null;
-        _actions.RemoveProvidedActions(rider, vehicle);
-        if(vehicleComp.Headlight != null)
-            _actions.RemoveProvidedActions(rider, vehicleComp.Headlight.Value);
-        if(vehicleComp.Sirenlight != null)
-            _actions.RemoveProvidedActions(rider, vehicleComp.Sirenlight.Value);
-
-        if(_container.TryGetContainer(vehicle, vehicleComp.VehicleModsSlot, out var items))
-            foreach(var item in items.ContainedEntities)
-                _actions.RemoveProvidedActions(rider, item);
         
         for (var i = 0; i < vehicleComp.HandsNeeded; i++)
         {
@@ -910,35 +871,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
 
         Dirty(vehicle, vehicleComp);
-    }
-    private void AddActions(EntityUid rider, EntityUid vehicle, VehicleComponent? component=null)
-    {
-        if (!Resolve(vehicle, ref component))
-            return;
-
-        if(component.isBroken) return;
-
-        if(component.requireIgnition && TryComp(vehicle, out ItemSlotsComponent? itemComp)
-                && itemComp.Slots.Values.Any(slot =>
-                    slot.ContainerSlot?.ContainedEntity is EntityUid item
-                    && _tags.HasTag(item, _vehicleKeyTag)))
-        {
-            _actions.AddAction(rider, ref component.TurnKeysActionEntity, component.TurnKeysAction, vehicle);
-            if(HasComp<LockComponent>(vehicle))
-                _actions.AddAction(rider, ref component.ToggleTrunkActionEntity, component.ToggleTrunkAction, vehicle);
-        }
-
-        if(component.HornSound != null)
-            _actions.AddAction(rider, ref component.HornVehicleActionEntity, component.HornVehicleAction, vehicle);
-
-        if(component.Headlight != null && TryComp<UnpoweredFlashlightComponent>(component.Headlight, out var headLight))
-            _actions.AddAction(rider, ref headLight.ToggleActionEntity, headLight.ToggleAction, component.Headlight.Value);
-
-        if(component.Sirenlight != null && HasComp<PointLightComponent>(component.Sirenlight))
-            _actions.AddAction(rider, component.ToggleSirenAction, component.Sirenlight.Value);
-
-        if(HasComp<ActionsContainerComponent>(vehicle))
-            _actions.GrantContainedActions(rider, vehicle);
     }
 
     private bool TryInsert(EntityUid? Rider, EntityUid Vehicle, VehicleContainerComponent? component=null)
