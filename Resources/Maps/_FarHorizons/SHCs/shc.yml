@@ -8114,7 +8114,7 @@ entities:
     - type: Transform
       pos: -111.5,-7.5
       parent: 1
-- proto: FHAirlockExternalAtmosphericsLocked
+- proto: AirlockExternalAtmosphericsLocked
   entities:
   - uid: 68
     components:
@@ -8140,7 +8140,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -20.5,33.5
       parent: 1
-- proto: FHAirlockExternalEngineeringLocked
+- proto: AirlockExternalEngineeringLocked
   entities:
   - uid: 72
     components:
@@ -8166,7 +8166,7 @@ entities:
         72:
         - - DoorStatus
           - DoorBolt
-- proto: FHAirlockExternalNukeopLocked
+- proto: AirlockExternalNukeopLocked
   entities:
   - uid: 74
     components:
