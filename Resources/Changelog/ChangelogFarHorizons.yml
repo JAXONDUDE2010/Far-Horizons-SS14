@@ -6352,5 +6352,35 @@ Entries:
   id: 74901
   time: '2026-02-01T23:47:56.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/749
+- author: CorruptOmega
+  changes:
+  - message: Added Salvage Belt and Rig to Salvage Lead.
+    type: Add
+  id: 75000
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: Changed the starting items that are found within the salvage belt.
+    type: Tweak
+  id: 75001
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: New Salvage Belt and Rig can now be found in Salvage/Mining/Quartermaster
+      Lockers just in case people don't spawn with them.
+    type: Add
+  id: 75002
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: Security Experimental Hardsuit helmet no longer turns certain species
+      into giant walking errors.
+    type: Fix
+  id: 75003
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
 Order: -1
 
