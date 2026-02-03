@@ -1,6 +1,7 @@
 ﻿using Content.Server._FarHorizons.Factions;
 using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Hands.Components;
@@ -13,6 +14,9 @@ using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Station;
+using Content.Shared.Storage;
+using Robust.Server.Containers;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -27,6 +31,8 @@ public sealed class OutfitSystem : EntitySystem
     [Dependency] private readonly SharedStationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!; //Starlight
     [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
+    [Dependency] private readonly ContainerSystem _container = default!; // Far Horizons
+    [Dependency] private readonly StorageSystem _storage = default!; // Far Horizons
 
     public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool unremovable = false)
     {
@@ -42,6 +48,8 @@ public sealed class OutfitSystem : EntitySystem
             profile = _appearance.GetBaseProfile((target, appearanceComponent));
         #endregion Starlight
 
+        var spawnCoords = EntityManager.GetComponent<TransformComponent>(target).Coordinates; // Far Horizons
+
         if (_invSystem.TryGetSlots(target, out var slots))
         {
             foreach (var slot in slots)
@@ -51,7 +59,7 @@ public sealed class OutfitSystem : EntitySystem
                 if (gearStr == string.Empty)
                     continue;
 
-                var equipmentEntity = EntityManager.SpawnEntity(gearStr, EntityManager.GetComponent<TransformComponent>(target).Coordinates);
+                var equipmentEntity = EntityManager.SpawnEntity(gearStr, spawnCoords); // Far Horizons
                 if (slot.Name == "id" &&
                     EntityManager.TryGetComponent(equipmentEntity, out PdaComponent? pdaComponent) &&
                     EntityManager.TryGetComponent<IdCardComponent>(pdaComponent.ContainedId, out var id))
@@ -66,6 +74,34 @@ public sealed class OutfitSystem : EntitySystem
                 onEquipped?.Invoke(target, equipmentEntity);
             }
         }
+
+        // Far Horizons start
+        foreach (var (slotName, entProtos) in startingGear.Storage)
+        {
+            if (entProtos.Count == 0)
+                continue;
+
+            EntityUid? slotEnt = null;
+            StorageComponent? storage = null;
+            BaseContainer? container = null;
+
+            if ((inventoryComponent != null &&
+                _invSystem.TryGetSlotEntity(target, slotName, out slotEnt, inventoryComponent: inventoryComponent) &&
+                TryComp(slotEnt, out storage) ||
+                _container.TryGetContainer(target, slotName, out container)))
+            {
+                foreach (var entProto in entProtos)
+                {
+                    var spawnedEntity = Spawn(entProto, spawnCoords);
+
+                    if (container != null)
+                        _container.Insert(spawnedEntity, container);
+                    else
+                        _storage.Insert(slotEnt!.Value, spawnedEntity, out _, storageComp: storage!, playSound: false);
+                }
+            }
+        }
+        // Far Horizons end
 
         if (EntityManager.TryGetComponent(target, out HandsComponent? handsComponent))
         {
