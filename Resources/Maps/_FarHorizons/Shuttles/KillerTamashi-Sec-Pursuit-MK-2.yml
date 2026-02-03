@@ -3962,7 +3962,7 @@ entities:
     - type: Transform
       pos: -5.5,17.5
       parent: 2
-- proto: ComputerShuttleSecurity
+- proto: ComputerShuttle
   entities:
   - uid: 176
     components:
