@@ -4,6 +4,12 @@ using Content.Shared.Actions;
 
 namespace Content.Shared._FarHorizons.Vehicles;
 
+[ByRefEvent]
+public readonly record struct AddRiderActions(EntityUid Rider);
+
+[ByRefEvent]
+public readonly record struct RemoveRiderActions(EntityUid Rider);
+
 [Serializable, NetSerializable]
 public sealed partial class VehicleRemoveDoAfter : SimpleDoAfterEvent;
 
@@ -20,5 +26,7 @@ public sealed partial class TurnKeysDoAfter : SimpleDoAfterEvent;
 public sealed partial class EjectKeysDoAfter : SimpleDoAfterEvent;
 
 public sealed partial class TurnKeysEvent : InstantActionEvent;
+
 public sealed partial class HornActionEvent : InstantActionEvent;
+
 public sealed partial class ToggleTrunkActionEvent : InstantActionEvent;

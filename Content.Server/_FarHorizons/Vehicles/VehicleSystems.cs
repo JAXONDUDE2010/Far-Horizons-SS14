@@ -17,7 +17,6 @@ using Robust.Shared.Prototypes;
 using System.Numerics;
 using System.Linq;
 using Content.Shared.PowerCell;
-using Robust.Server.GameObjects;
 using Content.Shared._FarHorizons.Vehicles;
 using Robust.Shared.Physics.Events;
 using Content.Server.Stunnable;
@@ -31,7 +30,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Timing;
 using Robust.Shared.Containers;
-using Content.Shared.Light.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Interaction.Components;
 using Content.Shared.DragDrop;
@@ -56,11 +54,9 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Coordinates;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands;
-using Content.Shared.Actions.Components;
 
 namespace Content.Server._FarHorizons.Vehicle;
 
@@ -103,6 +99,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         _projQuery = GetEntityQuery<ProjectileComponent>();
         
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<VehicleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<VehicleComponent, ItemSlotInsertEvent>(OnInsertEvent);
         SubscribeLocalEvent<VehicleComponent, ItemSlotEjectEvent>(OnEjectEvent);
@@ -150,6 +147,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
 
     private void OnComponentStartup(Entity<VehicleComponent> ent, ref ComponentStartup args)
     {
+
         if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp))
         {
             vcComp.PassengerSlot = _container.EnsureContainer<Container>(ent.Owner, vcComp.PassengerSlotId);
@@ -157,11 +155,32 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
     }
 
+    private void OnMapInit(Entity<VehicleComponent> ent, ref MapInitEvent args)
+    {
+        if(TryComp<ContainerManagerComponent>(ent.Owner, out var container))
+        {
+            ent.Comp.hasKeys = container.Containers.Values
+                .SelectMany(c => c.ContainedEntities)
+                .Any(e => _tags.HasTag(e, _vehicleKeyTag));
+        }
+        EnsureComp<VehicleActionsComponent>(ent.Owner);
+        Dirty(ent.Owner, ent.Comp);
+    }
+
     private void OnInsertEvent(Entity<VehicleComponent> ent, ref ItemSlotInsertEvent args)
     {
-        if(ent.Comp.Rider == null) return;
         if(_tags.HasTag(args.Item, _vehicleKeyTag))
         {
+            ent.Comp.hasKeys = true;
+            Dirty(ent.Owner, ent.Comp);
+            var target = args.User;
+            if(target != null)
+            {
+                if(TryComp<BuckleComponent>(target, out var buckleComp) && buckleComp.BuckledTo == ent.Owner && ent.Comp.Rider == null)
+                    SetUpRider(target.Value, ent.Owner, ent.Comp);
+                if(TryComp<VehicleContainerComponent>(ent.Owner, out var vcComp) && vcComp.PassengerSlot.ContainedEntities.Any(x => x == target))
+                    SetUpRider(target.Value, ent.Owner, ent.Comp);
+            }
         }
     }
 
@@ -173,8 +192,10 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         {
             if(ent.Comp.Rider == args.User || ent.Comp.Rider == null)
             {
+                ent.Comp.hasKeys = false;
                 if(ent.Comp.Rider != null)
                 {
+                    UpdateActions(ent.Comp.Rider.Value, false);
                     if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
                         _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
 
@@ -185,6 +206,8 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
                 }
                     
                 TurnOffVehicle(ent.Owner, ent.Comp);
+                _handsSystem.PickupOrDrop(args.User, args.Item);
+                Dirty(ent.Owner, ent.Comp);
             }
             else
             {
@@ -209,10 +232,15 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         if(args.Cancelled) return;
         if(TryComp<ContainerManagerComponent>(ent.Owner, out var container))
         {
-            var keys = container.Containers.Values.FirstOrDefault(x => _tags.HasTag(x.ContainedEntities.First(), _vehicleKeyTag))!.ContainedEntities.First();
-            _handsSystem.PickupOrDrop(args.User, keys);
+            var key = container.Containers.Values.SelectMany(c => c.ContainedEntities).FirstOrDefault(e => _tags.HasTag(e, _vehicleKeyTag));           
+            _handsSystem.PickupOrDrop(args.User, key);
+            ent.Comp.hasKeys = false;
+            Dirty(ent.Owner, ent.Comp);
 
+            TurnOffVehicle(ent.Owner, ent.Comp);
             if(ent.Comp.Rider == null) return;
+            
+            UpdateActions(ent.Comp.Rider.Value, false);
             if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
                 _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
 
@@ -220,8 +248,6 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             {
                 _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
             }
-
-            TurnOffVehicle(ent.Owner, ent.Comp);
         }
     }
 
@@ -797,7 +823,7 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         Dirty(vehicle, vehicleComp);
 
         if( vehicleComp.Rider == null) return;
-        var rider = vehicleComp.Rider!.Value;
+        var rider = vehicleComp.Rider.Value;
         var riderTransform = Transform(rider);
         if(riderTransform.ParentUid !=  vehicle) return;
 
@@ -828,7 +854,11 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
 
         if(_whitelist.IsWhitelistFail(vehicleComp.RiderWhitelist, rider)) return;
-        if(vehicleComp.Rider != null) return;
+        if(!vehicleComp.hasKeys) return;
+        
+        _actions.GrantContainedActions(rider, vehicle);
+        UpdateActions(rider, true);
+
         _mover.SetRelay(rider, vehicle);
         vehicleComp.Rider = rider;
         Dirty(vehicle, vehicleComp);
@@ -846,29 +876,82 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         }
     }
 
+    private void UpdateActions(EntityUid rider, bool gettingOn)
+    {
+        if(!TryComp<RiderComponent>(rider, out var riderComp) || riderComp.Riding == null) return;
+        var vehicle = riderComp.Riding.Value;
+
+        if(!TryComp<VehicleActionsComponent>(vehicle, out var vaComp) 
+            || !TryComp<VehicleComponent>(vehicle, out var vehicleComp)) return;
+
+        if(gettingOn)
+        {
+            if(vaComp.TurnKeysActionEntity == null && vehicleComp.hasKeys)
+                _actions.AddAction(rider, ref vaComp.TurnKeysActionEntity, vaComp.TurnKeysAction, vehicle);
+            if(HasComp<LockComponent>(vehicle) && vaComp.ToggleTrunkActionEntity == null && vehicleComp.hasKeys)
+                _actions.AddAction(rider, ref vaComp.ToggleTrunkActionEntity, vaComp.ToggleTrunkAction, vehicle);
+            if(vehicleComp.HornSound != null && vaComp.HornVehicleActionEntity == null)
+                _actions.AddAction(rider, ref vaComp.HornVehicleActionEntity, vaComp.HornVehicleAction, vehicle);
+
+            var addingActions = new AddRiderActions(rider);
+            RaiseLocalEvent(rider, ref addingActions);
+        }
+        else if(!gettingOn)
+        {
+            if(vaComp.TurnKeysActionEntity != null && !vehicleComp.hasKeys)
+            {
+                _actions.RemoveAction(rider, vaComp.TurnKeysActionEntity);
+                QueueDel(vaComp.TurnKeysActionEntity);
+                vaComp.TurnKeysActionEntity = null;
+            }
+            if(HasComp<LockComponent>(vehicle) && vaComp.ToggleTrunkActionEntity != null && !vehicleComp.hasKeys)
+            {
+                _actions.RemoveAction(rider, vaComp.ToggleTrunkActionEntity);
+                QueueDel(vaComp.ToggleTrunkActionEntity);
+                vaComp.ToggleTrunkActionEntity = null;
+            }
+            if(vehicleComp.HornSound != null && vaComp.HornVehicleActionEntity != null)
+            {
+                _actions.RemoveAction(rider, vaComp.HornVehicleActionEntity);
+                QueueDel(vaComp.HornVehicleActionEntity);
+                vaComp.HornVehicleActionEntity = null;
+            }
+
+            var removingActions = new RemoveRiderActions(rider);
+            RaiseLocalEvent(rider, ref removingActions);
+        }
+
+        Dirty(vehicle, vehicleComp);
+    } 
+
     private void RemoveRider(EntityUid rider, EntityUid vehicle, VehicleComponent vehicleComp)
     {
-        if(HasComp<RelayInputMoverComponent>(rider))
-            RemComp<RelayInputMoverComponent>(rider);
-        if(HasComp<RiderComponent>(rider))
-            RemComp<RiderComponent>(rider);
         _adminLogger.Add(Shared.Database.LogType.Action, Shared.Database.LogImpact.Low, $"{ToPrettyString(rider)} exited vehicle {ToPrettyString(vehicle)}");
-        if(TryComp<InputMoverComponent>(rider, out var imComp) && !imComp.CanMove)
-            _actionBlocker.UpdateCanMove(rider);
-
         foreach(var item in _handsSystem.EnumerateHeld(rider))
         {
             if(HasComp<GunComponent>(item))
                 _gun.RefreshModifiers(item);
         }
 
-        if(rider != vehicleComp.Rider) return;
-        vehicleComp.Rider = null;
-        
-        for (var i = 0; i < vehicleComp.HandsNeeded; i++)
+        if(rider == vehicleComp.Rider)
         {
-            _virtualItem.DeleteInHandsMatching(rider, vehicle);
+            UpdateActions(rider, false);
+            _actions.RemoveProvidedActions(rider, vehicle);
+            vehicleComp.Rider = null;
+            
+            for (var i = 0; i < vehicleComp.HandsNeeded; i++)
+            {
+                _virtualItem.DeleteInHandsMatching(rider, vehicle);
+            }
         }
+
+        if(HasComp<RelayInputMoverComponent>(rider))
+            RemComp<RelayInputMoverComponent>(rider);
+        if(HasComp<RiderComponent>(rider))
+            RemComp<RiderComponent>(rider);
+                
+        if(TryComp<InputMoverComponent>(rider, out var imComp) && !imComp.CanMove)
+            _actionBlocker.UpdateCanMove(rider);
 
         Dirty(vehicle, vehicleComp);
     }

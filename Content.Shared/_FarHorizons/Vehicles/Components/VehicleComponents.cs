@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Content.Shared.Whitelist;
 
@@ -19,6 +18,12 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RequireIgnition = false;
+
+    /// <summary>
+    /// Check for keys in the vehicle
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool hasKeys = false;
 
     /// <summary>
     /// check if a vehicle requires ignition before allowing it to move
