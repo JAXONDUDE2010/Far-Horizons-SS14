@@ -38,7 +38,7 @@
   - type: Icon
     sprite: Structures/Power/Generation/Singularity/containment.rsi
     state: icon
-  - type: ContainmentFieldGenerator
+  - type: GenericFieldGenerator
     createdField: HolographicField
     powerLoss: 5
   - type: PointLight
@@ -50,19 +50,19 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ContainmentFieldGeneratorVisuals.PowerLight:
+      enum.GenericFieldGeneratorVisuals.PowerLight:
         powerLight:
           NoPower: {visible: false}
           LowPower: {visible: true, state: p1}
           MediumPower: {visible: true, state: p3}
           HighPower: {visible: true, state: p6}
-      enum.ContainmentFieldGeneratorVisuals.FieldLight:
+      enum.GenericFieldGeneratorVisuals.FieldLight:
         fieldLight:
           NoLevel: {visible: false}
           On: {visible: true, state: a1}
           OneField: {visible: true, state: a2}
           MultipleFields: {visible: true, state: a3}
-      enum.ContainmentFieldGeneratorVisuals.OnLight:
+      enum.GenericFieldGeneratorVisuals.OnLight:
         connectedLight:
           True: { visible: true }
           False: { visible: false }
