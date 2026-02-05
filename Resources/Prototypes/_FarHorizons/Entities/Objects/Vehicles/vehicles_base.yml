@@ -91,10 +91,7 @@
       southOffset: "0, -0.15"
       eastOffset: "0, -0.15"
       westOffset: "-0, -0.15"
-      northDrawDepth: OverMobs
       southDrawDepth: BelowMobs
-      eastDrawDepth: OverMobs
-      westDrawDepth: OverMobs
     - type: MovementSpeedModifier
       baseSprintSpeed: 4.5
       baseWalkSpeed: 2.5
@@ -166,8 +163,6 @@
       southOffset: "0, -0.25"
       eastOffset: "0, -0.25"
       westOffset: "-0, -0.25"
-      northDrawDepth: OverMobs
-      southDrawDepth: OverMobs
       eastDrawDepth: BelowMobs
       westDrawDepth: BelowMobs
     - type: MovementSpeedModifier

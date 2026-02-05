@@ -41,8 +41,6 @@
     southOffset: "0, -0.12"
     eastOffset: "0, -0.2"
     westOffset: "-0, -0.2"
-    northDrawDepth: OverMobs
-    southDrawDepth: OverMobs
     eastDrawDepth: BelowMobs
     westDrawDepth: BelowMobs
   - type: Sprite
@@ -418,7 +416,6 @@
     eastOffset: "0, -0.2"
     westOffset: "-0, -0.2"
     northDrawDepth: BelowMobs
-    southDrawDepth: OverMobs
     eastDrawDepth: BelowMobs
     westDrawDepth: BelowMobs
   - type: Sprite

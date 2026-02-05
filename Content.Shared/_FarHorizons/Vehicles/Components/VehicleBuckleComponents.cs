@@ -70,23 +70,23 @@ public sealed partial class VehicleBuckleComponent : Component
     /// What drawdepth is used for north
     /// </summary>
     [DataField("northDrawDepth", customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>)), AutoNetworkedField]
-    public int northDrawDepth = DrawDepthTag.Default;
+    public int northDrawDepth = DrawDepthTag.Default + 7;
 
     /// <summary>
     /// What drawdepth is used for south
     /// </summary>
     [DataField("southDrawDepth", customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>)), AutoNetworkedField]
-    public int southDrawDepth = DrawDepthTag.Default;
+    public int southDrawDepth = DrawDepthTag.Default + 7;
 
     /// <summary>
     /// What drawdepth is used for south
     /// </summary>
     [DataField("eastDrawDepth", customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>)), AutoNetworkedField]
-    public int eastDrawDepth = DrawDepthTag.Default;
+    public int eastDrawDepth = DrawDepthTag.Default + 7;
 
     /// <summary>
     /// What drawdepth is used for south
     /// </summary>
     [DataField("westDrawDepth", customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>)), AutoNetworkedField]
-    public int westDrawDepth = DrawDepthTag.Default;
+    public int westDrawDepth = DrawDepthTag.Default + 7;
 }
