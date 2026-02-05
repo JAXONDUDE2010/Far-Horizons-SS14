@@ -17,7 +17,7 @@
       layers:
         - map: [ enum.LightBulbVisualLayers.Base ]
           state: normal
-
+          
 - type: entity
   id: SecwayLight
   parent: BaseItem

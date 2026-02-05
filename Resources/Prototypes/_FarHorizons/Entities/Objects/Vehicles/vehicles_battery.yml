@@ -35,6 +35,10 @@
     - state: vehicle
       map: ["enum.VehicleVisualLayers.Base"]
     noRot: true
+  - type: VehicleMods
+    startingEquipment:
+      - SecwayLight
+      - SecSiren
   - type: Strap
   - type: Fixtures
     fixtures:
@@ -98,9 +102,6 @@
         - PowerCellMedium
         key_slot:
         - VehicleKeySecway
-        vehicle_mods_container:
-        - SecwayLight
-        - SecSiren
 
 - type: entity
   id: VehicleSecwayBatterywithKeysS

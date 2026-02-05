@@ -1,9 +1,14 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class VehicleEquipmentComponent : Component
 {
+    [DataField]
+    public EntProtoId? ActionId;
     
+    [ViewVariables, AutoNetworkedField] 
+    public EntityUid? ActionEntity;
 }
