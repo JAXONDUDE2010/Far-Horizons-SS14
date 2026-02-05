@@ -7,6 +7,8 @@
   - Controls
   - CharacterCreation
 
+# Far Horizons - moved Controls to our folder
+
 - type: guideEntry
   id: Radio
   name: guide-entry-radio
