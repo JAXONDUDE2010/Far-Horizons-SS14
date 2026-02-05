@@ -1,6 +1,8 @@
+#region Base turbines
 - type: entity
-  id: Turbine
+  id: BaseGasTurbine
   parent: BaseStructure
+  abstract: true
   name: gas turbine
   description: A large turbine used for generating power using hot gas.
   components:
@@ -113,18 +115,15 @@
     interfaces:
       enum.TurbineUiKey.Key:
         type: TurbineBoundUserInterface
-  - type: AccessReader # Keeps some random tider from blowing up the turbine
-    access: [["Engineering"]]
-  - type: Lock
-    unlockOnClick: false
   - type: GuideHelp
     guides:
     - NuclearReactor
     - Power
 
 - type: entity
-  id: TurbineSmall
-  parent: Turbine
+  id: BaseGasTurbineSmall
+  parent: BaseGasTurbine
+  abstract: true
   name: small gas turbine
   description: A small turbine used for generating power using hot gas.
   components:
@@ -151,11 +150,48 @@
     inletRot: 0 
     outletPos: -1, -1
     outletRot: 0 
-    arrowPrototype: TurbineSmallFlowArrow
+    arrowPrototype: GasTurbineSmallFlowArrow
+
+- type: entity
+  id: GasTurbineCrew
+  abstract: true
+  components:
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+
+- type: entity
+  id: GasTurbineSalvage
+  abstract: true
+#endregion
+
+#region Crew turbines
+- type: entity
+  id: GasTurbineNormal
+  parent: [BaseGasTurbine, GasTurbineCrew]
+
+- type: entity
+  id: GasTurbineSmall
+  parent: [BaseGasTurbineSmall, GasTurbineCrew]
+#endregion
+
+#region Salvage turbines
+- type: entity
+  id: GasTurbineNormalSalvage
+  parent: [BaseGasTurbine, GasTurbineSalvage]
+  suffix: "Salvage"
+
+- type: entity
+  id: GasTurbineSmallSalvage
+  parent: [BaseGasTurbineSmall, GasTurbineSalvage]
+  suffix: "Salvage"
+#endregion
   
+#region Support Entities
 # Arrow to indicate flow
 - type: entity
-  id: TurbineFlowArrow
+  id: GasTurbineFlowArrow
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
@@ -175,8 +211,8 @@
         - HideContextMenu
 
 - type: entity
-  id: TurbineSmallFlowArrow
-  parent: TurbineFlowArrow
+  id: GasTurbineSmallFlowArrow
+  parent: GasTurbineFlowArrow
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
@@ -190,7 +226,7 @@
 
 # Pipes the turbine uses to connect to the pipe network
 - type: entity
-  id: TurbineGasPipe
+  id: GasTurbineGasPipe
   categories: [ HideSpawnMenu ]
   components:
   - type: Transform
@@ -237,3 +273,53 @@
     enabled: false
     sound:
       path: /Audio/_FarHorizons/Machines/alarm_buzzer.ogg
+
+- type: entity
+  id: GasTurbineBladeShrapnel
+  name: gas turbine blade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FlyBySound
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: metal-1
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    deleteOnCollide: false
+    damage:
+      types: # hit hard ye
+        Piercing: 25
+        Slash: 75
+        Structural: 400
+    soundHit:
+      path: /Audio/Effects/metal_crunch.ogg
+    penetrationThreshold: 400
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: TimedDespawn
+    lifetime: 0.3
+#endregion

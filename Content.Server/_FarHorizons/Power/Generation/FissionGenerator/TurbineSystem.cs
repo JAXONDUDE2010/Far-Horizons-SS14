@@ -375,7 +375,7 @@ public sealed class TurbineSystem : EntitySystem
         var ShrapnelCount = _random.Next(5, 20);
         for (var i=0;i< ShrapnelCount; i++)
         {
-            _gun.ShootProjectile(Spawn("TurbineBladeShrapnel", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextVector2(2, 6), uid, uid);
+            _gun.ShootProjectile(Spawn("GasTurbineBladeShrapnel", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextVector2(2, 6), uid, uid);
         }
     }
     #endregion

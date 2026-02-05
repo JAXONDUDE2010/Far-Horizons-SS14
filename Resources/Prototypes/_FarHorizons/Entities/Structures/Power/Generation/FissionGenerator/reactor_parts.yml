@@ -1,7 +1,8 @@
+#region Base Parts
 - type: entity
   id: BaseReactorPart
   parent: BaseItem
-  categories: [ HideSpawnMenu ]
+  abstract: true
   components:
   - type: ReactorPart
   - type: Sprite
@@ -18,11 +19,10 @@
     - NuclearReactor
     - Power
 
-# Fuel Rods
 - type: entity
   id: BaseReactorFuelRod
   parent: [ BaseReactorPart, BaseEngineeringContraband ]
-  categories: [ HideSpawnMenu ]
+  abstract: true
   name: fuel rod
   description: A fuel rod for a nuclear reactor.
   components:
@@ -57,6 +57,124 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.2
 
+- type: entity
+  id: BaseReactorControlRod
+  parent: BaseReactorPart
+  abstract: true
+  name: control rod
+  description: A control rod assembly for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    rodType: 2
+    iconStateInserted: "control"
+    iconStateCap: "control_cap"
+    isControlRod: true
+    neutronCrossSection: 2.0
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+
+- type: entity
+  id: BaseReactorGasChannel
+  parent: BaseReactorPart
+  abstract: true
+  name: gas channel rod
+  description: A gas channel for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    rodType: 4
+    iconStateInserted: "gas"
+    iconStateCap: "gas_cap"
+    thermalCrossSection: 15
+    gasVolume: 100
+    thermalMass: 21000
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+
+- type: entity
+  id: BaseReactorHeatExchanger
+  parent: BaseReactorPart
+  abstract: true
+  name: heat exchanger rod
+  description: A heat exchanger for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    iconStateInserted: "heat"
+    iconStateCap: "heat_cap"
+    neutronCrossSection: 0.1
+    thermalCrossSection: 25
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+#endregion
+
+#region Materials
+- type: entity
+  id: ReactorPartMaterialBohrum
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Bohrum
+
+- type: entity
+  id: ReactorPartMaterialSteel
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Steel
+
+- type: entity
+  id: ReactorPartMaterialGold
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Gold
+
+- type: entity
+  id: ReactorPartMaterialSilver
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Silver
+
+- type: entity
+  id: ReactorPartMaterialBrass
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Brass
+
+- type: entity
+  id: ReactorPartMaterialPlasteel
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Plasteel
+
+- type: entity
+  id: ReactorPartMaterialGlass
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Glass
+
+- type: entity
+  id: ReactorPartMaterialPlasmaGlass
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: PlasmaGlass
+
+- type: entity
+  id: ReactorPartMaterialDiamond
+  abstract: true
+  components:
+  - type: ReactorPart
+    material: Diamond
+#endregion
+
+#region Fuel Rods
 - type: entity
   id: CerenkiteReactorFuelRod
   parent: BaseReactorFuelRod
@@ -132,29 +250,13 @@
       density: 3
       flammable: 3
       radioactive: 5
+#endregion
 
-# Control Rods
-- type: entity
-  id: BaseReactorControlRod
-  parent: BaseReactorPart
-  categories: [ HideSpawnMenu ]
-  name: control rod
-  description: A control rod assembly for a nuclear reactor.
-  components:
-  - type: ReactorPart
-    rodType: 2
-    iconStateInserted: "control"
-    iconStateCap: "control_cap"
-    isControlRod: true
-    neutronCrossSection: 2.0
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 250
-
+#region Control Rods
 - type: entity
   id: BohrumReactorControlRod
-  parent: BaseReactorControlRod # what the crew start with
-  name: bohrum control rod
+  parent: [BaseReactorControlRod, ReactorPartMaterialBohrum]
+  name: bohrum control rod # what the crew start with
   components:
   - type: ReactorPart
     material: Bohrum
@@ -165,22 +267,18 @@
 
 - type: entity
   id: SteelReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialSteel]
   name: steel control rod
   components:
-  - type: ReactorPart
-    material: Steel
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500
 
 - type: entity
   id: GoldReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialGold]
   name: gold control rod
   components:
-  - type: ReactorPart
-    material: Gold
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -188,11 +286,9 @@
 
 - type: entity
   id: SilverReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialSilver]
   name: silver control rod
   components:
-  - type: ReactorPart
-    material: Silver
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -200,11 +296,9 @@
 
 - type: entity
   id: BrassReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialBrass]
   name: brass control rod
   components:
-  - type: ReactorPart
-    material: Brass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -212,11 +306,9 @@
 
 - type: entity
   id: PlasteelReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialPlasteel]
   name: plasteel control rod
   components:
-  - type: ReactorPart
-    material: Plasteel
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -224,11 +316,9 @@
 
 - type: entity
   id: GlassReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialGlass]
   name: glass control rod
   components:
-  - type: ReactorPart
-    material: Glass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -236,11 +326,9 @@
 
 - type: entity
   id: PlasmaGlassReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialPlasmaGlass]
   name: plasma glass control rod
   components:
-  - type: ReactorPart
-    material: PlasmaGlass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -248,53 +336,30 @@
 
 - type: entity
   id: DiamondReactorControlRod
-  parent: BaseReactorControlRod
+  parent: [BaseReactorControlRod, ReactorPartMaterialDiamond]
   name: diamond control rod
   components:
-  - type: ReactorPart
-    material: Diamond
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
       Diamond: 500
+#endregion
 
-# Gas Channel Rods
-- type: entity
-  id: BaseReactorGasChannel
-  parent: BaseReactorPart
-  categories: [ HideSpawnMenu ]
-  name: gas channel rod
-  description: A gas channel for a nuclear reactor.
-  components:
-  - type: ReactorPart
-    rodType: 4
-    iconStateInserted: "gas"
-    iconStateCap: "gas_cap"
-    thermalCrossSection: 15
-    gasVolume: 100
-    thermalMass: 21000
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 250
-
+#region Gas Channel Rods
 - type: entity
   id: SteelReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialSteel]
   name: steel gas channel rod
   components:
-  - type: ReactorPart
-    material: Steel
   - type: PhysicalComposition
     materialComposition:
       Steel: 500
 
 - type: entity
   id: GoldReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialGold]
   name: gold gas channel rod
   components:
-  - type: ReactorPart
-    material: Gold
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -302,11 +367,9 @@
 
 - type: entity
   id: SilverReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialSilver]
   name: silver gas channel rod
   components:
-  - type: ReactorPart
-    material: Silver
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -314,11 +377,9 @@
 
 - type: entity
   id: BrassReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialBrass]
   name: brass gas channel rod
   components:
-  - type: ReactorPart
-    material: Brass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -326,11 +387,9 @@
 
 - type: entity
   id: PlasteelReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialPlasteel]
   name: plasteel gas channel rod
   components:
-  - type: ReactorPart
-    material: Plasteel
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -338,11 +397,9 @@
 
 - type: entity
   id: GlassReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialGlass]
   name: glass gas channel rod
   components:
-  - type: ReactorPart
-    material: Glass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -350,11 +407,9 @@
 
 - type: entity
   id: PlasmaGlassReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialPlasmaGlass]
   name: plasma glass gas channel rod
   components:
-  - type: ReactorPart
-    material: PlasmaGlass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -362,51 +417,30 @@
 
 - type: entity
   id: DiamondReactorGasChannel
-  parent: BaseReactorGasChannel
+  parent: [BaseReactorGasChannel, ReactorPartMaterialDiamond]
   name: diamond gas channel rod
   components:
-  - type: ReactorPart
-    material: Diamond
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
       Diamond: 250
+#endregion
 
-# Heat Exchanger Rods
-- type: entity
-  id: BaseReactorHeatExchanger
-  parent: BaseReactorPart
-  categories: [ HideSpawnMenu ]
-  name: heat exchanger rod
-  description: A heat exchanger for a nuclear reactor.
-  components:
-  - type: ReactorPart
-    iconStateInserted: "heat"
-    iconStateCap: "heat_cap"
-    neutronCrossSection: 0.1
-    thermalCrossSection: 25
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 250
-
+#region Heat Exchanger Rods
 - type: entity
   id: SteelReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialSteel]
   name: steel heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Steel
   - type: PhysicalComposition
     materialComposition:
       Steel: 625
 
 - type: entity
   id: GoldReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialGold]
   name: gold heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Gold
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -414,11 +448,9 @@
 
 - type: entity
   id: SilverReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialSilver]
   name: silver heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Silver
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -426,11 +458,9 @@
 
 - type: entity
   id: BrassReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialBrass]
   name: brass heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Brass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -438,11 +468,9 @@
 
 - type: entity
   id: PlasteelReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialPlasteel]
   name: plasteel heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Plasteel
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -450,11 +478,9 @@
 
 - type: entity
   id: GlassReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialGlass]
   name: glass heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Glass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -462,11 +488,9 @@
 
 - type: entity
   id: PlasmaGlassReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialPlasmaGlass]
   name: plasma glass heat exchanger rod
   components:
-  - type: ReactorPart
-    material: PlasmaGlass
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
@@ -474,15 +498,14 @@
 
 - type: entity
   id: DiamondReactorHeatExchanger
-  parent: BaseReactorHeatExchanger
+  parent: [BaseReactorHeatExchanger, ReactorPartMaterialDiamond]
   name: diamond heat exchanger rod
   components:
-  - type: ReactorPart
-    material: Diamond
   - type: PhysicalComposition
     materialComposition:
       Steel: 250
       Diamond: 275
+#endregion
 
 # Parts to chose from for a random prefab
 - type: weightedRandom
