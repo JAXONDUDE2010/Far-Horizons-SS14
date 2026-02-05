@@ -10,7 +10,7 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// The person in control of this vehicle
     /// </summary>
-    [DataField("rider"), AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? Rider;
 
     /// <summary>
@@ -22,43 +22,43 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// Check for keys in the vehicle
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool hasKeys = false;
 
     /// <summary>
     /// check if a vehicle requires ignition before allowing it to move
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool Started = false;
 
     /// <summary>
     /// Is it powered by a power cell?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool CellPowered = true;
 
     /// <summary>
     /// check if a person is allow to wield a weapon for two handed bonuses
     /// </summary>
-    [DataField("disallowWielding"), AutoNetworkedField]
+    [DataField("disallowWielding")]
     public bool DisallowWieldingGuns = false;
 
     /// <summary>
     /// check if a person takes stamina damage from shooting while in a vehicle
     /// </summary>
-    [DataField("allowGunKnockback"), AutoNetworkedField]
+    [DataField("allowGunKnockback")]
     public bool AllowGunKnockback = false;
 
     /// <summary>
     /// just to check for if the vehicle is moving for other things
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool isMoving = false;
 
     /// <summary>
     /// just to check for if the vehicle is broken
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool isBroken = false;
 
     /// <summary>
@@ -109,15 +109,15 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// Sound played whenever running over someone or crashing
     /// </summary>
-    [DataField("soundHit", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("soundHit", required: true)]
     public SoundSpecifier SoundHit = default!;
 
     [DataField]
     public EntityWhitelist? RiderWhitelist;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string? BaseState;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string? BrokenState;
 }
