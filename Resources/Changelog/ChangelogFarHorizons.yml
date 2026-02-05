@@ -6499,5 +6499,21 @@ Entries:
   id: 71503
   time: '2026-02-03T23:41:07.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists will no longer steal Salvage bags on top of their
+      own at spawn.
+    type: Fix
+  id: 76200
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists can now choose to spawn with an Ore Bag or Salvage
+      Belt in their belt slot, so they stop dropping an Ore Bag at their feet.
+    type: Fix
+  id: 76201
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
 Order: -1
 
