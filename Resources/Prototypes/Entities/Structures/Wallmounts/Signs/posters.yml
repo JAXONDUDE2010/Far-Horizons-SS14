@@ -1124,6 +1124,15 @@
 
 - type: entity
   parent: PosterBase
+  id: PosterKSPD
+  name: K.S.P.D Warning
+  description: "A poster warning crew to get proper training before using shuttles, warning to not be like someone called 'Killer Tamashi'"
+  components:
+  - type: Sprite
+    state: poster56_legit
+
+- type: entity
+  parent: PosterBase
   id: PosterLegitBotanyFear
   name: "Fear of hydroponics"
   description: "Think three times before opening the airlock to hydroponics, a red threat might be hiding there."
