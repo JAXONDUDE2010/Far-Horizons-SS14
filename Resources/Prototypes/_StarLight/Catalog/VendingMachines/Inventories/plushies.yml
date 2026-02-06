@@ -665,7 +665,7 @@
 
 - type: listing
   id: VendorPlushieBreaks
-  productEntity: PlushieGuards #why was i in here for 20 dollars :fall:
+  productEntity: PlushieGuards # FAR HORIZONS | corrupt omega is mean
   cost:
     NTCredit: 1000
   categories:
