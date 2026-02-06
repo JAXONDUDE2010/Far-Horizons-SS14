@@ -664,10 +664,10 @@
       stock: 1
 
 - type: listing
-  id: VendorPlushieBreaks
+  id: VendorPlushieBreaks # far horizons | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   productEntity: PlushieGuards # FAR HORIZONS | corrupt omega is mean
   cost:
-    NTCredit: 1000
+    NTCredit: 1000 # far horizons | stupid fucking
   categories:
     - SLCrew
   conditions:
