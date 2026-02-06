@@ -49,7 +49,7 @@
   name: Unlocks/Lock Trunk
   components:
   - type: Action  
-    useDelay: 4
+    useDelay: 1
     icon:
       sprite: Structures/Storage/Crates/generic.rsi
       state: icon
