@@ -6352,5 +6352,241 @@ Entries:
   id: 74901
   time: '2026-02-01T23:47:56.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/749
+- author: CorruptOmega
+  changes:
+  - message: Added Salvage Belt and Rig to Salvage Lead.
+    type: Add
+  id: 75000
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: Changed the starting items that are found within the salvage belt.
+    type: Tweak
+  id: 75001
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: New Salvage Belt and Rig can now be found in Salvage/Mining/Quartermaster
+      Lockers just in case people don't spawn with them.
+    type: Add
+  id: 75002
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: CorruptOmega
+  changes:
+  - message: Security Experimental Hardsuit helmet no longer turns certain species
+      into giant walking errors.
+    type: Fix
+  id: 75003
+  time: '2026-02-03T18:13:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/750
+- author: Shades
+  changes:
+  - message: Fixed BubbleChat not showing fonts and languages icons.
+    type: Fix
+  id: 74800
+  time: '2026-02-03T18:16:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/748
+- author: Sprited by Pipe Toad Council, Prototyped by CorruptOmega
+  changes:
+  - message: Added Syndicate Operations Agent Hardsuit
+    type: Add
+  id: 73900
+  time: '2026-02-03T18:19:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/739
+- author: Sprited by Pipe Toad Council, Prototyped by CorruptOmega
+  changes:
+  - message: Added Syndicate Operations Agent Locker (Still using NTR locker sprite)
+    type: Add
+  id: 73901
+  time: '2026-02-03T18:19:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/739
+- author: lightening_orb
+  changes:
+  - message: gravity & anchor to SHC
+    type: Fix
+  id: 75400
+  time: '2026-02-03T18:31:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/754
+- author: lightening_orb
+  changes:
+  - message: SHC dorms
+    type: Add
+  id: 75401
+  time: '2026-02-03T18:31:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/754
+- author: lightening_orb
+  changes:
+  - message: SHC Dock Blocking on spawn
+    type: Remove
+  id: 75402
+  time: '2026-02-03T18:31:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/754
+- author: princess_gurchi
+  changes:
+  - message: Salvage nuclear power plant dungeon now has empty unlocked reactors so
+      you can take one home and keep it as a pet.
+    type: Tweak
+  id: 75300
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: princess_gurchi
+  changes:
+  - message: Bodies that some salvage missions spawn will no longer have headsets
+    type: Tweak
+  id: 75301
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: princess_gurchi
+  changes:
+  - message: '"Found coordinates" salvage missions now spawn bodies, higher difficulty
+      = more bodies'
+    type: Tweak
+  id: 75302
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: princess_gurchi
+  changes:
+  - message: Communism and elder expeditions have a separate objective-less mission
+      that doesn't spawn bodies
+    type: Tweak
+  id: 75303
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: princess_gurchi
+  changes:
+  - message: Salvage missions now reward some spesos alongside tickets. Go make your
+      QM proud
+    type: Add
+  id: 75304
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: princess_gurchi
+  changes:
+  - message: Rescue missions will now grant bonuses for bodies not being rotten instead
+      of damage healed.
+    type: Tweak
+  id: 75305
+  time: '2026-02-03T18:35:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/753
+- author: KarusKardin
+  changes:
+  - message: Abby's Blast Door Sprite
+    type: Add
+  id: 71500
+  time: '2026-02-03T23:41:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: KarusKardin
+  changes:
+  - message: Abby's Shutter Sprites
+    type: Add
+  id: 71501
+  time: '2026-02-03T23:41:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: KarusKardin
+  changes:
+  - message: Abby's External Airlock Sprites
+    type: Add
+  id: 71502
+  time: '2026-02-03T23:41:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: KarusKardin
+  changes:
+  - message: Abby's Plastitanium Window
+    type: Add
+  id: 71503
+  time: '2026-02-03T23:41:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists will no longer steal Salvage bags on top of their
+      own at spawn.
+    type: Fix
+  id: 76200
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists can now choose to spawn with an Ore Bag or Salvage
+      Belt in their belt slot, so they stop dropping an Ore Bag at their feet.
+    type: Fix
+  id: 76201
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
+- author: princess_gurchi
+  changes:
+  - message: Support for automatically implanting subdermal implants from character
+      loadout or admin commands
+    type: Add
+  id: 76000
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Protogens now have their radio automatically implanted on spawn
+    type: Add
+  id: 76001
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Nukies now have their acidifier automatically implanted on spawn
+    type: Add
+  id: 76002
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: CC outfits also come with implants on equip
+    type: Add
+  id: 76003
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Macro-bomb implant now replaces acidifier when installed
+    type: Tweak
+  id: 76004
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: lightening_orb
+  changes:
+  - message: Added KSDP Poster. Killer's so good at driving that command actively
+      war-, advises people to drive safely!
+    type: Add
+  id: 76400
+  time: '2026-02-05T17:08:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/764
+- author: princess_gurchi
+  changes:
+  - message: keybind for smart equip to rig (ctrl+E by default)
+    type: Add
+  id: 76800
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: princess_gurchi
+  changes:
+  - message: keybind for open rig (ctrl+V by default)
+    type: Add
+  id: 76801
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: princess_gurchi
+  changes:
+  - message: keybind for equip to tank slot (ctrl+F by default)
+    type: Add
+  id: 76802
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: Roro
+  changes:
+  - message: Cloaking and Invis modules for stealth xenoborg are no longer infinite
+      duration, this was a bug, its intended times were written in code but broken.
+    type: Fix
+  id: 77000
+  time: '2026-02-06T12:15:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/770
 Order: -1
 
