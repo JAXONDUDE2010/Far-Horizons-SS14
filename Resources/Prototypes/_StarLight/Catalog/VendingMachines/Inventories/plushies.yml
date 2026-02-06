@@ -665,7 +665,7 @@
 
 - type: listing
   id: VendorPlushieBreaks # far horizons | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-  productEntity: PlushieGuards # FAR HORIZONS | corrupt omega is mean
+  productEntity: PlushieBreaks # FAR HORIZONS | corrupt omega is mean
   cost:
     NTCredit: 1000 # far horizons | stupid fucking
   categories:

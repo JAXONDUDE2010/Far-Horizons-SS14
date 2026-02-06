@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseLizardPlushie
-  id: PlushieGuards
+  id: PlushieBreaks # far horizons | im gonna fucking loose it
   name: Guards Plushie
   description: Guarding your sector at the low cost of your sanity! #yeah my sanitys gone too
   components:
@@ -12,7 +12,7 @@
     state: icon
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Animals/lizard_happy.ogg
+      path: /Audio/Animals/wawa_yawn.ogg # far horizons | changing this because of wizden removing liz happy cus copyright
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
