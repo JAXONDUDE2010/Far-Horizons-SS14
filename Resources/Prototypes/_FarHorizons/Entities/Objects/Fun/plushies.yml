@@ -2,7 +2,7 @@
   parent: BaseLizardPlushie
   id: PlushieGuards
   name: Guards Plushie
-  description: Your least favorite protector. Dont blame him... He is just a lil guy!
+  description: Guarding your sector at the low cost of your sanity! #yeah my sanitys gone too
   components:
   - type: Item
     size: Small
