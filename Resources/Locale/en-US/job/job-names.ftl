@@ -60,18 +60,28 @@ job-name-zookeeper = Zookeeper
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
 job-name-geneticist = Geneticist
+job-name-boxer = Boxer
 job-name-no-id = No ID
 job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
-job-name-syndicate = Syndicate
 job-name-unknown = Unknown
 job-name-virologist = Virologist
+job-name-zookeeper = Zookeeper
+
+# antagonist jobs
+job-name-ninja = Ninja
+job-name-syndicate = Syndicate
+job-name-syndicate-commander = Syndicate Commander
+job-name-syndicate-corpsman = Syndicate Corpsman
+job-name-syndicate-operative = Syndicate Operative
+job-name-pirate = Pirate
+job-name-wizard = Wizard
 job-name-zombie = Zombie
 
 # Job titles
-job-title-visitor = Visitor
 job-title-cluwne = Cluwne
 job-title-universal = Universal
+job-title-visitor = Visitor
 
 # Role timers - Make these alphabetical or I cut you
 JobAssistant = Assistant

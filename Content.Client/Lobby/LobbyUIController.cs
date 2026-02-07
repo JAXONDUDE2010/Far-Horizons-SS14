@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Client.Body;
 using Content.Client.Guidebook;
-using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
@@ -41,7 +41,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
     [Dependency] private readonly ISharedFactionManager _factions = default!; // Far Horizons
-    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    //[UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!; NuBody removal
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;

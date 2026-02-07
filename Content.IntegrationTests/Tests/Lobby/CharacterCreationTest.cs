@@ -110,4 +110,39 @@ public sealed class CharacterCreationTest
         });
         await pair.CleanReturnAsync();
     }
+
+    private void AssertEqual(HumanoidCharacterProfile a, HumanoidCharacterProfile b)
+    {
+        if (a.MemberwiseEquals(b))
+            return;
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(a.Name, Is.EqualTo(b.Name));
+            Assert.That(a.Age, Is.EqualTo(b.Age));
+            Assert.That(a.Sex, Is.EqualTo(b.Sex));
+            Assert.That(a.Gender, Is.EqualTo(b.Gender));
+            Assert.That(a.Species, Is.EqualTo(b.Species));
+            Assert.That(a.PreferenceUnavailable, Is.EqualTo(b.PreferenceUnavailable));
+            Assert.That(a.SpawnPriority, Is.EqualTo(b.SpawnPriority));
+            Assert.That(a.FlavorText, Is.EqualTo(b.FlavorText));
+            Assert.That(a.JobPriorities, Is.EquivalentTo(b.JobPriorities));
+            Assert.That(a.AntagPreferences, Is.EquivalentTo(b.AntagPreferences));
+            Assert.That(a.TraitPreferences, Is.EquivalentTo(b.TraitPreferences));
+            Assert.That(a.Loadouts, Is.EquivalentTo(b.Loadouts));
+            AssertEqual(a.Appearance, b.Appearance);
+            Assert.Fail("Profile not equal");
+        });
+    }
+
+    private void AssertEqual(HumanoidCharacterAppearance a, HumanoidCharacterAppearance b)
+    {
+        if (a.Equals(b))
+            return;
+
+        Assert.That(a.EyeColor, Is.EqualTo(b.EyeColor));
+        Assert.That(a.SkinColor, Is.EqualTo(b.SkinColor));
+        Assert.That(a.Markings, Is.EquivalentTo(b.Markings));
+        Assert.Fail("Appearance not equal");
+    }
 }
