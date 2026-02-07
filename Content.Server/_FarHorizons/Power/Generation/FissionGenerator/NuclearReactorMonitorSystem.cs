@@ -170,6 +170,9 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
 
     private void CheckRange(EntityUid uid, NuclearReactorMonitorComponent comp)
     {
+        if(comp.Unlimited)
+            return;
+        
         if (!_entityManager.TryGetComponent<DeviceLinkSinkComponent>(uid, out var sink) || sink.LinkedSources.Count < 1)
             return;
 
