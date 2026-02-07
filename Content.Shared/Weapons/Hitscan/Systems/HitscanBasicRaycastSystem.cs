@@ -21,6 +21,7 @@ using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared._Starlight.NullSpace;
+using Content.Shared.Tag;
 
 using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared._FarHorizons.LimbDamage;
@@ -35,6 +36,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!; //Starlight -- arming distance
     [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;

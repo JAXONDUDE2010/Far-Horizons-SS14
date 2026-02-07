@@ -5,6 +5,8 @@ using Content.Shared.Body;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Starlight;
+using Content.Shared._Starlight.Cybernetics;
+using Content.Shared._Starlight.Cybernetics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 
@@ -16,6 +18,8 @@ public sealed partial class CyberLimbSystem : EntitySystem
         SubscribeLocalEvent<LimbItemDeployerComponent, ToggleLimbEvent>(OnLimbToggle);
         SubscribeLocalEvent<LimbItemDeployerComponent, OrganGotInsertedEvent>(LimbWithItemsInserted);
         SubscribeLocalEvent<LimbItemDeployerComponent, OrganGotRemovedEvent>(LimbWithItemsRemoved);
+
+        SubscribeLocalEvent<LimbItemDeployerComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted);
     }
 
     private void LimbWithItemsInserted(Entity<LimbItemDeployerComponent> ent, ref OrganGotInsertedEvent args) => 
@@ -40,8 +44,8 @@ public sealed partial class CyberLimbSystem : EntitySystem
     {
         if (!TryComp<LimbItemStorageComponent>(ent, out var storage))
             return;
-
-        ent.Comp.Toggled = !ent.Comp.Toggled;
+            
+        ent.Comp.Toggled = !ent.Comp.Toggled && (!ent.Comp.IsCybernetic || !TryComp(args.Performer, out CyberneticDisruptionComponent? _));
 
         if (ent.Comp.Toggled)
         {
@@ -75,5 +79,20 @@ public sealed partial class CyberLimbSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.Sound, args.Performer);
 
         Dirty(ent);
+    }
+
+    private void OnCyberneticsDisrupted(Entity<LimbItemDeployerComponent> ent, ref CyberneticDisruptionEvent args)
+    {
+        if(!ent.Comp.IsCybernetic)
+            return;
+
+        if (ent.Comp.Toggled)
+        {
+            var ev = new ToggleLimbEvent
+            {
+                Performer = args.Target,
+            };
+            RaiseLocalEvent(ent, ev);
+        }
     }
 }

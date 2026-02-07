@@ -97,6 +97,8 @@
     - RightArmCyberRiplet
     - LeftLegCyberHydraulic
     - RightLegCyberHydraulic
+    - LeftLegCyberCargo
+    - RightLegCyberCargo
   technologyPrerequisites:
     - CyberLimbsTech
   radioChannels:

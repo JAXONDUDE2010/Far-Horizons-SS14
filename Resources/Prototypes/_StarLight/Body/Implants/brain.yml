@@ -14,7 +14,7 @@
 
 - type: entity
   id: BrainImplantTranslator
-  name: Universal Translator Implant
+  name: Translator Implant
   description: Translates from your language to galactic common right in your brain!
   parent: BaseEntityBrainImplant
   components:
@@ -30,7 +30,7 @@
 
 - type: entity
   id: BrainImplantComms
-  name: Headset Implant #FH
+  name: Integrated Headset Implant 
   description: A headset, right in your brain!
   parent: BaseEntityBrainImplant
   components:

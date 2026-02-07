@@ -33,4 +33,7 @@ public sealed partial class LimbItemDeployerComponent  : Component, IWithAction
 
     [DataField(required: true)] public string StateOn;
     [DataField(required: true)] public string StateOff;
+
+    [DataField]
+    public bool IsCybernetic = true;
 }

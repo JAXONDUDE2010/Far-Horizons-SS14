@@ -1,15 +1,20 @@
 using System.Linq;
 using Content.Server._Starlight.Language;
 using Content.Shared._Starlight.Language.Components.Translators;
+using Content.Shared.Actions;
 using Content.Shared.Body;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Starlight.Antags.Abductor;
+using Content.Shared._Starlight.Cybernetics;
+using Content.Shared._Starlight.Cybernetics.Components;
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using Content.Shared.VentCraw;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 using Content.Shared.Starlight;
 using Content.Shared.Actions;
 
@@ -20,6 +25,9 @@ public sealed partial class OrganSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     public override void Initialize()
     {
@@ -30,14 +38,22 @@ public sealed partial class OrganSystem : EntitySystem
         SubscribeLocalEvent<LimbWithActionComponent, OrganGotInsertedEvent>(OnLimbwithActionOrganImplanted);
         SubscribeLocalEvent<LimbWithActionComponent, OrganGotRemovedEvent>(OnLimbwithActionOrganExtracted);
 
+        SubscribeLocalEvent<StorageOrganComponent, OrganGotInsertedEvent>(OnStorageOrganImplanted);
+        SubscribeLocalEvent<StorageOrganComponent, OrganGotRemovedEvent>(OnStorageOrganExtracted);
+
         SubscribeLocalEvent<OrganTongueComponent, OrganGotInsertedEvent>(OnTongueImplanted);
         SubscribeLocalEvent<OrganTongueComponent, OrganGotRemovedEvent>(OnTongueExtracted);
 
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotInsertedEvent>(OnAbductorOrganImplanted);
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotRemovedEvent>(OnAbductorOrganExtracted);
 
-        SubscribeLocalEvent<OrganDamageComponent, OrganGotInsertedEvent>(OnOrganImplanted);
-        SubscribeLocalEvent<OrganDamageComponent, OrganGotRemovedEvent>(OnOrganExtracted);
+        SubscribeLocalEvent<DamageableComponent, SurgeryOrganImplantationCompleted>(OnOrganImplanted);
+        SubscribeLocalEvent<DamageableComponent, SurgeryOrganExtracted>(OnOrganExtracted);
+
+        SubscribeLocalEvent<OrganVisualizationComponent, SurgeryOrganImplantationCompleted>(OnVisualizationImplanted);
+        SubscribeLocalEvent<OrganVisualizationComponent, SurgeryOrganExtracted>(OnVisualizationExtracted);
+
+        SubscribeLocalEvent<FunctionalOrganComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted);
     }
 
     //
@@ -100,6 +116,29 @@ public sealed partial class OrganSystem : EntitySystem
     private void OnLimbwithActionOrganExtracted(Entity<LimbWithActionComponent> ent, ref OrganGotRemovedEvent args) 
         => _action.RemoveAction(args.Target, ent.Comp.ActionEntity);
 
+    private void OnStorageOrganImplanted(Entity<StorageOrganComponent> ent, ref OrganGotRemovedEvent args)
+    {
+        // The results of the container change are already networked on their own
+        if (_timing.ApplyingState)
+            return;
+
+        Dirty(ent);
+
+        if (ent.Comp.OrganAction != null)
+            _actions.AddAction(args.Body, ref ent.Comp.ActionEntity, ent.Comp.OrganAction, ent.Owner);
+
+    }
+
+    private void OnStorageOrganExtracted(Entity<StorageOrganComponent> ent, ref OrganGotRemovedEvent args)
+    {
+        // The results of the container change are already networked on their own
+        if (_timing.ApplyingState)
+            return;
+
+        _actions.RemoveAction(args.Body, ent.Comp.ActionEntity);
+        ent.Comp.ActionEntity = null;
+    }
+
     private void OnOrganImplanted(Entity<OrganDamageComponent> ent, ref OrganGotInsertedEvent args)
     {
         if (!TryComp<DamageableComponent>(args.Target, out var bodyDamageable)
@@ -150,5 +189,17 @@ public sealed partial class OrganSystem : EntitySystem
         if (TerminatingOrDeleted(ent)) return;
         ent.Comp.IsMuted = HasComp<MutedComponent>(args.Target);
         EnsureComp<MutedComponent>(args.Target);
+    }
+
+    private void OnCyberneticsDisrupted(Entity<FunctionalOrganComponent> ent, ref CyberneticDisruptionEvent args)
+    {
+        if(!ent.Comp.IsCybernetic)
+            return;
+
+        if (TryComp(args.Target, out CyberneticDisruptionComponent? _))
+        {
+            // Nothing happens here yet
+            return;
+        }
     }
 }

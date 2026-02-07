@@ -1200,6 +1200,8 @@
   components:
   - type: HitscanStaminaDamage
     staminaDamage: 25
+  - type: HitscanCyberneticDisruption
+    disableChance: 0.1
 
 - type: entity
   id: DisablerBoltSmg
@@ -1209,6 +1211,8 @@
   components:
   - type: HitscanStaminaDamage
     staminaDamage: 15
+  - type: HitscanCyberneticDisruption
+    disableChance: 0.1
       
 - type: entity
   id: TaserBolt
@@ -1414,3 +1418,24 @@
     proto: PelletShotgunTozTrace
     count: 9
     spread: 10
+
+- type: entity
+  parent: BasicHitscanNoBeam
+  id: FreezeRay
+  name: freeze ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Cold: 20
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_omni
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_omni
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_omni
