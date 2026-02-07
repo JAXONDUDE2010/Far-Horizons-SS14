@@ -1044,12 +1044,12 @@
         - state: equipped-OUTERCLOTHING
       outerClothing-vox:
         - state: equipped-OUTERCLOTHING-vox
-      outerClothing-cyclorite:
-        - state: equipped-OUTERCLOTHING-cyclorite
-      outerClothing-vulpkanin:
-        - state: equipped-OUTERCLOTHING-vulpkanin
-      outerClothing-felionoid:
-        - state: equipped-OUTERCLOTHING-felionoids
+      #outerClothing-cyclorite: #Far Horizons - Didn't get resprited?
+      #  - state: equipped-OUTERCLOTHING-cyclorite
+      #outerClothing-vulpkanin:  #Far Horizons - Didn't get resprited?
+      #  - state: equipped-OUTERCLOTHING-vulpkanin
+      #outerClothing-felionoid:  #Far Horizons - Didn't get resprited?
+      #  - state: equipped-OUTERCLOTHING-felionoids
       outerClothing-resomi:
         - state: equipped-OUTERCLOTHING-resomi
       outerClothing-avali:
