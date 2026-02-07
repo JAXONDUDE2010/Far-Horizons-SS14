@@ -11,6 +11,7 @@
   - type: Item
     size: Huge
   - type: MultiHandedItem
+  - type: AtmosExposed
   - type: Tag
     tags:
     - ReactorPart
