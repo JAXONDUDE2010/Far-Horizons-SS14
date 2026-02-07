@@ -6588,5 +6588,59 @@ Entries:
   id: 77000
   time: '2026-02-06T12:15:07.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/770
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: ZOZ shotgun no longer has a funny floating pixel and because I'm nice
+      I fixed the inhand goofiness.
+    type: Fix
+  id: 77200
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: .42 rounds/magazines were given suffixes if they were missing them (extended
+      mags)
+    type: Tweak
+  id: 77201
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Xenoborg Laser Cannon now properly recharges
+    type: Fix
+  id: 77202
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Paramed helmet no longer giving errors for some species
+    type: Fix
+  id: 77203
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Atmos Casual Jumpsuit and Syndi Atmos Casual Jumpsuit no longer able
+      to be folded into nonexisting.
+    type: Fix
+  id: 77204
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Cybersun Jugsuit no longer causing some species to be walking errors
+      from the body armor.
+    type: Fix
+  id: 77205
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Changelings can now eat Protogen no matter what kind of armor they're
+      wearing thanks to JRush.
+    type: Fix
+  id: 77206
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
 Order: -1
 
