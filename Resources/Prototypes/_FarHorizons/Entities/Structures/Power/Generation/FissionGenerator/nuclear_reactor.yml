@@ -376,6 +376,14 @@
     gridbounds: [ 12, 11, 0, 0 ]
 
 - type: entity
+  id: NuclearReactorSmallEmptySalvage
+  parent: NuclearReactorSmallSalvage
+  suffix: "Empty, Salvage"
+  components:
+  - type: NuclearReactor
+    prefab: ReactorPrefabEmpty
+
+- type: entity
   id: NuclearReactorSmallRandomSalvage
   parent: NuclearReactorSmallSalvage
   suffix: "Random, Salvage"
@@ -498,3 +506,14 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: ReactorAlarmEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AmbientSound
+    volume: -3
+    range: 15
+    enabled: false
+    sound:
+      path: /Audio/_FarHorizons/Machines/reactor_alarm_1.ogg

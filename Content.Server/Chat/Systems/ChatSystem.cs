@@ -40,7 +40,6 @@ using Content.Shared.Speech; // Starlight
 using Content.Server._Starlight.Language; // Starlight
 using Content.Shared._Starlight.Language; // Starlight
 using Content.Shared.Popups; // Starlight
-using Content.Server._NullLink.PlayerData;  // Far Horizons
 // Starlight Start
 using Content.Shared.Speech;
 using Content.Server._Starlight.Language;
@@ -1006,7 +1005,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return message; // Do not apply speech accents if there's no speech involved.
 
         var ev = new TransformSpeechEvent(sender, message);
-        RaiseLocalEvent(ev);
+        RaiseLocalEvent(sender, ev, true);
 
         return ev.Message;
     }

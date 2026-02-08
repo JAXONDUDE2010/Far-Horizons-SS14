@@ -317,6 +317,8 @@
   groups:
 #  - GroupTankHarness - Starlight removed
   - ChiefEngineerHead
+  - ChiefEngineerHeadset #Far Horizons
+  - NTEngiGoggles #Far Horizons
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
   - ChiefEngineerNeck
@@ -347,6 +349,7 @@
   groups:
 #  - GroupTankHarness - Starlight removed
   - StationEngineerHead
+  - NTEngiGoggles #Far Horizons
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
@@ -363,6 +366,7 @@
   id: JobAtmosphericTechnician
   groups:
   - AtmosTechHead #Far Horizons
+  - NTEngiGoggles #Far Horizons
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -510,7 +514,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityCadetJumpsuit
+  - CadetUniform #Far Horizons
   - SecurityBackpack
   - SecurityNonLethalWeapon
   - SecurityEyewear
@@ -739,6 +743,11 @@
 #  - GroupTankHarness - Starlight removed
 
 - type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+
+- type: roleLoadout
   id: RoleSurvivalNukie
   groups:
   - SurvivalSyndicate
@@ -750,3 +759,8 @@
   groups:
 #  - GroupEVATank - Starlight removed
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank

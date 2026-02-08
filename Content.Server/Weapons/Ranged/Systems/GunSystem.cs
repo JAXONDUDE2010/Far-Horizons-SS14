@@ -50,7 +50,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared._Starlight.Weapon.Components;
 using Content.Shared._Starlight.Weapon;
-using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Maths;
@@ -60,9 +59,7 @@ using Robust.Shared.Timing;
 using static Content.Server.Starlight.TextToSpeech.TTSManager;
 #endregion Starlight
 using Content.Shared.Atmos.Components;
-using Content.Shared._FarHorizons.VehicleContainer.Components;
-using Content.Shared._FarHorizons.Vehicles.Components;
-using Content.Shared._FarHorizons.VehicleBuckle.Components;
+using Content.Shared._FarHorizons.Vehicles.Components; //FarHorizons
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -222,6 +219,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             // Startlight-edit: start
             var isMechShooter = user != null && TryComp<MechPilotComponent>(user.Value, out _);
+            isMechShooter = user != null && HasComp<RiderComponent>(user.Value);
             const float MechMuzzleOffset = 0.8f;
 
             EntityCoordinates SpawnFrom(Angle angle)
@@ -287,7 +285,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
     {
-        if (gun.Target is { } target && !TerminatingOrDeleted(target))
+        var isHitscan = HasComp<HitscanAmmoComponent>(uid); // FH - just so I don't have to call it twice
+        if (!isHitscan && gun.Target is { } target && !TerminatingOrDeleted(target)) // FH - added check for hitscan, because TargetedProjectileComponent is only ever used in collision checks, which raycasts don't run. And I'm pretty sure this component's update cycle is responsible for server lag
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
@@ -295,7 +294,7 @@ public sealed partial class GunSystem : SharedGunSystem
         }
         
         // Starlight start - cartridges can hold hitscans
-        if (HasComp<HitscanAmmoComponent>(uid))
+        if (isHitscan) // FH - reusing bool
         {
             var hitscanEv = new HitscanTraceEvent
             {

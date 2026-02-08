@@ -31,7 +31,9 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
-    storedRotation: 45
+    storedSprite:
+      state: ointment-storage
+      sprite: Objects/Specific/Medical/medical.rsi
   - type: Healing
     damageContainers:
       - Biological
@@ -57,6 +59,10 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
 
 - type: entity
   id: Ointment1
@@ -106,6 +112,10 @@
     count: 10
   - type: StackPrice
     price: 20
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
 
 - type: entity
   id: OintmentAdvanced1
@@ -126,7 +136,7 @@
   - type: Tag
     tags:
     - Brutepack
-  - type: Sprite
+  - type: Sprite 
     state: brutepack
   - type: Item
     heldPrefix: brutepack
@@ -152,6 +162,10 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
 
 - type: entity
   id: Brutepack1
@@ -161,6 +175,10 @@
   - type: Stack
     stackType: Brutepack
     count: 1
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
 
 - type: entity
   name: medicated suture
@@ -200,7 +218,11 @@
     count: 10
   - type: StackPrice
     price: 20
-
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
+  
 - type: entity
   id: BrutepackAdvanced1
   parent: MedicatedSuture
@@ -340,6 +362,10 @@
     count: 10
   - type: StackPrice
     price: 10
+  - type: InteractRestriction #FH - Edit
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
 
 - type: entity
   id: Gauze1

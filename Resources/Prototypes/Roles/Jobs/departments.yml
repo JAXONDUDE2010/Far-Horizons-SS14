@@ -20,7 +20,6 @@
   roles:
   - Bartender
   - Botanist
-  - Boxer
   - Chaplain
   - Chef
   - Clown
@@ -32,8 +31,9 @@
   - Assistant
   - Reporter
   - Visitor
-  - Zookeeper
   - ServiceWorker
+  - Zookeeper # FH - return zookeper and boxer
+  - Boxer # FH - return zookeper and boxer
 
 - type: department
   id: CentralCommand
@@ -145,3 +145,14 @@
   roles:
   - Borg
   - StationAi
+
+- type: department
+  id: Specific
+  name: department-Specific
+  description: department-Specific-description
+  color: "#9FED58"
+  weight: 10
+  roles:
+  - Reporter
+  - Psychologist
+  primary: false

@@ -19,7 +19,7 @@
     maxRange: 256
     followEntity: true
   - type: Appearance
-  - type: PredictedBatteryVisuals
+  - type: BatteryVisuals
   - type: GenericVisualizer
     visuals:
       enum.BatteryVisuals.State:
@@ -40,6 +40,7 @@
         type: RadarConsoleBoundUserInterface
   - type: StaticPrice
     price: 150
+  - type: SpaceRescuePingReceiver # Far Horizons
 
 - type: entity
   id: HandHeldMassScannerEmpty
