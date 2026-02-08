@@ -1,7 +1,7 @@
 - type: ghostTheme
   id: Moth
   name: Moth
-  description: a cute moff!
+  description: A cute moth!
   colorizeable: true
   spriteSpecifier:
     sprite:
