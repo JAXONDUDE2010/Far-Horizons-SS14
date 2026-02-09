@@ -398,7 +398,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_debris.rsi
+    sprite: _FarHorizons/Objects/Power/FissionGenerator/nuclear_debris.rsi
     layers:
       - state: graphite_damaged_0
         map: [ "base" ]

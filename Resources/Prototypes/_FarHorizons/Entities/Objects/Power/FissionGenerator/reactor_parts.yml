@@ -6,7 +6,7 @@
   components:
   - type: ReactorPart
   - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    sprite: _FarHorizons/Objects/Power/FissionGenerator/reactor_parts.rsi
     state: default_rod
   - type: Item
     size: Huge

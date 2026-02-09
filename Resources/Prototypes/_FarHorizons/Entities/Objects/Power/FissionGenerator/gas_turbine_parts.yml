@@ -5,14 +5,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/gas_turbine_parts.rsi
+    sprite: _FarHorizons/Objects/Power/FissionGenerator/gas_turbine_parts.rsi
     state: turbine_blade
   - type: Item
     size: Huge
   - type: MultiHandedItem
   - type: GuideHelp
     guides:
-    - NuclearReactor
+    - GasTurbine
     - Power
  
 # Blades
