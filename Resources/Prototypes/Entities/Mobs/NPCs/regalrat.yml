@@ -220,9 +220,9 @@
     sprite: _Starlight/Mobs/Animals/rat.rsi # Starlight
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: smallrat
+      state: smallrat #Starlight - They didn't comment this.
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
-      state: smallrat_eyes
+      state: smallrat_eyes #Starlight - They didn't comment this.
       shader: unshaded
 
   # - type: SpriteMovement // Starlight - Disabled

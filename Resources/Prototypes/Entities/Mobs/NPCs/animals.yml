@@ -1752,7 +1752,7 @@
     allowedEmotes: ['Squeak']
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Starlight/Mobs/Animals/mouse.rsi
+    sprite: _FarHorizons/Mobs/Animals/mouse.rsi #Far Horizons
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-0
@@ -1816,7 +1816,7 @@
       Critical:
         Base: dead-0
       Dead:
-        Base: dead-0
+        Base: dead-0 #Starlight - They didn't comment this.
   - type: Edible
   - type: FlavorProfile
     flavors:
@@ -1968,7 +1968,7 @@
       Critical:
         Base: dead-1
       Dead:
-        Base: dead-1
+        Base: dead-1 #Starlight - They didn't comment this.
   - type: Item
     size: Tiny
     heldPrefix: 1
@@ -1978,27 +1978,27 @@
   id: MobMouse2
   components:
   - type: Sprite
-    color: Gray
+    color: Gray #Starlight - They didn't comment this.
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: mouse-0
+      state: mouse-0 #Starlight - They didn't comment this.
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: mouse-moving-0
+        state: mouse-moving-0 #Starlight - They didn't comment this.
     noMovementLayers:
       movement:
-        state: mouse-0
+        state: mouse-0 #Starlight - They didn't comment this.
   - type: Clothing
     equippedPrefix: 2
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: mouse-0
+        Base: mouse-0 #Starlight - They didn't comment this.
       Critical:
-        Base: dead-0
+        Base: dead-0 #Starlight - They didn't comment this.
       Dead:
-        Base: dead-0
+        Base: dead-0 #Starlight - They didn't comment this.
   - type: Item
     size: Tiny
     heldPrefix: 2
