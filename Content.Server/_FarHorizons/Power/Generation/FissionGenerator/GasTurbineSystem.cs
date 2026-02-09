@@ -285,7 +285,7 @@ public sealed class GasTurbineSystem : EntitySystem
 
                 var healthPercent = (float)comp.BladeHealth / comp.BladeHealthMax;
                 if (healthPercent < 1)
-                    _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Ambience/Objects/bad_bearing_2.ogg"), uid, AudioParams.Default.WithPitchScale(comp.RPM / comp.BestRPM)
+                    _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Ambience/Objects/bad_bearing.ogg"), uid, AudioParams.Default.WithPitchScale(comp.RPM / comp.BestRPM)
                         .WithVolume((healthPercent * -6f) - 2));
             }
 
