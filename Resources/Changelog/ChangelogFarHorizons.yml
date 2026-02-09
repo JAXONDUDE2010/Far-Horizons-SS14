@@ -6694,5 +6694,19 @@ Entries:
   id: 77900
   time: '2026-02-08T12:30:11.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/779
+- author: Fasuh
+  changes:
+  - message: Changed numbers on stasis for both avali and protogen avali.
+    type: Tweak
+  id: 78500
+  time: '2026-02-09T00:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/785
+- author: Fasuh
+  changes:
+  - message: Fixed stasis on protogen avali.
+    type: Fix
+  id: 78501
+  time: '2026-02-09T00:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/785
 Order: -1
 
