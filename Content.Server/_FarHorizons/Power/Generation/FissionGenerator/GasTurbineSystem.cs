@@ -595,8 +595,6 @@ public sealed class GasTurbineSystem : EntitySystem
     {
         QueueDel(comp.InletEnt);
         QueueDel(comp.OutletEnt);
-        QueueDel(comp.AlarmAudioOvertemp);
-        QueueDel(comp.AlarmAudioUnderspeed);
     }
 
     private void OnDamaged(EntityUid uid, GasTurbineComponent comp, ref DamageChangedEvent args)

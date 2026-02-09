@@ -96,7 +96,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating total meltdown has happened
     /// </summary>
-    [DataField, ViewVariables, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Melted = false;
 
     /// <summary>
@@ -193,7 +193,15 @@ public sealed partial class NuclearReactorComponent : Component
     /// The selected prefab
     /// </summary>
     [DataField]
-    public string Prefab = "ReactorPrefab7x7Normal";
+    public string Prefab
+    {
+        get;
+        private set
+        {
+            ApplyPrefab = true; // Will apply the prefab whenever a new one is selected
+            field = value;
+        }
+    } = "ReactorPrefab7x7Normal";
 
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab

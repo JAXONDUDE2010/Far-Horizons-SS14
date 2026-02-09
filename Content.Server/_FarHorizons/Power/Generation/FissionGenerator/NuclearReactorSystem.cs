@@ -516,13 +516,22 @@ public sealed class NuclearReactorSystem : EntitySystem
                     var RC = comp.ComponentGrid[x, y];
                     if (RC == null)
                         return;
+
                     MeltdownBadness += ((RC.Properties.Radioactivity * 2) + (RC.Properties.NeutronRadioactivity * 5) + (RC.Properties.FissileIsotopes * 10)) * (RC.Melted ? 2 : 1);
-                    if (RC.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
+                    
+                    if (RC.AirContents != null)
+                    {
                         _atmosphereSystem.Merge(comp.AirContents, RC.AirContents ?? new());
+                        (RC.AirContents ?? new()).Clear();
+                    }
+
+                    comp.ComponentGrid[x, y] = null;
+                    comp.NeutronGrid[x, y] = 0;
+                    comp.FluxGrid[x, y] = [];
                 }
             }
         }
-        comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + MeltdownBadness, 0, 200);
+        comp.RadiationLevel = Math.Max(comp.RadiationLevel + MeltdownBadness, 0);
         comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
         comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
 
@@ -545,10 +554,7 @@ public sealed class NuclearReactorSystem : EntitySystem
         _lightSystem.SetRadius(uid, (comp.ReactorGridWidth + comp.ReactorGridHeight) / 4, lightcomp);
         _lightSystem.SetColor(uid, Color.FromHex("#FFAAAAFF"), lightcomp);
 
-        // Reset grids
-        comp.ComponentGrid = new ReactorPartComponent[comp.ReactorGridWidth, comp.ReactorGridHeight]; // Not Array.Clear due to ammonia
-        Array.Clear(comp.NeutronGrid);
-        Array.Clear(comp.FluxGrid);
+        comp.ThermalPower = 0;
 
         // This will Dirty() the reactor, so no need to declare it explicitly
         UpdateGridVisual(ent);
@@ -734,39 +740,41 @@ public sealed class NuclearReactorSystem : EntitySystem
         var uid = ent.Owner;
         var change = false;
 
-        if (comp.Temperature >= comp.ReactorOverheatTemp)
+        if (comp.Melted)
         {
-            if(!comp.IsSmoking)
-            {
-                comp.IsSmoking = true;
-                _appearance.SetData(uid, ReactorVisuals.Smoke, true);
-                _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-start", ("owner", uid)), uid, PopupType.MediumCaution);
-                change = true;
-            }
-            if (comp.Temperature >= comp.ReactorFireTemp && !comp.IsBurning)
-            {
-                comp.IsBurning = true;
-                _appearance.SetData(uid, ReactorVisuals.Fire, true);
-                _popupSystem.PopupEntity(Loc.GetString("reactor-fire-start", ("owner", uid)), uid, PopupType.MediumCaution);
-                change = true;
-            }
-            else if (comp.Temperature < comp.ReactorFireTemp && comp.IsBurning)
-            {
-                comp.IsBurning = false;
-                _appearance.SetData(uid, ReactorVisuals.Fire, false);
-                _popupSystem.PopupEntity(Loc.GetString("reactor-fire-stop", ("owner", uid)), uid, PopupType.Medium);
-                change = true;
-            }
+            comp.IsBurning = false;
+            comp.IsSmoking = false;
+            return;
         }
-        else
+
+        if (comp.Temperature >= comp.ReactorOverheatTemp && !comp.IsSmoking)
         {
-            if(comp.IsSmoking)
-            {
-                comp.IsSmoking = false;
-                _appearance.SetData(uid, ReactorVisuals.Smoke, false);
-                _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
-                change = true;
-            }
+            comp.IsSmoking = true;
+            _appearance.SetData(uid, ReactorVisuals.Smoke, true);
+            _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-start", ("owner", uid)), uid, PopupType.MediumCaution);
+            change = true;
+        }
+        else if (comp.Temperature < comp.ReactorOverheatTemp && comp.IsSmoking)
+        {
+            comp.IsSmoking = false;
+            _appearance.SetData(uid, ReactorVisuals.Smoke, false);
+            _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
+            change = true;
+        }
+
+        if (comp.Temperature >= comp.ReactorFireTemp && !comp.IsBurning)
+        {
+            comp.IsBurning = true;
+            _appearance.SetData(uid, ReactorVisuals.Fire, true);
+            _popupSystem.PopupEntity(Loc.GetString("reactor-fire-start", ("owner", uid)), uid, PopupType.MediumCaution);
+            change = true;
+        }
+        else if (comp.Temperature < comp.ReactorFireTemp && comp.IsBurning)
+        {
+            comp.IsBurning = false;
+            _appearance.SetData(uid, ReactorVisuals.Fire, false);
+            _popupSystem.PopupEntity(Loc.GetString("reactor-fire-stop", ("owner", uid)), uid, PopupType.Medium);
+            change = true;
         }
 
         if (change)
@@ -1043,9 +1051,6 @@ public sealed class NuclearReactorSystem : EntitySystem
     {
         QueueDel(comp.InletEnt);
         QueueDel(comp.OutletEnt);
-        QueueDel(comp.AlarmAudioHighRads);
-        QueueDel(comp.AlarmAudioHighTemp);
-        QueueDel(comp.AlarmAudioHighThermal);
     }
 
     private void OnDamaged(EntityUid uid, NuclearReactorComponent comp, ref DamageChangedEvent args)
