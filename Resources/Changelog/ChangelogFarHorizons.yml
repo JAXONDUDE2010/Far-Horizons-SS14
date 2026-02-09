@@ -6708,5 +6708,12 @@ Entries:
   id: 78501
   time: '2026-02-09T00:41:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/785
+- author: StygianEagle
+  changes:
+  - message: Ghost Moth theme for everyone, rejoice.
+    type: Add
+  id: 78300
+  time: '2026-02-09T11:21:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/783
 Order: -1
 
