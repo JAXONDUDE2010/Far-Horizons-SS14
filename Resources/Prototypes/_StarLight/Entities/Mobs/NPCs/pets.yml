@@ -87,7 +87,7 @@
     allowedEmotes: ['Squeak']
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Starlight/Mobs/Animals/mouse.rsi
+    sprite: _FarHorizons/Mobs/Animals/mouse.rsi #Far Horizons
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-admin

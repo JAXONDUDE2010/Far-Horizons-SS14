@@ -1,6 +1,8 @@
 using Content.Server.Administration.Managers;
 using Content.Server.Polymorph.Systems;
-using Content.Shared._NullLink;
+///Far Horizons-Start
+using Content.Client._FarHorizons.DiscordLink;
+///Far Horizons-End
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Verbs;
@@ -10,7 +12,7 @@ namespace Content.Server._Starlight.Ghost;
 
 public sealed class AdminMouseSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedNullLinkPlayerRolesReqManager _playerRoles = default!;
+    [Dependency] private readonly IDiscordLinkManager _playerRoles = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     public override void Initialize()
@@ -34,7 +36,7 @@ public sealed class AdminMouseSystem : EntitySystem
             {
                 Text = adminName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Starlight/Mobs/Animals/mouse.rsi"), "mouse-admin"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_FarHorizons/Mobs/Animals/mouse.rsi"), "mouse-admin"),
                 Act = () =>
                 {
                     _polymorphSystem.PolymorphEntity(user, "AdminMouse");
@@ -52,7 +54,7 @@ public sealed class AdminMouseSystem : EntitySystem
             {
                 Text = mentorName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Starlight/Mobs/Animals/mouse.rsi"), "mouse-mentor"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_FarHorizons/Mobs/Animals/mouse.rsi"), "mouse-mentor"),
                 Act = () =>
                 {
                     _polymorphSystem.PolymorphEntity(user, "MentorMouse");
