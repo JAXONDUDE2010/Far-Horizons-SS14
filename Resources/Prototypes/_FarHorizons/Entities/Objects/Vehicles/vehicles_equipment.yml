@@ -19,6 +19,7 @@
           state: normal
     - type: VehicleEquipment
       actionProto: ActionToggleLight
+      slot: headlight
         
 - type: entity
   id: SecwayLight
@@ -41,6 +42,7 @@
           state: normal
     - type: VehicleEquipment
       actionProto: ActionToggleLight
+      slot: headlight
 
 - type: entity
   id: SecSiren
@@ -73,3 +75,4 @@
           volume: -4
     - type: VehicleEquipment
       actionProto: ActionVehicleToggleSecuritySiren
+      slot: lightbar

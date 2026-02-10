@@ -7,7 +7,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Toggleable;
-using Content.Shared.Atmos.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -15,6 +15,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -29,9 +30,14 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
     {
         ent.Comp.ModSlot = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ModContainer);
-
+    
         foreach(var itemProto in ent.Comp.StartingEquipment)
         {
+            
+            if (_proto.TryIndex<EntityPrototype>(itemProto, out var proto))
+                if (!proto.Components.ContainsKey("VehicleEquipment"))
+                    continue;
+            
             var item = SpawnAtPosition(itemProto, ent.Owner.ToCoordinates());
             if(HasComp<PointLightComponent>(item))
             {
@@ -41,8 +47,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 _container.Insert(item, ent.Comp.ModSlot);
 
             ent.Comp.SpawnedEquipment.Add(item);
-            if(HasComp<GasTankComponent>(item))
-                ent.Comp.GasTank = item;
             RaiseNetworkEvent(new InstalledVehicleEquipment{Part = GetNetEntity(item)});
         }
         Dirty(ent.Owner, ent.Comp);

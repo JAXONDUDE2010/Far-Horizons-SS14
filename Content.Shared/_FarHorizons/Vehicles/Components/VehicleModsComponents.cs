@@ -19,6 +19,10 @@ public sealed partial class VehicleModsComponent : Component
     [ViewVariables]
     public HashSet<EntityUid> SpawnedEquipment = new();
 
+    [DataField]
+    [Access(typeof(EquipmentType), Other = AccessPermissions.ReadExecute)]
+    public EquipmentType EquipmentSlots = EquipmentType.NONE;
+
     [ViewVariables]
-    public EntityUid? GasTank;
+    public bool isBroken = false;
 }

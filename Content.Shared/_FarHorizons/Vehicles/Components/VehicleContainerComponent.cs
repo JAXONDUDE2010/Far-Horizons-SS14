@@ -41,6 +41,12 @@ public sealed partial class VehicleContainerComponent : Component
     [DataField("damageTransfer")]
     public float DamageTransferMultiplier = 0.5f;
 
+    /// <summary>
+    /// Just a check for a if a vehicle is a air tight.
+    /// </summary>
+    [DataField]
+    public bool isAirtight = false;
+
     [DataField]
     public EntityWhitelist? PassengerWhitelist;
 }

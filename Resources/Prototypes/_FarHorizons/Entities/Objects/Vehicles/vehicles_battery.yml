@@ -39,6 +39,7 @@
     startingEquipment:
       - SecwayLight
       - SecSiren
+    equipmentSlots: [tires, engine, headlight, lightbar]
   - type: Strap
   - type: Fixtures
     fixtures:

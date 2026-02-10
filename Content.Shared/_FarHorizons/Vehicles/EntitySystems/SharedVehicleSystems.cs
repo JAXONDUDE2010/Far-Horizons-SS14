@@ -7,8 +7,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using Content.Shared.Examine;
 using Content.Shared.Damage.Components;
-using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Toggleable;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Buckle;
