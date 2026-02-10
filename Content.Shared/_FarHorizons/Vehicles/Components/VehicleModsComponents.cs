@@ -24,5 +24,5 @@ public sealed partial class VehicleModsComponent : Component
     public EquipmentType EquipmentSlots = EquipmentType.NONE;
 
     [ViewVariables]
-    public bool isBroken = false;
+    public Dictionary<EquipmentType, EntityUid?> Equipment = new();
 }

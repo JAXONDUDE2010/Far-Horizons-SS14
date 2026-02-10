@@ -15,6 +15,24 @@ public sealed partial class VehicleEquipmentComponent : Component
 
     [DataField(required: true)]
     public EquipmentType Slot = EquipmentType.NONE;
+
+    [ViewVariables]
+    public bool isBroken = false;
+}
+
+public static class EquipmentTypeExtensions
+{
+    public static IEnumerable<EquipmentType> GetFlags(this EquipmentType value)
+    {
+        foreach (EquipmentType flag in Enum.GetValues<EquipmentType>())
+        {
+            if (flag == EquipmentType.NONE)
+                continue;
+
+            if (value.HasFlag(flag))
+                yield return flag;
+        }
+    }
 }
 
 [Serializable, NetSerializable]
@@ -28,5 +46,6 @@ public enum EquipmentType
     LIGHTBAR = 1 << 3,
     AIRTANK = 1 << 4,
     VENTFAN = 1 << 5,
-    FUELTANK = 1 << 6,
+    THURSTERS = 1 << 6,
+    BOOSTER = 1 << 7
 }

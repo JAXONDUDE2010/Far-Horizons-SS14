@@ -8,6 +8,8 @@ using Robust.Shared.Containers;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Toggleable;
 using Robust.Shared.Prototypes;
+using System.Numerics;
+using System.Linq;
 
 namespace Content.Server._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -30,10 +32,15 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
     {
         ent.Comp.ModSlot = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ModContainer);
+
+        var slots = ent.Comp.EquipmentSlots.GetFlags().ToArray();
+        foreach(var slot in slots)
+        {
+            ent.Comp.Equipment.Add(slot, null);
+        }
     
         foreach(var itemProto in ent.Comp.StartingEquipment)
         {
-            
             if (_proto.TryIndex<EntityPrototype>(itemProto, out var proto))
                 if (!proto.Components.ContainsKey("VehicleEquipment"))
                     continue;
@@ -45,7 +52,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             }
             else
                 _container.Insert(item, ent.Comp.ModSlot);
-
             ent.Comp.SpawnedEquipment.Add(item);
             RaiseNetworkEvent(new InstalledVehicleEquipment{Part = GetNetEntity(item)});
         }
