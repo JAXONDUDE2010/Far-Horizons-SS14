@@ -39,23 +39,45 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             ent.Comp.Equipment.Add(slot, null);
         }
     
-        foreach(var itemProto in ent.Comp.StartingEquipment)
+        if(ent.Comp.StartingEquipment.Count > 0)
         {
-            if (_proto.TryIndex<EntityPrototype>(itemProto, out var proto))
-                if (!proto.Components.ContainsKey("VehicleEquipment"))
-                    continue;
-            
-            var item = SpawnAtPosition(itemProto, ent.Owner.ToCoordinates());
-            if(HasComp<PointLightComponent>(item))
+            foreach(var itemProto in ent.Comp.StartingEquipment)
             {
-                _transform.SetParent(item, ent.Owner);
+                if (_proto.TryIndex<EntityPrototype>(itemProto, out var proto))
+                    if (!proto.Components.ContainsKey("VehicleEquipment"))
+                        continue;
+                
+                var item = SpawnAtPosition(itemProto, ent.Owner.ToCoordinates());
+                if(!CheckandAssign(item, ent.Comp))
+                    QueueDel(item);
+                    
+                if(HasComp<PointLightComponent>(item))
+                {
+                    _transform.SetParent(item, ent.Owner);
+                }
+                else
+                    _container.Insert(item, ent.Comp.ModSlot);
+                ent.Comp.SpawnedEquipment.Add(item);
+                RaiseNetworkEvent(new InstalledVehicleEquipment{Part = GetNetEntity(item)});
             }
-            else
-                _container.Insert(item, ent.Comp.ModSlot);
-            ent.Comp.SpawnedEquipment.Add(item);
-            RaiseNetworkEvent(new InstalledVehicleEquipment{Part = GetNetEntity(item)});
         }
         Dirty(ent.Owner, ent.Comp);
+    }
+
+    private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
+    {
+        if(!Resolve(item, ref veComp))
+            return false;
+
+        foreach(var slot in vmComp.Equipment)
+        {
+            if(slot.Key == veComp.Slot && slot.Value == null)
+            {
+                vmComp.Equipment[slot.Key] = item;
+                return true;
+            }
+        }
+        return false;
     }
 
     private void OnAddActions(Entity<RiderComponent> ent, ref AddRiderActions args)

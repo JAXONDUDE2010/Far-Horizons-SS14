@@ -116,6 +116,7 @@
   - type: VehicleMods
     startingEquipment:
       - ATVHeadlight
+    equipmentSlots: [tires, engine, headlight]
 
 - type: entity
   id: VehicleATVFueledwithKeys
@@ -221,6 +222,7 @@
       startingEquipment:
         - ATVHeadlight
         - SecSiren
+      equipmentSlots: [tires, engine, headlight, lightbar]
 
 - type: entity
   id: VehicleClownCar
@@ -362,6 +364,7 @@
     - type: VehicleMods
       startingEquipment:
         - ATVHeadlight
+      equipmentSlots: [tires, engine, headlight]
 
 - type: entity
   id: VehicleClownCarFueledwithKeys
@@ -509,6 +512,7 @@
   - type: VehicleMods
     startingEquipment:
       - ATVHeadlight
+    equipmentSlots: [tires, engine, headlight]
 
 - type: entity
   id: VehicleSkeletonMotorcycleFueledwithKEys
