@@ -61,3 +61,43 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-security-evac-checkpoint
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityShipBridgeFront
+  suffix: Security Ship Bridge Front
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-ship-bridge-front
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityShipBridgeRear
+  suffix: Security Ship Bridge Middle
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-ship-bridge-rear
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityShipBriefing
+  suffix: Security Ship Briefing Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-ship-bridge-briefing
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityShipEngineering
+  suffix: Security Ship Engineering
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-ship-bridge-engineering
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityShipBrigmedic
+  suffix: Security Ship Medical
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-ship-bridge-brigmedic
