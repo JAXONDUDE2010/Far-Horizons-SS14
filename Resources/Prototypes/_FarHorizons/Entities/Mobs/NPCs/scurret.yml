@@ -60,11 +60,11 @@
             state: outerClothing
 
 - type: entity
-  name: Detective WaWa
+  name: Detective Inquisitive Tethers
   id: MobDetectiveScurret
   parent: MobBaseScurretUnrestricted
   abstract: false
-  description: The best sidekick a detective could have! Gets very upset when referred to as "Wawa" instead of "WaWa"
+  description: The best sidekick a detective could have!
   components:
     - type: LanguageKnowledge
       speaks:
