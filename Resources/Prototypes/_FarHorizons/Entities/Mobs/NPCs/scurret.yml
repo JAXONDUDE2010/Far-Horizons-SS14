@@ -64,7 +64,7 @@
   id: MobDetectiveScurret
   parent: MobBaseScurretUnrestricted
   abstract: false
-  description: The best sidekick a detective could have!
+  description: The best sidekick a detective could have! Gets upset when you shorten their full name in any way when you talk to them.
   components:
     - type: LanguageKnowledge
       speaks:
