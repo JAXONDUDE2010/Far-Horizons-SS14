@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/11/2026 08:54:22
-  entityCount: 30108
+  time: 02/12/2026 01:07:33
+  entityCount: 30113
 maps:
 - 1
 grids:
@@ -16930,15 +16930,20 @@ entities:
     - type: Transform
       pos: -16.623676,-36.345753
       parent: 2
-  - uid: 7005
+  - uid: 19471
     components:
     - type: Transform
-      pos: -0.4661324,-58.48426
+      pos: -40.48362,-3.1841683
       parent: 2
   - uid: 27397
     components:
     - type: Transform
       pos: -41.551056,-2.4980016
+      parent: 2
+  - uid: 30113
+    components:
+    - type: Transform
+      pos: 1.1030526,-57.20769
       parent: 2
 - proto: BoxFolderBlueEmpty
   entities:
@@ -79212,13 +79217,6 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Sec Dock
-  - uid: 30100
-    components:
-    - type: Transform
-      pos: -40.5,-3.5
-      parent: 2
-    - type: FaxMachine
-      name: Sec Arrivals
 - proto: FaxMachineCaptain
   entities:
   - uid: 11982
@@ -79953,7 +79951,7 @@ entities:
       pos: 60.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39703.39
+      secondsUntilStateChange: -39873.504
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -136592,12 +136590,12 @@ entities:
   - uid: 27407
     components:
     - type: Transform
-      pos: -39.875328,-3.4030657
+      pos: -39.88987,-3.3925614
       parent: 2
   - uid: 27916
     components:
     - type: Transform
-      pos: 1.0807426,-57.374886
+      pos: 1.6238861,-57.36394
       parent: 2
 - proto: MedkitOxygenFilled
   entities:
@@ -152337,6 +152335,11 @@ entities:
       parent: 2
 - proto: RubberStampApproved
   entities:
+  - uid: 7005
+    components:
+    - type: Transform
+      pos: 0.9051361,-57.58269
+      parent: 2
   - uid: 21956
     components:
     - type: Transform
@@ -152346,6 +152349,11 @@ entities:
     components:
     - type: Transform
       pos: -31.650526,8.678885
+      parent: 2
+  - uid: 30109
+    components:
+    - type: Transform
+      pos: -40.681534,-3.5070848
       parent: 2
 - proto: RubberStampBSO
   entities:
@@ -152376,6 +152384,16 @@ entities:
     components:
     - type: Transform
       pos: -31.400526,8.50701
+      parent: 2
+  - uid: 30100
+    components:
+    - type: Transform
+      pos: 1.1863861,-57.572277
+      parent: 2
+  - uid: 30110
+    components:
+    - type: Transform
+      pos: -40.35862,-3.4862514
       parent: 2
 - proto: SalvageMagnet
   entities:
@@ -166069,6 +166087,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-55.5
       parent: 2
+  - uid: 30111
+    components:
+    - type: Transform
+      pos: 4.5,-58.5
+      parent: 2
 - proto: TableReinforcedGlass
   entities:
   - uid: 23889
@@ -167698,7 +167721,7 @@ entities:
   - uid: 30031
     components:
     - type: Transform
-      pos: 1.643717,-57.088554
+      pos: 4.5041714,-58.14519
       parent: 2
   - uid: 30087
     components:
@@ -187828,11 +187851,6 @@ entities:
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:
-  - uid: 19471
-    components:
-    - type: Transform
-      pos: 1.5,-57.5
-      parent: 2
   - uid: 27777
     components:
     - type: Transform
@@ -187933,6 +187951,11 @@ entities:
     components:
     - type: Transform
       pos: 8.5,28.5
+      parent: 2
+  - uid: 30112
+    components:
+    - type: Transform
+      pos: 4.5,-58.5
       parent: 2
 - proto: WeaponDisabler
   entities:
