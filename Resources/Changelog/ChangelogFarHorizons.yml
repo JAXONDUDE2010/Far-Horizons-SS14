@@ -6499,5 +6499,221 @@ Entries:
   id: 71503
   time: '2026-02-03T23:41:07.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/715
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists will no longer steal Salvage bags on top of their
+      own at spawn.
+    type: Fix
+  id: 76200
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
+- author: CorruptOmega
+  changes:
+  - message: Mining Specialists can now choose to spawn with an Ore Bag or Salvage
+      Belt in their belt slot, so they stop dropping an Ore Bag at their feet.
+    type: Fix
+  id: 76201
+  time: '2026-02-05T16:57:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/762
+- author: princess_gurchi
+  changes:
+  - message: Support for automatically implanting subdermal implants from character
+      loadout or admin commands
+    type: Add
+  id: 76000
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Protogens now have their radio automatically implanted on spawn
+    type: Add
+  id: 76001
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Nukies now have their acidifier automatically implanted on spawn
+    type: Add
+  id: 76002
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: CC outfits also come with implants on equip
+    type: Add
+  id: 76003
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: princess_gurchi
+  changes:
+  - message: Macro-bomb implant now replaces acidifier when installed
+    type: Tweak
+  id: 76004
+  time: '2026-02-05T17:03:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/760
+- author: lightening_orb
+  changes:
+  - message: Added KSDP Poster. Killer's so good at driving that command actively
+      war-, advises people to drive safely!
+    type: Add
+  id: 76400
+  time: '2026-02-05T17:08:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/764
+- author: princess_gurchi
+  changes:
+  - message: keybind for smart equip to rig (ctrl+E by default)
+    type: Add
+  id: 76800
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: princess_gurchi
+  changes:
+  - message: keybind for open rig (ctrl+V by default)
+    type: Add
+  id: 76801
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: princess_gurchi
+  changes:
+  - message: keybind for equip to tank slot (ctrl+F by default)
+    type: Add
+  id: 76802
+  time: '2026-02-06T10:30:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/768
+- author: Roro
+  changes:
+  - message: Cloaking and Invis modules for stealth xenoborg are no longer infinite
+      duration, this was a bug, its intended times were written in code but broken.
+    type: Fix
+  id: 77000
+  time: '2026-02-06T12:15:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/770
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: ZOZ shotgun no longer has a funny floating pixel and because I'm nice
+      I fixed the inhand goofiness.
+    type: Fix
+  id: 77200
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: .42 rounds/magazines were given suffixes if they were missing them (extended
+      mags)
+    type: Tweak
+  id: 77201
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Xenoborg Laser Cannon now properly recharges
+    type: Fix
+  id: 77202
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Paramed helmet no longer giving errors for some species
+    type: Fix
+  id: 77203
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Atmos Casual Jumpsuit and Syndi Atmos Casual Jumpsuit no longer able
+      to be folded into nonexisting.
+    type: Fix
+  id: 77204
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Cybersun Jugsuit no longer causing some species to be walking errors
+      from the body armor.
+    type: Fix
+  id: 77205
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: Prototyping by CorruptOmega, C# Sorcery for Changeling by JRush
+  changes:
+  - message: Changelings can now eat Protogen no matter what kind of armor they're
+      wearing thanks to JRush.
+    type: Fix
+  id: 77206
+  time: '2026-02-07T19:52:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/772
+- author: AthenaAI
+  changes:
+  - message: Fixed an issue where siren was required to be toggled on for speed penalties
+      to be in effect.
+    type: Fix
+  id: 77300
+  time: '2026-02-07T19:55:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/773
+- author: CorruptOmega
+  changes:
+  - message: Plastitanium Windows now connect up to walls and other windows. Hopefully
+    type: Fix
+  id: 77400
+  time: '2026-02-07T19:57:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/774
+- author: CorruptOmega
+  changes:
+  - message: Abby's new shutter sprites have been adjusted so people stopped hitting
+      their faces on 'open' shutters.
+    type: Tweak
+  id: 77401
+  time: '2026-02-07T19:57:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/774
+- author: CorruptOmega
+  changes:
+  - message: Abby's external airlocks have expanded out to some other ones that got
+      missed.
+    type: Add
+  id: 77402
+  time: '2026-02-07T19:57:45.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/774
+- author: lightening_orb
+  changes:
+  - message: changed my plushie name to guards instead of breaks
+    type: Fix
+  id: 74700
+  time: '2026-02-07T20:03:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/747
+- author: lightening_orb
+  changes:
+  - message: a small chunk of my sanity.
+    type: Fix
+  id: 74701
+  time: '2026-02-07T20:03:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/747
+- author: cupidh3vrt
+  changes:
+  - message: Added 3 new cape jackets to WinterDrobe!!
+    type: Add
+  id: 77900
+  time: '2026-02-08T12:30:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/779
+- author: Fasuh
+  changes:
+  - message: Changed numbers on stasis for both avali and protogen avali.
+    type: Tweak
+  id: 78500
+  time: '2026-02-09T00:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/785
+- author: Fasuh
+  changes:
+  - message: Fixed stasis on protogen avali.
+    type: Fix
+  id: 78501
+  time: '2026-02-09T00:41:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/785
+- author: StygianEagle
+  changes:
+  - message: Ghost Moth theme for everyone, rejoice.
+    type: Add
+  id: 78300
+  time: '2026-02-09T11:21:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/783
 Order: -1
 
