@@ -135,6 +135,9 @@ public sealed partial class ReactorPartSystem
     {
         // Can't use args.GasMixture because then it wouldn't excite the tile
         var gasMix = _atmosphereSystem.GetContainingMixture(uid, false, true) ?? GasMixture.SpaceGas;
+        if(gasMix.TotalMoles < Atmospherics.GasMinMoles)
+            gasMix = GasMixture.SpaceGas;
+
         var DeltaT = (component.Temperature - gasMix.Temperature) * 0.01f;
 
         if (Math.Abs(DeltaT) < 0.1)
