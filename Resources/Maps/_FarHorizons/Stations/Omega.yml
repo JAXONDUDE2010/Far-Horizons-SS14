@@ -87008,7 +87008,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -33.5,29.5
       parent: 2
-- proto: SpawnVehicleSTV
+- proto: SpawnVehicleSTVNoKeys
   entities:
   - uid: 15483
     components:

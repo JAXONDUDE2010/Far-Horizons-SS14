@@ -222,7 +222,7 @@
 - type: entity
   parent: BaseWall
   id: WallFakeNT
-  name: Soild Wall
+  name: Solid Wall
   suffix: Fake, NT
   description: This wall feels.. hollow. Some signage reads "Break in event of Emergency!"
   components:
