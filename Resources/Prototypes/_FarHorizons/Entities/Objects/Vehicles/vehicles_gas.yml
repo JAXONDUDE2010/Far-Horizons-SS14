@@ -232,8 +232,6 @@
   components:
     - type: ContainerFill
       containers:
-        key_slot:
-        - null
         vehicle_mods_container:
         - ATVHeadlight
         - SecSiren
