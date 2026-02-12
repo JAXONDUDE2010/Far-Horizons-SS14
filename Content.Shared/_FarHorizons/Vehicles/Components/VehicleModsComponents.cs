@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
@@ -25,4 +26,10 @@ public sealed partial class VehicleModsComponent : Component
 
     [ViewVariables]
     public Dictionary<EquipmentType, EntityUid?> Equipment = new();
+}
+
+[Serializable, NetSerializable]
+public sealed class InstalledVehicleEquipment : EntityEventArgs
+{
+    public NetEntity Part;
 }

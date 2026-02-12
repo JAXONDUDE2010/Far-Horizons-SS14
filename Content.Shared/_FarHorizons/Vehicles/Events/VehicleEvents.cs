@@ -11,12 +11,6 @@ public readonly record struct AddRiderActions(EntityUid Rider);
 public readonly record struct RemoveRiderActions(EntityUid Rider);
 
 [Serializable, NetSerializable]
-public sealed class InstalledVehicleEquipment : EntityEventArgs
-{
-    public NetEntity Part;
-}
-
-[Serializable, NetSerializable]
 public sealed partial class VehicleRemoveDoAfter : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]

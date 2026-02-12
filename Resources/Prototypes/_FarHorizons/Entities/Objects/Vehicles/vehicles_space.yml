@@ -108,7 +108,7 @@
   - type: VehicleMods
     startingEquipment:
       - ATVHeadlight
-      - MechAirTankFilled
+    equipmentSlots: [TIRES, ENGINE, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
 
 - type: entity
   id: VehicleTransportFueledwithKeys

@@ -58,7 +58,9 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 else
                     _container.Insert(item, ent.Comp.ModSlot);
                 ent.Comp.SpawnedEquipment.Add(item);
-                RaiseNetworkEvent(new InstalledVehicleEquipment{Part = GetNetEntity(item)});
+                var ev = new InstalledVehicleEquipment{Part =  GetNetEntity(item)};
+                RaiseLocalEvent(ev);
+                RaiseNetworkEvent(ev);
             }
         }
         Dirty(ent.Owner, ent.Comp);
