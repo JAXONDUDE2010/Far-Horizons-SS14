@@ -6758,5 +6758,41 @@ Entries:
   id: 78900
   time: '2026-02-13T01:37:30.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/789
+- author: Shades and DrSmugleaf, Resprite by Abby, C# Training by Mogaiskii
+  changes:
+  - message: Ported the Mice from Starlight
+    type: Add
+  id: 79000
+  time: '2026-02-13T02:32:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
+- author: Shades and DrSmugleaf, Resprite by Abby, C# Training by Mogaiskii
+  changes:
+  - message: Ported licensing fix for Mice and other stuff from Starlight
+    type: Add
+  id: 79001
+  time: '2026-02-13T02:32:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
+- author: Shades and DrSmugleaf, Resprite by Abby, C# Training by Mogaiskii
+  changes:
+  - message: Added Mentor/Admin Mice resprite by Abby
+    type: Add
+  id: 79002
+  time: '2026-02-13T02:32:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
+- author: Shades and DrSmugleaf, Resprite by Abby, C# Training by Mogaiskii
+  changes:
+  - message: Mice can be activated from the Tricks dropdown instead of Smites, for
+      reasons.
+    type: Tweak
+  id: 79003
+  time: '2026-02-13T02:32:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
+- author: Shades and DrSmugleaf, Resprite by Abby, C# Training by Mogaiskii
+  changes:
+  - message: Added secondary Admin Mouse for NeoSol
+    type: Add
+  id: 79004
+  time: '2026-02-13T02:32:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
 Order: -1
 
