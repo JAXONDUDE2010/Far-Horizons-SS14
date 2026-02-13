@@ -6794,5 +6794,13 @@ Entries:
   id: 79004
   time: '2026-02-13T02:32:58.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/790
+- author: CorruptOmega
+  changes:
+  - message: Tweaked a bunch of antag role timers that were missed previously so maybe
+      we'll get more antags.
+    type: Tweak
+  id: 79700
+  time: '2026-02-13T18:42:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/797
 Order: -1
 
