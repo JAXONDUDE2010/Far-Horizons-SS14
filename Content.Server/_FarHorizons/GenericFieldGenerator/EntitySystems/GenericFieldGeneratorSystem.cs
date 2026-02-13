@@ -18,6 +18,8 @@ using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.DeviceLinking.Systems;
+using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server._FarHorizons.GenericFieldGenerator.EntitySystems;
 
@@ -43,6 +45,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         SubscribeLocalEvent<GenericFieldGeneratorComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
+        SubscribeLocalEvent<GenericFieldGeneratorComponent, SignalReceivedEvent>(OnSignalReceived);
     }
 
 public override void Update(float frameTime)
@@ -210,6 +213,43 @@ public override void Update(float frameTime)
         if (args.OldState != BatteryState.Full && args.NewState == BatteryState.Full && (!ent.Comp.Charged || !ent.Comp.IsConnected)) // also checks if not connected yet
         {
             TurnOn(ent);
+        }
+    }
+
+    private void OnSignalReceived(Entity<GenericFieldGeneratorComponent> generator, ref SignalReceivedEvent args) //basic signal compatability
+    {
+        if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored)
+        {
+            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
+            {
+                if (args.Port == generator.Comp.OnPort)
+                {//TurnOn
+                    generator.Comp.Enabled = true;
+                    batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
+                    _popupSystem.PopupEntity(Loc.GetString("comp-containment-turned-on"), generator);
+                }
+                if (args.Port == generator.Comp.OffPort)
+                {//TurnOff
+                    generator.Comp.Enabled = false;
+                    batteryComponent.MaxChargeRate = 0;
+                    _popupSystem.PopupEntity(Loc.GetString("comp-containment-turned-off"), generator);
+                }
+                if (args.Port == generator.Comp.TogglePort)
+                {
+                    if (!generator.Comp.Enabled)
+                    {//TurnOn
+                        generator.Comp.Enabled = true;
+                        batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
+                        _popupSystem.PopupEntity(Loc.GetString("comp-containment-turned-on"), generator);
+                    }
+                    else
+                    {//TurnOff
+                        generator.Comp.Enabled = false;
+                        batteryComponent.MaxChargeRate = 0;
+                        _popupSystem.PopupEntity(Loc.GetString("comp-containment-turned-off"), generator);
+                    }
+                }
+            }
         }
     }
 

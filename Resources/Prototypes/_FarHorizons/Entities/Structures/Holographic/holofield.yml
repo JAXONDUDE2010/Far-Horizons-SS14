@@ -90,6 +90,24 @@
     mediumVoltageNode: input
   - type: PowerNetworkBattery
     maxChargeRate: 0 #Should always be 0, set by GenericFieldGenerator
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+    - On
+    - Off
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   parent: GenericFieldGeneratorBase

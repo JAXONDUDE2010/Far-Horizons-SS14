@@ -4,6 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.DeviceLinking;
 
 namespace Content.Shared._FarHorizons.GenericFieldGenerator.Components;
 
@@ -84,6 +85,16 @@ public sealed partial class GenericFieldGeneratorComponent : Component
     /// </summary>
     [DataField("threshold")]
     public float Threshold = 0.2f;
+
+    //Ports
+    [DataField]
+    public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> OnPort = "On";
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> OffPort = "Off";
 }
 
 [Serializable, NetSerializable]
