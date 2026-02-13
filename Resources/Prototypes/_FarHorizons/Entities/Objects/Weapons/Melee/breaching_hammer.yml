@@ -14,15 +14,15 @@
     damage:
       types:
         Blunt: 18
-        Structural: 12.5
+        Structural: 15
     soundHit:
       collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 18
-        Structural: 50
+        Blunt: 27 # ~ Axe DPS for this is 22.5/s, this calculates to 22.5/s as well - I feel axe damage is very good for it.
+        Structural: 65 # ~ Axe DPS for this is 37.5/s, this calculates to 40/s - A sledgehammer -should- be better.
   - type: Item
     size: Large
   - type: Clothing
