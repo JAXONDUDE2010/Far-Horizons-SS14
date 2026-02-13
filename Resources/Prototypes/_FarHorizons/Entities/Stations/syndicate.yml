@@ -1,13 +1,13 @@
-- type: entity
+﻿- type: entity
+  id: BaseSyndicateHighCommand
   abstract: true
-  id: BaseStationNanotrasen
   components:
-    - type: NpcFactionMember
-      factions:
-        - NanoTrasen
+    - type: StationCentcomm
+      maps:
+        - "/Maps/_FarHorizons/SHCs/shc.yml"
 
 - type: entity
-  id: StandardNanotrasenStation
+  id: StandardSyndicateStation
   parent:
     - BaseStation
     - BaseStationNews
@@ -17,7 +17,7 @@
     - BaseStationArrivals
     - BaseStationGateway
     - BaseStationShuttles
-    - BaseStationCentcomm
+    - BaseSyndicateHighCommand
     - BaseStationEvacuation
     - BaseStationAlertLevels
     - BaseStationMagnet
@@ -25,32 +25,21 @@
     - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
-    - BaseStationNanotrasen
+    - BaseStationSyndicate
     - BaseStationDeliveries
-    - BaseStationCryoTeleportation
-    - BaseStationAlertArmories
+    - BaseStationCryoTeleportation #Starlight
+    - BaseStationAlertArmories #Starlight
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
 
 - type: entity
-  id: NanotrasenCentralCommand
+  id: SyndicateHighCommand
   parent:
     - BaseStation
     - BaseStationAlertLevels
-    - BaseStationNanotrasen
+    - BaseStationSyndicate
     - BaseStationCryoTeleportation
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Transform
-
-- type: entity
-  id: StandardStationArena
-  parent:
-  - BaseStation
-  - BaseStationJobsSpawning
-  - BaseStationRecords
-  - BaseStationNanotrasen
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
