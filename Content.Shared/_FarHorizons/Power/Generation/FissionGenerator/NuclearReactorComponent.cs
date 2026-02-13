@@ -188,11 +188,16 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables]
     public EntityUid? AlarmAudioHighRads;
 
-    [ViewVariables]
+    #region Containers
+    public const string PartSlotId = "part_slot";
+    [DataField(PartSlotId), ViewVariables]
     public ItemSlot PartSlot = new();
+
+    public const string PartStorageId = "part_storage";
 
     [ViewVariables]
     public BaseContainer PartStorage;
+    #endregion
 
     /// <summary>
     /// Grid of neutron counts

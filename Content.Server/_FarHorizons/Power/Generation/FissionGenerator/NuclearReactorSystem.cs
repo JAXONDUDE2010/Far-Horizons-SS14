@@ -90,7 +90,7 @@ public sealed class NuclearReactorSystem : EntitySystem
 
         // Component events
         SubscribeLocalEvent<NuclearReactorComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<NuclearReactorComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<NuclearReactorComponent, ComponentRemove>(OnCompRemove);
 
         SubscribeLocalEvent<NuclearReactorComponent, DamageChangedEvent>(OnDamaged);
 
@@ -121,8 +121,8 @@ public sealed class NuclearReactorSystem : EntitySystem
     {
         _signal.EnsureSinkPorts(uid, comp.ControlRodInsertPort, comp.ControlRodRetractPort);
         
-        _slotsSystem.TryGetSlot(uid, "part_slot", out comp.PartSlot!);
-        _containerSystem.TryGetContainer(uid, "part_storage", out comp.PartStorage!, null);
+        _slotsSystem.AddItemSlot(uid, NuclearReactorComponent.PartSlotId, comp.PartSlot);
+        comp.PartStorage = _containerSystem.EnsureContainer<Container>(uid, NuclearReactorComponent.PartStorageId);
 
         var gridWidth = comp.ReactorGridWidth;
         var gridHeight = comp.ReactorGridHeight;
@@ -254,7 +254,11 @@ public sealed class NuclearReactorSystem : EntitySystem
 
     private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => UpdateUI(uid, component);
 
-    private void OnShutdown(Entity<NuclearReactorComponent> ent, ref ComponentShutdown args) => CleanUp(ent.Comp);
+    private void OnCompRemove(Entity<NuclearReactorComponent> ent, ref ComponentRemove args) 
+    {
+        _slotsSystem.RemoveItemSlot(ent.Owner, ent.Comp.PartSlot);
+        CleanUp(ent.Comp);
+    }
 
     #region Main Loop
     private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)

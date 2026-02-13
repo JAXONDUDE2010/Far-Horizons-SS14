@@ -113,12 +113,11 @@
       part_slot: !type:ContainerSlot {}
       part_storage: !type:Container
   - type: ItemSlots
-    slots:
-      part_slot:
-        whitelist:
-          components:
-            - ReactorPart
   - type: NuclearReactor
+    part_slot:
+      whitelist:
+        components:
+          - ReactorPart
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
