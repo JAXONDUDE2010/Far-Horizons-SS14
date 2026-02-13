@@ -109,6 +109,7 @@
         - storagebase
   - type: Hitch
   - type: VehicleMods
+    vehicleType: Gas
     startingEquipment:
       - ATVHeadlight
     equipmentSlots: [tires, engine, headlight]
@@ -214,6 +215,7 @@
         - ATVHeadlight
         - SecSiren
     - type: VehicleMods
+      vehicleType: Gas
       startingEquipment:
         - ATVHeadlight
         - SecSiren
@@ -353,6 +355,7 @@
         - passenger_slot
         - storagebase
     - type: VehicleMods
+      vehicleType: Gas
       startingEquipment:
         - ATVHeadlight
       equipmentSlots: [tires, engine, headlight]
@@ -496,6 +499,7 @@
     openOnActivate: false
     clickInsert: false
   - type: VehicleMods
+    vehicleType: Gas
     startingEquipment:
       - ATVHeadlight
     equipmentSlots: [tires, engine, headlight]

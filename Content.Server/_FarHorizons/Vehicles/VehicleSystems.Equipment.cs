@@ -11,6 +11,9 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Movement.Components;
+using Robust.Shared.Timing;
+using Content.Shared.PowerCell.Components;
+using Content.Shared.PowerCell;
 
 namespace Content.Server._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -20,17 +23,18 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<VehicleModsComponent, ComponentInit>(OnCompInit);
-        SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnRefreshFriction);
 
         SubscribeLocalEvent<RiderComponent, AddRiderActions>(OnAddActions);
         SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled);
+        SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
 
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
     }
@@ -72,21 +76,12 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         Dirty(ent.Owner, ent.Comp);
     }
 
-    private void OnRefreshFriction(Entity<VehicleModsComponent> ent, ref RefreshFrictionModifiersEvent args)
-    {
-        var tires = ent.Comp.Equipment[EquipmentType.TIRES];
-        if(tires == null || !TryComp<MovementSpeedModifierComponent>(tires, out var msmComp)) return;
-        
-
-        Log.Info($"{ent.Owner}, {msmComp.BaseAcceleration}, {msmComp.BaseFriction}");
-        Log.Info($"{args.Acceleration}, {args.Friction}, {args.FrictionNoInput}");
-        args.ModifyAcceleration(msmComp.BaseAcceleration);
-        args.ModifyFriction(msmComp.BaseFriction);
-    }
-
     private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
     {
         if(!Resolve(item, ref veComp))
+            return false;
+
+        if((veComp.AllowedVehicles & vmComp.VehicleType) == 0)
             return false;
 
         foreach(var slot in vmComp.Equipment)
@@ -143,9 +138,29 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     {
         var xForm = Transform(ent.Owner);
         if(xForm.ParentUid == xForm.GridUid) return;
-        if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp)) return;
-
-        if(veComp.Slot == EquipmentType.TIRES)
+        if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp) 
+            || !TryComp<MovementSpeedModifierComponent>(xForm.ParentUid, out var msmComp)) return;
+        
+        Timer.Spawn(0, () =>
+        {
+            if(veComp.Slot == EquipmentType.TIRES)
+            {
+                _movementSpeed.ChangeBaseFriction(xForm.ParentUid, ent.Comp.BaseFriction, msmComp.BaseFriction, ent.Comp.BaseAcceleration);
+                _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, msmComp.BaseWalkSpeed, msmComp.BaseWalkSpeed, ent.Comp.BaseAcceleration);
+            }
+            else if(veComp.Slot == EquipmentType.ENGINE)
+            {
+                _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);    
+            }
             _movementSpeed.RefreshFrictionModifiers(xForm.ParentUid);
+            _movementSpeed.RefreshMovementSpeedModifiers(xForm.ParentUid);
+        });
+    }
+
+    private void OnElectricEngineInstalled(Entity<PowerCellDrawComponent> ent, ref InstalledVehicleEquipment args)
+    {
+        var xForm = Transform(ent.Owner);
+        if(xForm.ParentUid == xForm.GridUid) return;
+        _powerCell.SetDrawRate(xForm.ParentUid, ent.Comp.DrawRate);
     }
 }

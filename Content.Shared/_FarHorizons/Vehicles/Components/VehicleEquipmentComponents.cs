@@ -16,8 +16,8 @@ public sealed partial class VehicleEquipmentComponent : Component
     [DataField(required: true)]
     public EquipmentType Slot = EquipmentType.NONE;
 
-    [ViewVariables]
-    public bool isBroken = false;
+    [DataField(required: true)]
+    public VehicleType AllowedVehicles = VehicleType.None;
 }
 
 public static class EquipmentTypeExtensions

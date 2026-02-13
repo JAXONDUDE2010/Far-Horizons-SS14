@@ -26,10 +26,23 @@ public sealed partial class VehicleModsComponent : Component
 
     [ViewVariables]
     public Dictionary<EquipmentType, EntityUid?> Equipment = new();
+
+    [DataField(required:true)]
+    public VehicleType VehicleType = VehicleType.None;
 }
 
 [Serializable, NetSerializable]
 public sealed class InstalledVehicleEquipment : EntityEventArgs
 {
     public NetEntity Part;
+}
+
+[Serializable, NetSerializable]
+[Flags]
+public enum VehicleType
+{
+    None = 0,
+    Electric = 1 << 0,
+    Gas = 1 << 1,
+    Spaceship = 1 << 2
 }

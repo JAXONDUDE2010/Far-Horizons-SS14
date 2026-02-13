@@ -100,6 +100,7 @@
         - storagebase
   - type: Hitch
   - type: VehicleMods
+    vehicleType: Spaceship
     startingEquipment:
       - ATVHeadlight
     equipmentSlots: [TIRES, ENGINE, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]

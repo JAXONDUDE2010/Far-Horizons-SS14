@@ -36,10 +36,12 @@
       map: ["enum.VehicleVisualLayers.Base"]
     noRot: true
   - type: VehicleMods
+    vehicleType: Electric
     startingEquipment:
       - SecwayLight
       - SecSiren
       - StandardTires
+      - ElectricEngine
     equipmentSlots: [tires, engine, headlight, lightbar]
   - type: Strap
   - type: Fixtures
@@ -77,7 +79,6 @@
     cellSlotId: cell_slot
     fitsInCharger: false
   - type: PowerCellDraw
-    drawRate: 1
     enabled: false
   - type: FootstepModifier
     footstepSoundCollection:
@@ -148,7 +149,6 @@
           disableEject: true
           #swap: false
     - type: PowerCellDraw
-      drawRate: 1.5 # Eats through cells
       enabled: false 
     - type: ContainerFill
       containers:
@@ -156,6 +156,14 @@
         - PowerCellMedium
         key_slot:
         - VehicleKeySecwayTurbo
+    - type: VehicleMods
+      vehicleType: Electric
+      startingEquipment:
+        - SecwayLight
+        - SecSiren
+        - StandardTires
+        - ElectricTurboEngine
+      equipmentSlots: [tires, engine, headlight, lightbar]
 
 - type: entity
   id: VehicleJanicart
@@ -232,7 +240,6 @@
     cellSlotId: cell_slot
     fitsInCharger: false
   - type: PowerCellDraw
-    drawRate: 1
     enabled: false
   - type: FootstepModifier
     footstepSoundCollection:
@@ -270,8 +277,11 @@
     volume: -5
     enabled: false
   - type: VehicleMods
+    vehicleType: Electric
     startingEquipment:
       - SecwayLight
+      - StandardTires
+      - ElectricEngine
     equipmentSlots: [tires, engine, headlight]
 
 - type: entity
