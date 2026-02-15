@@ -7002,5 +7002,36 @@ Entries:
   id: 76319
   time: '2026-02-15T02:14:22.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/763
+- author: Killer Tamashi
+  changes:
+  - message: Added Scurret Sign as a 1 point language you can pick on character creation
+    type: Add
+  id: 80100
+  time: '2026-02-15T02:19:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/801
+- author: Killer Tamashi
+  changes:
+  - message: Added Scurret Sign to both Silicons and Liberians to follow theme of
+      them knowing everything
+    type: Add
+  id: 80101
+  time: '2026-02-15T02:19:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/801
+- author: Killer Tamashi
+  changes:
+  - message: Changed Galcommon Sign to 1 point
+    type: Tweak
+  id: 80102
+  time: '2026-02-15T02:19:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/801
+- author: Killer Tamashi
+  changes:
+  - message: Changed Language trait picks to 3 (Allowing you to choose a species specific
+      language like, say, scratch and an additional non-species specific one like,
+      say, sign.)
+    type: Tweak
+  id: 80103
+  time: '2026-02-15T02:19:12.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/801
 Order: -1
 
