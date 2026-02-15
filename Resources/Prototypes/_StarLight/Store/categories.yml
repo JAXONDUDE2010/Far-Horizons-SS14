@@ -157,3 +157,8 @@
 - type: storeCategory
   id: RevUplinkPointless
   name: Glory
+
+# Languages
+- type: storeCategory
+  id: Languages
+  name: store-category-languages

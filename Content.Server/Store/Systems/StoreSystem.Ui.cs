@@ -25,6 +25,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Prometheus; //Starlight
+using Content.Server._Starlight.Language;
 
 
 namespace Content.Server.Store.Systems;
@@ -50,6 +51,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly RevSupplyRiftSystem _revSupplyRift = default!; // Starlight
+    [Dependency] private readonly LanguageSystem _languageSystem = default!; //Starlight
 
     private void InitializeUi()
     {
@@ -134,7 +136,7 @@ public sealed partial class StoreSystem
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
 
-        var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
+        var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed, component.Grid); // Starlight
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
 
@@ -284,6 +286,12 @@ public sealed partial class StoreSystem
             if (upgradeActionId != null)
                 HandleRefundComp(uid, component, upgradeActionId.Value);
         }
+
+        if (listing.ProductLanguage != null) //Starlight-start
+        {
+            var language = _languageSystem.GetLanguagePrototype(listing.ProductLanguage);
+            if  (language != null) _languageSystem.AddLanguage(buyer, language);
+        } // Starlight-end
 
         if (listing.ProductEvent != null)
         {
@@ -438,7 +446,7 @@ public sealed partial class StoreSystem
         // Only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(storeUid);
 
-        var state = new StoreUpdateState(storeComp.LastAvailableListings, allCurrency, showFooter, storeComp.RefundAllowed);
+        var state = new StoreUpdateState(storeComp.LastAvailableListings, allCurrency, showFooter, storeComp.RefundAllowed, storeComp.Grid); // Starlight
 
         // Set the UI state - this will update all connected sessions automatically
         _ui.SetUiState(storeUid, StoreUiKey.Key, state);
