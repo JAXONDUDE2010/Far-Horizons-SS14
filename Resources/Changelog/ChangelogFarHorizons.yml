@@ -7033,5 +7033,13 @@ Entries:
   id: 80103
   time: '2026-02-15T02:19:12.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/801
+- author: princess_gurchi
+  changes:
+  - message: Replaced infinite spawners of ghostrole slimes in dungeons with normal
+      mob slimes
+    type: Fix
+  id: 80200
+  time: '2026-02-15T02:22:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/802
 Order: -1
 
