@@ -327,9 +327,17 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
         var rider = ent.Comp.Rider.Value;
         
         if(!ent.Comp.AllowCrashing) return;
+        if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return; 
 
         var speed = args.OurBody.LinearVelocity.Length();
-        if (speed < ent.Comp.CrashingSpeed) return;
+        var crashingSpeed = 8f;
+
+        if(msmComp.BaseSprintSpeed > msmComp.BaseWalkSpeed)
+            crashingSpeed = msmComp.BaseWalkSpeed+1;
+        else if(msmComp.BaseSprintSpeed < msmComp.BaseWalkSpeed)
+            crashingSpeed = msmComp.BaseSprintSpeed+1;
+            
+        if (speed < crashingSpeed) return;
         
         if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {
@@ -358,11 +366,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
             if(!HasComp<DamageableComponent>(args.OtherEntity) || HasComp<PacifiedComponent>(ent.Owner)) return; 
 
             DamageTypePrototype? _blunt = _prototypes.Index<DamageTypePrototype>(_bluntname);
-            DamageSpecifier? _damage = new(_blunt, Math.Clamp(10 * (1 + (0.5 * speed / ent.Comp.CrashingSpeed)), 10, 20));
+            DamageSpecifier? _damage = new(_blunt, Math.Clamp(10 * (1 + (0.5 * speed / crashingSpeed)), 10, 20));
             _damageable.TryChangeDamage(args.OtherEntity, _damage, origin: ent.Comp.Rider.Value);
             _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity, }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));
-            
-            if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return; 
 
             Timer.Spawn(TimeSpan.FromSeconds(2), () => _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed * 4, msmComp.BaseSprintSpeed * 4, msmComp.Acceleration));
             _movementSpeed.ChangeBaseSpeed(ent.Owner, msmComp.BaseWalkSpeed/4, msmComp.BaseSprintSpeed/4, msmComp.Acceleration);

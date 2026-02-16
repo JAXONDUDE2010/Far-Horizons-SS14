@@ -10,6 +10,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Buckle;
+using Content.Shared.Movement.Components;
 
 namespace Content.Shared._FarHorizons.Vehicles.EntitySystems;
 
@@ -94,10 +95,17 @@ public abstract partial class SharedVehicleSystems : EntitySystem
         var rider = ent.Comp.Rider.Value;
         
         if(!ent.Comp.AllowCrashing) return;
+        if(!TryComp<MovementSpeedModifierComponent>(ent.Owner, out var msmComp)) return; 
 
         var speed = args.OurBody.LinearVelocity.Length();
+        var crashingSpeed = 8f;
 
-        if (speed < ent.Comp.CrashingSpeed) return;
+        if(msmComp.BaseSprintSpeed > msmComp.BaseWalkSpeed)
+            crashingSpeed = msmComp.BaseWalkSpeed+1;
+        else if(msmComp.BaseSprintSpeed < msmComp.BaseWalkSpeed)
+            crashingSpeed = msmComp.BaseSprintSpeed+1;
+            
+        if (speed < crashingSpeed) return;
         
         if (args.OurFixture.Hard && args.OtherFixture.Hard)
         {

@@ -89,12 +89,6 @@ public sealed partial class VehicleComponent : Component
     public bool AllowCrashing = false;
 
     /// <summary>
-    /// Crashing speed if enabled
-    /// </summary>
-    [DataField("crashingSpeed"), AutoNetworkedField]
-    public float CrashingSpeed = 6;
-
-    /// <summary>
     /// Sound played whenever the vehicle is started
     /// </summary>
     [DataField]

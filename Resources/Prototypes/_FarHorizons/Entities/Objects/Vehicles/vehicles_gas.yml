@@ -10,7 +10,6 @@
     cellPowered: false
     requireIgnition: true
     allowCrashing: true
-    crashingSpeed: 8
     baseState: vehicle
     brokenState: vehicle_broken
     startupTime: 2
@@ -112,6 +111,7 @@
     startingEquipment:
       - ATVHeadlight
       - BasicEngine
+      - StandardTires
     equipmentSlots: [tires, engine, headlight]
 
 - type: entity
@@ -155,7 +155,6 @@
       cellPowered: false
       requireIgnition: true
       allowCrashing: true
-      crashingSpeed: 10 
       baseState: vehicle
       brokenState: vehicle_broken
       startupTime: 2
@@ -211,29 +210,14 @@
       containers:
         key_slot:
         - VehicleKeySTV
-        vehicle_mods_container:
-        - ATVHeadlight
-        - SecSiren
     - type: VehicleMods
       vehicleType: Gas
       startingEquipment:
         - ATVHeadlight
         - SecSiren
         - BasicEngine
+        - StandardTires
       equipmentSlots: [tires, engine, headlight, lightbar]
-
-- type: entity
-  id: VehicleATVFueledNTSec
-  parent: VehicleATVFueledwithKeysNTSec
-  name: STV
-  suffix: Fueled, NT
-  description: Law enforcement variant of the ATV, comes included with sirens to blare at Tiders. 
-  components:
-    - type: ContainerFill
-      containers:
-        vehicle_mods_container:
-        - ATVHeadlight
-        - SecSiren
 
 - type: entity
   id: VehicleClownCar
@@ -245,7 +229,6 @@
     cellPowered: false
     requireIgnition: true 
     allowCrashing: true
-    crashingSpeed: 8 
     baseState: vehicle
     brokenState: vehicle_broken
     startupTime: 2
@@ -371,6 +354,7 @@
       startingEquipment:
         - ATVHeadlight
         - BasicEngine
+        - StandardTires
       equipmentSlots: [tires, engine, headlight]
 
 - type: entity
@@ -400,7 +384,6 @@
     cellPowered: false
     requireIgnition: true
     allowCrashing: true
-    crashingSpeed: 8
     baseState: vehicle
     brokenState: vehicle_broken
     startupTime: 2
@@ -515,6 +498,7 @@
     startingEquipment:
       - ATVHeadlight
       - BasicEngine
+      - StandardTires
     equipmentSlots: [tires, engine, headlight]
 
 - type: entity

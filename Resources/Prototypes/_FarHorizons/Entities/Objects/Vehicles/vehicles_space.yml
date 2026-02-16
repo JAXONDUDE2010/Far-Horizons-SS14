@@ -8,7 +8,6 @@
     cellPowered: false
     requireIgnition: true
     allowCrashing: true
-    crashingSpeed: 8
     baseState: vehicle
     brokenState: vehicle_broken
     startupTime: 2
