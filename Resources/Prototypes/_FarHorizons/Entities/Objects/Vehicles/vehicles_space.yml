@@ -1,6 +1,21 @@
 - type: entity
-  id: VehicleTransport
+  id: VehicleSpaceshipProto
   parent: BaseVehicleRideableDamageable
+  components: 
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: RadarConsole
+    followEntity: true
+
+- type: entity
+  id: VehicleTransport
+  parent: VehicleSpaceshipProto
   name: Transporter
   description: Basic space faring vehicle dedicated to the transport of good or exploration.
   components:
@@ -25,10 +40,12 @@
     soundHit:
       collection: MetalThud
   - type: VehicleContainer
-    seats: 2
+    seats: 1
     passengerWhitelist:
       components:
         - Body
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
   - type: Sprite
     drawdepth: OverMobs
     sprite: _FarHorizons/Objects/Vehicles/transporter.rsi
@@ -102,6 +119,9 @@
     vehicleType: Spaceship
     startingEquipment:
       - ATVHeadlight
+      - GroundEngine
+      - BasicThruster
+      - StandardTires
     equipmentSlots: [TIRES, ENGINE, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
 
 - type: entity

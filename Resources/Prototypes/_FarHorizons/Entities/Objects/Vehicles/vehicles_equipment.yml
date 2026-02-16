@@ -127,6 +127,18 @@
       drainRate: 0.375
 
 - type: entity
+  id: GroundEngine
+  parent: BasicEngine
+  name: Ground Engine
+  description: An engine designed to move a space ship from point A to B but thats it.
+  components:
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 5
+      baseWalkSpeed: 2.5
+    - type: ReagantDraw
+      drainRate: 0.25
+
+- type: entity
   id: ElectricEngine
   parent: BaseItem
   name: Electric Motor
@@ -155,3 +167,20 @@
       baseWalkSpeed: 5
     - type: PowerCellDraw
       drawRate: 1.5
+
+- type: entity
+  id: BasicThruster
+  parent: BaseItem
+  name: Basic Thruster
+  description: A a mass produced thruster with spaceflight capabilities but no FTL.
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Objects/Vehicles/vehiclemods.rsi
+      state: engine
+    - type: VehicleEquipment
+      slot: THURSTERS
+      allowedVehicles: Spaceship
+    - type: MovementSpeedModifier
+      baseWeightlessAcceleration: 4
+      baseWeightlessFriction: 2
+      baseWeightlessModifier: 4

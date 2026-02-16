@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.PowerCell;
 using Content.Shared._FarHorizons.ReagantDraw.Components;
+using Content.Shared.UserInterface;
 
 namespace Content.Server._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -25,6 +26,8 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -35,9 +38,12 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled);
+        SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
+        SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
         SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
         SubscribeLocalEvent<ReagantDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled);
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
+        SubscribeLocalEvent<VehicleComponent, ToggleIntrinsicUIEvent>(OnActionToggle);
     }
 
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
@@ -155,7 +161,29 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             }
             _movementSpeed.RefreshFrictionModifiers(xForm.ParentUid);
             _movementSpeed.RefreshMovementSpeedModifiers(xForm.ParentUid);
+            if(veComp.Slot == EquipmentType.THURSTERS)
+            {
+                _meta.AddFlag(xForm.ParentUid, MetaDataFlags.ExtraTransformEvents);
+                _movementSpeed.RefreshWeightlessModifiers(xForm.ParentUid);
+            }
         });
+    }
+
+    private void GridUiChanged(Entity<VehicleModsComponent> ent, ref GridUidChangedEvent args)
+        => _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
+
+    private void OnWeightlessRefresh(Entity<VehicleModsComponent> ent, ref RefreshWeightlessModifiersEvent args)
+    {
+        if(ent.Comp.Equipment[EquipmentType.THURSTERS] == null 
+            || !TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.THURSTERS], out var msmComp)) return;
+        var xForm = Transform(ent.Owner);
+        if(xForm.GridUid == null)
+        {
+            args.WeightlessAcceleration = msmComp.BaseWeightlessAcceleration;
+            args.WeightlessModifier = msmComp.BaseWeightlessModifier;
+            args.WeightlessFriction = msmComp.BaseWeightlessFriction*5;
+            args.WeightlessFrictionNoInput = msmComp.BaseWeightlessFriction*5;
+        }
     }
 
     private void OnElectricEngineInstalled(Entity<PowerCellDrawComponent> ent, ref InstalledVehicleEquipment args)
@@ -172,5 +200,14 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(!TryComp<ReagantDrawComponent>(xForm.ParentUid, out var rdComp)) return;
         rdComp.DrainRate = ent.Comp.DrainRate;
         Dirty(xForm.ParentUid, rdComp);
+    }
+
+    private void OnActionToggle(EntityUid uid, VehicleComponent component, ToggleIntrinsicUIEvent args)
+    {
+        if (args.Key == null)
+            return;
+        if(component.Rider == null)
+            return;
+        args.Handled = _ui.TryToggleUi(uid, args.Key, component.Rider.Value);
     }
 }

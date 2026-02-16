@@ -47,5 +47,6 @@ public enum EquipmentType
     AIRTANK = 1 << 4,
     VENTFAN = 1 << 5,
     THURSTERS = 1 << 6,
-    BOOSTER = 1 << 7
+    BOOSTER = 1 << 7,
+    ARMOR = 1 << 8
 }
