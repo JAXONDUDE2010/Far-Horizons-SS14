@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/16/2026 10:43:15
+  time: 02/16/2026 10:52:48
   entityCount: 1683
 maps: []
 grids:
@@ -1142,7 +1142,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -5662.397
+      secondsUntilStateChange: -5716.1294
       state: Opening
 - proto: AirSensor
   entities:
@@ -4853,7 +4853,7 @@ entities:
       pos: -6.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -23015.643
+      secondsUntilStateChange: -23069.375
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4936,7 +4936,7 @@ entities:
       pos: 0.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -29014.652
+      secondsUntilStateChange: -29068.385
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4968,7 +4968,7 @@ entities:
       pos: -6.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -8654.502
+      secondsUntilStateChange: -8708.234
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4992,7 +4992,7 @@ entities:
       pos: -9.5,-12.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -28392.852
+      secondsUntilStateChange: -28446.584
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11278,14 +11278,18 @@ entities:
       parent: 1
     missingComponents:
     - Anchorable
+    - Rotatable
   - uid: 1475
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,-16.5
       parent: 1
+    - type: Thruster
+      enabled: False
     missingComponents:
     - Anchorable
+    - Rotatable
 - proto: ToiletDirtyWater
   entities:
   - uid: 1476
