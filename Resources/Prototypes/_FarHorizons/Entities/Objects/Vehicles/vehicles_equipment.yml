@@ -184,3 +184,56 @@
       baseWeightlessAcceleration: 4
       baseWeightlessFriction: 2
       baseWeightlessModifier: 4
+
+- type: entity
+  id: VehicleAirTank
+  parent: BaseItem
+  name: Vehicle Air Tank
+  description: A special air canister capable of holding a large amount of air.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      state: mecha_air_tank
+    - type: ActivatableUI
+      key: enum.SharedGasTankUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.SharedGasTankUiKey.Key:
+          type: GasTankBoundUserInterface
+    - type: GasTank
+      outputPressure: 21.3
+      air:
+        volume: 3000
+        temperature: 293.15
+      tankLowPressure: 30.0
+    - type: VehicleEquipment
+      slot: AIRTANK
+      allowedVehicles: Spaceship
+
+- type: entity
+  id: VehicleAirTankFilled
+  parent: VehicleAirTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 3000
+      moles:
+        - 50.051379050
+      temperature: 293.15
+
+- type: entity
+  id: VentFan
+  parent: BaseItem
+  name: Vent Fan
+  description: A special fan that pumps gas in and out of the vehicle cabin.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      state: mecha_air_tank
+    - type: VehicleEquipment
+      slot: VENTFAN
+      allowedVehicles: Spaceship

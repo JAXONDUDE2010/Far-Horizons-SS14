@@ -122,6 +122,7 @@
       - GroundEngine
       - BasicThruster
       - StandardTires
+      - VehicleAirTankFilled
     equipmentSlots: [TIRES, ENGINE, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
 
 - type: entity
