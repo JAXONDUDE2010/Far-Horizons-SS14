@@ -39,6 +39,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled);
         SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
+        SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
         SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
         SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
         SubscribeLocalEvent<ReagantDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled);
@@ -150,27 +151,32 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         
         Timer.Spawn(0, () =>
         {
-            if(veComp.Slot == EquipmentType.TIRES)
+            switch(veComp.Slot)
             {
-                _movementSpeed.ChangeBaseFriction(xForm.ParentUid, ent.Comp.BaseFriction, msmComp.BaseFriction, ent.Comp.BaseAcceleration);
-                _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, msmComp.BaseWalkSpeed, msmComp.BaseWalkSpeed, ent.Comp.BaseAcceleration);
-            }
-            else if(veComp.Slot == EquipmentType.ENGINE)
-            {
-                _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);    
-            }
-            _movementSpeed.RefreshFrictionModifiers(xForm.ParentUid);
-            _movementSpeed.RefreshMovementSpeedModifiers(xForm.ParentUid);
-            if(veComp.Slot == EquipmentType.THURSTERS)
-            {
-                _meta.AddFlag(xForm.ParentUid, MetaDataFlags.ExtraTransformEvents);
-                _movementSpeed.RefreshWeightlessModifiers(xForm.ParentUid);
+                case EquipmentType.TIRES:
+                    _movementSpeed.RefreshFrictionModifiers(xForm.ParentUid);
+                    break;
+                case EquipmentType.ENGINE:
+                    _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);
+                    break;
+                case EquipmentType.THURSTERS:
+                    _meta.AddFlag(xForm.ParentUid, MetaDataFlags.ExtraTransformEvents);
+                    break;
             }
         });
     }
 
     private void GridUiChanged(Entity<VehicleModsComponent> ent, ref GridUidChangedEvent args)
         => _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
+
+    private void OnFrictionRefresh(Entity<VehicleModsComponent> ent, ref RefreshFrictionModifiersEvent args)
+    {
+        if(ent.Comp.Equipment[EquipmentType.TIRES] == null 
+            || !TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.TIRES], out var msmComp)) return;
+        args.Acceleration = msmComp.BaseAcceleration;
+        args.Friction = msmComp.BaseFriction;
+        args.FrictionNoInput = msmComp.BaseFriction;
+    }
 
     private void OnWeightlessRefresh(Entity<VehicleModsComponent> ent, ref RefreshWeightlessModifiersEvent args)
     {

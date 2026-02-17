@@ -132,10 +132,10 @@
         - VehicleKeyATV
 
 - type: entity
-  id: VehicleATVFueledwithKeysNTSec
+  id: VehicleATVFueledNTSec
   parent: [VehicleATV, BaseSecurityContraband]
   name: STV
-  suffix: Fueled, Keys, NT
+  suffix: Fueled, NT
   description: Law enforcement variant of the ATV, comes included with sirens to blare at Tiders. 
   components:
     - type: Sprite
@@ -206,10 +206,6 @@
             tags:
             - VehicleKey
             - STVKeys
-    - type: ContainerFill
-      containers:
-        key_slot:
-        - VehicleKeySTV
     - type: VehicleMods
       vehicleType: Gas
       startingEquipment:
@@ -218,6 +214,16 @@
         - BasicEngine
         - StandardTires
       equipmentSlots: [tires, engine, headlight, lightbar]
+
+- type: entity
+  id: VehicleATVFueledwithKeysNTSec
+  parent: VehicleATVFueledNTSec
+  suffix: Fueled, Keys, NT
+  components: 
+    - type: ContainerFill
+      containers:
+        key_slot:
+        - VehicleKeySTV
 
 - type: entity
   id: VehicleClownCar
