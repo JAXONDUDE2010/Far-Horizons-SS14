@@ -2,7 +2,7 @@
   name: Taser
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponHeldTaser
-  description: Widely regarded as incredibly inaffective against fleeing suspects and considered out of date for station-side security, it is still provided for officers that prefer a softer touch.
+  description: Widely regarded as incredibly ineffective against fleeing suspects and considered out of date for station-side security, it is still provided for officers that prefer a softer touch.
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Melee/taser.rsi
