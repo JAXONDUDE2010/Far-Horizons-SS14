@@ -33,7 +33,7 @@
       path: /Audio/Effects/sparks1.ogg
     activatedDamage:
       types:
-        Shock: 0.5
+        Shock: 0.7
   - type: MeleeWeapon
     autoAttack: true
     attackRate: 4
