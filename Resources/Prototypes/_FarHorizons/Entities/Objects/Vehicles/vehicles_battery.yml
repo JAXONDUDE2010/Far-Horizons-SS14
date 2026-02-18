@@ -38,11 +38,12 @@
   - type: VehicleMods
     vehicleType: Electric
     startingEquipment:
-      - SecwayLight
-      - SecSiren
       - StandardTires
       - ElectricEngine
-    equipmentSlots: [tires, engine, headlight, lightbar]
+      - BasicArmorKit
+      - SecwayLight
+      - SecSiren
+    equipmentSlots: [tires, engine, armor, headlight, lightbar]
   - type: Strap
   - type: Fixtures
     fixtures:
@@ -159,11 +160,12 @@
     - type: VehicleMods
       vehicleType: Electric
       startingEquipment:
-        - SecwayLight
-        - SecSiren
         - StandardTires
         - ElectricTurboEngine
-      equipmentSlots: [tires, engine, headlight, lightbar]
+        - BasicArmorKit
+        - SecwayLight
+        - SecSiren
+      equipmentSlots: [tires, engine, armor, headlight, lightbar]
 
 - type: entity
   id: VehicleJanicart
@@ -279,10 +281,10 @@
   - type: VehicleMods
     vehicleType: Electric
     startingEquipment:
-      - SecwayLight
       - StandardTires
       - ElectricEngine
-    equipmentSlots: [tires, engine, headlight]
+      - SecwayLight
+    equipmentSlots: [tires, engine, armor, headlight]
 
 - type: entity
   id: VehicleJanicartBatterywithKeys

@@ -109,10 +109,10 @@
   - type: VehicleMods
     vehicleType: Gas
     startingEquipment:
-      - ATVHeadlight
-      - BasicEngine
       - StandardTires
-    equipmentSlots: [tires, engine, headlight]
+      - BasicEngine
+      - ATVHeadlight
+    equipmentSlots: [tires, engine, armor, headlight]
 
 - type: entity
   id: VehicleATVFueledwithKeys
@@ -209,11 +209,12 @@
     - type: VehicleMods
       vehicleType: Gas
       startingEquipment:
+        - StandardTires
+        - BasicEngine
+        - BasicArmorKit
         - ATVHeadlight
         - SecSiren
-        - BasicEngine
-        - StandardTires
-      equipmentSlots: [tires, engine, headlight, lightbar]
+      equipmentSlots: [tires, engine, armor, headlight, lightbar]
 
 - type: entity
   id: VehicleATVFueledwithKeysNTSec
@@ -358,10 +359,11 @@
     - type: VehicleMods
       vehicleType: Gas
       startingEquipment:
-        - ATVHeadlight
-        - BasicEngine
         - StandardTires
-      equipmentSlots: [tires, engine, headlight]
+        - BasicEngine
+        - BasicArmorKit
+        - ATVHeadlight
+      equipmentSlots: [tires, engine, armor, headlight]
 
 - type: entity
   id: VehicleClownCarFueledwithKeys
@@ -502,10 +504,11 @@
   - type: VehicleMods
     vehicleType: Gas
     startingEquipment:
-      - ATVHeadlight
-      - BasicEngine
       - StandardTires
-    equipmentSlots: [tires, engine, headlight]
+      - BasicEngine
+      - BasicArmorKit
+      - ATVHeadlight
+    equipmentSlots: [tires, engine, armor, headlight]
 
 - type: entity
   id: VehicleSkeletonMotorcycleFueledwithKEys

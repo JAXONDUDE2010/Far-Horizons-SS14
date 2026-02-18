@@ -118,12 +118,13 @@
   - type: VehicleMods
     vehicleType: Spaceship
     startingEquipment:
-      - ATVHeadlight
-      - GroundEngine
-      - BasicThruster
       - StandardTires
+      - GroundEngine
+      - ATVHeadlight
       - VehicleAirTankFilled
-    equipmentSlots: [TIRES, ENGINE, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
+      - VentFan
+      - BasicThrusters
+    equipmentSlots: [TIRES, ENGINE, ARMOR, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
 
 - type: entity
   id: VehicleTransportFueledwithKeys
