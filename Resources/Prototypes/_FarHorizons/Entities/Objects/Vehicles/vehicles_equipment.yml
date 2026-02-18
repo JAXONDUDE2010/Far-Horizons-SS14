@@ -194,6 +194,7 @@
     - type: Item
       storedRotation: 0
     - type: Sprite
+      sprite: Objects/Specific/Mech/mecha_equipment.rsi
       state: mecha_air_tank
     - type: ActivatableUI
       key: enum.SharedGasTankUiKey.Key
@@ -233,6 +234,7 @@
     - type: Item
       storedRotation: 0
     - type: Sprite
+      sprite: Objects/Specific/Mech/mecha_equipment.rsi
       state: mecha_air_tank
     - type: VehicleEquipment
       slot: VENTFAN
