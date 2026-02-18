@@ -52,6 +52,18 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// just to check for if the vehicle is moving for other things
     /// </summary>
+    [DataField]
+    public bool isAirtight = false;
+
+    /// <summary>
+    /// just to check for if the vehicle is moving for other things
+    /// </summary>
+    [DataField]
+    public bool canAirtight = false;
+
+    /// <summary>
+    /// just to check for if the vehicle is moving for other things
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool isMoving = false;
 
