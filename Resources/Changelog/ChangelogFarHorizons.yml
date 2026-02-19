@@ -7195,5 +7195,96 @@ Entries:
   id: 81312
   time: '2026-02-19T17:56:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/813
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Deep fryers.
+    type: Add
+  id: 80700
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Deep fryer machine board.
+    type: Add
+  id: 80701
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: mozzarella sticks.
+    type: Add
+  id: 80702
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: motharella sticks.
+    type: Add
+  id: 80703
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Funnel cake.
+    type: Add
+  id: 80704
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Fried ice cream.
+    type: Add
+  id: 80705
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Fish Sticks.
+    type: Add
+  id: 80706
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Corndog.
+    type: Add
+  id: 80707
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Added 2 jugs of corn oil in the chefvend.
+    type: Add
+  id: 80708
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: animal organs can now be processed in a reagent grinder
+    type: Tweak
+  id: 80709
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Haggis, made of an animal stomach and some uncooked protein
+    type: Add
+  id: 80710
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Black Pudding, made of blood, water, and fat
+    type: Add
+  id: 80711
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
+- author: katte, Rhetorica, AlokenMaloken, CrazyPhantom
+  changes:
+  - message: Raw Sausage, made of uncooked protein and 1u of enzyme as a
+    type: Add
+  id: 80712
+  time: '2026-02-19T21:28:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/807
 Order: -1
 
