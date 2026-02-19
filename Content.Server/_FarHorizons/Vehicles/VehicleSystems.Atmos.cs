@@ -17,11 +17,8 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
 
     /// <inheritdoc/>
     public override void Initialize()
-    {
-        SubscribeLocalEvent<VehicleComponent, MechAirtightMessage>(OnAirtightMessage);
-        
-        SubscribeLocalEvent<VehicleModsComponent, MechFanToggleMessage>(OnFanToggleMessage);
-        SubscribeLocalEvent<VehicleModsComponent, MechFilterToggleMessage>(OnFilterToggleMessage);
+    {        
+        SubscribeLocalEvent<VehicleEquipmentComponent, VehicleFanToggle>(OnFanToggle);
 
         SubscribeLocalEvent<RiderComponent, InhaleLocationEvent>(OnInhale);
         SubscribeLocalEvent<RiderComponent, ExhaleLocationEvent>(OnExhale);
@@ -35,13 +32,12 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         var query = EntityQueryEnumerator<VehicleModsComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            UpdatePurgeCooldown(uid, frameTime);
             UpdateFanModule((uid, component), frameTime);
             UpdateCabinPressure((uid, component));
         }
     }
 
-    #region Cabin & Airtight
+    #region Cabin
 
     public bool TryGetGasModuleAir(Entity<VehicleModsComponent> ent, out GasMixture? air)
     {
@@ -55,42 +51,15 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         return true;
     }
 
-    private bool UpdatePurgeCooldown(EntityUid uid, float frameTime)
-    {
-        if (!TryComp<VehicleCabinAirComponent>(uid, out var purge))
-            return false;
-
-        if (purge.CooldownRemaining <= 0)
-            return false;
-
-        purge.CooldownRemaining -= frameTime;
-        if (purge.CooldownRemaining <= 0)
-        {
-            RemCompDeferred<VehicleCabinAirComponent>(uid);
-            return true;
-        }
-
-        return false;
-    }
-
     private bool UpdateCabinPressure(Entity<VehicleModsComponent> ent)
     {
         if (!TryComp<VehicleCabinAirComponent>(ent.Owner, out var cabin))
             return false;
 
-        var purgingActive = TryComp<VehicleCabinAirComponent>(ent.Owner, out var purgeComp) &&
-                            purgeComp.CooldownRemaining > 0;
-        if (purgingActive || !TryGetGasModuleAir(ent, out var tankAir) || tankAir == null)
+        if (!TryGetGasModuleAir(ent, out var tankAir) || tankAir == null)
             return false;
 
         return _atmosphere.PumpGasTo(tankAir, cabin.Air, cabin.TargetPressure);
-    }
-
-    private void OnAirtightMessage(Entity<VehicleComponent> ent, ref MechAirtightMessage args)
-    {
-        // Cannot be airtight if CanAirtight is false.
-        ent.Comp.isAirtight = ent.Comp.canAirtight && args.IsAirtight;
-        Dirty(ent);
     }
 
     private void OnInhale(Entity<RiderComponent> ent, ref InhaleLocationEvent args)
@@ -98,9 +67,8 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         if(ent.Comp.Riding == null) return;
         if (!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp))
             return;
-    
         // Meter a single breath from the cabin using a tank-like regulator pressure.
-        if (vehicleComp.isAirtight && TryComp<VehicleCabinAirComponent>(ent.Comp.Riding, out var cabin))
+        if (TryComp<VehicleCabinAirComponent>(ent.Comp.Riding, out var cabin))
         {
             var vol = args.Respirator.BreathVolume;
             var breath = new GasMixture(vol)
@@ -112,7 +80,6 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
             args.Gas = breath;
             return;
         }
-
         args.Gas = _atmosphere.GetContainingMixture(ent.Comp.Riding.Value, excite: true);
     }
 
@@ -140,7 +107,7 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
 
     private GasMixture? GetBreathMixture(Entity<VehicleComponent> ent, bool excite = true)
     {
-        if (ent.Comp.isAirtight && TryComp<VehicleCabinAirComponent>(ent.Owner, out var cabin))
+        if (TryComp<VehicleCabinAirComponent>(ent.Owner, out var cabin))
             return cabin.Air;
 
         return _atmosphere.GetContainingMixture(ent.Owner, excite: excite);
@@ -168,7 +135,14 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
             return false;
         }
 
-        return ProcessFanOperation(ent, fanModule, tankComp, tankAir, frameTime);
+        if (ent.Comp.Equipment[EquipmentType.WASTETANK] == null 
+            || !TryComp<GasTankComponent>(ent.Comp.Equipment[EquipmentType.WASTETANK], out var wasteComp))
+        {
+            SetFanState(ent, fanModule, FanState.Off);
+            return false;
+        }
+
+        return ProcessFanOperation(ent, fanModule, tankComp, tankAir, wasteComp.Air, frameTime);
     }
 
     private (GasTankComponent? tank, GasMixture? air) GetGasTank(Entity<VehicleModsComponent> ent)
@@ -183,9 +157,14 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         VehicleFanModComponent fanModule,
         GasTankComponent tankComp,
         GasMixture tankAir,
+        GasMixture wasteAir,
         float frameTime)
-    {
+    {        
         var external = _atmosphere.GetContainingMixture(ent.Owner);
+        
+        if(TryComp<VehicleCabinAirComponent>(ent.Owner, out var vcaComp))
+            _atmosphere.ScrubInto(vcaComp.Air, wasteAir, fanModule.FilterGases);
+
         if (external == null
             || external.Pressure <= MinExternalPressure
             || tankAir.Pressure >= tankComp.MaxOutputPressure - PressureTolerance)
@@ -194,14 +173,14 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
             return false;
         }
 
-        var success = ProcessFilteredTransfer(external, tankAir, fanModule, frameTime);
-
+        var success = ProcessFilteredTransfer(external, tankAir, wasteAir, fanModule, frameTime);
         SetFanState(ent, fanModule, success ? FanState.On : FanState.Idle);
         return success;
     }
 
     private bool ProcessFilteredTransfer(GasMixture external,
         GasMixture tankAir,
+        GasMixture wasteAir,
         VehicleFanModComponent fanModule,
         float frameTime)
     {
@@ -210,26 +189,30 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         if (transferVolume <= 0)
             return false;
 
+        var wasteRemoved = wasteAir.RemoveVolume(transferVolume);
+        if(wasteRemoved.TotalMoles >= 0)
+            _atmosphere.Merge(external, wasteRemoved);
+
         // Remove gas from external environment.
         var removed = external.RemoveVolume(transferVolume);
         if (removed.TotalMoles <= 0)
             return false;
 
-        if (fanModule is { FilterEnabled: true, FilterGases.Count: > 0 })
+        if (fanModule is { FilterGases.Count: > 0 })
         {
             var filtered = new GasMixture { Temperature = removed.Temperature };
             _atmosphere.ScrubInto(removed, filtered, fanModule.FilterGases);
-
             // Return filtered gases to external environment.
             _atmosphere.Merge(external, filtered);
         }
+        
 
         // Add remaining gas to internal tank (either unfiltered, or post-scrub remainder).
         _atmosphere.Merge(tankAir, removed);
         return true;
     }
 
-    private void SetFanState(Entity<VehicleModsComponent> ent, VehicleFanModComponent fanModule, FanState state)
+    public void SetFanState(Entity<VehicleModsComponent> ent, VehicleFanModComponent fanModule, FanState state)
     {
         if (fanModule.State == state)
             return;
@@ -238,36 +221,30 @@ public sealed class VehicleAtmosphereSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnFanToggleMessage(Entity<VehicleModsComponent> ent, ref MechFanToggleMessage args)
+    private void OnFanToggle(Entity<VehicleEquipmentComponent> ent, ref VehicleFanToggle args)
     {
         var fanModule = GetFanModule(ent);
-        if (fanModule == null)
+        if (fanModule == null || args.Handled)
             return;
-
-        fanModule.IsActive = args.IsActive;
+        fanModule.IsActive = !fanModule.IsActive;
 
         // Set the correct state based on the toggle.
-        var newState = args.IsActive ? FanState.On : FanState.Off;
+        var newState = fanModule.IsActive ? FanState.On : FanState.Off;
         if (fanModule.State != newState)
         {
             fanModule.State = newState;
             Dirty(ent);
         }
+        args.Handled = true;
     }
 
-    private void OnFilterToggleMessage(Entity<VehicleModsComponent> ent, ref MechFilterToggleMessage args)
+    private VehicleFanModComponent? GetFanModule(EntityUid ent)
     {
-        var fanModule = GetFanModule(ent);
-        if (fanModule == null)
-            return;
 
-        fanModule.FilterEnabled = args.Enabled;
-        Dirty(ent);
-    }
-
-    private VehicleFanModComponent? GetFanModule(Entity<VehicleModsComponent> ent)
-    {
-        if (TryComp<VehicleFanModComponent>(ent.Comp.Equipment[EquipmentType.VENTFAN], out var fanModule))
+        if (TryComp<VehicleFanModComponent>(ent, out var fanModule))
+            return fanModule;
+        else if (TryComp<VehicleModsComponent>(ent, out var vmComp) 
+            && TryComp(vmComp.Equipment[EquipmentType.VENTFAN], out fanModule))
             return fanModule;
 
         return null;

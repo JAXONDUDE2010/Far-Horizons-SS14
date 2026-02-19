@@ -12,6 +12,7 @@
         type: RadarConsoleBoundUserInterface
   - type: RadarConsole
     followEntity: true
+  - type: VehicleCabinAir
 
 - type: entity
   id: VehicleTransport
@@ -122,9 +123,10 @@
       - GroundEngine
       - ATVHeadlight
       - VehicleAirTankFilled
+      - VehicleAirTank
       - VentFan
       - BasicThrusters
-    equipmentSlots: [TIRES, ENGINE, ARMOR, HEADLIGHT, AIRTANK, VENTFAN, THURSTERS, BOOSTER]
+    equipmentSlots: [TIRES, ENGINE, ARMOR, HEADLIGHT, AIRTANK, WASTETANK, VENTFAN, THURSTERS, BOOSTER]
 
 - type: entity
   id: VehicleTransportFueledwithKeys

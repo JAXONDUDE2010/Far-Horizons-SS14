@@ -18,6 +18,7 @@ using Content.Shared._FarHorizons.ReagantDraw.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Server._FarHorizons.Vehicle.Atmos;
 
 namespace Content.Server._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -31,6 +32,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly VehicleAtmosphereSystem _vAtmos = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -48,6 +50,8 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
         SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
         SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
+
+        SubscribeLocalEvent<VehicleModsComponent, TurnOffVehicleEvent>(OnVehicleShutoff);
 
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
         SubscribeLocalEvent<VehicleComponent, ToggleIntrinsicUIEvent>(OnActionToggle);
@@ -100,7 +104,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
         foreach(var slot in vmComp.Equipment)
         {
-            if(slot.Key == veComp.Slot && slot.Value == null)
+            if((slot.Key & veComp.Slot) != 0 && slot.Value == null)
             {
                 vmComp.Equipment[slot.Key] = item;
                 return true;
@@ -136,6 +140,12 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             veComp.ActionEntity = null;
             Dirty(item, vmComp);
         }
+    }
+
+    private void OnVehicleShutoff(Entity<VehicleModsComponent> ent, ref TurnOffVehicleEvent args)
+    {
+        if(TryComp<VehicleFanModComponent>(ent.Comp.Equipment[EquipmentType.VENTFAN], out var fanComp))
+            _vAtmos.SetFanState(ent, fanComp, FanState.Off);
     }
 
     private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)

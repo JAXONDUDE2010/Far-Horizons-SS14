@@ -181,9 +181,9 @@
       slot: THURSTERS
       allowedVehicles: Spaceship
     - type: MovementSpeedModifier
-      baseWeightlessAcceleration: 4
+      baseWeightlessAcceleration: 2
       baseWeightlessFriction: 2
-      baseWeightlessModifier: 4
+      baseWeightlessModifier: 3
 
 - type: entity
   id: VehicleAirTank
@@ -209,7 +209,7 @@
         temperature: 293.15
       tankLowPressure: 30.0
     - type: VehicleEquipment
-      slot: AIRTANK
+      slot: [AIRTANK, WASTETANK]
       allowedVehicles: Spaceship
 
 - type: entity
@@ -222,7 +222,7 @@
     air:
       volume: 3000
       moles:
-        - 50.051379050
+        Oxygen: 50.051379050
       temperature: 293.15
 
 - type: entity
@@ -237,8 +237,11 @@
       sprite: Objects/Specific/Mech/mecha_equipment.rsi
       state: mecha_air_tank
     - type: VehicleEquipment
+      actionProto: ActionVehicleFanToggle
       slot: VENTFAN
       allowedVehicles: Spaceship
+    - type: VehicleFanMod
+      filterGases: [ Plasma, CarbonDioxide, NitrousOxide ]
 
 - type: entity
   id: BasicArmorKit

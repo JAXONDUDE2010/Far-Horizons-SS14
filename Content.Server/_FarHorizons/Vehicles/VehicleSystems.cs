@@ -999,6 +999,9 @@ public sealed partial class VehicleSystems : SharedVehicleSystems
     {
         if(!Resolve(vehicle, ref component))
             return;
+            
+        var ev = new TurnOffVehicleEvent();
+        RaiseLocalEvent(vehicle, TurnOffVehicle);
 
         if(component.Started)
             component.Started = false;

@@ -16,20 +16,11 @@ public sealed partial class VehicleCabinAirComponent : Component
     /// Pressure used when metering a single breath (kPa), like a tank regulator.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float RegulatorPressure = 16f;
+    public float RegulatorPressure = 21.3f;
 
     /// <summary>
     /// Internal cabin air mixture separate from any attached gas cylinder.
     /// </summary>
     [DataField, AutoNetworkedField]
     public GasMixture Air { get; set; } = new(50f);
-
-    [DataField, AutoNetworkedField]
-    public float CooldownRemaining;
-
-    /// <summary>
-    /// Total cooldown duration applied after a purge, in seconds.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float CooldownDuration = 3f;
 }

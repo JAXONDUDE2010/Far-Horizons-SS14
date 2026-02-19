@@ -1,5 +1,7 @@
+using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
@@ -10,7 +12,7 @@ public sealed partial class VehicleFanModComponent : Component
     /// Whether the fan is currently active.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool IsActive;
+    public bool IsActive = false;
 
     /// <summary>
     /// Current fan state see <see cref="MechFanState"/>.
@@ -25,21 +27,22 @@ public sealed partial class VehicleFanModComponent : Component
     public float GasProcessingRate = 1f;
 
     /// <summary>
-    /// Whether the attached filter should be active.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool FilterEnabled = true;
-
-    /// <summary>
     /// Gases that will be filtered during fan operation.
     /// </summary>
     [DataField(required: true)]
     public HashSet<Gas> FilterGases = new();
 }
 
-public enum FanState
+/// <summary>
+/// Event raised to toggle the fan state of a mech
+/// </summary>
+public sealed partial class VehicleFanToggle : InstantActionEvent;
+
+[Serializable, NetSerializable]
+public enum FanState : byte
 {
     Off,
     On,
-    Idle
+    Idle,
+    Na
 }

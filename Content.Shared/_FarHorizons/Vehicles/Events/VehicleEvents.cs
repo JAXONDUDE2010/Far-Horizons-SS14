@@ -10,6 +10,9 @@ public readonly record struct AddRiderActions(EntityUid Rider);
 [ByRefEvent]
 public readonly record struct RemoveRiderActions(EntityUid Rider);
 
+[ByRefEvent]
+public readonly record struct TurnOffVehicleEvent();
+
 [Serializable, NetSerializable]
 public sealed partial class VehicleRemoveDoAfter : SimpleDoAfterEvent;
 
