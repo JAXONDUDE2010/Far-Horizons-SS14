@@ -7064,5 +7064,42 @@ Entries:
   id: 80800
   time: '2026-02-19T17:02:17.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/808
+- author: jhrushbe
+  changes:
+  - message: The rejuvenate command will now reset nuclear reactors and gas turbines.
+    type: Add
+  id: 80900
+  time: '2026-02-19T17:05:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/809
+- author: jhrushbe
+  changes:
+  - message: Removed the mention of target view in the nuclear reactor's guidebook.
+    type: Remove
+  id: 80901
+  time: '2026-02-19T17:05:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/809
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor would not delete the parts inside
+      it after a meltdown.
+    type: Fix
+  id: 80902
+  time: '2026-02-19T17:05:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/809
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor would leak heat into its surroundings.
+    type: Fix
+  id: 80903
+  time: '2026-02-19T17:05:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/809
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the fuel rod smite would not correctly polymorph the
+      target, at the sacrifice of some VFX.
+    type: Fix
+  id: 80904
+  time: '2026-02-19T17:05:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/809
 Order: -1
 
