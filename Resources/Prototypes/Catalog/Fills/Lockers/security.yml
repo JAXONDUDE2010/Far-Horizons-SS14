@@ -51,6 +51,8 @@
     - id: Binoculars
     - id: PlushieLizardJobWarden
       prob: 0.02
+    - id: VehicleKeySTV
+      amount: 2 # In case the first set gets lost/stolen
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -176,6 +178,7 @@
     - id: HandLabeler
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: BoxSurvivalSecurity #FH Edit
 
 - type: entity
   id: ClosetBombFilled
@@ -213,7 +216,7 @@
   table: !type:AllSelector
     children:
     - id: WeaponDisabler
-    - id: WeaponAdvancedTaser
+#    - id: WeaponAdvancedTaser FH
     - id: WeaponDominator
     - id: WeaponShotgunDoubleBarreledRubber
       amount: 3
