@@ -11,6 +11,7 @@
       - BananaPeel
   - type: SolutionContainerManager
     solutions:
+      food: {}
       stomach:
         maxVol: 80
 

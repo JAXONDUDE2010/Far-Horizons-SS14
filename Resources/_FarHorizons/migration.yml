@@ -193,3 +193,8 @@ BaseNuclearReactor: NuclearReactorNormal
 
 # 2026-01-24
 MagazinePistolSubMachineGunTopMounted: MagazinePistolSubMachineGunSP
+
+# 2026-02-17 - nubody
+HeadAbductor: OrganAbductorHead
+TorsoHuman: OrganHumanTorso
+OrganSlimesLungs: OrganSlimePersonLungs

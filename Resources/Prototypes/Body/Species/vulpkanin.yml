@@ -145,8 +145,20 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
-  - type: MessyDrinker
-    spillChance: 0.33
+  #Starlight
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Canilunzt
+    understands:
+    - GalacticCommon
+    - Canilunzt
+    - Fox # "vaguely canidae"
+    - Dog # "vaguely canidae"
+  - type: Absorbable
+  #Starlight
+#  - type: MessyDrinker #Far Horizons
+#    spillChance: 0.33 #Far Horizons
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
@@ -166,38 +178,82 @@
       types:
         Piercing: 2
         Slash: 3
-  - type: Temperature # Same as moth temperatures until below is solved.
-    specificHeat: 44
-  - type: TemperatureDamage
-    heatDamageThreshold: 320 # TODO: 315 when there is a way to make the temperature alert not blink to the side of the screen and disappear when you "sweat" at 39C.
-    coldDamageThreshold: 230 # TODO: 220 when the above is solved.
-    coldDamage:
-      types:
-        Cold: 0.05 # Per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat: 2.5 # Per second, scales with temperature & other constants
+  # - type: Temperature # Same as moth temperatures until below is solved.
+  #   specificHeat: 44
+  # - type: TemperatureDamage
+  #   heatDamageThreshold: 320 # TODO: 315 when there is a way to make the temperature alert not blink to the side of the screen and disappear when you "sweat" at 39C.
+  #   coldDamageThreshold: 230 # TODO: 220 when the above is solved.
+  #   coldDamage:
+  #     types:
+  #       Cold: 0.05 # Per second, scales with temperature & other constants
+  #   heatDamage:
+  #     types:
+  #       Heat: 2.5 # Per second, scales with temperature & other constants
   # - type: Wagging TODO: Add back once we have animated tails again. Were removed due to the sprite rework, causing all of them to not fit anymore.
   #   action: ActionToggleWaggingVulpkanin
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
-  - type: JumpAbility
-    action: ActionVulpkaninGravityJump
-    canCollide: true
-    jumpDistance: 3
-    jumpSound:
-      path: /Audio/Weapons/punchmiss.ogg
-      params:
-        pitch: 1.33
-        volume: -5
-        variation: 0.05
+  # - type: JumpAbility
+  #   action: ActionVulpkaninGravityJump
+  #   canCollide: true
+  #   jumpDistance: 3
+  #   jumpSound:
+  #     path: /Audio/Weapons/punchmiss.ogg
+  #     params:
+  #       pitch: 1.33
+  #       volume: -5
+  #       variation: 0.05
+  # starlight start - temp vulpkanin revert
+  - type: Hunger # on 1.5x more
+    thresholds:
+      Overfed: 250
+      Okay: 200
+      Peckish: 150
+      Starving: 100
+      Dead: 0
+    baseDecayRate: 0.018 #Far Horizons
+  - type: Thirst # on 1.5x more
+    thresholds:
+      OverHydrated: 650
+      Okay: 500
+      Thirsty: 350
+      Parched: 200
+      Dead: 0
+    baseDecayRate: 0.125
+  - type: TemperatureDamage
+    heatDamageThreshold: 325
+    coldDamageThreshold: 230
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.75 #per second, scales with temperature & other constants
+  - type: Temperature # Ported over from CD. Afterall, it does make sense that something with fur can handle more cold/less heat. Basegame Moths, apparently, have similar resistances.
+    currentTemperature: 310.15
+    specificHeat: 46
+  - type: ContentEye
+    targetZoom: "1.125, 1.125"
+    maxZoom: "1.125, 1.125"
+  # starlight end
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - Vulpkanin
 
 - type: entity
   parent: OrganBase
   id: OrganVulpkanin
   abstract: true
   suffix: vulpkanin
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganVulpkaninMetabolizer
@@ -225,72 +281,72 @@
     markingData:
       group: Vulpkanin
 
-- type: entity
-  parent: [ OrganVulpkanin, OrganVulpkaninVisual ]
-  id: OrganVulpkaninExternal
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Vulpkanin/parts.rsi
+# - type: entity
+#   parent: [ OrganVulpkanin, OrganVulpkaninVisual ]
+#   id: OrganVulpkaninExternal
+#   abstract: true
+#   components:
+#   - type: Sprite
+#     sprite: Mobs/Species/Vulpkanin/parts.rsi
 
-- type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninExternal ]
-  id: OrganVulpkaninTorso
+# - type: entity
+#   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninTorso
 
-- type: entity
-  parent: [ OrganBaseHead, OrganVulpkaninExternal ]
-  id: OrganVulpkaninHead
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.FacialHair
-    dependentHidingLayers:
-      enum.HumanoidVisualLayers.Snout:
-      - enum.HumanoidVisualLayers.SnoutCover
+# - type: entity
+#   parent: [ OrganBaseHead, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninHead
+#   components:
+#   - type: VisualOrganMarkings
+#     hideableLayers:
+#     - enum.HumanoidVisualLayers.Snout
+#     - enum.HumanoidVisualLayers.HeadTop
+#     - enum.HumanoidVisualLayers.HeadSide
+#     - enum.HumanoidVisualLayers.Hair
+#     - enum.HumanoidVisualLayers.FacialHair
+#     dependentHidingLayers:
+#       enum.HumanoidVisualLayers.Snout:
+#       - enum.HumanoidVisualLayers.SnoutCover
 
-- type: entity
-  parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
-  id: OrganVulpkaninArmLeft
+# - type: entity
+#   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninArmLeft
 
-- type: entity
-  parent: [ OrganBaseArmRight, OrganVulpkaninExternal ]
-  id: OrganVulpkaninArmRight
+# - type: entity
+#   parent: [ OrganBaseArmRight, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninArmRight
 
-- type: entity
-  parent: [ OrganBaseHandLeft, OrganVulpkaninExternal ]
-  id: OrganVulpkaninHandLeft
+# - type: entity
+#   parent: [ OrganBaseHandLeft, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninHandLeft
 
-- type: entity
-  parent: [ OrganBaseHandRight, OrganVulpkaninExternal ]
-  id: OrganVulpkaninHandRight
+# - type: entity
+#   parent: [ OrganBaseHandRight, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninHandRight
 
-- type: entity
-  parent: [ OrganBaseLegLeft, OrganVulpkaninExternal ]
-  id: OrganVulpkaninLegLeft
+# - type: entity
+#   parent: [ OrganBaseLegLeft, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninLegLeft
 
-- type: entity
-  parent: [ OrganBaseLegRight, OrganVulpkaninExternal ]
-  id: OrganVulpkaninLegRight
+# - type: entity
+#   parent: [ OrganBaseLegRight, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninLegRight
 
-- type: entity
-  parent: [ OrganBaseFootLeft, OrganVulpkaninExternal ]
-  id: OrganVulpkaninFootLeft
+# - type: entity
+#   parent: [ OrganBaseFootLeft, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninFootLeft
 
-- type: entity
-  parent: [ OrganBaseFootRight, OrganVulpkaninExternal ]
-  id: OrganVulpkaninFootRight
+# - type: entity
+#   parent: [ OrganBaseFootRight, OrganVulpkaninExternal ]
+#   id: OrganVulpkaninFootRight
 
 - type: entity
   parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
   id: OrganVulpkaninBrain
 
-- type: entity
-  parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal ]
-  id: OrganVulpkaninEyes
+# - type: entity
+#   parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal ]
+#   id: OrganVulpkaninEyes
 
 - type: entity
   parent: [ OrganBaseTongue, OrganVulpkaninInternal ]
@@ -308,13 +364,13 @@
   parent: [ OrganBaseLungs, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninLungs
 
-- type: entity
-  parent: [ OrganBaseHeart, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
-  id: OrganVulpkaninHeart
+# - type: entity
+#   parent: [ OrganBaseHeart, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+#   id: OrganVulpkaninHeart
 
-- type: entity
-  parent: [ OrganBaseStomach, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
-  id: OrganVulpkaninStomach
+# - type: entity
+#   parent: [ OrganBaseStomach, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+#   id: OrganVulpkaninStomach
 
 - type: entity
   parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]

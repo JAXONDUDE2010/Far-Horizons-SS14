@@ -40,13 +40,13 @@ public sealed partial class GunSystem
             _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Mag, false);
         }
 
-        if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
+        if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
         {
-            _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.Tip, $"{component.MagState}-tip-{component.MagSteps - 1}");
-            _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Tip, false);
+            _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.Tip, $"{ent.Comp.MagState}-tip-{ent.Comp.MagSteps - 1}");
+            _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Tip, false);
         }
 
-        if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.MagUnshaded, out _, false))
+        if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.MagUnshaded, out _, false))
         {
             _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.MagUnshaded, $"{ent.Comp.MagState}-unshaded-{ent.Comp.MagSteps - 1}");
             _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
@@ -90,9 +90,9 @@ public sealed partial class GunSystem
                     _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
                 }
                 
-                if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
+                if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
                 {
-                    _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Tip, false);
+                    _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Tip, false);
                 }
 
                 return;
@@ -110,10 +110,10 @@ public sealed partial class GunSystem
                 _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.MagUnshaded, $"{ent.Comp.MagState}-unshaded-{step}");
             }
 
-            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
+            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
             {
-                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Tip, true);
-                _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.Tip, $"{component.MagState}-tip-{step}");
+                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Tip, true);
+                _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.Tip, $"{ent.Comp.MagState}-tip-{step}");
             }
         }
         else
@@ -128,8 +128,8 @@ public sealed partial class GunSystem
                 _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
             }
 
-            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
-                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Tip, false);
+            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Tip, out _, false)) //🌟Starlight🌟
+                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Tip, false);
         }
     }
 }

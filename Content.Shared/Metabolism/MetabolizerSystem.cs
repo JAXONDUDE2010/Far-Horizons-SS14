@@ -24,7 +24,6 @@ using Robust.Shared.Timing;
 using Content.Shared._Starlight.Railroading.Events;
 #endregion Starlight
 
-namespace Content.Server.Body.Systems;
 namespace Content.Shared.Metabolism;
 
 /// <inheritdoc/>
@@ -196,12 +195,12 @@ public sealed class MetabolizerSystem : EntitySystem
                 {
                         // Starlight-start: Railroading Metabolized
 
-                        mostToRemove = FixedPoint2.Clamp(quantity, 0, 1);
+                        mostToTransfer = FixedPoint2.Clamp(quantity, 0, 1);
 
-                        var @event = new RailroadingReagentMetabolizedEvent(new ReagentQuantity(reagent, mostToRemove));
+                        var @event = new RailroadingReagentMetabolizedEvent(new ReagentQuantity(reagent, mostToTransfer));
                         RaiseLocalEvent(actualEntity, ref @event);
 
-                        solution.RemoveReagent(reagent, mostToRemove); // Wizdens code: Changed from FixedPoint2.New to mostToRemove.
+                        solution.RemoveReagent(reagent, mostToTransfer); // Wizdens code: Changed from FixedPoint2.New to mostToRemove.
                         // Starlight-end
                 }
 

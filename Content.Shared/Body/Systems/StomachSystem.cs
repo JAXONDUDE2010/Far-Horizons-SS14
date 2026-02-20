@@ -42,4 +42,6 @@ public sealed class StomachSystem : EntitySystem
 
         return true;
     }
+
+    public void SetSpecialDigestible(StomachComponent component, EntityWhitelist? whitelist) => component.SpecialDigestible = whitelist;// Far Horizons
 }

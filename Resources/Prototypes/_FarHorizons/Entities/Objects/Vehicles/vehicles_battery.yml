@@ -16,7 +16,7 @@
     handsNeeded: 1
     riderWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     disallowWielding: true
     allowGunKnockback: true
     soundHit:
@@ -189,7 +189,7 @@
     handsNeeded: 2
     riderWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     disallowWielding: true
     allowGunKnockback: true
     soundHit:

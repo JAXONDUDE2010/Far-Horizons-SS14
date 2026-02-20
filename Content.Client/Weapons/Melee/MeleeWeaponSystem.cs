@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Gameplay;
+using Content.Shared.CCVar;
 using Content.Shared.Effects;
 using Content.Shared.Physics; // Starlight-edit™
 using Content.Shared.Weapons.Melee;

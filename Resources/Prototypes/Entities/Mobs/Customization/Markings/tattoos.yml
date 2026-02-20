@@ -1,7 +1,7 @@
 - type: marking
   id: TattooHiveChest
   bodyPart: Chest
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -14,7 +14,7 @@
 - type: marking
   id: TattooNightlingChest
   bodyPart: Chest
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -27,7 +27,7 @@
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -40,7 +40,7 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -53,7 +53,7 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -66,7 +66,7 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -79,7 +79,7 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:
@@ -92,7 +92,7 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Dwarf, Shadekin] # Starlight Edit: Add Shadekin
+  groupWhitelist: [Human, Shadekin] # Starlight Edit: Add Shadekin
   coloring:
     default:
       type:

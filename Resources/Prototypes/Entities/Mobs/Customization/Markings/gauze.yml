@@ -1,6 +1,6 @@
 - type: marking
   id: GauzeLefteyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Human, Arachnid]
   coloring:
     default:
@@ -13,7 +13,7 @@
 
 - type: marking
   id: GauzeLefteyePad
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
@@ -26,7 +26,7 @@
 
 - type: marking
   id: GauzeRighteyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Human, Arachnid]
   coloring:
     default:
@@ -39,7 +39,7 @@
 
 - type: marking
   id: GauzeRighteyePad
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Human, Reptilian, Arachnid]
   coloring:
     default:
@@ -52,7 +52,7 @@
 
 - type: marking
   id: GauzeBlindfold
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Human, Arachnid]
   coloring:
     default:
@@ -222,7 +222,7 @@
 # Lizard Specific Markings
 - type: marking
   id: GauzeLizardLefteyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Reptilian]
   coloring:
     default:
@@ -235,7 +235,7 @@
 
 - type: marking
   id: GauzeLizardRighteyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Reptilian]
   coloring:
     default:
@@ -274,7 +274,7 @@
 
 - type: marking
   id: GauzeLizardBlindfold
-  bodyPart: Eyes
+  bodyPart: Head
   groupWhitelist: [Reptilian]
   coloring:
     default:
@@ -288,7 +288,7 @@
 # Moth Specific Markings
 - type: marking
   id: GauzeMothBlindfold
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Moth]
   coloring:
     default:
@@ -327,7 +327,7 @@
 
 - type: marking
   id: GauzeMothLeftEyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Moth]
   coloring:
     default:
@@ -340,7 +340,7 @@
 
 - type: marking
   id: GauzeMothLeftEyePad
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Moth]
   coloring:
     default:
@@ -353,7 +353,7 @@
 
 - type: marking
   id: GauzeMothRightEyePatch
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Moth]
   coloring:
     default:
@@ -366,7 +366,7 @@
 
 - type: marking
   id: GauzeMothRightEyePad
-  bodyPart: Eyes
+  bodyPart: HeadSide
   groupWhitelist: [Moth]
   coloring:
     default:

@@ -169,9 +169,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             && crawlerComp.InTube == true)
             return;
 
-        gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        gun.Target = GetEntity(msg.Target);
-        AttemptShoot(user.Value, ent, gun);
+        gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
+        gun.Comp.Target = GetEntity(msg.Target);
+        AttemptShoot(user.Value, gun);
         if (msg.Continuous)
             gun.Comp.ShotCounter = 0;
     }
@@ -222,19 +222,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (TryComp<MechPilotComponent>(entity, out var pilot) &&
             TryComp(pilot.Mech, out MechComponent? mechFromPilot) &&
             mechFromPilot.CurrentSelectedEquipment is { } equipFromPilot &&
-            TryComp(equipFromPilot, out gun))
+            TryComp(equipFromPilot, out gunComp))
         {
-            gunEntity = equipFromPilot;
-            gunComp = gun;
+            gun = (equipFromPilot, gunComp);
             return true;
         }
 
         if (TryComp<MechComponent>(entity, out var mech) &&
             mech.CurrentSelectedEquipment is { } equip &&
-            TryComp(equip, out gun))
+            TryComp(equip, out gunComp))
         {
-            gunEntity = equip;
-            gunComp = gun;
+            gun = (equip, gunComp);
             return true;
         }
         // Starlight-edit: end
@@ -425,7 +423,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         //Starlight start
         var NonEmptyGunShotEvent = new OnNonEmptyGunShotEvent(user, ev.Ammo);
-        RaiseLocalEvent(gunUid, ref NonEmptyGunShotEvent);
+        RaiseLocalEvent(gun, ref NonEmptyGunShotEvent);
         //starlight end
 
         // Handle burstfire
@@ -616,8 +614,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, Entity<PhysicsComponent> user)
     {
         //FarHorizons-edit: start
-        var userId = user;
-        var userPhys = userPhysics;
+        var userId = user.Owner;
+        var userPhys = user.Comp;
         if(TryComp<RiderComponent>(userId, out var riderComp))
         {
             if(riderComp.Riding != null)

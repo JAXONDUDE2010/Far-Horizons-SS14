@@ -159,6 +159,16 @@
   id: MobVox
   name: Uristititi McVox
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - VoxPidgin
+    understands:
+    - GalacticCommon
+    - VoxPidgin
+  - type: Absorbable
+  # Starlight-end
   - type: Damageable
     damageModifierSet: Vox
   - type: Speech
@@ -221,7 +231,7 @@
     # This allows Vox to take their mask off temporarily to eat something without needing a trip to medbay afterwards.
     allowedStates:
     - Alive
-    damageCap: 20
+    damageCap: 25 # Starlight
     damage:
       types:
         Heat: -0.07
@@ -247,13 +257,24 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 5 # Reduce?
+        Slash: 6 # Starlight
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - Vox
 
 - type: entity
   parent: OrganBase
   id: OrganVox
   abstract: true
   suffix: Vox
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganVoxMetabolizer
@@ -361,6 +382,43 @@
 - type: entity
   parent: [ OrganBaseLungs, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxLungs
+  components:
+  - type: Lung
+    alert: LowNitrogen
+  #Starlight start - Make vox lungs work as a gas tank
+  - type: Item
+    size: Normal # Increased due to it becoming a gas tank, needs to be rebalanced for that
+    heldPrefix: lungs
+    shape:
+    - 0,0,3,3
+  - type: BreathMask
+  - type: OrganBreathTool
+    startActivated: true
+  - type: GasTank
+    air:
+      volume: 10
+      moles:
+        Nitrogen: 4.1027581 # Prefill with 10L of nitrogen
+      temperature: 293.15
+    outputPressure: 21.3
+  - type: OrganGasTankFillable
+    targetPressure: 1000.0 # 1MPa of pressure target on refill
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+      enum.SharedGasTankUiKey.OrganKey:
+        type: BreathableOrganBoundUserInterface
+  - type: Tag
+    tags:
+    - GasTank
+    #Starlight end
 
 - type: entity
   parent: [ OrganBaseHeart, OrganVoxInternal, OrganVoxMetabolizer ]

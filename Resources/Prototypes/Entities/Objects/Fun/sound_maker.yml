@@ -240,7 +240,7 @@
 
 - type: entity
   parent: [BaseWhistle, BaseMinorContraband]
-  id: SyndicateWhistle
+  id: CommanderWhistle
   name: trench whistle
   description: A whistle used by Syndicate commanders to draw attention. Avanti!
   components:

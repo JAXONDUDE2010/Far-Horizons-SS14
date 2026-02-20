@@ -7,7 +7,7 @@
   - !type:PermissionRequirement
     permission: CCSHC
   setPreference: false
-  startingGear: CentcomGear
+  startingGear: CentcommGear
   icon: "JobIconCentComm"
   supervisors: job-supervisors-hos
   canBeAntag: false

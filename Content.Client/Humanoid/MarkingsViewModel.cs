@@ -76,11 +76,11 @@ public sealed class MarkingsViewModel
         OrganProfileDataChanged?.Invoke();
     }
 
-    public void SetOrganEyeColor(Color eyeColor)
+    public void SetOrganEyeColor(Color eyeColor, bool glow = false) // Far Horizons
     {
         foreach (var (organ, data) in _organProfileData)
         {
-            _organProfileData[organ] = data with { EyeColor = eyeColor };
+            _organProfileData[organ] = data with { EyeColor = eyeColor, EyeGlowing = glow }; // Far Horizons
         }
         OrganProfileDataChanged?.Invoke();
     }
@@ -121,6 +121,7 @@ public sealed class MarkingsViewModel
 
             _organData = value;
             _previousColors.Clear();
+            _previousGlowing.Clear(); // Far Horizons
             OrganDataChanged?.Invoke();
         }
     }
@@ -128,6 +129,7 @@ public sealed class MarkingsViewModel
     public event Action? OrganDataChanged;
 
     private Dictionary<ProtoId<MarkingPrototype>, List<Color>> _previousColors = new();
+    private Dictionary<ProtoId<MarkingPrototype>, bool> _previousGlowing = new(); // Far Horizons
 
     public MarkingsViewModel()
     {
@@ -202,7 +204,8 @@ public sealed class MarkingsViewModel
 
         var colors = _previousColors.GetValueOrDefault(markingId) ??
                      MarkingColoring.GetMarkingLayerColors(markingProto, profileData.SkinColor, profileData.EyeColor, layerMarkings);
-        var newMarking = new Marking(markingId, colors);
+        var glowing = _previousGlowing.GetValueOrDefault(markingId, false); // Far Horizons
+        var newMarking = new Marking(markingId, colors, glowing); // Far Horizons
         newMarking.Forced = AnyEnforcementsLifted;
 
         var limits = groupPrototype.Limits.GetValueOrDefault(layer);
@@ -273,6 +276,7 @@ public sealed class MarkingsViewModel
         if (layerMarkings.Find(marking => marking.MarkingId == markingId) is { } removingMarking)
         {
             _previousColors[removingMarking.MarkingId] = removingMarking.MarkingColors.ToList();
+            _previousGlowing[removingMarking.MarkingId] = removingMarking.IsGlowing; // Far Horizons
         }
         layerMarkings.RemoveAll(marking => marking.MarkingId == markingId);
         MarkingsChanged?.Invoke(organ, layer);
@@ -298,6 +302,26 @@ public sealed class MarkingsViewModel
         marking.SetColor(colorIndex, color);
         MarkingsChanged?.Invoke(organ, layer);
     }
+
+    // Far Horizons start
+    public void TrySetMarkingGlowing(ProtoId<OrganCategoryPrototype> organ,
+        HumanoidVisualLayers layer,
+        ProtoId<MarkingPrototype> markingId,
+        bool glowing)
+    {
+        if (!_markings.TryGetValue(organ, out var markingSet))
+            return;
+
+        if (!markingSet.TryGetValue(layer, out var markings))
+            return;
+
+        if (markings.FirstOrDefault(it => it.MarkingId == markingId) is not { } marking)
+            return;
+
+        marking.IsGlowing = glowing;
+        MarkingsChanged?.Invoke(organ, layer);
+    }
+    // Far Horizons end
 
     public void ValidateMarkings()
     {

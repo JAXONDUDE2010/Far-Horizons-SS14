@@ -85,7 +85,7 @@ public sealed class MarkingManagerTests
         {
             var markingManager = server.ResolveDependency<MarkingManager>();
 
-            var markings = new List<Marking>() { new("HumanHairLongBedhead2", new List<Color>() { Color.Red }) };
+            var markings = new List<Marking>() { new("HumanHairLongBedhead2", new List<Color>() { Color.Red }, false) };
 
             var converted = markingManager.ConvertMarkings(markings, "Human");
 
@@ -212,9 +212,9 @@ public sealed class MarkingManagerTests
                 [HumanoidVisualLayers.Eyes] = new()
                 {
                     new("SingleColorMarking", 0),
-                    new("SingleColorMarking", new List<Color>() { Color.Red }),
+                    new("SingleColorMarking", new List<Color>() { Color.Red }, false),
                     new("SingleColorMarking", 2),
-                    new("SingleColorMarking", new List<Color>() { Color.Green }),
+                    new("SingleColorMarking", new List<Color>() { Color.Green }, false),
                 }
             };
 

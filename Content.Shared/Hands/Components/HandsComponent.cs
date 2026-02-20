@@ -190,5 +190,6 @@ public enum HandLocation : byte
 {
     Right,
     Middle,
-    Left
+    Left,
+    Functional // Starlight
 }

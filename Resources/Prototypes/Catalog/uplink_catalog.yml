@@ -199,24 +199,24 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkC20R
-  name: uplink-c20r-name
-  description: uplink-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: BriefcaseWeaponC20Filled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+# - type: listing
+#   id: UplinkC20R
+#   name: uplink-c20r-name
+#   description: uplink-c20r-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#   productEntity: BriefcaseWeaponC20Filled
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 10
+#   cost:
+#     Telecrystal: 14
+#   categories:
+#   - UplinkWeaponry
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
 
 - type: listing
   id: UplinkC20RBundle
@@ -237,24 +237,24 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkBulldog
-  name: uplink-bulldog-name
-  description: uplink-bulldog-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: BriefcaseWeaponBulldogFilled
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+# - type: listing
+#   id: UplinkBulldog
+#   name: uplink-bulldog-name
+#   description: uplink-bulldog-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#   productEntity: BriefcaseWeaponBulldogFilled
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 10
+#   cost:
+#     Telecrystal: 14
+#   categories:
+#   - UplinkWeaponry
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
 
 - type: listing
   id: UplinkBulldogBundle
@@ -294,21 +294,21 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkGrenadeLauncher
-  name: uplink-grenade-launcher-name
-  description: uplink-grenade-launcher-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: BriefcaseWeaponChinaLakeFilled
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+# - type: listing
+#   id: UplinkGrenadeLauncher
+#   name: uplink-grenade-launcher-name
+#   description: uplink-grenade-launcher-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#   productEntity: BriefcaseWeaponChinaLakeFilled
+#   cost:
+#     Telecrystal: 20
+#   categories:
+#   - UplinkWeaponry
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeLauncherBundle

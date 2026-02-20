@@ -58,7 +58,7 @@ namespace Content.Client.Lobby
             if (characterProfile is not HumanoidCharacterProfile profile)
                 return;
 
-            var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters)
+            var characters = new Dictionary<int, HumanoidCharacterProfile>(Preferences.Characters)
             {
                 [slot] = new HumanoidCharacterProfile(profile) {Enabled = enable},
             };

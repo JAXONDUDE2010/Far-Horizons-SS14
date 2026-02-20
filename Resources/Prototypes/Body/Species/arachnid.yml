@@ -73,6 +73,17 @@
   id: MobArachnid
   name: Urist McWebs
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Chittin
+    understands:
+    - GalacticCommon
+    - Chittin
+  - type: IgnoreSpiderWeb
+  - type: Absorbable
+  # Starlight-end
   - type: Respirator
     damage:
       types:
@@ -91,6 +102,7 @@
     - DoorBumpOpener
     - SpiderCraft
     - AnomalyHost
+    - Arachnid
   - type: Butcherable
     spawned:
     - id: FoodMeatSpider
@@ -143,6 +155,17 @@
   id: OrganArachnid
   abstract: true
   suffix: Arachnid
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: CopperBlood
+        Quantity: 20
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganArachnidMetabolizer

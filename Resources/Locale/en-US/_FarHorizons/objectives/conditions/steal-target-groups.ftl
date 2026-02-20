@@ -13,6 +13,8 @@ steal-target-groups-reactorfuelrod = reactor fuel rod
 
 # Thief Single Item
 
+steal-target-groups-clothing-eyes-hud-beer = beer goggles
+
 # Thief Structures
 
 steal-target-groups-secway = secway

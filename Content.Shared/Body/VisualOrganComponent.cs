@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Body;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(SharedVisualBodySystem))]
+// [Access(typeof(SharedVisualBodySystem))] // FH - I'm sorry again, but I really want to...
 public sealed partial class VisualOrganComponent : Component
 {
     /// <summary>
@@ -28,6 +28,8 @@ public sealed partial class VisualOrganComponent : Component
 
     [DataField, AutoNetworkedField]
     public OrganProfileData Profile = new();
+
+    [DataField] public bool ScaleSource; // Far Horizons - this organ will set scale for entire body
 }
 
 /// <summary>
@@ -54,5 +56,11 @@ public partial record struct OrganProfileData
     /// </summary>
     [DataField]
     public Color SkinColor = Color.White;
+
+    // Far Horizons - added for parity with previous markings system
+    [DataField] public bool EyeGlowing = false;
+
+    [DataField] public float Width = 1;
+    [DataField] public float Height = 1;
 }
 

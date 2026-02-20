@@ -376,7 +376,7 @@ public sealed partial class GunSystem : SharedGunSystem
             entity = mechPilot.Mech;
         }
 
-        if (!TryGetGun(entity, out var gunUid, out var gun))
+        if (!TryGetGun(entity, out var gun))
         {
             return;
         }
@@ -437,7 +437,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             if (throwItems)
             {
-                Audio.PlayPredicted(gun.Comp.CameraRecoilScalarModified, gunUid, user); // Starlight-edit: fix pneumatic cannon sounds
+                Audio.PlayPredicted(gun.Comp.SoundGunshot, gun, user); // Starlight-edit: fix pneumatic cannon sounds
                 Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
                 if (IsClientSide(ent!.Value))
                     Del(ent.Value);

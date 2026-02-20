@@ -221,8 +221,6 @@
         damage:
           types:
             Caustic: 1
-    Medicine: #Starlight
-      effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition

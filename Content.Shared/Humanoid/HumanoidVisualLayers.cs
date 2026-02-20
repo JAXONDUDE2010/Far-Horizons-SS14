@@ -32,6 +32,11 @@ namespace Content.Shared.Humanoid
         StencilMask,
         Ensnare,
         Fire,
+        FaceCover, // Far Horizons
+        FaceCoverCover, // Far Horizons
+        BodyCover, // Far Horizons
+        BodyCoverCover, // Far Horizons
+        TailCover, // Far Horizons
         
         Other
     }

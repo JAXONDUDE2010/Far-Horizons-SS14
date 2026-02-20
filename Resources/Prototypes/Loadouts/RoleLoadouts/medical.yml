@@ -3,76 +3,89 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - GroupTankHarness
+#  - GroupTankHarness - Starlight removed
   - ChiefMedicalOfficerHead
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
-  - MedicalBackpack
+  - MedicalGloves
+  - CMOBackpack #Far Horizons
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-#  - ChiefMedicalOfficerJobTrinkets
-  - GroupSpeciesBreathToolMedical
+  - Scarves # Starlight
+  - Pens # Starlight
+#  - GroupSpeciesBreathToolMedical - Starlight removed
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - GroupTankHarness
+#  - GroupTankHarness - Starlight removed
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorJumpsuit
-  - MedicalBackpack
+  - MedicalGloves
+  - DoctorBackpack #Far Horizons
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-#  - MedicalDoctorJobTrinkets
-  - GroupSpeciesBreathToolMedical
+  - Scarves # Starlight
+  - Pens # Starlight
+#  - GroupSpeciesBreathToolMedical - Starlight removed
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - GroupTankHarness
+#  - GroupTankHarness - Starlight removed
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-#  - MedicalInternJobTrinkets
-  - GroupSpeciesBreathToolMedical
+  - Scarves # Starlight
+  - Pens # Starlight
+#  - GroupSpeciesBreathToolMedical - Starlight removed
 
 - type: roleLoadout
   id: JobChemist
   groups:
-  - GroupTankHarness
+  - ChemistHead #Far Horizons
   - MedicalMask
   - ChemistJumpsuit
+  - MedicalGloves
   - ChemistBackpack
+  - ChemistBag # Starlight
   - ChemistOuterClothing
-  - MedicalShoes
-  - Glasses
+  - ChemistShoes # Starlight
+  - ChemistPDA # Starlight
+  - ChemistEyewear # Starlight
+  - ChemistBeaker # Starlight
+  - ChemistLabeler # Starlight
   - SurvivalMedical
   - Trinkets
-#  - ChemistJobTrinkets
-  - GroupSpeciesBreathToolMedical
+  - Scarves # Starlight
+  - Pens # Starlight
+#  - GroupSpeciesBreathToolMedical - Starlight removed
 
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - GroupTankHarness
+#  - GroupTankHarness - Starlight removed
   - ParamedicHead
   - MedicalMask
   - ParamedicJumpsuit
-  - MedicalBackpack
+  - MedicalGloves
+  - ParamedicBackpack # Far Horizons
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-#  - ParamedicJobTrinkets
-  - GroupSpeciesBreathToolMedical
+  - Scarves # Starlight
+  - Pens # Starlight
+#  - GroupSpeciesBreathToolMedical - Starlight removed

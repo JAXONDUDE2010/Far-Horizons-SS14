@@ -1196,7 +1196,7 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:  # Starlight
+    Bloodstream:  # Starlight
       effects:
       #If vampire
       - !type:HealthChange

@@ -1,5 +1,6 @@
 using System.Collections.Immutable;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -194,7 +195,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
-        var ban = await _db.GetServerBanAsync(null, target, null, null);
+        var minutes = (uint)(banInfo.Duration?.TotalMinutes ?? 0);
+        var ban = await _db.GetBanAsync(null, banInfo.Users.First().UserId, null, null);
         if (ban != null)
             SendWebhook(await GenerateBanPayload(ban, minutes));
 
@@ -400,20 +402,36 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes.Value);
         }
 
-        var banDef = new ServerRoleBanDef(
+        List<NetUserId> targets = [];
+        if (target != null)
+            targets.Add(target.Value);
+
+        List<(IPAddress, int)> addresses = [];
+        if (addressRange != null)
+            addresses.Add(addressRange.Value);
+        
+        List<ImmutableTypedHwid> hwids = [];
+        if (hwid != null)
+            hwids.Add(hwid);
+        
+        List<int> roundIds = [];
+        if (roundId != null)
+            roundIds.Add(roundId.Value);
+
+        var banDef = new BanDef(
             null,
-            target,
-            addressRange,
-            hwid,
+            BanType.Role,
+            [..targets],
+            [..addresses],
+            [..hwids],
             timeOfBan,
             expires,
-            roundId,
+            [..roundIds],
             playtime,
             reason,
             severity,
             banningAdmin,
-            null,
-            "plug");
+            null);
 
         SendWebhook(await GenerateJobBanPayload(banDef, roles, minutes));
     }
@@ -572,15 +590,15 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         }
     }
 
-    private async Task<WebhookPayload> GenerateJobBanPayload(ServerRoleBanDef banDef, IReadOnlyCollection<string> roles, uint? minutes = null)
+    private async Task<WebhookPayload> GenerateJobBanPayload(BanDef banDef, IReadOnlyCollection<string> roles, uint? minutes = null)
     {
-        var hwid = banDef.HWId?.ToString() ?? "null";
+        var hwid = banDef.HWIds.Length > 0 ? string.Join(", ", banDef.HWIds) : "null";
         var adminName = banDef.BanningAdmin == null ? Loc.GetString("system-user") : (await _db.GetPlayerRecordByUserId(banDef.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
-        var targetName = banDef.UserId == null ? Loc.GetString("server-ban-no-name", ("hwid", hwid)) : (await _db.GetPlayerRecordByUserId(banDef.UserId.Value))?.LastSeenUserName ?? Loc.GetString("server-ban-no-name", ("hwid", hwid));
+        var targetName = banDef.UserIds.Length == 0 ? Loc.GetString("server-ban-no-name", ("hwid", hwid)) : (await _db.GetPlayerRecordByUserId(banDef.UserIds[0]))?.LastSeenUserName ?? Loc.GetString("server-ban-no-name", ("hwid", hwid));
         var expiresString = banDef.ExpirationTime == null ? Loc.GetString("server-ban-string-never") : "" + TimeZoneInfo.ConvertTimeFromUtc(banDef.ExpirationTime.Value.UtcDateTime, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
         var reason = banDef.Reason.Replace("\n", "\n> ").Trim() ?? "No reason provided";
         var id = banDef.Id;
-        var round = "" + banDef.RoundId;
+        var round = string.Join(", ", banDef.RoundIds);
         var severity = "" + banDef.Severity;
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
         var timeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
@@ -673,15 +691,15 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             };
     }
 
-    private async Task<WebhookPayload> GenerateBanPayload(ServerBanDef banDef, uint? minutes = null)
+    private async Task<WebhookPayload> GenerateBanPayload(BanDef banDef, uint? minutes = null)
     {
-        var hwid = banDef.HWId?.ToString() ?? "null";
+        var hwid = banDef.HWIds.Length > 0 ? string.Join(", ", banDef.HWIds) : "null";
         var adminName = banDef.BanningAdmin == null ? Loc.GetString("system-user") : (await _db.GetPlayerRecordByUserId(banDef.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
-        var targetName = banDef.UserId == null ? Loc.GetString("server-ban-no-name", ("hwid", hwid)) : (await _db.GetPlayerRecordByUserId(banDef.UserId.Value))?.LastSeenUserName ?? Loc.GetString("server-ban-no-name", ("hwid", hwid));
+        var targetName = banDef.UserIds.Length == 0 ? Loc.GetString("server-ban-no-name", ("hwid", hwid)) : (await _db.GetPlayerRecordByUserId(banDef.UserIds[0]))?.LastSeenUserName ?? Loc.GetString("server-ban-no-name", ("hwid", hwid));
         var expiresString = banDef.ExpirationTime == null ? Loc.GetString("server-ban-string-never") : "" + TimeZoneInfo.ConvertTimeFromUtc(banDef.ExpirationTime.Value.UtcDateTime, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
         var reason = banDef.Reason.Replace("\n", "\n> ").Trim() ?? "No reason provided";
         var id = banDef.Id;
-        var round = "" + banDef.RoundId;
+        var round = string.Join(", ", banDef.RoundIds);
         var severity = "" + banDef.Severity;
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
         var timeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));

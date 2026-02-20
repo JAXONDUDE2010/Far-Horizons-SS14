@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -41,7 +42,7 @@ public sealed partial class HumanoidProfileExportV1
 public sealed partial class HumanoidCharacterProfileV1
 {
     [DataField("_jobPriorities")]
-    public Dictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities = new();
+    public HashSet<(ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job)> JobPriorities = new();
 
     [DataField("_antagPreferences")]
     public HashSet<ProtoId<AntagPrototype>> AntagPreferences = new();
@@ -76,12 +77,12 @@ public sealed partial class HumanoidCharacterProfileV1
     [DataField]
     public SpawnPriorityPreference SpawnPriority;
 
-    [DataField]
-    public PreferenceUnavailableMode PreferenceUnavailable;
+    //[DataField]
+    //public PreferenceUnavailableMode PreferenceUnavailable;
 
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
+        return new(Name, "", "", FlavorText, "", "", "", "", "", Species, "", Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, AntagPreferences, TraitPreferences, Loadouts, [], true, null);
     }
 }
 
@@ -95,14 +96,21 @@ public sealed partial class HumanoidCharacterAppearanceV1
     [DataField]
     public Color HairColor;
 
+    [DataField] public bool HairGlowing; //starlight
+
     [DataField("facialHair")]
     public string FacialHairStyleId;
 
     [DataField]
     public Color FacialHairColor;
 
+    [DataField] public bool FacialHairGlowing; //starlight
+
     [DataField]
     public Color EyeColor;
+
+    [DataField]
+    public bool EyeGlowing;
 
     [DataField]
     public Color SkinColor;
@@ -110,16 +118,22 @@ public sealed partial class HumanoidCharacterAppearanceV1
     [DataField]
     public List<Marking> Markings = new();
 
+    [DataField]
+    public float Width = 1f; //starlight
+
+    [DataField]
+    public float Height = 1f; //starlight
+
     public HumanoidCharacterAppearance ToV2(ProtoId<SpeciesPrototype> species)
     {
         var markingManager = IoCManager.Resolve<MarkingManager>();
 
         var incomingMarkings = Markings.ShallowClone();
         if (HairStyleId != string.Empty)
-            incomingMarkings.Add(new(HairStyleId, new List<Color>() { HairColor }));
+            incomingMarkings.Add(new(HairStyleId, new List<Color>() { HairColor }, HairGlowing));
         if (FacialHairStyleId != string.Empty)
-            incomingMarkings.Add(new(FacialHairStyleId, new List<Color>() { FacialHairColor }));
+            incomingMarkings.Add(new(FacialHairStyleId, new List<Color>() { FacialHairColor }, FacialHairGlowing));
 
-        return new HumanoidCharacterAppearance(EyeColor, SkinColor, markingManager.ConvertMarkings(incomingMarkings, species));
+        return new HumanoidCharacterAppearance(EyeColor, EyeGlowing, SkinColor, markingManager.ConvertMarkings(incomingMarkings, species), Width, Height);
     }
 }

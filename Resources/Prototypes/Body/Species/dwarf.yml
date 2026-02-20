@@ -44,6 +44,21 @@
   id: MobDwarf
   name: Urist McHands The Dwarf
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Grumbakul
+    understands:
+    - GalacticCommon
+    - Grumbakul
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      220: Dead
+  - type: Absorbable
+  # Starlight-end
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -66,12 +81,23 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - Dwarf
 
 - type: entity
   parent: OrganBase
   id: OrganDwarf
   abstract: true
   suffix: Dwarf
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganDwarfMetabolizer

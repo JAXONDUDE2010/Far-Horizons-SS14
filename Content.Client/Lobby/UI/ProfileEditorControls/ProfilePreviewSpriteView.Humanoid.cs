@@ -1,11 +1,7 @@
 using System.Linq;
-using Content.Client.Humanoid;
 using Content.Client.Station;
 using Content.Shared.Body;
-using Content.Shared.Clothing;
-using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -13,7 +9,6 @@ using Content.Shared.Roles;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared._FarHorizons.Factions;
-using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI.ProfileEditorControls;
 
@@ -34,54 +29,180 @@ public sealed partial class ProfilePreviewSpriteView
     /// <summary>
     /// Loads the profile onto a dummy entity.
     /// </summary>
-    private void LoadHumanoidEntity(HumanoidCharacterProfile? humanoid, JobPrototype? job, bool jobClothes)
+    /// Far Horizons - heavily edited
+    private void LoadHumanoidEntity(HumanoidCharacterProfile humanoid, (FactionPrototype faction, JobPrototype job)? job, bool jobClothes, ProtoId<AntagPrototype>? antagOverride)
     {
-        EntProtoId? previewEntity = null;
-        if (humanoid != null && jobClothes)
-        {
-            job ??= GetPreferredJob(humanoid);
+        ProfileName = humanoid.Name;
+        JobName = null;
+        LoadoutName = null;
 
-            previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
-        }
-
-        if (previewEntity != null)
+        // Starlight Start: Antag Loadouts
+        // If an antag override is provided, display that antag's loadout
+        if (antagOverride != null && _prototypeManager.TryIndex(antagOverride.Value, out var antagProto))
         {
-            // Special type like borg or AI, do not spawn a human just spawn the entity.
-            PreviewDummy = EntMan.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
-        }
-        else if (humanoid is not null)
-        {
-            var dummy = _prototypeManager.Index(humanoid.Species).DollPrototype;
-            PreviewDummy = EntMan.SpawnEntity(dummy, MapCoordinates.Nullspace);
-            EntMan.System<SharedVisualBodySystem>().ApplyProfileTo(PreviewDummy, humanoid);
-        }
-        else
-        {
-            PreviewDummy = EntMan.SpawnEntity(_prototypeManager.Index(HumanoidCharacterProfile.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
-        }
+            PreviewDummy = EntMan.SpawnEntity(
+                _prototypeManager.Index(humanoid.Species).DollPrototype,
+                MapCoordinates.Nullspace);
 
-        if (humanoid != null && jobClothes)
-        {
-            DebugTools.Assert(job != null);
+            ReloadHumanoidEntity(humanoid);
 
-            GiveDummyJobClothes(humanoid, job);
+            if (!jobClothes)
+                return;
 
-            if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)))
+            JobName = Loc.GetString(antagProto.Name);
+
+            // Then apply roleLoadout on top (which can override specific slots)
+            if (antagProto.RoleLoadout != null && antagProto.RoleLoadout.Count > 0)
             {
-                var loadout = humanoid.GetLoadoutOrDefault(LoadoutSystem.GetJobPrototype(job.ID), _playerManager.LocalSession, humanoid.Species, EntMan, _prototypeManager);
-                GiveDummyLoadout(loadout);
+                var antagLoadoutProtoId = antagProto.RoleLoadout.First();
+                if (_prototypeManager.HasIndex<RoleLoadoutPrototype>(antagLoadoutProtoId))
+                {
+                    var antagLoadout = humanoid.GetLoadoutOrDefault(
+                        antagLoadoutProtoId,
+                        _playerManager.LocalSession,
+                        humanoid.Species,
+                        EntMan,
+                        _prototypeManager);
+
+                    LoadoutName = GetLoadoutName(antagLoadout);
+                    GiveDummyLoadout(antagLoadout);
+                }
+            }
+            return;
+        }
+        // Starlight End
+
+        EntProtoId? previewEntity = null;
+        job ??= GetPreferredJob(humanoid);
+        
+
+        RoleLoadout? loadout;
+        if (job is ({ } faction, { } jobProto))
+        {
+            try
+            {
+                loadout = humanoid.GetLoadoutOrDefault(
+                    _factions.OverrideJobLoadout((faction, jobProto)),
+                    _playerManager.LocalSession,
+                    humanoid.Species,
+                    EntMan,
+                    _prototypeManager);
+            }
+            catch (UnknownPrototypeException)
+            {
+                loadout = new RoleLoadout();
+            }
+
+            previewEntity = _factions.OverrideJobPreviewEntity((faction, jobProto)) ??
+                            _factions.OverrideJobEntity((faction, jobProto));
+
+            if (previewEntity != null)
+            {
+                // Special type like borg or AI, do not spawn a human just spawn the entity.
+                PreviewDummy = EntMan.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
+                JobName = _factions.OverrideLocalizedJobName((faction, jobProto));
+                LoadoutName = GetLoadoutName(loadout);
+                return;
             }
         }
+
+        var dummy = _prototypeManager.Index(humanoid.Species).DollPrototype;
+        PreviewDummy = EntMan.SpawnEntity(dummy, MapCoordinates.Nullspace);
+        LoadCybernetics(humanoid);
+        EntMan.System<SharedVisualBodySystem>().ApplyProfileTo(PreviewDummy, humanoid);
+
+        // Bail now if all we need is the naked doll
+        if (!jobClothes)
+            return;
+        
+        // If we don't have an overridden job and the profile has NO job perefences, check for an antag preview
+        if (job == null && humanoid.JobPreferences.Count == 0)
+        {
+            // Search the preferences for an antag with "PreviewStartingGear" defined
+            foreach (var antag in humanoid.AntagPreferences)
+            {
+                if (!_prototypeManager.TryIndex(antag, out var selectedAntagProto))
+                    continue;
+
+                var antagLoadoutId = selectedAntagProto.RoleLoadout?.FirstOrDefault();
+
+                // Brighteye Color Valid
+                if (selectedAntagProto.PreviewStartingGear.HasValue || antagLoadoutId is not null)
+                    if (selectedAntagProto.ID == "Brighteye")
+                    {
+                        humanoid.Appearance.EyeColor = EyeColor.MakeBrighteyeValid(humanoid.Appearance.EyeColor);
+                        humanoid.Appearance.EyeGlowing = true;
+                    }
+
+                if (antagLoadoutId is not null)
+                {
+                    loadout = humanoid.GetLoadoutOrDefault(
+                        antagLoadoutId,
+                        _playerManager.LocalSession,
+                        humanoid.Species,
+                        EntMan,
+                        _prototypeManager);
+
+                    LoadoutName = GetLoadoutName(loadout);
+
+                    GiveDummyLoadout(loadout);
+                    JobName = Loc.GetString(selectedAntagProto.Name);
+                    return;
+                }
+
+                if (selectedAntagProto.PreviewStartingGear.HasValue)
+                {
+                    // We found an antag to dress as! Set it and return.
+                    GiveDummyAntagLoadout(selectedAntagProto);
+                    JobName = Loc.GetString(selectedAntagProto.Name);
+                    return;
+                }
+            }
+        }
+
+        if (job == null)
+            // We STILL don't have a job, use fallback and don't set "JobName" (we don't want to display Passenger)
+            job = _factions.GetDefaultWithJob();
+        else
+            JobName = _factions.OverrideLocalizedJobName((job.Value.faction, job.Value.job));
+
+        GiveDummyJobClothes(humanoid, job.Value.job);
+
+        loadout = humanoid.GetLoadoutOrDefault(
+            _factions.OverrideJobLoadout((job.Value.faction, job.Value.job)),
+            _playerManager.LocalSession,
+            humanoid.Species,
+            EntMan,
+            _prototypeManager);
+
+        LoadoutName = GetLoadoutName(loadout);
+
+        GiveDummyLoadout(loadout);
     }
 
     /// <summary>
     /// Gets the highest priority job for the profile.
     /// </summary>
-    private JobPrototype GetPreferredJob(HumanoidCharacterProfile profile)
+    private (FactionPrototype, JobPrototype)? GetPreferredJob(HumanoidCharacterProfile profile)
     {
-        var highPriorityJob = profile.JobPriorities.FirstOrDefault(p => p.Value == JobPriority.High).Key;
-        // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is resharper smoking?)
-        return _prototypeManager.Index<JobPrototype>(highPriorityJob.Id ?? SharedGameTicker.FallbackOverflowJob);
+        (ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) highPriorityJob = default;
+        if (profile.JobPreferences.Count == 1)
+        {
+            highPriorityJob = profile.JobPreferences.First();
+        }
+        else
+        {
+            var priorities = _preferencesManager.Preferences?.JobPriorities ?? [];
+            foreach (var priority in new List<JobPriority> { JobPriority.High, JobPriority.Medium, JobPriority.Low })
+            {
+                highPriorityJob = profile.JobPreferences.FirstOrDefault(p => priorities.GetValueOrDefault(p) == priority);
+                if (highPriorityJob.faction.Id != null && highPriorityJob.job.Id != null)
+                    break;
+            }
+        }
+        return highPriorityJob.faction.Id == null || highPriorityJob.job.Id == null
+            ? null
+            : (_prototypeManager.Index(highPriorityJob.faction), _prototypeManager.Index(highPriorityJob.job));
     }
 
     private void GiveDummyLoadout(RoleLoadout? roleLoadout)
@@ -181,22 +302,24 @@ public sealed partial class ProfilePreviewSpriteView
         }
     }
 
-    /// Starlight
     /// <summary>
-    /// Extracts cybernetics IDs from humanoid profile, returns all their visual layers
+    /// Apply PreviewStartingGear from antag prototype to the dummy.
     /// </summary>
-    private Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> GetCyberneticsLayers(
-        HumanoidCharacterProfile humanoid)
+    private void GiveDummyAntagLoadout(AntagPrototype antag)
     {
-        return humanoid.Cybernetics.Select(p =>
-        {
-            var _cyberneticEnt = _prototypeManager.Index<EntityPrototype>(p);
-            if (_cyberneticEnt.TryGetComponent<BodyPartComponent>(out var part, EntMan.ComponentFactory) &&
-                _cyberneticEnt.TryGetComponent<BaseLayerIdComponent>(out var layer, EntMan.ComponentFactory))
-            {
-                return (CyberneticImplant.LayerFromBodypart(part), new(layer.Layer));
-            }
-            else { return (HumanoidVisualLayers.Special, new CustomBaseLayerInfo()); }
-        }).Where(p => p.Item1 != HumanoidVisualLayers.Special).ToDictionary();
+        if (!antag.PreviewStartingGear.HasValue)
+            return;
+
+        var spawnSys = EntMan.System<StationSpawningSystem>();
+
+        spawnSys.EquipStartingGear(PreviewDummy, antag.PreviewStartingGear);
+    }
+
+    private string? GetLoadoutName(RoleLoadout loadout)
+    {
+        if (_prototypeManager.TryIndex(loadout.Role, out var roleLoadoutPrototype) &&
+            roleLoadoutPrototype.CanCustomizeName)
+            return loadout.EntityName;
+        return null;
     }
 }

@@ -245,7 +245,7 @@
     - id: PlushieLizardJobLibrarian
     - id: PlushieLizardJobMime
     - id: PlushieLizardJobMusician
-    - id: PlushieLizardJobPassenger
+    - id: PlushieLizardJobAssistant
     - id: PlushieLizardJobReporter
     - id: PlushieLizardJobZookeeper
 

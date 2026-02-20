@@ -209,10 +209,10 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode)
     {
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key)
-            || !HasComp<DamageableComponent>(target))
+            || !TryComp<HealthAnalyzerComponent>(healthAnalyzer, out var healthComp))
             return;
 
-        var uiState = GetHealthAnalyzerUiState(target);
+        var uiState = GetHealthAnalyzerUiState(target, (healthAnalyzer, healthComp), scanMode);
         uiState.ScanMode = scanMode;
 
         _uiSystem.ServerSendUiMessage(
@@ -227,9 +227,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="target">The entity being scanned</param>
     /// <returns></returns>
-    public HealthAnalyzerUiState GetHealthAnalyzerUiState(EntityUid? target)
+    public HealthAnalyzerUiState GetHealthAnalyzerUiState(EntityUid? target, Entity<HealthAnalyzerComponent>? analyzer = null, bool scanMode = true)
     {
-        if (!target.HasValue || !HasComp<DamageableComponent>(target))
+        if (!target.HasValue || !TryComp<DamageableComponent>(target, out var damageable))
             return new HealthAnalyzerUiState();
 
         var entity = target.Value;
@@ -256,7 +256,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // Starlight begin - Get a list of metabolizing chemicals
         List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null;
         if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) &&
-            _solutionContainerSystem.TryGetSolution(target, bloodstreamComp.BloodSolutionName, out _, out var chemicalsSolution))
+            _solutionContainerSystem.TryGetSolution(target.Value, bloodstreamComp.BloodSolutionName, out _, out var chemicalsSolution))
         {
             metabolizingReagents = new List<(string, FixedPoint2)>();
             foreach (var (reagent, quantity) in chemicalsSolution.Contents)
@@ -280,12 +280,19 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // Starlight end
 
         // Starlight-start: Talking health analyzer
-        if (healthComp.Talk && healthComp.NextTalk < _timing.CurTime && TryComp<DamageableComponent>(target, out var damageable) && scanMode)
+        if (analyzer != null)
         {
-            healthComp.NextTalk = _timing.CurTime + healthComp.TalkInterval;
-            
-            var bloodLevel = !float.IsNaN(bloodAmount) ? $"{bloodAmount * 100:F1} %" : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
-            _chat.TrySendInGameICMessage(healthAnalyzer, Loc.GetString(healthComp.TalkMessage, ("damage", damageable.TotalDamage.ToString()), ("blood", bloodLevel)), InGameICChatType.Speak, hideChat: true);
+            if (analyzer.Value.Comp.Talk && analyzer.Value.Comp.NextTalk < _timing.CurTime && scanMode)
+            {
+                analyzer.Value.Comp.NextTalk = _timing.CurTime + analyzer.Value.Comp.TalkInterval;
+
+                var bloodLevel = !float.IsNaN(bloodAmount)
+                    ? $"{bloodAmount * 100:F1} %"
+                    : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+                _chat.TrySendInGameICMessage(analyzer.Value,
+                    Loc.GetString(analyzer.Value.Comp.TalkMessage, ("damage", damageable.TotalDamage.ToString()),
+                        ("blood", bloodLevel)), InGameICChatType.Speak, hideChat: true);
+            }
         }
         // Starlight-end
 

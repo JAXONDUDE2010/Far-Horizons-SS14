@@ -139,13 +139,25 @@
   id: MobMoth
   name: Urist McFluff
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Moffic
+    understands:
+    - GalacticCommon
+    - Moffic
+    - Mothroach
+  - type: Absorbable
+  # Starlight-end
   - type: Damageable
     damageModifierSet: Moth
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Speech
     speechVerb: Moth
-    allowedEmotes: ['Chitter', 'Squeak']
+    speechSounds: UnisexMoth # Starlight: Add talk sounds
+    allowedEmotes: ['Chitter', 'Squeak', 'FlapWings'] # Starlight: Add wing flap
   - type: TypingIndicator
     proto: moth
   - type: Bloodstream
@@ -173,7 +185,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 2.5 # moths burn more easily
+        Heat: 4.5 # #Starlight: bring back the glory days of moths fearing fire
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
@@ -191,12 +203,23 @@
       289: 0.9
       275: 0.8
       250: 0.7
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - Moth
 
 - type: entity
   parent: OrganBase
   id: OrganMoth
   abstract: true
   suffix: Moth
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganMothMetabolizer

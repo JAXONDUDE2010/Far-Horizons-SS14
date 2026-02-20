@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Numerics;
+using Content.Shared._FarHorizons.Body;
 using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Markings;
@@ -62,7 +64,14 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
     private void OnOrganState(Entity<VisualOrganComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (Comp<OrganComponent>(ent).Body is not { } body)
+        {
+            // Far Horizons start
+            var ev = new OnDisconnectedVisualOrganState();
+            RaiseLocalEvent(ent, ref ev);
+            // Far Horizons end
+
             return;
+        }
 
         ApplyVisual(ent, body);
     }
@@ -73,6 +82,11 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
             return;
 
         _sprite.LayerSetData(target, index, ent.Comp.Data);
+        // Far Horizons scale start
+        if (!ent.Comp.ScaleSource) return;
+        Vector2 scale = new(ent.Comp.Profile.Width * ent.Comp.Profile.Height, ent.Comp.Profile.Height);
+        _sprite.SetScale(target, scale);
+        // Far Horizons scale end
     }
 
     private void RemoveVisual(Entity<VisualOrganComponent> ent, EntityUid target)
@@ -81,6 +95,10 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
             return;
 
         _sprite.LayerSetRsiState(target, index, RSI.StateId.Invalid);
+        // Far Horizons scale start
+        if (!ent.Comp.ScaleSource) return;
+        _sprite.SetScale(target, Vector2.One);
+        // Far Horizons scale end
     }
 
     private void OnMarkingsGotInserted(Entity<VisualOrganMarkingsComponent> ent, ref OrganGotInsertedEvent args)
@@ -96,15 +114,22 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
     private void OnMarkingsState(Entity<VisualOrganMarkingsComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (Comp<OrganComponent>(ent).Body is not { } body)
-            return;
+        {
+            // Far Horizons start
+            var ev = new OnDisconnectedVisualMarkingsOrganState();
+            RaiseLocalEvent(ent, ref ev);
+            // Far Horizons end
 
+            return;
+        }
+        
         RemoveMarkings(ent, body);
         ApplyMarkings(ent, body);
     }
 
-    protected override void SetOrganColor(Entity<VisualOrganComponent> ent, Color color)
+    protected override void SetOrganColor(Entity<VisualOrganComponent> ent, Color color, bool glowing = false) // Far Horizons
     {
-        base.SetOrganColor(ent, color);
+        base.SetOrganColor(ent, color, glowing); // Far Horizons
 
         if (Comp<OrganComponent>(ent).Body is not { } body)
             return;
@@ -169,6 +194,7 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
 
     private void ApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, EntityUid target)
     {
+        var unshadedShader = _prototype.Index(SpriteSystem.UnshadedId);
         var applied = new List<Marking>();
         foreach (var marking in AllMarkings(ent))
         {
@@ -199,6 +225,10 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
                     _sprite.LayerSetColor(target, layerId, marking.MarkingColors[i]);
                 else
                     _sprite.LayerSetColor(target, layerId, Color.White);
+
+                // Far Horizons
+                if (marking.IsGlowing && _sprite.TryGetLayer(target, layerId, out var markingLayer, true))
+                    markingLayer.Shader = unshadedShader.Instance();
             }
 
             applied.Add(marking);

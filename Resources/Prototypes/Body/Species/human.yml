@@ -39,10 +39,10 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Tail:
-      limit: 0
+      limit: 1
       required: false
-    enum.HumanoidVisualLayers.Special:
-      limit: 0
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: false
 
 - type: entity
@@ -89,16 +89,37 @@
   id: MobHuman
   name: Urist McHands
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - SolCommon
+    understands:
+    - GalacticCommon
+    - SolCommon
+  - type: Absorbable
+  # Starlight-end
   - type: Butcherable
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - Human
 
 - type: entity
   parent: OrganBase
   id: OrganHuman
   abstract: true
   suffix: human
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganHumanMetabolizer

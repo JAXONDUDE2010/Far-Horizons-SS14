@@ -59,12 +59,12 @@ public sealed class HideableHumanoidLayersTest : InteractionTest
         await Client.WaitAssertion(() =>
         {
             var spriteSystem = CEntMan.System<SpriteSystem>();
-            var snoutIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-snout");
-            var snoutCoverIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnoutNose-snout-nose");
+            var snoutIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-muzzle");
+            var snoutNoseIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-nose");
             var spriteComp = CEntMan.GetComponent<SpriteComponent>(CPlayer);
 
             Assert.That(spriteComp[snoutIndex].Visible, Is.False);
-            Assert.That(spriteComp[snoutCoverIndex].Visible, Is.False);
+            Assert.That(spriteComp[snoutNoseIndex].Visible, Is.False);
         });
 
         await Server.WaitAssertion(() =>
@@ -77,12 +77,12 @@ public sealed class HideableHumanoidLayersTest : InteractionTest
         await Client.WaitAssertion(() =>
         {
             var spriteSystem = CEntMan.System<SpriteSystem>();
-            var snoutIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-snout");
-            var snoutCoverIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnoutNose-snout-nose");
+            var snoutIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-muzzle");
+            var snoutNoseIndex = spriteSystem.LayerMapGet(CPlayer, "VulpSnout-nose");
             var spriteComp = CEntMan.GetComponent<SpriteComponent>(CPlayer);
 
             Assert.That(spriteComp[snoutIndex].Visible, Is.True);
-            Assert.That(spriteComp[snoutCoverIndex].Visible, Is.True);
+            Assert.That(spriteComp[snoutNoseIndex].Visible, Is.True);
         });
     }
 }

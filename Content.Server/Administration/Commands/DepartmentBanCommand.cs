@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -113,7 +114,7 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         }
 
         _banManager.CreateRoleBan(banInfo);
-        _banManager.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, departmentProto.Roles, minutes, severity, reason, now);
+        _banManager.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, departmentProto.Roles.Select(p=>(string)p).ToList(), minutes, severity, reason, now);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

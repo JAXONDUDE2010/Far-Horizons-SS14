@@ -181,12 +181,12 @@ public abstract partial class SharedGunSystem
             return;
 
         // 🌟Starlight🌟 -- get next ammo in feed
-        var shots = GetBallisticShots(component);
+        var shots = GetBallisticShots(ent.Comp);
         string ammoTypeName = "";
 
-        if (component.Entities.Count > 0)
+        if (ent.Comp.Entities.Count > 0)
         {
-            var firstAmmo = component.Entities[^1];
+            var firstAmmo = ent.Comp.Entities[^1];
             if (TryComp<MetaDataComponent>(firstAmmo, out var meta) && meta.EntityPrototype?.ID != null &&
                 ProtoManager.TryIndex<EntityPrototype>(meta.EntityPrototype.ID, out var entity))
             {
@@ -194,7 +194,7 @@ public abstract partial class SharedGunSystem
             }
         }
 
-        else if (component.UnspawnedCount > 0 && component.Proto != null && ProtoManager.TryIndex(component.Proto, out EntityPrototype? proto))
+        else if (ent.Comp.UnspawnedCount > 0 && ent.Comp.Proto != null && ProtoManager.TryIndex(ent.Comp.Proto, out EntityPrototype? proto))
         {
             ammoTypeName = proto.Name;
         }
@@ -268,44 +268,40 @@ public abstract partial class SharedGunSystem
             EntityUid? ammoEntity = null;
             if (ent.Comp.Entities.Count > 0)
             {
-                var entity = component.Entities[^1];
+                var existingEnt = ent.Comp.Entities[^1];
 
-                args.Ammo.Add((entity, EnsureShootable(entity)));
-
-                if (TryComp<GunComponent>(uid, out var gun))
+                if (TryComp<GunComponent>(ent, out var gun))
                 {
                     if (!gun.Pump)
                     {
-                        component.Entities.RemoveAt(component.Entities.Count - 1);
-                        Containers.Remove(entity, component.Container);
+                        ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+                        Containers.Remove(existingEnt, ent.Comp.Container);
                     }
                 }
                 else
                 {
-                    component.Entities.RemoveAt(component.Entities.Count - 1);
-                    Containers.Remove(entity, component.Container);
+                    ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+                    Containers.Remove(existingEnt, ent.Comp.Container);
                 }
 
-                DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
+                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
+                ammoEntity = existingEnt;
             }
             else if (ent.Comp.UnspawnedCount > 0)
             {
-                component.UnspawnedCount--;
-                DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                var entity = Spawn(component.Proto, args.Coordinates);
+                ent.Comp.UnspawnedCount--;
+                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
+                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
 
-                if (TryComp<GunComponent>(uid, out var gun))
+                if (TryComp<GunComponent>(ent, out var gun))
                 {
                     if (gun.Pump)
                     {
-                        Containers.Insert(entity, component.Container, force: true);
-                        component.Entities.Insert(0, entity);
-                        DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
+                        Containers.Insert(ammoEntity.Value, ent.Comp.Container, force: true);
+                        ent.Comp.Entities.Insert(0, ammoEntity.Value);
+                        DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
                     }
                 }
-
-                args.Ammo.Add((entity, EnsureShootable(entity)));
-                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
             }
 
             if (ammoEntity is not { } ammoEnt)

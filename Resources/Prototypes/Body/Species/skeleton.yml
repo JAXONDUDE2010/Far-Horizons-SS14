@@ -188,6 +188,10 @@
   id: OrganSkeletonPerson
   abstract: true
   suffix: SkeletonPerson
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   parent: OrganSkeletonPerson

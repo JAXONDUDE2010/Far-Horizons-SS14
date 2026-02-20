@@ -70,14 +70,14 @@ public sealed partial class NPCCombatSystem
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
 
-            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
+            if (!_gun.TryGetGun(uid, out var gun))
             {
                 comp.Status = CombatStatus.NoWeapon;
                 comp.ShootAccumulator = 0f;
                 continue;
             }
 
-            if (_steeringQuery.TryGetComponent(uid, out var steering) && steering.Status == SteeringStatus.NoPath && !TryComp<BatteryAmmoProviderComponent>(gunUid, out _))
+            if (_steeringQuery.TryGetComponent(uid, out var steering) && steering.Status == SteeringStatus.NoPath && !TryComp<BatteryAmmoProviderComponent>(gun, out _))
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
@@ -106,9 +106,9 @@ public sealed partial class NPCCombatSystem
 
             //🌟Starlight🌟
             if (!_gun.IsChamberClosed(uid)
-                && TryComp<ChamberMagazineAmmoProviderComponent>(gunUid, out var magazineComp))
+                && TryComp<ChamberMagazineAmmoProviderComponent>(gun, out var magazineComp))
             {
-                _gun.SetBoltClosed(gunUid, magazineComp, true);
+                _gun.SetBoltClosed(gun, magazineComp, true);
             }
 
 
@@ -147,7 +147,7 @@ public sealed partial class NPCCombatSystem
                 var collisionGroup = comp.UseOpaqueForLOSChecks ? CollisionGroup.Opaque : (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
 
                 //🌟Starlight🌟 start
-                if(TryComp<BatteryAmmoProviderComponent>(gunUid, out _))
+                if(TryComp<BatteryAmmoProviderComponent>(gun, out _))
                     collisionGroup = CollisionGroup.Opaque;
                 //🌟Starlight🌟 end
                 

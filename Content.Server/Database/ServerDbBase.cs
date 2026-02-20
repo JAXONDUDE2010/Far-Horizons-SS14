@@ -16,6 +16,7 @@ using Content.Shared._FarHorizons.Factions;
 // Cosmatic Drift Record System-start
 using Content.Shared._CD.Records;
 using Content.Server._CD.Records;
+using Content.Server.Humanoid.Markings.Extensions;
 // Cosmatic Drift Record System-end
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -214,17 +215,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, HumanoidCharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), [], priorities);
-        }
-
-        public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
-        {
-            await using var db = await GetDb();
-
-            await DeleteCharacterSlot(db.DbContext, userId, deleteSlot);
-            await SetSelectedCharacterSlotAsync(userId, newSlot, db.DbContext);
-
-            await db.DbContext.SaveChangesAsync();
+            return new PlayerPreferences(new[] { new KeyValuePair<int, HumanoidCharacterProfile>(0, defaultProfile) }, Color.FromHex(prefs.AdminOOCColor), [], priorities);
         }
 
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
@@ -250,12 +241,6 @@ namespace Content.Server.Database
             prefs.ConstructionFavorites = favorites;
 
             await db.DbContext.SaveChangesAsync();
-        }
-
-        private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
-        {
-            var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
-            prefs.SelectedCharacterSlot = newSlot;
         }
 
         private static TValue? TryDeserialize<TValue>(JsonDocument document) where TValue : class

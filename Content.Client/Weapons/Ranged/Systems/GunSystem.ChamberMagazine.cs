@@ -29,8 +29,8 @@ public sealed partial class GunSystem
         }
 
         //starlight start
-        var prefix = string.IsNullOrEmpty(component.SelectedPrefix) ? "" : $"_{component.SelectedPrefix}";
-        _sprite.LayerSetRsiState((uid, args.Sprite), boltLayer, boltClosed ? $"base{prefix}" : $"bolt-open{prefix}");
+        var prefix = string.IsNullOrEmpty(ent.Comp.SelectedPrefix) ? "" : $"_{ent.Comp.SelectedPrefix}";
+        _sprite.LayerSetRsiState((ent, args.Sprite), boltLayer, boltClosed ? $"base{prefix}" : $"bolt-open{prefix}");
         //starlight end
     }
 

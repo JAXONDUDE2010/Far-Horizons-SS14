@@ -128,20 +128,22 @@ namespace Content.Shared.Humanoid.Markings
             List<string> colorStringList = new();
             foreach (Color color in _markingColors)
                 colorStringList.Add(color.ToHex());
+            var glowing = IsGlowing ? "true" : "false";
 
-            return $"{sanitizedName}@{String.Join(',', colorStringList)}";
+            return $"{sanitizedName}@{String.Join(',', colorStringList)}@{glowing}";
         }
 
         public static Marking? ParseFromDbString(string input)
         {
             if (input.Length == 0) return null;
             var split = input.Split('@');
-            if (split.Length != 2) return null;
+            if (split.Length != 3) return null;
             List<Color> colorList = new();
             foreach (string color in split[1].Split(','))
                 colorList.Add(Color.FromHex(color));
+            bool glowing = split[2] == "true";
 
-            return new Marking(split[0], colorList);
+            return new Marking(split[0], colorList, glowing);
         }
     }
 }

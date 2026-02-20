@@ -30,7 +30,7 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
-  - LoadoutSpeciesVoxNitrogen
+  #- LoadoutSpeciesVoxNitrogen # SL removed
 
 # Chief Medical Officer
 

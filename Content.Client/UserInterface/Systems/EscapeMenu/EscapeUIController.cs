@@ -1,3 +1,6 @@
+using Content.Client._FarHorizons.DiscordLink;
+using Content.Client._Starlight.Managers;
+using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Systems.Info;
@@ -65,11 +68,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         _escapeWindow.OnClose += DeactivateButton;
         _escapeWindow.OnOpen += ActivateButton;
 
-        _escapeWindow.FeedbackButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            _feedback.ToggleWindow();
-        };
+        // _escapeWindow.FeedbackButton.OnPressed += _ =>
+        // {
+        //     CloseEscapeWindow();
+        //     _feedback.ToggleWindow();
+        // };
 
         // N̶u̶l̶l̶i̶n̶k̶ Far Horizons
         _escapeWindow.DiscordButton.OnPressed += _ =>

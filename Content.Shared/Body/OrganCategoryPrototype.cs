@@ -10,4 +10,8 @@ public sealed partial class OrganCategoryPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
+
+    [DataField] public bool SurgeryTargetable; // Far Horizons
+
+    [DataField] public ProtoId<OrganCategoryPrototype>? ConnectsTo; // Far Horizons
 }

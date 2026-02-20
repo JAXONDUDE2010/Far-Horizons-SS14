@@ -12,13 +12,13 @@
     state: icon
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Animals/lizard_happy.ogg
+      path: /Audio/Items/Toys/weh.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Animals/lizard_happy.ogg
+      path: /Audio/Items/Toys/weh.ogg
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg

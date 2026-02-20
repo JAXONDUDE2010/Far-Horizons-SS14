@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Body;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(BodySystem))]
+// [Access(typeof(BodySystem))] // FH - I know I'm being bad, but I'm very tired, just give me this
 public sealed partial class OrganComponent : Component
 {
     /// <summary>

@@ -1,4 +1,5 @@
-﻿using Content.Client.Gameplay;
+﻿using System.Linq;
+using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Hands.Controls;
@@ -115,6 +116,7 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
     {
         HandsGui?.Visible = false;
         HandsGui?.HandContainer.ClearButtons();
+        HandsGui?.FunctionalHandContainer.ClearButtons(); // Far Horizons
         _playerHandsComponent = null;
     }
 
@@ -123,6 +125,7 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         DebugTools.Assert(_playerHandsComponent == null);
         HandsGui?.Visible = true;
         HandsGui?.HandContainer.PlayerHandsComponent = handsComp;
+        HandsGui?.FunctionalHandContainer.PlayerHandsComponent = handsComp; // Far Horizons
         _playerHandsComponent = handsComp;
         foreach (var (name, hand) in handsComp.Comp.Hands)
         {
@@ -167,18 +170,18 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
 
     private void HandBlocked(string handName)
     {
-        if (HandsGui?.HandContainer.TryGetButton(handName, out var hand) != true)
+        if (GetHand(handName) is not {} hand) // Far Horizons
             return;
 
-        hand!.Blocked = true;
+        hand.Blocked = true;
     }
 
     private void HandUnblocked(string handName)
     {
-        if (HandsGui?.HandContainer.TryGetButton(handName, out var hand) != true)
+        if (GetHand(handName) is not {} hand) // Far Horizons
             return;
 
-        hand!.Blocked = false;
+        hand.Blocked = false;
     }
 
     private void OnItemAdded(string name, EntityUid entity)
@@ -243,13 +246,12 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             return;
         }
 
-        if (HandsGui?.HandContainer.TryGetButton(handName, out var handControl) != true || handControl == _activeHand)
+        if (GetHand(handName) is not {} handControl || handControl == _activeHand) // Far Horizons
             return;
 
-        if (_activeHand != null)
-            _activeHand.Highlight = false;
+        _activeHand?.Highlight = false;
 
-        handControl!.Highlight = true;
+        handControl.Highlight = true;
         _activeHand = handControl;
 
         if (_playerHandsComponent != null &&
@@ -262,23 +264,21 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             if (foldedLocation == HandLocation.Left)
             {
                 _statusHandLeft = handControl;
-                HandsGui.UpdatePanelEntityLeft(heldEnt, hand.Value);
+                HandsGui?.UpdatePanelEntityLeft(heldEnt, hand.Value);
             }
             else
             {
                 // Middle or right
                 _statusHandRight = handControl;
-                HandsGui.UpdatePanelEntityRight(heldEnt, hand.Value);
+                HandsGui?.UpdatePanelEntityRight(heldEnt, hand.Value);
             }
 
-            HandsGui.SetHighlightHand(foldedLocation);
+            HandsGui?.SetHighlightHand(foldedLocation);
         }
     }
 
-    private HandButton? GetHand(string handName)
-    {
-        return HandsGui?.HandContainer.GetButton(handName);
-    }
+    private HandButton? GetHand(string handName) => 
+        HandsGui?.HandContainer.GetButton(handName) ?? HandsGui?.FunctionalHandContainer.GetButton(handName); // Far Horizons
 
     private HandButton AddHand(string handName, Hand hand)
     {
@@ -286,7 +286,10 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         button.StoragePressed += StorageActivate;
         button.Pressed += HandPressed;
 
-        HandsGui?.HandContainer.TryAddButton(button);
+        if (hand.Location == HandLocation.Functional)
+            HandsGui?.FunctionalHandContainer.TryAddButton(button); // Far Horizons
+        else
+            HandsGui?.HandContainer.TryAddButton(button);
 
         if (hand.EmptyRepresentative is { } representative)
         {
@@ -318,9 +321,11 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
 
     private void RemoveHand(string handName)
     {
-        if (HandsGui?.HandContainer.TryRemoveButton(handName, out var handButton) != true)
+        if (GetHand(handName) is not { } hand || // Far Horizons
+            hand.Parent is not { Parent: HandsContainer container } || // Far Horizons
+            !container.TryRemoveButton(handName, out var handButton))
             return;
-
+        
         if (_statusHandLeft == handButton)
             _statusHandLeft = null;
         if (_statusHandRight == handButton)
@@ -364,8 +369,10 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         if (HandsGui is not { } handsGui)
             return;
 
+        var allHands = handsGui.HandContainer.GetButtons().Concat(handsGui.FunctionalHandContainer.GetButtons())
+            .ToList(); // Far Horizons
         // TODO this should be event based but 2 systems modify the same component differently for some reason
-        foreach (var hand in handsGui.HandContainer.GetButtons())
+        foreach (var hand in allHands) // Far Horizons
         {
 
             if (!_entities.TryGetComponent(hand.Entity, out UseDelayComponent? useDelay))

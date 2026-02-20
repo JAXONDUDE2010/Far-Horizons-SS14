@@ -700,8 +700,6 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  name: syndicate invasion borg spawner
-  id: PlayerBorgSyndicateInvasionGhostRoleSpawner
   parent: MarkerBase
   id: PlayerBorgSyndicateInvasionGhostRoleSpawner
   name: syndicate invasion borg spawner

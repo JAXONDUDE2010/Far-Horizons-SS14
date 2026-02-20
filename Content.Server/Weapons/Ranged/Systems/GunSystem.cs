@@ -173,7 +173,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     }
 
                     // Something like ballistic might want to leave it in the container still
-                    if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value) && !gun.Pump)
+                    if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value) && !gun.Comp.Pump)
                         EjectCartridge(ent.Value, angle);
 
                     Dirty(ent!.Value, cartridge);
@@ -299,9 +299,9 @@ public sealed partial class GunSystem : SharedGunSystem
             {
                 FromCoordinates = EntityManager.GetComponent<TransformComponent>(uid).Coordinates,
                 ShotDirection = mapDirection.Normalized(),
-                Gun = gunUid,
+                Gun = gun,
                 Shooter = user,
-                Target = gun.Target,
+                Target = gun.Comp.Target,
             };
             RaiseLocalEvent(uid, ref hitscanEv);
 

@@ -141,7 +141,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             bonusEvolutionPoints += 10;
             comp.MaxBiomass += targetComp.MaxBiomass / 2;
         }
-        else if (HasComp<HumanoidAppearanceComponent>(target))  // Starlight edit
+        else if (HasComp<HumanoidProfileComponent>(target))  // Starlight edit
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;

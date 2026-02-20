@@ -286,7 +286,6 @@ namespace Content.Client.Lobby.UI
             {
                 SubspeciesButton.SelectId(args.Id);
                 SetSpecies(_subspecies[args.Id].ID);
-                UpdateHairPickers();
                 UpdateCustomSpecieNameEdit(); // Starlight
             };
             // Far Horizons end
@@ -358,7 +357,7 @@ namespace Content.Client.Lobby.UI
                     return;
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithEyeColor(newColor));
-                _markingsModel.SetOrganEyeColor(Profile.Appearance.EyeColor);
+                _markingsModel.SetOrganEyeColor(Profile.Appearance.EyeColor, Profile.Appearance.EyeGlowing); // Far Horizons
                 ReloadProfilePreview();
             };
 
@@ -369,7 +368,7 @@ namespace Content.Client.Lobby.UI
                     return;
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithEyeGlowing(newColor));
-                Markings.CurrentEyeColor = Profile.Appearance.EyeColor;
+                _markingsModel.SetOrganEyeColor(Profile.Appearance.EyeColor, Profile.Appearance.EyeGlowing); // Far Horizons
                 ReloadProfilePreview();
             };
             //starlight end
@@ -427,35 +426,36 @@ namespace Content.Client.Lobby.UI
             UpdateSpeciesGuidebookIcon();
             IsDirty = false;
 
-            //🌟Starlight🌟
-            _voices = _prototypeManager
-                .EnumeratePrototypes<VoicePrototype>()
-                .Where(o => !o.Silicon)
-                .ToList();
+            // Far Horizons - Disabled voices in UI only
+            // //🌟Starlight🌟
+            // _voices = _prototypeManager
+            //     .EnumeratePrototypes<VoicePrototype>()
+            //     .Where(o => !o.Silicon)
+            //     .ToList();
 
-            VoiceButton.OnItemSelected += args =>
-            {
-                VoiceButton.SelectId(args.Id);
-                Profile = Profile?.WithVoice(_voices[args.Id].ID);
-                IsDirty = true;
-            };
-            VoicePreviewButton.OnPressed +=
-                _ => _entManager.System<TextToSpeechSystem>().RequestPreviewTts(Profile?.Voice ?? "");
+            // VoiceButton.OnItemSelected += args =>
+            // {
+            //     VoiceButton.SelectId(args.Id);
+            //     Profile = Profile?.WithVoice(_voices[args.Id].ID);
+            //     IsDirty = true;
+            // };
+            // VoicePreviewButton.OnPressed +=
+            //     _ => _entManager.System<TextToSpeechSystem>().RequestPreviewTts(Profile?.Voice ?? "");
 
-            // 🌟Starlight🌟 start
-            _siliconVoices = _prototypeManager
-                .EnumeratePrototypes<VoicePrototype>()
-                .Where(o => o.Silicon)
-                .ToList();
+            // // 🌟Starlight🌟 start
+            // _siliconVoices = _prototypeManager
+            //     .EnumeratePrototypes<VoicePrototype>()
+            //     .Where(o => o.Silicon)
+            //     .ToList();
 
-            SiliconVoiceButton.OnItemSelected += args =>
-            {
-                SiliconVoiceButton.SelectId(args.Id);
-                Profile = Profile?.WithSiliconVoice(_siliconVoices[args.Id].ID);
-                IsDirty = true;
-            };
-            SiliconVoicePreviewButton.OnPressed +=
-                _ => _entManager.System<TextToSpeechSystem>().RequestPreviewTts(Profile?.SiliconVoice ?? "");
+            // SiliconVoiceButton.OnItemSelected += args =>
+            // {
+            //     SiliconVoiceButton.SelectId(args.Id);
+            //     Profile = Profile?.WithSiliconVoice(_siliconVoices[args.Id].ID);
+            //     IsDirty = true;
+            // };
+            // SiliconVoicePreviewButton.OnPressed +=
+            //     _ => _entManager.System<TextToSpeechSystem>().RequestPreviewTts(Profile?.SiliconVoice ?? "");
 
             SetupTabs();
             // Cosmatic Drift Record System-start
@@ -465,33 +465,33 @@ namespace Content.Client.Lobby.UI
             RefreshCharacterInfo();
             // 🌟Starlight🌟 end
         }
-        private void UpdateVoicesControls()
-        {
-            if (Profile is null)
-                return;
+        // private void UpdateVoicesControls()
+        // {
+        //     if (Profile is null)
+        //         return;
 
-            VoiceButton.Clear();
+        //     VoiceButton.Clear();
 
-            for (var i = 0; i < _voices.Count; i++)
-            {
-                var voice = _voices[i];
+        //     for (var i = 0; i < _voices.Count; i++)
+        //     {
+        //         var voice = _voices[i];
 
-                VoiceButton.AddItem($"[{voice.Sex}] {Loc.GetString(voice.Name)}", i);
-            }
+        //         VoiceButton.AddItem($"[{voice.Sex}] {Loc.GetString(voice.Name)}", i);
+        //     }
 
-            if (string.IsNullOrEmpty(Profile.Voice))
-            {
-                var available = _voices.ToArray();
-                if (available.Length > 0)
-                {
-                    var index = new Random().Next(0, available.Length);
-                    Profile.Voice = available[index].ID;
-                }
-            }
-            var voiceChoiceId = _voices.FindIndex(x => x.ID == Profile.Voice);
-            if (voiceChoiceId != -1)
-                VoiceButton.TrySelectId(voiceChoiceId);
-        }
+        //     if (string.IsNullOrEmpty(Profile.Voice))
+        //     {
+        //         var available = _voices.ToArray();
+        //         if (available.Length > 0)
+        //         {
+        //             var index = new Random().Next(0, available.Length);
+        //             Profile.Voice = available[index].ID;
+        //         }
+        //     }
+        //     var voiceChoiceId = _voices.FindIndex(x => x.ID == Profile.Voice);
+        //     if (voiceChoiceId != -1)
+        //         VoiceButton.TrySelectId(voiceChoiceId);
+        // }
         // 🌟Starlight🌟 Start
 
         private void SetupTabs()
@@ -522,34 +522,34 @@ namespace Content.Client.Lobby.UI
         }
         // Cosmatic Drift Record System-end
 
-        private void UpdateSiliconVoicesControls()
-        {
-            if (Profile is null)
-                return;
+        // private void UpdateSiliconVoicesControls()
+        // {
+        //     if (Profile is null)
+        //         return;
 
-            SiliconVoiceButton.Clear();
+        //     SiliconVoiceButton.Clear();
 
-            for (var i = 0; i < _siliconVoices.Count; i++)
-            {
-                var voice = _siliconVoices[i];
+        //     for (var i = 0; i < _siliconVoices.Count; i++)
+        //     {
+        //         var voice = _siliconVoices[i];
 
-                SiliconVoiceButton.AddItem($"[{voice.Sex}] {Loc.GetString(voice.Name)}", i);
-            }
+        //         SiliconVoiceButton.AddItem($"[{voice.Sex}] {Loc.GetString(voice.Name)}", i);
+        //     }
 
-            if (string.IsNullOrEmpty(Profile.SiliconVoice))
-            {
-                var available = _siliconVoices.ToArray();
-                if (available.Length > 0)
-                {
-                    var index = new Random().Next(0, available.Length);
-                    Profile.SiliconVoice = available[index].ID;
-                }
-            }
+        //     if (string.IsNullOrEmpty(Profile.SiliconVoice))
+        //     {
+        //         var available = _siliconVoices.ToArray();
+        //         if (available.Length > 0)
+        //         {
+        //             var index = new Random().Next(0, available.Length);
+        //             Profile.SiliconVoice = available[index].ID;
+        //         }
+        //     }
 
-            var siliconVoiceChoiceId = _siliconVoices.FindIndex(x => x.ID == Profile.SiliconVoice);
-            if (siliconVoiceChoiceId != -1)
-                SiliconVoiceButton.TrySelectId(siliconVoiceChoiceId);
-        }
+        //     var siliconVoiceChoiceId = _siliconVoices.FindIndex(x => x.ID == Profile.SiliconVoice);
+        //     if (siliconVoiceChoiceId != -1)
+        //         SiliconVoiceButton.TrySelectId(siliconVoiceChoiceId);
+        // }
 
 
         private void SetupInfoEditors()
@@ -865,7 +865,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            SpriteView.LoadPreview(Profile, JobOverride, ShowClothes.Pressed);
+            Preview.ReloadPreview();
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -906,8 +906,8 @@ namespace Content.Client.Lobby.UI
             //UpdateHairPickers();
             //UpdateCMarkingsHair();
             //UpdateCMarkingsFacialHair();
-            UpdateVoicesControls();
-            UpdateSiliconVoicesControls(); // 🌟Starlight🌟
+            //UpdateVoicesControls();
+            //UpdateSiliconVoicesControls(); // 🌟Starlight🌟
             UpdateCybernetics(); // Starlight
             UpdateSpeciesLoadout(); // Far Horizons
 
@@ -947,7 +947,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            SpriteView.ReloadProfilePreview(Profile);
+            Preview.ReloadProfilePreview();
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -1352,42 +1352,26 @@ namespace Content.Client.Lobby.UI
             switch (strategy.InputType)
             {
                 case SkinColorationStrategyInput.Unary:
+                {
+                    if (!Skin.Visible)
                     {
-                        if (!Skin.Visible)
-                        {
-                            Skin.Visible = true;
-                            RgbSkinColorContainer.Visible = false;
-                        }
-
-                        var color = strategy.FromUnary(Skin.Value);
-
-                        Markings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-
-                        break;
+                        Skin.Visible = true;
+                        RgbSkinColorContainer.Visible = false;
                     }
 
                     var color = strategy.FromUnary(Skin.Value);
 
                     _markingsModel.SetOrganSkinColor(color);
                     Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-
                     break;
                 }
+                
                 case SkinColorationStrategyInput.Color:
+                {
+                    if (!RgbSkinColorContainer.Visible)
                     {
-                        if (!RgbSkinColorContainer.Visible)
-                        {
-                            Skin.Visible = false;
-                            RgbSkinColorContainer.Visible = true;
-                        }
-
-                        var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
-
-                        Markings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-
-                        break;
+                        Skin.Visible = false;
+                        RgbSkinColorContainer.Visible = true;
                     }
 
                     var color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
@@ -1419,16 +1403,9 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow = null;
         }
 
-        protected override void EnteredTree()
-        {
-            base.EnteredTree();
-            ReloadPreview();
-        }
-
         private void SetAge(int newAge)
         {
             Profile = Profile?.WithAge(newAge);
-            ReloadPreview();
         }
 
         private void SetSex(Sex newSex)
@@ -1450,15 +1427,14 @@ namespace Content.Client.Lobby.UI
 
             UpdateGenderControls();
             _markingsModel.SetOrganSexes(newSex);
-            ReloadPreview();
-            UpdateVoicesControls();
-            UpdateSiliconVoicesControls(); // 🌟Starlight🌟
+            ReloadProfilePreview();
+            //UpdateVoicesControls();
+            //UpdateSiliconVoicesControls(); // 🌟Starlight🌟
         }
 
         private void SetGender(Gender newGender)
         {
             Profile = Profile?.WithGender(newGender);
-            ReloadPreview();
         }
 
         //starlight start
@@ -1480,7 +1456,7 @@ namespace Content.Client.Lobby.UI
             if (Profile is null) return;
             Profile.Appearance = Profile.Appearance.WithWidth(newWidth);
             UpdateSizeText();
-            ReloadPreview();
+            ReloadProfilePreview();
         }
 
         private void SetHeight(float newHeight)
@@ -1488,7 +1464,7 @@ namespace Content.Client.Lobby.UI
             if (Profile is null) return;
             Profile.Appearance = Profile.Appearance.WithHeight(newHeight);
             UpdateSizeText();
-            ReloadPreview();
+            ReloadProfilePreview();
         }
         //starlight end
 
@@ -1497,7 +1473,8 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithSpecies(newSpecies);
             UpdateSubspecies(); // Far Horizons
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
-            _markingsModel.OrganData = _markingManager.GetMarkingData(newSpecies);
+            _markingsModel.Markings = []; // Far Horizons
+            UpdateMarkings(); // Far Horizons
             _markingsModel.ValidateMarkings();
             // In case there's job restrictions for the species
             RefreshJobs();
@@ -1515,10 +1492,10 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithName(newName);
             SetDirty();
 
-            if (!IsDirty)
-                return;
+            // if (!IsDirty)
+            //     return;
 
-            SpriteView.SetName(newName);
+            // SpriteView.SetName(newName);
         }
 
         // Starlight - Start
@@ -1720,7 +1697,7 @@ namespace Content.Client.Lobby.UI
             }
 
             _markingsModel.OrganData = _markingManager.GetMarkingData(Profile.Species);
-            _markingsModel.OrganProfileData = _markingManager.GetProfileData(Profile.Species, Profile.Sex, Profile.Appearance.SkinColor, Profile.Appearance.EyeColor);
+            _markingsModel.OrganProfileData = _markingManager.GetProfileData(Profile.Species, Profile.Sex, Profile.Appearance.SkinColor, Profile.Appearance.EyeColor, Profile.Appearance.EyeGlowing, Profile.Appearance.Width, Profile.Appearance.Height); // Far Horizons
             _markingsModel.Markings = Profile.Appearance.Markings;
         }
 
@@ -1752,7 +1729,7 @@ namespace Content.Client.Lobby.UI
             }
 
             _markingsModel.SetOrganEyeColor(Profile.Appearance.EyeColor);
-            EyeColorPicker.SetData(Profile.Appearance.EyeColor);
+            EyeColorPicker.SetData(Profile.Appearance.EyeColor, Profile.Appearance.EyeGlowing); // Far Horizons
         }
 
         // Starlight
@@ -1786,18 +1763,18 @@ namespace Content.Client.Lobby.UI
             UpdateNameEdit();
         }
 
-        private async void ExportImage()
-        {
-            if (_imaging)
-                return;
+        // private async void ExportImage()
+        // {
+        //     if (_imaging)
+        //         return;
 
-            var dir = SpriteView.OverrideDirection ?? Direction.South;
+        //     var dir = SpriteView.OverrideDirection ?? Direction.South;
 
-            // I tried disabling the button but it looks sorta goofy as it only takes a frame or two to save
-            _imaging = true;
-            await _entManager.System<ContentSpriteSystem>().Export(SpriteView.PreviewDummy, dir, includeId: false);
-            _imaging = false;
-        }
+        //     // I tried disabling the button but it looks sorta goofy as it only takes a frame or two to save
+        //     _imaging = true;
+        //     await _entManager.System<ContentSpriteSystem>().Export(SpriteView.PreviewDummy, dir, includeId: false);
+        //     _imaging = false;
+        // }
 
         private async void ImportProfile()
         {

@@ -9,6 +9,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._FarHorizons.Body;
 
 namespace Content.Shared.Body;
 
@@ -128,6 +129,9 @@ public abstract partial class SharedVisualBodySystem
             Sex = sex,
             SkinColor = appearance.SkinColor,
             EyeColor = appearance.EyeColor,
+            EyeGlowing = appearance.EyeGlowing, // Far Horizons
+            Width = appearance.Width, // Far Horizons
+            Height = appearance.Height, // Far Horizons
         });
 
         var markingsEvt = new ApplyOrganMarkingsEvent(appearance.Markings);
@@ -136,6 +140,7 @@ public abstract partial class SharedVisualBodySystem
 
     public void ApplyProfileTo(Entity<VisualBodyComponent?> ent, HumanoidCharacterProfile profile)
     {
+        EnsureComp<HumanoidCharacterProfileComponent>(ent).Profile = profile; // Far Horizons
         ApplyAppearanceTo(ent, profile.Appearance, profile.Sex);
     }
 

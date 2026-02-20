@@ -71,6 +71,16 @@
   id: MobDiona
   name: McUrist Plants
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Sylvan
+    understands:
+    - GalacticCommon
+    - Sylvan
+  - type: Absorbable
+  # Starlight-end
   - type: Respirator
     damage:
       types:
@@ -170,12 +180,23 @@
     allowedStates:
     - Dead
   - type: Rootable
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Diona
 
 - type: entity
   parent: OrganBase
   id: OrganDiona
   abstract: true
   suffix: Diona
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganDionaMetabolizer

@@ -79,13 +79,32 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  # Starlight-start: Languages
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Bubblish
+    understands:
+    - GalacticCommon
+    - Bubblish
+  - type: Absorbable
+  # Starlight-end
   - type: Storage
     clickInsert: false
+     # Starlight-start
+    showVerb: false
+    openOnActivate: false
+    # Starlight-end
     grid:
     - 0,0,1,2
     maxItemSize: Large
     storageInsertSound:
       path: /Audio/Voice/Slime/slime_squish.ogg
+  # Starlight Edit - Start
+  - type: PrivateStorage
+    accessDelay: 3.0
+    accessPopup: "laspi-storage-accessing"
+    # Starlight Edit - End
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -98,12 +117,19 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.VampireMutationUiKey.Key:
+        type: VampireMutationBoundUserInterface
+  - type: EyesNotRequiredForVision
   - type: UseDelay
     delay: 0.5
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Starlight
   - type: TypingIndicator
     proto: slime
   - type: Vocal
@@ -137,8 +163,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.50 #per second, scales with pressure and other constants.
-        Heat: 0.2 # 0.1 more than humans, i feel like low pressure would make slime boil more than blunt stretch them so i decided on this instead.
+        Blunt: 1 #per second, scales with pressure and other constants.
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -173,12 +198,26 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  - type: ShowThirstIcons # starlight
+  - type: SolutionScanner # starlight
+  - type: Wagging # starlight
+  - type: Tag  # Far Horizons
+    tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - AnomalyHost
+      - SlimePerson
 
 - type: entity
   parent: OrganBase
   id: OrganSlimePerson
   abstract: true
   suffix: slime person
+  components:
+  - type: Tag
+    tags:
+      - Organic
 
 - type: entity
   id: OrganSlimePersonMetabolizer
@@ -214,7 +253,7 @@
   id: OrganSlimePersonTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganSlimePersonExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganSlimePersonExternal ]
   id: OrganSlimePersonHead
 
 - type: entity
@@ -256,6 +295,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
+      food: {}
       stomach:
         maxVol: 50.0
   - type: Stomach

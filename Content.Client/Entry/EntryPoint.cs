@@ -34,7 +34,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Localizations;
 using Robust.Client;
 using Robust.Client.Graphics;
-using Robust.Client.Input;s
+using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.Replays.Loading;
 using Robust.Client.State;

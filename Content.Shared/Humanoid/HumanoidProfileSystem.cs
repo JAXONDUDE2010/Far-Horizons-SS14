@@ -1,3 +1,4 @@
+using Content.Shared._FarHorizons.Body;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -23,11 +24,14 @@ public sealed class HumanoidProfileSystem : EntitySystem
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
+        
+        EnsureComp<HumanoidCharacterProfileComponent>(ent).Profile = profile; // Far Horizons
 
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
         ent.Comp.Sex = profile.Sex;
+        ent.Comp.CustomSpeciesName = profile.CustomSpecieName; // Far Horizons
         Dirty(ent);
 
         var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
@@ -42,7 +46,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
     private void OnExamined(Entity<HumanoidProfileComponent> ent, ref ExaminedEvent args)
     {
         var identity = Identity.Entity(ent, EntityManager);
-        var species = GetSpeciesRepresentation(ent.Comp.Species).ToLower();
+        var species = string.IsNullOrEmpty(ent.Comp.CustomSpeciesName) ? GetSpeciesRepresentation(ent.Comp.Species).ToLower() : ent.Comp.CustomSpeciesName; // Far Horizons
         var age = GetAgeRepresentation(ent.Comp.Species, ent.Comp.Age);
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));

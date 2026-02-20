@@ -52,7 +52,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
                 eyeColor,
                 ret);
 
-            var markingWithColor = new Marking(marking.MarkingId, colors)
+            var markingWithColor = new Marking(marking.MarkingId, colors, marking.IsGlowing)
             {
                 Forced = marking.Forced,
             };
@@ -66,9 +66,12 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         return ret;
     }
 
-    protected virtual void SetOrganColor(Entity<VisualOrganComponent> ent, Color color)
+    protected virtual void SetOrganColor(Entity<VisualOrganComponent> ent, Color color, bool glowing = false)
     {
         ent.Comp.Data.Color = color;
+
+        if (glowing) ent.Comp.Data.Shader = "unshaded"; // Far Horizons
+
         Dirty(ent);
     }
 
@@ -135,7 +138,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         ent.Comp.Profile = data;
 
         if (ent.Comp.Layer.Equals(HumanoidVisualLayers.Eyes))
-            SetOrganColor(ent, ent.Comp.Profile.EyeColor);
+            SetOrganColor(ent, ent.Comp.Profile.EyeColor, ent.Comp.Profile.EyeGlowing); // Far Horizons
         else
             SetOrganColor(ent, ent.Comp.Profile.SkinColor);
 

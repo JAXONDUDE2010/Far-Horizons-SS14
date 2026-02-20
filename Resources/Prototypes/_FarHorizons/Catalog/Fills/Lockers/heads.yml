@@ -100,7 +100,7 @@
     - id: ClothingEyesGlassesCommandSyndi
     - id: ClothingEyesHudCommandSyndi
     - id: EncryptionKeyCargo # Far Horizons - replaced with cargo key
-    - id: HeadSkeleton
+    - id: OrganSkeletonPersonHead
       conditions:
       - !type:PlayerCountCondition
         max: 15

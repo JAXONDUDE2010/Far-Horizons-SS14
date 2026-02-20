@@ -24,4 +24,8 @@ public sealed partial class HumanoidProfileComponent : Component
 
     [DataField, AutoNetworkedField]
     public ProtoId<SpeciesPrototype> Species = HumanoidCharacterProfile.DefaultSpecies;
+
+    [DataField, AutoNetworkedField] public float Width = 1f; // Far Horizons
+    [DataField, AutoNetworkedField] public float Height = 1f; // Far Horizons
+    [DataField, AutoNetworkedField] public string? CustomSpeciesName; // Far Horizons
 }

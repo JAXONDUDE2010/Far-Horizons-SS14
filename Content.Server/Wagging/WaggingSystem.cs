@@ -96,23 +96,18 @@ public sealed class WaggingSystem : EntitySystem
             for (int i = 0; i < layerMarkings.Count; i++)
             {
                 var currentMarkingId = layerMarkings[i].MarkingId;
-                string newMarkingId;
+                string? newMarkingId;
 
                 if (ent.Comp.Wagging)
                 {
-                    newMarkingId = $"{currentMarkingId}{ent.Comp.Suffix}";
+                    _starlightMarking.TryGetWaggingId(currentMarkingId, out newMarkingId);
+                    newMarkingId ??= $"{currentMarkingId}{(ent.Comp.Suffixes.Length > 0 ? ent.Comp.Suffixes[0] : "")}";
                 }
                 else
                 {
-                    if (currentMarkingId.EndsWith(ent.Comp.Suffix))
-                    {
-                        newMarkingId = currentMarkingId[..^ent.Comp.Suffix.Length];
-                    }
-                    else
-                    {
-                        newMarkingId = currentMarkingId;
-                        Log.Warning($"Unable to revert wagging for {currentMarkingId}");
-                    }
+                    
+                    _starlightMarking.TryGetStaticId(markings[0].MarkingId, out newMarkingId);
+                    newMarkingId ??= currentMarkingId;
                 }
 
                 if (!_prototype.HasIndex<MarkingPrototype>(newMarkingId))
@@ -121,23 +116,9 @@ public sealed class WaggingSystem : EntitySystem
                     continue;
                 }
 
-                layerMarkings[i] = new Marking(newMarkingId, layerMarkings[i].MarkingColors);
+                layerMarkings[i] = new Marking(newMarkingId, layerMarkings[i].MarkingColors, layerMarkings[i].IsGlowing);
             }
         }
-        else
-        {
-            _starlightMarking.TryGetStaticId(markings[0].MarkingId, out target);
-        }
-
-        if (target == null)
-        {
-            Log.Error($"Unable to find corresponding wagging or static ID for {markings[0].MarkingId}?");
-            return false;
-        }
-
-        _humanoidAppearance.SetMarkingId(uid, MarkingCategories.Tail, 0, target,
-            humanoid: humanoid);
-        // starlight end
 
         _visualBody.ApplyMarkings(ent, new()
         {

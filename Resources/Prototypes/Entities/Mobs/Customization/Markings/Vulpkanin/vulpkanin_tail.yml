@@ -43,24 +43,24 @@
 #     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
 #       state: long-tip
 
-# - type: marking
-#   id: VulpTailVulp
-#   bodyPart: Tail
-#   groupWhitelist: [ Vulpkanin ]
-#   sprites:
-#     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
-#       state: vulp
-#     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
-#       state: vulp-tip
-
-# - type: marking
-#   id: VulpTailVulpFade
-#   bodyPart: Tail
-#   groupWhitelist: [ Vulpkanin ]
-#   sprites:
-#     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
-#       state: vulp
-#     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
-#       state: vulp-fade
-
 # STARLIGHT END
+
+- type: marking
+  id: VulpTailVulp
+  bodyPart: Tail
+  groupWhitelist: [ Vulpkanin ]
+  sprites:
+    - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp
+    - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp-tip
+
+- type: marking
+  id: VulpTailVulpFade
+  bodyPart: Tail
+  groupWhitelist: [ Vulpkanin ]
+  sprites:
+    - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp
+    - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp-fade

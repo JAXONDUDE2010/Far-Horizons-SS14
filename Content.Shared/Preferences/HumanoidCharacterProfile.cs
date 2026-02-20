@@ -516,7 +516,7 @@ namespace Content.Shared.Preferences
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
-            if (FlavorText != other.FlavorText) return false;
+            if (PhysicalDescription != other.PhysicalDescription) return false;
             if (Enabled != other.Enabled) return false;
             if (!SpeciesLoadoutEquals(SpeciesLoadout, other.SpeciesLoadout)) return false; // Far Horizons
             // Cosmatic Drift Record System-start
@@ -534,9 +534,8 @@ namespace Content.Shared.Preferences
         }
 
         #region Starlight, walksanator fucking loses it and makes a throwing version of MemberwiseEquals
-        public void AssertEquals(ICharacterProfile maybeOther)
+        public void AssertEquals(HumanoidCharacterProfile other)
         {
-            if (maybeOther is not HumanoidCharacterProfile other) throw new DebugAssertException($"other is not HumanoidCharacterProfile it is {maybeOther.GetType()}");
             if (Name != other.Name) throw new DebugAssertException($"Name doesn't match expected '{Name}' got '{other.Name}'");
             if (Age != other.Age) throw new DebugAssertException($"Age doesn't match expected '{Age}' got '{other.Age}'");
             if (Sex != other.Sex) throw new DebugAssertException($"Sex doesn't match expected '{Sex}' got '{other.Sex}'");
@@ -549,9 +548,9 @@ namespace Content.Shared.Preferences
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) throw new DebugAssertException($"_antagPreferences doesn't match expected '{_antagPreferences}' got '{other._antagPreferences}'");
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) throw new DebugAssertException($"_traitPreferences doesn't match expected '{_traitPreferences}' got '{other._traitPreferences}'");
             if (!Loadouts.SequenceEqual(other.Loadouts))  throw new DebugAssertException($"Loadouts doesn't match expected '{Loadouts}' got '{other.Loadouts}'");
-            if (FlavorText != other.FlavorText) throw new DebugAssertException($"FlavorText doesn't match expected '{FlavorText}' got '{other.FlavorText}'");
+            if (PhysicalDescription != other.PhysicalDescription) throw new DebugAssertException($"PhysicalDescription doesn't match expected '{FlavorText}' got '{other.FlavorText}'");
             if (Enabled != other.Enabled) throw new DebugAssertException($"Enabled doesn't match expected '{Enabled}' got '{other.Enabled}'");
-            if (!SpeciesLoadoutEquals(SpeciesLoadout, other.SpeciesLoadout)) throw new DebugAssertException($"SpeciesLoadout doesn't match"); // Far Horizons
+            if (!SpeciesLoadoutEquals(SpeciesLoadout, other.SpeciesLoadout)) throw new DebugAssertException("SpeciesLoadout doesn't match"); // Far Horizons
             // Cosmatic Drift Record System-start
             if (CDCharacterRecords != null)
             {
@@ -564,7 +563,7 @@ namespace Content.Shared.Preferences
                 throw new DebugAssertException($"CDCharacterRecords doesn't match expected null got '{other.CDCharacterRecords}'");
             }
             // Cosmatic Drift Record System-end
-            Appearance.MemberwiseEquals(other.Appearance);
+            Appearance.Assert(other.Appearance);
         }
         #endregion
         public void EnsureValid(ICommonSession session, IDependencyCollection collection)
@@ -660,7 +659,6 @@ namespace Content.Shared.Preferences
 
             var allCybernetics = CyberneticImplant.GetAllCybernetics(prototypeManager);
             var installedCybernetics = allCybernetics.Where(p => Cybernetics.Contains(p.ID))
-                                       .Where(p => p.Type == CyberneticImplantType.Limb)
                                        .ToList();
             if (installedCybernetics.Select(p => p.Cost).Sum() <= speciesPrototype.RoundstartCyberwareCapacity)
             {

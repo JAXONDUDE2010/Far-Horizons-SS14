@@ -60,13 +60,11 @@ job-name-zookeeper = Zookeeper
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
 job-name-geneticist = Geneticist
-job-name-boxer = Boxer
 job-name-no-id = No ID
 job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
 job-name-unknown = Unknown
 job-name-virologist = Virologist
-job-name-zookeeper = Zookeeper
 
 # antagonist jobs
 job-name-ninja = Ninja

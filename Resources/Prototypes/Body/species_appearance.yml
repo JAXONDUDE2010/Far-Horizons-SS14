@@ -30,6 +30,8 @@
     - map: ["enum.HumanoidVisualLayers.RHand"]
 
     # Stuff that goes over the body but below equipment
+    - map: ["enum.HumanoidVisualLayers.BodyCover"] # Far Horizons
+    - map: ["enum.HumanoidVisualLayers.BodyCoverCover"] # Far Horizons
     - map: ["enum.HumanoidVisualLayers.Overlay"]
 
     # More equipment
@@ -37,19 +39,24 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
+    - map: [ "rig" ] #FarHorizons
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "pin" ] #FarHorizons
 
     # Stuff that goes in front of equipment
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.FaceCover" ] # Far Horizons
+    - map: [ "enum.HumanoidVisualLayers.FaceCoverCover" ] # Far Horizons
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailCover" ] # Far Horizons
 
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]
@@ -84,9 +91,12 @@
   - type: ContainerContainer
   - type: Appearance
   - type: HideableHumanoidLayers
-  - type: UserInterface
-    interfaces:
-      enum.HumanoidMarkingModifierKey.Key:
-        type: HumanoidMarkingModifierBoundUserInterface
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
+  - type: MovementOrganExpectedToMove # Far Horizons
+  # FH - Removed
+  # Due to the way inheritance works with appearance being applied "on top of" a character - having any UI defined here means we have define separate UIs per species
+  # - type: UserInterface
+  #   interfaces:
+  #     enum.HumanoidMarkingModifierKey.Key:
+  #       type: HumanoidMarkingModifierBoundUserInterface
+  #     enum.StrippingUiKey.Key:
+  #       type: StrippableBoundUserInterface

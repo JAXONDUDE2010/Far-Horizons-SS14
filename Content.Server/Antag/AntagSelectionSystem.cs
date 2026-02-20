@@ -41,6 +41,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server._FarHorizons.Factions;
+using Content.Shared._FarHorizons.Body;
+using Content.Shared.Body;
 // Starlight Start
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -67,7 +69,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ArrivalsSystem _arrivals = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Starlight
 
@@ -335,7 +336,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     if (playerEntity == null 
                         || HasComp<BibleUserComponent>(playerEntity)
                         || !TryComp<BodyComponent>(playerEntity, out var body) 
-                        || !_body.TryGetBodyOrganEntityComps<StomachComponent>((playerEntity.Value, body), out var stomachs))
+                        || !_body.TryGetOrgansWithComponent<StomachComponent>((playerEntity.Value, body), out var stomachs))
                         continue;
                 }
             }
@@ -566,15 +567,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         HumanoidCharacterProfile? profile = null;
 
-        if (TryComp<HumanoidAppearanceComponent>(player, out var humanoid))
+        if (TryComp<HumanoidCharacterProfileComponent>(player, out var humanoid))
         {
-            profile = _appearance.GetBaseProfile((player, humanoid));
+            profile = humanoid.Profile;
         }
 
         if (profile == null && _pref.TryGetCachedPreferences(session.UserId, out var pref))
         {
             profile = pref.Characters.Values
-                .OfType<HumanoidCharacterProfile>()
                 .FirstOrDefault(p => p.Enabled);
         }
 
@@ -678,7 +678,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return false;
 
         // Ensure that the profile has the antag preference set, if this is a late join this hasn't been checked!
-        var baseProfile = _appearance.GetBaseProfile(entity.Value);
+        if (!TryComp<HumanoidCharacterProfileComponent>(entity.Value, out var profile))
+            return false;
+        
+        var baseProfile = profile.Profile;
         if (baseProfile is not null)
         {
             if (!def.PrefRoles.ToHashSet().Overlaps(baseProfile.AntagPreferences) &&

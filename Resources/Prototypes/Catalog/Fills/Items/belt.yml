@@ -101,14 +101,6 @@
         - id: Bloodpack
         - id: AmmoniaPack #Far Horizons
         - id: Gauze
-        # Reagents reflect the bottles in CoreMedicineReagentBottleTable
-        - id: ChemistryBottleSaline
-        - id: ChemistryBottleBicaridine
-        - id: ChemistryBottleDexalin
-        - id: ChemistryBottleDylovene
-        - id: ChemistryBottleHyronalin
-        - id: ChemistryBottleKelotane
-        - id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
         - id: PillCanisterTricordrazine
 
 - type: entity

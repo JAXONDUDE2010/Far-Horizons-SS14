@@ -246,6 +246,32 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                Height == other.Height; //starlight
     }
 
+    // Far Horizons - to figure out what's wrong in tests
+    public void Assert(HumanoidCharacterAppearance? other)
+    {
+        if (ReferenceEquals(this, other)) return;
+        if (ReferenceEquals(null, other))
+            throw new DebugAssertException("Appearance B is null");
+        
+        if (!EyeColor.Equals(other.EyeColor))
+            throw new DebugAssertException($"Eye colors don't match. A: {EyeColor}; B: {other.EyeColor}");
+        
+        if (!EyeGlowing.Equals(other.EyeGlowing))
+            throw new DebugAssertException($"Eye glow doesn't match. A: {EyeGlowing}; B: {other.EyeGlowing}");
+        
+        if (!SkinColor.Equals(other.SkinColor))
+            throw new DebugAssertException($"Skin color doesn't match. A: {SkinColor}; B: {other.SkinColor}");
+        
+        if (!Width.Equals(other.Width))
+            throw new DebugAssertException($"Width doesn't match. A: {Width}; B: {other.Width}");
+
+        if (!Height.Equals(other.Height))
+            throw new DebugAssertException($"Height doesn't match. A: {Height}; B: {other.Height}");
+
+        MarkingManager.AsserMarkings(Markings, other.Markings);
+    }
+    // Far Horizons end
+
     public override bool Equals(object? obj)
     {
         return ReferenceEquals(this, obj) || obj is HumanoidCharacterAppearance other && Equals(other);

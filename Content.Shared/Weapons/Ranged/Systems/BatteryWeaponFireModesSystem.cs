@@ -47,7 +47,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         var fireMode = GetMode(ent.Comp);
 
         // Starlight-start
-        if (TryGetAmmoProvider(uid, out var ammoProvider) && ammoProvider != null)
+        if (TryGetAmmoProvider(ent, out var ammoProvider) && ammoProvider != null)
         {
             if (ammoProvider is BatteryAmmoProviderComponent projectileAmmo)
             {
@@ -99,7 +99,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
                     DoContactInteraction = true,
                     Act = () =>
                     {
-                        SetFireMode(uid, component, index, args.User);
+                        SetFireMode((uid, component), index, args.User);
                     }
                 };
 
@@ -117,7 +117,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         args.Handled = true;
         //starlight end
-        TryCycleFireMode(uid, component, args.User);
+        TryCycleFireMode(ent, args.User);
     }
 
     public void TryCycleFireMode(Entity<BatteryWeaponFireModesComponent> ent, EntityUid? user = null)
@@ -178,14 +178,14 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
                 float fireCostDiff = (float)fireMode.FireCost / (float)oldFireCost;
                 projectileAmmo.Shots = (int)Math.Round(projectileAmmo.Shots / fireCostDiff);
                 projectileAmmo.Capacity = (int)Math.Round(projectileAmmo.Capacity / fireCostDiff);
-                Dirty(uid, projectileAmmo);
+                Dirty(ent, projectileAmmo);
 
                 if (user != null)
-                    _popupSystem.PopupPredicted(Loc.GetString("gun-set-fire-mode", ("mode", prototype.Name)), uid, user);
+                    _popupSystem.PopupPredicted(Loc.GetString("gun-set-fire-mode", ("mode", prototype.Name)), ent, user);
             }
 
             if (fireMode.HeldPrefix != null)
-                _item.SetHeldPrefix(uid, fireMode.HeldPrefix);
+                _item.SetHeldPrefix(ent, fireMode.HeldPrefix);
         }
         // Starlight-end
 
@@ -226,7 +226,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             var conditionsMet = fireMode.Conditions.All(condition => condition.Condition(conditionArgs));
 
             if (!conditionsMet)
-                SetFireMode(uid, component, 0, args.User);
+                SetFireMode((uid, component), 0, args.User);
         }
     }
 
@@ -248,7 +248,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         var index = (component.CurrentFireMode + 1) % component.FireModes.Count;
 
-        SetFireMode(uid, component, index, user);
+        SetFireMode((uid, component), index, user);
     }
     
     # endregion Starlight

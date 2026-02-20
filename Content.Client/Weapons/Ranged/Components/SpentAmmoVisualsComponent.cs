@@ -12,7 +12,7 @@ public sealed partial class SpentAmmoVisualsComponent : Component
     public bool Suffix = true;
 
     [DataField("state")]
-    public string? State = "base";
+    public string State = "base";  // Far Horizons
 
     /// <summary>
     /// Starlight

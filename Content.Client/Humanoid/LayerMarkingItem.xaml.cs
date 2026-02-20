@@ -28,6 +28,12 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
     private bool _interactive;
 
     private List<ColorSelectorSliders>? _colorSliders;
+    // Far Horizons start
+    private readonly CheckBox _glowCheckBox = new CheckBox()
+    {
+        Text = Loc.GetString("marking-glowing")
+    };
+    // Far Horizons end
 
     public event Action<GUIBoundKeyEventArgs, LayerMarkingItem>? Pressed;
     public event Action<GUIBoundKeyEventArgs, LayerMarkingItem>? Unpressed;
@@ -59,6 +65,9 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
         {
             SelectButton.MouseFilter = Control.MouseFilterMode.Ignore;
         }
+
+        _glowCheckBox.OnToggled += args => _markingsModel.TrySetMarkingGlowing(_organ, _layer, _markingPrototype.ID, args.Pressed); // Far Horizons
+        ColorsContainer.AddChild(_glowCheckBox); // Far Horizons
     }
 
     protected override void EnteredTree()
@@ -106,6 +115,7 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
         if (_markingsModel.TryGetMarking(_organ, _layer, _markingPrototype.ID) is { } marking &&
             _colorSliders is { } sliders)
         {
+            _glowCheckBox.Pressed = marking.IsGlowing; // Far Horizons
             for (var i = 0; i < _markingPrototype.Sprites.Count; i++)
             {
                 sliders[i].Color = marking.MarkingColors[i];
@@ -147,6 +157,7 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
         if (_markingsModel.TryGetMarking(_organ, _layer, _markingPrototype.ID) is not { } marking)
             return;
 
+        _glowCheckBox.Pressed = marking.IsGlowing; // Far Horizons
         _colorSliders = new();
 
         for (var i = 0; i < _markingPrototype.Sprites.Count; i++)

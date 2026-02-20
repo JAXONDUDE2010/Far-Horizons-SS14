@@ -1097,7 +1097,7 @@
       color: "#38D848"
     - state: stripe_bottom
       color: "#309000"
-    - sprite: *icon-rsi
+    - sprite: Interface/Misc/job_icons.rsi
       offset: *icon-offset
       state: Ninja
   - type: Item
@@ -1117,7 +1117,7 @@
   - type: Sprite
     layers:
     - state: pirate
-    - sprite: *icon-rsi
+    - sprite: Interface/Misc/job_icons.rsi
       offset: *icon-offset
       state: Pirate
   - type: Item

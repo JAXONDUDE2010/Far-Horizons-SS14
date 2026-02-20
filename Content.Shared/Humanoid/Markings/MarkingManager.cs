@@ -4,6 +4,7 @@ using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Markings;
 
@@ -218,7 +219,7 @@ public sealed class MarkingManager
 
                 markingSets[layer] = markingSets.GetValueOrDefault(layer) ?? [];
                 var colors = MarkingColoring.GetMarkingLayerColors(markingProto, skinColor, eyeColor, markingSets[layer]);
-                markingSets[layer].Add(new(marking, colors));
+                markingSets[layer].Add(new(marking, colors, false));
             }
         }
     }
@@ -252,7 +253,10 @@ public sealed class MarkingManager
     public Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> GetProfileData(ProtoId<SpeciesPrototype> species,
         Sex sex,
         Color skinColor,
-        Color eyeColor)
+        Color eyeColor,
+        bool eyeGlowing = false, // Far Horizons
+        float width = 1f, // Far Horizons
+        float height = 1f) // Far Horizons
     {
         var ret = new Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData>();
 
@@ -263,6 +267,9 @@ public sealed class MarkingManager
                 Sex = sex,
                 EyeColor = eyeColor,
                 SkinColor = skinColor,
+                EyeGlowing = eyeGlowing, // Far Horizons
+                Width = width, // Far Horizons
+                Height = height, // Far Horizons
             };
         }
 
@@ -343,4 +350,32 @@ public sealed class MarkingManager
 
         return true;
     }
+
+    // Far Horizons start
+    public static void AsserMarkings(
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> a,
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> b)
+    {
+        if (a.Count != b.Count)
+            throw new DebugAssertException($"Organ count doesn't match, A: {a.Count}; B: {b.Count}");
+
+        foreach (var (organ, aDictionary) in a)
+        {
+            if (!b.TryGetValue(organ, out var bDictionary))
+                throw new DebugAssertException($"Organ category {organ} doesn't exist on B");
+
+            if (aDictionary.Count != bDictionary.Count)
+                throw new DebugAssertException($"Count of markings for {organ} doesn't match: A: {aDictionary.Count}; B: {bDictionary.Count}");
+
+            foreach (var (layer, aMarkings) in aDictionary)
+            {
+                if (!bDictionary.TryGetValue(layer, out var bMarkings))
+                    throw new DebugAssertException($"Layer {layer} on organ category {organ} doesn't exist on B");
+
+                if (!aMarkings.SequenceEqual(bMarkings))
+                    throw new DebugAssertException($"Layer {layer} on organ category {organ} doesn't match. A: {string.Join(", ", aMarkings)}; B: {string.Join(", ", bMarkings)}");
+            }
+        }
+    }
+    // Far Horizons end
 }

@@ -256,6 +256,9 @@
     reduction: 0.85
   - type: StaticPrice
     price: 2500
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
 
 #Mercenary web vest
 - type: entity
