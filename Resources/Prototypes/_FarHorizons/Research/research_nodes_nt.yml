@@ -101,19 +101,6 @@
     - Security
 
 - type: researchTreeNode
-  id: VehicularArmorLight
-  name: research-tree-node-vehicle-armor-light
-  cost: 8000
-  icon:
-    state: kinetic
-    color: "#003860"
-  tier: Tier1
-  unlocks:
-    - SecwayArmorLightKit
-  announceTo:
-    - Security
-
-- type: researchTreeNode
   id: SpecialAmmo
   name: research-tree-node-ammo
   cost: 10000

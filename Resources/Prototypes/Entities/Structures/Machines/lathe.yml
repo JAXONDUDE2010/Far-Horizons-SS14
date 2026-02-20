@@ -454,7 +454,6 @@
     - FarHorizonsSecurityAmmoDynamic #FarHorizons
     - FarHorizonsSecurityThrowablesDynamic #FarHorizons
     - FarHorizonsSecurityWeaponsDynamic #FarHorizons
-    - FarHorizonsSecurityArmorDynamic #FarHorizons
   #region Starlight secfab emagging
   - type: EmagLatheRecipes
     emagStaticPacks:

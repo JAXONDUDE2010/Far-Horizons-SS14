@@ -1,3 +1,4 @@
+#region Headlights
 - type: entity
   id: ATVHeadlight
   parent: BaseItem
@@ -66,6 +67,7 @@
         - map: [ enum.LightBulbVisualLayers.Base ]
           state: normal
 
+#region Lightbars
 - type: entity
   id: SecSiren
   parent: BaseItem
@@ -100,6 +102,7 @@
       slot: lightbar
       allowedVehicles: [Electric, Gas, Spaceship]
 
+#region Tires
 - type: entity
   id: StandardTires
   parent: BaseItem
@@ -115,7 +118,7 @@
     - type: MovementSpeedModifier
       baseAcceleration: 2 
       baseFriction: 0.5625
-
+#region Engines
 - type: entity
   id: BasicEngine
   parent: BaseItem
@@ -188,6 +191,7 @@
     - type: PowerCellDraw
       drawRate: 1.5
 
+#region Thrusters
 - type: entity
   id: BasicThrusters
   parent: BaseItem
@@ -205,6 +209,7 @@
       baseWeightlessFriction: 2
       baseWeightlessModifier: 3
 
+#region Airtanks
 - type: entity
   id: VehicleAirTank
   parent: BaseItem
@@ -245,6 +250,7 @@
         Oxygen: 50.051379050
       temperature: 293.15
 
+#region Ventfans
 - type: entity
   id: VentFan
   parent: BaseItem
@@ -264,6 +270,7 @@
       gasProcessingRate: 100
       filterGases: [ Plasma, CarbonDioxide, NitrousOxide ]
 
+#region Armor
 - type: entity
   id: BasicArmorKit
   parent: BaseItem
@@ -271,24 +278,25 @@
   description: This kit allows you to upgrade most vehicle's armor to tier I.
   components:
     - type: Item
-      storedRotation: 0
+      size: Normal
+      heldPrefix: light
     - type: Sprite
-      sprite: Objects/Specific/Mech/mecha_equipment.rsi
-      state: ripleyupgrade
+      sprite: _FarHorizons/Objects/Misc/Upgrade_Kits/secway_armor.rsi
+      state: light
     - type: VehicleEquipment
       slot: ARMOR
       allowedVehicles: [Electric, Gas, Spaceship]
     - type: Damageable
-      damageModifierSet: FlimsyMetallic
+      damageModifierSet: VehicleBasicArmor
 
 - type: entity
-  id: AdvancedArmorKit
+  id: LightArmorKit
   parent: BasicArmorKit
-  name: Advanced Armor Upgrade Kit
+  name: Light Armor Upgrade Kit
   description: This kit allows you to upgrade most vehicle's armor to tier II.
   components:
     - type: Sprite
-      sprite: Objects/Specific/Mech/mecha_equipment.rsi
-      state: ripleyupgrade
+      sprite: _FarHorizons/Objects/Misc/Upgrade_Kits/secway_armor.rsi
+      state: light
     - type: Damageable
-      damageModifierSet: Metallic
+      damageModifierSet: VehicleLightArmor

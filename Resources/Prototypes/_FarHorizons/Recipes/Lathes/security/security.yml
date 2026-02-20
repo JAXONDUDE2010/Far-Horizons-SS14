@@ -139,14 +139,3 @@
     Uranium: 100
     Silver: 200
     Gold: 50
-
-- type: latheRecipe
-  parent: BaseArmorRecipe
-  id: SecwayArmorLightKit
-  result: SecwayArmorLightKit
-  categories:
-  - LatheArmor
-  materials:
-    ReinforcedGlass: 1000
-    Steel: 500
-    Plastic: 500
