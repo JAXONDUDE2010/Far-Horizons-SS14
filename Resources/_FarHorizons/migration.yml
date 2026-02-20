@@ -216,3 +216,5 @@ AirlockExternalGlassShuttleEscape: FHAirlockExternalGlassShuttleEscape
 HeadAbductor: OrganAbductorHead
 TorsoHuman: OrganHumanTorso
 OrganSlimesLungs: OrganSlimePersonLungs
+HeadReptilian: OrganReptilianHead
+TorsoReptilian: OrganReptilianTorso
