@@ -1,4 +1,5 @@
-# Command
+#region Command
+
 - type: factionJobAssignment
   id: SyndieCaptain
   faction: FactionSyndicate
@@ -73,6 +74,8 @@
     loadout: SyndieHeadOfPersonnel
     startingGear: SyndieHoPGear
 
+#region CFA
+
 - type: factionJobAssignment
   id: SyndieMagistrate
   faction: FactionSyndicate
@@ -84,6 +87,8 @@
     #supervisors job-supervisors-nshc
     loadout: SyndieMagistrate
     startingGear: SyndieMagistrateGear
+
+#region NSHC
 
 - type: factionJobAssignment
   id: SyndieNanoTrasenRepresentative
@@ -97,7 +102,8 @@
     loadout: SyndieNanoTrasenRepresentative
     startingGear: SyndieNanoTrasenRepresentativeGear
 
-# Civilan
+#region Civilan
+
 - type: factionJobAssignment
   id: SyndieAssistant
   faction: FactionSyndicate
@@ -153,6 +159,7 @@
   faction: FactionSyndicate
   job: Janitor
   override:
+    name: faction-syndicate-job-janitor
     #supervisors: job-supervisors-pm
 
 - type: factionJobAssignment
@@ -181,6 +188,7 @@
   faction: FactionSyndicate
   job: Reporter
   override:
+    name: faction-syndicate-job-reporter
     #supervisors: job-supervisors-pm
 
 - type: factionJobAssignment
@@ -197,7 +205,8 @@
   override:
     #supervisors: job-supervisors-pm
 
-# LAW
+#region Law
+
 - type: factionJobAssignment
   id: SyndieIAA
   faction: FactionSyndicate
@@ -207,7 +216,8 @@
     loadout: SyndieIAA
     startingGear: SyndieIAAGear
 
-# Engineering
+#region Engineering
+
 - type: factionJobAssignment
   id: SyndieAtmosphericTechnician
   faction: FactionSyndicate
@@ -244,7 +254,7 @@
     loadout: SyndieTechnicalAssistant
     startingGear: SyndieTechnicalAssistantGear
 
-# Medical
+#region Medical
 
 - type: factionJobAssignment
   id: SyndieSurgeon
@@ -318,7 +328,7 @@
     loadout: SyndiePsychologist
     startingGear: SyndiePsychologistGear
 
-# Science
+#region Science
 
 - type: factionJobAssignment
   id: SyndieRoboticist
@@ -356,7 +366,7 @@
     loadout: SyndieResearchAssistant
     startingGear: SyndieResearchAssistantGear
 
-# Silicon
+#region Silicon
 
 - type: factionJobAssignment
   id: SyndieStationAi
@@ -378,7 +388,7 @@
     #supervisors: job-supervisors-ep
     jobEntity: PlayerBorgBatterySyndicate
 
-# Security
+#region Security
 
 - type: factionJobAssignment
   id: SyndieWarden
