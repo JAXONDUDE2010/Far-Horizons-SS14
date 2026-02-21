@@ -531,42 +531,42 @@
     jumpsuit: ClothingUniformJumpskirtDetectiveGreySyndi
 
 - type: loadout
-  id: LESuit
+  id: EnforcerSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecSyndi
 
 - type: loadout
-  id: LESkirt
+  id: EnforcerSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecSyndi
 
 - type: loadout
-  id: LEGreySuit
+  id: EnforcerGreySuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGreySyndi
 
 - type: loadout
-  id: LEGreySkirt
+  id: EnforcerGreySkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGreySyndi
 
 - type: loadout
-  id: LETrooperSuit
+  id: EnforcerTrooperSuit
   equipment:
     jumpsuit: ClothingUniformSecurityTrooperSyndi
 
 - type: loadout
-  id: LETrooperSkirt
+  id: EnforcerTrooperSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecurityTrooperSyndi
 
 - type: loadout
-  id: LESeniorSuit
+  id: EnforcerSeniorSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficerSyndi
 
 - type: loadout
-  id: LESeniorSkirt
+  id: EnforcerSeniorSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficerSyndi
 
@@ -756,42 +756,42 @@
     outerClothing: ClothingOuterCoatDetectiveLoadoutGreySyndi
 
 - type: loadout
-  id: LEArmorVest
+  id: EnforcerArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasicSyndi
 
 - type: loadout
-  id: LEArmorVestSlim
+  id: EnforcerArmorVestSlim
   equipment:
     outerClothing: ClothingOuterArmorBasicSlimSyndi
 
 - type: loadout
-  id: LEArmorVestPlate
+  id: EnforcerArmorVestPlate
   equipment:
     outerClothing: ClothingOuterArmorPlateSyndi
 
 - type: loadout
-  id: LEArmorVestStab
+  id: EnforcerArmorVestStab
   equipment:
     outerClothing: ClothingOuterArmorStabSyndi
 
 - type: loadout
-  id: LEArmorVestHeatAbsorb
+  id: EnforcerArmorVestHeatAbsorb
   equipment:
     outerClothing: ClothingOuterArmorHeatAbsorbSyndi
 
 - type: loadout
-  id: LEWintercoat
+  id: EnforcerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
 
 - type: loadout
-  id: LEWindbreaker
+  id: EnforcerWindbreaker
   equipment:
     outerClothing: ClothingOuterWindbreakerSecuritySyndi
 
 - type: loadout
-  id: LEBomber
+  id: EnforcerBomber
   equipment:
     outerClothing: ClothingOuterSecurityBomberSyndi
 
