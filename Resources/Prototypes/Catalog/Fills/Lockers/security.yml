@@ -208,7 +208,7 @@
   table: !type:AllSelector
     children:
     - id: WeaponDisabler
-    - id: WeaponAdvancedTaser
+#    - id: WeaponAdvancedTaser FH
     - id: WeaponDominator
     - id: WeaponShotgunDoubleBarreledRubber
       amount: 3

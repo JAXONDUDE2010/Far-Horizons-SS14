@@ -197124,7 +197124,7 @@ entities:
     - type: Transform
       pos: -30.5,20.5
       parent: 2
-- proto: WeaponAdvancedTaser
+- proto: WeaponDisabler
   entities:
   - uid: 31386
     components:
