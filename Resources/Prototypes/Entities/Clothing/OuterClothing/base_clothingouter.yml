@@ -214,4 +214,4 @@
   id: ClothingOuterBaseMedium
   components:
   - type: Item
-    size: Huge # FH - back to 4x4 item size
+    size: Large # FH - back to 4x4 item size
