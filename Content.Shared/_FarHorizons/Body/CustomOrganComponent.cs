@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -33,6 +34,18 @@ public sealed partial class ConnectedOrganComponent : Component
     [ViewVariables] public Container? Organs;
 
     [DataField] public List<EntProtoId> Roundstart = new List<EntProtoId>();
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class VitalOrganComponent : Component
+{
+    [DataField] public DamageSpecifier Damage = new()
+    {
+        DamageDict = new ()
+        {
+            { "Bloodloss", 200 }, // Just enough to kill
+        }
+    }; 
 }
 
 [RegisterComponent]
