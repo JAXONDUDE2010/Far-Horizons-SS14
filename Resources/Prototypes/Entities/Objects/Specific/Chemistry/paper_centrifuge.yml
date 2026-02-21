@@ -57,4 +57,4 @@
     mixingSound: !type:SoundPathSpecifier
       path: /Audio/Items/Medical/paper_centrifuge.ogg
       params:
-        loop: true
+        loop: false # Far Horizons - disable sound spam

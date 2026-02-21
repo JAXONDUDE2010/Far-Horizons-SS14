@@ -99,7 +99,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/Culinary/juicer_juicing.ogg # Pasta mixing sound. Close enough.
       params:
-        loop: true
+        loop: false # Far Horizons - disable sound spam
     program: Juice
 
 - type: entity

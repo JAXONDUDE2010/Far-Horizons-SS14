@@ -28,7 +28,7 @@ public sealed partial class HandheldGrinderComponent : Component
     /// The sound to play when the doAfter starts.
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Items/Culinary/mortar_grinding.ogg", AudioParams.Default.WithLoop(true));
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Items/Culinary/mortar_grinding.ogg"); // Far Horizons disable looping
 
     /// <summary>
     /// The grinder program to use.
