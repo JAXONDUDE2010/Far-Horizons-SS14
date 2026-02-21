@@ -130,7 +130,7 @@
       startingEquipment:
         - StandardTires
         - ElectricEngine
-        - AdvancedArmorKit
+        - LightArmorKit
         - SecwayLight
         - SecSiren
 
@@ -307,7 +307,7 @@
       startingEquipment:
         - StandardTires
         - ElectricEngine
-        - AdvancedArmorKit
+        - LightArmorKit
         - SecwayLightBright
 
 - type: entity
