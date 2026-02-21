@@ -4,3 +4,27 @@
   keycode: "d"
   frequency: 6907
   color: "#1fb0ff"
+
+- type: radioChannel
+  id: SHC
+  name: SHC
+  keycode: "r"
+  frequency: 1214
+  color: "#ff0000"
+  longRange: true
+
+- type: radioChannel
+  id: GMN
+  name: GMN
+  keycode: "g"
+  frequency: 1215
+  color: "#990000"
+  longRange: true
+
+- type: radioChannel
+  id: NTNC
+  name: NTNC
+  keycode: "i"
+  frequency: 1338
+  color: "#00FFFF"
+  longRange: true

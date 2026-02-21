@@ -28,3 +28,48 @@
     layers:
     - state: crypt_gray
     - sprite: _FarHorizons/Objects/Devices/encryption_keys.rsi
+
+- type: entity
+  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  id: EncryptionKeySHC
+  name: NeoSol High Command encryption key
+  description: An encryption key used by someone who is very evil.
+  components:
+  - type: EncryptionKey
+    channels:
+    - SHC
+    defaultChannel: SHC
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: synd_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  id: EncryptionKeyGMN
+  name: GMN encryption key
+  description: A encryption key used by elite Gorlex Marines.
+  components:
+  - type: EncryptionKey
+    channels:
+    - GMN
+    defaultChannel: GMN
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: synd_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommContraband ]
+  id: EncryptionKeyNTNC
+  name: NT-NC encryption key
+  description: An encryption key used by the elite NT-NC forces.
+  components:
+  - type: EncryptionKey
+    channels:
+    - NTNC
+    defaultChannel: NTNC
+  - type: Sprite
+    layers:
+    - state: crypt_blue
+    - state: com_label
