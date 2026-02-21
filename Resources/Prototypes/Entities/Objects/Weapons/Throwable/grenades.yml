@@ -367,19 +367,28 @@
 - type: entity
   name: EMP grenade
   description: A grenade designed to wreak havoc on electronic systems.
-  parent: [ImpactGrenadeBase, BaseSecurityContraband] #FH Edit
+  parent: [TimerGrenadeBase, BaseSecurityContraband] #FH Edit - Something that can kill a person can't have no warning
   id: EmpGrenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/empgrenade.rsi
+  # Far Horizons start
+  - type: TimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    delay: 3
+    beepInterval: 0.69
+  # Far Horizons end
   - type: EmpOnTrigger
     keysIn:
-    - trigger
+    - timer # Far Horizons
     range: 5.5
     energyConsumption: 50000
   - type: DeleteOnTrigger
     keysIn:
-    - trigger
+    - timer # Far Horizons
   - type: StaticPrice
     price: 666 # 2000 for 3, I love fractions
 

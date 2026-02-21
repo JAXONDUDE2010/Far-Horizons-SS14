@@ -32,7 +32,7 @@
   - type: Item
     size: Normal
     shape:
-    - 0,0,1,2
+    - 0,0,1,1 # FH - back to 2x2 item size
   - type: Storage
     grid:
     - 0,0,2,1
@@ -214,6 +214,4 @@
   id: ClothingOuterBaseMedium
   components:
   - type: Item
-    size: Large
-    shape:
-    - 0,0,2,3
+    size: Huge # FH - back to 4x4 item size
