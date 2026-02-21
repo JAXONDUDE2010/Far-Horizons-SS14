@@ -68,7 +68,7 @@
 
 - type: loadoutGroup
   id: CommandantHead
-  name: loadout-group-Commandant-head
+  name: loadout-group-commandant-head
   minLimit: 0
   loadouts:
   - CommandantHead
@@ -76,14 +76,14 @@
 
 - type: loadoutGroup
   id: CommandantEyewear
-  name: loadout-group-Commandant-eyewear
+  name: loadout-group-commandant-eyewear
   loadouts:
   - CommandantGlasses
   - CommandantHud
 
 - type: loadoutGroup
   id: CommandantNeck
-  name: loadout-group-Commandant-neck
+  name: loadout-group-commandant-neck
   minLimit: 0
   loadouts:
   - CommandantCloak
@@ -91,13 +91,13 @@
 
 - type: loadoutGroup
   id: CommandantOuterClothing
-  name: loadout-group-Commandant-outerclothing
+  name: loadout-group-commandant-outerclothing
   loadouts:
   - CommandantCarapace
 
 - type: loadoutGroup
   id: CommandantJumpsuit
-  name: loadout-group-Commandant-jumpsuit
+  name: loadout-group-commandant-jumpsuit
   loadouts:
   - CommandantJumpsuit
   - CommandantJumpskirt

@@ -15,22 +15,3 @@ faction-syndie-department-Representives = NeoSol Representatives
 faction-syndie-department-Silicon = Silicon
 
 faction-neutral-department-Law = Concord Frontier Authority
-
-
-/// NanoTrasen Departments
-/// Command - NanoTrasen
-/// Engineering - Clockwork Solutions
-/// Medical - LIMB Augments
-/// Security - NT Private Security
-/// Science - Telos Industries
-/// NT Representatives
-/// Silicon - NanoTrasen Silicon
-
-/// Syndicate Departments
-/// Command - The Syndicate
-/// Engineering - Caprica & Solaris Conglomerate
-/// Medical - Interdyne Pharmaceutics
-/// Security - MI13
-/// Science - Cybersun Incorporated
-/// SHC Overwatch
-/// Silicon - Syndicate Silicon

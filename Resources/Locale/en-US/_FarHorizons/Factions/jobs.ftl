@@ -18,6 +18,9 @@ faction-syndicate-job-secborg = L.E.A.D.
 
 faction-syndicate-job-bso = Red Shield Operative
 
+faction-syndicate-job-janitor = Custodian
+faction-syndicate-job-reporter = Journalist
+
 faction-syndicate-job-atmos = Atmospheric Technician
 faction-syndicate-job-engineer = Station Engineer
 faction-syndicate-job-ta = Technical Assistant
