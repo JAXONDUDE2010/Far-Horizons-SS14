@@ -390,7 +390,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         }
     }
 
-    public async void WebhookUpdateRoleBans(NetUserId? target, string? targetUsername, NetUserId? banningAdmin, (IPAddress, int)? addressRange, ImmutableTypedHwid? hwid, IReadOnlyCollection<string> roles, uint? minutes, NoteSeverity severity, string reason, DateTimeOffset timeOfBan)
+    public async void WebhookUpdateRoleBans(NetUserId? target, string? targetUsername, NetUserId? banningAdmin, (IPAddress, int)? addressRange, ImmutableTypedHwid? hwid, IReadOnlyCollection<string> roles, uint? minutes, NoteSeverity severity, string reason, DateTimeOffset timeOfBan, ImmutableArray<BanRoleDef>? banRoleDefs = null)
     {
         _systems.TryGetEntitySystem(out GameTicker? ticker);
         int? roundId = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId;
@@ -431,7 +431,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             reason,
             severity,
             banningAdmin,
-            null);
+            null, 
+            ServerBanExemptFlags.None,
+            banRoleDefs);
 
         SendWebhook(await GenerateJobBanPayload(banDef, roles, minutes));
     }

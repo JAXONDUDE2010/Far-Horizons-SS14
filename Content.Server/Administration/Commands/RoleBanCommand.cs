@@ -1,4 +1,5 @@
-﻿using Content.Server.Administration.Managers;
+﻿using System.Collections.Immutable;
+using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -107,13 +108,16 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         var success = true; // Starlight - track success of lookup
 
+        ImmutableArray<BanRoleDef>? banRoleDefs;
         if (_proto.HasIndex<JobPrototype>(role))
         {
             banInfo.AddJob(new ProtoId<JobPrototype>(role));
+            banRoleDefs = [new BanRoleDef("Job", role)];
         }
         else if (_proto.HasIndex<AntagPrototype>(role))
         {
             banInfo.AddAntag(new ProtoId<AntagPrototype>(role));
+            banRoleDefs = [new BanRoleDef("Antag", role)];
         }
         else
         {
@@ -125,7 +129,7 @@ public sealed class RoleBanCommand : IConsoleCommand
             
         
         HashSet<string>? roles = new() { role }; // Used for updating webhook
-        _bans.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, roles, minutes, severity, reason, DateTimeOffset.UtcNow);
+        _bans.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, roles, minutes, severity, reason, DateTimeOffset.UtcNow, banRoleDefs);
         
     }
 

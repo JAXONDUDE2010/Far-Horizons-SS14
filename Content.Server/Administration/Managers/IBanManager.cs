@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -123,7 +124,8 @@ public interface IBanManager
         uint? minutes,
         NoteSeverity severity,
         string reason,
-        DateTimeOffset timeOfBan);
+        DateTimeOffset timeOfBan,
+        ImmutableArray<BanRoleDef>? banRoleDefs = null);
     // Starlight end
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
@@ -114,7 +115,8 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         }
 
         _banManager.CreateRoleBan(banInfo);
-        _banManager.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, departmentProto.Roles.Select(p=>(string)p).ToList(), minutes, severity, reason, now);
+        ImmutableArray<BanRoleDef>? roleDefs = [.. departmentProto.Roles.Select(entry => new BanRoleDef("Job", entry))];
+        _banManager.WebhookUpdateRoleBans(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, departmentProto.Roles.Select(p=>(string)p).ToList(), minutes, severity, reason, now, roleDefs);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
