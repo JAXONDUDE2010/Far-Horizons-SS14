@@ -140,7 +140,7 @@
     - SpeedLoaderShotgunIncendiary
     - MagazineMagnumIncendiary
     - MagazinePistol38Incendiary
-    - MagazineBoxPistol40Incendiary
+    - MagazineBoxRevolver38Incendiary
     - MagazineRifle38Incendiary
     - SpeedLoaderRevolver38Incendiary
     - MagazineRifleUranium
@@ -158,7 +158,7 @@
     - SpeedLoaderShotgunUranium
     - MagazineMagnumUranium
     - MagazinePistol38Uranium
-    - MagazineBoxPistol40Uranium
+    - MagazineBoxRevolver38Uranium
     - MagazineRifle38Uranium
     - SpeedLoaderRevolver38Uranium
   announceTo:
@@ -685,7 +685,7 @@
     - MagazineLightRifleAP
     - MagazineBoxMagnumAP
     - MagazineBoxPistolAP
-    - MagazineBoxPistol40AP
+    - MagazineBoxRevolver38AP
     - MagazineBoxRifleAP
     - MagazineBoxLightRifleAP
     - LightRifleHeavyMagazineAP

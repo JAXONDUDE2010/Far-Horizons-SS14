@@ -49,9 +49,9 @@
   - MagazineBoxPistolSP
   - MagazineBoxPistolHP
   - MagazineBoxPistolFMJ
-  - MagazineBoxPistol40SP
-  - MagazineBoxPistol40HP
-  - MagazineBoxPistol40FMJ
+  - MagazineBoxRevolver38SP
+  - MagazineBoxRevolver38HP
+  - MagazineBoxRevolver38FMJ
 # Rifle
   - MagazineBoxRifleSP
   - MagazineBoxRifleHP
@@ -181,7 +181,7 @@
   - MagazineBoxPistolIncendiary
   - MagazineBoxPistolUranium
   - MagazineBoxPistolAP
-  - MagazineBoxPistol40AP
+  - MagazineBoxRevolver38AP
 # Rifle
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium

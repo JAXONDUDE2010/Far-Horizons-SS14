@@ -106,8 +106,8 @@
 ############ BOXES (.40) ############
 
 - type: latheRecipe
-  id: MagazineBoxPistol40Rubber
-  result: MagazineBoxPistol40Rubber
+  id: MagazineBoxRevolver38Rubber
+  result: MagazineBoxRevolver38Rubber
   categories:
   - Ammo
   completetime: 5
@@ -117,23 +117,23 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40Practice
-  result: MagazineBoxPistol40Practice
+  id: MagazineBoxRevolver38Practice
+  result: MagazineBoxRevolver38Practice
   materials:
     Steel: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40Incendiary
-  result: MagazineBoxPistol40Incendiary
+  id: MagazineBoxRevolver38Incendiary
+  result: MagazineBoxRevolver38Incendiary
   materials:
     Steel: 80
     Plastic: 540
     
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40Uranium
-  result: MagazineBoxPistol40Uranium
+  id: MagazineBoxRevolver38Uranium
+  result: MagazineBoxRevolver38Uranium
   materials:
     Steel: 80
     Plastic: 428

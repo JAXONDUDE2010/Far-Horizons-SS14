@@ -5,7 +5,7 @@
   id: FarHorizonsSecurityPracticeStatic
   recipes:
   - MagazinePistol38Practice
-  - MagazineBoxPistol40Practice
+  - MagazineBoxRevolver38Practice
   - MagazineRifle38Practice
   - SpeedLoaderRevolver38Practice
   - MagazineMagnumPractice
@@ -21,7 +21,7 @@
   - MagazineBoxRifleRubber
 # Pistol
   - MagazineBoxPistolRubber
-  - MagazineBoxPistol40Rubber
+  - MagazineBoxRevolver38Rubber
 # Magnum
   - MagazineBoxMagnumRubber
 #####################MAGAZINE#######################
@@ -75,8 +75,8 @@
   recipes:
 #####################BOX#######################
 # Pistol
-  - MagazineBoxPistol40Incendiary
-  - MagazineBoxPistol40Uranium
+  - MagazineBoxRevolver38Incendiary
+  - MagazineBoxRevolver38Uranium
 
 #####################MAGAZINE#######################
 # Magnum

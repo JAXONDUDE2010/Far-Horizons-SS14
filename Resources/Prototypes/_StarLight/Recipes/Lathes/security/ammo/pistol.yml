@@ -245,29 +245,29 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40SP
-  result: MagazineBoxPistol40SP
+  id: MagazineBoxRevolver38SP
+  result: MagazineBoxRevolver38SP
   materials:
     Steel: 668 #FH
     
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40HP
-  result: MagazineBoxPistol40HP
+  id: MagazineBoxRevolver38HP
+  result: MagazineBoxRevolver38HP
   materials:
     Steel: 668 #FH
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40FMJ
-  result: MagazineBoxPistol40FMJ
+  id: MagazineBoxRevolver38FMJ
+  result: MagazineBoxRevolver38FMJ
   materials:
     Steel: 668 #FH
     
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxPistol40AP
-  result: MagazineBoxPistol40AP
+  id: MagazineBoxRevolver38AP
+  result: MagazineBoxRevolver38AP
   materials:
     Steel: 360 #FH
     Uranium: 360 #FH
