@@ -38763,7 +38763,7 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
-- proto: LockerCommander
+- proto: LockerCommandant
   entities:
   - uid: 2646
     components:
