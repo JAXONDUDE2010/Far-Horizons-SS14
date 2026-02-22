@@ -1,3 +1,33 @@
+#region Base
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: EncryptionKeySyndi
+  name: encryption key
+  description: A small cypher chip for headsets.
+  components:
+  - type: EncryptionKey
+  - type: Item
+    sprite: /_FarHorizons/Objects/Devices/syndicate_encryption_keys.rsi
+  - type: Sprite
+    sprite: /_FarHorizons/Objects/Devices/syndicate_encryption_keys.rsi
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: EncryptionKeySyndi
+  name: encryption key
+  description: A small cypher chip for headsets.
+  components:
+  - type: EncryptionKey
+  - type: Item
+    sprite: /_FarHorizons/Objects/Devices/syndicate_encryption_keys.rsi
+  - type: Sprite
+    sprite: /_FarHorizons/Objects/Devices/syndicate_encryption_keys.rsi
+
+#region misc stuff
+
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyTrinary
@@ -29,8 +59,27 @@
     - state: crypt_gray
     - sprite: _FarHorizons/Objects/Devices/encryption_keys.rsi
 
+#region Syndi Station Comms
+
 - type: entity
-  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
+  id: EncryptionKeySecurityMedical
+  name: sec-med encryption key
+  description: An encryption key used by someone who both takes and saves lives.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    defaultChannel: Security
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - sprite: 
+
+#region High Command Comms
+
+- type: entity
+  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
   id: EncryptionKeySHC
   name: NeoSol High Command encryption key
   description: An encryption key used by someone who is very evil.
@@ -45,7 +94,7 @@
     - state: synd_label
 
 - type: entity
-  parent: [ EncryptionKey, BaseSyndicateContraband ]
+  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
   id: EncryptionKeyGMN
   name: GMN encryption key
   description: A encryption key used by elite Gorlex Marines.
