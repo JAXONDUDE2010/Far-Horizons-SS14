@@ -1115,7 +1115,7 @@
   requires:
     - AILawboards
   unlocks:
-    - BorgModuleAdvancedChemical
+    - BorgModuleAdvancedTopical
   announceTo:
     - Medical
 

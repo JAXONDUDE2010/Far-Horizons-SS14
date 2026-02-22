@@ -297,7 +297,7 @@
     handsNeeded: 2
     riderWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     disallowWielding: true
     allowGunKnockback: true
     soundHit:
