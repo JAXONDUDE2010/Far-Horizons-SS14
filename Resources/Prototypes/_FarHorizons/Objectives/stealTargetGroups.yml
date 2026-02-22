@@ -38,3 +38,12 @@
   sprite:
     sprite: Objects/Vehicles/secway.rsi
     state: icon
+
+# Upstream removed
+
+- type: stealTargetGroup
+  id: ClothingEyesHudBeer
+  name: steal-target-groups-clothing-eyes-hud-beer
+  sprite:
+    sprite: Clothing/Eyes/Hud/beergoggles.rsi
+    state: icon
