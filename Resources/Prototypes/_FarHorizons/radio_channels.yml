@@ -19,49 +19,49 @@
 - type: radioChannel
   id: SyndiCommand
   name: chat-radio-syndi-command
-  keycode: "c"
+  keycode: "1"
   frequency: 3368
   color: "#8f0b0b"
 
 - type: radioChannel
   id: SyndiSec
   name: chat-radio-syndi-security
-  keycode: "s"
+  keycode: "2"
   frequency: 3325
   color: "#8a1313"
 
 - type: radioChannel
   id: SyndiSci
   name: chat-radio-syndi-science
-  keycode: "n"
+  keycode: "3"
   frequency: 3371
   color: "#821b27"
 
 - type: radioChannel
   id: SyndiMed
   name: chat-radio-syndi-medical
-  keycode: "m"
+  keycode: "4"
   frequency: 3333
   color: "#211075"
 
 - type: radioChannel
   id: SyndiEngi
   name: chat-radio-syndi-engineering
-  keycode: "e"
+  keycode: "5"
   frequency: 3364
   color: "#8f3d1f"
 
 - type: radioChannel
   id: SyndiService
   name: chat-radio-syndi-service
-  keycode: 'v'
+  keycode: '6'
   frequency: 3337
   color: "#9e861c"
 
 - type: radioChannel
   id: SyndiCommon
   name: chat-radio-syndi-common
-  keycode: ";"
+  keycode: "7"
   frequency: 3465
   color: "#2cdb2c"
 
