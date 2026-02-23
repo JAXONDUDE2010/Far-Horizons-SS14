@@ -6,18 +6,20 @@ namespace Content.Client._FarHorizons.Vehicle.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
 {    
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     public override void Initialize()
     {
-        SubscribeNetworkEvent<InstalledVehicleEquipment>(OnEquipmentInstalled);
+        SubscribeLocalEvent<VehicleEquipmentComponent, AppearanceChangeEvent>(OnAppearanceChange);
         base.Initialize();
     }
-
-    private void OnEquipmentInstalled(InstalledVehicleEquipment ev)
+    
+    private void OnAppearanceChange(EntityUid uid, VehicleEquipmentComponent component, ref AppearanceChangeEvent args)
     {
-        if (!TryGetEntity(ev.Part, out var part))
+        Log.Info($"{uid}");
+        if (args.Sprite == null)
             return;
-        if(!HasComp<VehicleEquipmentComponent>(part)) return;
-        if(!TryComp<SpriteComponent>(part, out var sprite) || !HasComp<PointLightComponent>(part)) return;
-        _sprite.SetVisible((part.Value, sprite), false);
+        
+        if (_appearance.TryGetData(uid, EquipmentVisuals.Hidden, out bool hidden))
+            _sprite.SetVisible((uid, args.Sprite), !hidden);
     }
 }

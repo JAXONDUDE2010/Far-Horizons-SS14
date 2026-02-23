@@ -33,6 +33,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly VehicleAtmosphereSystem _vAtmos = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -46,6 +47,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
         SubscribeLocalEvent<ReagantDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled);
         SubscribeLocalEvent<DamageableComponent, InstalledVehicleEquipment>(OnArmorInstalled);
+        SubscribeLocalEvent<PointLightComponent, InstalledVehicleEquipment>(OnLightInstalled);
 
         SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
         SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
@@ -86,9 +88,8 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 else
                     _container.Insert(item, ent.Comp.ModSlot);
                 ent.Comp.SpawnedEquipment.Add(item);
-                var ev = new InstalledVehicleEquipment{Part =  GetNetEntity(item)};
+                var ev = new InstalledVehicleEquipment{Vehicle =  ent.Owner};
                 RaiseLocalEvent(item, ev);
-                RaiseNetworkEvent(ev);
             }
         }
         Dirty(ent.Owner, ent.Comp);
@@ -160,49 +161,43 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
     private void OnMovementInstalled(Entity<MovementSpeedModifierComponent> ent, ref InstalledVehicleEquipment args)
     {
-        var xForm = Transform(ent.Owner);
-        if(xForm.ParentUid == xForm.GridUid) return;
         if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp) 
-            || !TryComp<MovementSpeedModifierComponent>(xForm.ParentUid, out var msmComp)) return;
-        
+            || !TryComp<MovementSpeedModifierComponent>(args.Vehicle, out var msmComp)) return;
+        var Vehicle = args.Vehicle;
         Timer.Spawn(0, () =>
         {
             switch(veComp.Slot)
             {
                 case EquipmentType.TIRES:
-                    _movementSpeed.RefreshFrictionModifiers(xForm.ParentUid);
+                    _movementSpeed.RefreshFrictionModifiers(Vehicle);
                     break;
                 case EquipmentType.ENGINE:
-                    _movementSpeed.ChangeBaseSpeed(xForm.ParentUid, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);
+                    _movementSpeed.ChangeBaseSpeed(Vehicle, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);
                     break;
                 case EquipmentType.THURSTERS:
-                    _meta.AddFlag(xForm.ParentUid, MetaDataFlags.ExtraTransformEvents);
+                    _meta.AddFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
                     break;
             }
         });
     }
 
-    private void OnElectricEngineInstalled(Entity<PowerCellDrawComponent> ent, ref InstalledVehicleEquipment args)
-    {
-        var xForm = Transform(ent.Owner);
-        if(xForm.ParentUid == xForm.GridUid) return;
-        _powerCell.SetDrawRate(xForm.ParentUid, ent.Comp.DrawRate);
-    }
+    private void OnElectricEngineInstalled(Entity<PowerCellDrawComponent> ent, ref InstalledVehicleEquipment args) 
+        => _powerCell.SetDrawRate(args.Vehicle, ent.Comp.DrawRate);
 
     private void OnGasEngineInstalled(Entity<ReagantDrawComponent> ent, ref InstalledVehicleEquipment args)
     {
-        var xForm = Transform(ent.Owner);
-        if(xForm.ParentUid == xForm.GridUid) return;
-        if(!TryComp<ReagantDrawComponent>(xForm.ParentUid, out var rdComp)) return;
+        if(!TryComp<ReagantDrawComponent>(args.Vehicle, out var rdComp)) return;
         rdComp.DrainRate = ent.Comp.DrainRate;
-        Dirty(xForm.ParentUid, rdComp);
+        Dirty(args.Vehicle, rdComp);
     }
 
     private void OnArmorInstalled(Entity<DamageableComponent> ent, ref InstalledVehicleEquipment args)
+        => _damage.SetDamageModifierSetId(args.Vehicle, ent.Comp.DamageModifierSetId);
+
+    private void OnLightInstalled(Entity<PointLightComponent> ent, ref InstalledVehicleEquipment args)
     {
-        var xForm = Transform(ent.Owner);
-        if(xForm.ParentUid == xForm.GridUid) return;
-        _damage.SetDamageModifierSetId(xForm.ParentUid, ent.Comp.DamageModifierSetId);
+        Log.Info($"{ent.Owner}");
+        _appearance.SetData(ent.Owner, EquipmentVisuals.Hidden, true);
     }
 
     private void GridUiChanged(Entity<VehicleModsComponent> ent, ref GridUidChangedEvent args)

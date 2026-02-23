@@ -118,7 +118,7 @@
 - type: entity
   id: VehicleSecwayArmoredLight
   parent: VehicleSecway
-  suffix: Filled, NT
+  suffix: Filled, NT, Armored
   components: 
     - type: ContainerFill
       containers:
@@ -295,7 +295,7 @@
 - type: entity
   id: VehicleSegwayArmoredLightNST
   parent: VehicleSegwayNST
-  suffix: Filled, NST
+  suffix: Filled, NST, Armored
   components: 
     - type: ContainerFill
       containers:

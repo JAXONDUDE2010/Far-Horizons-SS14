@@ -36,6 +36,12 @@ public static class EquipmentTypeExtensions
 }
 
 [Serializable, NetSerializable]
+public enum EquipmentVisuals : byte
+{
+    Hidden
+}
+
+[Serializable, NetSerializable]
 [Flags]
 public enum EquipmentType
 {

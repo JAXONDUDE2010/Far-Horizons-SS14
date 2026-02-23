@@ -22,7 +22,8 @@
       actionProto: ActionToggleLight
       slot: headlight
       allowedVehicles: [Electric, Gas, Spaceship]
-      
+    - type: Appearance
+
 - type: entity
   id: SecwayLight
   parent: BaseItem
@@ -46,6 +47,7 @@
       actionProto: ActionToggleLight
       slot: headlight
       allowedVehicles: [Electric, Gas, Spaceship]
+    - type: Appearance
 
 - type: entity
   id: SecwayLightBright
@@ -66,6 +68,7 @@
       layers:
         - map: [ enum.LightBulbVisualLayers.Base ]
           state: normal
+    - type: Appearance
 
 #region Lightbars
 - type: entity
@@ -101,6 +104,7 @@
       actionProto: ActionVehicleToggleSecuritySiren
       slot: lightbar
       allowedVehicles: [Electric, Gas, Spaceship]
+    - type: Appearance
 
 #region Tires
 - type: entity

@@ -31,10 +31,9 @@ public sealed partial class VehicleModsComponent : Component
     public VehicleType VehicleType = VehicleType.None;
 }
 
-[Serializable, NetSerializable]
 public sealed class InstalledVehicleEquipment : EntityEventArgs
 {
-    public NetEntity Part;
+    public EntityUid Vehicle;
 }
 
 [Serializable, NetSerializable]
