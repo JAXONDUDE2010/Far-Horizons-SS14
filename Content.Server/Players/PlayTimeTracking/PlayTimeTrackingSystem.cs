@@ -78,9 +78,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         {
             trackers.Add(PlayTimeTrackingShared.TrackerAdmin);
             trackers.Add(PlayTimeTrackingShared.TrackerOverall);
-
-            if (!_cfg.GetCVar(CCVars.GameAdminJobTracking))
-                return;
+            trackers.UnionWith(GetTimedRoles(player)); // Starlight
+            return;
         }
 
         if (!IsPlayerAlive(player))

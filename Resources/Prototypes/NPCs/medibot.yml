@@ -25,27 +25,28 @@
 - type: htnCompound
   id: MedibotGetInRange
   branches:
-  # Move to target if out of range
-  - preconditions:
-    - !type:TargetInRangePrecondition
-      invert: true
-      targetKey: Target
-      rangeKey: InteractRange
-    tasks:
-    - !type:HTNPrimitiveTask
-      operator: !type:SpeakOperator
-        speech: !type:SingleSpeakOperatorSpeech
-          line: medibot-start-inject
-        hidden: true
-        cooldownID: medibot-start-inject
-        cooldown: 5
-    - !type:HTNPrimitiveTask
-      operator: !type:MoveToOperator
-        pathfindInPlanning: false
+    - tasks:
+        # TODO: Kill this shit
+        - !type:HTNPrimitiveTask
+          operator: !type:PickNearbyInjectableOperator
+            targetKey: InjectTarget
+            targetMoveKey: TargetCoordinates
 
-  - tasks:
-    - !type:HTNPrimitiveTask
-      operator: !type:NoOperator
+        #Starlight: Path before saying your line
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+        
+        - !type:HTNPrimitiveTask
+          operator: !type:SpeakOperator
+            speech: !type:SingleSpeakOperatorSpeech
+              line: medibot-start-inject
+            hidden: true
+
+        - !type:HTNPrimitiveTask
+          operator: !type:SetFloatOperator
+            targetKey: IdleTime
+            amount: 3
 
 # Should be called only when in range
 - type: htnCompound

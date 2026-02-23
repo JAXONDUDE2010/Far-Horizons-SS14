@@ -55,7 +55,7 @@
 - type: entity
   name: pinpointer
   id: PinpointerNuclear
-  parent: [ PinpointerBase, BaseCommandContraband ]
+  parent: [ PinpointerBase, BaseGrandTheftContraband ] # Starlight: +GrandTheftContraband for steal target
   components:
   - type: Pinpointer
     component: NukeDisk
