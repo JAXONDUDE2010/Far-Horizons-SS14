@@ -138,40 +138,40 @@
   materials:
     Steel: 25
 
-############ MAGAZINES (.40) ############
+############ MAGAZINES (.38) ############ FH Edit
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
-  id: MagazinePistol38Empty
-  result: MagazinePistol38Empty
+  id: MagazinePistol38Empty # FH Edit
+  result: MagazinePistol38Empty # FH Edit
   materials:
     Steel: 37
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistol38SP
-  result: MagazinePistol38SP
+  id: MagazinePistol38SP # FH Edit
+  result: MagazinePistol38SP # FH Edit
   materials:
     Steel: 167
     
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistol38HP
-  result: MagazinePistol38HP
+  id: MagazinePistol38HP # FH Edit
+  result: MagazinePistol38HP # FH Edit
   materials:
     Steel: 167
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistol38FMJ
-  result: MagazinePistol38FMJ
+  id: MagazinePistol38FMJ # FH Edit
+  result: MagazinePistol38FMJ # FH Edit
   materials:
     Steel: 167
     
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistol38AP
-  result: MagazinePistol38AP
+  id: MagazinePistol38AP # FH Edit
+  result: MagazinePistol38AP # FH Edit
   materials:
     Steel: 90
     Uranium: 90

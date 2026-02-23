@@ -163,21 +163,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistol38FMJ
+        startingItem: MagazinePistol38FMJ #FH
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol38
+            - MagazinePistol38 #FH
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRevolver38FMJ
+        startingItem: CartridgeRevolver38FMJ #FH
         priority: 1
         whitelist:
           tags:
-            - CartridgeRevolver38
+            - CartridgeRevolver38 #FH
 
 - type: entity
   name: Stechkin APS
@@ -203,21 +203,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistol38SP
+        startingItem: MagazinePistol38SP #FH
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistol38
+            - MagazinePistol38 #FH
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRevolver38SP
+        startingItem: CartridgeRevolver38SP #FH
         priority: 1
         whitelist:
           tags:
-            - CartridgeRevolver38
+            - CartridgeRevolver38 #FH
 
 - type: entity
   name: Jungle Hawk

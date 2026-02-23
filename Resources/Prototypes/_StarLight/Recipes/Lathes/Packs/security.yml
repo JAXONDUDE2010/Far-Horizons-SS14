@@ -88,10 +88,10 @@
   - MagazinePistolHP
   - MagazinePistolFMJ
   - MagazinePistolEmpty
-  - MagazinePistol38SP
-  - MagazinePistol38HP
-  - MagazinePistol38FMJ
-  - MagazinePistol38Empty
+  - MagazinePistol38SP # FH Edit
+  - MagazinePistol38HP # FH Edit
+  - MagazinePistol38FMJ # FH Edit
+  - MagazinePistol38Empty # FH Edit
 # SMG
   - MagazinePistolSubMachineGunSP
   - MagazinePistolSubMachineGunHP
@@ -206,7 +206,7 @@
   - MagazinePistolIncendiary
   - MagazinePistolUranium
   - MagazinePistolAP
-  - MagazinePistol38AP
+  - MagazinePistol38AP # FH Edit
 # SMG
   - MagazinePistolSubMachineGunIncendiary
   - MagazinePistolSubMachineGunUranium

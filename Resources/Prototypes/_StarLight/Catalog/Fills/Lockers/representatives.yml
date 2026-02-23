@@ -50,7 +50,7 @@
           amount: 3
         - id: MedkitAdvancedFilled
         - id: WeaponPistolDP #FH
-        - id: MagazinePistol38SP
+        - id: MagazinePistol38SP #FH
           amount: 2
         - id: ClothingEyesGlassesBlueShield
         - id: ClothingEyesHudBlueShield
