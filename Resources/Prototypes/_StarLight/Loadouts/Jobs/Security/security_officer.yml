@@ -17,7 +17,7 @@
 - type: loadout
   id: SecurityTaser
   equipment:
-    pocket2: WeaponDisabler
+    pocket2: WeaponDisabler # FH
 
 # Sidearm Options
 - type: loadout
