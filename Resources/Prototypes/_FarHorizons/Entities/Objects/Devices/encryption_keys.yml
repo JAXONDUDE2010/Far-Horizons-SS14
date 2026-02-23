@@ -63,7 +63,7 @@
     - state: crypt_gold
     - sprite: com_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiSecurity
   name: Security Encryption Key
@@ -78,7 +78,7 @@
     - state: crypt_red
     - sprite: sec_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiSci
   name: Science Encryption Key
@@ -93,7 +93,7 @@
     - state: crypt_silver
     - sprite: sci_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiMed
   name: Medical Encryption Key
@@ -108,7 +108,7 @@
     - state: crypt_silver
     - sprite: med_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiEngi
   name: Engineering Encryption Key
@@ -123,7 +123,7 @@
     - state: crypt_orange
     - sprite: eng_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiService
   name: Service Encryption Key
@@ -138,7 +138,7 @@
     - state: crypt_gray
     - sprite: service_label
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiCommon
   name: Common Encryption Key
@@ -155,7 +155,7 @@
 
 # stupid multi-dep comms
 
-  - type: entity
+- type: entity
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiMedSci
   name: Med-Sci Encryption Key
