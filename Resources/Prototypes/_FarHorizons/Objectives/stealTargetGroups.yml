@@ -1,7 +1,7 @@
 # Shared - Thief / Traitor Items
 
 - type: stealTargetGroup
-  id: ClothingHeadHatGuardian
+  id: ClothingHeadHatConstable
   name: steal-target-groups-clothing-head-hat-guardian
   sprite:
     sprite: _FarHorizons/Clothing/Head/Hats/warden_cap-syndi.rsi

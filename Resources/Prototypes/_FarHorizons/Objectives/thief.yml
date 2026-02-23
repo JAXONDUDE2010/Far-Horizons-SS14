@@ -27,10 +27,10 @@
 
 #- type: entity           Disabling for now till someone can work on syndicate side thief targets.
 #  parent: BaseThiefStealObjective
-#  id: ClothingHeadHatGuardianStealObjective
+#  id: ClothingHeadHatConstableStealObjective
 #  components:
 #  - type: StealCondition
-#    stealGroup: ClothingHeadHatGuardianCap
+#    stealGroup: ClothingHeadHatConstableCap
 #  - type: Objective
 #    difficulty: 1.2
 

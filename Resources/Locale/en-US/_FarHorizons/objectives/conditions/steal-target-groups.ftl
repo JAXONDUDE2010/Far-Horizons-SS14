@@ -1,6 +1,6 @@
 # Shared - Thieves / Traitors Items
 
-steal-target-groups-clothing-head-hat-guardian = Guardian's Cap
+steal-target-groups-clothing-head-hat-guardian = Constable's Cap
 
 # Traitor Single Items
 
