@@ -31,17 +31,17 @@
 
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
-  id: EncryptionKeyCargo
-  name: Cargo Encryption Key # Far Horizons Capitilization
-  description: An encryption key used by supply employees.
+  id: EncryptionKeyCargo # I would change this but I dont want to fix another 500 errors.
+  name: GSL Encryption Key # Far Horizons Capitilization
+  description: An encryption key used by gemini stellar logistics employees. # Far Horizons
   components:
   - type: EncryptionKey
     channels:
-    - Supply
-    defaultChannel: Supply
+    - GSL # Far Horizons
+    defaultChannel: GSL # Far Horizons
   - type: Sprite
     layers:
-    - state: crypt_gray
+    - state: crypt_gsl # Far Horizons
     - state: cargo_label
   - type: Tag
     tags:
@@ -200,7 +200,7 @@
     defaultChannel: Security
   - type: Sprite
     layers:
-    - state: crypt_gray
+    - state: crypt_blue # Far Horizons
     - state: sec_label
   - type: Tag
     tags:
