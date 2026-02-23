@@ -6,7 +6,7 @@
   - type: Implanter
     implant: RadioImplantTrinary
 
-# ntnc
+# NTNC
   - type: entity
   id: NTNCImplanter
   name: NTNC Communications Implanter

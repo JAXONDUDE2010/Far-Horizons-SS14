@@ -10,7 +10,7 @@
     radioChannels:
     - Trinary
 
-  - type: entity
+- type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantNTNC
   name: NTNC radio implant
@@ -22,7 +22,7 @@
     radioChannels:
     - NTNC
 
-  - type: entity
+- type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantSHC
   name: SHC radio implant
