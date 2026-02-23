@@ -13,10 +13,10 @@
     gloves: ClothingHandsGlovesCombat
     suitstorage: WeaponSubMachineGunWt550
     storage:
-    autoImplant:
-      - MindShieldImplanter # far horizons
-      - DeathRattleImplanterCentcomm # far horizons
-      - RadioImplantNTNC # far horizons
+     autoImplant:
+       - MindShieldImplanter # far horizons
+       - DeathRattleImplanterCentcomm # far horizons
+       - RadioImplantNTNC # far horizons
 
 - type: startingGear
   id: NTNCTrainerGear
@@ -34,10 +34,10 @@
     gloves: ClothingHandsGlovesCombat
     suitstorage: WeaponSubMachineGunWt550
     storage:
-    autoImplant:
-      - MindShieldImplanter # far horizons
-      - DeathRattleImplanterCentcomm # far horizons
-      - RadioImplantNTNC # far horizons
+      autoImplant:
+        - MindShieldImplanter # far horizons
+        - DeathRattleImplanterCentcomm # far horizons
+        - RadioImplantNTNC # far horizons
 
 - type: startingGear
   id: NTNCBasicGear
@@ -55,10 +55,10 @@
     gloves: ClothingHandsGlovesCombat
     suitstorage: WeaponSubMachineGunWt550
     storage:
-    autoImplant:
-      - MindShieldImplanter # far horizons
-      - DeathRattleImplanterCentcomm # far horizons
-      - RadioImplantNTNC # far horizons
+      autoImplant:
+        - MindShieldImplanter # far horizons
+        - DeathRattleImplanterCentcomm # far horizons
+        - RadioImplantNTNC # far horizons
 
 - type: startingGear
   id: NTNCMedicGear
@@ -75,7 +75,7 @@
     gloves: ClothingHandsGlovesCombat
     suitstorage: WeaponSubMachineGunWt550
     storage:
-    autoImplant:
-      - MindShieldImplanter # far horizons
-      - DeathRattleImplanterCentcomm # far horizons
-      - RadioImplantNTNC # far horizons
+     autoImplant:
+        - MindShieldImplanter # far horizons
+        - DeathRattleImplanterCentcomm # far horizons
+        - RadioImplantNTNC # far horizons
