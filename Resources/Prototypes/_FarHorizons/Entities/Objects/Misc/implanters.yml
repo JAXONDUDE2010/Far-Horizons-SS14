@@ -7,7 +7,7 @@
     implant: RadioImplantTrinary
 
 # NTNC
-  - type: entity
+- type: entity
   id: NTNCImplanter
   name: NTNC Communications Implanter
   parent: BaseImplantOnlyImplanter
@@ -16,7 +16,7 @@
     implant: RadioImplantNTNC
 
 #SHC
-  - type: entity
+- type: entity
   id: SHCImplanter
   name: SHC Communications Implanter
   parent: BaseImplantOnlyImplanterSyndi
