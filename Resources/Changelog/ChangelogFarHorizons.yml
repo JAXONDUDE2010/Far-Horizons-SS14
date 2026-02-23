@@ -7443,5 +7443,13 @@ Entries:
   id: 82900
   time: '2026-02-23T01:00:30.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/829
+- author: a_Beaver
+  changes:
+  - message: Added the taser pistol to sec loadouts as an alternative to the dominator
+      pistol.
+    type: Add
+  id: 83200
+  time: '2026-02-23T02:08:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/832
 Order: -1
 
