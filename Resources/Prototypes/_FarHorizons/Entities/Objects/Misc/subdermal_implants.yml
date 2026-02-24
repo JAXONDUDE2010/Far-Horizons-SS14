@@ -13,7 +13,7 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantNTNC
-  name: NTNC radio implant
+  name: NanoTrasen Navy Corps Radio Implant
   description: This implant grants access to secure communications used by elite NTNC Forces.
   categories: [ HideSpawnMenu ]
   components:
