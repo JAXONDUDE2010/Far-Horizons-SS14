@@ -225,7 +225,7 @@
     - EncryptionService
 
 - type: entity
-  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
+  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ] #FH Parent Change
   id: EncryptionKeySyndie
   name: Blood-Red Encryption Key # Far Horizons Capitilization
   description: An encryption key used by... wait... Who is the owner of this chip?
