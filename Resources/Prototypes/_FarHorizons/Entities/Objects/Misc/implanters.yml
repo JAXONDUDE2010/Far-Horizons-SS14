@@ -18,7 +18,7 @@
 #SHC
 - type: entity
   id: SHCImplanter
-  name: SHC Communications Implanter
+  name: NSHC Communications Implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
