@@ -84,6 +84,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 if(HasComp<PointLightComponent>(item))
                 {
                     _transform.SetParent(item, ent.Owner);
+                    _transform.SetLocalRotation(item, Angle.Zero);
                 }
                 else
                     _container.Insert(item, ent.Comp.ModSlot);
