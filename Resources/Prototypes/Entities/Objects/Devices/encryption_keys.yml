@@ -257,7 +257,7 @@
     - state: ai_label
 
 - type: entity
-  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
+  parent: [ EncryptionKeySyndi, BaseSyndicateContraband ] #FH Parent Change
   id: EncryptionKeyBinarySyndicate
   name: Binary Translator Key # Far Horizons Capitilization
   description: A syndicate encryption key that translates binary signals used by silicons.
