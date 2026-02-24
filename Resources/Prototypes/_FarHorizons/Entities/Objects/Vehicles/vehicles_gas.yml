@@ -20,8 +20,8 @@
       params:
         volume: -3
     riderWhitelist:
-      components:
-        - HumanoidProfile
+      tags:
+        - CanPilot
     soundHit:
       collection: MetalThud
   - type: VehicleBuckle
@@ -307,8 +307,8 @@
       params:
         volume: -3
     riderWhitelist:
-      components:
-        - HumanoidProfile
+      tags:
+        - CanPilot
     soundHit:
       collection: MetalThud
   - type: VehicleContainer

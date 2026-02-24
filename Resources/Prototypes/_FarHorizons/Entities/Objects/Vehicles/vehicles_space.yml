@@ -19,8 +19,8 @@
       params:
         volume: -3
     riderWhitelist:
-      components:
-        - HumanoidAppearance
+      tags:
+        - CanPilot
     soundHit:
       collection: MetalThud
   - type: VehicleContainer

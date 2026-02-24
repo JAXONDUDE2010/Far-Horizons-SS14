@@ -86,8 +86,8 @@
       baseState: wheelchair
       handsNeeded: 0
       riderWhitelist:
-        components:
-          - HumanoidProfile
+        tags:
+          - CanPilot
       soundHit:
         collection: MetalThud
     - type: VehicleBuckle
@@ -156,8 +156,8 @@
       baseState: vehicle
       handsNeeded: 0
       riderWhitelist:
-        components:
-          - HumanoidProfile
+        tags:
+          - CanPilot
       hornSound: 
         path: /Audio/Effects/Vehicle/bicyclebell.ogg
       soundHit:

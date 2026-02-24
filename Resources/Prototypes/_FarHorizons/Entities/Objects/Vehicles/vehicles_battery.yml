@@ -40,8 +40,8 @@
       startupTime: 2
       handsNeeded: 1
       riderWhitelist:
-        components:
-          - HumanoidAppearance
+        tags:
+          - CanPilot
       disallowWielding: true
       allowGunKnockback: true
       soundHit:
@@ -95,6 +95,8 @@
   - type: Tag
     tags:
     - Secway
+    - DoorBumpOpener
+    - FootstepSound
 
 - type: entity
   id: VehicleSecwayFilled
