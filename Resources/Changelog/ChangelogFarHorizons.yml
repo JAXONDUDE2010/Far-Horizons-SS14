@@ -7593,5 +7593,60 @@ Entries:
   id: 84300
   time: '2026-02-24T22:27:48.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/843
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Changed the Security Shuttle Siren to be quieter and use something a
+      bit less.. out of place. Also made it rotate faster and made the red color more
+      red.
+    type: Tweak
+  id: 84800
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Changed NTNC armor parent from Elite Suit to Blueshield Officer (also
+      renamed to NanoTrasen Marine Hardsuit since NT-NC doesn't exist here)
+    type: Tweak
+  id: 84801
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed NTNC Naval Officer's vest not having flats (also renamed to NanoTrasen
+      Naval Officer's Vest)
+    type: Fix
+  id: 84802
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Sirens going off from alert level changes (thanks gurchi)
+    type: Fix
+  id: 84803
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Dominator still having 6 shots despite needing to have 2 for stun
+      mode
+    type: Fix
+  id: 84804
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Omega's Containment Field Generators on Security Dock not being
+      on by default
+    type: Fix
+  id: 84805
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Detective Inquisitive Tethers running at mach fuck
+    type: Fix
+  id: 84806
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
 Order: -1
 
