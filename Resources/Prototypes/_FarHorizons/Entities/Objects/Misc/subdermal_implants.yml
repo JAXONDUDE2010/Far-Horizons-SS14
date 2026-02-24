@@ -26,7 +26,7 @@
   parent: BaseSubdermalImplant
   id: RadioImplantSHC
   name: SHC radio implant
-  description: This implant grants access to the secure communications of the powerful syndicate high command.
+  description: This implant grants access to the secure communications of the powerful NeoSol High Command.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
