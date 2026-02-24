@@ -164,7 +164,7 @@
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiCommon
   name: Common Encryption Key
-  description: A encryption key specifically designed so that you mean screams out obscene comments at your co-workers.
+  description: An encryption key specifically designed for inter-departmental communications where you scream out obscenities at each other.
   components:
   - type: EncryptionKey
     channels:
