@@ -197,7 +197,7 @@
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiSecMed
   name: Sec-Med Encryption Key
-  description: A encryption used by someone who both takes and saves lives.
+  description: An encryption key used by someone who both saves lives and takes them when needed.
   components:
   - type: EncryptionKey
     channels:
