@@ -21,7 +21,7 @@
         volume: -3
     riderWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     soundHit:
       collection: MetalThud
   - type: VehicleBuckle
@@ -308,7 +308,7 @@
         volume: -3
     riderWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     soundHit:
       collection: MetalThud
   - type: VehicleContainer
