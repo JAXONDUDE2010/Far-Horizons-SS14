@@ -230,7 +230,7 @@
 - type: entity
   parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
   id: EncryptionKeyGMN
-  name: GMN encryption key
+  name: Gorlex Marauder Navy Encryption Key
   description: A encryption key used by elite Gorlex Marines.
   components:
   - type: EncryptionKey
