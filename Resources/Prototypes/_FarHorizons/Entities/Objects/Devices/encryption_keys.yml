@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: EncryptionKeySyndi
-  name: encryption key
+  name: Encryption Key
   description: A small cypher chip for headsets.
   components:
   - type: EncryptionKey
