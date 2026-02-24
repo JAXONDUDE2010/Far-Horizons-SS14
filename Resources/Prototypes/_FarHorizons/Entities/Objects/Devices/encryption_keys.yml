@@ -231,7 +231,7 @@
   parent: [ EncryptionKeySyndi, BaseSyndicateContraband ]
   id: EncryptionKeyGMN
   name: Gorlex Marauder Navy Encryption Key
-  description: A encryption key used by elite Gorlex Marines.
+  description: An encryption key used by elite Gorlex Marines.
   components:
   - type: EncryptionKey
     channels:
