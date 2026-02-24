@@ -294,7 +294,7 @@
 - type: entity
   parent: [ClothingOuterArmorBase, BaseCentcommContraband]
   id: ClothingOuterVestNTNC
-  name: NanoTransen Naval Officer's Vest #FH
+  name: NanoTrasen Naval Officer's Vest #FH
   description: Much better than a standard type-1 security vest. #FH
   components:
     - type: Sprite
