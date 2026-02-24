@@ -181,7 +181,7 @@
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiMedSci
   name: Med-Sci Encryption Key
-  description: A encryption key made to coordiante saviour of advancements in technology relating to the medicinal field.
+  description: An encryption key made to coordinate the advancements of technologies relating to the medicinal field.
   components:
   - type: EncryptionKey
     channels:
