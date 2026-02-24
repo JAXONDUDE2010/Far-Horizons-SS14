@@ -13,6 +13,6 @@ chat-radio-syndi-service = Service
 chat-radio-syndi-common = Common
 
 # high command comms
-chat-radio-syndicate-high-command = SHC
+chat-radio-neosol-high-command = NSHC
 chat-radio-gorlex-marauder-navy = GMN
 chat-radio-nanotrasen-navy-corps = NTNC
