@@ -74,7 +74,7 @@
   parent: [ EncryptionKeySyndi, BaseSecurityContraband ]
   id: EncryptionKeySyndiCommand
   name: Command Encryption Key
-  description: An encryption key used by someone who is a executive within the syndicate.
+  description: An encryption key used by someone who is an executive within NeoSol command.
   components:
   - type: EncryptionKey
     channels:
