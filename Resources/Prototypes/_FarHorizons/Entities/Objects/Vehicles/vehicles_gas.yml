@@ -287,7 +287,7 @@
 
 #region Container Vehicles
 - type: entity
-  id: VehicleContainerBuckleBase
+  id: VehicleContainerBase
   abstract: true
   parent: BaseVehicleRideableDamageable
   components:
@@ -359,6 +359,8 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+      enum.VehicleEquipmentUiKey.Key:
+        type: VehicleEquipmentBoundUserInterface
   - type: Explosive
     explosionType: Default
     totalIntensity: 300
@@ -403,7 +405,7 @@
 
 - type: entity
   id: VehicleClownCar
-  parent: VehicleContainerBuckleBase
+  parent: VehicleContainerBase
   name: Clown Car
   description: What sort of horrors lie within...
   components:

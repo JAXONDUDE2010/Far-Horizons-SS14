@@ -11,4 +11,6 @@ public enum VehicleEquipmentUiKey : byte
 [Serializable, NetSerializable]
 public sealed class VehicleEquipmentUiState : BoundUserInterfaceState
 {
+    public readonly NetEntity? Vehicle;
+    public VehicleEquipmentUiState(NetEntity? vehicle) => Vehicle = vehicle;
 }

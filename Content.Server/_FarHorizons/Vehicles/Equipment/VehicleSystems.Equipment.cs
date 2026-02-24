@@ -19,6 +19,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Server._FarHorizons.Vehicles.Atmos;
 using Content.Shared._FarHorizons.Vehicles.Events;
+using Content.Shared._FarHorizons.Vehicles.Equipment;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -93,6 +94,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 RaiseLocalEvent(item, ev);
             }
         }
+        _ui.SetUiState(ent.Owner, VehicleEquipmentUiKey.Key, new VehicleEquipmentUiState(GetNetEntity(ent.Owner)));
         Dirty(ent.Owner, ent.Comp);
     }
 

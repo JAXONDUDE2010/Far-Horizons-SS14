@@ -36,6 +36,10 @@
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
+      enum.VehicleEquipmentUiKey.Key:
+        type: VehicleEquipmentBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: RadarConsole
     followEntity: true
   - type: VehicleCabinAir
