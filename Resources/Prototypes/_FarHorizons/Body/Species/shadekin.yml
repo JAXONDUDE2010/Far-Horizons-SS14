@@ -236,6 +236,8 @@
   name: shadekin core
   description: A core of a shadekin, a mysterious and powerful organ that seems to be the source of their energy.
   components:
+  - type: Organ
+    category: Lungs
   - type: OrganShadekinCore
   - type: Sprite
     layers:
