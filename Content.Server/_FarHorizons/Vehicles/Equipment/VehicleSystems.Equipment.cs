@@ -20,6 +20,8 @@ using Content.Shared.Damage.Systems;
 using Content.Server._FarHorizons.Vehicles.Atmos;
 using Content.Shared._FarHorizons.Vehicles.Events;
 using Content.Shared._FarHorizons.Vehicles.Equipment;
+using Robust.Shared.Utility;
+using Content.Shared.Power.Components;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem

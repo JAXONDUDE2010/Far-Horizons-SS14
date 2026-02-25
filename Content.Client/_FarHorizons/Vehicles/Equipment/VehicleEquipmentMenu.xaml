@@ -1,38 +1,38 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      MinSize="730 300"
-                      MaxSize="730 300"
+                      MinSize="600 350"
+                      MaxSize="600 350"
                       Title="{Loc 'vehicle-equipment-popup-title'}">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal">
 
-            <PanelContainer StyleClasses="PanelDark" SetSize="350 250" Margin="10 10 0 0">
-                <BoxContainer Orientation="Horizontal">
+            <PanelContainer StyleClasses="PanelDark" SetSize="220 300" Margin="10 10 0 0">
+                <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
                     
-                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Left">
+                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
                         <RichTextLabel Name="NameLabel" Text="Weh" HorizontalAlignment="Center"/>
                         <SpriteView OverrideDirection="South" Scale="4 4" Name="SpriteView" Access="Public" SetSize="128 128" HorizontalAlignment="Center"/>             
                     </BoxContainer>
 
-                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Left">
+                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
                         <RichTextLabel Name="HealthLabel" Text="Integrity" HorizontalAlignment="Left"/>
                         <Control SetSize="200 25">
                             <ProgressBar Name="HealthBar" MinValue="0" MaxValue="100" Value="75"/>
-                            <RichTextLabel Name="HealthPercent" Text="75%" HorizontalAlignment="Left"/>
+                            <RichTextLabel Name="HealthPercent" Text="75%" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                         </Control>           
 
-                        <RichTextLabel Name="FuelLabel" Text="Fuel" HorizontalAlignment="Left"/>
+                        <RichTextLabel Name="FuelLabel" Text="Power" HorizontalAlignment="Left"/>
                         <Control SetSize="200 25">
                             <ProgressBar Name="FuelBar" MinValue="0" MaxValue="100" Value="75"/>
-                            <RichTextLabel Name="FuelPercent" Text="75%" HorizontalAlignment="Left"/>
+                            <RichTextLabel Name="FuelPercent" Text="75%" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                         </Control>        
                     </BoxContainer>
 
                 </BoxContainer>
             </PanelContainer>
 
-            <PanelContainer StyleClasses="PanelDark" SetSize="350 250" Margin="10 10 0 0">
-                <BoxContainer Orientation="Horizontal">
+            <PanelContainer StyleClasses="PanelDark" SetSize="350 300" Margin="10 10 0 0">
+                <BoxContainer Orientation="Vertical">
 
                 </BoxContainer>
             </PanelContainer>
