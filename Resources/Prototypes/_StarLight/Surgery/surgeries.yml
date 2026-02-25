@@ -365,7 +365,6 @@
   #FarHorizons Start
     - Shadekin
     - ProtoKin
-  #FarHorizons Start
   - type: AnimalBypass 
   #FarHorizons End
   - type: SurgeryOrganExistCondition
