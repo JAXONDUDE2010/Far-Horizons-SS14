@@ -160,15 +160,12 @@ public override void Update(float frameTime)
         generator.Comp.Charged = true;
         ChangeFieldVisualizer(generator);
         var directions = Enum.GetValues<Direction>().Length;
-            for (int i = 0; i < directions-1; i+=2)
-            {
-                var dir = (Direction)i;
+        var dir = (Direction)genXForm.LocalRotation.GetCardinalDir();
 
-                if (component.Connections.ContainsKey(dir))
-                    continue; // This direction already has an active connection
+        if (component.Connections.ContainsKey(dir))
+            return; // This direction already has an active connection
 
-                TryGenerateFieldConnection(dir, generator, genXForm);
-            }
+        TryGenerateFieldConnection(dir, generator, genXForm);
     }
 
     private void TurnOff(Entity<GenericFieldGeneratorComponent> generator)
@@ -288,7 +285,7 @@ public override void Update(float frameTime)
             return false;
 
         var genWorldPosRot = _transformSystem.GetWorldPositionRotation(gen1XForm);
-        var dirRad = dir.ToAngle() + genWorldPosRot.WorldRotation; //needs to be like this for the raycast to work properly
+        var dirRad = genWorldPosRot.WorldRotation - Angle.FromDegrees(90d); //needs to be like this for the raycast to work properly; changed to just use World Rotation and a fixed value
 
         var ray = new CollisionRay(genWorldPosRot.WorldPosition, dirRad.ToVec(), component.CollisionMask);
         var rayCastResults = _physics.IntersectRay(gen1XForm.MapID, ray, component.MaxLength, generator, false);
@@ -313,6 +310,16 @@ public override void Update(float frameTime)
             !TryComp<PhysicsComponent>(ent, out var collidableComponent) ||
             collidableComponent.BodyType != BodyType.Static ||
             gen1XForm.ParentUid != Transform(ent).ParentUid)
+        {
+            return false;
+        }
+
+        if(otherFieldGeneratorComponent.CreatedField != component.CreatedField) // check if other generator generates the same type of field
+        {
+            return false;
+        }
+
+        if(Transform(ent).LocalRotation.GetCardinalDir() != gen1XForm.LocalRotation.GetCardinalDir().GetOpposite()) // Both Generators facing opposite directions? works, dont touch it
         {
             return false;
         }
