@@ -22,6 +22,9 @@ using Content.Shared._FarHorizons.Vehicles.Events;
 using Content.Shared._FarHorizons.Vehicles.Equipment;
 using Robust.Shared.Utility;
 using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -37,6 +40,8 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly VehicleAtmosphereSystem _vAtmos = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -98,6 +103,21 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         }
         _ui.SetUiState(ent.Owner, VehicleEquipmentUiKey.Key, new VehicleEquipmentUiState(GetNetEntity(ent.Owner)));
         Dirty(ent.Owner, ent.Comp);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<VehicleComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+
+            if (_ui.IsUiOpen(uid, VehicleEquipmentUiKey.Key))
+            {
+                Log.Info($"{GetRemainingPower(uid, component)}");
+            }
+        }
     }
 
     private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
@@ -235,5 +255,27 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(component.Rider == null)
             return;
         args.Handled = _ui.TryToggleUi(uid, args.Key, component.Rider.Value);
+    }
+
+    private int GetRemainingPower(EntityUid uid, VehicleComponent Comp)
+    {
+        if(Comp.CellPowered)
+        {
+            if(!TryComp<PowerCellSlotComponent>(uid, out var slotComp))
+                return 0; 
+            var cell = _container.GetContainer(uid, slotComp.CellSlotId).ContainedEntities.FirstOrNull();
+            if(cell == null || !TryComp<BatteryComponent>(cell, out var batteryComp))
+                return 0;
+            return (int)(_battery.GetChargeLevel((cell.Value, batteryComp)) * 100f);
+        }
+        else
+        {
+            if(!TryComp<ReagantDrawComponent>(uid, out var rdComp))
+                return 0;
+            if(!_solution.ResolveSolution(uid, rdComp.SolutionContainer, ref rdComp.Solution, out var solution)) 
+                return 0;
+            
+            return (int)SharedSolutionContainerSystem.PercentFull(solution);
+        }
     }
 }
