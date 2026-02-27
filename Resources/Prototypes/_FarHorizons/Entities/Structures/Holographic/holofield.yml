@@ -252,6 +252,7 @@
     enabled: true
     radius: 3
     color: blue
+  - type: GenericField
 
 - type: entity
   id: HolographicFieldBarrier
@@ -308,14 +309,11 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          collection: GlassCrack
-  - type: ContainmentField
-    throwForce: 1
-    maxMass: 0 
-    destroyGarbage: false
+          collection: GlassBreak
+  - type: GenericField

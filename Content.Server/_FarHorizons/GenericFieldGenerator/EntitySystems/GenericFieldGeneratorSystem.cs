@@ -1,24 +1,18 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
-using Content.Server.Singularity.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared._FarHorizons.GenericFieldGenerator.Components;
-using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
-using Content.Shared.PowerCell;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.DeviceLinking.Systems;
 using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server._FarHorizons.GenericFieldGenerator.EntitySystems;
@@ -48,10 +42,10 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         SubscribeLocalEvent<GenericFieldGeneratorComponent, SignalReceivedEvent>(OnSignalReceived);
     }
 
-public override void Update(float frameTime)
+    public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        
+
         var query = EntityQueryEnumerator<GenericFieldGeneratorComponent>();
         while (query.MoveNext(out var uid, out var generator))
         {
@@ -60,15 +54,15 @@ public override void Update(float frameTime)
                 generator.Accumulator += frameTime;
                 if (generator.Accumulator >= generator.Threshold)
                 {
-                    if(TryComp<BatteryComponent>(uid, out var batteryComponent))
-                    {                    
+                    if (TryComp<BatteryComponent>(uid, out _))
+                    {
                         _battery.UseCharge(uid, generator.PowerDrain);
                         generator.Accumulator -= generator.Threshold;
-//                        ChangePowerVisualizer(batteryComponent.LastCharge, generator); //Gotta figure this out before merging
+                        //                        ChangePowerVisualizer(batteryComponent.LastCharge, generator); //Gotta figure this out before merging
                     }
                 }
             }
-            else if (TryComp<BatteryComponent>(uid, out var batteryComponent) && batteryComponent.MaxCharge <= batteryComponent.LastCharge) 
+            else if (TryComp<BatteryComponent>(uid, out var batteryComponent) && batteryComponent.MaxCharge <= batteryComponent.LastCharge)
             //try to connect again if not connected and fully charged. might be a bad idea for performance, but I want having both connected to power for redundancy to be viable.
             {
                 generator.RetryWait += frameTime;
@@ -86,14 +80,7 @@ public override void Update(float frameTime)
     {
         if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
         {
-            if (generator.Comp.Enabled)
-                {//TurnOn
-                    batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
-                }
-            else
-                {//TurnOff
-                    batteryComponent.MaxChargeRate = 0;
-                }
+            batteryComponent.MaxChargeRate = generator.Comp.Enabled ? generator.Comp.ChargeRate : 0;
         }
         ChangeFieldVisualizer(generator);
     }
@@ -113,19 +100,19 @@ public override void Update(float frameTime)
 
         if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored)
         {
-            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent)){
+            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent)) {
                 if (!generator.Comp.Enabled)
-                    {//TurnOn
-                        generator.Comp.Enabled = true;
-                        batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
-                        _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-on"), generator);
-                    }
+                {//TurnOn
+                    generator.Comp.Enabled = true;
+                    batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
+                    _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-on"), generator);
+                }
                 else
-                    {//TurnOff
-                        generator.Comp.Enabled = false;
-                        batteryComponent.MaxChargeRate = 0;
-                        _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-off"), generator);
-                    }
+                {//TurnOff
+                    generator.Comp.Enabled = false;
+                    batteryComponent.MaxChargeRate = 0;
+                    _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-off"), generator);
+                }
             }
         }
         ChangeFieldVisualizer(generator);
@@ -138,13 +125,9 @@ public override void Update(float frameTime)
             RemoveConnections(generator);
     }
 
-    private void OnReanchorEvent(Entity<GenericFieldGeneratorComponent> generator, ref ReAnchorEvent args)
-    {
-        GridCheck(generator);
-    }
+    private void OnReanchorEvent(Entity<GenericFieldGeneratorComponent> generator, ref ReAnchorEvent args) => GridCheck(generator);
 
-    private void OnUnanchorAttempt(EntityUid uid, GenericFieldGeneratorComponent component,
-        UnanchorAttemptEvent args)
+    private void OnUnanchorAttempt(EntityUid uid, GenericFieldGeneratorComponent component, UnanchorAttemptEvent args)
     {
         if (component.Enabled || component.IsConnected)
         {
@@ -159,7 +142,6 @@ public override void Update(float frameTime)
         var genXForm = Transform(generator);
         generator.Comp.Charged = true;
         ChangeFieldVisualizer(generator);
-        var directions = Enum.GetValues<Direction>().Length;
         var dir = (Direction)genXForm.LocalRotation.GetCardinalDir();
 
         if (component.Connections.ContainsKey(dir))
@@ -175,10 +157,7 @@ public override void Update(float frameTime)
         ChangeFieldVisualizer(generator);
     }
 
-    private void OnComponentRemoved(Entity<GenericFieldGeneratorComponent> generator, ref ComponentRemove args)
-    {
-        RemoveConnections(generator);
-    }
+    private void OnComponentRemoved(Entity<GenericFieldGeneratorComponent> generator, ref ComponentRemove args) => RemoveConnections(generator);
 
     /// <summary>
     /// Deletes the fields and removes the respective connections for the generators.
@@ -262,6 +241,19 @@ public override void Update(float frameTime)
         }
     }
 
+    /// <summary>
+    /// Helper called by fields when destroyed
+    /// </summary>
+    /// <param name="generator"></param>
+    public void FieldDestroyed(Entity<GenericFieldGeneratorComponent> generator)
+    {
+        if (TryComp<BatteryComponent>(generator, out var batteryComponent))
+        {
+            _battery.UseCharge(generator.Owner, batteryComponent.MaxCharge);
+        }
+        RemoveConnections(generator);
+    }
+
     #endregion
 
     #region Connections
@@ -284,10 +276,10 @@ public override void Update(float frameTime)
         if (!gen1XForm.Anchored)
             return false;
 
-        var genWorldPosRot = _transformSystem.GetWorldPositionRotation(gen1XForm);
-        var dirRad = genWorldPosRot.WorldRotation - Angle.FromDegrees(90d); //needs to be like this for the raycast to work properly; changed to just use World Rotation and a fixed value
+        var (WorldPosition, WorldRotation) = _transformSystem.GetWorldPositionRotation(gen1XForm);
+        var dirRad = WorldRotation - Angle.FromDegrees(90d); //needs to be like this for the raycast to work properly; changed to just use World Rotation and a fixed value
 
-        var ray = new CollisionRay(genWorldPosRot.WorldPosition, dirRad.ToVec(), component.CollisionMask);
+        var ray = new CollisionRay(WorldPosition, dirRad.ToVec(), component.CollisionMask);
         var rayCastResults = _physics.IntersectRay(gen1XForm.MapID, ray, component.MaxLength, generator, false);
         var genQuery = GetEntityQuery<GenericFieldGeneratorComponent>();
 
@@ -380,9 +372,13 @@ public override void Update(float frameTime)
 
                 fieldXForm.LocalRotation = rotatedAngle;
             }
-            _transformSystem.AnchorEntity(newField);
             fieldList.Add(newField);
             currentOffset += dirVec;
+            if (TryComp<GenericFieldComponent>(newField, out var FieldComp))
+            {
+                FieldComp.SourceGen = firstGen;
+            }
+            _transformSystem.AnchorEntity(newField);
         }
         return fieldList;
     }
@@ -447,9 +443,6 @@ public override void Update(float frameTime)
         _ => generator.Comp.Enabled ? FieldLevelVisuals.On : FieldLevelVisuals.NoLevel
     });
 
-    private void ChangeOnLightVisualizer(Entity<GenericFieldGeneratorComponent> generator)
-    {
-        _visualizer.SetData(generator, GenericFieldGeneratorVisuals.OnLight, generator.Comp.IsConnected);
-    }
+    private void ChangeOnLightVisualizer(Entity<GenericFieldGeneratorComponent> generator) => _visualizer.SetData(generator, GenericFieldGeneratorVisuals.OnLight, generator.Comp.IsConnected);
     #endregion
 }
