@@ -138,6 +138,8 @@
         collection:
           MetalLaserImpact
 
+#region Holographic Field
+
 - type: entity
   parent: GenericFieldGeneratorBase
   id: HolographicFieldGenerator
@@ -156,7 +158,7 @@
   - type: LockedAnchorable
   - type: LockedWiresPanel
   - type: AccessReader
-    access: [[ "Engineering" ]]
+    access: [["Atmospherics"]]
   - type: StaticPrice
     price: 150
 
@@ -171,6 +173,8 @@
     enabled: true
   - type: Battery
     startingCharge: 1500
+
+#region Holographic Barrier
 
 - type: entity
   parent: GenericFieldGeneratorBase
@@ -206,7 +210,7 @@
   - type: Battery
     startingCharge: 1500
 
-### Fields
+#region Fields
 
 - type: entity
   id: HolographicField
