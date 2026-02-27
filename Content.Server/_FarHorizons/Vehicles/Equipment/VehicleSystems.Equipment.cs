@@ -101,7 +101,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 RaiseLocalEvent(item, ev);
             }
         }
-        _ui.SetUiState(ent.Owner, VehicleEquipmentUiKey.Key, new VehicleEquipmentUiState(GetNetEntity(ent.Owner)));
         Dirty(ent.Owner, ent.Comp);
     }
 
@@ -115,7 +114,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
             if (_ui.IsUiOpen(uid, VehicleEquipmentUiKey.Key))
             {
-                Log.Info($"{GetRemainingPower(uid, component)}");
+                _ui.SetUiState(uid, VehicleEquipmentUiKey.Key, new VehicleEquipmentUiState(GetNetEntity(uid), GetRemainingPower(uid, component), GetRemainingPower(uid, component)));
             }
         }
     }
@@ -266,7 +265,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             var cell = _container.GetContainer(uid, slotComp.CellSlotId).ContainedEntities.FirstOrNull();
             if(cell == null || !TryComp<BatteryComponent>(cell, out var batteryComp))
                 return 0;
-            return (int)(_battery.GetChargeLevel((cell.Value, batteryComp)) * 100f);
+            return (int)Math.Round(_battery.GetChargeLevel((cell.Value, batteryComp)) * 100f);
         }
         else
         {
@@ -275,7 +274,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             if(!_solution.ResolveSolution(uid, rdComp.SolutionContainer, ref rdComp.Solution, out var solution)) 
                 return 0;
             
-            return (int)SharedSolutionContainerSystem.PercentFull(solution);
+            return (int)Math.Round(SharedSolutionContainerSystem.PercentFull(solution));
         }
     }
 }

@@ -10,8 +10,9 @@
                 <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
                     
                     <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
-                        <RichTextLabel Name="NameLabel" Text="Weh" HorizontalAlignment="Center"/>
-                        <SpriteView OverrideDirection="South" Scale="4 4" Name="SpriteView" Access="Public" SetSize="128 128" HorizontalAlignment="Center"/>             
+                        <RichTextLabel Name="NameLabel" HorizontalAlignment="Center"/>
+                        <SpriteView OverrideDirection="South" Scale="4 4" Name="SpriteView" Access="Public" SetSize="128 128" HorizontalAlignment="Center"/>          
+                           
                     </BoxContainer>
 
                     <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
@@ -24,7 +25,7 @@
                         <RichTextLabel Name="FuelLabel" Text="Power" HorizontalAlignment="Left"/>
                         <Control SetSize="200 25">
                             <ProgressBar Name="FuelBar" MinValue="0" MaxValue="100" Value="75"/>
-                            <RichTextLabel Name="FuelPercent" Text="75%" HorizontalAlignment="Left" Margin="5 0 0 0"/>
+                            <RichTextLabel Name="FuelPercent" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                         </Control>        
                     </BoxContainer>
 

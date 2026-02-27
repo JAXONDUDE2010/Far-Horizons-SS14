@@ -12,5 +12,12 @@ public enum VehicleEquipmentUiKey : byte
 public sealed class VehicleEquipmentUiState : BoundUserInterfaceState
 {
     public readonly NetEntity? Vehicle;
-    public VehicleEquipmentUiState(NetEntity? vehicle) => Vehicle = vehicle;
+    public readonly int Power;
+    public readonly int Integrity;
+    public VehicleEquipmentUiState(NetEntity? vehicle, int power, int integrity)
+    {
+        Vehicle = vehicle;
+        Power = power;
+        Integrity = integrity;
+    }
 }

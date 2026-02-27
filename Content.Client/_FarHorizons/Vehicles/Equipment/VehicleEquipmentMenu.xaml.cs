@@ -31,9 +31,19 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
     public void UpdateState(VehicleEquipmentUiState state)
     {
         var target = _entityManager.GetEntity(state.Vehicle);
-        if (target == null || !_entityManager.TryGetComponent<VehicleModsComponent>(target, out var vmComp)) 
+        if (target == null 
+        || !_entityManager.TryGetComponent<VehicleModsComponent>(target, out var vmComp)
+        || !_entityManager.TryGetComponent<MetaDataComponent>(target, out var metaData)) 
             return;
+        
+        NameLabel.Text = metaData.EntityName;
         SpriteView.SetEntity(target.Value);
         SpriteView.Visible = true;
+
+        HealthPercent.Text = $"{state.Integrity}%";
+        HealthBar.Value = state.Integrity;
+
+        FuelPercent.Text = $"{state.Power}%";
+        FuelBar.Value = state.Power;
     }
 }
