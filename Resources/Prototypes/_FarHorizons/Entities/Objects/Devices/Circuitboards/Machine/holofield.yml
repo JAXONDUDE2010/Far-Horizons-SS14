@@ -27,7 +27,7 @@
       sprite: Objects/Misc/module.rsi
       state: security
     - type: MachineBoard
-      prototype: HolographicFieldGenerator
+      prototype: HolographicBarrierGenerator
       stackRequirements:
         PlasmaGlass: 5
         Cable: 10
