@@ -22,10 +22,6 @@ public sealed class HitscanCyberneticDisruptionSystem : EntitySystem
         if (args.Data.HitEntity == null)
             return;
 
-        // you can't disrupt cybernetics on things which cannot have cybernetics in the first place
-        if (!HasComp<HumanoidAppearanceComponent>(args.Data.HitEntity))
-            return;
-
         if(_random.NextFloat() <= hitscan.Comp.DisableChance)
             _disrupt.TryAddCyberneticDisruptionDuration(args.Data.HitEntity.Value, hitscan.Comp.Duration);
     }

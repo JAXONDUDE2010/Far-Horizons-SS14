@@ -5,11 +5,10 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._Starlight.Cybernetics.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Humanoid;
 using Content.Shared.Projectiles;
 using Robust.Shared.Random;
+using Content.Shared.Body;
 
 namespace Content.Shared._Starlight.Cybernetics;
 
@@ -21,7 +20,6 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly AlertsSystem Alerts = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -42,11 +40,11 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
 
     private void UpdateCybernetics(EntityUid uid, CyberneticDisruptionComponent component, EntityEventArgs args)
     {
+        if(!TryComp<BodyComponent>(uid, out var body) || body.Organs == null) return;
+
         var ev = new CyberneticDisruptionEvent(uid);
-        foreach (var part in _bodySystem.GetBodyChildren(uid))
-            RaiseLocalEvent(part.Id, ref ev);
-        foreach (var part in _bodySystem.GetBodyOrgans(uid))
-            RaiseLocalEvent(part.Id, ref ev);
+        foreach (var part in body.Organs.ContainedEntities)
+            RaiseLocalEvent(part, ref ev);
         foreach (var action in _actions.GetActions(uid))
             RaiseLocalEvent(action.Owner, ref ev);
     }
@@ -74,11 +72,11 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
 
     private void OnCyberneticDisruptionSuccessful(EntityUid uid, TimeSpan? duration)
     {
+        if(!TryComp<BodyComponent>(uid, out var body) || body.Organs == null) return;
         var ev = new CyberneticDisruptionEvent(uid);
-        foreach (var part in _bodySystem.GetBodyChildren(uid))
-            RaiseLocalEvent(part.Id, ref ev);
-        foreach (var part in _bodySystem.GetBodyOrgans(uid))
-            RaiseLocalEvent(part.Id, ref ev);
+
+        foreach (var part in body.Organs.ContainedEntities)
+            RaiseLocalEvent(part, ref ev);
         foreach (var action in _actions.GetActions(uid))
             RaiseLocalEvent(action.Owner, ref ev);
 
@@ -124,9 +122,6 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
 
     private void OnCollide(EntityUid uid, CyberneticDisruptionOnCollideComponent component, EntityUid target)
     {
-        // you can't disrupt cybernetics on things which cannot have cybernetics in the first place
-        if (!HasComp<HumanoidAppearanceComponent>(target))
-            return;
 
         if(_random.NextFloat() <= component.DisableChance)
             TryAddCyberneticDisruptionDuration(target, component.Duration);

@@ -27,8 +27,6 @@ public sealed partial class OrganSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -46,12 +44,6 @@ public sealed partial class OrganSystem : EntitySystem
 
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotInsertedEvent>(OnAbductorOrganImplanted);
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotRemovedEvent>(OnAbductorOrganExtracted);
-
-        SubscribeLocalEvent<DamageableComponent, SurgeryOrganImplantationCompleted>(OnOrganImplanted);
-        SubscribeLocalEvent<DamageableComponent, SurgeryOrganExtracted>(OnOrganExtracted);
-
-        SubscribeLocalEvent<OrganVisualizationComponent, SurgeryOrganImplantationCompleted>(OnVisualizationImplanted);
-        SubscribeLocalEvent<OrganVisualizationComponent, SurgeryOrganExtracted>(OnVisualizationExtracted);
 
         SubscribeLocalEvent<FunctionalOrganComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted);
     }
@@ -116,7 +108,7 @@ public sealed partial class OrganSystem : EntitySystem
     private void OnLimbwithActionOrganExtracted(Entity<LimbWithActionComponent> ent, ref OrganGotRemovedEvent args) 
         => _action.RemoveAction(args.Target, ent.Comp.ActionEntity);
 
-    private void OnStorageOrganImplanted(Entity<StorageOrganComponent> ent, ref OrganGotRemovedEvent args)
+    private void OnStorageOrganImplanted(Entity<StorageOrganComponent> ent, ref OrganGotInsertedEvent args)
     {
         // The results of the container change are already networked on their own
         if (_timing.ApplyingState)
@@ -125,8 +117,7 @@ public sealed partial class OrganSystem : EntitySystem
         Dirty(ent);
 
         if (ent.Comp.OrganAction != null)
-            _actions.AddAction(args.Body, ref ent.Comp.ActionEntity, ent.Comp.OrganAction, ent.Owner);
-
+            _action.AddAction(args.Target, ref ent.Comp.ActionEntity, ent.Comp.OrganAction, ent.Owner);
     }
 
     private void OnStorageOrganExtracted(Entity<StorageOrganComponent> ent, ref OrganGotRemovedEvent args)
@@ -135,7 +126,7 @@ public sealed partial class OrganSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        _actions.RemoveAction(args.Body, ent.Comp.ActionEntity);
+        _action.RemoveAction(args.Target, ent.Comp.ActionEntity);
         ent.Comp.ActionEntity = null;
     }
 

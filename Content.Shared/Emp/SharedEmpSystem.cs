@@ -133,9 +133,7 @@ public abstract class SharedEmpSystem : EntitySystem
             Spawn(EmpDisabledEffectPrototype, Transform(uid).Coordinates);
         
         //Starlight Start
-        //Disrupt humanoids.
-        if(TryComp(uid, out HumanoidAppearanceComponent? _))
-            _disrupt.TryAddCyberneticDisruptionDuration(uid, duration);
+        _disrupt.TryAddCyberneticDisruptionDuration(uid, duration);
         //Starlight End
 
         if (!ev.Disabled)

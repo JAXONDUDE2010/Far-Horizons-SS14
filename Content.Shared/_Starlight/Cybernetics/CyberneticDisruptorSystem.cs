@@ -2,7 +2,6 @@ using Content.Shared.Interaction;
 using Content.Shared._Starlight.Cybernetics.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 
 namespace Content.Shared._Starlight.Cybernetics;
 
@@ -22,9 +21,6 @@ public sealed class CyberneticDisruptorSystem : EntitySystem
     private void OnAfterInteract(EntityUid uid, CyberneticDisruptorComponent comp, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target)
-            return;
-        
-        if (!TryComp(target, out HumanoidAppearanceComponent? _))
             return;
 
         var doAfter = new DoAfterArgs(EntityManager, args.User, comp.UseTime, new CyberneticDisruptorDoafterEvent(), uid, target)
