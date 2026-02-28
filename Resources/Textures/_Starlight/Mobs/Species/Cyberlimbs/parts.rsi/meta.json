@@ -352,12 +352,7 @@
       "copyright": "Citrea"
     },
     {
-      "name": "l_scribe_hand",
-      "directions": 4,
-      "copyright": "Citrea"
-    },
-    {
-      "name": "l_scribe_hand_TOOLS",
+      "name": "l_scribe_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },
@@ -367,22 +362,17 @@
       "copyright": "Citrea"
     },
     {
-      "name": "r_scribe_hand",
+      "name": "r_scribe_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },
     {
-      "name": "r_scribe_hand_TOOLS",
+      "name": "l_herakles_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },
     {
-      "name": "l_herakles_hand_TOOLS",
-      "directions": 4,
-      "copyright": "Citrea"
-    },
-    {
-      "name": "r_herakles_hand_TOOLS",
+      "name": "r_herakles_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },
@@ -392,12 +382,7 @@
       "copyright": "Citrea"
     },
     {
-      "name": "l_investigator_hand",
-      "directions": 4,
-      "copyright": "Citrea"
-    },
-    {
-      "name": "l_investigator_hand_TOOLS",
+      "name": "l_investigator_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },
@@ -407,12 +392,7 @@
       "copyright": "Citrea"
     },
     {
-      "name": "r_investigator_hand",
-      "directions": 4,
-      "copyright": "Citrea"
-    },
-    {
-      "name": "r_investigator_hand_TOOLS",
+      "name": "r_investigator_arm_TOOLS",
       "directions": 4,
       "copyright": "Citrea"
     },

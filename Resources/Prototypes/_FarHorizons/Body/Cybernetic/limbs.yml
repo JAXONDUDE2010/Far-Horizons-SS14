@@ -112,6 +112,7 @@
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   id: LeftArmCyberReaper
   name: Left Reaper Arm
+  description: Augmented arm for the surgeons of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -145,6 +146,7 @@
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   id: RightArmCyberReaper
   name: Right Reaper Arm
+  description: Augmented arm for the surgeons of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -179,6 +181,7 @@
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   id: LeftArmCyberMechwright
   name: Left Mechwright Arm
+  description: Augmented arm for the tiders of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -208,6 +211,7 @@
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   id: RightArmCyberMechwright
   name: Right Mechwright Arm
+  description: Augmented arm for the tiders of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -236,9 +240,9 @@
 
 #Bulwark 
 - type: entity
-  parent: [ OrganCyberArmLeft, BaseSecurityContraband, WithLeftCyberHand ]
   id: LeftArmCyberBulwark
   name: Left Bulwark Arm
+  parent: [ OrganCyberArmLeft, BaseSecurityContraband, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
       data:
@@ -343,6 +347,7 @@
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   id: LeftArmCyberRipper
   name: Left Ripperdoc Arm
+  description: A cheap augmented arm for the back alley surgeons of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -381,6 +386,7 @@
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   id: RightArmCyberRipper
   name: Right Ripperdoc Arm
+  description: A cheap augmented arm for the back alley surgeons of the modern age.
   components:
     - type: VisualOrgan
       data:
@@ -419,6 +425,7 @@
 - type: entity
   id: LeftArmCyberEngineer
   name: Left Engineer Arm
+  description: Augmented arm for the engineers of the modern age.
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
@@ -447,6 +454,7 @@
 - type: entity
   id: RightArmCyberEngineer
   name: Right Engineer Arm
+  description: Augmented arm for the engineers of the modern age.
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   components:
     - type: VisualOrgan
@@ -533,7 +541,8 @@
 - type: entity
   id: LeftArmCyberGorilla
   name: Left G.O.R.I.L.L.A Arm
-  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  description: Augmented arm for the scientists of the modern age.
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand, BaseScienceContraband ]
   components:
     - type: VisualOrgan
       data:
@@ -561,6 +570,7 @@
 - type: entity
   id: RightArmCyberGorilla
   name: Right G.O.R.I.L.L.A Arm
+  description: Augmented arm for the scientists of the modern age.
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   components:
     - type: VisualOrgan
@@ -589,6 +599,7 @@
 - type: entity
   id: LeftArmCyberAngel
   name: Left Angel Arm
+  description: Augmented arm for the doctors of the modern age.
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
@@ -617,6 +628,7 @@
 - type: entity
   id: RightArmCyberAngel
   name: Right Angel Arm
+  description: Augmented arm for the doctors of the modern age.
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   components:
     - type: VisualOrgan
@@ -698,6 +710,7 @@
 - type: entity
   id: LeftArmCyberRiplet
   name: Left Riplet Arm
+  description: Augmented arm for the cargo techs of the modern age.
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
@@ -723,6 +736,7 @@
 - type: entity
   id: RightArmCyberRiplet
   name: Right Riplet Arm
+  description: Augmented arm for the cargo techs of the modern age.
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   components:
     - type: VisualOrgan
@@ -749,6 +763,7 @@
 - type: entity
   id: LeftArmCyberPersephone
   name: Left Persephone Arm
+  description: Augmented arm for the botanists of the modern age.
   parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
@@ -780,6 +795,7 @@
 - type: entity
   id: RightArmCyberPersephone
   name: Right Persephone Arm
+  description: Augmented arm for the botanists of the modern age.
   parent: [ OrganCyberArmRight, WithRightCyberHand ]
   components:
     - type: VisualOrgan
@@ -807,6 +823,164 @@
           - CyberHandItem
       stateOn: r_persephone_arm_TOOLS
       stateOff: r_persephone_arm
+
+# Scribe
+- type: entity
+  id: LeftArmCyberScribe
+  name: Left Scribe Arm
+  description: Augmented arm for the bureaucrats of the modern age.
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_scribe_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_scribe_arm
+    - type: LimbItemStorage
+      items:
+        - PenCyber
+        - StampCyber
+        - PrinterCyber
+        - FilingCabinetCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_scribe_arm_TOOLS
+      stateOff: l_scribe_arm
+
+- type: entity
+  id: RightArmCyberScribe
+  name: Right Scribe Arm
+  description: Augmented arm for the bureaucrats of the modern age.
+  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_scribe_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_scribe_arm
+    - type: LimbItemStorage
+      items:
+        - PenCyber
+        - StampCyber
+        - PrinterCyber
+        - FilingCabinetCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_scribe_arm_TOOLS
+      stateOff: r_scribe_arm
+
+- type: entity
+  id: LeftArmCyberHerakles
+  name: Left Herakles Arm
+  parent: LeftArmCyberBulwark
+  components:
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberHerakles
+        - HoloRestrainerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_herakles_arm_TOOLS
+      stateOff: l_bulwark_arm
+
+- type: entity
+  id: RightArmCyberHerakles
+  name: Right Herakles Arm
+  parent: RightArmCyberBulwark
+  components:
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberHerakles
+        - HoloRestrainerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_herakles_arm_TOOLS
+      stateOff: r_bulwark_arm
+
+# Researcher
+- type: entity
+  id: LeftArmCyberResearcher
+  name: Left Researcher Arm
+  parent: LeftArmCyberGorilla
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_investigator_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_investigator_arm
+    - type: LimbItemStorage
+      items:
+        - RadcasterCyber
+        - FreezeRayCyber
+        - VialCyberEmpty
+        - VialCyberWater
+        - VialCyberBlood
+        - NodeScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: l_investigator_arm_TOOLS
+      stateOff: l_investigator_arm
+
+- type: entity
+  id: RightArmCyberResearcher
+  name: Right Researcher Arm
+  parent: RightArmCyberGorilla
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_investigator_arm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_investigator_arm
+    - type: LimbItemStorage
+      items:
+        - RadcasterCyber
+        - FreezeRayCyber
+        - VialCyberEmpty
+        - VialCyberWater
+        - VialCyberBlood
+        - NodeScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+      stateOn: r_investigator_arm_TOOLS
+      stateOff: r_investigator_arm
 
 # Hydraulic Legs
 - type: entity
@@ -893,3 +1067,88 @@
           volume: -10
     - type: LimbWithAction
       action: JumpPilebunkerLeg
+
+# Cargo Legs
+- type: entity
+  id: LeftLegCyberCargo
+  name: Left Cargo Cyber Leg"
+  description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
+  parent: [ OrganCyberLegLeft, WithLeftCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: l_leg_cargo
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: l_leg_cargo
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.05
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: -10
+    - type: StorageOrgan
+      organAction: ActionOpenStorageLeftLeg
+      actionKey: LeftLeg
+    - type: Storage
+      clickInsert: false
+      showVerb: false
+      openOnActivate: false
+      grid:
+      - 0,0,1,2
+      maxItemSize: Large
+    - type: PrivateStorage
+      accessDelay: 3.0
+      accessPopup: "cargo-leg-left-storage-accessing"
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+
+- type: entity
+  id: RightLegCyberCargo
+  name: "right cargo cyber leg"
+  description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
+  parent: [ OrganCyberLegRight, WithRightCyberFoot ]
+  components:
+    - type: VisualOrgan
+      data:
+        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        state: r_leg_cargo
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: r_leg_cargo
+    - type: MovementOrgan
+      sprintSpeedModifier: 1.05
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: -10
+    - type: StorageOrgan
+      organAction: ActionOpenStorageRightLeg
+      actionKey: RightLeg
+    - type: Storage
+      clickInsert: false
+      showVerb: false
+      openOnActivate: false
+      grid:
+      - 0,0,1,2
+      maxItemSize: Large
+    - type: PrivateStorage
+      accessDelay: 3.0
+      accessPopup: "cargo-leg-right-storage-accessing"
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
