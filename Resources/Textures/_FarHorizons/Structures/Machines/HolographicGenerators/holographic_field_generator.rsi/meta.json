@@ -8,15 +8,6 @@
   },
   "states": [
     {
-      "name": "a1"
-    },
-    {
-      "name": "a2"
-    },
-    {
-      "name": "a3"
-    },
-    {
       "name": "on",
       "directions": 4
     },
