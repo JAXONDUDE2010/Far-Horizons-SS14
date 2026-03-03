@@ -7795,5 +7795,40 @@ Entries:
   id: 86404
   time: '2026-03-03T19:37:06.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: Paramed locker has their voidsuit back
+    type: Fix
+  id: 86600
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Moths can jump again
+    type: Fix
+  id: 86601
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Prevent rolling DAGD and RP objectives together
+    type: Tweak
+  id: 86602
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Second pen is no longer spawning with characters
+    type: Fix
+  id: 86603
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Removed error popup when putting beverage jug into beverage dispenser
+    type: Fix
+  id: 86604
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
 Order: -1
 
