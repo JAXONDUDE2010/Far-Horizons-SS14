@@ -124,6 +124,14 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: IPC
+  - type: SolutionContainerManager
+    solutions:
+      bloodstream:
+        canReact: false # My robots aren't beakers! (oil -> ash conversion is evil and needs to go)
+      bloodstreamTemporary:
+        canReact: false
+      metabolites:
+        canReact: false
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
