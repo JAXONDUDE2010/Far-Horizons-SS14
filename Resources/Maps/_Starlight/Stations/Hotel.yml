@@ -12502,7 +12502,7 @@ entities:
     - type: Transform
       pos: 33.4726,-20.492283
       parent: 2
-- proto: BoxMagazineRiflePractice
+- proto: BoxMagazineRifle5.56Practice
   entities:
   - uid: 1103
     components:

@@ -399,7 +399,7 @@
         - MagazinePistol
         - MagazineMagnum
         - Lecter
-        - MagazineRifle
+        - MagazineRifle5.56 #FH
 
 # Armory - Leikha
 - type: entity
@@ -474,7 +474,7 @@
         - MagazineMagnum
         - Lecter
         - Leikha
-        - MagazineRifle
+        - MagazineRifle5.56 #FH
         - MagazineRifle38 #FH
 
 # Armory - Riot Shotgun
@@ -1008,3 +1008,43 @@
       tags:
         - Sidearm
         - Dominator
+
+#Lazy, I know, but I'm going to be moving ALL of these to FH directories when I do the sprites for them. - FH
+- type: entity
+  id: ShelfArmoryHeavyArms
+  parent: ShelfArmoryBase
+  name: Heavy Security Arms Rack
+  description: Holds the Heavy Security Suit with it's gauntlets and magboots as well as the M492.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: shotguncase
+    stateDoorOpen: shotguncase_open
+    stateDoorClosed: shotguncase_door
+#  - type: Sprite
+#    sprite: _Afterlight/Structures/Storage/closet.rsi
+#    layers:
+#    - state: lasercase
+#      map: ["enum.StorageVisualLayers.Base"]
+#    - state: unlocked
+#      shader: unshaded
+#    - state: laser-0
+#    - map: ["enum.StorageFillLayers.Fill"]
+#    - state: closed
+#      map: ["enum.StorageVisualLayers.Door"]
+#    - state: locked
+#      map: ["enum.LockVisualLayers.Lock"]
+#      shader: unshaded
+#  - type: StorageFillVisualizer
+#    maxFillLevels: 3
+#    fillBaseName: laser
+  - type: Storage
+    grid:
+    - 0,0,4,4
+    - 6,1,7,3
+    - 9,0,13,3
+    whitelist:
+      tags:
+        - HeavySecSuit
+        - HeavySecSuitGloves
+        - HeavySecSuitBoots
+        - SLMG

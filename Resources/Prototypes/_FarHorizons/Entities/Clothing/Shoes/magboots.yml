@@ -1,3 +1,36 @@
+#region NanoTransen
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseSecurityContraband]
+  id: ClothingShoesBootsMagAdvSec
+  name: Heavy Security Magboots
+  description: They do not slow down the user but unlike Advanced Magboots, they rely on the internal power of the Heavy Security Hardsuit to function. Will lock you in place if you don't have the proper ID to use it.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Shoes/Boots/magboots-heavy-security.rsi
+    state: icon
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Shoes/Boots/magboots-heavy-security.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: IdClothingBlocker
+    allowedJobs:
+      - Security
+      - Armory
+      - HeadOfSecurity
+      - Captain
+      - Detective
+  - type: RestrictByEquippedTag # Doesn't actually work cuz it's a toggle. Worse that happens is one officer uses this pair, which.. I mean, you can do the same with galoshes. - Obviously fix in the future.
+    requiredTag: "RequiredForLmgTag"
+    denialMessage: "lmg-restricted-to-hardsuit-message"
+    denialSound: /Audio/Machines/custom_deny.ogg
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - HeavySecSuitBoots
+  - type: StealTarget
+    stealGroup: ClothingShoesBootsMagAdv # I mean.. you COULD. CE's definitely an easier target, though.
+
 #region Syndicate
 
 - type: entity

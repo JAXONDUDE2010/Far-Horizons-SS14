@@ -1,6 +1,6 @@
 - type: latheRecipe
-  id: CartridgeRifleRubber
-  result: CartridgeRifleRubber
+  id: CartridgeRifleRubber5.56 #FH
+  result: CartridgeRifleRubber5.56 #FH
   categories:
   - Ammo
   completetime: 2
@@ -12,44 +12,44 @@
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
-  id: MagazineRifleEmpty
-  result: MagazineRifleEmpty
+  id: MagazineRifle5.56Empty #FH
+  result: MagazineRifle5.56Empty #FH
   materials:
     Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleSP
-  result: MagazineRifleSP
+  id: MagazineRifle5.56SP #FH
+  result: MagazineRifle5.56SP #FH
   materials:
     Steel: 455
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleHP
-  result: MagazineRifleHP
+  id: MagazineRifle5.56HP #FH
+  result: MagazineRifle5.56HP #FH
   materials:
     Steel: 425
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleFMJ
-  result: MagazineRifleFMJ
+  id: MagazineRifle5.56FMJ #FH
+  result: MagazineRifle5.56FMJ #FH
   materials:
     Steel: 555
 
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRiflePractice
-  result: MagazineRiflePractice
+  id: MagazineRifle5.56Practice #FH
+  result: MagazineRifle5.56Practice #FH
   materials:
     Steel: 175
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleUranium
-  result: MagazineRifleUranium
+  id: MagazineRifle5.56Uranium #FH
+  result: MagazineRifle5.56Uranium #FH
   materials:
     Steel: 25
     Plastic: 300
@@ -57,16 +57,16 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleIncendiary
-  result: MagazineRifleIncendiary
+  id: MagazineRifle5.56Incendiary #FH
+  result: MagazineRifle5.56Incendiary #FH
   materials:
     Steel: 50
     Plastic: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineRifleAP
-  result: MagazineRifleAP
+  id: MagazineRifle5.56AP #FH
+  result: MagazineRifle5.56AP #FH
   materials:
     Plastic: 100
     Steel: 300
@@ -75,8 +75,8 @@
 ############ BOXES ############
 
 - type: latheRecipe
-  id: MagazineBoxRifleRubber
-  result: MagazineBoxRifleRubber
+  id: MagazineBoxRifle5.56Rubber #FH
+  result: MagazineBoxRifle5.56Rubber #FH
   categories:
   - Ammo
   completetime: 5
@@ -86,51 +86,51 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleSP
-  result: MagazineBoxRifleSP
+  id: MagazineBoxRifle5.56SP #FH
+  result: MagazineBoxRifle5.56SP #FH
   materials:
     Steel: 750
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleHP
-  result: MagazineBoxRifleHP
+  id: MagazineBoxRifle5.56HP #FH
+  result: MagazineBoxRifle5.56HP #FH
   materials:
     Steel: 750
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleFMJ
-  result: MagazineBoxRifleFMJ
+  id: MagazineBoxRifle5.56FMJ #FH
+  result: MagazineBoxRifle5.56FMJ #FH
   materials:
     Steel: 750
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRiflePractice
-  result: MagazineBoxRiflePractice
+  id: MagazineBoxRifle5.56Practice #FH
+  result: MagazineBoxRifle5.56Practice #FH
   materials:
     Steel: 250
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleIncendiary
-  result: MagazineBoxRifleIncendiary
+  id: MagazineBoxRifle5.56Incendiary #FH
+  result: MagazineBoxRifle5.56Incendiary #FH
   materials:
     Plastic: 750
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleUranium
-  result: MagazineBoxRifleUranium
+  id: MagazineBoxRifle5.56Uranium #FH
+  result: MagazineBoxRifle5.56Uranium #FH
   materials:
     Plastic: 500
     Uranium: 500
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxRifleAP
-  result: MagazineBoxRifleAP
+  id: MagazineBoxRifle5.56AP #FH
+  result: MagazineBoxRifle5.56AP #FH
   materials:
     Plastic: 500
     Steel: 500

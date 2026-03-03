@@ -8,20 +8,20 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifleRubber
+        startingItem: MagazineRifle5.56Rubber #FH
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineRifle
+            - MagazineRifle5.56 #FH
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifleRubber
+        startingItem: CartridgeRifle5.56Rubber #FH
         priority: 1
         whitelist:
           tags:
-            - CartridgeRifle
+            - CartridgeRifle5.56 #FH
 
 - type: entity
   name: LR-30
@@ -206,21 +206,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifleM52FMJ
+        startingItem: MagazineRifle5.56M52FMJ #FH
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineRifleM52
+            - MagazineRifle5.56M52 #FH
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifleFMJ
+        startingItem: CartridgeRifle5.56FMJ #FH
         priority: 1
         whitelist:
           tags:
-            - CartridgeRifle
+            - CartridgeRifle5.56 #FH
 
 - type: entity
   name: IFV-50 # Far Horizons
@@ -360,17 +360,17 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifleFMJ
+        startingItem: MagazineRifle5.56FMJ #FH
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineRifle
+          - MagazineRifle5.56 #FH
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifleFMJ
+        startingItem: CartridgeRifle5.56FMJ #FH
         priority: 1
         whitelist:
           tags:
@@ -412,21 +412,21 @@
       slots:
         gun_magazine:
           name: Magazine
-          startingItem: MagazineRifleSP
+          startingItem: MagazineRifle5.56SP #FH
           insertSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
           whitelist:
             tags:
-              - MagazineRifle
+              - MagazineRifle5.56 #FH
           whitelistFailPopup: gun-magazine-whitelist-fail
         gun_chamber:
           name: Chamber
-          startingItem: CartridgeRifleSP
+          startingItem: CartridgeRifle5.56SP #FH
           priority: 1
           whitelist:
             tags:
-              - CartridgeRifle
+              - CartridgeRifle5.56 #FH
     - type: MagazineVisuals
       magState: mag
       steps: 1

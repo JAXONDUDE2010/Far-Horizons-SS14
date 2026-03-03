@@ -4115,7 +4115,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 550
-- proto: MagazineRifleFMJ
+- proto: MagazineRifle5.56FMJ
   entities:
   - uid: 573
     components:
@@ -4149,7 +4149,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 572
-- proto: MagazineRifleM52FMJ
+- proto: MagazineRifle5.56M52FMJ
   entities:
   - uid: 562
     components:
@@ -4183,7 +4183,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 561
-- proto: MagazineRifleM52SP
+- proto: MagazineRifle5.56M52SP
   entities:
   - uid: 567
     components:
@@ -4217,7 +4217,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 561
-- proto: MagazineRifleSP
+- proto: MagazineRifle5.56SP
   entities:
   - uid: 578
     components:

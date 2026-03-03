@@ -20,7 +20,7 @@
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
 #  - MagazineBoxCaselessRiflePractice - FH Edit
-  - MagazineBoxRiflePractice
+  - MagazineBoxRifle5.56Practice #FH
   - WeaponDisablerPractice
   - WeaponLaserCarbinePractice
   - WeaponFlareGunSecurity
@@ -53,9 +53,9 @@
   - MagazineBoxRevolver38HP #FH
   - MagazineBoxRevolver38FMJ #FH
 # Rifle
-  - MagazineBoxRifleSP
-  - MagazineBoxRifleHP
-  - MagazineBoxRifleFMJ
+  - MagazineBoxRifle5.56SP #FH
+  - MagazineBoxRifle5.56HP #FH
+  - MagazineBoxRifle5.56FMJ #FH
 # Shotgun
   - BoxLethalshot
   - BoxShotgunSlug
@@ -102,10 +102,10 @@
 #  - MagazinePistolSubMachineGunUzi - FH edit
 #  - MagazinePistolSubMachineGunPPSH - FH edit
 # Rifle
-  - MagazineRifleSP
-  - MagazineRifleHP
-  - MagazineRifleFMJ
-  - MagazineRifleEmpty
+  - MagazineRifle5.56SP #FH
+  - MagazineRifle5.56HP #FH
+  - MagazineRifle5.56FMJ #FH
+  - MagazineRifle5.56Empty #FH
 # Shotgun
   - MagazineShotgun
   - MagazineShotgunEmpty
@@ -183,9 +183,9 @@
   - MagazineBoxPistolAP
   - MagazineBoxRevolver38AP #FH
 # Rifle
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxRifleUranium
-  - MagazineBoxRifleAP
+  - MagazineBoxRifle5.56Incendiary #FH
+  - MagazineBoxRifle5.56Uranium #FH
+  - MagazineBoxRifle5.56AP #FH
 # Shotgun
   - BoxShotgunIncendiary
   - BoxShotgunUranium
@@ -212,9 +212,9 @@
   - MagazinePistolSubMachineGunUranium
   - MagazinePistolSubMachineGunAP
 # Rifle
-  - MagazineRifleIncendiary
-  - MagazineRifleUranium
-  - MagazineRifleAP
+  - MagazineRifle5.56Incendiary #FH
+  - MagazineRifle5.56Uranium #FH
+  - MagazineRifle5.56AP #FH
 # Shotgun
   #- MagazineShotgunBeanbag
   - MagazineShotgunIncendiary

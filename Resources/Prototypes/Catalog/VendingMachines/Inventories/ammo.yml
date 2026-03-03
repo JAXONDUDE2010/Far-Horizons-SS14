@@ -17,9 +17,9 @@
     MagazineBoxPistolPractice: 3
     MagazineBoxPistolRubber: 1 # Starlight
 
-    MagazineBoxRifleSP: 5 # Starlight
-    MagazineBoxRiflePractice: 3
-    MagazineBoxRifleRubber: 1 # Starlight
+    MagazineBoxRifle5.56SP: 5  #FH
+    MagazineBoxRifle5.56Practice: 3 #FH
+    MagazineBoxRifle5.56Rubber: 1  #FH
 
     BoxLethalshot: 6
     BoxShotgunPractice: 3

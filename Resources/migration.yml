@@ -39,7 +39,7 @@ BoxMagazinePistolCaselessRifleHighVelocity: BoxMagazinePistolCaselessRifle
 BoxMagazinePistolHighCapacityHighVelocity: BoxMagazinePistolHighCapacity
 BoxMagazinePistolHighVelocity: BoxMagazinePistol
 BoxMagazinePistolSubMachineGunHighVelocity: BoxMagazinePistolSubMachineGun
-BoxMagazineRifleHighVelocity: BoxMagazineRifleSP
+BoxMagazineRifleHighVelocity: BoxMagazineRifle5.56SP #FH
 BulletCaselessRifleHighVelocity: BulletCaselessRifle
 BulletLightRifleHighVelocity: BulletLightRifle
 BulletMagnumHighVelocity: BulletMagnum
@@ -54,7 +54,7 @@ MagazineBoxCaselessRifleHighVelocity: MagazineBoxCaselessRifle
 MagazineBoxLightRifleHighVelocity: MagazineBoxLightRifleFMJ
 MagazineBoxMagnumHighVelocity: MagazineBoxMagnumSP
 MagazineBoxPistolHighVelocity: MagazineBoxPistolFMJ
-MagazineBoxRifleHighVelocity: MagazineBoxRifleFMJ
+MagazineBoxRifleHighVelocity: MagazineBoxRifle5.56FMJ #FH
 MagazineCaselessRifleHighVelocity: null # FH - Remove broken prototype
 MagazineCaselessRifleShortHighVelocity: null
 MagazineLightRifleHighVelocity: MagazineLightRifleFMJ
@@ -63,7 +63,7 @@ MagazinePistolCaselessRifleHighVelocity: MagazinePistolCaselessRifle
 MagazinePistolHighCapacityHighVelocity: MagazinePistolHighCapacityFMJ
 MagazinePistolHighVelocity: MagazinePistolFMJ
 MagazinePistolSubMachineGunHighVelocity: MagazinePistolSubMachineGunSP
-MagazineRifleHighVelocity: MagazineRifleFMJ
+MagazineRifleHighVelocity: MagazineRifle5.56FMJ #FH
 SpeedLoaderMagnumHighVelocity: SpeedLoaderMagnumFMJ
 SpeedLoaderPistolHighVelocity: SpeedLoaderRevolver38FMJ # FH - fix broken prototype
 
@@ -311,8 +311,8 @@ MagazineCaselessRifleShortRubber: null
 SpeedLoaderPistolRubber: SpeedLoaderRevolver38FMJ # FH - fix broken prototype
 # RIP box of magnum rubbers 202X to 2024
 MagazineBoxMagnumRubber: MagazineBoxMagnumSP
-MagazineBoxRifleRubber: MagazineBoxRifleSP
-MagazineBoxRifleBigRubber: MagazineBoxRifleBig
+MagazineBoxRifleRubber: MagazineBoxRifle5.56SP #FH
+MagazineBoxRifleBigRubber: MagazineBoxRifle5.56Big #FH
 MagazineBoxCaselessRifleRubber: MagazineBoxCaselessRifle
 BoxMagazinePistolRubber: BoxMagazinePistol
 BoxMagazinePistolHighCapacityRubber: BoxMagazinePistolHighCapacity
@@ -626,13 +626,13 @@ ClothingHeadHelmetHardsuitBasic: null
 SuitStorageBasic: SuitStorageEVA
 
 # 🌟Starlight🌟 start
-BoxMagazineRifle: BoxMagazineRifleSP
+BoxMagazineRifle: BoxMagazineRifle5.56SP #FH
 MagazineBoxLightRifle: MagazineBoxLightRifleSP
 MagazineBoxPistol: MagazineBoxPistolSP
 MagazineLightRifleBox: MagazineLightRifleBoxSP
 MagazineLightRifle: MagazineLightRifleSP
 MagazinePistolSubMachineGun: MagazinePistolSubMachineGunSP
-MagazineRifle: MagazineRifleSP
+MagazineRifle: MagazineRifle5.56SP #FH
 
 BorgModuleTreatment: BorgModuleTopicals
 # 🌟Starlight🌟 end

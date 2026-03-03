@@ -67484,7 +67484,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 10112
-- proto: ClothingOuterHardsuitSecurityExperimental
+- proto: ClothingOuterHardsuitSecurityHeavy
   entities:
   - uid: 858
     components:

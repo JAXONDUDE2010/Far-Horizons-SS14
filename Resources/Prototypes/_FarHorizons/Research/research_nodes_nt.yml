@@ -125,7 +125,7 @@
     - RiotControl
   unlocks:
     - BoxShotgunIncendiary
-    - MagazineRifleIncendiary
+    - MagazineRifle5.56Incendiary
     - MagazinePistolIncendiary
     - MagazinePistolSubMachineGunIncendiary
     - MagazineLightRifleIncendiary
@@ -134,7 +134,7 @@
     - MagazineBoxPistolIncendiary
     - MagazineBoxMagnumIncendiary
     - MagazineBoxLightRifleIncendiary
-    - MagazineBoxRifleIncendiary
+    - MagazineBoxRifle5.56Incendiary
     - LightRifleHeavyMagazineIncendiary
     - MagazinePistolSubMachineGunIncendiary
     - SpeedLoaderShotgunIncendiary
@@ -143,7 +143,7 @@
     - MagazineBoxRevolver38Incendiary
     - MagazineRifle38Incendiary
     - SpeedLoaderRevolver38Incendiary
-    - MagazineRifleUranium
+    - MagazineRifle5.56Uranium
     - MagazinePistolUranium
     - MagazinePistolSubMachineGunUranium
     - MagazineLightRifleUranium
@@ -151,7 +151,7 @@
     - MagazineBoxPistolUranium
     - MagazineBoxMagnumUranium
     - MagazineBoxLightRifleUranium
-    - MagazineBoxRifleUranium
+    - MagazineBoxRifle5.56Uranium
     - BoxShotgunUranium
     - LightRifleHeavyMagazineUranium
     - MagazinePistolSubMachineGunUranium
@@ -681,12 +681,12 @@
     - SpeedLoaderMagnumAP
     - MagazinePistolAP
     - MagazinePistol38AP
-    - MagazineRifleAP
+    - MagazineRifle5.56AP
     - MagazineLightRifleAP
     - MagazineBoxMagnumAP
     - MagazineBoxPistolAP
     - MagazineBoxRevolver38AP
-    - MagazineBoxRifleAP
+    - MagazineBoxRifle5.56AP
     - MagazineBoxLightRifleAP
     - LightRifleHeavyMagazineAP
     - MagazinePistolSubMachineGunAP

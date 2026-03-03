@@ -77864,7 +77864,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitSecurityExperimental
+- proto: ClothingOuterHardsuitSecurityHeavy
   entities:
   - uid: 13197
     components:
@@ -149158,7 +149158,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -23.665741,71.46484
       parent: 2
-- proto: MagazineRifleSP
+- proto: MagazineRifle5.56SP
   entities:
   - uid: 23269
     components:

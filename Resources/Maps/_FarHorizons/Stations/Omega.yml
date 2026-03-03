@@ -37735,7 +37735,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitSecurityExperimental
+- proto: ClothingOuterHardsuitSecurityHeavy
   entities:
   - uid: 9812
     components:

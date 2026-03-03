@@ -272,7 +272,7 @@
   id: MagazinePistolImprovised
 
 - type: Tag
-  id: MagazineRifleM52
+  id: MagazineRifle5.56M52 #FH
 
 - type: Tag
   id: MagazineSMGImprovised

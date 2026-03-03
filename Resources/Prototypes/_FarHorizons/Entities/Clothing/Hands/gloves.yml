@@ -40,6 +40,79 @@
     bluntStaminaDamageFactor: 0.0 # so blunt doesn't deal stamina damage at all
     mustBeEquippedToUse: true
 
+- type: entity
+  parent: [ClothingHandsButcherable, BaseSecurityContraband]
+  id: ClothingHandsGlovesSecurityPowered
+  name: Heavy Security Power Gauntlets
+  description: These gauntlets utilize the power systems within the Heavy Security Hardsuit mixed with hydraulics to ruin the day of anyone. And walls, for that matter. Does not work without the Heavy Hardsuit.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Hands/Gloves/heavy_security_gauntlet.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Hands/Gloves/heavy_security_gauntlet.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 0.7
+    damage:
+      types:
+       Blunt: 30 # 21 dps vs. fireaxe's 22.5 dps - Suit should hit really hard given how slow it is.
+       Structural: 50 # worse than fireaxe + breaching hammer
+    soundHit:
+      collection: MetalThud
+      params:
+        volume: 5
+        pitch: 0.3
+        variation: 0.025
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-blue
+  - type: FingerprintMask
+  - type: RestrictByEquippedTag
+    requiredTag: "RequiredForLmgTag"
+    denialMessage: "lmg-restricted-to-hardsuit-message"
+    denialSound: /Audio/Machines/custom_deny.ogg
+  - type: Tag
+    tags:
+      - HeavySecSuitGloves
+
+- type: entity
+  parent: [ClothingHandsButcherable, BaseSyndicateContraband]
+  id: ClothingHandsGlovesSyndicatePowered
+  name: Juggernaut Power Gauntlets
+  description: These gauntlets utilize the power systems within the Juggernaut mixed with hydraulics to ruin the day of anyone. And walls, for that matter. Does not work without the Juggernaut.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Hands/Gloves/heavy_syndicate_gauntlet.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Hands/Gloves/heavy_syndicate_gauntlet.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 0.7
+    damage:
+      types:
+       Blunt: 30 #budget esword
+       Structural: 50
+    soundHit:
+      collection: MetalThud
+      params:
+        volume: 5
+        pitch: 0.3
+        variation: 0.025
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+  - type: FingerprintMask
+  - type: RestrictByEquippedTag
+    requiredTag: "RequiredForLmgTag"
+    denialMessage: "lmg-restricted-to-hardsuit-message"
+    denialSound: /Audio/Machines/custom_deny.ogg
+
 #region Syndicate
 
 - type: entity

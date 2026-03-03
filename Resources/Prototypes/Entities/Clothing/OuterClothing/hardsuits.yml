@@ -1077,6 +1077,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: ZombificationResistance #FH
+    zombificationResistanceCoefficient: 0 # FH - Immune
   # - type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
   - type: Armor
     modifiers:

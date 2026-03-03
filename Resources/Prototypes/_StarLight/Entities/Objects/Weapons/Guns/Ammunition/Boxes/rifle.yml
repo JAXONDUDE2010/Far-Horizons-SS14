@@ -1,11 +1,11 @@
 - type: entity
-  parent: BaseMagazineBoxRifle
-  id: MagazineBoxRifleBigRubber
-  name: ammunition box (.20 rifle rubber)
+  parent: BaseMagazineBoxRifle5.56 #FH
+  id: MagazineBoxRifleBig5.56Rubber #FH
+  name: 5.56 Ammunition Box (Rifle Rubber) #FH
   components:
   - type: BallisticAmmoProvider
     capacity: 200
-    proto: CartridgeRiflePractice
+    proto: CartridgeRifle5.56Practice #FH
   - type: Sprite
     layers:
     - state: base-b
@@ -20,12 +20,12 @@
   - type: Appearance
   
 - type: entity
-  parent: BaseMagazineBoxRifle
-  id: MagazineBoxRifleRubber
-  name: ammunition box (.20 rifle rubber)
+  parent: BaseMagazineBoxRifle5.56 #FH
+  id: MagazineBoxRifle5.56Rubber #FH
+  name: 5.56 Ammunition Box (Rifle Rubber) #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeRifleRubber
+    proto: CartridgeRifle5.56Rubber #FH
   - type: Sprite
     layers:
     - state: base

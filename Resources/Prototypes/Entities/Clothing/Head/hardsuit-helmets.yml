@@ -1241,13 +1241,12 @@
         Piercing: 0.9
         Heat: 0.9
   - type: Hailer # STARLIGHT
-    hailMessage: "Death to NanoTrasen!!"
-    hailSound:
-      path: /Audio/_Starlight/Effects/nano_death.ogg
-      params:
-        variation: 0.09
-        pitch: 0.5
-    cooldownDuration: 30
+    hailMessage: "Who wants a piece of me!?" # FH
+    hailSound: # FH
+      path: /Audio/Machines/custom_deny.ogg # FH
+      params: # FH
+        volume: -100 # FH - shut
+    cooldownDuration: 5 #FH
 
 #Wizard Hardsuit
 - type: entity

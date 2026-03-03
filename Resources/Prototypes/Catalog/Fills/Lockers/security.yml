@@ -270,9 +270,9 @@
       amount: 1
     - id: WeaponRifleLeikha
       amount: 1
-    - id: MagazineRifleHP
+    - id: MagazineRifle5.56HP #FH
       amount: 3
-    - id: MagazineRifleSP
+    - id: MagazineRifle5.56SP #FH
       amount: 3
 
 - type: entity

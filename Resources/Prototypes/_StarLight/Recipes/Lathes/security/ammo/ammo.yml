@@ -47,8 +47,8 @@
     Steel: 100
 
 - type: latheRecipe
-  id: MagazineRifleRubber
-  result: MagazineRifleRubber
+  id: MagazineRifle5.56Rubber #FH
+  result: MagazineRifle5.56Rubber #FH
   categories:
   - Ammo
   completetime: 1
