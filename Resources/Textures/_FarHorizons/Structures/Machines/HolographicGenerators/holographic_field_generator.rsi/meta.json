@@ -8,6 +8,10 @@
   },
   "states": [
     {
+      "name": "connected",
+      "directions": 4
+    },
+    {
       "name": "on",
       "directions": 4
     },
@@ -37,6 +41,10 @@
     },
     {
       "name": "machine",
+      "directions": 4
+    },
+    {
+      "name": "lock",
       "directions": 4
     },
     {

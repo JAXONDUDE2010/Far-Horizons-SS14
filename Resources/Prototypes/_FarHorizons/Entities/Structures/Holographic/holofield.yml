@@ -26,10 +26,17 @@
         map: ["powerLight"]
         visible: false
         shader: unshaded
-      - state: on
+      - state: connected
         map: ["connectedLight"]
         visible: false
         shader: unshaded
+      - state: on
+        map: ["onLight"]
+        visible: false
+        shader: unshaded
+      - state: lock
+        map: ["enum.LockVisualLayers.Lock"]
+        visible: false
   - type: Icon
     sprite: _FarHorizons/Structures/Machines/HolographicGenerators/holographic_field_generator.rsi
     state: icon
@@ -55,8 +62,12 @@
           HighPower: {visible: true, state: p4}
           VeryHighPower: {visible: true, state: p5}
           FullPower: {visible: true, state: p6}
-      enum.GenericFieldGeneratorVisuals.OnLight:
+      enum.GenericFieldGeneratorVisuals.ConnectionLight:
         connectedLight:
+          True: { visible: true }
+          False: { visible: false }
+      enum.GenericFieldGeneratorVisuals.OnLight:
+        onLight:
           True: { visible: true }
           False: { visible: false }
   - type: Airtight

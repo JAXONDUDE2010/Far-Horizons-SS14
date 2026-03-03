@@ -83,6 +83,8 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
             batteryComponent.MaxChargeRate = generator.Comp.Enabled ? generator.Comp.ChargeRate : 0;
         }
         ChangePowerVisualizer(generator);
+        ChangeOnLightVisualizer(generator);
+        UpdateConnectionLights(generator);
     }
     private void OnExamine(EntityUid uid, GenericFieldGeneratorComponent component, ExaminedEvent args)
     {
@@ -113,6 +115,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
                     batteryComponent.MaxChargeRate = 0;
                     _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-off"), generator);
                 }
+                ChangeOnLightVisualizer(generator);
             }
         }
         args.Handled = true;
@@ -173,14 +176,16 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
             if (value.Item1.Comp.Connections.Count == 0) //Change isconnected only if there's no more connections
             {
                 value.Item1.Comp.IsConnected = false;
-                ChangeOnLightVisualizer(value.Item1);
+                ChangeConnectionLightVisualizer(value.Item1);
+                UpdateConnectionLights(value.Item1);
             }
         }
         component.Connections.Clear();
         if (component.IsConnected)
             _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-disconnected"), uid, PopupType.LargeCaution);
         component.IsConnected = false;
-        ChangeOnLightVisualizer(generator);
+        ChangeConnectionLightVisualizer(generator);
+        UpdateConnectionLights(generator);
         _adminLogger.Add(LogType.FieldGeneration, LogImpact.Medium, $"{ToPrettyString(uid)} lost field connections"); // Ideally LogImpact would depend on if there is a singulo nearby
         //this logging should work fine for this system aswell
     }
@@ -231,6 +236,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
                     }
                 }
             }
+            ChangeOnLightVisualizer(generator);
         }
     }
 
@@ -320,16 +326,17 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         if (!component.IsConnected)
         {
             component.IsConnected = true;
-            ChangeOnLightVisualizer(generator);
+            ChangeConnectionLightVisualizer(generator);
+            UpdateConnectionLights(generator);
         }
 
         if (!otherFieldGeneratorComponent.IsConnected)
         {
             otherFieldGeneratorComponent.IsConnected = true;
-            ChangeOnLightVisualizer(otherFieldGenerator);
+            ChangeConnectionLightVisualizer(otherFieldGenerator);
+            UpdateConnectionLights(otherFieldGenerator);
         }
 
-        UpdateConnectionLights(generator);
         _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-connected"), generator);
         return true;
     }
@@ -383,7 +390,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     {
         if (_light.TryGetLight(generator, out var pointLightComponent))
         {
-            _light.SetEnabled(generator, generator.Comp.Connections.Count > 0, pointLightComponent);
+            _light.SetEnabled(generator, generator.Comp.IsConnected, pointLightComponent);
         }
     }
 
@@ -419,7 +426,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         var charge = batteryComponent.LastCharge;
         _visualizer.SetData(generator, GenericFieldGeneratorVisuals.PowerLight, charge switch //I dont like hardcoding these values, but I also dont feel like having a giant pile of if statments
         {
-            <= 0 => PowerLevelVisuals.NoPower,
+            <= 50 => PowerLevelVisuals.NoPower,
             >= 1450 => PowerLevelVisuals.FullPower,
             >= 1200 => PowerLevelVisuals.VeryHighPower,
             >= 900 => PowerLevelVisuals.HighPower,
@@ -429,6 +436,8 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         });
     }
 
-    private void ChangeOnLightVisualizer(Entity<GenericFieldGeneratorComponent> generator) => _visualizer.SetData(generator, GenericFieldGeneratorVisuals.OnLight, generator.Comp.IsConnected);
+    private void ChangeConnectionLightVisualizer(Entity<GenericFieldGeneratorComponent> generator) => _visualizer.SetData(generator, GenericFieldGeneratorVisuals.ConnectionLight, generator.Comp.IsConnected);
+
+    private void ChangeOnLightVisualizer(Entity<GenericFieldGeneratorComponent> generator) => _visualizer.SetData(generator, GenericFieldGeneratorVisuals.OnLight, generator.Comp.Enabled);
     #endregion
 }

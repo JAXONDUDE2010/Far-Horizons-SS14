@@ -101,6 +101,7 @@ public sealed partial class GenericFieldGeneratorComponent : Component
 public enum GenericFieldGeneratorVisuals : byte
 {
     PowerLight,
+    ConnectionLight,
     OnLight,
 }
 
