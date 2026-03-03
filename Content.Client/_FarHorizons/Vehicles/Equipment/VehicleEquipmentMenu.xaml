@@ -33,7 +33,7 @@
             </PanelContainer>
 
             <PanelContainer StyleClasses="PanelDark" SetSize="350 300" Margin="10 10 0 0">
-                <BoxContainer Orientation="Vertical">
+                <BoxContainer Name="EquipmentPanel" Orientation="Vertical">
 
                 </BoxContainer>
             </PanelContainer>

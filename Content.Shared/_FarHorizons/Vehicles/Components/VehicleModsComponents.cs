@@ -5,11 +5,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._FarHorizons.Vehicles.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VehicleModsComponent : Component
 {
-    [ViewVariables]
-    public readonly string ModContainer = "vehicle_mods_container";
+    [DataField]
+    public string ModContainer = "vehicle_mods_container";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public Container ModSlot = default!;
@@ -17,14 +17,14 @@ public sealed partial class VehicleModsComponent : Component
     [DataField]
     public HashSet<EntProtoId> StartingEquipment = new();
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public HashSet<EntityUid> SpawnedEquipment = new();
 
     [DataField]
     [Access(typeof(EquipmentType), Other = AccessPermissions.ReadExecute)]
     public EquipmentType EquipmentSlots = EquipmentType.NONE;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public Dictionary<EquipmentType, EntityUid?> Equipment = new();
 
     [DataField(required:true)]
