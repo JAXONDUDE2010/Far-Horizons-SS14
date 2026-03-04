@@ -1,7 +1,8 @@
 - type: entity
   parent: [BaseItem, BaseNanotrasenContraband]
   id: NTChameleonProjectorNoBattery
-  name: chameleon projector
+  name: Chameleon Projector
+  suffix: NT, Empty
   description: Holoparasite technology used to create a hard-light replica of any object around you. Disguise is destroyed when picked up or deactivated.
   components:
   - type: Sprite
