@@ -35,6 +35,7 @@
   - type: Contraband
     severity: Syndicate
 
+#Far Horizons-Start
 - type: entity
   id: BaseNanotrasenContraband
   abstract: true
