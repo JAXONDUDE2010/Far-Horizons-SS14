@@ -42,6 +42,7 @@
   components:
   - type: Contraband
     severity: Nanotrasen
+#Far Horizons-End
 
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity
