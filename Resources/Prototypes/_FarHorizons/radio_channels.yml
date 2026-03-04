@@ -14,6 +14,17 @@
   frequency: 6907
   color: "#1fb0ff"
 
+- type: radioChannel
+  id: Lambda
+  name: chat-radio-lambda
+  keycode: "o"
+  frequency: 6767
+  color: "#007bff"
+  longRange: true
+  anonymous: true
+  anonymousAlias: "Operative {0}" #placeholder
+  anonymousIcon: JobIconNanotrasen #placeholder
+
 #region Syndicate Comm Sets
 
 - type: radioChannel

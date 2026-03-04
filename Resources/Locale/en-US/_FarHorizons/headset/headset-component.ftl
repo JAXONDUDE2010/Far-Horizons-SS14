@@ -3,6 +3,8 @@ chat-radio-trinary = Trinary
 
 chat-radio-gemini-stellar-logistics = GSL
 
+chat-radio-lambda = Lambda
+
 # syndicate comms
 chat-radio-syndi-command = Command
 chat-radio-syndi-security = Security

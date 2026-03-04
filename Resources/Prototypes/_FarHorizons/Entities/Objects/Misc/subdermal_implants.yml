@@ -33,3 +33,27 @@
   - type: RadioImplant
     radioChannels:
     - SHC
+
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantLambda
+  name: Lambda Death Rattle Implant
+  suffix: NT
+  description: This implant will inform the Lambda radio channel should the user fall into critical condition or die.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: Lambda
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantLambda
+  name: Lambda Radio Implant
+  suffix: NT
+  description: This implant grants access to the Lambda channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Lambda
