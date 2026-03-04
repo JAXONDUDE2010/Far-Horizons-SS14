@@ -7830,5 +7830,34 @@ Entries:
   id: 86604
   time: '2026-03-03T21:09:24.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: Roro, ItsAbby
+  changes:
+  - message: Added variants of the access breaker, chameleon projector and camera
+      bug for NT side.
+    type: Add
+  id: 87100
+  time: '2026-03-04T21:52:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/871
+- author: Roro, ItsAbby
+  changes:
+  - message: Added NT variants of (almost) every traitor implant.
+    type: Add
+  id: 87101
+  time: '2026-03-04T21:52:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/871
+- author: Roro, ItsAbby
+  changes:
+  - message: Lambda radio channel.
+    type: Add
+  id: 87102
+  time: '2026-03-04T21:52:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/871
+- author: Roro, ItsAbby
+  changes:
+  - message: Both NT and Syndie implanters have gotten reskins.
+    type: Tweak
+  id: 87103
+  time: '2026-03-04T21:52:07.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/871
 Order: -1
 
