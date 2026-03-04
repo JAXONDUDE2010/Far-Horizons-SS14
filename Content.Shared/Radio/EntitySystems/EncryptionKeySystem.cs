@@ -17,7 +17,6 @@ using Robust.Shared.Timing;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 #region Starlight
-using Content.Shared._Starlight.Radio;
 using Content.Shared.Interaction.Components;
 #endregion
 
