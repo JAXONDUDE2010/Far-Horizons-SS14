@@ -8,10 +8,75 @@
   },
   "states": [
     {
-      "name": "closing"
+      "name": "closing",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "opening"
+      "name": "opening",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "unlit"
     },
     {
       "name": "panel_open",
@@ -19,7 +84,29 @@
     },
     {
       "name": "spark",
-      "directions": 4
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "welded",
@@ -31,7 +118,29 @@
     },
     {
       "name": "deny",
-      "directions": 4
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "assembly",
@@ -41,7 +150,12 @@
       "name": "closed",
       "directions": 4
     },
-     "name": "opening_unlit",
+    {
+      "name": "open",
+      "directions": 4
+    },
+    {
+      "name": "opening_unlit",
       "delays": [
         [
           0.1,
@@ -54,7 +168,7 @@
       ]
     },
     {
-     "name": "emergency_unlit",
+      "name": "emergency_unlit",
       "delays": [
         [
           0.1,
