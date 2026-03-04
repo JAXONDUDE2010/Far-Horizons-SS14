@@ -49,7 +49,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseNanotrasenContraband ] #both name and sprites are placeholders, can easily change later
   id: EncryptionKeyLambda
-  name: lambda encryption key
+  name: Lambda Encryption Key
+  suffix: NT
   description: An encryption key used by someone with a lotta fancy gear.
   components:
   - type: EncryptionKey
