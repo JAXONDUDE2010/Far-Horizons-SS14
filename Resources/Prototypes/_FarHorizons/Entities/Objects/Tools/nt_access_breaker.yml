@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseItem, BaseNanotrasenContraband]
   id: NTAccessBreakerUnlimited
-  suffix: Unlimited
-  name: authentication disruptor
+  suffix: NT, Unlimited
+  name: Authentication Disruptor
   description: A hacked access configurator, specialized to unlock and erase access from digital locks.
   components:
   - type: Emag
@@ -17,7 +17,7 @@
 - type: entity
   parent: NTAccessBreakerUnlimited
   id: NTAccessBreaker
-  suffix: Limited
+  suffix: NT, Limited
   components:
   - type: LimitedCharges
   - type: AutoRecharge

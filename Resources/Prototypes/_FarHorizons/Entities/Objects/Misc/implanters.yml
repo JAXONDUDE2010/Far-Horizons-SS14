@@ -28,13 +28,14 @@
 - type: entity
   id: BaseImplantOnlyImplanterLambda
   parent: [BaseImplantOnlyImplanter, BaseNanotrasenContraband]
-  name: syndicate implanter
+  name: Lambda Implanter
+  suffix: NT
   description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap to remove residual DNA after use!
   abstract: true
 
 - type: entity
   id: NTStorageImplanter
-  name: storage implanter
+  name: Storage Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -42,7 +43,7 @@
 
 - type: entity
   id: NTDeathRattleImplanter
-  name: death rattle implanter
+  name: Death Rattle Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -50,7 +51,7 @@
 
 - type: entity
   id: NTFreedomImplanter
-  name: freedom implanter
+  name: Freedom Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -58,7 +59,7 @@
 
 - type: entity
   id: NTRadioImplanter
-  name: lambda radio implanter
+  name: Lambda Radio Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -66,7 +67,7 @@
 
 - type: entity
   id: NTEmpImplanter
-  name: EMP implanter
+  name: EMP Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -74,7 +75,7 @@
 
 - type: entity
   id: NTScramImplanter
-  name: scram implanter
+  name: Scram Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -82,7 +83,7 @@
 
 - type: entity
   id: NTDnaScramblerImplanter
-  name: DNA scrambler implanter
+  name: DNA Scrambler Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -90,7 +91,7 @@
 
 - type: entity
   id: NTChameleonControllerImplanter
-  name: chameleon controller implanter
+  name: Chameleon Controller Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -98,7 +99,7 @@
 
 - type: entity
   id: NTVoiceMaskImplanter
-  name: identity mask implanter
+  name: Identity Mask Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -107,7 +108,7 @@
 
 - type: entity
   id: NTMicroBombImplanter
-  name: micro-bomb implanter
+  name: Micro-Bomb Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -115,7 +116,7 @@
 
 - type: entity
   id: NTMacroBombImplanter
-  name: macro-bomb implanter
+  name: Macro-Bomb Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter
@@ -123,7 +124,7 @@
 
 - type: entity
   id: NTDeathAcidifierImplanter
-  name: death acidifier implanter
+  name: Death Acidifier Implanter
   parent: BaseImplantOnlyImplanterLambda
   components:
   - type: Implanter

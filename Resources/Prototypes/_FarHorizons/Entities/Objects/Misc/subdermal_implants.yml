@@ -37,7 +37,8 @@
 - type: entity
   parent: DeathRattleImplant
   id: DeathRattleImplantLambda
-  name: Lambda death rattle implant
+  name: Lambda Death Rattle Implant
+  suffix: NT
   description: This implant will inform the Lambda radio channel should the user fall into critical condition or die.
   categories: [ HideSpawnMenu ]
   components:
@@ -47,7 +48,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantLambda
-  name: radio implant
+  name: Lambda Radio Implant
+  suffix: NT
   description: This implant grants access to the Lambda channel without a headset.
   categories: [ HideSpawnMenu ]
   components:
