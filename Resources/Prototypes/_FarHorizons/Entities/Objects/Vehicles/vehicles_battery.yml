@@ -223,10 +223,8 @@
     - type: VehicleMods
       startingEquipment:
         - StandardTires
-        - ElectricTurboEngine
-        - BasicArmorKit
+        - ElectricEngine
         - SecwayLight
-        - SecSiren
 
 #Syndicate divider
 - type: entity

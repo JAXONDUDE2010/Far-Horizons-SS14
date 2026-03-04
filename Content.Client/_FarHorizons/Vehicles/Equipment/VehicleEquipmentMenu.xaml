@@ -33,9 +33,11 @@
             </PanelContainer>
 
             <PanelContainer StyleClasses="PanelDark" SetSize="350 300" Margin="10 10 0 0">
-                <BoxContainer Name="EquipmentPanel" Orientation="Vertical">
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="EquipmentPanel" Orientation="Vertical">
 
-                </BoxContainer>
+                    </BoxContainer>
+                </ScrollContainer>
             </PanelContainer>
 
         </BoxContainer>
