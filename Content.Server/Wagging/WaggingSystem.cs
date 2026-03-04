@@ -30,6 +30,7 @@ public sealed class WaggingSystem : EntitySystem
     {
         base.Initialize();
 
+        //SubscribeLocalEvent<WaggingComponent, MapInitEvent>(OnWaggingMapInit);
         SubscribeLocalEvent<WaggingComponent, ComponentShutdown>(OnWaggingShutdown);
         SubscribeLocalEvent<WaggingComponent, ToggleActionEvent>(OnWaggingToggle);
         SubscribeLocalEvent<WaggingComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -44,10 +45,10 @@ public sealed class WaggingSystem : EntitySystem
         EnsureComp<WaggingComponent>(args.CloneUid);
     }
 
-    private void OnWaggingMapInit(Entity<WaggingComponent> ent, ref MapInitEvent args)
-    {
-        _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action, ent);
-    }
+    // private void OnWaggingMapInit(Entity<WaggingComponent> ent, ref MapInitEvent args)
+    // {
+    //     _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action, ent);
+    // }
 
     private void OnWaggingShutdown(Entity<WaggingComponent> ent, ref ComponentShutdown args)
     {
@@ -101,14 +102,13 @@ public sealed class WaggingSystem : EntitySystem
                 if (ent.Comp.Wagging)
                 {
                     _starlightMarking.TryGetWaggingId(currentMarkingId, out newMarkingId);
-                    newMarkingId ??= $"{currentMarkingId}{(ent.Comp.Suffixes.Length > 0 ? ent.Comp.Suffixes[0] : "")}";
                 }
                 else
-                {
-                    
+                {   
                     _starlightMarking.TryGetStaticId(markings[0].MarkingId, out newMarkingId);
-                    newMarkingId ??= currentMarkingId;
                 }
+
+                newMarkingId ??= currentMarkingId;
 
                 if (!_prototype.HasIndex<MarkingPrototype>(newMarkingId))
                 {

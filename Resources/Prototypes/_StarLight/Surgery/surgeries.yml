@@ -363,6 +363,8 @@
     speciesBlacklist:
     - SlimePerson
   #FarHorizons Start
+    - Shadekin
+    - ProtoKin
   - type: AnimalBypass 
   #FarHorizons End
   - type: SurgeryOrganExistCondition
@@ -390,6 +392,9 @@
   - type: SurgerySpeciesCondition
     speciesBlacklist:
     - SlimePerson
+  #FarHorizons Start
+    - Shadekin
+    - ProtoKin
   #FarHorizons Start
   - type: AnimalBypass 
   #FarHorizons End
@@ -885,12 +890,12 @@
     speciesBlacklist: []
     speciesWhitelist:
     - Shadekin
+    - ProtoKin #FH
   - type: SurgeryPartCondition
     parts:
     - Torso
   - type: SurgeryOrganExistCondition
-    organ:
-    - type: OrganShadekinCore
+    category: Lungs #FH
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
     state: core
@@ -911,12 +916,12 @@
     speciesBlacklist: []
     speciesWhitelist:
     - Shadekin
+    - ProtoKin #FH
   - type: SurgeryPartCondition
     parts:
     - Torso
   - type: SurgeryOrganDontExistCondition
-    organ:
-    - type: OrganShadekinCore
+    category: Lungs #FH
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
     state: core

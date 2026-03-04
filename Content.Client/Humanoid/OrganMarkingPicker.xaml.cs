@@ -68,6 +68,8 @@ public sealed partial class OrganMarkingPicker : Control
             var allMarkings =
                 _markingsModel.EnforceGroupAndSexRestrictions ? _marking.MarkingsByLayerAndGroupAndSex(layer, _group, organProfileData.Sex) : _marking.MarkingsByLayer(layer);
 
+            allMarkings = allMarkings.Where(marking => marking.Value.StaticId == null).ToDictionary(); // Far Horizons - remove animated markings from list
+
             if (allMarkings.Count == 0)
                 continue;
 

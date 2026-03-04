@@ -7565,5 +7565,270 @@ Entries:
   id: 84400
   time: '2026-02-23T23:08:31.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/844
+- author: Fasuh
+  changes:
+  - message: Adjust Corgi's radiated heat.
+    type: Tweak
+  id: 84000
+  time: '2026-02-24T22:16:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/840
+- author: Fasuh
+  changes:
+  - message: Fixed thermal regulation of dead bodies.
+    type: Fix
+  id: 84001
+  time: '2026-02-24T22:16:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/840
+- author: Fasuh
+  changes:
+  - message: Fixed taser immunity preventing crawling.
+    type: Fix
+  id: 84100
+  time: '2026-02-24T22:24:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/841
+- author: Fasuh
+  changes:
+  - message: Fixed translators working on empty batteries.
+    type: Fix
+  id: 84300
+  time: '2026-02-24T22:27:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/843
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Changed the Security Shuttle Siren to be quieter and use something a
+      bit less.. out of place. Also made it rotate faster and made the red color more
+      red.
+    type: Tweak
+  id: 84800
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Changed NTNC armor parent from Elite Suit to Blueshield Officer (also
+      renamed to NanoTrasen Marine Hardsuit since NT-NC doesn't exist here)
+    type: Tweak
+  id: 84801
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed NTNC Naval Officer's vest not having flats (also renamed to NanoTrasen
+      Naval Officer's Vest)
+    type: Fix
+  id: 84802
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Sirens going off from alert level changes (thanks gurchi)
+    type: Fix
+  id: 84803
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Dominator still having 6 shots despite needing to have 2 for stun
+      mode
+    type: Fix
+  id: 84804
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Omega's Containment Field Generators on Security Dock not being
+      on by default
+    type: Fix
+  id: 84805
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: Killer Tamashi & Princess Gurchi
+  changes:
+  - message: Fixed Detective Inquisitive Tethers running at mach fuck
+    type: Fix
+  id: 84806
+  time: '2026-02-24T22:35:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/848
+- author: princess_gurchi
+  changes:
+  - message: Character import now works again. It should support import from as many
+      other ss14 versions as possible.
+    type: Fix
+  id: 84900
+  time: '2026-02-24T22:42:38.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/849
+- author: lightening_orb, abby
+  changes:
+  - message: Resprites of encryption keys, Syndicate comms, GSL comms renamed to GSL.
+    type: Add
+  id: 84700
+  time: '2026-02-24T23:00:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/847
+- author: princess_gurchi
+  changes:
+  - message: Fixed protogen limbs being called "organ"
+    type: Fix
+  id: 85600
+  time: '2026-02-26T02:33:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/856
+- author: princess_gurchi
+  changes:
+  - message: Fixed shadekin/protokin core being inaccessible in surgery
+    type: Fix
+  id: 85601
+  time: '2026-02-26T02:33:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/856
+- author: princess_gurchi
+  changes:
+  - message: Fixed tend wounds/burns surgery removing ability to close incision while
+      leaving incision open
+    type: Fix
+  id: 85602
+  time: '2026-02-26T02:33:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/856
+- author: princess_gurchi
+  changes:
+  - message: Fixed tail wagging
+    type: Fix
+  id: 85603
+  time: '2026-02-26T02:33:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/856
+- author: princess_gurchi
+  changes:
+  - message: Vulps once again have "yip" emote
+    type: Fix
+  id: 85604
+  time: '2026-02-26T02:33:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/856
+- author: Fasuh, Vonte
+  changes:
+  - message: Added new magnet animation on bags.
+    type: Add
+  id: 84500
+  time: '2026-02-27T17:58:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/845
+- author: Fasuh, Vonte
+  changes:
+  - message: Added sounds and visual indicator to mail bag magnet.
+    type: Add
+  id: 84501
+  time: '2026-02-27T17:58:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/845
+- author: Fasuh, Vonte
+  changes:
+  - message: Changed the interaction UX on mail bag.
+    type: Tweak
+  id: 84502
+  time: '2026-02-27T17:58:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/845
+- author: StygianEagle
+  changes:
+  - message: Moff-Ghost copyright changed ever so slightly.
+    type: Tweak
+  id: 85900
+  time: '2026-02-28T12:24:41.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/859
+- author: princess_gurchi
+  changes:
+  - message: Fixed roundstart blindness (hopefully for good this time)
+    type: Fix
+  id: 86100
+  time: '2026-02-28T17:12:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/861
+- author: princess_gurchi
+  changes:
+  - message: Fixed role ban UI
+    type: Fix
+  id: 86101
+  time: '2026-02-28T17:12:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/861
+- author: AthenaAI
+  changes:
+  - message: Guide Entries for how to make the new fried food.
+    type: Add
+  id: 86300
+  time: '2026-03-03T13:00:40.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/863
+- author: AthenaAI
+  changes:
+  - message: 'Entities with the Body Component (example: any player, monkey, scurret
+      etc) are no longer turned into a burnt mess after 30 seconds in the fryer. Instead
+      they are just turned extra burnt and are no longer able to enter the fryer.'
+    type: Tweak
+  id: 86301
+  time: '2026-03-03T13:00:40.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/863
+- author: princess_gurchi
+  changes:
+  - message: Fixed IPC UI showing wrong blood level
+    type: Fix
+  id: 86400
+  time: '2026-03-03T19:37:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: Chemical reactions will no longer occur in IPCs bloodstream (while it
+      may be fun to use robot as a beaker, converting entire oil supply into ash and
+      preventing any healing until body is drained entirely of all solutions by injecting
+      5u of hot water isn't)
+    type: Tweak
+  id: 86401
+  time: '2026-03-03T19:37:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: IPCs will no longer heal bleeding naturally at all
+    type: Tweak
+  id: 86402
+  time: '2026-03-03T19:37:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: Welding will heal bleed for IPCs (no effect on protogens)
+    type: Tweak
+  id: 86403
+  time: '2026-03-03T19:37:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: IPCs will start taking bloodloss damage at 75% oil (down from 90%)
+    type: Tweak
+  id: 86404
+  time: '2026-03-03T19:37:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/864
+- author: princess_gurchi
+  changes:
+  - message: Paramed locker has their voidsuit back
+    type: Fix
+  id: 86600
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Moths can jump again
+    type: Fix
+  id: 86601
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Prevent rolling DAGD and RP objectives together
+    type: Tweak
+  id: 86602
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Second pen is no longer spawning with characters
+    type: Fix
+  id: 86603
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
+- author: princess_gurchi
+  changes:
+  - message: Removed error popup when putting beverage jug into beverage dispenser
+    type: Fix
+  id: 86604
+  time: '2026-03-03T21:09:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/866
 Order: -1
 

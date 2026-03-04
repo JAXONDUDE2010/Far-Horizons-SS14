@@ -69,6 +69,7 @@
 - type: marking
   id: SlimeTailWaggableMass
   bodyPart: Tail
+  waggingId: SlimeTailWaggableMassWag #FH
   groupWhitelist: [ Slime , ProtoSlimePerson] #FH
   emotes:
     - emotePrototype: Yip
@@ -81,6 +82,7 @@
 - type: marking
   id: SlimeTailWaggableMassWag
   bodyPart: Tail
+  staticId: SlimeTailWaggableMassWag #FH
   groupWhitelist: [ Slime , ProtoSlimePerson] #FH
   emotes:
     - emotePrototype: Yip

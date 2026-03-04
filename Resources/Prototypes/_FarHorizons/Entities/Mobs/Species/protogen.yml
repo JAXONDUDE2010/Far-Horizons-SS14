@@ -1130,6 +1130,7 @@
       - Protogen
       - Reptilian
   - type: VisionOrganRequiredForVision
+  - type: Wagging
 
 #region MOTH ####
 
