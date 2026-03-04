@@ -70,7 +70,7 @@
   frequency: 1213
   color: "#b52424"
   longRange: true
-  anonymous: true # Far Horuzons
+  anonymous: true # Far Horizons
   anonymousAlias: "Agent {0}" # Far Horizons
   anonymousIcon: JobIconSyndicate
 

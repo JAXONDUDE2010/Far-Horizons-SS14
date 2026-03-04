@@ -23,3 +23,108 @@
   components:
   - type: Implanter
     implant: RadioImplantSHC
+
+#Lambda (unsure how to name this section tbh, basically just NT Nukies section for now, can change name later)
+- type: entity
+  id: BaseImplantOnlyImplanterLambda
+  parent: [BaseImplantOnlyImplanter, BaseNanotrasenContraband]
+  name: syndicate implanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap to remove residual DNA after use!
+  abstract: true
+
+- type: entity
+  id: NTStorageImplanter
+  name: storage implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: StorageImplant
+
+- type: entity
+  id: NTDeathRattleImplanter
+  name: death rattle implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: DeathRattleImplantLambda
+
+- type: entity
+  id: NTFreedomImplanter
+  name: freedom implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: FreedomImplant
+
+- type: entity
+  id: NTRadioImplanter
+  name: lambda radio implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: RadioImplantLambda
+
+- type: entity
+  id: NTEmpImplanter
+  name: EMP implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: EmpImplant
+
+- type: entity
+  id: NTScramImplanter
+  name: scram implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: ScramImplant
+
+- type: entity
+  id: NTDnaScramblerImplanter
+  name: DNA scrambler implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: DnaScramblerImplant
+
+- type: entity
+  id: NTChameleonControllerImplanter
+  name: chameleon controller implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: ChameleonControllerImplant
+
+- type: entity
+  id: NTVoiceMaskImplanter
+  name: identity mask implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: VoiceMaskImplant
+
+
+- type: entity
+  id: NTMicroBombImplanter
+  name: micro-bomb implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: MicroBombImplant
+
+- type: entity
+  id: NTMacroBombImplanter
+  name: macro-bomb implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: MacroBombImplant
+
+- type: entity
+  id: NTDeathAcidifierImplanter
+  name: death acidifier implanter
+  parent: BaseImplantOnlyImplanterLambda
+  components:
+  - type: Implanter
+    implant: DeathAcidifierImplant

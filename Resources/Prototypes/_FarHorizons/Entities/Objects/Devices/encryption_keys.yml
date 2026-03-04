@@ -46,6 +46,21 @@
     - state: crypt_gray
     - state: secmed_label
 
+- type: entity
+  parent: [ EncryptionKey, BaseNanotrasenContraband ] #both name and sprites are placeholders, can easily change later
+  id: EncryptionKeyLambda
+  name: lambda encryption key
+  description: An encryption key used by someone with a lotta fancy gear.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Lambda
+    defaultChannel: Lambda
+  - type: Sprite
+    layers:
+    - state: crypt_silver
+    - state: nano_label
+
 #region Syndi Station Comms
 
 - type: entity 

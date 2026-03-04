@@ -35,6 +35,13 @@
   - type: Contraband
     severity: Syndicate
 
+- type: entity
+  id: BaseNanotrasenContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Nanotrasen
+
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity
   id: BaseMinorContraband
