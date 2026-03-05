@@ -1,6 +1,6 @@
 - type: faction
   id: FactionNT
-  name: Nanotrasen
+  name: NanoTrasen
   alias:
     - NT
   default: true # When handling issues of suddenly having factions where none existed before, this one will be used
@@ -12,7 +12,7 @@
 
 - type: faction
   id: FactionSyndicate
-  name: Syndicate
+  name: NeoSol
   alias:
     - syndie
   color: red
@@ -20,6 +20,17 @@
   playable: true
   major: true
   weight: 1
+
+- type: faction
+  id: FactionCFA
+  name: Concord Frontier Authority
+  alias:
+    - cfa
+  color: "#ff178b"
+  description: faction-description-cfa
+  playable: true
+  major: false
+  weight: 2
 
 - type: faction
   id: FactionCargonia
@@ -30,4 +41,4 @@
   description: faction-description-gsl
   playable: true
   major: false
-  weight: 2
+  weight: 3
