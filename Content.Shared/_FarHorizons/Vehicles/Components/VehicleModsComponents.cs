@@ -36,6 +36,11 @@ public sealed class InstalledVehicleEquipment : EntityEventArgs
     public EntityUid Vehicle;
 }
 
+public sealed class UnInstalledVehicleEquipment : EntityEventArgs
+{
+    public EntityUid Vehicle;
+}
+
 [Serializable, NetSerializable]
 [Flags]
 public enum VehicleType

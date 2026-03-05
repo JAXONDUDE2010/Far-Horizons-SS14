@@ -1,5 +1,6 @@
 using Robust.Shared.Serialization;
 using Content.Shared._FarHorizons.Vehicles.Components;
+using Content.Shared.DoAfter;
 
 namespace Content.Shared._FarHorizons.Vehicles.Equipment;
 
@@ -33,4 +34,24 @@ public sealed class UninstallPartMessage : BoundUserInterfaceMessage
         Part = part;
         Slot = slot;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class UninstallDoAfter : SimpleDoAfterEvent
+{
+    public readonly NetEntity Part;
+    public EquipmentType Slot;
+    public UninstallDoAfter(NetEntity part, EquipmentType slot)
+    {
+        Part = part;
+        Slot = slot;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class InstallDoAfter : SimpleDoAfterEvent
+{
+    public readonly NetEntity Part;
+    public InstallDoAfter(NetEntity part)
+        => Part = part;
 }

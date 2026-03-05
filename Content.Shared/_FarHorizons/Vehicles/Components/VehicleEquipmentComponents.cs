@@ -18,6 +18,9 @@ public sealed partial class VehicleEquipmentComponent : Component
 
     [DataField(required: true)]
     public VehicleType AllowedVehicles = VehicleType.None;
+
+    [DataField]
+    public TimeSpan InstallandRemoveTime = TimeSpan.FromSeconds(5);
 }
 
 public static class EquipmentTypeExtensions

@@ -25,7 +25,7 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 0
     baseWalkSpeed: 0
-    baseAcceleration: 0.1 
+    baseAcceleration: 0.1
     baseFriction: 1
   - type: InteractionOutline
   - type: Pullable

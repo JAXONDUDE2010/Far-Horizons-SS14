@@ -24,6 +24,10 @@ using Robust.Shared.Utility;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.DoAfter;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -41,31 +45,40 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<VehicleModsComponent, ComponentInit>(OnCompInit);
 
-        SubscribeLocalEvent<RiderComponent, AddRiderActions>(OnAddActions);
-        SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
-
+        SubscribeLocalEvent<VehicleModsComponent, InteractUsingEvent>(OnInstallAttempt);
+        SubscribeLocalEvent<VehicleModsComponent, InstallDoAfter>(OnInstallDoAfter);
         SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled);
         SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
         SubscribeLocalEvent<ReagantDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled);
         SubscribeLocalEvent<DamageableComponent, InstalledVehicleEquipment>(OnArmorInstalled);
         SubscribeLocalEvent<PointLightComponent, InstalledVehicleEquipment>(OnLightInstalled);
 
-        SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
-        SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
-        SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
+        SubscribeLocalEvent<VehicleModsComponent, UninstallPartMessage>(OnUninstallPart);
+        SubscribeLocalEvent<VehicleModsComponent, UninstallDoAfter>(OnUninstallDoAfter);
+        SubscribeLocalEvent<MovementSpeedModifierComponent, UnInstalledVehicleEquipment>(OnMovementUnInstalled);
+        SubscribeLocalEvent<PowerCellDrawComponent, UnInstalledVehicleEquipment>(OnElectricEngineUnInstalled);
+        SubscribeLocalEvent<ReagantDrawComponent, UnInstalledVehicleEquipment>(OnGasEngineUnInstalled);
+        SubscribeLocalEvent<DamageableComponent, UnInstalledVehicleEquipment>(OnArmorUnInstalled);
+        SubscribeLocalEvent<PointLightComponent, UnInstalledVehicleEquipment>(OnLightUnInstalled);
 
-        SubscribeLocalEvent<VehicleModsComponent, TurnOffVehicleEvent>(OnVehicleShutoff);
-
+        SubscribeLocalEvent<RiderComponent, AddRiderActions>(OnAddActions);
+        SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
         SubscribeLocalEvent<VehicleComponent, ToggleIntrinsicUIEvent>(OnActionToggle);
 
-        SubscribeLocalEvent<VehicleModsComponent, UninstallPartMessage>(OnUninstallPart);
+        SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
+        SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
+        SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
+        SubscribeLocalEvent<VehicleModsComponent, TurnOffVehicleEvent>(OnVehicleShutoff);
     }
 
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
@@ -120,68 +133,43 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         }
     }
 
-    private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
+    #region Install Section
+    private void OnInstallAttempt(Entity<VehicleModsComponent> ent, ref InteractUsingEvent args)
     {
-        if(!Resolve(item, ref veComp))
-            return false;
+        if(args.Handled 
+            || !TryComp<VehicleEquipmentComponent>(args.Used, out var veComp) 
+            || !TryComp<VehicleComponent>(ent.Owner, out var vehicle)) 
+                return;
 
-        if((veComp.AllowedVehicles & vmComp.VehicleType) == 0)
-            return false;
-
-        foreach(var slot in vmComp.Equipment)
+        if(vehicle.Started)
         {
-            if((slot.Key & veComp.Slot) != 0 && slot.Value == null)
-            {
-                vmComp.Equipment[slot.Key] = item;
-                return true;
-            }
+            _popupSystem.PopupCursor("Turn off vehicle before performing any maintenance.", args.User, PopupType.SmallCaution);
+            return;
         }
-        return false;
-    }
 
-    private void OnAddActions(Entity<RiderComponent> ent, ref AddRiderActions args)
-    {
-        if(ent.Comp.Riding == null) return;
-        var vehicle = ent.Comp.Riding.Value;
-        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
-        foreach(var item in vmComp.SpawnedEquipment)
+        var installEV = new InstallDoAfter(GetNetEntity(args.Used));
+        var installDoAfter = new DoAfterArgs(EntityManager, args.User, veComp.InstallandRemoveTime, installEV, ent.Owner)
         {
-            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity != null)
-                continue;
-            _actions.AddAction(ent.Owner, ref veComp.ActionEntity, veComp.ActionProto, item);
-            Dirty(item, vmComp);   
-        }
-    }
-    private void OnRemoveActions(Entity<RiderComponent> ent, ref RemoveRiderActions args)
-    {
-        if(ent.Comp.Riding == null) return;
-        var vehicle = ent.Comp.Riding.Value;
-        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
-        foreach(var item in vmComp.SpawnedEquipment)
-        {
-            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity == null)
-                continue;
-            _actions.RemoveAction(ent.Owner, veComp.ActionEntity);   
-            QueueDel(veComp.ActionEntity);
-            veComp.ActionEntity = null;
-            Dirty(item, vmComp);
-        }
-    }
-
-    private void OnVehicleShutoff(Entity<VehicleModsComponent> ent, ref TurnOffVehicleEvent args)
-    {
-        if(TryComp<VehicleFanModComponent>(ent.Comp.Equipment[EquipmentType.VENTFAN], out var fanComp))
-            _vAtmos.SetFanState(ent, fanComp, FanState.Off);
-    }
-
-    private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)
-    {
-        if(args.Handled) return;
-        if(!TryComp<UnpoweredFlashlightComponent>(ent.Owner, out var flashComp) || !HasComp<ItemToggleComponent>(ent.Owner)) return;
-        flashComp.LightOn = !flashComp.LightOn; 
-        var toggleUsed = new ItemToggledEvent(false, Activated: flashComp.LightOn, args.Performer);
-        RaiseLocalEvent(ent.Owner, ref toggleUsed);
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true
+        };
+        _doAfter.TryStartDoAfter(installDoAfter);
         args.Handled = true;
+    }
+
+    private void OnInstallDoAfter(Entity<VehicleModsComponent> ent, ref InstallDoAfter args)
+    {
+        var part = GetEntity(args.Part);
+        if (part is { } uid)
+        {
+            if(CheckandAssign(uid, ent.Comp))
+                _container.Insert(uid, ent.Comp.ModSlot);
+
+            var ev = new InstalledVehicleEquipment{Vehicle =  ent.Owner};
+            RaiseLocalEvent(uid, ev);
+            Dirty(ent.Owner, ent.Comp);
+        }
     }
 
     private void OnMovementInstalled(Entity<MovementSpeedModifierComponent> ent, ref InstalledVehicleEquipment args)
@@ -222,30 +210,124 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     private void OnLightInstalled(Entity<PointLightComponent> ent, ref InstalledVehicleEquipment args)
         => _appearance.SetData(ent.Owner, EquipmentVisuals.Hidden, true);
 
-    private void GridUiChanged(Entity<VehicleModsComponent> ent, ref GridUidChangedEvent args)
-        => _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
+    #endregion
 
-    private void OnFrictionRefresh(Entity<VehicleModsComponent> ent, ref RefreshFrictionModifiersEvent args)
+    #region Uninstall Section
+    private void OnUninstallPart(Entity<VehicleModsComponent> ent, ref UninstallPartMessage args)
     {
-        if(ent.Comp.Equipment[EquipmentType.TIRES] == null 
-            || !TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.TIRES], out var msmComp)) return;
-        args.Acceleration = msmComp.BaseAcceleration;
-        args.Friction = msmComp.BaseFriction;
-        args.FrictionNoInput = msmComp.BaseFriction;
+        var part = GetEntity(args.Part);
+        if(!TryComp<VehicleEquipmentComponent>(part, out var veComp) || !TryComp<VehicleComponent>(ent.Owner, out var vehicle))
+            return;
+        
+        if(vehicle.Started)
+        {
+            _popupSystem.PopupCursor("Turn off vehicle before performing any maintenance.", args.Actor, PopupType.SmallCaution);
+            return;
+        }
+
+        var uninstallEV = new UninstallDoAfter(args.Part, args.Slot);
+        var uninstallDoAfter = new DoAfterArgs(EntityManager, args.Actor, veComp.InstallandRemoveTime, uninstallEV, ent.Owner)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true
+        };
+        _doAfter.TryStartDoAfter(uninstallDoAfter);
     }
 
-    private void OnWeightlessRefresh(Entity<VehicleModsComponent> ent, ref RefreshWeightlessModifiersEvent args)
+    private void OnUninstallDoAfter(Entity<VehicleModsComponent> ent, ref UninstallDoAfter args)
     {
-        if(ent.Comp.Equipment[EquipmentType.THURSTERS] == null 
-            || !TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.THURSTERS], out var msmComp)) return;
-        var xForm = Transform(ent.Owner);
-        if(xForm.GridUid == null)
+        var part = GetEntity(args.Part);
+        if (part is { } uid)
         {
-            args.WeightlessAcceleration = msmComp.BaseWeightlessAcceleration;
-            args.WeightlessModifier = msmComp.BaseWeightlessModifier;
-            args.WeightlessFriction = msmComp.BaseWeightlessFriction*5;
-            args.WeightlessFrictionNoInput = msmComp.BaseWeightlessFriction*5;
+            _container.Remove(uid, ent.Comp.ModSlot);
+            _hands.TryForcePickupAnyHand(args.User, uid);
+            ent.Comp.Equipment[args.Slot] = null;
+            Dirty(ent.Owner, ent.Comp);
+
+            var ev = new UnInstalledVehicleEquipment{Vehicle =  ent.Owner};
+            RaiseLocalEvent(part, ev);
         }
+    }
+
+    private void OnMovementUnInstalled(Entity<MovementSpeedModifierComponent> ent, ref UnInstalledVehicleEquipment args)
+    {
+        if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp) 
+            || !TryComp<MovementSpeedModifierComponent>(args.Vehicle, out var msmComp)) return;
+        var Vehicle = args.Vehicle;
+        Timer.Spawn(0, () =>
+        {
+            switch(veComp.Slot)
+            {
+                case EquipmentType.TIRES:
+                    _movementSpeed.RefreshFrictionModifiers(Vehicle);
+                    break;
+                case EquipmentType.ENGINE:
+                    _movementSpeed.ChangeBaseSpeed(Vehicle, 0, 0, msmComp.Acceleration);
+                    break;
+                case EquipmentType.THURSTERS:
+                    _meta.RemoveFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
+                    break;
+            }
+        });
+    }
+
+    private void OnElectricEngineUnInstalled(Entity<PowerCellDrawComponent> ent, ref UnInstalledVehicleEquipment args) 
+        => _powerCell.SetDrawRate(args.Vehicle, 999999);
+
+    private void OnGasEngineUnInstalled(Entity<ReagantDrawComponent> ent, ref UnInstalledVehicleEquipment args)
+    {
+        if(!TryComp<ReagantDrawComponent>(args.Vehicle, out var rdComp)) return;
+        rdComp.DrainRate = 999999;
+        Dirty(args.Vehicle, rdComp);
+    }
+
+    private void OnArmorUnInstalled(Entity<DamageableComponent> ent, ref UnInstalledVehicleEquipment args)
+        => _damage.SetDamageModifierSetId(args.Vehicle, null);
+
+    private void OnLightUnInstalled(Entity<PointLightComponent> ent, ref UnInstalledVehicleEquipment args)
+        => _appearance.SetData(ent.Owner, EquipmentVisuals.Hidden, false);
+
+    #endregion
+
+    #region Actions
+    private void OnAddActions(Entity<RiderComponent> ent, ref AddRiderActions args)
+    {
+        if(ent.Comp.Riding == null) return;
+        var vehicle = ent.Comp.Riding.Value;
+        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
+        foreach(var item in vmComp.SpawnedEquipment)
+        {
+            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity != null)
+                continue;
+            _actions.AddAction(ent.Owner, ref veComp.ActionEntity, veComp.ActionProto, item);
+            Dirty(item, vmComp);   
+        }
+    }
+    private void OnRemoveActions(Entity<RiderComponent> ent, ref RemoveRiderActions args)
+    {
+        if(ent.Comp.Riding == null) return;
+        var vehicle = ent.Comp.Riding.Value;
+        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
+        foreach(var item in vmComp.SpawnedEquipment)
+        {
+            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity == null)
+                continue;
+            _actions.RemoveAction(ent.Owner, veComp.ActionEntity);   
+            QueueDel(veComp.ActionEntity);
+            veComp.ActionEntity = null;
+            Dirty(item, vmComp);
+        }
+    }
+
+    private void OnSirenToggle(Entity<ItemToggleComponent> ent, ref ToggleActionEvent args)
+    {
+        if(args.Handled) return;
+        if(!TryComp<UnpoweredFlashlightComponent>(ent.Owner, out var flashComp) || !HasComp<ItemToggleComponent>(ent.Owner)) return;
+        flashComp.LightOn = !flashComp.LightOn; 
+        var toggleUsed = new ItemToggledEvent(false, Activated: flashComp.LightOn, args.Performer);
+        RaiseLocalEvent(ent.Owner, ref toggleUsed);
+        args.Handled = true;
     }
 
     private void OnActionToggle(EntityUid uid, VehicleComponent component, ToggleIntrinsicUIEvent args)
@@ -256,7 +338,9 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             return;
         args.Handled = _ui.TryToggleUi(uid, args.Key, component.Rider.Value);
     }
+    #endregion
 
+    #region Functions
     private int GetRemainingPower(EntityUid uid, VehicleComponent Comp)
     {
         if(Comp.CellPowered)
@@ -279,15 +363,65 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         }
     }
 
-    private void OnUninstallPart(Entity<VehicleModsComponent> ent, ref UninstallPartMessage args)
+    private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
     {
-        var part = GetEntity(args.Part);
+        if(!Resolve(item, ref veComp))
+            return false;
 
-        if (part is { } uid)
+        if((veComp.AllowedVehicles & vmComp.VehicleType) == 0)
+            return false;
+
+        foreach(var slot in vmComp.Equipment)
         {
-            _container.Remove(uid, ent.Comp.ModSlot);
-            ent.Comp.Equipment[args.Slot] = null;
-            Dirty(ent.Owner, ent.Comp);
+            if((slot.Key & veComp.Slot) != 0 && slot.Value == null)
+            {
+                vmComp.Equipment[slot.Key] = item;
+                return true;
+            }
+        }
+        return false;
+    }
+    #endregion
+
+    #region Events
+    private void OnFrictionRefresh(Entity<VehicleModsComponent> ent, ref RefreshFrictionModifiersEvent args)
+    {
+        if(ent.Comp.Equipment[EquipmentType.TIRES] == null)
+        {
+            args.Acceleration = 0.1f;
+            args.Friction = 2;
+            args.FrictionNoInput = 2; 
+        }
+        else
+        {
+            if(!TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.TIRES], out var msmComp)) return;
+            args.Acceleration = msmComp.BaseAcceleration;
+            args.Friction = msmComp.BaseFriction;
+            args.FrictionNoInput = msmComp.BaseFriction;   
         }
     }
+
+    private void OnWeightlessRefresh(Entity<VehicleModsComponent> ent, ref RefreshWeightlessModifiersEvent args)
+    {
+        if(ent.Comp.Equipment[EquipmentType.THURSTERS] == null 
+            || !TryComp<MovementSpeedModifierComponent>(ent.Comp.Equipment[EquipmentType.THURSTERS], out var msmComp)) return;
+        var xForm = Transform(ent.Owner);
+        if(xForm.GridUid == null)
+        {
+            args.WeightlessAcceleration = msmComp.BaseWeightlessAcceleration;
+            args.WeightlessModifier = msmComp.BaseWeightlessModifier;
+            args.WeightlessFriction = msmComp.BaseWeightlessFriction*5;
+            args.WeightlessFrictionNoInput = msmComp.BaseWeightlessFriction*5;
+        }
+    }
+
+    private void OnVehicleShutoff(Entity<VehicleModsComponent> ent, ref TurnOffVehicleEvent args)
+    {
+        if(TryComp<VehicleFanModComponent>(ent.Comp.Equipment[EquipmentType.VENTFAN], out var fanComp))
+            _vAtmos.SetFanState(ent, fanComp, FanState.Off);
+    }
+
+    private void GridUiChanged(Entity<VehicleModsComponent> ent, ref GridUidChangedEvent args)
+        => _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
+    #endregion
 }
