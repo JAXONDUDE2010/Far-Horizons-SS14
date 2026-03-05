@@ -11,7 +11,7 @@ namespace Content.Client._FarHorizons.Vehicles.Equipment;
 [GenerateTypedNameReferences]
 public sealed partial class VehicleEquipmentMenu : FancyWindow
 {
-    public event Action<NetEntity>? OnUninstallButtonPressed;
+    public event Action<NetEntity, EquipmentType>? OnUninstallButtonPressed;
     private Dictionary<EquipmentType, EntityUid?> _cachedEquipment = new();
     private readonly IEntityManager _entityManager;
     public VehicleEquipmentMenu()
@@ -84,7 +84,6 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
             var equipmentButton = new Button
             {
                 SetWidth = mod != null ? 135 : 275,
-                SetHeight = 30,
                 HorizontalAlignment = HAlignment.Right,
                 Disabled = true
             };
@@ -114,7 +113,7 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
                     Text = "Uninstall",
                     HorizontalAlignment = HAlignment.Left
                 };
-                installationButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(_entityManager.GetNetEntity(mod.Value));
+                installationButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(_entityManager.GetNetEntity(mod.Value), type);
                 installationButton.AddChild(installationButtonText);
             
                 row.AddChildren([equipmentButton, installationButton]);   

@@ -23,7 +23,6 @@ using Content.Shared._FarHorizons.Vehicles.Equipment;
 using Robust.Shared.Utility;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
@@ -65,6 +64,8 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
         SubscribeLocalEvent<VehicleComponent, ToggleIntrinsicUIEvent>(OnActionToggle);
+
+        SubscribeLocalEvent<VehicleModsComponent, UninstallPartMessage>(OnUninstallPart);
     }
 
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
@@ -275,6 +276,18 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 return 0;
             
             return (int)Math.Round(SharedSolutionContainerSystem.PercentFull(solution));
+        }
+    }
+
+    private void OnUninstallPart(Entity<VehicleModsComponent> ent, ref UninstallPartMessage args)
+    {
+        var part = GetEntity(args.Part);
+
+        if (part is { } uid)
+        {
+            _container.Remove(uid, ent.Comp.ModSlot);
+            ent.Comp.Equipment[args.Slot] = null;
+            Dirty(ent.Owner, ent.Comp);
         }
     }
 }

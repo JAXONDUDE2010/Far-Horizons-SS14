@@ -1,4 +1,5 @@
 using Robust.Shared.Serialization;
+using Content.Shared._FarHorizons.Vehicles.Components;
 
 namespace Content.Shared._FarHorizons.Vehicles.Equipment;
 
@@ -25,7 +26,11 @@ public sealed class VehicleEquipmentUiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class UninstallPartMessage : BoundUserInterfaceMessage
 {
-    public readonly NetEntity? Part;
-    public UninstallPartMessage(NetEntity? part)
-        => Part = part;
+    public readonly NetEntity Part;
+    public readonly EquipmentType Slot;
+    public UninstallPartMessage(NetEntity part, EquipmentType slot)
+    {
+        Part = part;
+        Slot = slot;
+    }
 }

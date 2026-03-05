@@ -15,8 +15,8 @@ public sealed class VehicleEquipmentBoundUserInterface : BoundUserInterface
         base.Open();
         _menu = this.CreateWindow<VehicleEquipmentMenu>();
 
-        _menu.OnUninstallButtonPressed += part 
-            => SendMessage(new UninstallPartMessage(part));
+        _menu.OnUninstallButtonPressed += (part, slot) =>
+            SendMessage(new UninstallPartMessage(part, slot));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
