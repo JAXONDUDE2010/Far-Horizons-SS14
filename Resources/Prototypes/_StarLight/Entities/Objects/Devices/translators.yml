@@ -20,7 +20,7 @@
         startingItem: PowerCellMedium
   - type: Sprite
     sprite: _Starlight/Objects/Devices/translator.rsi
-    state: icon 
+    state: icon
     layers:
       - state: icon
       - state: translator
