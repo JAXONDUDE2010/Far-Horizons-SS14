@@ -20,7 +20,7 @@
         startingItem: PowerCellMedium
   - type: Sprite
     sprite: _Starlight/Objects/Devices/translator.rsi
-    state: icon
+    state: icon 
     layers:
       - state: icon
       - state: translator
@@ -34,6 +34,9 @@
     enabled: false
   - type: Clothing
     slots: [neck]
+  - type: Tag
+    tags:
+    - GenderPin # FH - yea yea i know it's not one but that's the tag for putting stuff in pin slot and i can't be assed to change it
 
 - type: entity
   categories: [ HideSpawnMenu ]
