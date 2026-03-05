@@ -16,6 +16,7 @@
         - MachineLayer
   - type: InteractionOutline
   - type: Anchorable
+  - type: SyncSprite
   - type: Sprite
     sprite: _FarHorizons/Structures/Machines/HolographicGenerators/holographic_field_generator.rsi
     state: machine
@@ -50,8 +51,8 @@
     PowerDrain: 10f
   - type: PointLight
     enabled: false
-    color: "#4080FF"
-    radius: 32
+    color: "#66ffea"
+    radius: 2
     energy: 2.0
     softness: 32.0
   - type: Appearance
@@ -211,6 +212,11 @@
     price: 150
   - type: PointLight
     color: red
+  - type: Icon
+    sprite: _FarHorizons/Structures/Machines/HolographicGenerators/holographic_barrier_generator.rsi
+    state: icon
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Machines/HolographicGenerators/holographic_barrier_generator.rsi
 
 - type: entity
   parent: HolographicBarrierGenerator
@@ -250,8 +256,10 @@
         - GlassLayer
   - type: Sprite
     sprite: _FarHorizons/Structures/Holo/holographic_field.rsi
-    state: field
     noRot: true
+    layers:
+    - state: field
+      shader: unshaded
   - type: Icon
     sprite: _FarHorizons/Structures/Holo/holographic_field.rsi
     state: field
@@ -269,7 +277,7 @@
   - type: PointLight
     enabled: true
     radius: 3
-    color: blue
+    color: "#66ffea"
   - type: GenericField
 
 - type: entity
@@ -296,11 +304,16 @@
   - type: Sprite
     sprite: _FarHorizons/Structures/Holo/holographic_barrier.rsi
     state: field
+    noRot: true
+    layers:
+    - state: field
+      shader: unshaded
   - type: Icon
     sprite: _FarHorizons/Structures/Holo/holographic_barrier.rsi
     state: field
-    norot: true
   - type: SyncSprite
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
   - type: Transform
     anchored: true
   - type: BlockWeather
