@@ -1,0 +1,11 @@
+- type: factionDepartmentAssignment
+  id: CFACommand
+  faction: FactionCFA
+  department: Command
+  weight: 0
+
+- type: factionDepartmentAssignment
+  id: CFALaw
+  faction: FactionCFA
+  department: Law
+  weight: 1

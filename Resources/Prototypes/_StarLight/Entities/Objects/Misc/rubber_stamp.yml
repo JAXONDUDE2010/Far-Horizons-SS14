@@ -28,13 +28,13 @@
     state: stamp-ntrep
 
 - type: entity
-  name: internal affairs agent's rubber stamp
+  name: Affairs Official's Rubber Stamp # Far Horizons
   parent: [ RubberStampBase, BaseLawContraband ]
   id: RubberStampIAA
   suffix: DO NOT MAP
   components:
     - type: Stamp
-      stampedName: "Internal Affairs Agent"
+      stampedName: "Affairs Official" # Far Horizons
       stampedColor: "#33CC33"
       stampState: "paper_stamp-ok"
     - type: Sprite

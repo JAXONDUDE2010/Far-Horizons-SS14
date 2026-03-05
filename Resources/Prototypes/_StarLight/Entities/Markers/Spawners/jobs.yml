@@ -41,7 +41,7 @@
 - type: entity
   id: SpawnPointIAA
   parent: SpawnPointJobBase
-  name: internal affairs agent
+  name: Affairs Official # Far Horizons
   components:
   - type: SpawnPoint
     job_id: IAA
