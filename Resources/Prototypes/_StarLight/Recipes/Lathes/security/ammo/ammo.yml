@@ -17,7 +17,7 @@
   - Ammo
   completetime: 1
   materials:
-    Plastic: 100
+    Plastic: 100 #FH
 
 - type: latheRecipe
   id: MagazinePistolSubMachineGunRubber
@@ -26,7 +26,7 @@
   - Ammo
   completetime: 1
   materials:
-    Plastic: 100
+    Plastic: 100 #FH
 
 - type: latheRecipe
   id: SpeedLoaderMagnumRubber
@@ -35,7 +35,7 @@
   - Ammo
   completetime: 1
   materials:
-    Plastic: 100
+    Plastic: 100 #FH
 
 - type: latheRecipe
   id: MagazineLightRifleRubber
@@ -44,13 +44,13 @@
   - Ammo
   completetime: 1
   materials:
-    Plastic: 100
+    Plastic: 100 #FH
 
 - type: latheRecipe
-  id: MagazineRifle556Rubber
-  result: MagazineRifle556Rubber
+  id: MagazineRifle556Rubber #FH
+  result: MagazineRifle556Rubber #FH
   categories:
   - Ammo
   completetime: 1
   materials:
-    Plastic: 100
+    Plastic: 100 #FH
