@@ -160,6 +160,8 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
+        enum.VehicleEquipmentUiKey.Key:
+          type: VehicleEquipmentBoundUserInterface
     - type: Storage
       grid:
       - 0,0,6,4

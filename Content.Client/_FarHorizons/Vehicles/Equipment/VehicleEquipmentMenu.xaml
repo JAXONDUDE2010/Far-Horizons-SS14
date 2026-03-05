@@ -22,7 +22,7 @@
                             <RichTextLabel Name="HealthPercent" Text="75%" HorizontalAlignment="Left" Margin="5 0 0 0"/>
                         </Control>           
 
-                        <RichTextLabel Name="FuelLabel" Text="Power" HorizontalAlignment="Left"/>
+                        <RichTextLabel Name="FuelLabel" HorizontalAlignment="Left"/>
                         <Control SetSize="200 25">
                             <ProgressBar Name="FuelBar" MinValue="0" MaxValue="100" Value="75"/>
                             <RichTextLabel Name="FuelPercent" HorizontalAlignment="Left" Margin="5 0 0 0"/>
@@ -32,7 +32,7 @@
                 </BoxContainer>
             </PanelContainer>
 
-            <PanelContainer StyleClasses="PanelDark" SetSize="350 300" Margin="10 10 0 0">
+            <PanelContainer StyleClasses="PanelDark" SetWidth="350" Margin="10 10 0 0" VerticalExpand="True">
                 <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
                     <BoxContainer Name="EquipmentPanel" Orientation="Vertical">
 

@@ -21,3 +21,11 @@ public sealed class VehicleEquipmentUiState : BoundUserInterfaceState
         Integrity = integrity;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class UninstallPartMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity? Part;
+    public UninstallPartMessage(NetEntity? part)
+        => Part = part;
+}
