@@ -210,10 +210,10 @@
 
 # Rifle
 - type: entity
-  name: box of .20 rifle magazines
+  name: Box of 5.56 Rifle Magazines #FH
   parent: BoxMagazine
-  id: BoxMagazineRifleSP
-  description: A box full of .20 rifle magazines.
+  id: BoxMagazineRifle556SP #FH
+  description: A box full of 5.56 Rifle magazines. #FH
   components:
   - type: Item
     size: Large
@@ -227,23 +227,23 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: MagazineRifleFMJ
+        - id: MagazineRifle556FMJ #FH
           amount: 2
-        - id: MagazineRifleSP
+        - id: MagazineRifle556SP #FH
           amount: 1
-        - id: MagazineRifleHP
+        - id: MagazineRifle556HP #FH
           amount: 1
-        - id: MagazineRifleAP
+        - id: MagazineRifle556AP #FH
           amount: 1
 
 - type: entity
-  name: box of .20 rifle (practice) magazines
+  name: Box of 5.56 Rifle (Practice) Magazines #FH
   parent: BoxMagazine
-  id: BoxMagazineRiflePractice
-  description: A box full of .20 rifle (practice) magazines.
+  id: BoxMagazineRifle556Practice #FH
+  description: A box full of 5.56 Rifle (Practice) magazines. #FH
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase:
-        id: MagazineRiflePractice
+        id: MagazineRifle556Practice #FH
         amount: 4

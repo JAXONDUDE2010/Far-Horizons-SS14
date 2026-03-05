@@ -3981,7 +3981,7 @@ entities:
       - TearGasGrenade
       - GrenadeStinger
       - BoxShotgunIncendiary
-      - MagazineRifleIncendiary
+      - MagazineRifle556Incendiary
       - MagazinePistolIncendiary
       - MagazinePistolSubMachineGunIncendiary
       - MagazineLightRifleIncendiary
@@ -3990,15 +3990,15 @@ entities:
       - MagazineBoxPistolIncendiary
       - MagazineBoxMagnumIncendiary
       - MagazineBoxLightRifleIncendiary
-      - MagazineBoxRifleIncendiary
-      - LightRifleHeavyMagazineIncendiary
+      - MagazineBoxRifle556Incendiary
+      - Rifle556HeavyMagazineIncendiary
       - SpeedLoaderShotgunIncendiary
       - MagazineMagnumIncendiary
       - MagazinePistol38Incendiary
       - MagazineBoxRevolver38Incendiary
       - MagazineRifle38Incendiary
       - SpeedLoaderRevolver38Incendiary
-      - MagazineRifleUranium
+      - MagazineRifle556Uranium
       - MagazinePistolUranium
       - MagazinePistolSubMachineGunUranium
       - MagazineLightRifleUranium
@@ -4006,9 +4006,9 @@ entities:
       - MagazineBoxPistolUranium
       - MagazineBoxMagnumUranium
       - MagazineBoxLightRifleUranium
-      - MagazineBoxRifleUranium
+      - MagazineBoxRifle556Uranium
       - BoxShotgunUranium
-      - LightRifleHeavyMagazineUranium
+      - Rifle556HeavyMagazineUranium
       - SpeedLoaderShotgunUranium
       - MagazineMagnumUranium
       - MagazinePistol38Uranium
@@ -4176,14 +4176,14 @@ entities:
       - SpeedLoaderMagnumAP
       - MagazinePistolAP
       - MagazinePistol38AP
-      - MagazineRifleAP
+      - MagazineRifle556AP
       - MagazineLightRifleAP
       - MagazineBoxMagnumAP
       - MagazineBoxPistolAP
       - MagazineBoxRevolver38AP
-      - MagazineBoxRifleAP
+      - MagazineBoxRifle556AP
       - MagazineBoxLightRifleAP
-      - LightRifleHeavyMagazineAP
+      - Rifle556HeavyMagazineAP
       - MagazinePistolSubMachineGunAP
       - PaddyUpgradeKit
       - ShuttleConsoleCircuitboard
