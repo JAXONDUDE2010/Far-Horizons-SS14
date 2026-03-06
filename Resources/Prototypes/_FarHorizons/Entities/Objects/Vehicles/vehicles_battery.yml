@@ -60,6 +60,7 @@
       vehicleType: Electric
       equipmentSlots: [tires, engine, armor, headlight]
 
+#region NT
 - type: entity
   id: VehicleSecway
   parent: [VehicleBatteryBuckleBase, BaseSecurityContraband]
@@ -90,6 +91,12 @@
   - type: VehicleMods
     vehicleType: Electric
     equipmentSlots: [tires, engine, armor, headlight, lightbar]
+  - type: ItemMapper
+    mapLayers:
+      lightarmor:
+        whitelist:
+          tags:
+            - VehicleLightArmor
   - type: StealTarget
     stealGroup: VehicleSecwaySteal
   - type: Tag
@@ -183,50 +190,7 @@
         - SecwayLight
         - SecSiren
 
-- type: entity
-  id: VehicleSegway
-  parent: VehicleBatteryBuckleBase
-  name: Segway
-  components:
-    - type: Sprite
-      drawdepth: OverMobs
-      sprite: _FarHorizons/Objects/Vehicles/segway.rsi
-      layers:
-      - state: vehicle
-        map: ["enum.VehicleVisualLayers.Base"]
-      noRot: true 
-    - type: ItemSlots
-      slots:
-        key_slot:
-          name: Keys
-          whitelist:
-            requireAll: true
-            tags:
-            - VehicleKey
-            - SegwayKeys
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          disableEject: true
-          swap: false 
-
-- type: entity
-  id: VehicleSegwayFilled
-  parent: VehicleSegway
-  suffix: Filled
-  components: 
-    - type: ContainerFill
-      containers:
-        cell_slot:
-        - PowerCellMedium
-        key_slot:
-        - VehicleKeySegway
-    - type: VehicleMods
-      startingEquipment:
-        - StandardTires
-        - ElectricEngine
-        - SecwayLight
-
-#Syndicate divider
+#region Syndicate
 - type: entity
   id: VehicleSecwayS
   parent: VehicleSecway
@@ -273,6 +237,15 @@
       - state: vehicle
         map: ["enum.VehicleVisualLayers.Base"]
       noRot: true
+    - type: VehicleMods
+      vehicleType: Electric
+      equipmentSlots: [tires, engine, armor, headlight, lightbar]
+    - type: ItemMapper
+      mapLayers:
+        lightarmor:
+          whitelist:
+            tags:
+              - VehicleLightArmor
 
 - type: entity
   id: VehicleSegwayNSTFilled
@@ -310,6 +283,59 @@
         - LightArmorKit
         - SecwayLightBright
 
+#region Civilian
+- type: entity
+  id: VehicleSegway
+  parent: VehicleBatteryBuckleBase
+  name: Segway
+  components:
+    - type: Sprite
+      drawdepth: OverMobs
+      sprite: _FarHorizons/Objects/Vehicles/segway.rsi
+      layers:
+      - state: vehicle
+        map: ["enum.VehicleVisualLayers.Base"]
+      noRot: true 
+    - type: ItemSlots
+      slots:
+        key_slot:
+          name: Keys
+          whitelist:
+            requireAll: true
+            tags:
+            - VehicleKey
+            - SegwayKeys
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          disableEject: true
+          swap: false 
+    - type: VehicleMods
+      vehicleType: Electric
+      equipmentSlots: [tires, engine, armor, headlight, lightbar]
+    - type: ItemMapper
+      mapLayers:
+        lightarmor:
+          whitelist:
+            tags:
+              - VehicleLightArmor
+
+- type: entity
+  id: VehicleSegwayFilled
+  parent: VehicleSegway
+  suffix: Filled
+  components: 
+    - type: ContainerFill
+      containers:
+        cell_slot:
+        - PowerCellMedium
+        key_slot:
+        - VehicleKeySegway
+    - type: VehicleMods
+      startingEquipment:
+        - StandardTires
+        - ElectricEngine
+        - SecwayLight
+        
 - type: entity
   id: VehicleJanicart
   parent: VehicleBatteryBuckleBase

@@ -304,3 +304,6 @@
       state: light
     - type: Damageable
       damageModifierSet: VehicleLightArmor
+    - type: Tag
+      tags:
+      - VehicleLightArmor

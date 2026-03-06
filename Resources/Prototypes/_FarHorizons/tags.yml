@@ -254,6 +254,9 @@
   id: TrueProtogen
 
 - type: Tag
+  id: VehicleLightArmor
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
