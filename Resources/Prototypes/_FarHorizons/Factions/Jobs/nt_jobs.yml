@@ -36,12 +36,6 @@
   weight: -5
 
 - type: factionJobAssignment
-  id: NTMagistrate
-  faction: FactionNT
-  job: Magistrate
-  weight: -4
-
-- type: factionJobAssignment
   id: NTNanoTrasenRepresentative
   faction: FactionNT
   job: NanoTrasenRepresentative

@@ -56,3 +56,149 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Lecter Type-T
+  parent: WeaponRifleLecter
+  id: WeaponRifleLecterNT
+  description: "A modifed Lecter platform utilized by NanoTrasen with a simple angled grip and holographic sights for easy target acquisition, as well as electronic status lights. Feeds from 5.56 Magazines."
+  suffix: NT
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/nt_lecter.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: GunWieldBonus #1-5 Deviation / Holo-Sights
+    minAngle: -20
+    maxAngle: -27
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/nt_lecter.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: EyeCursorOffset # Holo-Sights
+    maxOffset: 0.5
+    pvsIncrease: 0.3
+  - type: UseDelay # Grip
+    delay: 0.5
+  - type: SpeedModifiedOnWield # Light Stock
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  name: Lecter Type-S
+  parent: WeaponRifleLecter
+  id: WeaponRifleLecterNS
+  description: "A modifed Lecter platform utilized by NeoSol with a longer barrel for greater accuracy and an attached gunsword to make crewmembers think twice about challenging an officer with this weapon. Feeds from 5.56 Magazines."
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/NS_Lecter/ns_lecter_x64.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: GunWieldBonus #1-2 Deviation / Long Barrel
+    minAngle: -19
+    maxAngle: -31
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/NS_Lecter/ns_lecter_x32.rsi
+  - type: Item
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/NS_Lecter/ns_lecter_x32.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 1
+    damage:
+      types:
+        Slash: 22 # Bit better than combat knife which clocks in at 18 damage/s
+    soundHit: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcThrust
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: UseDelay # Long Barrel / Gunsword
+    delay: 1.5
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.90
+    sprintModifier: 0.90
+
+- type: entity
+  name: Lecter Type-W
+  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  id: WeaponRifleLecterS
+  description: "An illegal modifcation of the Lecter platform utilized by the Syndicate with a compact profile for ease of use with an entire chainsaw stuck on the end to make getting into melee with this thing downright lethal. Feeds from 5.56 Magazines."
+  suffix: S
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/s_lecter.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: GunWieldBonus #10-15 Deviation (Carbine)
+    minAngle: -10
+    maxAngle: -17
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/s_lecter.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifle556SP
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineRifle556
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeRifle556
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot ""
+      gun_chamber: !type:ContainerSlot ""
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Sharp
+  - type: MeleeWeapon
+    autoAttack: true
+    wideAnimationRotation: -90
+    attackRate: 4
+    damage:
+      types:
+        Slash: 8 # Esword without the structural
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+    angle: 0
+    animation: WeaponArcThrust
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Lecter
+  - type: UseDelay # Short Barrel
+    delay: 0.5
+  - type: SpeedModifiedOnWield # Short Stock
+    walkModifier: 0.95
+    sprintModifier: 0.95

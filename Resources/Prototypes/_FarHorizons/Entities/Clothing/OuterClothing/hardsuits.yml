@@ -153,6 +153,74 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCorpsman
 
+# Heavy Security Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+  id: ClothingOuterHardsuitSecurityHeavy
+  name: Heavy Security Hardsuit
+  description: A high-tech powered suit developed by NanoTrasen to boost Security capabilites in handling station-wide threats, saving costs on asking the Emergency Response Team to intervene for them who often arrive far too late to help anyway. It boasts an ID-Lock and Gun-Lock system.
+  suffix: NT
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,4
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/heavy_security.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/heavy_security.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0 # Immune
+  - type: IdClothingBlocker
+    allowedJobs:
+      - Security
+      - Armory
+      - HeadOfSecurity
+      - Captain
+      - Detective
+  - type: Pierceable
+    level: Metal
+  - type: Armor # I thought about this a lot, but I decided that since speed is everything, a hefty 70% slowdown should necessitate MUCH stronger stats.
+    modifiers:
+      flatReductions:
+        Piercing: 5
+        Heat: 4
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Radiation: 0.2
+        Caustic: 0.2
+    staminaModifier: 0.1
+    ignoreKnockdown: true
+  - type: ClothingSpeedModifier # Slower for Syndie jugg stats. If you can't outrun this thing..
+    walkModifier: 0.30
+    sprintModifier: 0.30
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      params:
+        volume: -6
+        pitch: 0.7
+        variation: 0.025
+  - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+      - RequiredForLmgTag
+      - IPCExternalCooling
+      - HeavySecSuit
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSecurityHeavy
 
 #region Syndicate 
 

@@ -1,0 +1,11 @@
+- type: factionJobAssignment
+  id: CFAMagistrate
+  faction: FactionCFA
+  job: Magistrate
+  weight: 0
+
+- type: factionJobAssignment
+  id: CFAIAA
+  faction: FactionCFA
+  job: IAA
+  weight: 1

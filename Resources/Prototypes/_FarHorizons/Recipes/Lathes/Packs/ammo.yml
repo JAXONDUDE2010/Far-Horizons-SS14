@@ -1,0 +1,141 @@
+# Shared between AmmoFab and emagged Autolathe
+- type: latheRecipePack
+  id: FarHorizonsAmmoStatic
+  recipes:
+######################BOX#######################
+# Light Rifle
+  - MagazineBoxLightRifleSP
+  - MagazineBoxLightRifleHP
+  - MagazineBoxLightRifleFMJ
+# Magnum
+  - MagazineBoxMagnumSP
+  - MagazineBoxMagnumHP
+  - MagazineBoxMagnumFMJ
+# Pistol
+  - MagazineBoxCaselessRifle
+  - MagazineBoxCaselessRifleRubber
+  - MagazineBoxPistolSP
+  - MagazineBoxPistolHP
+  - MagazineBoxPistolFMJ
+  - MagazineBoxRevolver38SP
+  - MagazineBoxRevolver38HP
+  - MagazineBoxRevolver38FMJ
+# Rifle
+  - MagazineBoxRifle556SP
+  - MagazineBoxRifle556HP
+  - MagazineBoxRifle556FMJ
+# Shotgun
+  - BoxLethalshot
+  - BoxShotgunSlug
+  - BoxShellTranquilizer
+#####################MAGAZINE#######################
+# LMG
+  - Rifle556HeavyMagazineSP
+  - Rifle556HeavyMagazineHP
+  - Rifle556HeavyMagazineFMJ
+  - Rifle556HeavyMagazineEmpty
+# Light Rifle
+  - MagazineLightRifleSP
+  - MagazineLightRifleHP
+  - MagazineLightRifleFMJ
+  - MagazineLightRifleMaxim
+  - SpeedLoaderLightRifle
+  - MagazineLightRifleEmpty
+# Magnum
+  - SpeedLoaderMagnumSP
+  - SpeedLoaderMagnumHP
+  - SpeedLoaderMagnumFMJ
+  - MagazineMagnum
+  - MagazineMagnumRifleSP
+  - MagazineMagnumEmpty
+  - SpeedLoaderMagnumEmpty
+# Pistol
+  - MagazinePistolCaselessRifle
+  - MagazineCaselessRifleRubber
+  - MagazinePistolSP
+  - MagazinePistolHP
+  - MagazinePistolFMJ
+  - MagazinePistolEmpty
+  - MagazinePistol38SP
+  - MagazinePistol38HP
+  - MagazinePistol38FMJ
+  - MagazinePistol38Empty
+# SMG
+  - MagazinePistolSubMachineGunSP
+  - MagazinePistolSubMachineGunHP
+  - MagazinePistolSubMachineGunFMJ
+  - MagazinePistolSubMachineGunEmpty
+  - MagazinePistolSubMachineGunUzi
+  - MagazinePistolSubMachineGunPPSH
+# Rifle
+  - MagazineRifle556SP
+  - MagazineRifle556HP
+  - MagazineRifle556FMJ
+  - MagazineRifle556Empty
+# Shotgun
+  - MagazineShotgun
+  - MagazineShotgunEmpty
+  - MagazineShotgunSlug
+  - SpeedLoaderMagnumBasic
+  - SpeedLoaderShotgunEmpty
+  - SpeedLoaderShotgunSlug
+  - SpeedLoaderShotgunBeanbag
+####################################################
+
+# Shared between AmmoFab and emagged Protolathe
+- type: latheRecipePack
+  id: FarHorizonsAmmoDynamic
+  recipes:
+#####################BOX#######################
+# Light Rifle
+  - MagazineBoxLightRifleIncendiary
+  - MagazineBoxLightRifleUranium
+  - MagazineBoxLightRifleAP
+# Magnum
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxMagnumUranium
+  - MagazineBoxMagnumAP
+# Pistol
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxPistolUranium
+  - MagazineBoxPistolAP
+  - MagazineBoxRevolver38AP
+# Rifle
+  - MagazineBoxRifle556Incendiary
+  - MagazineBoxRifle556Uranium
+  - MagazineBoxRifle556AP
+# Shotgun
+  - BoxShotgunIncendiary
+  - BoxShotgunUranium
+#####################MAGAZINE#######################
+# LMG
+  - Rifle556HeavyMagazineIncendiary
+  - Rifle556HeavyMagazineUranium
+  - Rifle556HeavyMagazineAP
+# Light Rifle
+  - MagazineLightRifleIncendiary
+  - MagazineLightRifleUranium
+  - MagazineLightRifleAP
+# Magnum
+  - SpeedLoaderMagnumIncendiary
+  - SpeedLoaderMagnumUranium
+  - SpeedLoaderMagnumAP
+# Pistol
+  - MagazinePistolIncendiary
+  - MagazinePistolUranium
+  - MagazinePistolAP
+  - MagazinePistol38AP
+# SMG
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunUranium
+  - MagazinePistolSubMachineGunAP
+# Rifle
+  - MagazineRifle556Incendiary
+  - MagazineRifle556Uranium
+  - MagazineRifle556AP
+# Shotgun
+  - MagazineShotgunIncendiary
+  - SpeedLoaderShotgunIncendiary
+  - SpeedLoaderShotgunUranium
+# Grenade
+  - MagazineGrenadeEmpty

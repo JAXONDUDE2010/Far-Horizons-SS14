@@ -48,4 +48,4 @@ WeaponShotgunEnforcerRubber: WeaponShotgunEnforcer
 MagazineBoxMagnum: MagazineBoxMagnumSP
 CartridgeMagnum: CartridgeMagnumSP
 CartridgePistol: CartridgePistolSP
-CartridgeRifle: CartridgeRifleSP
+CartridgeRifle: CartridgeRifle556SP #FH
