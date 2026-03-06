@@ -8233,5 +8233,28 @@ Entries:
   id: 87803
   time: '2026-03-06T00:13:48.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/878
+- author: princess_gurchi
+  changes:
+  - message: Adds support for reusing keycodes between different radio channels
+    type: Add
+  id: 87400
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: 'Changed all "mirrored" radio channels to use the same keycode (example:
+      syndicate and NT command both use ":c" to speak in their radio; both syndicate
+      and NT nukies will use ":t" for theirs)'
+    type: Tweak
+  id: 87401
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: Syndicate telecom servers for mapping
+    type: Add
+  id: 87402
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
 Order: -1
 
