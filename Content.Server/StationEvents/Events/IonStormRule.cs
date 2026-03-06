@@ -1,5 +1,7 @@
+using Content.Server._FarHorizons.Silicons.Glitching;
 using Content.Server.Silicons.Laws;
 using Content.Server.StationEvents.Components;
+using Content.Shared._FarHorizons.Silicons.Glitching;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
@@ -9,6 +11,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
     [Dependency] private readonly IonStormSystem _ionStorm = default!;
+    [Dependency] private readonly GlitchOnIonStormSystem _glitchOnIonStorm = default!; // Far Horizons
 
     protected override void Started(EntityUid uid, IonStormRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -26,5 +29,12 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 
             _ionStorm.IonStormTarget((ent, lawBound, target));
         }
+
+        // Far Horizons start
+        // this entire thing should be events...
+        var query2 = EntityQueryEnumerator<GlitchOnIonStormComponent>();
+        while (query2.MoveNext(out var ent, out var glitch))
+            _glitchOnIonStorm.TriggerIonStorm((ent, glitch));
+        // Far Horizons end
     }
 }
