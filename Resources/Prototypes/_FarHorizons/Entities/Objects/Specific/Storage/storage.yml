@@ -42,8 +42,8 @@
         - Dropper
         - AmmoniaPack
         - AutoMender
-       components:
         - Hypospray
+       components:
         - Injector
         - Pill
         - HandLabeler
@@ -279,7 +279,7 @@
       - Paper
       - ConstructionMaterial
       - Sheet
-    components:
+      components:
       - StationMap
       - SprayPainter
       - SprayPainterAmmo
