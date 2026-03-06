@@ -8256,5 +8256,19 @@ Entries:
   id: 87402
   time: '2026-03-06T00:27:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: Glitching VFX
+    type: Add
+  id: 88400
+  time: '2026-03-06T16:20:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/884
+- author: princess_gurchi
+  changes:
+  - message: IPCs and Protogens will glitch after every ion storm.
+    type: Add
+  id: 88401
+  time: '2026-03-06T16:20:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/884
 Order: -1
 
