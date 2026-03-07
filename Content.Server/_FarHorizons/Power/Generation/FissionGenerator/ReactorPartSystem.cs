@@ -11,11 +11,16 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
 
-public sealed partial class ReactorPartSystem : EntitySystem
+public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    /// <summary>
+    /// Processing multiplier based on atmospherics time and speedup cvar
+    /// </summary>
+    public float ProcMult => _atmosphereSystem.AtmosTime * _atmosphereSystem.Speedup * 6; // The 6 is a magic number to make things work at a reasonable rate
 
     /// <summary>
     /// Processes gas flowing through a reactor part.
