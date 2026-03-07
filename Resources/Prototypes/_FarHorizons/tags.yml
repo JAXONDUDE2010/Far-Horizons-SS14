@@ -125,6 +125,9 @@
   id: PocketFireExtinguish
 
 - type: Tag
+  id: Pin
+
+- type: Tag
   id: Protogen
 
 - type: Tag
