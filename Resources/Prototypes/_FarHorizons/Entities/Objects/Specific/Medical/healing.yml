@@ -149,7 +149,7 @@
       visible: false
   - type: Item
     sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
-    heldPrefix: oilapack
+    heldPrefix: oilpack
   - type: Healing
     solutionDrain: true
     reagentsToDrain:
