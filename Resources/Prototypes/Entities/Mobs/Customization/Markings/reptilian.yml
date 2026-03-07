@@ -115,6 +115,7 @@
 - type: marking
   id: LizardTailSmooth
   bodyPart: Tail
+  waggingId: LizardTailSmoothAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -125,6 +126,7 @@
 - type: marking
   id: LizardTailLarge
   bodyPart: Tail
+  waggingId: LizardTailLargeAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -133,6 +135,7 @@
 - type: marking
   id: LizardTailSpikes
   bodyPart: Tail
+  waggingId: LizardTailSpikesAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -141,6 +144,7 @@
 - type: marking
   id: LizardTailLTiger
   bodyPart: Tail
+  waggingId: LizardTailLTigerAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -149,6 +153,7 @@
 - type: marking
   id: LizardTailDTiger
   bodyPart: Tail
+  waggingId: LizardTailDTigerAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -157,6 +162,7 @@
 - type: marking
   id: LizardTailAquatic
   bodyPart: Tail
+  waggingId: LizardTailAquaticAnimated # FH
   groupWhitelist: [Reptilian, ProtoReptile] # FH
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -338,6 +344,7 @@
 - type: marking
   id: LizardTailSmoothAnimated
   bodyPart: Tail
+  staticId: LizardTailSmooth # FH
   groupWhitelist: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -348,6 +355,7 @@
 - type: marking
   id: LizardTailLargeAnimated
   bodyPart: Tail
+  staticId: LizardTailLarge # FH
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -356,6 +364,7 @@
 - type: marking
   id: LizardTailSpikesAnimated
   bodyPart: Tail
+  staticId: LizardTailSpikes # FH
   groupWhitelist: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -365,6 +374,7 @@
   id: LizardTailLTigerAnimated
   bodyPart: Tail
   groupWhitelist: []
+  staticId: LizardTailLTiger # FH
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_ltiger_wagging
@@ -373,6 +383,7 @@
   id: LizardTailDTigerAnimated
   bodyPart: Tail
   groupWhitelist: []
+  staticId: LizardTailDTiger # FH
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_dtiger_wagging
@@ -380,6 +391,7 @@
 - type: marking
   id: LizardTailAquaticAnimated
   bodyPart: Tail
+  staticId: LizardTailAquatic # FH
   groupWhitelist: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi

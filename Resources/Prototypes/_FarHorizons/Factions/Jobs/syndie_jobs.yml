@@ -74,20 +74,6 @@
     loadout: SyndieHeadOfPersonnel
     startingGear: SyndieHoPGear
 
-#region CFA
-
-- type: factionJobAssignment
-  id: SyndieMagistrate
-  faction: FactionSyndicate
-  job: Magistrate
-  weight: -4
-  override:
-    name: faction-syndicate-job-magistrate
-    icon: JobIconSyndieMagistrate
-    #supervisors job-supervisors-nshc
-    loadout: SyndieMagistrate
-    startingGear: SyndieMagistrateGear
-
 #region NSHC
 
 - type: factionJobAssignment

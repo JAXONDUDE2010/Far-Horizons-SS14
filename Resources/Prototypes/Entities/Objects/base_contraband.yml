@@ -35,6 +35,15 @@
   - type: Contraband
     severity: Syndicate
 
+#Far Horizons-Start
+- type: entity
+  id: BaseNanotrasenContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Nanotrasen
+#Far Horizons-End
+
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity
   id: BaseMinorContraband

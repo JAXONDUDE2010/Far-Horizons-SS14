@@ -9,3 +9,51 @@
   - type: RadioImplant
     radioChannels:
     - Trinary
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantNTNC
+  name: NanoTrasen Navy Corps Radio Implant
+  description: This implant grants access to secure communications used by elite NTNC Forces.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - NTNC
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantSHC
+  name: NeoSol High Command Radio Implant
+  description: This implant grants access to the secure communications of the powerful NeoSol High Command.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - SHC
+
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantLambda
+  name: Lambda Death Rattle Implant
+  suffix: NT
+  description: This implant will inform the Lambda radio channel should the user fall into critical condition or die.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: Lambda
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantLambda
+  name: Lambda Radio Implant
+  suffix: NT
+  description: This implant grants access to the Lambda channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Lambda

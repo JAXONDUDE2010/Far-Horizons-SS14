@@ -138,13 +138,14 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - FarHorizonsGeneralEquipmentStatic #FH
     dynamicPacks: # Starlight start
     - StarlightAutolatheLootable
   - type: EmagLatheRecipes
     emagStaticPacks:
     - StarlightSyndicateAmmoStatic
     - StarlightSecurityEmagWeaponsStatic
-    - StarlightSecurityAmmoStatic
+    - FarHorizonsAmmoStatic #FH
     - StarlightSecurityAmmoEmagStatic # Starlight end
     #- SecurityAmmoStatic # SL disable in favor of prior three lines
     - SyndicateAmmoStatic
@@ -228,14 +229,14 @@
     - StarlightCyberOrgansDynamic
     - StarlightImplantDynamic
     - StarlightBudgetCyberOrgansDynamic
-    - StarlightSecurityAmmoDynamic
+    - FarHorizonsAmmoDynamic #FH
     - StarlightSecurityExplosives
     - StarlightSecurityEquipment
     - StarlightSecurityWeapons
     - StarlightDefenseStatic
     emagStaticPacks:
     - StarlightSecurityEmagWeaponsStatic
-    - StarlightSecurityAmmoStatic
+    - FarHorizonsAmmoStatic #FH
     - StarlightSyndicateAmmoStatic # Starlight end
 
 - type: entity
@@ -438,12 +439,12 @@
     - SecurityEquipmentStatic # Starlight start
     - NullSpaceDrainer
     - SecurityPracticeStatic
-    - StarlightSecurityAmmoStatic
     - SecurityWeaponsStatic
     - SecurityDisablers # FH edit, make static
     - StarlightSecurityPracticeStatic  # FH edit, yes, they didn't have their own pack here
     - FarHorizonsSecurityPracticeStatic #FarHorizons
     - FarHorizonsSecurityAmmoStatic #FarHorizons
+    - FarHorizonsSecurityGeneralEquipmentStatic #FarHorizons
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -451,7 +452,6 @@
     - StarlightSecurityEquipment
     - StarlightSecurityBoards
     - StarlightSecurityExplosives
-    - StarlightSecurityAmmoDynamic
     - StarlightSecurityWeapons
     - SecurityCyberLimbs
     - StarlightSecurityMechsWeapons
@@ -467,8 +467,10 @@
   #endregion Starlight secfab emagging
   #region FarHorizons secfab emagging
     - FarHorizonsSecurityAmmoEmagStatic
+    - FarHorizonsAmmoStatic
     emagDynamicPacks:
     - FarHorizonsSecurityAmmoEmagDynamic
+    - FarHorizonsAmmoDynamic
   #FH - End
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
@@ -499,7 +501,7 @@
       idleState: icon
       runningState: icon
       staticPacks:
-      - StarlightSecurityAmmoStatic
+      - FarHorizonsAmmoStatic #FH
       #- SecurityAmmoStatic # SL - disable in favor of previous line
     - type: EmagLatheRecipes
       emagStaticPacks:
@@ -539,6 +541,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - StarlightMedicalStatic # Starlight
+    - FarHorizonsMedGeneralEquipmentStatic #FH
     dynamicPacks:
     - StarlightSurgeryDynamic
     - StarlightCyberlimbDynamic
@@ -589,6 +592,7 @@
     - Scarves
     - Carpets
     - Bedsheets
+    - FarHorizonsCommandGeneralEquipmentStatic #FH
     dynamicPacks:
     - StarlightUniformPrinterLootable
   - type: EmagLatheRecipes

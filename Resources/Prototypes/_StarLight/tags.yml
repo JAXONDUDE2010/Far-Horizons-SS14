@@ -248,9 +248,6 @@
   id: L6Saw
 
 - type: Tag
-  id: LightRifleHeavy
-
-- type: Tag
   id: Lighters
 
 - type: Tag
@@ -272,7 +269,7 @@
   id: MagazinePistolImprovised
 
 - type: Tag
-  id: MagazineRifleM52
+  id: MagazineRifle556M52 #FH
 
 - type: Tag
   id: MagazineSMGImprovised

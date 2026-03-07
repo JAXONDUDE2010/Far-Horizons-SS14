@@ -1,0 +1,30 @@
+- type: entity
+  parent: [BaseItem, BaseNanotrasenContraband]
+  id: NTAccessBreakerUnlimited
+  suffix: NT, Unlimited
+  name: Authentication Disruptor
+  description: A hacked access configurator, specialized to unlock and erase access from digital locks.
+  components:
+  - type: Emag
+    emagImmuneTag: AccessBreakerImmune
+    emagType: Access
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Tools/nt_access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: _FarHorizons/Objects/Tools/nt_access_breaker.rsi
+
+- type: entity
+  parent: NTAccessBreakerUnlimited
+  id: NTAccessBreaker
+  suffix: NT, Limited
+  components:
+  - type: LimitedCharges
+  - type: AutoRecharge
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Tools/nt_access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: _FarHorizons/Objects/Tools/nt_access_breaker.rsi

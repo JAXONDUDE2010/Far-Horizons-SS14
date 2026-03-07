@@ -644,7 +644,7 @@
   id: UplinkEstocAmmo
   name: uplink-estoc-ammo-name
   description: uplink-estoc-ammo-desc
-  productEntity: MagazineRifleSP #Starlight
+  productEntity: MagazineRifle556SP #FH
   cost:
     Telecrystal: 2
   categories:

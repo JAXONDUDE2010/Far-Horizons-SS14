@@ -1,0 +1,29 @@
+- type: entity
+  id: NTCameraBug
+  parent: [ BaseItem, BaseNanotrasenContraband ]
+  name: Camera Bug
+  suffix: NT
+  description: An illegal NanoTrasen device that allows you to hack into the station's camera network.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Devices/nt_camera_bug.rsi
+    layers:
+    - state: camera_bug
+  - type: Item
+    sprite: _FarHorizons/Objects/Devices/nt_camera_bug.rsi
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: true
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WiredNetworkConnection
+  - type: SurveillanceCameraMonitor
+  - type: StaticPrice
+    price: 2000

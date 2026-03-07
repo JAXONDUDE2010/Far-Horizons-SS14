@@ -23,7 +23,7 @@
     - RadarConsoleCircuitboard
     - HandHeldMassScanner
   announceTo:
-    - Supply
+    - GSL # Far Horizons
 
 # Industry
 
@@ -74,7 +74,7 @@
     - RipleyPeripheralsElectronics
     - MechEquipmentGrabber
   announceTo:
-    - Supply
+    - GSL # Far Horizons
 
 # Sec
 
@@ -112,7 +112,7 @@
     - RiotControl
   unlocks:
     - BoxShotgunIncendiary
-    - MagazineRifleIncendiary
+    - MagazineRifle556Incendiary
     - MagazinePistolIncendiary
     - MagazinePistolSubMachineGunIncendiary
     - MagazineLightRifleIncendiary
@@ -121,8 +121,8 @@
     - MagazineBoxPistolIncendiary
     - MagazineBoxMagnumIncendiary
     - MagazineBoxLightRifleIncendiary
-    - MagazineBoxRifleIncendiary
-    - LightRifleHeavyMagazineIncendiary
+    - MagazineBoxRifle556Incendiary
+    - Rifle556HeavyMagazineIncendiary
     - MagazinePistolSubMachineGunIncendiary
     - SpeedLoaderShotgunIncendiary
     - MagazineMagnumIncendiary
@@ -130,7 +130,7 @@
     - MagazineBoxRevolver38Incendiary
     - MagazineRifle38Incendiary
     - SpeedLoaderRevolver38Incendiary
-    - MagazineRifleUranium
+    - MagazineRifle556Uranium
     - MagazinePistolUranium
     - MagazinePistolSubMachineGunUranium
     - MagazineLightRifleUranium
@@ -138,9 +138,9 @@
     - MagazineBoxPistolUranium
     - MagazineBoxMagnumUranium
     - MagazineBoxLightRifleUranium
-    - MagazineBoxRifleUranium
+    - MagazineBoxRifle556Uranium
     - BoxShotgunUranium
-    - LightRifleHeavyMagazineUranium
+    - Rifle556HeavyMagazineUranium
     - MagazinePistolSubMachineGunUranium
     - SpeedLoaderShotgunUranium
     - MagazineMagnumUranium
@@ -576,7 +576,7 @@
     - MechEquipmentDrillDiamond
     - BorgModuleAdvancedMining
   announceTo:
-    - Supply
+    - GSL # Far Horizons
 
 - type: researchTreeNode
   id: RecreationalMech
@@ -632,7 +632,7 @@
     - RipleyMKIIHarness
     - RipleyUpgradeKit
   announceTo:
-    - Supply
+    - GSL # Far Horizons
 
 # Sec
 
@@ -652,7 +652,7 @@
     - PKAUpgradeFireRate
   announceTo:
     - Security
-    - Supply
+    - GSL # Far Horizons
 
 - type: researchTreeNode
   id: APAmmo
@@ -668,14 +668,14 @@
     - SpeedLoaderMagnumAP
     - MagazinePistolAP
     - MagazinePistol38AP
-    - MagazineRifleAP
+    - MagazineRifle556AP
     - MagazineLightRifleAP
     - MagazineBoxMagnumAP
     - MagazineBoxPistolAP
     - MagazineBoxRevolver38AP
-    - MagazineBoxRifleAP
+    - MagazineBoxRifle556AP
     - MagazineBoxLightRifleAP
-    - LightRifleHeavyMagazineAP
+    - Rifle556HeavyMagazineAP
     - MagazinePistolSubMachineGunAP
   announceTo:
     - Security
@@ -713,7 +713,7 @@
     - GyroscopeMachineCircuitboard
     - MiniGravityGeneratorCircuitboard
   announceTo:
-    - Supply
+    - GSL # Far Horizons
     - Engineering
 
 - type: researchTreeNode
@@ -730,7 +730,7 @@
     - WeaponTurretPointDefenseMachineCircuitboard
   announceTo:
     - Security
-    - Supply
+    - GSL # Far Horizons
     - Engineering
 
 - type: researchTreeNode
@@ -755,7 +755,7 @@
     - ShuttleGunFriendshipCircuitboard
   announceTo:
     - Security
-    - Supply
+    - GSL # Far Horizons
     - Engineering
 
 # Lasers
@@ -1281,7 +1281,7 @@
     - ShuttleGunDusterCircuitboard
   announceTo:
     - Security
-    - Supply
+    - GSL # Far Horizons
     - Engineering
 
 # Power
@@ -1419,7 +1419,7 @@
     - OreBagOfHolding
     - DeviceDesynchronizer
   announceTo:
-    - Supply
+    - GSL # Far Horizons
     - Medical
     - Service
 

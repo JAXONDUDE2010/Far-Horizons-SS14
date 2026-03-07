@@ -1,4 +1,10 @@
-## Static recipes
+#region Static recipes
+
+- type: latheRecipePack
+  id: FarHorizonsSecurityGeneralEquipmentStatic
+  recipes:
+  - SoftPouchSecurity
+  - HardPouchSecurity
 
 # Practice ammo/mags and practice weapons
 - type: latheRecipePack
@@ -10,24 +16,48 @@
   - SpeedLoaderRevolver38Practice
   - MagazineMagnumPractice
 
-# Shared between secfab and emagged autolathe
 - type: latheRecipePack
   id: FarHorizonsSecurityAmmoStatic
   recipes:
 ######################BOX#######################
-# Light Rifle
-  - MagazineBoxLightRifleRubber
 # Rifle
-  - MagazineBoxRifleRubber
+  - MagazineBoxRifle556Rubber
+  - MagazineBoxRifle556SP
+  - MagazineBoxRifle556HP
+  - MagazineBoxRifle556FMJ
 # Pistol
   - MagazineBoxPistolRubber
+  - MagazineBoxPistolSP
+  - MagazineBoxPistolHP
+  - MagazineBoxPistolFMJ
+# Revolver
   - MagazineBoxRevolver38Rubber
+  - MagazineBoxRevolver38SP
+  - MagazineBoxRevolver38HP
+  - MagazineBoxRevolver38FMJ
 # Magnum
   - MagazineBoxMagnumRubber
+  - MagazineBoxMagnumSP
+  - MagazineBoxMagnumHP
+  - MagazineBoxMagnumFMJ
+# Shotgun
+  - BoxLethalshot
+  - BoxShotgunSlug
+  - BoxShellTranquilizer
+  - BoxBeanbag
 #####################MAGAZINE#######################
 # Pistol
   - MagazinePistol38Rubber
   - MagazinePistolRubber
+  - MagazinePistolSP
+  - MagazinePistolHP
+  - MagazinePistolFMJ
+  - MagazinePistolEmpty
+  - MagazinePistol38SP
+  - MagazinePistol38HP
+  - MagazinePistol38FMJ
+  - MagazinePistol38Empty
+# Revolver
   - SpeedLoaderRevolver38Rubber
   - SpeedLoaderRevolver38Empty
   - SpeedLoaderRevolver38SP
@@ -39,14 +69,43 @@
   - MagazineRifle38HP 
   - MagazineRifle38FMJ 
   - MagazineRifle38Rubber
+  - MagazineRifle556SP
+  - MagazineRifle556HP
+  - MagazineRifle556FMJ
+  - MagazineRifle556Empty
 # Shotgun
-  - BoxBeanbag
+  - MagazineShotgun
+  - MagazineShotgunEmpty
+  - MagazineShotgunSlug
+  - SpeedLoaderMagnumBasic
+  - SpeedLoaderShotgunEmpty
+  - SpeedLoaderShotgunSlug
+  - SpeedLoaderShotgunBeanbag
 # Magnum
+  - MagazineMagnum
   - MagazineMagnumHP
   - MagazineMagnumFMJ
   - MagazineMagnumRubber
+  - MagazineMagnumEmpty
+# Magnum - Speedloader
+  - SpeedLoaderMagnumEmpty
+  - SpeedLoaderMagnumSP
+  - SpeedLoaderMagnumHP
+  - SpeedLoaderMagnumFMJ
+# SMG
+  - MagazinePistolSubMachineGunSP
+  - MagazinePistolSubMachineGunHP
+  - MagazinePistolSubMachineGunFMJ
+  - MagazinePistolSubMachineGunEmpty
+# LMG
+  - Rifle556HeavyMagazinePractice
+  - Rifle556HeavyMagazineRubber
+  - Rifle556HeavyMagazineSP
+  - Rifle556HeavyMagazineHP
+  - Rifle556HeavyMagazineFMJ
+  - Rifle556HeavyMagazineEmpty
 
-## Dynamic recipes
+#region Dynamic recipes
 - type: latheRecipePack
   id: FarHorizonsSecurityWeaponsDynamic
   recipes:
@@ -71,9 +130,24 @@
   recipes:
 #####################BOX#######################
 # Pistol
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxPistolUranium
+  - MagazineBoxPistolAP
+# Revolver
   - MagazineBoxRevolver38Incendiary
   - MagazineBoxRevolver38Uranium
-
+  - MagazineBoxRevolver38AP
+# Magnum
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxMagnumUranium
+  - MagazineBoxMagnumAP
+# Rifle
+  - MagazineBoxRifle556Incendiary
+  - MagazineBoxRifle556Uranium
+  - MagazineBoxRifle556AP
+# Shotgun
+  - BoxShotgunIncendiary
+  - BoxShotgunUranium
 #####################MAGAZINE#######################
 # Magnum
   - MagazineMagnumIncendiary
@@ -82,15 +156,39 @@
 # Pistol
   - MagazinePistol38Incendiary
   - MagazinePistol38Uranium
-# Pistol - Speedloader
+  - MagazinePistolIncendiary
+  - MagazinePistolUranium
+  - MagazinePistolAP
+  - MagazinePistol38AP
+# Revolver
   - SpeedLoaderRevolver38Incendiary
   - SpeedLoaderRevolver38Uranium
   - SpeedLoaderRevolver38AP
+# Magnum
+  - SpeedLoaderMagnumIncendiary
+  - SpeedLoaderMagnumUranium
+  - SpeedLoaderMagnumAP
+# SMG
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunUranium
+  - MagazinePistolSubMachineGunAP
 # Rifle
   - MagazineRifle38Incendiary 
   - MagazineRifle38Uranium  
-  - MagazineRifle38AP  
+  - MagazineRifle38AP 
+  - MagazineRifle556Incendiary
+  - MagazineRifle556Uranium
+  - MagazineRifle556AP
+# Shotgun
+  - MagazineShotgunIncendiary
+  - SpeedLoaderShotgunIncendiary
+  - SpeedLoaderShotgunUranium
+# LMG
+  - Rifle556HeavyMagazineIncendiary
+  - Rifle556HeavyMagazineUranium
+  - Rifle556HeavyMagazineAP
 # Grenade
+  - MagazineGrenadeEmpty
 
 - type: latheRecipePack
   id: FarHorizonsSecurityAmmoEmagStatic

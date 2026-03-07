@@ -159,6 +159,7 @@
     - Tail
   - type: ArmorSparkEffect #starlight
   - type: SpaceRescuePingSender # Far Horizons
+  - type: HeatRadiationBlocker # Starlight - Prevents the body from radiating heat
 
 - type: entity
   abstract: true
@@ -192,6 +193,7 @@
     slots:
     - Tail
   - type: SpaceRescuePingSender # Far Horizons
+  - type: HeatRadiationBlocker # Starlight - Prevents the body from radiating heat
 
 - type: entity
   parent: ClothingOuterBase
