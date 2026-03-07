@@ -68,9 +68,6 @@
   - type: EntityStorage
     closeSound: /Audio/_FarHorizons/Machines/suit_storage_close.ogg
     openSound: /Audio/_FarHorizons/Machines/suit_storage_open.ogg
-  - type: Lock
-    unlockSound: /Audio/_FarHorizons/Machines/suit_storage_unlock.ogg
-    locksound: /Audio/_FarHorizons/Machines/suit_storage_unlock.ogg
   - type: Sprite
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
