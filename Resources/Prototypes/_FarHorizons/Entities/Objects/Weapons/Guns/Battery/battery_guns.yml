@@ -192,6 +192,9 @@
       shader: unshaded
   - type: Appearance
   - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
     heldPrefix: stun
   - type: Clothing
     sprite: _FarHorizons/Objects/Weapons/Guns/Battery/dominator_rifle.rsi

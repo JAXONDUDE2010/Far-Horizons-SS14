@@ -15065,7 +15065,7 @@ entities:
     - type: Transform
       pos: -23.025232,-2.4473848
       parent: 2
-- proto: OilPack
+- proto: BloodpackOil
   entities:
   - uid: 4167
     components:

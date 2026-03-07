@@ -1,26 +1,36 @@
 - type: entity
-  name: Ammonia Pack
-  description: Contains an Ammonia based fluid created by Nanotrasen's advanced medical science.
-  parent: BaseHealingItem
-  id: AmmoniaPack
-  suffix: Full
+  name: Universal Blood Pack
+  description: Does not work with Ammonia-based races and will not accept Amoxla to avoid lethal accidents by colorblind medical doctors.
+  parent: BaseAutoMender
+  id: BloodpackEmpty
   components:
-  - type: Item
-    heldPrefix: bloodpack
-  - type: Tag
-    tags:
-    - AmmoniaPack
   - type: Sprite
-    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
-    state: ammoniapack
+    sprite: _FarHorizons/Objects/Specific/Medical/blood_pack.rsi
+    layers: 
+    - state: universalblood
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: bloodpack1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: Objects/Specific/Medical/medical.rsi
+    heldPrefix: bloodpack
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
   - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: UniversalBlood
+      Quantity: 1
+    delay: 1
     damageContainers:
       - Biological
     damage:
       types:
-        Bloodloss: -0.5 #lowers bloodloss damage
-    delay: 1.6 # STARLIGHT
-    modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
+        Bloodloss: -10
+    modifyBloodLevel: 20 # ~ 6 per use / 60% recovered per pack / 6 uses = 40%, consumes 6u. Not exact but this is as close as I'm getting to 1-1. Small buff for bloodbags ig.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -31,9 +41,66 @@
       params:
         volume: 1.0
         variation: 0.125
+  - type: SolutionContainerVisuals
+    maxFillLevels: 7
+    fillBaseName: bloodpack
+    solutionName: injector
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
+        - Avali
+        - Resomi
+  - type: Tag
+    tags:
+    - Bloodpack
+      
+- type: entity
+  suffix: Filled
+  parent: BloodpackEmpty
+  id: Bloodpack
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+        - ReagentId: UniversalBlood
+          Quantity: 10
+
+- type: entity
+  name: Amoxla Pack
+  description: Does not work with Non-Ammonia-based races and will not accept Universal Blood to avoid lethal accidents by colorblind medical doctors.
+  parent: BloodpackEmpty
+  id: BloodpackEmptyAmmonia
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/blood_pack.rsi
+    layers: 
+    - state: amoxla
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: bloodpack1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
+    heldPrefix: ammoniapack
+  - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: Amoxla
+      Quantity: 1
+    delay: 1
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Bloodloss: -6
+        Asphyxiation: -7
+    modifyBloodLevel: 20 # ~ 6% per use
   - type: InteractRestriction 
     restrictInteractionTarget:
-      blacklist:  # All species but resomi and avali. Used blacklist instead of whitelist so can be clicked on bags
+      blacklist:
         - Arachnid
         - Cyclorite
         - Diona
@@ -49,58 +116,55 @@
         - Thaven
         - TrueProtogen
         - IPC
-        
-  - type: Stack
-    stackType: AmmoniaPack
-    count: 10
-  - type: StackPrice
-    price: 5
+  - type: Tag
+    tags:
+    - AmmoniaPack
 
 - type: entity
-  parent: AmmoniaPack
-  id: AmmoniaPack1
-  suffix: Single
+  suffix: Filled
+  parent: BloodpackEmptyAmmonia
+  id: BloodpackAmmonia
   components:
-  - type: Stack
-    stackType: AmmoniaPack
-    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 20
+        reagents:
+        - ReagentId: Amoxla
+          Quantity: 20
 
 - type: entity
   name: Oil Pack
-  description: Contains Oil. Pretty simple compared to other packs.
-  parent: BaseHealingItem
-  id: OilPack
-  suffix: Full
+  description: Does not work with Non-Organic races and will not accept Universal Blood or Amoxla to avoid lethal accidents by colorblind medical doctors.
+  parent: BloodpackEmpty
+  id: BloodpackEmptyOil
   components:
-  - type: Item
-    heldPrefix: bloodpack
-  - type: Tag
-    tags:
-    - OilPack
   - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/blood_pack.rsi
+    layers: 
+    - state: oil
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: bloodpack1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
     sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
-    state: oilpack
+    heldPrefix: oilapack
   - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: Oil
+      Quantity: 1
+    delay: 1
     damageContainers:
       - Biological
     damage:
       types:
-        Bloodloss: -0.5 #lowers bloodloss damage
-    delay: 1.6
-    modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
+        Bloodloss: -1
+    modifyBloodLevel: 20 # ~ 6% per use
   - type: InteractRestriction 
     restrictInteractionTarget:
-      blacklist:  # All species but IPC and Protogen. Used blacklist instead of whitelist so can be clicked on bags/medkits
+      blacklist:  # All species but IPC.
         - Arachnid
         - Cyclorite
         - Diona
@@ -114,23 +178,24 @@
         - Vox
         - Vulpkanin
         - Thaven
-        - TrueProtogen
         - Avali
         - Resomi
-  - type: Stack
-    stackType: OilPack
-    count: 10
-  - type: StackPrice
-    price: 10
+  - type: Tag
+    tags:
+    - OilPack
 
 - type: entity
-  parent: OilPack
-  id: OilPack1
-  suffix: Single
+  suffix: Filled
+  parent: BloodpackEmptyOil
+  id: BloodpackOil
   components:
-  - type: Stack
-    stackType: OilPack
-    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 20
+        reagents:
+        - ReagentId: Oil
+          Quantity: 20
 
 - type: entity
   name: pill canister

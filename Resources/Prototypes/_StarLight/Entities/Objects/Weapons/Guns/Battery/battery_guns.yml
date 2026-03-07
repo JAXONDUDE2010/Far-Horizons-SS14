@@ -160,10 +160,6 @@
   - type: ToggleableVisuals
     spriteLayer: light
 
-# FH - Dominator moved to /FarHorizons/_battery_guns.yml
-#
-#
-
 - type: entity
   name: X-01 Multiphase Energy Gun #Far Horizons - The Great Capitalization Crusade
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]

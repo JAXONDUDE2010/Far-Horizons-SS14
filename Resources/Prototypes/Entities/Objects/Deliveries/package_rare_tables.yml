@@ -39,12 +39,12 @@
     - id: Brutepack1
       amount: !type:RangeNumberSelector
         range: 1, 4
-    - id: Bloodpack1
+    - id: Bloodpack #FH
       amount: !type:RangeNumberSelector
-        range: 1, 4
-    - id: AmmoniaPack1 # Far Horizons
+        range: 1, 2 #FH
+    - id: BloodpackAmmonia #FH
       amount: !type:RangeNumberSelector
-        range: 1, 4
+        range: 1, 2
     - id: Ointment1
       amount: !type:RangeNumberSelector
         range: 1, 4

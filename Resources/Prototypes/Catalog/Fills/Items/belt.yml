@@ -99,7 +99,7 @@
         - id: Brutepack
         - id: Ointment
         - id: Bloodpack
-        - id: AmmoniaPack #Far Horizons
+        - id: BloodpackAmmonia #Far Horizons
         - id: Gauze
         - id: PillCanisterTricordrazine
 
@@ -113,7 +113,7 @@
       storagebase: !type:AllSelector
         children:
         - id: Bloodpack
-        - id: AmmoniaPack #Far Horizons
+        - id: BloodpackAmmonia #Far Horizons
         - id: Gauze
         # Reagents focused on emergency response rather than outright healing
         - id: ChemistryBottleInaprovaline

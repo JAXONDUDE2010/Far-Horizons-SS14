@@ -5,8 +5,8 @@
     Gauze: 3
     Brutepack: 3
     Ointment: 3
-    Bloodpack: 3
-    AmmoniaPack: 3 #Far Horizons
+    Bloodpack: 1 #Far Horizons
+    BloodpackAmmonia: 1 #Far Horizons
     ChemistryBottleEpinephrine: 3
     Syringe: 3
     PillCanisterTricordrazine: 2
@@ -21,8 +21,8 @@
     Tourniquet: 3
     Brutepack: 3
     AloeCream: 3 # Currently just a reskin of Ointment but it's something
-    Bloodpack: 3
-    AmmoniaPack: 3 #Far Horizons
+    Bloodpack: 1 #Far Horizons
+    BloodpackAmmonia: 1 #Far Horizons
     ChemistryBottleEpinephrine: 3
     ChemistryBottleInaprovaline: 3
     Syringe: 3
@@ -41,8 +41,8 @@
     Gauze: 5
     Brutepack: 5
     Ointment: 5
-    Bloodpack: 5
-    AmmoniaPack: 5 #Far Horizons
+    Bloodpack: 2 #Far Horizons
+    BloodpackAmmonia: 2 #Far Horizons
     Tourniquet: 2
     ChemistryBottleEpinephrine: 3
     ChemistryBottleBicaridine: 1
@@ -72,8 +72,8 @@
     Tourniquet: 5
     Brutepack: 5
     AloeCream: 5
-    Bloodpack: 5
-    AmmoniaPack: 5 #Far Horizons
+    Bloodpack: 2 #Far Horizons
+    BloodpackAmmonia: 2 #Far Horizons
     ChemistryBottleEpinephrine: 3
     ChemistryBottleInaprovaline: 5
     Syringe: 5
