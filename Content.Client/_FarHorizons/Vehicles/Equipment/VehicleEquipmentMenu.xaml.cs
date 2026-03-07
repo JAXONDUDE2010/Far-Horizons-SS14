@@ -16,6 +16,8 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
     private Dictionary<EquipmentType, EntityUid?> _cachedEquipment = new();
     private readonly Dictionary<EquipmentType, int> _cachedIntegrity = new();
     private readonly IEntityManager _entityManager;
+    private static readonly Color _green = Color.FromHex("#00FF00");
+    private static readonly Color _red = Color.FromHex("#FF0000");
     public VehicleEquipmentMenu()
     {
         RobustXamlLoader.Load(this);
@@ -37,12 +39,17 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
         SpriteView.SetEntity(target.Value);
         SpriteView.Visible = true;
 
+        var color = Color.InterpolateBetween(_red, _green, (float)state.Integrity / 100);
+
         HealthPercent.Text = $"{state.Integrity}%";
         HealthBar.Value = state.Integrity;
+        HealthBar.ModulateSelfOverride = color;
 
+        color = Color.InterpolateBetween(_red, _green, (float)state.Power / 100);
         FuelLabel.Text = vehicle.CellPowered == true ? "Power" : "Fuel"; 
         FuelPercent.Text = $"{state.Power}%";
         FuelBar.Value = state.Power;
+        FuelBar.ModulateSelfOverride = color;
         
         if (!EquipmentChanged(vmComp.Equipment) && !IntegrityChanged(vmComp.Equipment))
             return;
@@ -93,12 +100,18 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
             
             var equipText = "Empty";
             int integrity = 0;
-            if(mod != null && _entityManager.TryGetComponent<DamageableComponent>(mod, out var damageComp) 
-                && _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var veComp))
+
+            if (mod != null &&
+                _entityManager.TryGetComponent<DamageableComponent>(mod, out var damageComp) &&
+                _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var veComp))
             {
-                integrity = (int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health);
+                integrity = Math.Clamp((int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health), 0, 100);
                 _cachedIntegrity[type] = integrity;
-                equipText = $"{_entityManager.GetComponent<MetaDataComponent>(mod.Value).EntityName}: {integrity}%";
+
+                color = Color.InterpolateBetween(_red, _green, (float)integrity / 100);
+                var colorHex = color.ToHex();
+
+                equipText = $"{_entityManager.GetComponent<MetaDataComponent>(mod.Value).EntityName}: [color={colorHex}]{integrity}%[/color]";
             }
 
             var equipmentButtonText = new RichTextLabel
@@ -106,7 +119,6 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
                 Text = equipText,
                 HorizontalAlignment = HAlignment.Left
             };
-
             equipmentButton.AddChild(equipmentButtonText);
 
             if(mod != null)
@@ -164,7 +176,7 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
                 _entityManager.TryGetComponent<DamageableComponent>(mod, out var damageComp) &&
                 _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var veComp))
             {
-                integrity = (int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health);
+                integrity = Math.Clamp((int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health), 0, 100);
             }
 
             if (!_cachedIntegrity.TryGetValue(type, out var cached) || cached != integrity)

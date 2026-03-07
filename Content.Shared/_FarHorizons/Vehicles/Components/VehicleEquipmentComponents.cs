@@ -26,7 +26,10 @@ public sealed partial class VehicleEquipmentComponent : Component
     public int Health = 100;
 
     [DataField]
-    public float damageTransfer = 0.3f;
+    public float damageTransfer = 0.1f;
+
+    [DataField]
+    public float damageChance = 0.33f;
 }
 
 public static class EquipmentTypeExtensions

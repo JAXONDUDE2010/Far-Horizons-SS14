@@ -28,6 +28,8 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Destructible;
+using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -48,6 +50,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -80,6 +83,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
         SubscribeLocalEvent<VehicleModsComponent, TurnOffVehicleEvent>(OnVehicleShutoff);
         SubscribeLocalEvent<VehicleModsComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<VehicleEquipmentComponent, BreakageEventArgs>(OnBreakageEvent);
     }
 
     private void OnCompInit(Entity<VehicleModsComponent> ent, ref ComponentInit args)
@@ -137,26 +141,26 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     #region Install Section
     private void OnInstallAttempt(Entity<VehicleModsComponent> ent, ref InteractUsingEvent args)
     {
-        if(args.Handled 
-            || !TryComp<VehicleEquipmentComponent>(args.Used, out var veComp) 
-            || !TryComp<VehicleComponent>(ent.Owner, out var vehicle)) 
+        if(!args.Handled 
+            && TryComp<VehicleEquipmentComponent>(args.Used, out var veComp) 
+            && TryComp<VehicleComponent>(ent.Owner, out var vehicle))
+        {
+            if(vehicle.Started)
+            {
+                _popupSystem.PopupCursor("Turn off vehicle before performing any maintenance.", args.User, PopupType.SmallCaution);
                 return;
+            }
 
-        if(vehicle.Started)
-        {
-            _popupSystem.PopupCursor("Turn off vehicle before performing any maintenance.", args.User, PopupType.SmallCaution);
-            return;
+            var installEV = new InstallDoAfter(GetNetEntity(args.Used));
+            var installDoAfter = new DoAfterArgs(EntityManager, args.User, veComp.InstallandRemoveTime, installEV, ent.Owner)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = true
+            };
+            _doAfter.TryStartDoAfter(installDoAfter);
+            args.Handled = true;   
         }
-
-        var installEV = new InstallDoAfter(GetNetEntity(args.Used));
-        var installDoAfter = new DoAfterArgs(EntityManager, args.User, veComp.InstallandRemoveTime, installEV, ent.Owner)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true
-        };
-        _doAfter.TryStartDoAfter(installDoAfter);
-        args.Handled = true;
     }
 
     private void OnInstallDoAfter(Entity<VehicleModsComponent> ent, ref InstallDoAfter args)
@@ -372,7 +376,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(!Resolve(uid, ref comp) || !TryComp<DamageableComponent>(uid, out var damageComp))
             return 0;
 
-        return (int) ((comp.Health-damageComp.TotalDamage) / comp.Health * 100);
+        return Math.Clamp((int) ((comp.Health-damageComp.TotalDamage) / comp.Health * 100), 0, 100);
     }
 
     private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
@@ -445,9 +449,22 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             {
                 if(item == null || !TryComp<VehicleEquipmentComponent>(item, out var veComp))
                     continue;
+                if(_random.Prob(veComp.damageChance))
+                    continue;
+
                 _damage.TryChangeDamage(item.Value, args.DamageDelta*veComp.damageTransfer, true);
             }
         }
+    }
+
+    private void OnBreakageEvent(Entity<VehicleEquipmentComponent> ent, ref BreakageEventArgs args)
+    {
+        var xForm = Transform(ent.Owner);
+        if(xForm.GridUid == xForm.ParentUid)
+            return;
+
+        var ev = new UnInstalledVehicleEquipment{Vehicle =  xForm.ParentUid};
+        RaiseLocalEvent(ent.Owner, ev);
     }
 
     #endregion
