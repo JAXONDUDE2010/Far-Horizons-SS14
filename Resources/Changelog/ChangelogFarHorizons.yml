@@ -8324,5 +8324,35 @@ Entries:
   id: 88306
   time: '2026-03-06T17:40:22.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: jhrushbe
+  changes:
+  - message: Guidebook entries for the nuclear reactor and reactor part materials
+      will now update to follow CVars.
+    type: Add
+  id: 88800
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Made kelvin the default temperature display in the nuclear reactor UI.
+    type: Tweak
+  id: 88801
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor would send alerts to the first
+      station in a map rather than the station it was on.
+    type: Fix
+  id: 88802
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where a value in the gas pump guidebook page was invalid.
+    type: Fix
+  id: 88803
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
 Order: -1
 
