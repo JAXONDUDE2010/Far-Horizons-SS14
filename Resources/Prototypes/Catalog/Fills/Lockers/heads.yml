@@ -1,5 +1,5 @@
-- type: entityTable 
-  id: LockerFillQuarterMaster 
+- type: entityTable
+  id: LockerFillQuarterMaster
   table: !type:AllSelector
     children:
     - id: ClothingNeckCloakQmElite

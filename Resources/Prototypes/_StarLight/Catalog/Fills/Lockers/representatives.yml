@@ -1,4 +1,5 @@
 # Locker & Hardsuit table for Nanotrasen Rep's Locker
+# Suit Storage Unit (NT Rep Addition) - START -
 - type: entityTable
   id: FillNanotrasenRepLockerHardsuit
   table: !type:AllSelector
@@ -23,18 +24,19 @@
     - id: ClothingMaskBreath
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+# Suit Storage Unit (NT Rep Addition) - START -
 
 - type: entity
-  id: LockerRepresentativeFilledHardsuit
-  suffix: Filled, Hardsuit
+  id: LockerRepresentativeFilledHardsuit # FH
+  suffix: Filled, Hardsuit # FH
   parent: LockerRepresentative
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
-        children:
+        children: 
         - !type:NestedSelector
-          tableId: FillNanotrasenRepLockerHardsuit
+          tableId: FillNanotrasenRepLockerHardsuit # FH
 
 # Locker table for Nanotrasen Rep's Locker
 

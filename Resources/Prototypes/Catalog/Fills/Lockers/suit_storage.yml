@@ -2,14 +2,15 @@
 #Basic EVA
 - type: entity
   id: SuitStorageEVA
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: EVA
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillSuitStorageEVA
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START - 
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: eva
@@ -25,7 +26,8 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: eva
+    stateDoorOpen: eva 
+  # FH Suit Storage Unit Resprite - END - 
 
 - type: entityTable
   id: FillSuitStorageEVA
@@ -40,14 +42,15 @@
 #Basic EVA (Big Ass Helmet)
 - type: entity
   id: SuitStorageEVAAlternate
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: EVA, Large Helmet
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillSuitStorageEVAAlternate
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START - 
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: eva
@@ -63,7 +66,8 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: eva
+    stateDoorOpen: eva 
+  # FH Suit Storage Unit Resprite - END - 
 
 - type: entityTable
   id: FillSuitStorageEVAAlternate
@@ -78,7 +82,7 @@
 #Emergency EVA
 - type: entity
   id: SuitStorageEVAEmergency
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: Emergency EVA
   components:
   - type: EntityTableContainerFill
@@ -98,7 +102,7 @@
 #Prisoner EVA
 - type: entity
   id: SuitStorageEVAPrisoner
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: Prisoner EVA
   components:
   - type: EntityTableContainerFill
@@ -119,7 +123,7 @@
 #Syndicate EVA
 - type: entity
   id: SuitStorageEVASyndicate
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: Syndicate EVA
   components:
   - type: EntityTableContainerFill
@@ -140,7 +144,7 @@
 #Pirate EVA
 - type: entity
   id: SuitStorageEVAPirate
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: Pirate EVA
   components:
   - type: EntityTableContainerFill
@@ -160,7 +164,7 @@
 #NTSRA Voidsuit
 - type: entity
   id: SuitStorageNTSRA
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH
   suffix: Ancient EVA
   components:
   - type: EntityTableContainerFill
@@ -181,15 +185,15 @@
 #Engineering hardsuit
 - type: entity
   id: SuitStorageEngi
-  parent: SuitStorageBaseFH
-  name: Suit Storage Unit
+  parent: SuitStorageBaseFH # FH
   suffix: Station Engineer
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillEngineerHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START - 
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: engi
@@ -206,19 +210,21 @@
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
     stateDoorOpen: engi
+  # FH Suit Storage Unit Resprite - END - 
   - type: AccessReader
     access: [["Engineering"]]
 
 #Atmospherics hardsuit
 - type: entity
   id: SuitStorageAtmos
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH
   suffix: Atmospheric Technician
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillAtmosphericsHardsuit
+  # FH Suit Storage Unit Resprite - START - 
   - type: Sprite
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
@@ -236,20 +242,22 @@
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
     stateDoorOpen: atmos
+  # FH Suit Storage Unit Resprite - END - 
   - type: AccessReader
     access: [["Atmospherics"]]
 
 #Security hardsuit
 - type: entity
   id: SuitStorageSec
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH
   suffix: Security
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillSuitStorageSecurity
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: sec
@@ -265,7 +273,8 @@
     - state: screen-sec
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: sec
+    stateDoorOpen: sec 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["Security"], ["Cadet"]] # Starlight: add cadet
 
@@ -282,16 +291,19 @@
 #CE's hardsuit
 - type: entity
   id: SuitStorageCE
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: Personal Suit Storage Unit
   description: A standard-issue suit storage unit. It's covered in soot and other unknown materials. It's strangely glowing green, are you sure you want to stay so close to it?
+  # FH Suit Storage Unit Name & Description - END -
   suffix: Chief Engineer
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillChiefEngineerHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: ce
@@ -307,23 +319,27 @@
     - state: screen-green
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: ce
+    stateDoorOpen: ce 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
 #CMO's hardsuit
 - type: entity
   id: SuitStorageCMO
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: Personal Suit Storage Unit
-  description: A standard-issue suit storage unit. It reeks of chemicals and other hazardous materials. There's a note on the side that reads "Please, don't store chemicals in here." It's signage is scratched out.
+  description: A standard-issue suit storage unit. It reeks of chemicals and other hazardous materials. There's a note on the side that reads "Please, don't store chemicals in here." It's signage is scratched out. 
+  # FH Suit Storage Unit Name & Description - END -
   suffix: Chief Medical Officer
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillChiefMedicalOfficerHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: cmo
@@ -339,23 +355,27 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: cmo
+    stateDoorOpen: cmo 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [ [ "ChiefMedicalOfficer" ] ]
 
 #RD's hardsuit
 - type: entity
   id: SuitStorageRD
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: Personal Suit Storage Unit
-  description: A standard-issue suit storage unit. It has burns and explosion markings all over, are you sure it's a new one?
+  description: A standard-issue suit storage unit. It has burns and explosion markings all over, are you sure it's a new one? 
+  # FH Suit Storage Unit Name & Description - END -
   suffix: Research Director
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillResearchDirectorHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: rd
@@ -371,23 +391,27 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: rd
+    stateDoorOpen: rd 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
 
 #HOS's hardsuit
 - type: entity
   id: SuitStorageHOS
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: Personal Suit Storage Unit
-  description: A standard-issue suit storage unit. This ones cabling has been modified to allow faster access, ready for rapid deployment at a moment's notice.
+  description: A standard-issue suit storage unit. This ones cabling has been modified to allow faster access, ready for rapid deployment at a moment's notice. 
+  # FH Suit Storage Unit Name & Description - END -
   suffix: Head of Security
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillHeadOfSecurityHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: hos
@@ -403,21 +427,23 @@
     - state: screen-sec
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: hos
+    stateDoorOpen: hos 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
 #Warden's hardsuit
 - type: entity
   id: SuitStorageWarden
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH
   suffix: Warden
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillLockerWardenHarduit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: warden
@@ -433,23 +459,27 @@
     - state: screen-sec
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: warden
+    stateDoorOpen: warden 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["Armory"]]
 
 #Captain's hardsuit
 - type: entity
   id: SuitStorageCaptain
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: Personal Suit Storage Unit
-  description: A standard-issue suit storage unit. This one has a nameplate on the front that reads "Captain", clearly someone's egotistic.
+  description: A standard-issue suit storage unit. This one has a nameplate on the front that reads "Captain", clearly someone's egotistic. 
+  # FH Suit Storage Unit Name & Description - END -
   suffix: Captain
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillCaptainHardsuit
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: cap
@@ -465,21 +495,23 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: cap
+    stateDoorOpen: cap 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["Captain"]]
 
 #Salvage hardsuit
 - type: entity
   id: SuitStorageSalv
-  parent: SuitStorageBaseFH
+  parent: SuitStorageBaseFH # FH 
   suffix: Salvage
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillSalvageSpecialistHardsuitSpatio
-  - type: Sprite
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite 
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: salvage
@@ -495,7 +527,8 @@
     - state: screen-eva
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
-    stateDoorOpen: salvage
+    stateDoorOpen: salvage 
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["Salvage"]]
 

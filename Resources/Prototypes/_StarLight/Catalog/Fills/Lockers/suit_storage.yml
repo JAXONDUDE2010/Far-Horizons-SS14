@@ -1,9 +1,11 @@
 # BSO's hardsuit
 - type: entity
   id: SuitStorageBlueShield
-  parent: SuitStorageBaseFH
+  # FH Suit Storage Unit Name & Description - START -
+  parent: SuitStorageBaseFH 
   name: High-Tech Suit Storage Unit
   description: A high-tech suit storage unit designed for storing the Officer Blueshield's hardsuit and other related equipment. It's plated with heavily reinforced steel along with iron trimmings on the side to truly brand the unit. 
+  # FH Suit Storage Unit Name & Description - END -
   suffix: BlueShield
   components:
   - type: EntityTableContainerFill
@@ -15,7 +17,8 @@
         - id: ClothingOuterHardsuitBlueshield
         - id: ClothingMaskBreath
         - id: ClothingShoesBootsMagBSO
-  - type: Sprite        
+  # FH Suit Storage Unit Resprite - START -
+  - type: Sprite    
     sprite: _FarHorizons/Structures/Storage/suit_storage.rsi
     layers:
     - state: bso
@@ -32,6 +35,7 @@
       map: ["computerLayerScreen"]
   - type: EntityStorageVisuals
     stateDoorOpen: bso
+  # FH Suit Storage Unit Resprite - END -
   - type: AccessReader
     access: [["BlueShield"]]
   
