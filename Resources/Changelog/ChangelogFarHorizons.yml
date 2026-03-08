@@ -8487,5 +8487,12 @@ Entries:
   id: 88703
   time: '2026-03-08T15:00:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/887
+- author: Fasuh (Prototyping), Abby (Sprites)
+  changes:
+  - message: Added syndicate versions of airlocks and glass airlocks.
+    type: Add
+  id: 87000
+  time: '2026-03-08T15:55:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/870
 Order: -1
 
