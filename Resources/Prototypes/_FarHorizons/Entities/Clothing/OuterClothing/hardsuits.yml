@@ -156,10 +156,10 @@
 # Heavy Security Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
-  id: ClothingOuterHardsuitSecurityHeavy
-  name: Heavy Security Hardsuit
-  description: A high-tech powered suit developed by NanoTrasen to boost Security capabilites in handling station-wide threats, saving costs on asking the Emergency Response Team to intervene for them who often arrive far too late to help anyway. It boasts an ID-Lock and Gun-Lock system.
-  suffix: NT
+  id: ClothingOuterHardsuitSecurityHeavyUnlocked
+  name: DEBUG Heavy Security Hardsuit
+  description: Should never be mapped. Unlocked for debug testing purposes and NOTHING ELSE.
+  suffix: DO NOT MAP
   components:
   - type: Item
     size: Huge
@@ -180,13 +180,6 @@
     damageCoefficient: 0.3
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0 # Immune
-  - type: IdClothingBlocker
-    allowedJobs:
-      - Security
-      - Armory
-      - HeadOfSecurity
-      - Captain
-      - Detective
   - type: Pierceable
     level: Metal
   - type: Armor # I thought about this a lot, but I decided that since speed is everything, a hefty 70% slowdown should necessitate MUCH stronger stats.
@@ -222,6 +215,20 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityHeavy
 
+- type: entity
+  parent: ClothingOuterHardsuitSecurityHeavyUnlocked
+  id: ClothingOuterHardsuitSecurityHeavy
+  name: Heavy Security Hardsuit
+  description: A high-tech powered suit developed by NanoTrasen to boost Security capabilites in handling station-wide threats, saving costs on asking the Emergency Response Team to intervene for them who often arrive far too late to help anyway. It boasts an ID-Lock and Gun-Lock system.
+  suffix: NT
+  components:
+  - type: IdClothingBlocker
+    allowedJobs:
+      - Security
+      - Armory
+      - HeadOfSecurity
+      - Captain
+      - Detective
 #region Syndicate 
 
 

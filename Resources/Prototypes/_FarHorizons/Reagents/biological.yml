@@ -1,0 +1,5 @@
+- type: reagent
+  parent: Blood
+  id: BloodChangeling
+  name: reagent-name-changeling-blood
+  desc: reagent-desc-changeling-blood

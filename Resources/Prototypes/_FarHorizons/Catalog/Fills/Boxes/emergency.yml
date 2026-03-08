@@ -21,7 +21,7 @@
         - id: Tourniquet
         - id: Brutepack
         - id: Bloodpack
-        - id: AmmoniaPack
+        - id: BloodpackAmmonia
 
 - type: entity
   parent: CaseSurvivalMedical
@@ -43,7 +43,7 @@
         - id: Tourniquet
         - id: Brutepack
         - id: Bloodpack
-        - id: AmmoniaPack
+        - id: BloodpackAmmonia
 
 - type: entity
   parent: CaseSurvivalMedical
@@ -65,7 +65,7 @@
         - id: Tourniquet
         - id: Brutepack
         - id: Bloodpack
-        - id: AmmoniaPack
+        - id: BloodpackAmmonia
 
 #region Security
 - type: entity

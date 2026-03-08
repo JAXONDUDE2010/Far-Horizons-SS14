@@ -531,7 +531,7 @@
     - id: SyringeEphedrine
     - id: Gauze
     - id: Bloodpack
-    - id: AmmoniaPack #Far Horizons
+    - id: BloodpackAmmonia #Far Horizons
     - id: RegenerativeMesh
     - id: MedicatedSuture
     - id: EmergencyMedipen

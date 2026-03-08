@@ -851,7 +851,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: ResomiBlood
+      - ReagentId: AvaliBlood
         Quantity: 300
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi

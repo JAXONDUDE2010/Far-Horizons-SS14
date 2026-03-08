@@ -14,10 +14,10 @@
         value: 2
     - id: Bloodpack
       amount: !type:ConstantNumberSelector
-        value: 2
-    - id: AmmoniaPack #Far Horizons
+        value: 1 #FH
+    - id: BloodpackAmmonia #Far Horizons
       amount: !type:ConstantNumberSelector
-        value: 2
+        value: 1
     - id: Gauze
 
 - type: entity

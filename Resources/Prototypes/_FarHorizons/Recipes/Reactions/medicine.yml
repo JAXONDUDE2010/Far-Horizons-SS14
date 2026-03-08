@@ -8,3 +8,22 @@
 #      amount: 1
 #  products:
 #    Lemintrozine: 1
+
+- type: reaction
+  id: UniversalBlood
+  impact: Medium
+  minTemp: 300
+  reactants:
+    Saline:
+      amount: 2
+    Iron:
+      amount: 1
+    Copper:
+      amount: 1
+    Tricordrazine:
+      amount: 4
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    UniversalBlood: 3
