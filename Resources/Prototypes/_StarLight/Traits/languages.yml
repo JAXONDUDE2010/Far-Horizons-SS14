@@ -61,12 +61,6 @@
   description: trait-language-nekomimetic-desc
   category: LanguageTraits
   cost: 2
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - Nekomimetic
-  languagesUnderstood:
-    - Nekomimetic
   effects:
     - !type:LanguageEffect
       languagesSpoken:
