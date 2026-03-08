@@ -127,9 +127,9 @@
           maxVol: 150
     - type: VehicleMods
       startingEquipment:
-        - StandardTires
+        - BasicTires
         - GroundEngine
-        - ATVHeadlight
+        - HeadlightLED
         - VehicleAirTankFilled
         - VehicleAirTank
         - VentFan
