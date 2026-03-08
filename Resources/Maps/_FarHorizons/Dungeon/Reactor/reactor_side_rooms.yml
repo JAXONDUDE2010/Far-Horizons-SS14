@@ -261,7 +261,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: AmmoniaPack
+- proto: BloodpackAmmonia
   entities:
   - uid: 26
     components:

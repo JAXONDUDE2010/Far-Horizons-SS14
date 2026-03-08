@@ -99,8 +99,7 @@
         - id: RegenerativeMesh
         - id: Bloodpack
           amount: 1
-        - id: AmmoniaPack # FH
-          amount: 1
+        - id: BloodpackAmmonia # FH
 
 - type: entity
   id: MedkitCombatFilled
@@ -118,7 +117,7 @@
         - id: BruteAutoInjector
         - id: BurnAutoInjector
         - id: SyringeAmoxla #FH
-        - id: OilPack #FH
+        - id: BloodpackOil #FH
 
 - type: entity
   id: StimkitFilled

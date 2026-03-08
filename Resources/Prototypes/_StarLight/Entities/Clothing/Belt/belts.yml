@@ -106,6 +106,8 @@
         - Pill
         - HandLabeler
   - type: Appearance
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband]

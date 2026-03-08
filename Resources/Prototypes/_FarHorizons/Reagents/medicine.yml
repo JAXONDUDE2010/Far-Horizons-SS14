@@ -39,3 +39,40 @@
 #             types:
 #               Poison: 5
 #               Asphyxiation: 5
+
+
+- type: reagent
+  id: UniversalBlood
+  name: reagent-name-universal-blood
+  group: Medicine
+  desc: reagent-desc-universal-blood
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: metallic
+  color: "#ff0303"
+  metabolisms:
+    Bloodstream:
+      effects:
+        - !type:HealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Avali, Resomi ]
+            inverted: true
+          damage:
+            types:
+              Bloodloss: -5
+        - !type:ModifyBloodLevel
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Avali, Resomi ]
+            inverted: true
+          amount: 10 # ~ 30% per 0.5
+        - !type:HealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+           type: [ Avali, Resomi ]
+          damage:
+            types: # It's artifical blood with the lethal things diluted. Doesn't make it any less deadly- just that the damage types are different and easier to heal.
+              Poison: 6
+              Caustic: 2
+              Slash: 1
+              Asphyxiation: 8 # Heart Attack-inducing.

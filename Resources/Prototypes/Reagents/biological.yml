@@ -246,10 +246,6 @@
           types:
             Cellular: 2
 
-- type: reagent
-  parent: Blood
-  id: BloodChangeling
-
 - type: reaction
   id: ChangelingBloodBreakdown
   source: true

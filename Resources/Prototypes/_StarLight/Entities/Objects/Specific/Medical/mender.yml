@@ -6,6 +6,7 @@
   abstract: true
   components:
   - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi #FH
     layers: 
     - state: mender
       map: ["enum.SolutionContainerLayers.Base"]
@@ -13,6 +14,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: Item
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi #FH
     heldPrefix: mender
   - type: SolutionContainerManager
     solutions:
@@ -26,7 +28,7 @@
     solution: injector
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 3
+    maxFillLevels: 4 #FH
     fillBaseName: mender
     solutionName: injector
   - type: Tag #FH
@@ -39,10 +41,23 @@
 
 - type: entity
   id: AutoMenderBrute
-  name: brute automender
-  description: A device used to heal patients brute, burn or both damage types. Uses bicaridine to work.
+  name: Brute Automender #FH
+  description: A device used to heal a patient's brute injuries. Uses bicaridine to work. #FH
   parent: BaseAutoMender
   components:
+#FH - Start
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
+    layers: 
+    - state: brutemender
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: mender1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
+    heldPrefix: brutemender
+#FH - End
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -78,10 +93,23 @@
       
 - type: entity
   id: AutoMenderBurn
-  name: burn automender
-  description: A device used to heal patients brute, burn or both damage types. Uses dermalin to work.
+  name: Burn Automender #FH
+  description: A device used to heal a patient's burns. Uses dermaline to work. #FH
   parent: BaseAutoMender
   components:
+#FH - Start
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
+    layers: 
+    - state: burnmender
+      map: ["enum.SolutionContainerLayers.Base"]
+    - state: mender1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _FarHorizons/Objects/Specific/Medical/medical.rsi
+    heldPrefix: burnmender
+#FH - End
   - type: Healing
     solutionDrain: true
     reagentsToDrain:

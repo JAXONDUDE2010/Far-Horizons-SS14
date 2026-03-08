@@ -13,9 +13,8 @@
         - id: Gauze
           amount: 2
         - id: Bloodpack
-          amount: 2
-        - id: AmmoniaPack #Far Horizons
-          amount: 2
+#          amount: 2 Far Horizons
+        - id: BloodpackAmmonia #Far Horizons
         - id: BoxLatexGloves
         - id: BoxSterileMask
         - id: BoxMouthSwab
