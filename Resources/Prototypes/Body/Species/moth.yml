@@ -136,6 +136,7 @@
   parent:
   - AppearanceMoth
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobMoth
   name: Urist McFluff
   components:

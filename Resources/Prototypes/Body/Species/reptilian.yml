@@ -114,6 +114,7 @@
   parent:
   - AppearanceReptilian
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobReptilian
   name: Urissst Mz'Hand
   components:

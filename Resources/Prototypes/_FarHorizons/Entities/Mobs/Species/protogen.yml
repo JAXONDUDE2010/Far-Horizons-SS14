@@ -1,7 +1,7 @@
 #region PROTOGEN ####
 
 - type: entity
-  parent: BaseSpeciesMobOrganic
+  parent: [BaseSpeciesMobOrganic, BaseSpeciesPickupableLarge]
   id: BaseMobProtogen
   name: Urist McToaster
   abstract: true
@@ -591,7 +591,7 @@
 - type: entity
   save: false
   name: Urist McDuskin #pronounced Dusk-Kin
-  parent: [MobBloodstream, MobAtmosStandard, MobFlammable, BaseSpeciesMob] #These fucks have no lungs, can't just inherent from protogen..
+  parent: [MobBloodstream, MobAtmosStandard, MobFlammable, BaseSpeciesMob, BaseSpeciesPickupableLarge] #These fucks have no lungs, can't just inherent from protogen..
   id: BaseMobProtoKin
   abstract: true
   components:
@@ -812,10 +812,15 @@
 
 - type: entity
   name: Urist McRapster
-  parent: [BaseMobProtogen, BaseSpeciesPickupable]
+  parent: BaseMobProtogen
   id: BaseMobProtoResomi
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -1340,11 +1345,16 @@
 #region FELIONOID ####
 
 - type: entity
-  parent: [BaseMobProtogen, BaseSpeciesPickupable]
+  parent: BaseMobProtogen
   id: BaseMobProtoFeline
   name: Urist McFelinster
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -1478,6 +1488,11 @@
   id: BaseMobProtoDawi
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -1813,10 +1828,15 @@
 - type: entity
   save: false
   name: Urist McAvalister
-  parent: [ BaseMobProtogen, BaseSpeciesPickupable ]
+  parent: BaseMobProtogen
   id: BaseMobProtoAvali
   abstract: true
   components:
+    - type: Item
+      size: Huge
+      allowDirectHandPickup: false
+      shape:
+      - 0, 0, 6, 4
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon

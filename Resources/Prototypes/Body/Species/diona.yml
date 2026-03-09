@@ -68,6 +68,7 @@
   parent:
   - AppearanceDiona
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobDiona
   name: McUrist Plants
   components:

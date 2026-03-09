@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McEars
-  parent: BaseSpeciesMobOrganic
+  parent: [BaseSpeciesMobOrganic, BaseSpeciesPickupableLarge] #FH
   id: BaseMobThaven
   abstract: true
   components:

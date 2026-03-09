@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseSpeciesMobOrganic
+  parent: [BaseSpeciesMobOrganic, BaseSpeciesPickupableLarge] #FH
   id: BaseMobCyclorite
   abstract: true
   components:
