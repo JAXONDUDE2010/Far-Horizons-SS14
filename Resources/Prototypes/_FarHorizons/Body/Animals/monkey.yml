@@ -1,0 +1,10 @@
+- type: entity
+  parent: OrganAnimal
+  id: OrganMonkeyExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Mobs/Animals/monkey.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _FarHorizons/Mobs/Animals/monkey.rsi
