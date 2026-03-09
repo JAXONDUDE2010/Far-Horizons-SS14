@@ -16,7 +16,7 @@
     organs:
       Lungs: OrganRatLungs
       Heart: OrganAnimalHeart
-      Stomach: OrganMothStomach
+      Stomach: OrganAnimalStomach
       Liver: OrganAnimalStomach
       Kidneys: OrganAnimalKidneys
   #Far-Horizons End
