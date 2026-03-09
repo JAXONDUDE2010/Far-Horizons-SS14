@@ -1421,7 +1421,19 @@
       effects:
       - !type:WashCreamPie
   - type: Crawler
-  #FarHorizons Start
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus # marks them as crew
+
+#FarHorizons Start
+- type: entity
+  id: MobBaseSurgery
+  abstract: true
+  components:
   - type: UserInterface
     interfaces:
       enum.SurgeryUIKey.Key:
@@ -1430,15 +1442,13 @@
         type: StrippableBoundUserInterface
   - type: Blindable
   - type: DarkenedVision
-  #FarHorizons End
-  - type: StatusIcon
-    bounds: -0.5,-0.5,0.5,0.5
-  - type: JobStatus # marks them as crew
+  - type: VisionOrganRequiredForVision
+#FarHorizons End
 
 - type: entity
   name: monkey
   id: MobMonkey
-  parent: [MobBaseAncestor, BaseSpeciesPickupable]
+  parent: [ MobBaseSurgery, MobBaseAncestor, BaseSpeciesPickupable] #Far Horizons
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
   - type: NameIdentifier
@@ -1472,7 +1482,7 @@
 - type: entity
   name: monkey
   id: MobBaseSyndicateMonkey
-  parent: MobBaseAncestor
+  parent: [ MobBaseSurgery, MobBaseAncestor ] #FarHorizons
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   suffix: syndicate base
   components:
@@ -1523,7 +1533,7 @@
 - type: entity
   name: kobold
   id: MobBaseKobold
-  parent: [MobBaseAncestor, BaseSpeciesPickupable]
+  parent: [ MobBaseSurgery, MobBaseAncestor, BaseSpeciesPickupable] #FarHorizons
   description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
   abstract: true
   components:
