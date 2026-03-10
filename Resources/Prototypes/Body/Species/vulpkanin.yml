@@ -117,6 +117,7 @@
   parent:
   - AppearanceVulpkanin
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobVulpkanin
   name: Urist McArfArf
   components:

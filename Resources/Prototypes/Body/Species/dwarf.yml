@@ -59,6 +59,13 @@
       220: Dead
   - type: Absorbable
   # Starlight-end
+#FH - Start
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
+#FH - End
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

@@ -70,6 +70,7 @@
   parent:
   - AppearanceArachnid
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobArachnid
   name: Urist McWebs
   components:
