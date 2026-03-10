@@ -53,7 +53,7 @@
 
 - type: entity
   name: Rad Collector Spawner
-  id: SpawnerRadCollectorr70
+  id: SpawnerRadCollector70
   suffix: 70%
   parent: MarkerBase
   components:
@@ -74,7 +74,7 @@
 
 - type: entity
   name: Rad Collector Spawner
-  id: SpawnerRadCollectorr50
+  id: SpawnerRadCollector50
   suffix: 50%
   parent: MarkerBase
   components:
@@ -95,7 +95,7 @@
 
 - type: entity
   name: Rad Collector Spawner
-  id: SpawnerRadCollectorr30
+  id: SpawnerRadCollector30
   suffix: 30%
   parent: MarkerBase
   components:
