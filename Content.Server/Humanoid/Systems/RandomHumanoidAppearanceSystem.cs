@@ -15,7 +15,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomHumanoidAppearanceComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RandomHumanoidAppearanceComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedVisualBodySystem)]); //FarHorizons
     }
 
     private void OnMapInit(EntityUid uid, RandomHumanoidAppearanceComponent component, MapInitEvent args)
