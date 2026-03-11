@@ -29,7 +29,7 @@
   description: Smells faintly of bratwurst.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: ChemistIDCard
   - type: Appearance
@@ -41,7 +41,7 @@
     borderColor: "#d7d7d0"
     accentVColor: "#B34200"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-seniorchemist
 
 - type: entity
@@ -51,7 +51,7 @@
   description: This pulse has never stopped under my watch.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: BrigmedicIDCard
   - type: Appearance
@@ -64,7 +64,7 @@
     accentHColor: "#d7d7d0"
     accentVColor: "#d7d7d0"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-veteranbrigmedic
   - type: CartridgeLoader
     preinstalled:
@@ -113,7 +113,7 @@
   description: I've seen the end. I couldn't change a thing...
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: BrigmedicIDCard
   - type: Appearance
@@ -126,7 +126,7 @@
     accentHColor: "#d7d7d0"
     accentVColor: "#d7d7d0"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-veterancorpsman
   - type: CartridgeLoader
     preinstalled:
@@ -236,7 +236,7 @@
   name: blueshield officer's PDA
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: BlueShieldIDCard
   - type: Appearance
@@ -245,7 +245,7 @@
        !type:String
        pda-blueshield
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-blueshield
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
@@ -263,7 +263,7 @@
   description: Smells like blood and ash.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: SalvageLeadIDCard
   - type: Appearance
@@ -276,7 +276,7 @@
     accentHColor: "#8900c9"
     accentVColor: "#8900c9"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-salvagelead
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
@@ -294,7 +294,7 @@
   description: looks like this was patched up with a bunch of scrap. barely.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: SalvageLeadIDCard
   - type: Appearance
@@ -307,7 +307,7 @@
     accentHColor: "#8900c9"
     accentVColor: "#8f36c6"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-veteransalvagelead
 
 - type: entity
@@ -317,7 +317,7 @@
   description: looks like this was patched up with a bunch of scrap. barely.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: SalvageIDCard
   - type: Appearance
@@ -329,7 +329,7 @@
     borderColor: "#af9366"
     accentVColor: "#8f36c6"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-veteransalvage
 
 - type: entity
@@ -339,7 +339,7 @@
   description: there is dirt in every crack.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: MiningIDCard
   - type: Appearance
@@ -351,7 +351,7 @@
     borderColor: "#af9366"
     accentVColor: "#3e3ac3"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-mining
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
@@ -369,7 +369,7 @@
   description: the screen is cracked, and the buttons barely work.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: MiningIDCard
   - type: Appearance
@@ -381,7 +381,7 @@
     borderColor: "#af9366"
     accentVColor: "#6e63be"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-veteranmining
 
 - type: entity
@@ -391,7 +391,7 @@
   description: watch out for papercuts.
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: MailTechIDCard
   - type: Appearance
@@ -403,7 +403,7 @@
     borderColor: "#e39751"
     accentVColor: "#6ec8fa"
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-mailtech
 
 - type: entity
@@ -413,7 +413,7 @@
   description: Screw captiancy, LETS GET THAT FUKKIN DISK
   components:
     - type: Sprite
-      sprite: _Starlight/Objects/Devices/pda.rsi
+      sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     - type: Pda
       id: CommanderIDCard
     - type: Appearance
@@ -425,7 +425,7 @@
       borderColor: "#891417"
       accentVColor: "#FFD700"
     - type: Icon
-      sprite: _Starlight/Objects/Devices/pda.rsi
+      sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
       state: pda-commander
 
 - type: entity
@@ -434,7 +434,7 @@
   name: naval officer's PDA
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: NTNCBlueShieldIDCard
   - type: Appearance
@@ -443,7 +443,7 @@
        !type:String
        pda-blueshield
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-blueshield
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
@@ -463,7 +463,7 @@
   name: nt nc naval officer's PDA
   components:
   - type: Sprite
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
   - type: Pda
     id: NTNCBlueShieldIDCard
   - type: Appearance
@@ -472,7 +472,7 @@
        !type:String
        pda-ntnc-cs
   - type: Icon
-    sprite: _Starlight/Objects/Devices/pda.rsi
+    sprite: _FarHorizons/Objects/Devices/pda.rsi #FH
     state: pda-ntnc-cs
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
