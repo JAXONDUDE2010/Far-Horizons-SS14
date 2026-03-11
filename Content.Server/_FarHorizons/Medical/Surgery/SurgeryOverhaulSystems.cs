@@ -121,13 +121,13 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
         if (_net.IsClient) return;
         var target = args.Body;
 
-        if (!TryComp<HumanoidCharacterProfileComponent>(target, out var humanoid) || humanoid.Profile == null)
+        if (!TryComp<HumanoidProfileComponent>(target, out var humanoid))
             return;
 
         if (_net.IsClient)
             return;
 
-        var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Profile.Species);
+        var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
         _visualBody.ApplyProfileTo(target, newProfile);
         _profile.ApplyProfileTo(target, newProfile);
         _metaData.SetEntityName(target, newProfile.Name, raiseEvents: false);
