@@ -109,7 +109,8 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
 
         if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored)
         {
-            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent)) {
+            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
+            {
                 if (!generator.Comp.Enabled)
                 {//TurnOn
                     generator.Comp.Enabled = true;

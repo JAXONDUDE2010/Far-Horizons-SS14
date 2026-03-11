@@ -257,7 +257,7 @@
         - GlassLayer
   - type: Sprite
     sprite: _FarHorizons/Structures/Holo/holographic_field.rsi
-    noRot: true
+    noRot: false
     layers:
     - state: field
       shader: unshaded
@@ -305,7 +305,7 @@
   - type: Sprite
     sprite: _FarHorizons/Structures/Holo/holographic_barrier.rsi
     state: field
-    noRot: true
+    noRot: false
     layers:
     - state: field
       shader: unshaded
