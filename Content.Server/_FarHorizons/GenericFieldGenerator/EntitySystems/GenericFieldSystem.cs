@@ -16,6 +16,7 @@ public sealed class GenericFieldSystem : EntitySystem
 
         SubscribeLocalEvent<GenericFieldComponent, DestructionEventArgs>(OnDestructionEvent);
         SubscribeLocalEvent<GenericFieldComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<GenericFieldComponent, ComponentRemove>(OnComponentRemoved);
     }
 
     private void OnDestructionEvent(Entity<GenericFieldComponent> field, ref DestructionEventArgs args)
@@ -34,6 +35,7 @@ public sealed class GenericFieldSystem : EntitySystem
                 return;
 
             _tile.ReplaceTile(field.Comp.Tileref, (ContentTileDefinition)tileDef, field.Comp.GridUid, field.Comp.MapGrid);
+            field.Comp.TempTile = false;
         }
     }
 
@@ -42,5 +44,8 @@ public sealed class GenericFieldSystem : EntitySystem
         if (!args.Anchored && field.Comp.SourceGen != null)
             _genericgen.FieldDestroyed(field.Comp.SourceGen.Value);
     }
+
+    private void OnComponentRemoved(Entity<GenericFieldComponent> field, ref ComponentRemove args) => TempTileCleanup(field); // failsafe if field is somehow deleted by something unexpectedly
+
 }
 //Space

@@ -394,7 +394,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
             }
             fieldList.Add(newField);
             currentOffset += dirVec;
-            if (TryComp<GenericFieldComponent>(newField, out var fieldComp))// TODO: remember to tell GenericFieldComponent what tile it has to remove
+            if (TryComp<GenericFieldComponent>(newField, out var fieldComp))
             {
                 fieldComp.SourceGen = firstGen;
                 if (!_transformSystem.AnchorEntity(newField)) //check if entity can anchor normally first
