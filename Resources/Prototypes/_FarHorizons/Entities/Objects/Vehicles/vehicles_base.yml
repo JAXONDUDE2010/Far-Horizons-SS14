@@ -18,6 +18,7 @@
   parent: BaseVehicle
   id: BaseVehicleRideable
   abstract: true
+  save: false
   name: Vehicle
   components:
   - type: InputMover
@@ -41,6 +42,7 @@
   parent: BaseVehicleRideable
   id: BaseVehicleRideableDamageable
   abstract: true
+  save: false
   name: VehicleDamageable
   components:
   - type: Repairable
@@ -68,6 +70,8 @@
     key: enum.VehicleEquipmentUiKey.Key
   - type: UserInterface
     interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
       enum.VehicleEquipmentUiKey.Key:
         type: VehicleEquipmentBoundUserInterface
 

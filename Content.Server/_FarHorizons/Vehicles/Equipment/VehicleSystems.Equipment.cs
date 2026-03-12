@@ -33,6 +33,8 @@ using Robust.Shared.Random;
 using Content.Server.Destructible;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
@@ -55,6 +57,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private float _frictionModifier;
     private float _airfrictionModifier;
@@ -84,6 +87,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
         SubscribeLocalEvent<ItemToggleComponent, ToggleActionEvent>(OnSirenToggle);
         SubscribeLocalEvent<VehicleComponent, ToggleIntrinsicUIEvent>(OnActionToggle);
+        SubscribeLocalEvent<VehicleEquipmentComponent, GetItemActionsEvent>(OnGetActions);
 
         SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
         SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
@@ -160,7 +164,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 _popupSystem.PopupCursor("Turn off vehicle before performing any maintenance.", args.User, PopupType.SmallCaution);
                 return;
             }
-
+            _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/drill_use.ogg"), ent.Owner, null);
             var installEV = new InstallDoAfter(GetNetEntity(args.Used));
             var installDoAfter = new DoAfterArgs(EntityManager, args.User, veComp.InstallandRemoveTime, installEV, ent.Owner)
             {
@@ -240,6 +244,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             return;
         }
 
+        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/drill_use.ogg"), ent.Owner, null);
         var uninstallEV = new UninstallDoAfter(args.Part, args.Slot);
         var uninstallDoAfter = new DoAfterArgs(EntityManager, args.Actor, veComp.InstallandRemoveTime, uninstallEV, ent.Owner)
         {
@@ -359,6 +364,13 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(component.Rider == null)
             return;
         args.Handled = _ui.TryToggleUi(uid, args.Key, component.Rider.Value);
+    }
+
+    private void OnGetActions(Entity<VehicleEquipmentComponent> ent, ref GetItemActionsEvent args)
+    {
+        var xForm = Transform(ent.Owner);
+        if(!HasComp<VehicleModsComponent>(xForm.ParentUid))
+            args.Cancel();
     }
     #endregion
 

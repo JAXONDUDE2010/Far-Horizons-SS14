@@ -2,6 +2,7 @@
 - type: entity
   id: VehicleGasBuckleBase
   abstract: true
+  save: false
   parent: BaseVehicleRideableDamageable
   components:
   - type: Vehicle
@@ -158,12 +159,6 @@
         key_slot: !type:ContainerSlot
         storagebase: !type:Container
         vehicle_mods_container: !type:Container
-    - type: UserInterface
-      interfaces:
-        enum.StorageUiKey.Key:
-          type: StorageBoundUserInterface
-        enum.VehicleEquipmentUiKey.Key:
-          type: VehicleEquipmentBoundUserInterface
     - type: Storage
       grid:
       - 0,0,6,4
@@ -252,10 +247,6 @@
       storagebase: !type:Container
       vehicle_mods_container: !type:Container
   - type: Hitch
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: Storage
     grid:
     - 0,0,1,5
@@ -297,6 +288,7 @@
 - type: entity
   id: VehicleContainerBase
   abstract: true
+  save: false
   parent: BaseVehicleRideableDamageable
   components:
   - type: Vehicle
@@ -363,12 +355,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.VehicleEquipmentUiKey.Key:
-        type: VehicleEquipmentBoundUserInterface
   - type: Explosive
     explosionType: Default
     totalIntensity: 300

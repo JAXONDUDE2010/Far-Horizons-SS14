@@ -97,7 +97,7 @@
     - type: RotatingLight
       speed: 360
     - type: Sprite
-      sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/security.rsi
+      sprite: _FarHorizons/Objects/Vehicles/vehiclemods.rsi
       state: siren
     - type: ItemToggleActiveSound
       activeSound:

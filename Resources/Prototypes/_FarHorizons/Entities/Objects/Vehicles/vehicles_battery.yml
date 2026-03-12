@@ -2,6 +2,7 @@
 - type: entity
   id: VehicleBatteryBuckleBase
   abstract: true
+  save: false
   parent: BaseVehicleRideableDamageable
   components:
     - type: Strap
@@ -148,7 +149,6 @@
   id: VehicleSecwayTurbo
   parent: VehicleSecway
   name: Secway Turbo
-  suffix: Battery, Keys, NT
   description: An upgraded Secway, it is better in every single aspect.
   components:
     - type: Sprite
@@ -284,7 +284,7 @@
         - BasicTires
         - ElectricEngine
         - LightArmorKit
-        - BasicHeadlightBright
+        - HeadlightLED
 
 #region Civilian
 - type: entity
