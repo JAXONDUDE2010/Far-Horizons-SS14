@@ -29,7 +29,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
 
         _visualBody.ApplyProfileTo(uid, profile);
         _humanoidProfile.ApplyProfileTo(uid, profile);
-        _visualBody.MatchMarkingsToSkinColor(uid, profile); //FarHorizons
+        _visualBody.MatchMarkingsToSkinColorAndRandomHair(uid, profile); //FarHorizons
 
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, profile.Name);

@@ -10,6 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared._FarHorizons.Body;
+using Robust.Shared.Random; //FarHorizons
 
 namespace Content.Shared.Body;
 
@@ -17,6 +18,7 @@ public abstract partial class SharedVisualBodySystem
 {
     [Dependency] private readonly ISharedAdminManager _admin = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly IRobustRandom _random =  default!; //FarHorizons
 
     private void InitializeModifiers()
     {
@@ -157,26 +159,48 @@ public abstract partial class SharedVisualBodySystem
     }
 
     //FarHorizons Start
-    public void MatchMarkingsToSkinColor(Entity<VisualBodyComponent?> ent, HumanoidCharacterProfile profile)
+    public void MatchMarkingsToSkinColorAndRandomHair(Entity<VisualBodyComponent?> ent, HumanoidCharacterProfile profile)
     {
         if(!TryComp<BodyComponent>(ent.Owner, out var body) || body.Organs == null || body.Organs.ContainedEntities.Count < 0)
             return;
-        foreach(var organ in body.Organs.ContainedEntities)
+
+        foreach (var organ in body.Organs.ContainedEntities)
         {
-            if(!TryComp<VisualOrganMarkingsComponent>(organ, out var markingComp))
+            if (!TryComp<VisualOrganMarkingsComponent>(organ, out var markingComp))
                 continue;
-            foreach(var (layer, markings) in markingComp.Markings)
+
+            foreach (var (layer, markings) in markingComp.Markings)
             {
-                foreach(var marking in markings)
+                var color = profile.Appearance.SkinColor;
+
+                if (layer is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair)
                 {
-                    if(marking.Equals(MarkingCategories.Hair) || marking.Equals(MarkingCategories.FacialHair))
-                        continue;
-                    marking.SetColor(profile.Appearance.SkinColor);
+                    if (layer == HumanoidVisualLayers.FacialHair)
+                    {
+                        if (markingComp.Markings.TryGetValue(HumanoidVisualLayers.Hair, out var hairMarkings) &&
+                            hairMarkings.Count > 0)
+                        {
+                            color = hairMarkings[0].MarkingColors.FirstOrDefault();
+                        }
+                        else
+                        {
+                            color = _random.Pick(Color.GetAllDefaultColors().Select(kv => kv.Value).ToList());
+                        }
+                    }
+                    else
+                    {
+                        color = _random.Pick(Color.GetAllDefaultColors().Select(kv => kv.Value).ToList());
+                    }
+                }
+
+                foreach (var marking in markings)
+                {
+                    marking.SetColor(color);
                 }
             }
+
             Dirty(organ, markingComp);
         }
-
-        //FarHorizons End
     }
+    //FarHorizons End
 }
