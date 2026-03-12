@@ -96,7 +96,7 @@
   name: Hug Dispenser #Far Horizons - The Great Capitalization Crusade
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Machines/CreditVendingMachines/plushiemat.rsi
+    sprite: _FarHorizons/Structures/Machines/CreditVendingMachines/plushiemat.rsi #FH
   - type: Store
     name: vendor-hug-dispenser
     categories:
