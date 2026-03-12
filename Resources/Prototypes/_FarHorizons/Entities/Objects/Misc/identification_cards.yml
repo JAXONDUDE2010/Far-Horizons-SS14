@@ -28,6 +28,14 @@
     - type: PresetIdCard
       job: Corpsman
 
+- type: entity
+  parent: DetectiveIDCard
+  id: DetectiveIDCardScurret
+  components:
+  - type: PresetIdCard
+    job: Detective
+    name: Detective Inquisitive Tethers
+
 #CentComm
 
 - type: entity
