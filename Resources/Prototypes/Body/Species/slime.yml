@@ -76,6 +76,7 @@
   parent:
   - AppearanceSlimePerson
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobSlimePerson
   name: Urist McWobble
   components:

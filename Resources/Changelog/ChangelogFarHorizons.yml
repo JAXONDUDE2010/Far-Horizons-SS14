@@ -8494,5 +8494,248 @@ Entries:
   id: 87000
   time: '2026-03-08T15:55:56.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/870
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Amoxla Bag & Oil Bag having 20u instead of 10u
+    type: Fix
+  id: 89900
+  time: '2026-03-09T02:52:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/899
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Syndicate Atmos Firesuit not having pockets
+    type: Fix
+  id: 89901
+  time: '2026-03-09T02:52:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/899
+- author: AthenaAI
+  changes:
+  - message: Fixes Borgis not spawning with organs.
+    type: Fix
+  id: 90300
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Fixes Protoslimes getting blinded when changing grids due to their lack
+      of eyes.
+    type: Fix
+  id: 90301
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Fixes Ichor not healing due to it required to be Digested and not in
+      your bloodstream.
+    type: Fix
+  id: 90302
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Animals no longer use EntityTableContainerFill they have updated to InitialBodyComponent.
+    type: Tweak
+  id: 90303
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Added a new traits system, supporting conditions and new effects. Make
+      sure to check out the Traits tab in the character editor!
+    type: Add
+  id: 90000
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Added the "Burned"&"Iterator" Background.
+    type: Add
+  id: 90001
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Fixed Iterator trait language error.
+    type: Fix
+  id: 90002
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: LegsParalyzed being removed by accident.
+    type: Fix
+  id: 90003
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Glasses now properly fix short-sightedness.
+    type: Tweak
+  id: 90004
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Iterator-traited people can now be Command.
+    type: Tweak
+  id: 90005
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Iterator's cannot be Librarian (bug)
+    type: Tweak
+  id: 90006
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Shadekins cannot Snore... no lungs... duh.
+    type: Remove
+  id: 90007
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: Killer Tamashi
+  changes:
+  - message: Made everyone able to be picked up. Big people can only fit in bluespace
+      bags however.
+    type: Tweak
+  id: 90200
+  time: '2026-03-10T02:43:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/902
+- author: AirJab
+  changes:
+  - message: Adds random wall spawners
+    type: Add
+  id: 89400
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: AirJab
+  changes:
+  - message: Adds random Engineering spawners
+    type: Add
+  id: 89401
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: AirJab
+  changes:
+  - message: Adds random Science spawners
+    type: Add
+  id: 89402
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: SnappingOpossum, Fasuh
+  changes:
+  - message: Added fun toys and food into happy honk meals.
+    type: Add
+  id: 90700
+  time: '2026-03-11T17:33:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/907
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: New Sprites for EngiVend, YouTool vendor, Nanomed+Nanomed Civilian vendors,
+      ChemDrobe, CargoDrobe, EngiDrobe, JaniDrobe, LawDrobe, MediDrobe, ViroDrobe,
+      MagiVend, ChemVend.
+    type: Add
+  id: 89800
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: New Sprites for Centcomm PDA, Salvagelead PDA, Veteran Salvagelead PDA,
+      Veteran Salvage PDA, Wizard PDA, Zookeeper PDA, Senior Chemist PDA, Veteran
+      Brigmed PDA, Veteran Corpsman PDA.
+    type: Add
+  id: 89801
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Veteran BlueShield PDA.
+    type: Add
+  id: 89802
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Veteran Corpsman PDA.
+    type: Add
+  id: 89803
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Every PDA UI border now reflects their sprite.
+    type: Tweak
+  id: 89804
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Moved every ID card in the game to our folders so they dont get nuked
+      from upstream orbit.
+    type: Tweak
+  id: 89805
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Moved every PDA sprite in the game for the same reason above ^
+    type: Tweak
+  id: 89806
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Fixed sprite for having your PDA on, no longer is it attached to your
+      arm. (will change back when I can make it look right)
+    type: Fix
+  id: 89807
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Every ID card in the game is resprited again, we used to have these sprites
+      but they got nuked in an upstream merge.
+    type: Fix
+  id: 89808
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Brigmed glasses are back (No longer same sprite as Visor)
+    type: Fix
+  id: 89809
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: Corpsman PDA's are no longer in Brigmed loadout, they also no longer
+      take brigmed time to unlock.
+    type: Fix
+  id: 89810
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: All PDA's are Capitalised.
+    type: Fix
+  id: 89811
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Roro, Abby, Jaxon
+  changes:
+  - message: My sanity.
+    type: Remove
+  id: 89812
+  time: '2026-03-12T15:39:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/898
+- author: Fasuh & AthenaAI
+  changes:
+  - message: Fixes eject and insert audio cues for item slots.
+    type: Fix
+  id: 91400
+  time: '2026-03-12T16:01:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/914
 Order: -1
 

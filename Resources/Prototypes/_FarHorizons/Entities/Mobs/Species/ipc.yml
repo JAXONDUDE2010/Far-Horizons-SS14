@@ -1,5 +1,5 @@
 - type: entity
-  parent: [MobBloodstream, MobFlammable, BaseSpeciesMob]
+  parent: [MobBloodstream, MobFlammable, BaseSpeciesMob, BaseSpeciesPickupableLarge]
   id: BaseMobIPC
   name: Urist McRobot
   abstract: true

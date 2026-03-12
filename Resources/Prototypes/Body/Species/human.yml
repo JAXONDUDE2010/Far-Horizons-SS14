@@ -86,6 +86,7 @@
   parent:
   - AppearanceHuman
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobHuman
   name: Urist McHands
   components:
