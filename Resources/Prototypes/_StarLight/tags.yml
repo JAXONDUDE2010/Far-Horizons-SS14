@@ -53,6 +53,9 @@
   id: Bow
 
 - type: Tag
+  id: BurnedTraitBackground
+
+- type: Tag
   id: CantInteract
 
 - type: Tag
@@ -245,10 +248,10 @@
   id: InsulatedThread
 
 - type: Tag
-  id: L6Saw
+  id: IteratorTraitBackground
 
 - type: Tag
-  id: LightRifleHeavy
+  id: L6Saw
 
 - type: Tag
   id: Lighters
@@ -272,7 +275,7 @@
   id: MagazinePistolImprovised
 
 - type: Tag
-  id: MagazineRifleM52
+  id: MagazineRifle556M52 #FH
 
 - type: Tag
   id: MagazineSMGImprovised

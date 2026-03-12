@@ -131480,7 +131480,7 @@ entities:
     - type: Transform
       pos: 40.44684,-10.35072
       parent: 2
-- proto: MagazineRifleSP
+- proto: MagazineRifle556SP
   entities:
   - uid: 20281
     components:

@@ -202,7 +202,7 @@
 - type: entity
   parent: BasePDA
   id: IAAPDA
-  name: internal affairs agent PDA
+  name: Affairs Official PDA # Far Horizons
   description: Corporation and profit are best friends.
   components:
   - type: Pda

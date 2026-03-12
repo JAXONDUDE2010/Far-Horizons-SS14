@@ -7859,5 +7859,777 @@ Entries:
   id: 87103
   time: '2026-03-04T21:52:07.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/871
+- author: Killer Tamashi
+  changes:
+  - message: Added Advanced Medkit to Nukie Loadout
+    type: Add
+  id: 87300
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Added Amoxla Syringe (prototype for mapping/item uses)
+    type: Add
+  id: 87301
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Added IPC healing meds to Nukie Planet (HV cables, Industrial Welder
+      & 3 Oil Bags)
+    type: Add
+  id: 87302
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Added 2 more Shuttle Laser Guns to Security Ship to cover ramming blindspot
+    type: Add
+  id: 87303
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Removed Shuttle Wall Reflect
+    type: Remove
+  id: 87304
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Changed Combat Medkit size & Added Amoxla Syringe/Oil Bag to it
+    type: Tweak
+  id: 87305
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Changed Maximum shuttle speed (60 -> 100)
+    type: Tweak
+  id: 87306
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: FTL cooldown from (1 -> 3) minutes
+    type: Tweak
+  id: 87307
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Buffed Perforator's structural damage (10 -> 300) to actually not be
+      useless in shuttle combat
+    type: Tweak
+  id: 87308
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Allows translator to be put in pin slot
+    type: Tweak
+  id: 87309
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Vials not fitting in Combat/Secmed Kit & Brigmedic/Corpsman Belt
+    type: Fix
+  id: 87310
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Warden spawning with 2 Due Processes
+    type: Fix
+  id: 87311
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Protogens being unable to eat raw food
+    type: Fix
+  id: 87312
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Medkits not fitting in Brig/Corps belt
+    type: Fix
+  id: 87313
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Incorrect Shadekin Guidebook Entry
+    type: Fix
+  id: 87314
+  time: '2026-03-05T20:53:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/873
+- author: Killer Tamashi
+  changes:
+  - message: Added Modded Rifles [Lecter Type-T / Lecter Type-S / Lecter Type-W]
+    type: Add
+  id: 86900
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Added Powered Gauntlets [Syndie Jugg & Heavy Sec, locked to their respective
+      suit]
+    type: Add
+  id: 86901
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Added Heavy Security Magboots (No slowdown, used only with Heavy Sec.
+      Also counts towards Advanced Magboots steal obj)
+    type: Add
+  id: 86902
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Added a 5 round Burst to M492 with 1 second cooldown, use it tactically
+      for better accuracy over full auto
+    type: Add
+  id: 86903
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Added the Lecter Type-W to Syndie & Nukie uplink, comes with 2 FMJ and
+      2 SP mags.
+    type: Add
+  id: 86904
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Resprited Lecter & Lecter Mags
+    type: Tweak
+  id: 86905
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Resprited M492 & M492 Mags
+    type: Tweak
+  id: 86906
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Resprited Security Experimental
+    type: Tweak
+  id: 86907
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Resprited Large Lector Rifle Rack
+    type: Tweak
+  id: 86908
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Renamed .20 to 5.56
+    type: Tweak
+  id: 86909
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Renamed .38 Special mags to follow new naming convention
+    type: Tweak
+  id: 86910
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Nerfed Stock Lecter Accuracy (it was basically perfect accuracy)
+    type: Tweak
+  id: 86911
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Security Experimental's name to Heavy Security Hardsuit
+    type: Tweak
+  id: 86912
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Heavy Security Hardsuit slowdown [40% -> 70%]
+    type: Tweak
+  id: 86913
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Heavy Security Hardsuit resistances to 80% Brute, Heat, Caustic
+      & Rads
+    type: Tweak
+  id: 86914
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Heavy Security Hardsuit & Cybersun Juggernaut have 100% Zombie
+      Infection resist
+    type: Tweak
+  id: 86915
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed M492 to use 5.56 instead of .30 [This lowers it's DPS significantly]
+    type: Tweak
+  id: 86916
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed M492 to use 100 round mags instead of 80
+    type: Tweak
+  id: 86917
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed M492 to have +2 to tile range
+    type: Tweak
+  id: 86918
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Snipers to have +1 to tile range by default
+    type: Tweak
+  id: 86919
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Gun Wielding to impose a 5-10% slowdown depending on gun type
+    type: Tweak
+  id: 86920
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: SMG Slowdown is 5%
+    type: Tweak
+  id: 86921
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Rest of the gun slowdowns is 10%
+    type: Tweak
+  id: 86922
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Changed Gun Wielding to have a cooldown
+    type: Tweak
+  id: 86923
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: SMG Cooldown is 0.5s
+    type: Tweak
+  id: 86924
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Rifle Cooldown is 1s
+    type: Tweak
+  id: 86925
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Shotgun Cooldown is 1.5s
+    type: Tweak
+  id: 86926
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Sniper / LMG / Launcher cooldown is 2s
+    type: Tweak
+  id: 86927
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: Killer Tamashi
+  changes:
+  - message: Removed .30 ammunition from Secfab
+    type: Remove
+  id: 86928
+  time: '2026-03-05T22:06:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/869
+- author: princess_gurchi
+  changes:
+  - message: 'New minor faction: Concord Frontier Authority. Population: Magi and
+      Affairs Official'
+    type: Add
+  id: 87700
+  time: '2026-03-05T23:27:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/877
+- author: princess_gurchi
+  changes:
+  - message: IAA renamed to Affairs Official. There's one for NT, one for NeoSol,
+      and one for CFA
+    type: Tweak
+  id: 87701
+  time: '2026-03-05T23:27:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/877
+- author: princess_gurchi
+  changes:
+  - message: Syndicate faction renamed to NeoSol for lore reasons
+    type: Tweak
+  id: 87702
+  time: '2026-03-05T23:27:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/877
+- author: princess_gurchi
+  changes:
+  - message: Combined all minor factions (GSL and CFA) under one filter in lobby
+    type: Tweak
+  id: 87703
+  time: '2026-03-05T23:27:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/877
+- author: CorruptOmega
+  changes:
+  - message: Changed mentions of Starlight server from server rules to Far Horizons.
+    type: Tweak
+  id: 87800
+  time: '2026-03-06T00:13:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/878
+- author: CorruptOmega
+  changes:
+  - message: Removed a bunch of Starlight rules files that are not needed anymore.
+    type: Remove
+  id: 87801
+  time: '2026-03-06T00:13:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/878
+- author: CorruptOmega
+  changes:
+  - message: Removed some failed color codes in silicon laws guidebook entry.
+    type: Fix
+  id: 87802
+  time: '2026-03-06T00:13:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/878
+- author: CorruptOmega
+  changes:
+  - message: Wizden Tabs for Rules/Maps/Admin, because we don't need them.
+    type: Remove
+  id: 87803
+  time: '2026-03-06T00:13:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/878
+- author: princess_gurchi
+  changes:
+  - message: Adds support for reusing keycodes between different radio channels
+    type: Add
+  id: 87400
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: 'Changed all "mirrored" radio channels to use the same keycode (example:
+      syndicate and NT command both use ":c" to speak in their radio; both syndicate
+      and NT nukies will use ":t" for theirs)'
+    type: Tweak
+  id: 87401
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: Syndicate telecom servers for mapping
+    type: Add
+  id: 87402
+  time: '2026-03-06T00:27:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/874
+- author: princess_gurchi
+  changes:
+  - message: Glitching VFX
+    type: Add
+  id: 88400
+  time: '2026-03-06T16:20:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/884
+- author: princess_gurchi
+  changes:
+  - message: IPCs and Protogens will glitch after every ion storm.
+    type: Add
+  id: 88401
+  time: '2026-03-06T16:20:24.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/884
+- author: Killer Tamashi
+  changes:
+  - message: Added Responder Kit (Given to Paramedics)
+    type: Add
+  id: 88300
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Added Departmental Soft Pouches (They fit in your pocket!) - No whitelist,
+      needs cloth and steel to make and can only hold tiny items.
+    type: Add
+  id: 88301
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Added Departmental Hard Pouches (They don't fit in your pocket!) - Whitelist
+      reflects job of your department, needs steel and durathread to make, can hold
+      medium-sized items.
+    type: Add
+  id: 88302
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Added Departmental Survival Kits - Reflects what your job needs in an
+      emergency. Feedback and suggestions greatly welcomed on contents of these kits.
+    type: Add
+  id: 88303
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Respited all first aid kits
+    type: Tweak
+  id: 88304
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Allowed several more items to fit in secbelt (EpiPen, bola, crisis button)
+      - why you couldn't shove them into your belt before is beyond me.
+    type: Tweak
+  id: 88305
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: Killer Tamashi
+  changes:
+  - message: Removed Combat Kit from Medfab (I'm sorry, but it had to be done)
+    type: Remove
+  id: 88306
+  time: '2026-03-06T17:40:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/883
+- author: jhrushbe
+  changes:
+  - message: Guidebook entries for the nuclear reactor and reactor part materials
+      will now update to follow CVars.
+    type: Add
+  id: 88800
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Made kelvin the default temperature display in the nuclear reactor UI.
+    type: Tweak
+  id: 88801
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where the nuclear reactor would send alerts to the first
+      station in a map rather than the station it was on.
+    type: Fix
+  id: 88802
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where a value in the gas pump guidebook page was invalid.
+    type: Fix
+  id: 88803
+  time: '2026-03-07T13:26:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/888
+- author: Killer Tamashi
+  changes:
+  - message: Added small coat pockets to firesuits (2x3)
+    type: Add
+  id: 89100
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Added an unlocked version of the sec juggsuit for testing purposes
+    type: Add
+  id: 89101
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Added Universal Blood Replacement (as you might imagine, spawns in bloodbags)
+    type: Add
+  id: 89102
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Changed brigmedic/corpsman belt to be explosion proof (allows storage
+      of vials and other fragile things)
+    type: Tweak
+  id: 89103
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Made bloodpacks refillable
+    type: Tweak
+  id: 89104
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Reduced number of bloodpacks on maps due to aforementioned refilling
+      (Lockers 2->1 big nanomeds 4->2, small nanomeds 2->1)
+    type: Tweak
+  id: 89105
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Gave bloodpacks new sprites
+    type: Tweak
+  id: 89106
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Resprited Automenders
+    type: Tweak
+  id: 89107
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Nerfed Saline's blood-level restoring abilities (It was too good and
+      easy to make to not use over literally anything) it now restores 10% per 5u.
+      UBR restores 30% per 5u.
+    type: Tweak
+  id: 89108
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Dominator Rifle being the wrong size (was pistol shaped, is now
+      rifle shaped)
+    type: Fix
+  id: 89109
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Avali/Changeling blood causing duplications in chem guidebook,
+      now properly named.
+    type: Fix
+  id: 89110
+  time: '2026-03-08T01:58:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/891
+- author: ScorchFollower
+  changes:
+  - message: Added suit storage units to both QM and NTR respectively
+    type: Add
+  id: 89000
+  time: '2026-03-08T10:52:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/890
+- author: ScorchFollower
+  changes:
+  - message: Custom sounds for when you open or close a suit storage unit
+    type: Add
+  id: 89001
+  time: '2026-03-08T10:52:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/890
+- author: ScorchFollower
+  changes:
+  - message: Resprited nearly all commonly used suit storage units to match the themes
+      of FH. Glory!
+    type: Tweak
+  id: 89002
+  time: '2026-03-08T10:52:13.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/890
+- author: Killer Tamashi
+  changes:
+  - message: Added Pin Tag
+    type: Add
+  id: 88700
+  time: '2026-03-08T15:00:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/887
+- author: Killer Tamashi
+  changes:
+  - message: Un-1984's Shadekin's Baldness
+    type: Fix
+  id: 88701
+  time: '2026-03-08T15:00:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/887
+- author: Killer Tamashi
+  changes:
+  - message: Medals not fitting in pin slot
+    type: Fix
+  id: 88702
+  time: '2026-03-08T15:00:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/887
+- author: Killer Tamashi
+  changes:
+  - message: Holding .38 magazine causing big red error
+    type: Fix
+  id: 88703
+  time: '2026-03-08T15:00:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/887
+- author: Fasuh (Prototyping), Abby (Sprites)
+  changes:
+  - message: Added syndicate versions of airlocks and glass airlocks.
+    type: Add
+  id: 87000
+  time: '2026-03-08T15:55:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/870
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Amoxla Bag & Oil Bag having 20u instead of 10u
+    type: Fix
+  id: 89900
+  time: '2026-03-09T02:52:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/899
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Syndicate Atmos Firesuit not having pockets
+    type: Fix
+  id: 89901
+  time: '2026-03-09T02:52:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/899
+- author: AthenaAI
+  changes:
+  - message: Fixes Borgis not spawning with organs.
+    type: Fix
+  id: 90300
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Fixes Protoslimes getting blinded when changing grids due to their lack
+      of eyes.
+    type: Fix
+  id: 90301
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Fixes Ichor not healing due to it required to be Digested and not in
+      your bloodstream.
+    type: Fix
+  id: 90302
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: AthenaAI
+  changes:
+  - message: Animals no longer use EntityTableContainerFill they have updated to InitialBodyComponent.
+    type: Tweak
+  id: 90303
+  time: '2026-03-09T15:22:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/903
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Added a new traits system, supporting conditions and new effects. Make
+      sure to check out the Traits tab in the character editor!
+    type: Add
+  id: 90000
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Added the "Burned"&"Iterator" Background.
+    type: Add
+  id: 90001
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Fixed Iterator trait language error.
+    type: Fix
+  id: 90002
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: LegsParalyzed being removed by accident.
+    type: Fix
+  id: 90003
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Glasses now properly fix short-sightedness.
+    type: Tweak
+  id: 90004
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Iterator-traited people can now be Command.
+    type: Tweak
+  id: 90005
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Iterator's cannot be Librarian (bug)
+    type: Tweak
+  id: 90006
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: MilonPL, Shades, Fractalflower & AthenaAI
+  changes:
+  - message: Shadekins cannot Snore... no lungs... duh.
+    type: Remove
+  id: 90007
+  time: '2026-03-10T01:26:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/900
+- author: Killer Tamashi
+  changes:
+  - message: Made everyone able to be picked up. Big people can only fit in bluespace
+      bags however.
+    type: Tweak
+  id: 90200
+  time: '2026-03-10T02:43:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/902
+- author: AirJab
+  changes:
+  - message: Adds random wall spawners
+    type: Add
+  id: 89400
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: AirJab
+  changes:
+  - message: Adds random Engineering spawners
+    type: Add
+  id: 89401
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: AirJab
+  changes:
+  - message: Adds random Science spawners
+    type: Add
+  id: 89402
+  time: '2026-03-11T11:00:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/894
+- author: SnappingOpossum, Fasuh
+  changes:
+  - message: Added fun toys and food into happy honk meals.
+    type: Add
+  id: 90700
+  time: '2026-03-11T17:33:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/907
 Order: -1
 

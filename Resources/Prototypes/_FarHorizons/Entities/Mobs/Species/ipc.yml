@@ -1,5 +1,5 @@
 - type: entity
-  parent: [MobBloodstream, MobFlammable, BaseSpeciesMob]
+  parent: [MobBloodstream, MobFlammable, BaseSpeciesMob, BaseSpeciesPickupableLarge]
   id: BaseMobIPC
   name: Urist McRobot
   abstract: true
@@ -180,6 +180,9 @@
       borg_brain: [ PositronicBrain ]
       key_slots:
       - EncryptionKeyTrinary
+  - type: GlitchOnIonStorm
+    duration: 40
+    ramp: 5
   # Battery
   - type: IPCBattery
     dieWithoutPowerAfter: 15.0 # 10 was too short

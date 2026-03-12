@@ -28,12 +28,14 @@
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
   spawn: Brutepack
 
-- type: stack
-  parent: BaseSmallStack
-  id: Bloodpack
-  name: stack-bloodpack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
-  spawn: Bloodpack
+# FH - Start
+#- type: stack
+#  parent: BaseSmallStack
+#  id: Bloodpack
+#  name: stack-bloodpack
+#  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
+#  spawn: Bloodpack
+# FH - End
 
 - type: stack
   parent: BaseSmallStack

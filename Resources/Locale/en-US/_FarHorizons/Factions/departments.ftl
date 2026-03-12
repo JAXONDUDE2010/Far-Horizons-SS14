@@ -14,4 +14,4 @@ faction-syndie-department-Science = Science
 faction-syndie-department-Representives = NeoSol Representatives
 faction-syndie-department-Silicon = Silicon
 
-faction-neutral-department-Law = Concord Frontier Authority
+faction-neutral-department-Law = Law

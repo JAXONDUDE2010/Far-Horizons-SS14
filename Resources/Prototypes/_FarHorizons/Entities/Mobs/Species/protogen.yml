@@ -1,9 +1,8 @@
 #region PROTOGEN ####
 
 - type: entity
-  parent: BaseSpeciesMobOrganic
-  id: BaseMobProtogen
-  name: Urist McToaster
+  parent: [BaseSpeciesMobOrganic, BaseSpeciesPickupableLarge]
+  id: BaseMobProtogenNoVision
   abstract: true
   components:
   - type: LanguageKnowledge
@@ -55,6 +54,9 @@
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
+  - type: GlitchOnIonStorm
+    duration: 25
+    ramp: 3
   - type: HumanoidEMP # HumanoidEMP is needed to receive EMP effects, it may carry its own innate effects, but doesn't have to
     effectCooldown: 2
     effect:
@@ -139,6 +141,13 @@
       Unsexed: MaleProtogen
   - type: UniversalHealModifier
     modifier: 0.5
+
+- type: entity
+  parent: BaseMobProtogenNoVision
+  id: BaseMobProtogen
+  name: Urist McToaster
+  abstract: true
+  components:
   - type: VisionOrganRequiredForVision
 
 #region VULPKANIN ####
@@ -439,10 +448,10 @@
       - Thaven
   - type: VisionOrganRequiredForVision
 
-#region LASPI ####
+#region LAPSI ####
 
 - type: entity
-  parent: BaseMobProtogen
+  parent: BaseMobProtogenNoVision
   id: BaseMobProtoSlimePerson
   name: Urist McSlimester
   abstract: true
@@ -588,7 +597,7 @@
 - type: entity
   save: false
   name: Urist McDuskin #pronounced Dusk-Kin
-  parent: [MobBloodstream, MobAtmosStandard, MobFlammable, BaseSpeciesMob] #These fucks have no lungs, can't just inherent from protogen..
+  parent: [MobBloodstream, MobAtmosStandard, MobFlammable, BaseSpeciesMob, BaseSpeciesPickupableLarge] #These fucks have no lungs, can't just inherent from protogen..
   id: BaseMobProtoKin
   abstract: true
   components:
@@ -809,10 +818,15 @@
 
 - type: entity
   name: Urist McRapster
-  parent: [BaseMobProtogen, BaseSpeciesPickupable]
+  parent: BaseMobProtogen
   id: BaseMobProtoResomi
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -848,7 +862,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: ResomiBlood
+      - ReagentId: AvaliBlood
         Quantity: 300
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1337,11 +1351,16 @@
 #region FELIONOID ####
 
 - type: entity
-  parent: [BaseMobProtogen, BaseSpeciesPickupable]
+  parent: BaseMobProtogen
   id: BaseMobProtoFeline
   name: Urist McFelinster
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -1475,6 +1494,11 @@
   id: BaseMobProtoDawi
   abstract: true
   components:
+  - type: Item
+    size: Huge
+    allowDirectHandPickup: false
+    shape:
+    - 0, 0, 6, 4
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
@@ -1810,10 +1834,15 @@
 - type: entity
   save: false
   name: Urist McAvalister
-  parent: [ BaseMobProtogen, BaseSpeciesPickupable ]
+  parent: BaseMobProtogen
   id: BaseMobProtoAvali
   abstract: true
   components:
+    - type: Item
+      size: Huge
+      allowDirectHandPickup: false
+      shape:
+      - 0, 0, 6, 4
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon

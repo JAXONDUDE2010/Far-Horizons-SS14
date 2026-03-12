@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingHeadset, BaseLawContraband ]
   id: ClothingHeadsetIAA
-  name: Internal Affairs Agent Headset
-  description: A headset for internal affairs agent to hear the captain's last words.
+  name: Affairs Official Headset # Far Horizons
+  description: A headset for Affairs Official to hear the captain's last words. # Far Horizons
   components:
     - type: ContainerFill
       containers:

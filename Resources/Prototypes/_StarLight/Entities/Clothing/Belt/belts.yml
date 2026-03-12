@@ -91,6 +91,9 @@
         - MagazinePistol
         - MagazineMagnum
         - Hypospray
+        - Medkit #FH
+        - Vial #FH
+        - ExternalContainerInjectorVial #FH
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -103,6 +106,8 @@
         - Pill
         - HandLabeler
   - type: Appearance
+  - type: ExplosionResistance
+    damageCoefficient: 0
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband]

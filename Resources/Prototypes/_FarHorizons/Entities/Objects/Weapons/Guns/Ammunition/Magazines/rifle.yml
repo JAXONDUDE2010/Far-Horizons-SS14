@@ -1,7 +1,8 @@
+#region .38 Special
 ## Empty mags
 - type: entity
   id: BaseMagazineRifle38
-  name: "Magazine (.38 Special)"
+  name: ".38 Special Magazine (Rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -34,7 +35,7 @@
 
 - type: entity
   id: MagazineRifle38Empty
-  name: "Magazine (.38 Special any)"
+  name: ".38 Special Magazine (Rifle Any)"
   suffix: empty
   parent: MagazineRifle38SP
   components:
@@ -54,7 +55,7 @@
 ## Magazines
 - type: entity
   id: MagazineRifle38SP
-  name: "Magazine (.38 Special SP)"
+  name: ".38 Special Magazine (Rifle SP)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -69,16 +70,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#575EF5"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#575EF5"
 
 - type: entity
   id: MagazineRifle38HP
-  name: "Magazine (.38 Special HP)"
+  name: ".38 Special Magazine (Rifle HP)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -93,16 +90,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#F5514C"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#F5514C"
 
 - type: entity
   id: MagazineRifle38FMJ
-  name: "Magazine (.38 Special FMJ)"
+  name: ".38 Special Magazine (Rifle FMJ)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -117,16 +110,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#080706"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#080706"
 
 - type: entity
   id: MagazineRifle38AP
-  name: "Magazine (.38 Special AP)"
+  name: ".38 Special Magazine (Rifle AP)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -141,16 +130,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#72E374"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#72E374"
 
 - type: entity
   id: MagazineRifle38Incendiary
-  name: "Magazine (.38 Special Incendiary)"
+  name: ".38 Special Magazine (Rifle Incendiary)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -165,16 +150,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#E7EEEE"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#E7EEEE"
         
 - type: entity
   id: MagazineRifle38Practice
-  name: "Magazine (.38 Special Practice)"
+  name: ".38 Special Magazine (Rifle Practice)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -189,16 +170,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#F08B4B"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#F08B4B"
 
 - type: entity
   id: MagazineRifle38Uranium
-  name: "Magazine (.38 Special Uranium)"
+  name: ".38 Special Magazine (Rifle Uranium)"
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -213,16 +190,12 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#40F57A"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#40F57A"
 
 - type: entity
   id: MagazineRifle38Rubber
-  name: Magazine (.38 Special Rubber)
+  name: .38 Special Magazine (Rifle Rubber)
   parent: BaseMagazineRifle38
   components:
   - type: BallisticAmmoProvider
@@ -237,9 +210,330 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#28E7DC"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#28E7DC"
+
+#region 5.56 Heavy
+
+- type: entity
+  id: Rifle556HeavyBase
+  name: "5.56 Box Magazine (Rifle)"
+  parent: BaseMagazineBoxLightRifle
+  description: 100 round box of 5.56 Ammuntion.
+  components:
+  - type: Tag
+    tags:
+      - Rifle556Heavy
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556SP
+    capacity: 100
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Magazine/LMG/M492.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 11
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Rifle556HeavyMagazineEmpty
+  name: "5.56 Box Magazine (Rifle Any)"
+  suffix: empty
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: Rifle556HeavyMagazineSP
+  name: "5.56 Box Magazine (Rifle SP)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556SP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: sp
+
+- type: entity
+  id: Rifle556HeavyMagazineHP
+  name: "5.56 Box Magazine (Rifle HP)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556HP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: hp
+
+- type: entity
+  id: Rifle556HeavyMagazineFMJ
+  name: "5.56 Box Magazine (Rifle FMJ)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556FMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: fmj
+
+- type: entity
+  id: Rifle556HeavyMagazineIncendiary
+  name: "5.56 Box Magazine (Rifle Incendiary)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  id: Rifle556HeavyMagazineUranium
+  name: "5.56 Box Magazine (Rifle Uranium)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Uranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  id: Rifle556HeavyMagazineAP
+  name: "5.56 Box Magazine (Rifle AP)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556AP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: ap
+
+- type: entity
+  id: Rifle556HeavyMagazinePractice
+  name: "5.56 Box Magazine (Rifle Practice)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  id: Rifle556HeavyMagazineRubber
+  name: "5.56 Box Magazine (Rifle Rubber)"
+  parent: Rifle556HeavyBase
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Rubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber
+
+#region 5.56
+
+# Empty mags
+- type: entity
+  id: BaseMagazineRifle556
+  name: "5.56 Magazine (Rifle)"
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifle556
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeRifle556
+    capacity: 25
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/lecter.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineRifle556SP
+  name: "5.56 Magazine (Rifle SP)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556SP
+  - type: Sprite
+    layers:
+    - state: sp
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556HP
+  name: "5.56 Magazine (Rifle HP)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556HP
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556FMJ
+  name: "5.56 Magazine (Rifle FMJ)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556FMJ
+  - type: Sprite
+    layers:
+    - state: fmj
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556AP
+  name: "5.56 Magazine (Rifle AP)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556AP
+  - type: Sprite
+    layers:
+    - state: ap
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556Empty
+  name: "5.56 Magazine (Rifle Any)"
+  suffix: empty
+  parent: MagazineRifle556SP
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: MagazineRifle556Incendiary
+  name: "5.56 Magazine (Rifle Incendiary)"
+  parent: MagazineRifle556SP
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Incendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+        
+- type: entity
+  id: MagazineRifle556Practice
+  name: "5.56 Magazine (Rifle Practice)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Practice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556Uranium
+  name: "5.56 Magazine (Rifle Uranium)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Uranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle556Rubber
+  name: "5.56 Magazine (Rifle Rubber)"
+  parent: BaseMagazineRifle556
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle556Rubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

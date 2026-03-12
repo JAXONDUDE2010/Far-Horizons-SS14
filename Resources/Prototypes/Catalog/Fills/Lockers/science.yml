@@ -18,8 +18,8 @@
     - id: ClothingOuterCoatRnd
     - id: AnomalyScanner
     - id: NodeScanner
-    - id: OilPack #FH, for IPCs.
-      amount: 3 #FH - No way to craft yet.
+    - id: BloodpackOil #FH, for IPCs.
+      amount: 2 #FH - Not crafable but can be refilled. Nerfed a bit.
     - id: NetworkConfigurator
       prob: 0.5
     - id: PlushieLizardJobResearchassistant

@@ -17244,14 +17244,14 @@ entities:
     - type: Transform
       pos: -30.490557,2.5391243
       parent: 2
-- proto: BoxMagazineRiflePractice
+- proto: BoxMagazineRifle556Practice
   entities:
   - uid: 1318
     components:
     - type: Transform
       pos: -30.553057,2.7266243
       parent: 2
-- proto: BoxMagazineRifleSP
+- proto: BoxMagazineRifle556SP
   entities:
   - uid: 1319
     components:

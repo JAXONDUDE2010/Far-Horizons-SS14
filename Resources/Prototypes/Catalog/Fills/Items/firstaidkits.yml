@@ -99,8 +99,7 @@
         - id: RegenerativeMesh
         - id: Bloodpack
           amount: 1
-        - id: AmmoniaPack # FH
-          amount: 1
+        - id: BloodpackAmmonia # FH
 
 - type: entity
   id: MedkitCombatFilled
@@ -109,7 +108,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      storagebase: !type:AllSelector 
         children:
         - id: MedicatedSuture
         - id: RegenerativeMesh
@@ -117,6 +116,8 @@
         - id: SyringeSaline
         - id: BruteAutoInjector
         - id: BurnAutoInjector
+        - id: SyringeAmoxla #FH
+        - id: BloodpackOil #FH
 
 - type: entity
   id: StimkitFilled

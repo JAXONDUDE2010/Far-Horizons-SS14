@@ -44,6 +44,90 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
 
+# Heavy Security Helmet
+- type: entity
+  parent: [ ClothingHeadHelmetHardsuitSecurity, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitSecurityHeavy
+  name: Heavy Security Hardsuit Helmet
+  description: Heavily armored hardsuit helmet for security needs, equipped with floodlights to light up an entire department!
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/heavy_security.rsi
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+        - state: on-equipped-HELMET 
+          shader: unshaded
+      head-avali:
+        - state: on-equipped-HELMET-avali
+          shader: unshaded
+      #head-dog:
+      #  - state: on-equipped-HELMET-dog
+      #    shader: unshaded
+      #head-reptilian:
+      #  - state: on-equipped-HELMET-reptilian
+      #    shader: unshaded
+      #head-resomi:
+      #  - state: on-equipped-HELMET-resomi
+      #    shader: unshaded
+      head-vox:
+        - state: on-equipped-HELMET-vox
+          shader: unshaded
+      head-vulpkanin:
+        - state: on-equipped-HELMET-vulpkanin
+          shader: unshaded
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Head/Hardsuits/heavy_security.rsi
+    clothingVisuals:
+      head:
+        - state: off-equipped-HELMET
+      #  - state: equipped-head-unshaded
+      #    shader: unshaded
+      head-avali:
+        - state: off-equipped-HELMET-avali
+          shader: unshaded
+      #head-dog:
+      #  - state: off-equipped-HELMET-dog
+      #  - state: equipped-head-unshaded-dog
+      #    shader: unshaded
+      #head-reptilian:
+      #  - state: off-equipped-HELMET-reptilian
+      #  - state: equipped-head-unshaded-reptilian
+      #    shader: unshaded
+      #head-resomi:
+      #  - state: off-equipped-HELMET-resomi
+      #  - state: equipped-head-unshaded-resomi
+      #    shader: unshaded
+      head-vox:
+        - state: off-equipped-HELMET-vox
+      #  - state: equipped-head-unshaded-vox
+      #    shader: unshaded
+      head-vulpkanin:
+        - state: off-equipped-HELMET-vulpkanin
+      #  - state: equipped-head-unshaded-vulpkanin
+      #    shader: unshaded
+  - type: PointLight
+    color: "#ffeead"
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.425
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Hailer
+    hailMessage: "You're up against the wall and I am the fucking wall!" # Dunno if adding THE voiceline is legal, so.. no sound.
+    hailSound:
+      path: /Audio/Machines/custom_deny.ogg
+      params:
+        volume: -100 # shut
+    cooldownDuration: 5
+
 # Head of Personnel Helmet
 
 - type: entity

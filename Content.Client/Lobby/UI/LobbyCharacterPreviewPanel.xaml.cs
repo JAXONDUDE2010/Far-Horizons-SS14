@@ -151,7 +151,11 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
         FactionFilters.DisposeAllChildren();
         _factionFilter.Clear();
 
-        foreach (var faction in _factions.ListPlayableFactions().OrderBy(p => p.Weight)){
+        var allFactions = _factions.ListPlayableFactions().OrderBy(p => p.Weight).ToHashSet();
+        var majorFactions = allFactions.Where(p => p.Major).ToHashSet();
+        var minorFactions = allFactions.Except(majorFactions).ToHashSet();
+
+        foreach (var faction in majorFactions){
             var filterButton = new Button()
             {
                 Name = faction.ID,
@@ -171,6 +175,30 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
             FactionFilters.AddChild(filterButton);
             _filterButtons.Add(faction, filterButton);
             _factionFilter.Add(faction);
+        }
+
+        if (minorFactions.Count > 0)
+        {
+            var minorFactionsIds = minorFactions.Select(p => (ProtoId<FactionPrototype>)p.ID);
+
+            var filterButton = new Button()
+            {
+                Name = "MinorFactions",
+                Text = Loc.GetString("faction-filter-minor-factions-button"),
+                Pressed = true,
+                ToggleMode = true,
+            };
+            filterButton.OnToggled += e =>
+            {
+                if (e.Pressed)
+                    _factionFilter.UnionWith(minorFactionsIds);
+                else
+                    _factionFilter.ExceptWith(minorFactionsIds);
+                Refresh();
+            };
+
+            FactionFilters.AddChild(filterButton);
+            _factionFilter.UnionWith(minorFactionsIds);
         }
 
         _factions.OnFactionUpdated += UpdateFilters;

@@ -157,6 +157,7 @@
   parent:
   - AppearanceVox
   - BaseSpeciesMobOrganic
+  - BaseSpeciesPickupableLarge #FH
   id: MobVox
   name: Uristititi McVox
   components:

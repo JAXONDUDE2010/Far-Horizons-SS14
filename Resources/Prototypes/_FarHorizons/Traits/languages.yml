@@ -4,9 +4,14 @@
   description: trait-language-ScurretSign-description
   category: LanguageTraits
   cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - ScurretSign
-  languagesUnderstood:
-    - ScurretSign
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - ScurretSign
+      languagesUnderstood:
+        - ScurretSign
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Iterator
+      inverted: true
