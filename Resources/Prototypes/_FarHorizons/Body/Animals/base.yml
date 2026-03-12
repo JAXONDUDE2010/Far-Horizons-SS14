@@ -29,6 +29,7 @@
   - type: VisualBody
   - type: ComplexInteraction
   - type: Hands
+  - type: ContainerContainer
   - type: Appearance
   - type: MovementOrganExpectedToMove # Far Horizons
   - type: UserInterface
