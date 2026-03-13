@@ -8845,5 +8845,14 @@ Entries:
   id: 92403
   time: '2026-03-13T14:52:43.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/924
+- author: AthenaAI, ScorchFollower
+  changes:
+  - message: Adds new vehicle modding system. Most of the mods are researched and
+      printed at the exosuit fab except for the security siren and Light Armor Kit.
+      All mods have health on break they become unusuable.
+    type: Add
+  id: 92300
+  time: '2026-03-13T16:50:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/923
 Order: -1
 
