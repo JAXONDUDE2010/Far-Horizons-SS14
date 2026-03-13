@@ -13,6 +13,9 @@ public sealed class VisualPickupableSystem : SharedVisualPickupableSystem
 
     private HashSet<Entity<PickupableVisualsComponent>> _trackedEntities = new();
 
+    private const int frontDrawDepth = 7;
+    private const int backDrawDepth = 5;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -57,15 +60,18 @@ public sealed class VisualPickupableSystem : SharedVisualPickupableSystem
             _sprite.CopySprite((ent.Comp.Source.Value, sourceSprite), (ent, targetSprite));
             _sprite.SetRotation((ent, targetSprite), Angle.FromDegrees(visualPickupable.AngleDegrees));
 
-            // It's very stupid and 100% won't cause any problems in the future:
-            // If facing north relative to screen - move sprite up so it's drawn behind the carrying character
-            // If it's facing not north - move sprite down to draw it on top
             var facingDirection = _transform.GetWorldRotation(parentTransform) + _eyeManager.CurrentEye.Rotation;
 
             if (facingDirection.GetCardinalDir() == Direction.North)
+            {
                 _sprite.SetOffset((ent, targetSprite), visualPickupable.OffsetBack);
+                _sprite.SetDrawDepth((ent, targetSprite), backDrawDepth);
+            }
             else
+            {
                 _sprite.SetOffset((ent, targetSprite), visualPickupable.OffsetFront);
+                _sprite.SetDrawDepth((ent, targetSprite), frontDrawDepth);
+            }
         }
 
         _trackedEntities.ExceptWith(toDelete);
