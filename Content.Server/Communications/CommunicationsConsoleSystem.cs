@@ -372,7 +372,7 @@ namespace Content.Server.Communications
             }
             else
             {
-                _deptAnnounce.DispatchFilteredCommunicationsConsoleAnnouncement(currentChannel, uid, msg.Text, titleAlt, announcementSound: comp.Sound, speaker: speaker, colorOverride: comp.Color, Global: comp.Global);
+                _deptAnnounce.DispatchFilteredCommunicationsConsoleAnnouncement(currentChannel, uid, msg.Text, titleAlt, announcementSound: comp.Sound, colorOverride: comp.Color, Global: comp.Global);
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following departmental announcement to {currentChannel}: {msg.Text}");
                 return;
             }
