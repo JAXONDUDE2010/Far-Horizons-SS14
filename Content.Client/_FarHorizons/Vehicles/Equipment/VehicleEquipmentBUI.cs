@@ -14,6 +14,7 @@ public sealed class VehicleEquipmentBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _menu = this.CreateWindow<VehicleEquipmentMenu>();
+        _menu.SetEntity(Owner);
 
         _menu.OnUninstallButtonPressed += (part, slot) =>
             SendMessage(new UninstallPartMessage(part, slot));
@@ -25,12 +26,5 @@ public sealed class VehicleEquipmentBoundUserInterface : BoundUserInterface
 
         if(_menu == null)
             return;
-        
-        switch(state)
-        {
-            case VehicleEquipmentUiState msg:
-                _menu.UpdateState(msg);
-                break;
-        }
     }
 }

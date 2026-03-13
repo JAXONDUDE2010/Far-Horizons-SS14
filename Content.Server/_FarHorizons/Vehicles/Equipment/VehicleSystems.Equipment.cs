@@ -21,9 +21,6 @@ using Content.Server._FarHorizons.Vehicles.Atmos;
 using Content.Shared._FarHorizons.Vehicles.Events;
 using Content.Shared._FarHorizons.Vehicles.Equipment;
 using Robust.Shared.Utility;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -50,8 +47,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly VehicleAtmosphereSystem _vAtmos = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -137,21 +132,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
             }
         }
         Dirty(ent.Owner, ent.Comp);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<VehicleComponent>();
-        while (query.MoveNext(out var uid, out var component))
-        {
-
-            if (_ui.IsUiOpen(uid, VehicleEquipmentUiKey.Key))
-            {
-                _ui.SetUiState(uid, VehicleEquipmentUiKey.Key, new VehicleEquipmentUiState(GetNetEntity(uid), GetRemainingPower(uid, component), GetIntegrity(uid, component)));
-            }
-        }
     }
 
     #region Install Section
@@ -413,38 +393,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     #endregion
 
     #region Functions
-    private int GetRemainingPower(EntityUid uid, VehicleComponent? Comp=null)
-    {
-        if(!Resolve(uid, ref Comp))
-            return 0;
-
-        if(Comp.CellPowered)
-        {
-            if(!TryComp<PowerCellSlotComponent>(uid, out var slotComp))
-                return 0; 
-            var cell = _container.GetContainer(uid, slotComp.CellSlotId).ContainedEntities.FirstOrNull();
-            if(cell == null || !TryComp<BatteryComponent>(cell, out var batteryComp))
-                return 0;
-            return (int)Math.Round(_battery.GetChargeLevel((cell.Value, batteryComp)) * 100f);
-        }
-        else
-        {
-            if(!TryComp<ReagantDrawComponent>(uid, out var rdComp))
-                return 0;
-            if(!_solution.ResolveSolution(uid, rdComp.SolutionContainer, ref rdComp.Solution, out var solution)) 
-                return 0;
-            
-            return (int)Math.Round(SharedSolutionContainerSystem.PercentFull(solution));
-        }
-    }
-
-    private int GetIntegrity(EntityUid uid, VehicleComponent? comp=null)
-    {
-        if(!Resolve(uid, ref comp) || !TryComp<DamageableComponent>(uid, out var damageComp))
-            return 0;
-
-        return Math.Clamp((int) ((comp.Health-damageComp.TotalDamage) / comp.Health * 100), 0, 100);
-    }
 
     private bool CheckandAssign(EntityUid item, VehicleModsComponent vmComp, VehicleEquipmentComponent? veComp=null)
     {
