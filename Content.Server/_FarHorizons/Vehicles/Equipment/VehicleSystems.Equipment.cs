@@ -179,6 +179,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
     private void OnInstallDoAfter(Entity<VehicleModsComponent> ent, ref InstallDoAfter args)
     {
+        if(args.Cancelled) return;
         var part = GetEntity(args.Part);
         if (part is { } uid)
         {
@@ -257,6 +258,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
     private void OnUninstallDoAfter(Entity<VehicleModsComponent> ent, ref UninstallDoAfter args)
     {
+        if(args.Cancelled) return;
         var part = GetEntity(args.Part);
         if (part is { } uid)
         {

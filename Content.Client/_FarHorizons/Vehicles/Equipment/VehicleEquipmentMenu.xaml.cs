@@ -13,8 +13,7 @@ namespace Content.Client._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentMenu : FancyWindow
 {
     public event Action<NetEntity, EquipmentType>? OnUninstallButtonPressed;
-    private Dictionary<EquipmentType, EntityUid?> _cachedEquipment = new();
-    private readonly Dictionary<EquipmentType, int> _cachedIntegrity = new();
+    private readonly Dictionary<EquipmentType, EquipmentRow> _rows = new();
     private readonly IEntityManager _entityManager;
     private static readonly Color _green = Color.FromHex("#00FF00");
     private static readonly Color _red = Color.FromHex("#FF0000");
@@ -50,139 +49,124 @@ public sealed partial class VehicleEquipmentMenu : FancyWindow
         FuelPercent.Text = $"{state.Power}%";
         FuelBar.Value = state.Power;
         FuelBar.ModulateSelfOverride = color;
-        
-        if (!EquipmentChanged(vmComp.Equipment) && !IntegrityChanged(vmComp.Equipment))
-            return;
-
-        _cachedEquipment = new Dictionary<EquipmentType, EntityUid?>(vmComp.Equipment);
-
-        EquipmentPanel.DisposeAllChildren();
-        _cachedIntegrity.Clear();
 
         foreach (var (type, mod) in vmComp.Equipment)
         {
-            var column = new BoxContainer
+            if (!_rows.TryGetValue(type, out var row))
             {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                Margin = new Thickness(0, 10, 0, 0)
-            };
-
-            var modsButton = new Button
-            {
-                HorizontalAlignment = HAlignment.Center,
-                SetWidth = 300,
-                Disabled = true,
-            };
-
-            var modsButtonText = new RichTextLabel
-            {
-                Text = type.ToString(),
-                HorizontalAlignment = HAlignment.Left,
-                Margin = new Thickness(10, 0, 0, 0)
-            };
-
-            modsButton.AddChild(modsButtonText);
-
-            column.AddChild(modsButton);
-            
-            var row = new BoxContainer
-            {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                Margin = new Thickness(50, 5, 0, 0)
-            };
-
-            var equipmentButton = new Button
-            {
-                SetWidth = mod != null ? 135 : 275,
-                HorizontalAlignment = HAlignment.Right,
-                Disabled = true
-            };
-            
-            var equipText = "Empty";
-            int integrity = 0;
-
-            if (mod != null &&
-                _entityManager.TryGetComponent<DamageableComponent>(mod, out var damageComp) &&
-                _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var veComp))
-            {
-                integrity = Math.Clamp((int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health), 0, 100);
-                _cachedIntegrity[type] = integrity;
-
-                color = Color.InterpolateBetween(_red, _green, (float)integrity / 100);
-                var colorHex = color.ToHex();
-
-                equipText = $"{_entityManager.GetComponent<MetaDataComponent>(mod.Value).EntityName}: [color={colorHex}]{integrity}%[/color]";
+                row = CreateRow(type);
+                _rows[type] = row;
             }
 
-            var equipmentButtonText = new RichTextLabel
-            {
-                Text = equipText,
-                HorizontalAlignment = HAlignment.Left
-            };
-            equipmentButton.AddChild(equipmentButtonText);
-
-            if(mod != null)
-            {
-                var installationButton = new Button
-                {
-                    SetWidth = 135,
-                    SetHeight = 30,
-                    HorizontalAlignment = HAlignment.Right,
-                    Margin = new Thickness(5, 0, 0, 0) 
-                };
-
-                var installationButtonText = new RichTextLabel
-                {
-                    Text = "Uninstall",
-                    HorizontalAlignment = HAlignment.Left
-                };
-                installationButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(_entityManager.GetNetEntity(mod.Value), type);
-                installationButton.AddChild(installationButtonText);
-            
-                row.AddChildren([equipmentButton, installationButton]);   
-            }
-            else
-                row.AddChild(equipmentButton);
-
-            column.AddChild(row);
-            EquipmentPanel.AddChild(column);
+            UpdateRow(row, type, mod);
         }
     }
 
-    private bool EquipmentChanged(Dictionary<EquipmentType, EntityUid?> current)
+    private EquipmentRow CreateRow(EquipmentType type)
     {
-        if (_cachedEquipment.Count != current.Count)
-            return true;
-
-        foreach (var (key, value) in current)
+        var column = new BoxContainer
         {
-            if (!_cachedEquipment.TryGetValue(key, out var cachedValue))
-                return true;
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Margin = new Thickness(0, 10, 0, 0)
+        };
 
-            if (cachedValue != value)
-                return true;
-        }
+        var row = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            Margin = new Thickness(50, 5, 0, 0)
+        };
 
-        return false;
+        var equipmentNameButton = new Button
+        {
+            HorizontalAlignment = HAlignment.Center,
+            SetWidth = 300,
+            Disabled = true,
+        };
+
+        var equipmentButton = new Button
+        {
+            SetWidth = 135,
+            Disabled = true
+        };
+
+        var equipmentLabel = new RichTextLabel
+        {
+            Text = "Empty",
+            HorizontalAlignment = HAlignment.Left
+        };
+
+        equipmentButton.AddChild(equipmentLabel);
+
+        var uninstallButton = new Button
+        {
+            Text = "Uninstall",
+            SetWidth = 135,
+            SetHeight = 30,
+            Margin = new Thickness(5, 0, 0, 0)
+        };
+
+        row.AddChildren([equipmentButton, uninstallButton]);
+        column.AddChildren([equipmentNameButton, row]);
+
+        EquipmentPanel.AddChild(column);
+
+        var rowData = new EquipmentRow
+        {
+            Root = column,
+            EquipmentLabel = equipmentLabel,
+            UninstallButton = uninstallButton,
+            EquipmentNameButton = equipmentNameButton,
+            EquipmentButton = equipmentButton
+        };
+
+        uninstallButton.OnPressed += _ =>
+        {
+            if (rowData.CurrentMod != null)
+                OnUninstallButtonPressed?.Invoke(
+                    _entityManager.GetNetEntity(rowData.CurrentMod.Value),
+                    type);
+        };
+
+        return rowData;
     }
 
-    private bool IntegrityChanged(Dictionary<EquipmentType, EntityUid?> equipment)
+    private void UpdateRow(EquipmentRow row, EquipmentType type, EntityUid? mod)
     {
-        foreach (var (type, mod) in equipment)
+        row.CurrentMod = mod;
+
+        var equipText = "Empty";
+        
+        row.EquipmentNameButton.Text = type.ToString();
+
+        if (mod != null &&
+            _entityManager.TryGetComponent<DamageableComponent>(mod, out var damage) &&
+            _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var ve))
         {
-            int integrity = 0;
+            var integrity = Math.Clamp(
+                (int)((ve.Health - damage.TotalDamage) * 100 / ve.Health),
+                0, 100);
 
-            if (mod != null &&
-                _entityManager.TryGetComponent<DamageableComponent>(mod, out var damageComp) &&
-                _entityManager.TryGetComponent<VehicleEquipmentComponent>(mod, out var veComp))
-            {
-                integrity = Math.Clamp((int)((veComp.Health - damageComp.TotalDamage) * 100 / veComp.Health), 0, 100);
-            }
+            var color = Color.InterpolateBetween(_red, _green, integrity / 100f);
 
-            if (!_cachedIntegrity.TryGetValue(type, out var cached) || cached != integrity)
-                return true;
+            equipText =
+                $"{_entityManager.GetComponent<MetaDataComponent>(mod.Value).EntityName}: " +
+                $"[color={color.ToHex()}]{integrity}%[/color]";
         }
 
-        return false;
+        row.EquipmentLabel.Text = equipText;
+
+        row.EquipmentButton.SetWidth = mod != null ? 135 : 275;
+
+        row.UninstallButton.Visible = mod != null;
     }
+}
+
+sealed class EquipmentRow
+{
+    public BoxContainer Root = default!;
+    public RichTextLabel EquipmentLabel = default!;
+    public Button UninstallButton = default!;
+    public Button EquipmentButton = default!;
+    public Button EquipmentNameButton = default!;
+    public EntityUid? CurrentMod;
 }
