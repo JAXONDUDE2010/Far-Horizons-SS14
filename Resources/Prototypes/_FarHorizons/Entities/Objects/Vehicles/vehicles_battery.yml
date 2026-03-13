@@ -273,9 +273,9 @@
     - type: VehicleMods
       startingEquipment:
         - BasicTires
-        - ElectricEngine
+        - ElectricTurboEngine
         - BasicArmorKit
-        - BasicHeadlight
+        - HeadlightLED
   
 - type: entity
   id: VehicleSegwayArmoredLightNST
@@ -291,7 +291,7 @@
     - type: VehicleMods
       startingEquipment:
         - BasicTires
-        - ElectricEngine
+        - ElectricTurboEngine
         - LightArmorKit
         - HeadlightLED
 
