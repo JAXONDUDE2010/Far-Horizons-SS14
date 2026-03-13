@@ -8806,5 +8806,13 @@ Entries:
   id: 91100
   time: '2026-03-13T00:59:58.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/911
+- author: Fasuh, neomoth, Darkrell, Rinary, CringeCursed, ilovehans10, mikeysaurus,
+    redmushie, CrazyPhantom
+  changes:
+  - message: Changed to a new version of TTS.
+    type: Tweak
+  id: 91700
+  time: '2026-03-13T14:16:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/917
 Order: -1
 
