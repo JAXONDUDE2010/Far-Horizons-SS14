@@ -8767,5 +8767,37 @@ Entries:
   id: 91301
   time: '2026-03-12T22:49:04.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/913
+- author: AthenaAI
+  changes:
+  - message: Randomized markings on dna scramble or plastic surgery. This also applies
+      to dead bodies so no more 300 shuttle urists corpses.
+    type: Add
+  id: 91200
+  time: '2026-03-13T00:33:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/912
+- author: AthenaAI
+  changes:
+  - message: Ancestor surgery is back in the menu for kobold and monkeys. There is
+      visuals now when you remove a part of the monkey or kobold.
+    type: Fix
+  id: 91201
+  time: '2026-03-13T00:33:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/912
+- author: AthenaAI
+  changes:
+  - message: Kobolds now come in more colors and have more horns they also come in
+      different heights and weights. (They are technically a species now)
+    type: Tweak
+  id: 91202
+  time: '2026-03-13T00:33:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/912
+- author: AthenaAI
+  changes:
+  - message: Removed surgery target component legally you could perform surgery on
+      anything with a body component but for now its only kobolds and monkeys.
+    type: Tweak
+  id: 91203
+  time: '2026-03-13T00:33:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/912
 Order: -1
 
