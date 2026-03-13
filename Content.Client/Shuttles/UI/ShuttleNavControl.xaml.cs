@@ -14,12 +14,13 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Shuttles.UI;
 
-[GenerateTypedNameReferences]
-public sealed partial class ShuttleNavControl : BaseShuttleControl
+[GenerateTypedNameReferences, Virtual]
+public partial class ShuttleNavControl : BaseShuttleControl // Far Horizons - made sealed type [Virtual] to allow inheritance
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!; // Far Horizons
@@ -224,11 +225,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
                 var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
 
-                var gridDistance = (gridBody.LocalCenter - xform.LocalPosition).Length();
+                var mapCoords = _transform.GetWorldPosition(gUid);
+                var gridDistance = (mapCoords + gridBody.LocalCenter - mapPos.Position).Length();
+                
                 var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName),
                     ("distance", $"{gridDistance:0.0}"));
-
-                var mapCoords = _transform.GetWorldPosition(gUid);
                 var coordsText = $"({mapCoords.X:0.0}, {mapCoords.Y:0.0})";
 
                 // yes 1.0 scale is intended here.

@@ -165,3 +165,29 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ShuttleGunneryConsole
+  name: Gunnery Console
+  description: Pew Pew.
+  components:
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: GunneryConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: RadarConsole
+  - type: WorldLoader
+    radius: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#43ccb5"
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
