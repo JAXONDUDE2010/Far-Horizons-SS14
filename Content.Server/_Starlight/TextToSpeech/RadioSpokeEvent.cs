@@ -1,4 +1,4 @@
-﻿using Content.Shared._Starlight.Language;
+using Content.Shared._Starlight.Language;
 using Content.Shared._Starlight.Speech;
 using Content.Shared.Radio;
 
@@ -12,4 +12,5 @@ public sealed class RadioSpokeEvent : EntityEventArgs
 
     public LanguagePrototype Language = null!;
     public EntityUid[] Receivers { get; set; } = null!;
+    public bool SuppressTTS { get; set; } = false;
 }

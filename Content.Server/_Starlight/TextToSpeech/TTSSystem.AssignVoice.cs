@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,7 @@ public sealed partial class TTSSystem
         var isHumanoid = false;
         Sex? sex = null;
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearanceComponent)
+        if (TryComp<HumanoidProfileComponent>(uid, out var humanoidAppearanceComponent)
             && humanoidAppearanceComponent?.Sex is Sex sex1)
         {
             isHumanoid = true;

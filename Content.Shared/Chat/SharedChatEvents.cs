@@ -5,9 +5,7 @@ using Robust.Shared.Prototypes;
 
 #region Starlight
 using Content.Shared._Starlight.Language;
-using Content.Shared._Starlight.Radio;
 using Content.Shared._Starlight.Speech;
-using static Content.Shared.Administration.Notes.AdminMessageEuiState;
 #endregion Starlight
 
 namespace Content.Shared.Chat;
