@@ -8799,5 +8799,12 @@ Entries:
   id: 91203
   time: '2026-03-13T00:33:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/912
+- author: princess_gurchi
+  changes:
+  - message: You can see character's sprite when they are being carried
+    type: Add
+  id: 91100
+  time: '2026-03-13T00:59:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/911
 Order: -1
 
