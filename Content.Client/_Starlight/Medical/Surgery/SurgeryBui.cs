@@ -349,8 +349,8 @@ public sealed class SurgeryBui : BoundUserInterface
             else if (i < next.Value.Step)
                 status = StepStatus.Complete;
 
-            stepButton.Button.Disabled = !(status == StepStatus.Next 
-                || status == StepStatus.Complete);
+            stepButton.Button.Disabled = status is not (StepStatus.Next
+                or StepStatus.Complete);
 
             var stepName = new FormattedMessage();
             stepName.AddText(_entities.GetComponent<MetaDataComponent>(stepButton.Step).EntityName);
@@ -460,7 +460,7 @@ public sealed class SurgeryBui : BoundUserInterface
         base.Dispose(disposing);
 
         if (disposing)
-            _window?.Dispose();
+            _window?.Orphan();
         _hands.OnPlayerItemAdded -= OnPlayerItemAdded;
     }
 }

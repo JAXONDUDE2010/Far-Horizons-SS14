@@ -49,9 +49,6 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
     protected override void RefreshUI(EntityUid body)
     {
-        if(!_ui.HasUi(body, SurgeryUIKey.Key))
-            return;
-
         var surgeries = new Dictionary<NetEntity, List<(EntProtoId, string suffix, bool isCompleted)>>();
         // Far Horizons start
         if (TryComp<BodyComponent>(body, out var bodyComp) && bodyComp.Organs != null)
@@ -112,8 +109,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         if(!HasComp<SurgeryToolComponent>(item))
             return;
 
-        if (!_ui.HasUi(target, SurgeryUIKey.Key) 
-            || _ui.IsUiOpen(user, SurgeryUIKey.Key, user) 
+        if (_ui.IsUiOpen(target, SurgeryUIKey.Key, user) 
             || !HasComp<BodyComponent>(args.Target)) return;
 
         InteractionVerb verb = new()

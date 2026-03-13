@@ -101,4 +101,24 @@
   id: Tail
   connectsTo: Torso
 
+- type: organCategory
+  id: AnimalHead
+  connectsTo: Torso 
+
+- type: organCategory
+  id: AnimalArmLeft
+  connectsTo: Torso 
+
+- type: organCategory
+  id: AnimalArmRight
+  connectsTo: Torso 
+
+- type: organCategory
+  id: AnimalLegLeft
+  connectsTo: Torso 
+
+- type: organCategory
+  id: AnimalLegRight
+  connectsTo: Torso
+
 # Far Horizons end
