@@ -49,7 +49,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
     protected override void RefreshUI(EntityUid body)
     {
-        if (!HasComp<SurgeryTargetComponent>(body))
+        if(!_ui.HasUi(body, SurgeryUIKey.Key))
             return;
 
         var surgeries = new Dictionary<NetEntity, List<(EntProtoId, string suffix, bool isCompleted)>>();
@@ -111,8 +111,10 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
         var item = _handsSystem.GetActiveItem(user);
         if(!HasComp<SurgeryToolComponent>(item))
             return;
-        if (_ui.IsUiOpen(user, SurgeryUIKey.Key, user) ||
-            !HasComp<SurgeryTargetComponent>(args.Target)) return;
+
+        if (!_ui.HasUi(target, SurgeryUIKey.Key) 
+            || _ui.IsUiOpen(user, SurgeryUIKey.Key, user) 
+            || !HasComp<BodyComponent>(args.Target)) return;
 
         InteractionVerb verb = new()
         {
