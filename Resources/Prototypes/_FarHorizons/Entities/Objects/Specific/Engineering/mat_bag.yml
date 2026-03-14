@@ -2,7 +2,7 @@
   name: Construction Bag #Far Horizons - The Great Capitalization Crusade
   id: MatBag
   parent: BaseStorageItem
-  description: A rough, dirty, heavy duty construction bag with a magnet messily welded onto its side, it can be attached to the side, allowing for use of a toolbelt alongside it.
+  description: A rough, dirty, heavy duty construction bag with a magnet messily welded onto its side, it can be attached to the rig clip, allowing for use of a toolbelt alongside it.
   components:
   - type: ItemToggle
     onUse: false
