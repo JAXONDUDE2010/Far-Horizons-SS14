@@ -48,14 +48,12 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-      # Far Horizons-Start add pin slot
     - name: pin
       slotTexture: pin
       slotFlags: PIN
       uiWindowPos: 1,2
       strippingWindowPos: 1,2
       displayName: Pins
-      # Far Horizons-End
     - name: mask
       slotTexture: mask
       slotFlags: MASK
@@ -115,7 +113,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage
-      #Far Horizons-Start Breathable Tank Storage
     - name: suitstorage2
       slotTexture: tank
       slotFlags:   SUITSTORAGE2
@@ -127,7 +124,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Tank Storage
-      #Far Horizons-End
     - name: id
       slotTexture: id
       fullTextureName: template_small
@@ -147,7 +143,6 @@
       uiWindowPos: 2,1
       strippingWindowPos: 1,7
       displayName: belt
-      # Far Horizons-Start Rig slot
     - name: rig
       slotTexture: rig
       fullTextureName: template_small
@@ -157,7 +152,6 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
       displayName: Chest Rig
-      # Far Horizons-End
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -215,14 +209,12 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-      # Far Horizons-Start add pin slot
     - name: pin
       slotTexture: pin
       slotFlags: PIN
       uiWindowPos: 1,2
       strippingWindowPos: 1,2
       displayName: Pins
-      # Far Horizons-End
     - name: mask
       slotTexture: mask
       slotFlags: MASK
@@ -282,7 +274,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage
-      #Far Horizons-Start Breathable Tank Storage
     - name: suitstorage2
       slotTexture: tank
       slotFlags:   SUITSTORAGE2
@@ -294,7 +285,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Tank Storage
-      #Far Horizons-End
     - name: id
       slotTexture: id
       fullTextureName: template_small
@@ -314,7 +304,6 @@
       uiWindowPos: 2,1
       strippingWindowPos: 1,7
       displayName: belt
-      # Far Horizons-Start Rig slot
     - name: rig
       slotTexture: rig
       fullTextureName: template_small
@@ -324,7 +313,6 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
       displayName: Chest Rig
-      # Far Horizons-End
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -389,14 +377,12 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-      # Far Horizons-Start add pin slot
     - name: pin
       slotTexture: pin
       slotFlags: PIN
       uiWindowPos: 1,2
       strippingWindowPos: 1,2
       displayName: Pins
-      # Far Horizons-End
     - name: mask
       slotTexture: mask
       slotFlags: MASK
@@ -456,7 +442,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage
-      #Far Horizons-Start Breathable Tank Storage
     - name: suitstorage2
       slotTexture: tank
       slotFlags:   SUITSTORAGE2
@@ -468,7 +453,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Tank Storage
-      #Far Horizons-End
     - name: suitstorage3
       slotTexture: suit_storage
       slotFlags:   SUITSTORAGE
@@ -499,7 +483,6 @@
       uiWindowPos: 2,1
       strippingWindowPos: 1,7
       displayName: belt
-      # Far Horizons-Start Rig slot
     - name: rig
       slotTexture: rig
       fullTextureName: template_small
@@ -509,7 +492,6 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
       displayName: Chest Rig
-      # Far Horizons-End
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -551,14 +533,12 @@
       uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Neck
-      # Far Horizons-Start add pin slot
     - name: pin
       slotTexture: pin
       slotFlags: PIN
       uiWindowPos: 1,2
       strippingWindowPos: 1,2
       displayName: Pins
-      # Far Horizons-End
     - name: mask
       slotTexture: mask
       slotFlags: MASK
@@ -604,7 +584,6 @@
       uiWindowPos: 2,1
       strippingWindowPos: 1,7
       displayName: belt
-      # Far Horizons-Start Rig slot
     - name: rig
       slotTexture: rig
       fullTextureName: template_small
@@ -614,7 +593,6 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,6
       displayName: Chest Rig
-      # Far Horizons-End
     - name: back
       slotTexture: back
       fullTextureName: template_small
@@ -699,7 +677,6 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage
-      #Far Horizons-Start Breathable Tank Storage
     - name: suitstorage2
       slotTexture: tank
       slotFlags:   SUITSTORAGE2
@@ -711,4 +688,3 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Tank Storage
-      #Far Horizons-End

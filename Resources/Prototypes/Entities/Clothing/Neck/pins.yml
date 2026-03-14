@@ -5,12 +5,14 @@
   name: pin
   description: Be nothing do crime.
   components:
+  # Far Horizons-Start Add pin slot
   - type: Clothing
     sprite: Clothing/Neck/Misc/pins.rsi
     quickEquip: true
     slots:
       - neck
       - pin
+  # Far Horizons-End
   - type: Item
     size: Tiny
   - type: Sprite
@@ -288,7 +290,7 @@
     quickEquip: true
     slots:
     - neck
-    - pin
+    - pin # FH
   - type: EquipSpray
     verbLocId: equip-spray-verb-press
   - type: SolutionContainerManager

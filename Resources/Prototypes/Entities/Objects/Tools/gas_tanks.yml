@@ -15,7 +15,7 @@
     slots:
     - Back
     - suitStorage
-    - suitStorage2
+    - suitStorage2 # FH
   - type: UseDelay
     delays:
       gasTank:
