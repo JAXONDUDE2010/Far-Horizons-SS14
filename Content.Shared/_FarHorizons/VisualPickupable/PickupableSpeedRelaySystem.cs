@@ -23,10 +23,10 @@ public sealed class PickupableSpeedRelaySystem : EntitySystem
         var walkModifier = 1f;
 
         if (ev.SprintSpeedModifier < 1)
-            sprintModifier = ev.SprintSpeedModifier;
+            sprintModifier = (ev.SprintSpeedModifier + 1) / 2;
 
         if (ev.WalkSpeedModifier < 1)
-            walkModifier = ev.WalkSpeedModifier;
+            walkModifier = (ev.WalkSpeedModifier + 1) / 2;
         
         args.Args.ModifySpeed(walkModifier, sprintModifier);
     }
