@@ -8900,5 +8900,12 @@ Entries:
   id: 93600
   time: '2026-03-14T16:55:29.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/936
+- author: Fasuh
+  changes:
+  - message: Fixed inventory code.
+    type: Fix
+  id: 93800
+  time: '2026-03-14T20:00:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/938
 Order: -1
 
