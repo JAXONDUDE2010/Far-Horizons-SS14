@@ -13,7 +13,7 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+        - WallLayer
   - type: InteractionOutline
   - type: Anchorable
   - type: Rotatable
