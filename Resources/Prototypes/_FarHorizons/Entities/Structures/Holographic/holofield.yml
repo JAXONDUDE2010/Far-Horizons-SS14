@@ -316,6 +316,12 @@
     layers:
     - state: field
       shader: unshaded
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [20, 60, 150]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _FarHorizons/Structures/Holo/holographic_damage.rsi
   - type: Icon
     sprite: _FarHorizons/Structures/Holo/holographic_barrier.rsi
     state: field
