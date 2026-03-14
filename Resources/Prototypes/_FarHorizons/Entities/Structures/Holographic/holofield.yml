@@ -83,6 +83,8 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: true
   - type: Occluder
+  - type: Tag
+    id: Wall
   - type: NodeContainer
     examinable: true
     nodes:
