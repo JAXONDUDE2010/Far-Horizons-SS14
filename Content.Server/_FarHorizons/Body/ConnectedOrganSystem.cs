@@ -79,7 +79,6 @@ public sealed partial class ConnectedOrganSystem : SharedConnectedOrganSystem
 
             if(TryComp<HeadOrganComponent>(ent, out var head))
             {
-                CutAndPaste<IdentityComponent>(args.Target, ent);
                 head.NameBackup = $"{entName}";
                 _metaData.SetEntityName(args.Target, "Unknown");
             }
@@ -124,7 +123,6 @@ public sealed partial class ConnectedOrganSystem : SharedConnectedOrganSystem
 
             if(TryComp<HeadOrganComponent>(ent, out var head))
             {
-                CutAndPaste<IdentityComponent>(ent, args.Target);
                 _metaData.SetEntityName(args.Target, head.NameBackup);
                 head.NameBackup = "";
             }
