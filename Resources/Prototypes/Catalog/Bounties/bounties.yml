@@ -23,11 +23,11 @@
 
 - type: cargoBounty
   id: BountyBrain
-  reward: 12500
+  reward: 5000 #FarHorizons
   description: bounty-description-brain
   entries:
   - name: bounty-item-brain
-    amount: 1
+    amount: 5 #FarHorizons
     whitelist:
       components:
       - Brain

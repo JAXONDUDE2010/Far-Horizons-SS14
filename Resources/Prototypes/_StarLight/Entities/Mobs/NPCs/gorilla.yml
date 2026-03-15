@@ -107,12 +107,12 @@
       interfaces:
         enum.MeleeSpeechUiKey.Key:
           type: MeleeSpeechBoundUserInterface
-#FarHorizons Start
+    #FarHorizons Start
         enum.SurgeryUIKey.Key:
-        type: SurgeryBui
+          type: SurgeryBui
     - type: DarkenedVision
     - type: VisionOrganRequiredForVision
-#FarHorizons End
+    #FarHorizons End
     - type: Speech
       speechVerb: Monkey
     - type: Damageable

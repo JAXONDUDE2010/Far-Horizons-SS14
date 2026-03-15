@@ -134,7 +134,7 @@
   parent: [ OrganBaseEyes, OrganHumanInternal, OrganMonkeyExternal ]
   id: OrganMonkeyEyes
   suffix: monkey
-  component:
+  components:
   - type: Sprite
   layers:
     - state: eyes
