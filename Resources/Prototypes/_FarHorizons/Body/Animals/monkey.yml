@@ -131,9 +131,13 @@
   id: OrganMonkeyFootRight
 
 - type: entity
-  parent: [ OrganHumanInternal, OrganMonkeyExternal, OrganBaseEyes ]
+  parent: [ OrganBaseEyes, OrganHumanInternal, OrganMonkeyExternal ]
   id: OrganMonkeyEyes
   suffix: monkey
+  component:
+  - type: Sprite
+  layers:
+    - state: eyes
 
 - type: entity
   parent: [ OrganBaseTail, OrganMonkeyExternal ]
