@@ -33,7 +33,7 @@
     - type: HandheldTranslator
       enabled: false
     - type: Clothing
-      slots: [neck]
+      slots: [neck, pin]
     - type: Tag
       tags:
       - Pin # FH
