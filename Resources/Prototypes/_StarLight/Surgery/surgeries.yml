@@ -580,7 +580,7 @@
     - SurgeryStepGrabTongue
     - SurgeryStepCutTongue
   - type: SurgeryOrganExistCondition
-    category: [ Tongue ] #FarHorizons
+    category: Tongue  #FarHorizons
   - type: SurgeryPartCondition
     parts: [ Head, AnimalHead ] #FarHorizons
   - type: Sprite
