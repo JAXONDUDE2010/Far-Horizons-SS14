@@ -74,7 +74,6 @@
   abstract: true
   components:
   - type: Body
-  #Far-Horizons Start
   - type: InitialBody
     organs:
       Brain: OrganHumanBrain
@@ -199,7 +198,7 @@
   name: eyes
   components:
   - type: GibbableOrgan
-  - type: VisionOrgan # Far Horizons
+  - type: VisionOrgan 
   - type: DetachedOrganVisualsExcluded
   - type: OrganDamage
     damage:

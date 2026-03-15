@@ -84,7 +84,7 @@ bounty-description-artifact = NanoTrasen is in some hot water for stealing artif
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
 bounty-description-box-hugs = Several chief officials have sustained serious boo-boos. A box of hugs is urgently needed to aid in their recovery.
 #FarHorizonsEdit start
-bounty-description-brain = We are creating a cyborg army and brains are cheaper than positronic brains send us some brains.
+bounty-description-brain = We are creating a cyborg army and organic brains are cheaper than positronic ones, so send us some.
 #FarHorizonsEdit end
 bounty-description-bread = Problems with central planning have led to bread prices skyrocketing. Ship some bread to ease tensions.
 bounty-description-carrot = After failing to watch instructional videos for proper welder safety, the salvage division on Station 15 has been blinded. Ship them some carrots so they can restore their eyesight.

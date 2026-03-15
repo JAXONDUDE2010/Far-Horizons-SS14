@@ -136,8 +136,8 @@
   suffix: monkey
   components:
   - type: Sprite
-  layers:
-    - state: eyes
+    layers:
+      - state: eyes
 
 - type: entity
   parent: [ OrganBaseTail, OrganMonkeyExternal ]
