@@ -92,10 +92,10 @@ public sealed class ShuttleGunControl : ShuttleNavControl
 
         var mapObj = new ValueList<Vector2>(4)
         {
-            localPos + angle.RotateVec(new Vector2(0f, -diamondRadius)) * scale,
-            localPos + angle.RotateVec(new Vector2(diamondRadius, 0f)) * scale,
-            localPos + angle.RotateVec(new Vector2(0f, diamondRadius)) * scale,
-            localPos + angle.RotateVec(new Vector2(-diamondRadius, 0f)) * scale,
+            localPos + (angle.RotateVec(new Vector2(0f, -diamondRadius)) * scale),
+            localPos + (angle.RotateVec(new Vector2(diamondRadius, 0f)) * scale),
+            localPos + (angle.RotateVec(new Vector2(0f, diamondRadius)) * scale),
+            localPos + (angle.RotateVec(new Vector2(-diamondRadius, 0f)) * scale),
         };
 
         if (scalePosition)
@@ -107,5 +107,22 @@ public sealed class ShuttleGunControl : ShuttleNavControl
         }
 
         return mapObj;
+    }
+
+    /// <summary>
+    /// Gets the mouse position in world coordinates, or null if the mouse is outside the window or the shuttle doesn't have a valid transform.
+    /// </summary>
+    /// <returns>Mouse position in world coordinates</returns>
+    public Vector2? GetMousePosition()
+    {
+        if (!EntManager.TryGetComponent(_shuttleEntity, out TransformComponent? shuttleXform) || shuttleXform.MapID == MapId.Nullspace)
+            return null;
+        
+        var mousePos = _inputs.MouseScreenPosition;
+        var mouseLocalPos = GetLocalPosition(mousePos);
+
+        return mousePos.Window == WindowId.Invalid
+            ? null
+            : InverseMapPosition(mouseLocalPos) + Offset + _xformSystem.GetMapCoordinates(shuttleXform).Position;
     }
 }

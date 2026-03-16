@@ -27,3 +27,9 @@
   name: signal-port-name-gas-turbine-data-sender
   description: signal-port-description-gas-turbine-data-sender
   defaultLinks: [ GasTurbineDataReceiver ]
+
+- type: sourcePort
+  id: GunneryConsoleTurretControl
+  name: signal-port-name-gunnery-console-turret-control
+  description: signal-port-description-gunnery-console-turret-control
+  defaultLinks: [ Trigger ]

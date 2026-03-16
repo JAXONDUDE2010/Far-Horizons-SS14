@@ -12,3 +12,6 @@ signal-port-description-gas-turbine-speed-low = Speed is lower than optimal.
 
 signal-port-name-gas-turbine-data-sender = Gas Turbine
 signal-port-description-gas-turbine-data-sender = Sending info about a gas turbine to a monitor.
+
+signal-port-name-gunnery-console-turret-control = Gunnery Console
+signal-port-description-gunnery-console-turret-control = Connect to a turret to allow the console to control it.

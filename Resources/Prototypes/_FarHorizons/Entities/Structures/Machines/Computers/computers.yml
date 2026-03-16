@@ -172,6 +172,7 @@
   name: Gunnery Console
   description: Pew Pew.
   components:
+  - type: GunneryConsole
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
@@ -180,13 +181,17 @@
           type: GunneryConsoleBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
-  - type: RadarConsole
   - type: WorldLoader
     radius: 256
   - type: PointLight
     radius: 1.5
     energy: 4.0
     color: "#43ccb5"
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: DeviceLinkSource
+    ports:
+      - GunneryConsoleTurretControl
   - type: ContainerContainer
     containers:
       board: !type:Container
