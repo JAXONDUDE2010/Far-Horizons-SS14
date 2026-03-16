@@ -135,9 +135,9 @@
   id: OrganMonkeyEyes
   suffix: monkey
   components:
-  - type: Sprite
-    layers:
-      - state: eyes
+  - type: VisualOrgan
+    data:
+      sprite: _FarHorizons/Mobs/Animals/monkey.rsi
 
 - type: entity
   parent: [ OrganBaseTail, OrganMonkeyExternal ]

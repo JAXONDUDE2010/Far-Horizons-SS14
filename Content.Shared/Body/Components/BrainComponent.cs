@@ -1,11 +1,6 @@
 ﻿using Content.Shared.Body.Systems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Components;
 
 [RegisterComponent, Access(typeof(BrainSystem))]
-public sealed partial class BrainComponent : Component
-{
-    [DataField]
-    public ComponentRegistry StoredComponents = new();
-}
+public sealed partial class BrainComponent : Component;
