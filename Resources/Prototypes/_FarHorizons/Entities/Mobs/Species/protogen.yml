@@ -139,6 +139,7 @@
       Unsexed: MaleProtogen
   - type: UniversalHealModifier
     modifier: 0.5
+  - type: Absorbable
 
 - type: entity
   parent: BaseMobProtogenNoVision
