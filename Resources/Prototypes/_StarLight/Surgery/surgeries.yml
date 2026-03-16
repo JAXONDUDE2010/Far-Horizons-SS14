@@ -605,7 +605,7 @@
   - type: SurgeryOrganDontExistCondition
     category: [ Tongue ]
   - type: SurgeryPartCondition
-    parts: [ Head, AnimalHead ]
+    parts: [ Head, AnimalHead ] #FarHorizons
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
     state: tongue

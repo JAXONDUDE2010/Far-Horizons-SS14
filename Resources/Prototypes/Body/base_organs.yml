@@ -281,7 +281,7 @@
   - type: Input
     context: "ghost"
   - type: Brain
-  - type: BrainExtra
+  - type: BrainExtra #FarHorizons
   - type: InputMover
   - type: Examiner
   - type: BlockMovement
