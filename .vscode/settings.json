@@ -572,5 +572,7 @@
         "!type:WormCorridorDunGen mapping",
         "!type:ZombifySelfActionEvent mapping"
     ],
-    "dotrush.roslyn.projectOrSolutionFiles": []
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "c:\\Users\\blake\\Desktop\\SS14\\Far Horizons\\Far-Horizons-SS14\\SpaceStation14.slnx"
+    ]
 }

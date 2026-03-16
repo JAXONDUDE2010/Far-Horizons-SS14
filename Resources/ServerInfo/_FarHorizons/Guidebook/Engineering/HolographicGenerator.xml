@@ -1,0 +1,7 @@
+<Document>
+# Holographic Generators
+	<Box>
+		<GuideEntityEmbed Entity="HolographicFieldGenerator" Scale="1.5"/>
+		<GuideEntityEmbed Entity="HolographicBarrierGenerator" Scale="1.5"/>
+	</Box>
+</Document>
