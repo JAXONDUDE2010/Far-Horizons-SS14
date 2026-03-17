@@ -24,21 +24,17 @@
     noRot: false
     layers:
       - state: machine
-      - state: p1
+      - state: p6 
         map: ["powerLight"]
-        visible: false
         shader: unshaded
       - state: connected
         map: ["connectedLight"]
-        visible: false
         shader: unshaded
       - state: on
         map: ["onLight"]
-        visible: false
         shader: unshaded
       - state: charger
         map: ["chargerLight"]
-        visible: false
         shader: unshaded
       - state: lock
         map: ["enum.LockVisualLayers.Lock"]
@@ -160,6 +156,9 @@
       Heat:
         collection:
           MetalLaserImpact
+  - type: GuideHelp
+    guides:
+    - HolographicGenerator
 
 #region Holographic Field
 
@@ -277,7 +276,7 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 35
   - type: Transform
     anchored: true
   - type: BlockWeather

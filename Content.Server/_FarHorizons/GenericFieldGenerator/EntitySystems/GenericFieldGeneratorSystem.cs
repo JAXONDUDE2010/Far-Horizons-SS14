@@ -95,6 +95,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         ChangePowerVisualizer(generator);
         ChangeOnLightVisualizer(generator);
         UpdateConnectionLights(generator);
+        ChangeConnectionLightVisualizer(generator);
         _signalSystem.EnsureSinkPorts(generator, generator.Comp.TogglePort, generator.Comp.OnPort, generator.Comp.OffPort);
         _signalSystem.EnsureSourcePorts(generator, generator.Comp.ConnectionStatusPort, generator.Comp.FieldConnectedPort, generator.Comp.FieldDisconnectedPort);
     }
