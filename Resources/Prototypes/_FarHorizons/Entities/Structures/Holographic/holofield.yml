@@ -80,7 +80,8 @@
     noAirWhenFullyAirBlocked: true
   - type: Occluder
   - type: Tag
-    id: Wall
+    tags:
+    - Wall
   - type: NodeContainer
     examinable: true
     nodes:
