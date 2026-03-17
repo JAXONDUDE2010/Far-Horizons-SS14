@@ -9242,5 +9242,19 @@ Entries:
   id: 95504
   time: '2026-03-17T17:20:02.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/955
+- author: KarusKardin
+  changes:
+  - message: Holographic Field Generator
+    type: Add
+  id: 79500
+  time: '2026-03-17T23:08:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/795
+- author: KarusKardin
+  changes:
+  - message: Holographic Barrier Generator
+    type: Add
+  id: 79501
+  time: '2026-03-17T23:08:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/795
 Order: -1
 
