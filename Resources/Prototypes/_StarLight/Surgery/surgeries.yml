@@ -542,7 +542,7 @@
   - type: SurgeryOrganExistCondition
     category: EyeImplant
   - type: SurgeryPartCondition
-    parts: [ Head, AnimalHead ]
+    parts: [ Head, AnimalHead ] #FarHorizons
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
