@@ -113,24 +113,24 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored)
+        if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored &&
+            TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
         {
-            if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
+            if (!generator.Comp.Enabled)
             {
-                if (!generator.Comp.Enabled)
-                {//TurnOn
-                    generator.Comp.Enabled = true;
-                    batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
-                    _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-on"), generator);
-                }
-                else
-                {//TurnOff
-                    generator.Comp.Enabled = false;
-                    batteryComponent.MaxChargeRate = 0;
-                    _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-off"), generator);
-                }
-                ChangeOnLightVisualizer(generator);
+                //TurnOn
+                generator.Comp.Enabled = true;
+                batteryComponent.MaxChargeRate = generator.Comp.ChargeRate;
+                _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-on"), generator);
             }
+            else
+            {
+                //TurnOff
+                generator.Comp.Enabled = false;
+                batteryComponent.MaxChargeRate = 0;
+                _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-turned-off"), generator);
+            }
+            ChangeOnLightVisualizer(generator);
         }
         args.Handled = true;
     }

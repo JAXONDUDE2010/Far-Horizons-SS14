@@ -26,16 +26,14 @@ public sealed class GenericFieldSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<GenericFieldComponent>();
-        while (query.MoveNext(out var uid, out var field))
+        var query = EntityQueryEnumerator<GenericFieldComponent, DamageableComponent>();
+        while (query.MoveNext(out var uid, out var field, out var damageable))
         {
             field.Accumulator += frameTime;
-            if (field.Accumulator >= field.Threshold)
-            {
-                if (TryComp<DamageableComponent>(uid, out _))
-                    _damageable.HealEvenly(uid, field.RegenRate);
-                field.Accumulator -= field.Threshold;
-            }
+            if (!(field.Accumulator >= field.Threshold)) continue;
+            
+            field.Accumulator -= field.Threshold; 
+            _damageable.HealEvenly((uid, damageable), field.RegenRate);
         }
     }
 
