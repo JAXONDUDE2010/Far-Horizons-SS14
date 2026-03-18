@@ -197,8 +197,6 @@
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-      - id: HolographicBarrierGeneratorFlatpack
-        amount: 2
       - id: ClothingBackpackElectropack
         amount: 2
       - id: RemoteSignaller
@@ -214,8 +212,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HolographicBarrierGeneratorFlatpack
-        amount: 2
       - id: FlashlightSeclite
         amount: 2
       - id: WeaponEnergyShotgun
