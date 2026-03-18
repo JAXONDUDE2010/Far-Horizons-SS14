@@ -4,6 +4,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared._FarHorizons.Shuttles;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -21,6 +22,8 @@ public sealed class GunneryConsoleSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
@@ -90,9 +93,57 @@ public sealed class GunneryConsoleSystem : EntitySystem
             return;
 
         GunneryConsoleBuiState state = new();
-        comp.ConnectedTurrets.ForEach(turret => state.TurretEntities.Add(GetNetEntity(turret)));
+        comp.ConnectedTurrets.ForEach(turret =>
+            state.TurretEntities.Add(new GunneryConsoleTurretEntry(
+                GetNetEntity(turret),
+                _gunSystem.GetAmmoCount(turret),
+                _gunSystem.GetAmmoCapacity(turret)
+            ))
+        );
+        UpdateTurretMetaData(uid, comp);
         state.State = GetNavState(uid);
         _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, state);
+    }
+
+    private void UpdateTurretMetaData(EntityUid uid, GunneryConsoleComponent comp)
+    {
+        comp.TurretMetaData.Clear();
+
+        foreach (var turret in comp.ConnectedTurrets)
+        {
+            var metaData = new GunneryConsoleTurretMetaData
+            {
+                EntityName = Identity.Name(turret, EntityManager),
+                Coordinates = EntityManager.GetNetCoordinates(Transform(turret).Coordinates)
+            };
+            comp.TurretMetaData[GetNetEntity(turret)] = metaData;
+        }
+
+        Dirty(uid, comp);
+    }
+    
+    private float _accumulator = 0f;
+    private readonly float _threshold = 0.5f;
+
+    public override void Update(float frameTime)
+    {
+        _accumulator += frameTime;
+        if (_accumulator > _threshold)
+        {
+            AccUpdate();
+            _accumulator -= _threshold;
+        }
+
+        return;
+
+        void AccUpdate()
+        {
+            var query = EntityQueryEnumerator<GunneryConsoleComponent>();
+            while (query.MoveNext(out var uid, out var component))
+            {
+                UpdateUI(uid, component);
+            }
+        }
     }
 
     private NavInterfaceState GetNavState(EntityUid uid)
@@ -114,19 +165,41 @@ public sealed class GunneryConsoleSystem : EntitySystem
         turretUids = [.. turretUids.Intersect(comp.ConnectedTurrets)];
 
         var targetCoords = EntityManager.GetCoordinates(args.Position);
+        var targetWorldCoords = _transformSystem.ToWorldPosition(targetCoords);
         
         foreach (var turret in turretUids)
         {
-            if (!EntityManager.TryGetComponent<GunComponent>(turret, out var gun))
+            var xform = Transform(turret);
+            if (!EntityManager.TryGetComponent<GunComponent>(turret, out var gun) || xform == null)
                 continue;
 
             if(!_gunSystem.CanShoot(gun))
                 continue;
+
+            // This whole mess makes sure that the turret can't shoot backwards
             
-            
+            var globalPos = _transformSystem.GetWorldPosition(turret);
+            var (_, parentRot) = _transformSystem.GetWorldPositionRotation(xform.ParentUid);
+            var targetRot = ToPi(Angle.FromWorldVec(targetWorldCoords - globalPos) - parentRot);
+            var locMin = xform.LocalRotation - gun.MaxAngle.Theta;
+            var locMax = xform.LocalRotation + gun.MaxAngle.Theta;
+
+            // Makes sure that the min/max are on the same side of the radian discontinuity as the target 
+            if(targetRot < 0 && locMin > 0)
+            {
+                locMin -= Math.Tau;
+                locMax -= Math.Tau;
+            }
+
+            if(!(targetRot > locMin && targetRot < locMax))
+                continue;
+
+            // Random delay between 0 and 300ms to make the firing feel less artificial
             Timer.Spawn(_random.Next(0, 300), () =>
                 _gunSystem.AttemptShoot(turret, (turret, gun), targetCoords)
             );
         }
     }
+
+    private static double ToPi(double theta) => ((theta + Math.PI) % (2 * Math.PI)) - Math.PI;
 }

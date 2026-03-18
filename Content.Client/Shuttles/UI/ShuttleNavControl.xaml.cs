@@ -30,14 +30,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Far Horizons - ma
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
     /// </summary>
-    private EntityCoordinates? _coordinates;
+    protected EntityCoordinates? _coordinates; // Far Horizons - made private variable protected
 
     /// <summary>
     /// Entity of controlling console
     /// </summary>
     private EntityUid? _consoleEntity;
 
-    private Angle? _rotation;
+    protected Angle? _rotation; // Far Horizons - made private variable protected
 
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 

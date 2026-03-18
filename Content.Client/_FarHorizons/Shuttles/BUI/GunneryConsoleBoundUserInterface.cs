@@ -11,7 +11,6 @@ namespace Content.Client._FarHorizons.Shuttles.BUI;
 [UsedImplicitly]
 public sealed class GunneryConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
     
     [ViewVariables]
     private GunneryConsoleWindow? _window;
@@ -26,6 +25,8 @@ public sealed class GunneryConsoleBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<GunneryConsoleWindow>();
         _window.FireButtonPressed += OnFireButtonPressed;
+
+        _window.SetEntity(Owner);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -33,15 +34,13 @@ public sealed class GunneryConsoleBoundUserInterface : BoundUserInterface
         base.UpdateState(state);
         switch (state)
         {
-            case NavBoundUserInterfaceState navState:
-                _window?.SetShuttle(EntMan.GetCoordinates(navState.State.Coordinates)?.EntityId);
-                _window?.UpdateState(navState.State);
-                break;
             case GunneryConsoleBuiState gunState:
                 _window?.SetShuttle(EntMan.GetCoordinates(gunState.State.Coordinates)?.EntityId);
                 _window?.Update(gunState);
                 _window?.UpdateState(gunState.State);
                 break;
+            default: 
+                return;
         }
     }
 

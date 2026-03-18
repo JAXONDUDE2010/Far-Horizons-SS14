@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared._FarHorizons.Shuttles;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GunneryConsoleComponent : Component
 {
     [ViewVariables]
@@ -12,4 +12,7 @@ public sealed partial class GunneryConsoleComponent : Component
 
     [DataField("turretConnectionPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string TurretConnectionPort = "GunneryConsoleTurretControl";
+
+    [ViewVariables, AutoNetworkedField]
+    public Dictionary<NetEntity, GunneryConsoleTurretMetaData> TurretMetaData = [];
 }

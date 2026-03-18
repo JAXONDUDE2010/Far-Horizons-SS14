@@ -170,9 +170,22 @@
   parent: BaseComputerAiAccess
   id: ShuttleGunneryConsole
   name: Gunnery Console
-  description: Pew Pew.
+  description: Interfaces with connected shuttle weapons to provide targeting data and firing commands. Yes Hoven, kaboom.
   components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request-sec
+    - map: ["computerLayerKeys"]
+      state: id_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: GunneryConsole
+  - type: RadarConsole
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
@@ -192,7 +205,10 @@
   - type: DeviceLinkSource
     ports:
       - GunneryConsoleTurretControl
+  - type: Computer
+    board: GunneryConsoleCircuitboard
   - type: ContainerContainer
     containers:
       board: !type:Container
-        ents: []
+      machine_board: !type:Container
+      machine_parts: !type:Container

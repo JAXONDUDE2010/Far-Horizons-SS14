@@ -8,8 +8,37 @@ namespace Content.Shared._FarHorizons.Shuttles;
 [Serializable, NetSerializable]
 public sealed class GunneryConsoleBuiState : BoundUserInterfaceState
 {
-    public List<NetEntity> TurretEntities = [];
+    public List<GunneryConsoleTurretEntry> TurretEntities = [];
     public NavInterfaceState State = new(0f, null, null, []);
+}
+
+[Serializable, NetSerializable]
+public struct GunneryConsoleTurretMetaData
+{
+    public string EntityName;
+    public NetCoordinates Coordinates;
+
+    public GunneryConsoleTurretMetaData(string name, NetCoordinates coordinates)
+    {
+        EntityName = name;
+        Coordinates = coordinates;
+    }
+}
+
+[Serializable, NetSerializable]
+public struct GunneryConsoleTurretEntry
+{
+    public NetEntity NetEntity;
+    public int CurrentAmmo;
+    public int MaxAmmo;
+    [NonSerialized] public GunneryConsoleTurretMetaData? MetaData = null;
+
+    public GunneryConsoleTurretEntry(NetEntity netEntity, int currentAmmo, int maxAmmo)
+    {
+        NetEntity = netEntity;
+        CurrentAmmo = currentAmmo;
+        MaxAmmo = maxAmmo;
+    }
 }
 
 [Serializable, NetSerializable]

@@ -5,7 +5,6 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Client._FarHorizons.Shuttles.UI;
@@ -17,6 +16,7 @@ public sealed class ShuttleGunControl : ShuttleNavControl
     private readonly SharedTransformSystem _xformSystem;
     
     private EntityUid? _shuttleEntity;
+    private readonly List<(NetCoordinates coordinates, bool fill)> _gunPositions = [];
     
     public ShuttleGunControl() : base()
     {
@@ -31,10 +31,16 @@ public sealed class ShuttleGunControl : ShuttleNavControl
     }
 
     public void SetShuttle(EntityUid? entity) => _shuttleEntity = entity;
-    
 
+    public void SetGunPositions(IEnumerable<(NetCoordinates, bool)> positions)
+    {
+        _gunPositions.Clear();
+        _gunPositions.AddRange(positions);
+    }
+    
     protected override void Draw(DrawingHandleScreen handle)
     {
+        /// A lot of this is a modified version of methods in <see cref="ShuttleMapControl"/>
         base.Draw(handle);
         var controlLocalBounds = PixelRect;
         var realTime = _timing.RealTime;
@@ -42,27 +48,21 @@ public sealed class ShuttleGunControl : ShuttleNavControl
         var mousePos = _inputs.MouseScreenPosition;
         var mouseLocalPos = GetLocalPosition(mousePos);
 
-        // Draw dotted line from our own shuttle entity to mouse.
         if (mousePos.Window != WindowId.Invalid)
         {
-            // If mouse inbounds then draw it.
             if (_shuttleEntity != null && controlLocalBounds.Contains(mouseLocalPos.Floored()) &&
                 EntManager.TryGetComponent(_shuttleEntity, out TransformComponent? shuttleXform) &&
                 shuttleXform.MapID != MapId.Nullspace)
             {
                 var color = Color.Red;
 
-                // Draw line from our shuttle to target
-                // Might need to clip the line if it's too far? But my brain wasn't working so F.
                 handle.DrawDottedLine(MidPointVector, mouseLocalPos, color, (float) realTime.TotalSeconds * 30f);
 
-                // Draw shuttle pre-vis
-                var mouseVerts = GetMapObject(mouseLocalPos, Angle.Zero, scale: MinimapScale);
+                var mouseVerts = GetCursorObject(mouseLocalPos, Angle.Zero, scale: MinimapScale);
 
                 handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, mouseVerts.Span, color.WithAlpha(0.05f));
                 handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, mouseVerts.Span, color);
                 
-                // Draw the coordinates
                 var mapOffset = MidPointVector;
 
                 if (mousePos.Window != WindowId.Invalid &&
@@ -71,9 +71,7 @@ public sealed class ShuttleGunControl : ShuttleNavControl
                     mapOffset = mouseLocalPos;
                 }
 
-                var shuttlePos = _xformSystem.GetMapCoordinates(shuttleXform).Position; // This can and should be the position of the gun rather than the shuttle
-                //shuttlePos = shuttlePos with {Y = -shuttlePos.Y};
-
+                var shuttlePos = _xformSystem.GetWorldPosition(shuttleXform);
                 mapOffset = InverseMapPosition(mapOffset) + Offset + shuttlePos;
                 var coordsText = $"{mapOffset.X:0.0}, {mapOffset.Y:0.0}";
                 var coordsDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
@@ -81,11 +79,38 @@ public sealed class ShuttleGunControl : ShuttleNavControl
                 handle.DrawString(Font, coordUiPosition, coordsText, 0.7f, color);
             }
         }
+
+        if(_coordinates != null && _rotation != null )
+        {
+            if (!EntManager.TryGetComponent(_coordinates.Value.EntityId, out TransformComponent? xform)
+            || xform.MapID == MapId.Nullspace)
+            {
+                return;
+            }
+
+            /// The Matrix Slab, brought to you by <see cref="ShuttleNavControl"/>
+            var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
+            var ourEntRot = RotateWithEntity ? _xformSystem.GetWorldRotation(xform) : _rotation.Value;
+            var ourEntMatrix = Matrix3Helpers.CreateTransform(_xformSystem.GetWorldPosition(xform), ourEntRot);
+            var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
+            Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
+            var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+
+            foreach (var (gunPos, fill) in _gunPositions)
+            {
+                var gunLocalPos = Vector2.Transform(_xformSystem.ToWorldPosition(gunPos), worldToShuttle * shuttleToView);
+                var gunVerts = GetWeaponObject(gunLocalPos, Angle.Zero, scale: MinimapScale);
+
+                handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, gunVerts.Span, Color.Orange);
+                if(fill)
+                    handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, gunVerts.Span, Color.Orange.WithAlpha(0.05f));
+            }
+        }
     }
 
     private float GetMapObjectRadius(float scale = 1f) => WorldRange / 40f * scale;
 
-    private ValueList<Vector2> GetMapObject(Vector2 localPos, Angle angle, float scale = 1f, bool scalePosition = false)
+    private ValueList<Vector2> GetCursorObject(Vector2 localPos, Angle angle, float scale = 1f, bool scalePosition = false)
     {
         // Constant size diamonds
         var diamondRadius = GetMapObjectRadius();
@@ -108,6 +133,11 @@ public sealed class ShuttleGunControl : ShuttleNavControl
 
         return mapObj;
     }
+
+    /// <summary>
+    /// Eventually this can be its own shape, but for now it can just be a copy of the cursor
+    /// </summary>
+    private ValueList<Vector2> GetWeaponObject(Vector2 localPos, Angle angle, float scale = 1f, bool scalePosition = false) => GetCursorObject(localPos, angle, scale, scalePosition);
 
     /// <summary>
     /// Gets the mouse position in world coordinates, or null if the mouse is outside the window or the shuttle doesn't have a valid transform.
