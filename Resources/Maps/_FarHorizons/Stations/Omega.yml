@@ -71482,9 +71482,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -49.5,60.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 10093
     components:
     - type: Transform
