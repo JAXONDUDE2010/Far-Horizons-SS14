@@ -48,6 +48,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         SubscribeLocalEvent<GenericFieldGeneratorComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<GenericFieldGeneratorComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, ChargeChangedEvent>(OnChargeChanged);
         SubscribeLocalEvent<GenericFieldGeneratorComponent, SignalReceivedEvent>(OnSignalReceived);
@@ -85,6 +86,12 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
 
     #region Events
 
+    private void OnInit(EntityUid generator, GenericFieldGeneratorComponent component, ComponentInit _)
+    {
+        _signalSystem.EnsureSinkPorts(generator, component.TogglePort, component.OnPort, component.OffPort);
+        _signalSystem.EnsureSourcePorts(generator, component.ConnectionStatusPort, component.FieldConnectedPort, component.FieldDisconnectedPort);
+    }
+
     private void OnMapInit(Entity<GenericFieldGeneratorComponent> generator, ref MapInitEvent args)
     {
         if (TryComp<PowerNetworkBatteryComponent>(generator, out var batteryComponent))
@@ -95,8 +102,6 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         ChangeOnLightVisualizer(generator);
         UpdateConnectionLights(generator);
         ChangeConnectionLightVisualizer(generator);
-        _signalSystem.EnsureSinkPorts(generator, generator.Comp.TogglePort, generator.Comp.OnPort, generator.Comp.OffPort);
-        _signalSystem.EnsureSourcePorts(generator, generator.Comp.ConnectionStatusPort, generator.Comp.FieldConnectedPort, generator.Comp.FieldDisconnectedPort);
     }
     private void OnExamine(EntityUid uid, GenericFieldGeneratorComponent component, ExaminedEvent args)
     {
