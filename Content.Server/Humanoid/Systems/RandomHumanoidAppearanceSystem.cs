@@ -46,7 +46,6 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         {
             name = name.Split(" ").Last();
         }
-        Log.Info("I go first appearance");
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, $"{component.namePrefix} {name}");
         //FarHorizons End
@@ -57,7 +56,6 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
     {
         if (!HasComp<HumanoidProfileComponent>(uid))
             return;
-        Log.Info("I go first species");
         var profile = HumanoidCharacterProfile.Random();
         var speciesProto = _prototypeManager.Index(profile.Species);
         
