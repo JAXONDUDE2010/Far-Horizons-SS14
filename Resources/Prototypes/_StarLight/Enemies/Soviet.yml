@@ -5,7 +5,8 @@
   categories: [ Spawner ]
   components:
     #FarHorizons Start
-    - type: RandomSpeciesAppearance 
+    - type: RandomSpecies
+    - type: RandomHumanoidAppearance
       randomizeName: true 
       namePrefix: Comrade 
       lastNameOnly: true 

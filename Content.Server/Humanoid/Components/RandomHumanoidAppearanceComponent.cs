@@ -8,20 +8,21 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
 {
     [DataField]
     public bool RandomizeName = true;
-}
 
-// FarHorizons Start
-[RegisterComponent]
-public sealed partial class RandomSpeciesAppearanceComponent : Component
-{
-    [DataField]
-    public bool RandomizeName = true;
-
+    //FarHorizons Start
     [DataField]
     public string namePrefix = "";
 
     [DataField]
     public bool lastNameOnly = false;
-    public ProtoId<CloningSettingsPrototype> TransformCloningSettings = "ChangelingCloningSettings";
+    
+    //FarHorizons End
+}
+
+// FarHorizons Start
+[RegisterComponent]
+public sealed partial class RandomSpeciesComponent : Component
+{
+    public ProtoId<CloningSettingsPrototype> TransformCloningSettings = "RandomSpeciesSettings";
 }
 // FarHorizons End

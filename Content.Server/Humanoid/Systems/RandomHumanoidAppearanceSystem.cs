@@ -5,7 +5,9 @@ using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes; 
 using System.Linq; 
-using Content.Shared.Cloning;
+using Content.Server.Cloning;
+using Content.Server.Body.Components;
+using Content.Server.Body;
 // FarHorizons End
 
 namespace Content.Server.Humanoid.Systems;
@@ -16,14 +18,14 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // FarHorizons
-    [Dependency] private readonly SharedCloningSystem _cloningSystem = default!; // FarHorizons
+    [Dependency] private readonly CloningSystem _cloningSystem = default!; // FarHorizons
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RandomHumanoidAppearanceComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedVisualBodySystem)]); //FarHorizons
-        SubscribeLocalEvent<RandomSpeciesAppearanceComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedVisualBodySystem)]); //FarHorizons
+        SubscribeLocalEvent<RandomSpeciesComponent, ComponentStartup>(OnCompStartSpecies, before: [typeof(InitialBodySystem)]); //FarHorizons
     }
 
     private void OnMapInit(EntityUid uid, RandomHumanoidAppearanceComponent component, MapInitEvent args)
@@ -38,17 +40,24 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         _humanoidProfile.ApplyProfileTo(uid, profile);
         _visualBody.MatchMarkingsToSkinColorAndRandomHair(uid, profile); //FarHorizons
 
+        //FarHorizons Start
+        var name = profile.Name; 
+        if(component.lastNameOnly)
+        {
+            name = name.Split(" ").Last();
+        }
+        Log.Info("I go first appearance");
         if (component.RandomizeName)
-            _metaData.SetEntityName(uid, profile.Name);
+            _metaData.SetEntityName(uid, $"{component.namePrefix} {name}");
+        //FarHorizons End
     }
 
     // FarHorizons Start
-    private void OnMapInit(EntityUid uid, RandomSpeciesAppearanceComponent component, MapInitEvent args)
+    private void OnCompStartSpecies(EntityUid uid, RandomSpeciesComponent component, ComponentStartup args)
     {
-        // If we have an initial profile/base layer set, do not randomize this humanoid.
         if (!HasComp<HumanoidProfileComponent>(uid))
             return;
-
+        Log.Info("I go first species");
         var profile = HumanoidCharacterProfile.Random();
         var speciesProto = _prototypeManager.Index(profile.Species);
         
@@ -57,23 +66,11 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
             return;
 
         _visualBody.CopyAppearanceFrom(dummy, uid);
-        _visualBody.ApplyProfileTo(dummy, profile);
-        _humanoidProfile.ApplyProfileTo(dummy, profile);
-
         _cloningSystem.CloneComponents(dummy, uid, settings);
-        Del(dummy);
-        
-        _visualBody.ApplyProfileTo(uid, profile);
         _humanoidProfile.ApplyProfileTo(uid, profile);
-        _visualBody.MatchMarkingsToSkinColorAndRandomHair(uid, profile);
-
-        var name = profile.Name; 
-        if(component.lastNameOnly)
-        {
-            name = name.Split(" ").Last();
-        }
-        if (component.RandomizeName)
-            _metaData.SetEntityName(uid, $"{component.namePrefix} {name}");
+        if(!HasComp<RespiratorComponent>(dummy))
+            RemComp<RespiratorComponent>(uid);
+        Del(dummy);
     }
     // FarHorizons End
 }
