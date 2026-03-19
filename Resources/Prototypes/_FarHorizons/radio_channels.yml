@@ -17,7 +17,7 @@
 - type: radioChannel
   id: Nexus
   name: chat-radio-nexus
-  keycode: "b"
+  keycode: "x"
   frequency: 6908
   color: "#FF7922"
   longRange: true
