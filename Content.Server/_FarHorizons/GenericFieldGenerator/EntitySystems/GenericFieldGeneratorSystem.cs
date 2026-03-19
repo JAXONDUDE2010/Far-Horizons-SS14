@@ -171,6 +171,13 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     private void TurnOff(Entity<GenericFieldGeneratorComponent> generator)
     {
         generator.Comp.Charged = false;
+
+        // This looks terrible, but it will stop the field from vanishing when battery is drained, but other genreator still has charge left
+        if (generator.Comp.Connections != null)
+            if (TryComp<BatteryComponent>(generator.Comp.Connections.Value.Item1, out var batteryComponent))
+                if (batteryComponent.LastCharge != 0)
+                    return;
+
         RemoveConnections(generator);
     }
 
@@ -181,12 +188,6 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     /// </summary>
     private void RemoveConnections(Entity<GenericFieldGeneratorComponent> generator)
     {
-        if (TryComp<DeviceLinkSourceComponent>(generator, out _))
-        {
-            _signalSystem.SendSignal(generator, generator.Comp.ConnectionStatusPort, false);
-            _signalSystem.InvokePort(generator, generator.Comp.FieldDisconnectedPort);
-        }
-
         var (uid, component) = generator;
 
         if (component.Connections == null)
@@ -202,6 +203,12 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         }
 
         value.Item1.Comp.Connections = null;
+        
+        if (TryComp<DeviceLinkSourceComponent>(generator, out _))
+        {
+            _signalSystem.SendSignal(generator, generator.Comp.ConnectionStatusPort, false);
+            _signalSystem.InvokePort(generator, generator.Comp.FieldDisconnectedPort);
+        }
 
         if (TryComp<DeviceLinkSourceComponent>(value.Item1, out _))
         {
