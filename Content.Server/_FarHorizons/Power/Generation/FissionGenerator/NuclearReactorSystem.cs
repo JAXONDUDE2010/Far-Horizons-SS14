@@ -85,6 +85,8 @@ public sealed class NuclearReactorSystem : EntitySystem
 
     private readonly Dictionary<KeyValuePair<EntityUid, EntityUid>, LogData> _logQueue = [];
 
+    private static readonly ReactorPartComponent?[] NeighborBuffer = new ReactorPartComponent?[4];
+
     public override void Initialize()
     {
         base.Initialize();
@@ -131,6 +133,7 @@ public sealed class NuclearReactorSystem : EntitySystem
 
         comp.ComponentGrid = new ReactorPartComponent[gridWidth, gridHeight];
         comp.FluxGrid = new List<ReactorNeutron>[gridWidth, gridHeight];
+        comp.FluxGridScratch = new List<ReactorNeutron>[gridWidth, gridHeight];
         comp.NeutronGrid = new int[gridWidth, gridHeight];
 
         ApplyPrefab(uid, comp);
@@ -155,6 +158,7 @@ public sealed class NuclearReactorSystem : EntitySystem
             {
                 comp.ComponentGrid[x, y] = prefab.TryGetValue(new Vector2i(x, y), out var part) ? new ReactorPartComponent(part) : null;
                 comp.FluxGrid[x, y] = [];
+                comp.FluxGridScratch[x, y] = [];
             }
 
         UpdateGasVolume(comp);
@@ -326,7 +330,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                     if (gas != null)
                         _atmosphereSystem.Merge(outlet.Air, gas);
 
-                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y), this);
+                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y, NeighborBuffer), this);
 
                     if (ReactorComp.HasRodType(ReactorPartComponent.RodTypes.ControlRod) && ReactorComp.IsControlRod)
                     {
@@ -342,6 +346,9 @@ public sealed class NuclearReactorSystem : EntitySystem
                         AvgControlRodInsertion += ReactorComp.NeutronCrossSection;
                 }
 
+                // Move neutrons using double-buffer: build into scratch, then swap. Eliminates O(n) List.Remove
+                // and the full flux snapshot copy. Scratch lists are cleared from previous tick.
+                var scratch = comp.FluxGridScratch;
                 foreach (var neutron in comp.FluxGrid[x, y])
                 {
                     var dir = neutron.dir.AsFlag();
@@ -352,12 +359,11 @@ public sealed class NuclearReactorSystem : EntitySystem
                     if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= gridWidth - 1
                         && y + ymod <= gridHeight - 1)
                     {
-                        flux.Add((neutron, new Vector2i(x, y), new Vector2i(x + xmod, y + ymod)));
+                        scratch[x + xmod, y + ymod].Add(neutron);
                     }
                     else
                     {
-                        flux.Add((neutron, new Vector2i(x, y), null));
-                        TempRads++; // neutrons hitting the casing get blasted in to the room - have fun with that engineers!
+                        TempRads++; // neutrons hitting the casing get blasted in to the room
                     }
                 }
 
@@ -373,14 +379,11 @@ public sealed class NuclearReactorSystem : EntitySystem
             }
         }
 
-        // Move neutrons
-        foreach (var (neutron, source, destination) in flux)
-        {
-            comp.FluxGrid[source.X, source.Y].Remove(neutron);
-
-            if (destination.HasValue)
-                comp.FluxGrid[destination.Value.X, destination.Value.Y].Add(neutron);
-        }
+        // Swap grids and clear scratch for next tick
+        (comp.FluxGrid, comp.FluxGridScratch) = (scratch, comp.FluxGrid);
+        for (var x = 0; x < gridWidth; x++)
+            for (var y = 0; y < gridHeight; y++)
+                comp.FluxGridScratch[x, y].Clear();
 
         comp.NanosElapsed = comp.SimTime.Elapsed.TotalNanoseconds;
         comp.NeutronCount = NeutronCount;
@@ -427,26 +430,13 @@ public sealed class NuclearReactorSystem : EntitySystem
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 
-    private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
+    private static IReadOnlyList<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y, ReactorPartComponent?[] buffer)
     {
-        var neighbors = new List<ReactorPartComponent?>();
-        if (x - 1 < 0)
-            neighbors.Add(null);
-        else
-            neighbors.Add(reactor.ComponentGrid[x - 1, y]);
-        if (x + 1 >= reactor.ReactorGridWidth)
-            neighbors.Add(null);
-        else
-            neighbors.Add(reactor.ComponentGrid[x + 1, y]);
-        if (y - 1 < 0)
-            neighbors.Add(null);
-        else
-            neighbors.Add(reactor.ComponentGrid[x, y - 1]);
-        if (y + 1 >= reactor.ReactorGridHeight)
-            neighbors.Add(null);
-        else
-            neighbors.Add(reactor.ComponentGrid[x, y + 1]);
-        return neighbors;
+        buffer[0] = x - 1 < 0 ? null : reactor.ComponentGrid[x - 1, y];
+        buffer[1] = x + 1 >= reactor.ReactorGridWidth ? null : reactor.ComponentGrid[x + 1, y];
+        buffer[2] = y - 1 < 0 ? null : reactor.ComponentGrid[x, y - 1];
+        buffer[3] = y + 1 >= reactor.ReactorGridHeight ? null : reactor.ComponentGrid[x, y + 1];
+        return buffer;
     }
 
     private void UpdateGasVolume(NuclearReactorComponent reactor)
