@@ -46,6 +46,21 @@ public sealed class ShuttleGunControl : ShuttleNavControl
     {
         /// A lot of this is a modified version of methods in <see cref="ShuttleMapControl"/>
         base.Draw(handle);
+        if(_coordinates == null || _rotation == null )
+            return;
+        
+        if (!EntManager.TryGetComponent(_coordinates.Value.EntityId, out TransformComponent? xform)
+        || xform.MapID == MapId.Nullspace)
+            return;
+
+        /// The Matrix Slab, brought to you by <see cref="ShuttleNavControl"/>
+        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
+        var ourEntRot = RotateWithEntity ? _xformSystem.GetWorldRotation(xform) : _rotation.Value;
+        var ourEntMatrix = Matrix3Helpers.CreateTransform(_xformSystem.GetWorldPosition(xform), ourEntRot);
+        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
+        Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
+        var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+
         var controlLocalBounds = PixelRect;
         var realTime = _timing.RealTime;
 
@@ -66,17 +81,9 @@ public sealed class ShuttleGunControl : ShuttleNavControl
 
                 handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, mouseVerts.Span, color.WithAlpha(0.05f));
                 handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, mouseVerts.Span, color);
-                
-                var mapOffset = MidPointVector;
 
-                if (mousePos.Window != WindowId.Invalid &&
-                    controlLocalBounds.Contains(mouseLocalPos.Floored()))
-                {
-                    mapOffset = mouseLocalPos;
-                }
-
-                var shuttlePos = _xformSystem.GetWorldPosition(shuttleXform);
-                mapOffset = InverseMapPosition(mapOffset) + shuttlePos;
+                Matrix3x2.Invert(worldToShuttle * shuttleToView, out var viewToWorld);
+                var mapOffset = Vector2.Transform(mouseLocalPos, viewToWorld);
                 var coordsText = $"{mapOffset.X:0.0}, {mapOffset.Y:0.0}";
                 var coordsDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
                 var coordUiPosition = mouseLocalPos - new Vector2(coordsDimensions.X / 2, coordsDimensions.Y + 10);
@@ -84,34 +91,9 @@ public sealed class ShuttleGunControl : ShuttleNavControl
             }
         }
 
-        if(_coordinates != null && _rotation != null )
-        {
-            if (!EntManager.TryGetComponent(_coordinates.Value.EntityId, out TransformComponent? xform)
-            || xform.MapID == MapId.Nullspace)
-            {
-                return;
-            }
-
-            /// The Matrix Slab, brought to you by <see cref="ShuttleNavControl"/>
-            var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
-            var ourEntRot = RotateWithEntity ? _xformSystem.GetWorldRotation(xform) : _rotation.Value;
-            var ourEntMatrix = Matrix3Helpers.CreateTransform(_xformSystem.GetWorldPosition(xform), ourEntRot);
-            var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-            Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
-            var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
-
-            foreach (var (gunPos, fill) in _gunPositions)
-            {
-                var gunLocalPos = Vector2.Transform(_xformSystem.ToWorldPosition(gunPos), worldToShuttle * shuttleToView);
-                var gunVerts = GetWeaponObject(gunLocalPos, Angle.Zero, scale: MinimapScale);
-
-                handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, gunVerts.Span, Color.Orange);
-                if(fill)
-                    handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, gunVerts.Span, Color.Orange.WithAlpha(0.05f));
-            }
-
-            DrawTracers(handle, worldToShuttle * shuttleToView);
-        }
+        
+        DrawGuns(handle, worldToShuttle * shuttleToView);
+        DrawTracers(handle, worldToShuttle * shuttleToView);
     }
 
     private float GetMapObjectRadius(float scale = 1f) => WorldRange / 40f * scale;
@@ -160,6 +142,20 @@ public sealed class ShuttleGunControl : ShuttleNavControl
         return mousePos.Window == WindowId.Invalid
             ? null
             : InverseMapPosition(mouseLocalPos) + _xformSystem.GetMapCoordinates(shuttleXform).Position;
+    }
+
+    private void DrawGuns(DrawingHandleScreen handle, Matrix3x2 worldToView)
+    {
+        foreach (var (gunPos, fill) in _gunPositions)
+        {
+            var gunLocalPos = Vector2.Transform(_xformSystem.ToWorldPosition(gunPos), worldToView);
+            var gunVerts = GetWeaponObject(gunLocalPos, Angle.Zero, scale: MinimapScale);
+
+            handle.DrawPrimitives(DrawPrimitiveTopology.LineLoop, gunVerts.Span, Color.Orange);
+
+            if(fill)
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, gunVerts.Span, Color.Orange.WithAlpha(0.05f));
+        }
     }
 
     private void DrawTracers(DrawingHandleScreen handle, Matrix3x2 worldToView)
