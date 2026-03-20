@@ -120,8 +120,8 @@
   #   - ConnectionStatus
   #   - FieldConnected
   #   - FieldDisconnected
-    lastSignals:
-      ConnectionStatus: false
+  #   lastSignals:
+  #     ConnectionStatus: false
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
