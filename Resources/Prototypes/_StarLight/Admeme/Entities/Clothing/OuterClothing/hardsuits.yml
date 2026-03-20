@@ -13,10 +13,10 @@
       clothingPrototype: ClothingHeadHelmetHardsuitNTNCConsortium
 #region FH
 - type: Tag
-    tags:
-    - Hardsuit
-    - WhitelistChameleon
-    - IPCExternalCooling
+  tags:
+  - Hardsuit
+  - WhitelistChameleon
+  - IPCExternalCooling
   #endregion FH
     
 - type: entity
