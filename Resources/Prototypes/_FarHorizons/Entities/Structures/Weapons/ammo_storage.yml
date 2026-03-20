@@ -39,6 +39,9 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: BallisticAmmoDistributor
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
   - type: DeviceLinkSource
     range: 5
     ports:
