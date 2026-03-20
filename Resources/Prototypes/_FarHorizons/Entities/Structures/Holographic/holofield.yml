@@ -114,12 +114,12 @@
     - Toggle
     - On
     - Off
-  - type: DeviceLinkSource
-    range: 200
-    ports:
-    - ConnectionStatus
-    - FieldConnected
-    - FieldDisconnected
+  # - type: DeviceLinkSource
+  #   range: 200
+  #   ports:
+  #   - ConnectionStatus
+  #   - FieldConnected
+  #   - FieldDisconnected
     lastSignals:
       ConnectionStatus: false
   - type: Damageable

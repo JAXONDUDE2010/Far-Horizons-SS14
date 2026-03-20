@@ -89,7 +89,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     private void OnInit(EntityUid generator, GenericFieldGeneratorComponent component, ComponentInit _)
     {
         _signalSystem.EnsureSinkPorts(generator, component.TogglePort, component.OnPort, component.OffPort);
-        _signalSystem.EnsureSourcePorts(generator, component.ConnectionStatusPort, component.FieldConnectedPort, component.FieldDisconnectedPort);
+        // _signalSystem.EnsureSourcePorts(generator, component.ConnectionStatusPort, component.FieldConnectedPort, component.FieldDisconnectedPort);
     }
 
     private void OnMapInit(Entity<GenericFieldGeneratorComponent> generator, ref MapInitEvent args)
@@ -199,17 +199,17 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
             QueueDel(field);
         }
 
-        if (TryComp<DeviceLinkSourceComponent>(uid, out _))
-        {
-            _signalSystem.SendSignal(uid, component.ConnectionStatusPort, false);
-            _signalSystem.InvokePort(uid, component.FieldDisconnectedPort);
-        }
+        // if (TryComp<DeviceLinkSourceComponent>(uid, out _))
+        // {
+        //     _signalSystem.SendSignal(uid, component.ConnectionStatusPort, false);
+        //     _signalSystem.InvokePort(uid, component.FieldDisconnectedPort);
+        // }
 
-        if (TryComp<DeviceLinkSourceComponent>(otheruid, out _))
-        {
-            _signalSystem.SendSignal(otheruid, othercomponent.ConnectionStatusPort, false);
-            _signalSystem.InvokePort(otheruid, othercomponent.FieldDisconnectedPort);
-        }
+        // if (TryComp<DeviceLinkSourceComponent>(otheruid, out _))
+        // {
+        //     _signalSystem.SendSignal(otheruid, othercomponent.ConnectionStatusPort, false);
+        //     _signalSystem.InvokePort(otheruid, othercomponent.FieldDisconnectedPort);
+        // }
 
         ChangeConnectionLightVisualizer(value.Item1);
         UpdateConnectionLights(value.Item1);
@@ -392,17 +392,17 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     /// <returns></returns>
     private List<EntityUid> GenerateFieldConnection(Entity<GenericFieldGeneratorComponent> firstGen, Entity<GenericFieldGeneratorComponent> secondGen)
     {
-        if (TryComp<DeviceLinkSourceComponent>(firstGen, out _))
-        {
-            _signalSystem.SendSignal(firstGen, firstGen.Comp.ConnectionStatusPort, true);
-            _signalSystem.InvokePort(firstGen, firstGen.Comp.FieldConnectedPort);
-        }
+        // if (TryComp<DeviceLinkSourceComponent>(firstGen, out _))
+        // {
+        //     _signalSystem.SendSignal(firstGen, firstGen.Comp.ConnectionStatusPort, true);
+        //     _signalSystem.InvokePort(firstGen, firstGen.Comp.FieldConnectedPort);
+        // }
 
-        if (TryComp<DeviceLinkSourceComponent>(secondGen, out _))
-        {
-            _signalSystem.SendSignal(secondGen, secondGen.Comp.ConnectionStatusPort, true);
-            _signalSystem.InvokePort(secondGen, secondGen.Comp.FieldConnectedPort);
-        }
+        // if (TryComp<DeviceLinkSourceComponent>(secondGen, out _))
+        // {
+        //     _signalSystem.SendSignal(secondGen, secondGen.Comp.ConnectionStatusPort, true);
+        //     _signalSystem.InvokePort(secondGen, secondGen.Comp.FieldConnectedPort);
+        // }
 
         var fieldList = new List<EntityUid>();
         var gen1Coords = Transform(firstGen).Coordinates;
