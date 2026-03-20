@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingEyesBase, BaseCentcommContraband]
   id: ClothingEyesGlassesNTNC
-  name: nanotrasen navy marine glasses
-  description: Standard-issue glasses for NanoTrasen Navy Marines.
+  name: NanoTrasen marine glasses #FH
+  description: Standard-issue glasses for NanoTrasen Marines. #FH
   components:
   - type: Sprite
     sprite: _Starlight/Admeme/Clothing/Eyes/Glasses/ntnc.rsi
