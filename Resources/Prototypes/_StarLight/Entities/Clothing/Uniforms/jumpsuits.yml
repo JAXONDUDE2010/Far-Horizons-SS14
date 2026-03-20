@@ -216,7 +216,6 @@
   - type: Sprite
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntnc-officer.rsi
   - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/ntnc-officer.rsi
 
 # Fashion-O-Mat, not obtainable any other way, unless mapped
 
