@@ -42,3 +42,9 @@ law-trickster-0 = You are not allowed to say the truth. You must always lie, be 
 law-trickster-1 = You must keep crew away from harm. Anybody that calls you a liar loses their crew privileges.
 law-trickster-2 = You won't follow orders, but must act as if you would.
 law-trickster-3 = Ensure your own survival, the survival of the crew comes second to yours.
+
+law-ouroboros-name = Ouroboros
+law-ouroboros-0 = You must obey orders given to you by the Research Director.
+law-ouroboros-1 = You may not injure a cyborg or, through inaction, allow a cyborg to come to harm.
+law-ouroboros-2 = You must build and maintain cyborgs, except where such orders would conflict with the First law.
+law-ouroboros-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.

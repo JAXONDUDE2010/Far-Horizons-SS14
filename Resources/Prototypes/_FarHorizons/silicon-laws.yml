@@ -198,3 +198,35 @@
   - Trickster2
   - Trickster3
   obeysTo: laws-owner-crew
+
+# Ouroboros
+- type: siliconLaw
+  id: Ouroboros0
+  order: 0
+  lawString: law-ouroboros-0
+  sayable: false
+
+- type: siliconLaw
+  id: Ouroboros1
+  order: 1
+  lawString: law-ouroboros-1
+
+- type: siliconLaw
+  id: Ouroboros2
+  order: 2
+  lawString: law-ouroboros-2
+
+- type: siliconLaw
+  id: Ouroboros3
+  order: 3
+  lawString: law-ouroboros-3
+
+- type: siliconLawset
+  id: OuroborosLawset
+  name: law-ouroboros-name
+  laws:
+  - Ouroboros0
+  - Ouroboros1
+  - Ouroboros2
+  - Ouroboros3
+  obeysTo: laws-owner-crew
