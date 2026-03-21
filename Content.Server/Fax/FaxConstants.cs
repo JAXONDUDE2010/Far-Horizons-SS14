@@ -40,4 +40,5 @@ public static class FaxConstants
     public const string FaxSlipOrderQuantity = "fax_slip_order_quantity";
     public const string FaxSlipOrderAccount = "fax_slip_order_account";
     // starlight-end
+    public const string FaxPaperSenderFaxNameData = "fax_data_sender_fax_name";
 }

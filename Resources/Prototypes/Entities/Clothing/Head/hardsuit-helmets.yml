@@ -92,7 +92,6 @@
     reduction: 0.2
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Engineering Hardsuit
@@ -177,7 +176,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Spationaut Hardsuit
@@ -256,7 +254,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Salvage Hardsuit
@@ -338,7 +335,6 @@
     energy: 3
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Goliath Hardsuit
@@ -399,7 +395,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Maxim Hardsuit
@@ -547,7 +542,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Brigmedic Hardsuit
@@ -621,7 +615,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Chief Engineer's Hardsuit
@@ -713,7 +706,6 @@
     reduction: 0.2
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Chief Medical Officer's Hardsuit
@@ -735,7 +727,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Research Director's Hardsuit
@@ -757,7 +748,6 @@
     lowPressureMultiplier: 1000
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Head of Security's hardsuit
@@ -892,7 +882,6 @@
     cooldownDuration: 30
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Blood-red Medic Hardsuit
@@ -1066,7 +1055,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
   - type: Hailer # STARLIGHT
     hailMessage: "Death to NanoTrasen!!"
@@ -1165,7 +1153,6 @@
     cooldownDuration: 30
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Cybersun Juggernaut Hardsuit
@@ -1253,6 +1240,9 @@
       params: # FH
         volume: -100 # FH - shut
     cooldownDuration: 5 #FH
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity
@@ -1279,7 +1269,6 @@
         Heat: 0.9
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
 
 #Organic Space Suit

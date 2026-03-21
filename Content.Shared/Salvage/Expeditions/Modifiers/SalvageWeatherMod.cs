@@ -25,9 +25,8 @@ public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
     public List<ProtoId<SalvageDifficultyPrototype>>? Difficulties { get; private set; } = null;
 
     /// <summary>
-    /// Weather prototype to use on the planet.
+    /// Weather status effect prototype to use on the planet.
     /// </summary>
-    /// Far Horizons
-    [DataField]
-    public ProtoId<WeatherPrototype>? Weather = null;
+    [DataField("weather", required: true)]
+    public EntProtoId WeatherPrototype = string.Empty;
 }

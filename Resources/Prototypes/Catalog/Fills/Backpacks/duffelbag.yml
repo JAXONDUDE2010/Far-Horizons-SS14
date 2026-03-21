@@ -479,13 +479,13 @@
         - id: MagazinePistolSubMachineGunSP
           amount: 3
         - id: MagazinePistolSP
+        - id: EnergySword
         - id: SyndicateJawsOfLife
         - id: C4
           amount: 2
         - id: MedkitCombatFilled
         - id: EmpImplanter
         - id: ClothingShoesBootsMagSyndie
-        - id: AgentIDCard
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

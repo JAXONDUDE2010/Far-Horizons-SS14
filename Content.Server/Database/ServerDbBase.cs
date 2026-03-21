@@ -9,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared._FarHorizons.Factions;
@@ -20,14 +19,9 @@ using Content.Server.Humanoid.Markings.Extensions;
 // Cosmatic Drift Record System-end
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
-using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
-using Content.Shared.Traits;
 using Microsoft.EntityFrameworkCore;
-using Robust.Shared.Asynchronous;
-using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -40,25 +34,23 @@ namespace Content.Server.Database
     {
         private readonly ISawmill _opsLog;
         public event Action<DatabaseNotification>? OnNotificationReceived;
-        private readonly ITaskManager _task;
         private readonly ISerializationManager _serialization;
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>
-        public ServerDbBase(ISawmill opsLog, ITaskManager taskManager, ISerializationManager serialization)
+        public ServerDbBase(ISawmill opsLog, ISerializationManager serialization)
         {
-            _task = taskManager;
             _serialization = serialization;
             _opsLog = opsLog;
         }
 
         #region Preferences
-        public async Task<PlayerPreferences?> GetPlayerPreferencesAsync(
+        public async Task<Preference?> GetPlayerPreferencesAsync(
             NetUserId userId,
             CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
 
-            var prefs = await db.DbContext
+            return await db.DbContext
                 .Preference
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
@@ -80,30 +72,30 @@ namespace Content.Server.Database
                 .Include(p => p.JobPriorities)
                 .AsSplitQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
+        }
 
-            if (prefs is null)
-                return null;
+        /// <summary>
+        /// Only intended for use in unit tests - drops the organ marking data from a profile in the given slot
+        /// </summary>
+        /// <param name="userId">The user whose profile to modify</param>
+        /// <param name="slot">The slot index to modify</param>
+        public async Task MakeCharacterSlotLegacyAsync(NetUserId userId, int slot)
+        {
+            await using var db = await GetDb();
 
-            // 🌟Starlight🌟 start : hotfix
-            var maxSlot = prefs.Profiles.Count > 0 
-                ? prefs.Profiles.Max(p => p.Slot) + 1 
-                : 0;
-            // 🌟Starlight🌟 end
+            var oldProfile = await db.DbContext.Profile
+                .Include(p => p.Preference)
+                .Where(p => p.Preference.UserId == userId.UserId)
+                .AsSplitQuery()
+                .SingleOrDefaultAsync(h => h.Slot == slot);
 
-            var profiles = new Dictionary<int, HumanoidCharacterProfile>(maxSlot);
-            foreach (var profile in prefs.Profiles)
-            {
-                profiles[profile.Slot] = await ConvertProfiles(profile);
-            }
+            if (oldProfile == null)
+                return;
 
-            var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
-            foreach (var favorite in prefs.ConstructionFavorites)
-                constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
+            oldProfile.OrganMarkings = null;
+            oldProfile.Markings = JsonSerializer.SerializeToDocument(new List<string>());
 
-            // Far Horizons, factions in priorities
-            var jobPriorities = prefs.JobPriorities.ToDictionary(j => (new ProtoId<FactionPrototype>(j.FactionName), new ProtoId<JobPrototype>(j.JobName)), j => (JobPriority) j.Priority);
-
-            return new PlayerPreferences(profiles, Color.FromHex(prefs.AdminOOCColor), constructionFavorites, jobPriorities);
+            await db.DbContext.SaveChangesAsync();
         }
 
         public async Task SaveCharacterSlotAsync(NetUserId userId, HumanoidCharacterProfile? humanoid, int slot)
@@ -189,7 +181,7 @@ namespace Content.Server.Database
             db.Profile.Remove(profile);
         }
 
-        public async Task<PlayerPreferences> InitPrefsAsync(NetUserId userId, HumanoidCharacterProfile defaultProfile)
+        public async Task<Preference> InitPrefsAsync(NetUserId userId, HumanoidCharacterProfile defaultProfile)
         {
             await using var db = await GetDb();
 
@@ -216,7 +208,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, HumanoidCharacterProfile>(0, defaultProfile) }, Color.FromHex(prefs.AdminOOCColor), [], priorities);
+            return prefs;
         }
 
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
@@ -259,7 +251,9 @@ namespace Content.Server.Database
         private async Task<HumanoidCharacterProfile> ConvertProfiles(Profile profile)
         {
 
-            var jobs = profile.Jobs.Select(j => (new ProtoId<FactionPrototype>(j.FactionName), new ProtoId<JobPrototype>(j.JobName))).ToHashSet();
+            var jobs = profile.Jobs
+                .Select(j => (new ProtoId<FactionPrototype>(j.FactionName), new ProtoId<JobPrototype>(j.JobName)))
+                .ToHashSet();
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
 
@@ -285,7 +279,8 @@ namespace Content.Server.Database
                         data,
                         notNullableOverride: true);
             }
-            else if (profile.Markings is { } profileMarkings && TryDeserialize<List<string>>(profileMarkings) is { } markingsRaw)
+            else if (profile.Markings is { } profileMarkings && TryDeserialize<List<string>>(profileMarkings) is
+                         { } markingsRaw)
             {
                 List<Marking> markingsList = new();
 
@@ -298,10 +293,13 @@ namespace Content.Server.Database
                     markingsList.Add(parsed);
                 }
 
-                if (Marking.ParseFromDbString($"{profile.FacialHairName}@{profile.FacialHairColor}@{profile.FacialHairGlowing}") is { } facialMarking)
+                if (Marking.ParseFromDbString(
+                        $"{profile.FacialHairName}@{profile.FacialHairColor}@{profile.FacialHairGlowing}") is
+                    { } facialMarking)
                     markingsList.Add(facialMarking);
 
-                if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}@{profile.HairGlowing}") is { } hairMarking)
+                if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}@{profile.HairGlowing}") is
+                    { } hairMarking)
                     markingsList.Add(hairMarking);
 
                 var completion = new TaskCompletionSource();
@@ -326,20 +324,14 @@ namespace Content.Server.Database
 
             foreach (var role in profile.Loadouts)
             {
-                var loadout = new RoleLoadout(role.RoleName)
-                {
-                    EntityName = role.EntityName,
-                };
+                var loadout = new RoleLoadout(role.RoleName) { EntityName = role.EntityName, };
 
                 foreach (var group in role.Groups)
                 {
                     var groupLoadouts = loadout.SelectedLoadouts.GetOrNew(group.GroupName);
                     foreach (var profLoadout in group.Loadouts)
                     {
-                        groupLoadouts.Add(new Loadout()
-                        {
-                            Prototype = profLoadout.LoadoutName,
-                        });
+                        groupLoadouts.Add(new Loadout() { Prototype = profLoadout.LoadoutName, });
                     }
                 }
 
@@ -361,6 +353,7 @@ namespace Content.Server.Database
                 {
                     physicalDesc = profile.FlavorText;
                 }
+
                 personalityDesc = profile.CharacterInfo.PersonalityDesc;
                 personalNotes = profile.CharacterInfo.PersonalNotes;
                 oocNotes = profile.CharacterInfo.OOCNotes;
@@ -374,6 +367,7 @@ namespace Content.Server.Database
                     physicalDesc = profile.FlavorText;
                 }
             }
+
             //end starlight
             //start Far Horizons
             RoleLoadout? speciesLoadout = null;
@@ -381,6 +375,7 @@ namespace Content.Server.Database
             {
                 speciesLoadout = value;
             }
+
             //end Far Horizons
             // Cosmatic Drift Record System-start: Build a humanoid profile so CD record data can be attached before returning
             var humanoid = new HumanoidCharacterProfile(
@@ -391,8 +386,8 @@ namespace Content.Server.Database
                 personalityDesc, // Starlight
                 personalNotes, // Starlight
                 oocNotes, // Starlight
-                characterSecrets,// Starlight
-                exploitableInfo,// Starlight
+                characterSecrets, // Starlight
+                exploitableInfo, // Starlight
                 profile.Species,
                 profile.StarLightProfile?.CustomSpecieName ?? "", // Starlight
                 profile.Age,
@@ -419,16 +414,24 @@ namespace Content.Server.Database
             // Cosmatic Drift Record System: Rehydrate saved CD records into the mutable profile copy
             if (profile.CDProfile?.CharacterRecords != null)
             {
-                var records = RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords, profile.CDProfile.CharacterRecordEntries); // Load player-authored records from storage
+                var records = RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords,
+                    profile.CDProfile.CharacterRecordEntries); // Load player-authored records from storage
                 humanoid = humanoid.WithCDCharacterRecords(records);
             }
             else
             {
-                humanoid = humanoid.WithCDCharacterRecords(PlayerProvidedCharacterRecords.DefaultRecords()); // Seed with empty records when nothing has been saved yet
+                humanoid = humanoid.WithCDCharacterRecords(PlayerProvidedCharacterRecords
+                    .DefaultRecords()); // Seed with empty records when nothing has been saved yet
             }
 
             return humanoid;
             // Cosmatic Drift Record System-end
+        }
+
+        private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
+        {
+            var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
+            prefs.SelectedCharacterSlot = newSlot;
         }
 
         private Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -467,7 +470,7 @@ namespace Content.Server.Database
             var legacyMarkings = appearance.Markings
                 .SelectMany(organ => organ.Value.Values)
                 .SelectMany(i => i)
-                .Select(marking => marking.ToString())
+                .Select(marking => marking.ToLegacyDbString())
                 .ToList();
             var flattenedMarkings = appearance.Markings.SelectMany(it => it.Value)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
