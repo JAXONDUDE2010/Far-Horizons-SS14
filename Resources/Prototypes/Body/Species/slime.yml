@@ -67,7 +67,7 @@
       LegRight: OrganSlimePersonLegRight
       FootLeft: OrganSlimePersonFootLeft
       FootRight: OrganSlimePersonFootRight
-      Core: OrganSlimePersonCore
+      Brain: OrganSlimePersonCore
       Lungs: OrganSlimePersonLungs
   - type: HumanoidProfile
     species: SlimePerson
@@ -330,9 +330,7 @@
   parent: [ OrganBaseBrain, OrganSlimePersonInternal ] #FarHorizons
   id: OrganSlimePersonCore
   name: sentient slime core
-  components:
-  - type: Organ #FarHorizons
-    category: Core #FarHorizons
+#  components:
 #  - type: SolutionContainerManager
 #    solutions:
 #      food: {}

@@ -277,9 +277,6 @@
 - type: entity
   parent: [ OrganBaseBrain, OrganDionaInternal ]
   id: OrganDionaBrain
-  components: #FarHorizons
-  - type: Organ #FarHorizons
-    category: Core #FarHorizons
 
 - type: entity
   parent: [ OrganDionaVisual, OrganBaseEyes, OrganDionaInternal ]

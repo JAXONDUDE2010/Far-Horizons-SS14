@@ -742,14 +742,16 @@
     - SurgeryStepDisinfectScalp
     - SurgeryStepMakeIncisionScalp
     - SurgeryStepRetractScalp
-    - SurgeryStepExtractSlimeCore
+    - SurgeryStepExtractBrain
   - type: SurgerySpeciesCondition
     speciesBlacklist: []
     speciesWhitelist:
     - SlimePerson
     - ProtoSlimePerson #FarHorizons
+    - Diona #FarHorizons
+    - ProtoDionae #FarHorizons
   - type: SurgeryOrganExistCondition
-    category: Core #FarHorizons
+    category: Brain
   - type: SurgeryPartCondition
     parts: [ Torso ]
   - type: Sprite
@@ -769,7 +771,7 @@
     - SurgeryStepPrepareScalp
     - SurgeryStepMakeIncisionScalp
     - SurgeryStepRetractScalp
-    - SurgeryStepInsertSlimeCore
+    - SurgeryStepInsertBrain
     - SurgeryStepReplaceScalp
     - SurgeryStepSutureScalp
   - type: SurgerySpeciesCondition
@@ -777,8 +779,10 @@
     speciesWhitelist:
     - SlimePerson
     - ProtoSlimePerson #FarHorizons
+    - Diona #FarHorizons
+    - ProtoDionae #FarHorizons
   - type: SurgeryOrganDontExistCondition
-    category: [ Core, Brain ] #FarHorizons
+    category: [ Brain ]
   - type: SurgeryPartCondition
     parts: [ Torso ]
   - type: Sprite

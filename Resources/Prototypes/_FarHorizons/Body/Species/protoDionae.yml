@@ -30,8 +30,13 @@
       FootRight: OrganProtoDionaeFootRight
       Brain: OrganDionaBrainNymphing
       Eyes: OrganDionaEyes
-      Lungs: OrganDionaLungsNymphing
+      Tongue: OrganProtogenTongue
+      Ears: OrganProtogenEars
+      LLungs: OrganDionaLungsNymphing
+      Heart: OrganProtogenHeart
       Stomach: OrganDionaStomachNymphing
+      Liver: OrganProtogenLiver
+      Kidneys: OrganProtogenKidneys
   - type: HumanoidProfile
     species: ProtoDionae
 
