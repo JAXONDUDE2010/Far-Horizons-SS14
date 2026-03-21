@@ -519,10 +519,10 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: SurgerySpeciesCondition
+  - type: SurgerySpeciesCondition #FarHorizons
     speciesBlacklist:
     - SlimePerson
-    - ProtoSlimePerson #FarHorizons
+    - ProtoSlimePerson 
 
 - type: entity
   parent: SurgeryBase
@@ -546,10 +546,10 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: SurgerySpeciesCondition
+  - type: SurgerySpeciesCondition #FarHorizons
     speciesBlacklist:
     - SlimePerson
-    - ProtoSlimePerson #FarHorizons
+    - ProtoSlimePerson 
 
 #
 - type: entity

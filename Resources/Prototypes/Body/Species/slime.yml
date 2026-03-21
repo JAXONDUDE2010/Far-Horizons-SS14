@@ -333,6 +333,7 @@
   parent: [ OrganBaseBrain, OrganSlimePersonInternal ] #FarHorizons
   id: OrganSlimePersonCore
   name: sentient slime core
+#FarHorizons - Moving metabolizer/stomach to entire body, instead of core.
 #  components:
 #  - type: SolutionContainerManager
 #    solutions:
