@@ -65,7 +65,7 @@ public sealed partial class VitalOrganComponent : Component
         DamageDict = new ()
         {
             { "Bloodloss", 125 },
-            { "Airloss", 75}    // Just enough to kill
+            { "Asphyxiation", 75}    // Just enough to kill
         }
     }; 
 }
