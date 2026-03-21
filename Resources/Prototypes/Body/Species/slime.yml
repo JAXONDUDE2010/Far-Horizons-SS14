@@ -216,6 +216,7 @@
 - type: entity
   id: SlimeMetabolizer
   abstract: true
+  save: false
   components:
   - type: Stomach
   - type: Metabolizer

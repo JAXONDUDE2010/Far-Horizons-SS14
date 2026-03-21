@@ -32,7 +32,7 @@
       Eyes: OrganDionaEyes
       Tongue: OrganProtogenTongue
       Ears: OrganProtogenEars
-      LLungs: OrganDionaLungsNymphing
+      Lungs: OrganDionaLungsNymphing
       Heart: OrganProtogenHeart
       Stomach: OrganDionaStomachNymphing
       Liver: OrganProtogenLiver

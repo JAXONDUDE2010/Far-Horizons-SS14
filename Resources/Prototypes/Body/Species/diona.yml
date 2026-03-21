@@ -338,7 +338,7 @@
   #Far-Horizons Start
   - type: InitialBody
     organs:
-      Core: OrganDionaBrain
+      Brain: OrganDionaBrain
       Eyes: OrganAnimalEyes
       Tongue: OrganHumanTongue
       Lungs: OrganDionaLungs
@@ -363,7 +363,7 @@
   #Far-Horizons Start
   - type: InitialBody
     organs:
-      Core: OrganDionaBrain
+      Brain: OrganDionaBrain
       Eyes: OrganAnimalEyes
       Tongue: OrganHumanTongue
       Lungs: OrganDionaLungs
@@ -388,7 +388,7 @@
   #Far-Horizons Start
   - type: InitialBody
     organs:
-      Core: OrganDionaBrain
+      Brain: OrganDionaBrain
       Eyes: OrganAnimalEyes
       Tongue: OrganHumanTongue
       Lungs: OrganDionaLungs
