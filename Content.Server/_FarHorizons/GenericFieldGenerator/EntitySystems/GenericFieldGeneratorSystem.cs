@@ -211,9 +211,6 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         //     _signalSystem.InvokePort(otheruid, othercomponent.FieldDisconnectedPort);
         // }
 
-        ChangeConnectionLightVisualizer(value.Item1);
-        UpdateConnectionLights(value.Item1);
-
         othercomponent.Connections = null;
         component.Connections = null;
 
@@ -225,6 +222,8 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
 
         component.IsConnected = false;
         othercomponent.IsConnected = false;
+        ChangeConnectionLightVisualizer(value.Item1);
+        UpdateConnectionLights(value.Item1);
         ChangeConnectionLightVisualizer(generator);
         UpdateConnectionLights(generator);
         _adminLogger.Add(LogType.FieldGeneration, LogImpact.Medium, $"{ToPrettyString(uid)} lost field connections");
