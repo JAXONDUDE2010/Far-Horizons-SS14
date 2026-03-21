@@ -77,7 +77,8 @@
   - AppearanceSlimePerson
   - BaseSpeciesMobOrganic
   - BaseSpeciesPickupableLarge #FH
-  - OrganSlimePersonMetabolizer #FG
+  - OrganSlimePersonMetabolizer #FH
+  - SlimeMetabolizer #FH
   id: MobSlimePerson
   name: Urist McWobble
   components:
@@ -210,6 +211,11 @@
       - DoorBumpOpener
       - AnomalyHost
       - SlimePerson
+
+- type: entity
+  id: SlimeMetabolizer
+  abstract: true
+  components:
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
