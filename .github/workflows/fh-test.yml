@@ -56,4 +56,4 @@ jobs:
       - uses: EnricoMi/publish-unit-test-result-action@v2
         if: always() # Ensures results are uploaded even if tests fail
         with:
-          files: "**/test-results.trx"
+          files: "**/results.trx"
