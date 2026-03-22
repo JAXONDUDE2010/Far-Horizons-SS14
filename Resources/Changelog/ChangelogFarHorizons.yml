@@ -9556,5 +9556,26 @@ Entries:
   id: 98801
   time: '2026-03-22T00:50:02.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/988
+- author: R3v3l4t1on
+  changes:
+  - message: A bunch of new outfits for use by the NanoTrasen navy.
+    type: Add
+  id: 98100
+  time: '2026-03-22T01:11:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/981
+- author: R3v3l4t1on
+  changes:
+  - message: My sanity.
+    type: Remove
+  id: 98101
+  time: '2026-03-22T01:11:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/981
+- author: R3v3l4t1on
+  changes:
+  - message: Replaced a bunch of old sprites with new ones.
+    type: Tweak
+  id: 98102
+  time: '2026-03-22T01:11:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/981
 Order: -1
 
