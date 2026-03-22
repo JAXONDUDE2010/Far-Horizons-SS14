@@ -44,6 +44,7 @@
   id: BorgModules
   recipes:
   - BorgModuleAdvancedCleaning
+  - BorgModuleAdvancedJanitorMisc #Far Horizons
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedClowning
   - BorgModuleAdvancedTopical

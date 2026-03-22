@@ -24,6 +24,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/_Starlight/Interface/Radial/RCD/airlocks.png"))),
             ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
             ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
+            ["EmptyLighting"] = ("rcd-component-emptylighting", new SpriteSpecifier.Texture(new ResPath("/Textures/_FarHorizons/Interface/Radial/RCD/empty_lighting.png"))), /// Far Horizons - Janiborg gets lights, engineering gets fixtures. 
         };
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
