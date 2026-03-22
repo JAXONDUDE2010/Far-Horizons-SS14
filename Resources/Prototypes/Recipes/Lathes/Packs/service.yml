@@ -51,6 +51,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
+  - JanitorRCD #Far Horizons
 
 - type: latheRecipePack
   id: Instruments

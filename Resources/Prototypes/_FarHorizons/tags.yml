@@ -29,6 +29,9 @@
   id: CartridgeRevolver38
 
 - type: Tag
+  id: Cleanade
+
+- type: Tag
   id: ClowncarKeys
   
 - type: Tag

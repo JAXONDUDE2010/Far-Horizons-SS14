@@ -86,6 +86,7 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleMining
+  - BorgModulePKA #Far Horizons
   - BorgModuleTraversal
   - BorgModuleAppraisal
 

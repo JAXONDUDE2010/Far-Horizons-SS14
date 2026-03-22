@@ -1186,6 +1186,8 @@
     - AdvMopItem
     - MegaSprayBottle
     - BorgModuleAdvancedCleaning
+    - BorgModuleAdvancedJanitorMisc
+    - JanitorRCD
   announceTo:
     - Service
 

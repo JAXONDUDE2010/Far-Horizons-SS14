@@ -1,0 +1,63 @@
+- type: entity
+  id: JanitorRCD
+  parent: [ BaseItem, BaseEngineeringContraband ]
+  name: Janitor RCD
+  description: The rapid construction device can be used to quickly create Light Bulbs and Tubes.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - JaniTubeLight
+    - JaniBulbLight
+  - type: LimitedCharges
+    maxCharges: 15
+  - type: AutoRecharge
+    rechargeDuration: 1
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Tools/jani-rcd.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Tools/jani-rcd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
+
+- type: entity
+  id: JaniBorgRCD
+  parent: [ BaseItem, BaseEngineeringContraband ]
+  name: Janiborg RCD
+  description: The rapid construction device can be used to quickly create Light Bulbs and Tubes.
+  components:
+  - type: RCD
+    availablePrototypes:
+    - JaniTubeLight
+    - JaniBulbLight
+  - type: LimitedCharges
+    maxCharges: 15
+  - type: AutoRecharge
+    rechargeDuration: 5
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Tools/jani-rcd.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Tools/jani-rcd.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
