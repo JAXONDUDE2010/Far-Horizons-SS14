@@ -9664,5 +9664,19 @@ Entries:
   id: 99504
   time: '2026-03-22T16:42:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: Athena
+  changes:
+  - message: Fixes the brain transfer system for real this time.
+    type: Fix
+  id: 99700
+  time: '2026-03-22T18:10:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/997
+- author: Athena
+  changes:
+  - message: Diona missing some organs.
+    type: Fix
+  id: 99701
+  time: '2026-03-22T18:10:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/997
 Order: -1
 
