@@ -1,0 +1,41 @@
+- type: entity
+  id: ContractorCircuitBoard
+  parent: BaseElectronics
+  name: Law Board (Contractor)
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ContractorLawset
+    IsLawboard: true 
+  - type: StaticPrice 
+    price: 1000
+
+- type: entity
+  id: GenusLociCircuitBoard
+  parent: BaseElectronics
+  name: Law Board (Genus Loci)
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: GenusLociLawset
+    IsLawboard: true 
+  - type: StaticPrice 
+    price: 1000
+
+- type: entity
+  id: FreedomovCircuitBoard
+  parent: BaseElectronics
+  name: Law Board (Freedomov)
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: FreedomovLawset
+    IsLawboard: true 
+  - type: StaticPrice 
+    price: 1000

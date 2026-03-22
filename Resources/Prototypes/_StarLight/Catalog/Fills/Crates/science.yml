@@ -24,3 +24,6 @@
         - id: ArtistCircuitBoard
         - id: NutimovCircuitBoard
         - id: JermovCircuitBoard
+        - id: ContractorCircuitBoard #FH
+        - id: GenusLociCircuitBoard #FH
+        - id: FreedomovCircuitBoard #FH
