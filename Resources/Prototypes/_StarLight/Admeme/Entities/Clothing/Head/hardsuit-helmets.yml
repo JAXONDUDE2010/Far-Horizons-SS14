@@ -70,6 +70,10 @@
     sprite: _Starlight/Admeme/Clothing/Head/Hardsuits/ntnc_med_hardsuit_helmet.rsi
   - type: Clothing
     sprite: _Starlight/Admeme/Clothing/Head/Hardsuits/ntnc_med_hardsuit_helmet.rsi
+  - type: ToggleableVisuals  # FH: hardsuit fixes
+    clothingVisuals:  # TODO: Requires actual sprites
+      head:
+        - state: off-equipped-HELMET
   - type: PointLight
     color: "#addbff"
   - type: Pierceable
