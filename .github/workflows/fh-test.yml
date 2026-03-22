@@ -58,3 +58,18 @@ jobs:
         with:
           files: "**/results.trx"
           check_name: Integration Tests
+  
+  build-release:
+    if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: git submodule update --init --recursive
+        shell: bash
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - shell: bash
+        run: |
+          dotnet restore
+          dotnet build -c Release --no-restore /m
