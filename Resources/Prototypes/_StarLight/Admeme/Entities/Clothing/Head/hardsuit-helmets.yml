@@ -14,7 +14,7 @@
       head-vox:
         - state: off-equipped-HELMET-vox
       head-vulpkanin:
-        - state: off-equipped-HELMET-vulpkanine
+        - state: off-equipped-HELMET-vulpkanin
       head-cyclorite:
         - state: off-equipped-HELMET-cyclorite
       head-resomi:
@@ -30,7 +30,7 @@
       head-vox:
         - state: off-equipped-HELMET-vox
       head-vulpkanin:
-        - state: off-equipped-HELMET-vulpkanine
+        - state: off-equipped-HELMET-vulpkanin
       head-cyclorite:
         - state: off-equipped-HELMET-cyclorite
       head-resomi:
