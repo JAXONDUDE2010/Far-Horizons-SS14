@@ -85,7 +85,7 @@ public sealed class NuclearReactorSystem : EntitySystem
 
     private readonly Dictionary<KeyValuePair<EntityUid, EntityUid>, LogData> _logQueue = [];
 
-    private static readonly ReactorPartComponent?[] NeighborBuffer = new ReactorPartComponent?[4];
+    private static readonly ReactorPartComponent?[] _neighborBuffer = new ReactorPartComponent?[4];
 
     public override void Initialize()
     {
@@ -295,7 +295,6 @@ public sealed class NuclearReactorSystem : EntitySystem
         var ControlRods = 0;
         var AvgControlRodInsertion = 0f;
         var TempChange = 0f;
-        long NeutronCount = 0;
 
         var transferVolume = CalculateTransferVolume(inlet.Air.Volume, inlet, outlet, args.dt);
         var GasInput = inlet.Air.RemoveVolume(transferVolume);
@@ -314,8 +313,6 @@ public sealed class NuclearReactorSystem : EntitySystem
             comp.RetractPortState = SignalState.Low;
 
         comp.SimTime.Restart();
-        // Record of neutron movement for this tick
-        var flux = new List<(ReactorNeutron neutron, Vector2i source, Vector2i? destination)>();
         for (var x = 0; x < gridWidth; x++)
         {
             for (var y = 0; y < gridHeight; y++)
@@ -330,7 +327,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                     if (gas != null)
                         _atmosphereSystem.Merge(outlet.Air, gas);
 
-                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y, NeighborBuffer), this);
+                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y, _neighborBuffer), this);
 
                     if (ReactorComp.HasRodType(ReactorPartComponent.RodTypes.ControlRod) && ReactorComp.IsControlRod)
                     {
@@ -368,7 +365,6 @@ public sealed class NuclearReactorSystem : EntitySystem
                 }
 
                 comp.NeutronGrid[x, y] = comp.FluxGrid[x, y].Count;
-                NeutronCount += comp.FluxGrid[x, y].Count;
 
                 if(comp.SimTime.Elapsed.TotalMilliseconds > 500)
                 {
@@ -380,13 +376,11 @@ public sealed class NuclearReactorSystem : EntitySystem
         }
 
         // Swap grids and clear scratch for next tick
-        (comp.FluxGrid, comp.FluxGridScratch) = (scratch, comp.FluxGrid);
+        (comp.FluxGrid, comp.FluxGridScratch) = (comp.FluxGridScratch, comp.FluxGrid);
         for (var x = 0; x < gridWidth; x++)
             for (var y = 0; y < gridHeight; y++)
                 comp.FluxGridScratch[x, y].Clear();
 
-        comp.NanosElapsed = comp.SimTime.Elapsed.TotalNanoseconds;
-        comp.NeutronCount = NeutronCount;
         AvgControlRodInsertion /= ControlRods;
 
         // Sound for the control rods moving, basically an audio cue that the reactor's doing something important
@@ -430,7 +424,7 @@ public sealed class NuclearReactorSystem : EntitySystem
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 
-    private static IReadOnlyList<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y, ReactorPartComponent?[] buffer)
+    private static ReactorPartComponent?[] GetGridNeighbors(NuclearReactorComponent reactor, int x, int y, ReactorPartComponent?[] buffer)
     {
         buffer[0] = x - 1 < 0 ? null : reactor.ComponentGrid[x - 1, y];
         buffer[1] = x + 1 >= reactor.ReactorGridWidth ? null : reactor.ComponentGrid[x + 1, y];

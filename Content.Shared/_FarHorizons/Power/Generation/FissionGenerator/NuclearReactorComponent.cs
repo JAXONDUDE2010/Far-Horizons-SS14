@@ -347,39 +347,6 @@ public sealed partial class NuclearReactorComponent : Component
     /// <remarks>This is so the reactor will delete itself if it starts hogging too many resources</remarks>
     [ViewVariables]
     public readonly Stopwatch SimTime = new();
-
-#region Debug - timing
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool NanosReset {get; set
-        {
-            if (value)
-                NanosMax = 0;
-            
-            field = false;
-        }
-    }
-    [ViewVariables]
-    public double NanosMax { get; private set; }
-    [ViewVariables]
-    public double NanosAvg { get; private set; }
-    [ViewVariables(VVAccess.ReadWrite)]
-    public double NanosAvgPrecision = 100;
-    [ViewVariables]
-    public double NanosElapsed { get; 
-        set {
-            if(value > NanosMax)
-                NanosMax = value;
-
-            NanosAvg += (value - NanosAvg) / NanosAvgPrecision;
-
-            field = value;
-        }
-    }
-    [ViewVariables]
-    public double NanosNeutron => NanosAvg / (NeutronCount > 0 ? NeutronCount : 1);
-#endregion
-    [ViewVariables]
-    public long NeutronCount = 0;
 }
 
 [Serializable, NetSerializable, DataDefinition]
