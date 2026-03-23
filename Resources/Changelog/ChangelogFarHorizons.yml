@@ -9707,5 +9707,12 @@ Entries:
   id: 97203
   time: '2026-03-23T17:39:34.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: Fasuh
+  changes:
+  - message: Fixed the common radio not requiring you to whisper on avali and resomi.
+    type: Fix
+  id: 98700
+  time: '2026-03-23T17:41:39.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/987
 Order: -1
 
