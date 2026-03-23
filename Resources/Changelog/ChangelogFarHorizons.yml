@@ -9714,5 +9714,12 @@ Entries:
   id: 98700
   time: '2026-03-23T17:41:39.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/987
+- author: Terkala, jhrushbe
+  changes:
+  - message: Reactor code has been optimized to not use as many server resources.
+    type: Tweak
+  id: 100000
+  time: '2026-03-23T18:10:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1000
 Order: -1
 
