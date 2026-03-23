@@ -10,21 +10,21 @@
     - type: Clothing
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_hardsuit.rsi
         clothingvisuals:
-          outerclothing:
+          outerClothing:
             - state: equipped-OUTERCLOTHING
-          outerclothing-cyclorite:
+          outerClothing-cyclorite:
             - state: equipped-OUTERCLOTHING-cyclorite
-          outerclothing-diona:
+          outerClothing-diona:
             - state: equipped-OUTERCLOTHING-diona
-          outerclothing-moth:
+          outerClothing-moth:
             - state: equipped-OUTERCLOTHING-moth
-          outerclothing-reptilian:
+          outerClothing-reptilian:
             - state: equipped-OUTERCLOTHING-reptilian
-          outerclothing-resomi:
+          outerClothing-resomi:
             - state: equipped-OUTERCLOTHING-resomi
-          outerclothing-vox:
+          outerClothing-vox:
             - state: equipped-OUTERCLOTHING-vox
-          outerclothing-vulpkanin:
+          outerClothing-vulpkanin:
             - state: equipped-OUTERCLOTHING-vulpkanin
     - type: ToggleableClothing
       clothingPrototype: ClothingHeadHelmetHardsuitNTNCConsortium
@@ -47,7 +47,7 @@
     - type: Clothing
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_med_hardsuit.rsi
       clothingvisuals:
-        outerclothing:
+        outerClothing:
           - state: equipped-OUTERCLOTHING
     - type: ToggleableClothing
       clothingPrototype: ClothingHeadHelmetHardsuitNTNCConsortiumMedic
