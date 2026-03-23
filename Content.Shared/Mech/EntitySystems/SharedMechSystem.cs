@@ -345,12 +345,12 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.EquipmentWhitelist, toInsert))
             return;
 
-        if (!TryComp<MetaDataComponent>(toInsert, out var toInsertMeta))
+        if (!TryComp(toInsert, out MetaDataComponent? toInsertMeta))
             return;
 
         var equipment = new List<EntityUid>(component.EquipmentContainer.ContainedEntities);
         foreach (var ent in equipment)
-            if (TryComp<MetaDataComponent>(ent, out var entMeta) && entMeta.EntityPrototype == toInsertMeta.EntityPrototype)
+            if (TryComp(ent, out MetaDataComponent? entMeta) && entMeta.EntityPrototype == toInsertMeta.EntityPrototype)
                 return;
 
         equipmentComponent.EquipmentOwner = uid;

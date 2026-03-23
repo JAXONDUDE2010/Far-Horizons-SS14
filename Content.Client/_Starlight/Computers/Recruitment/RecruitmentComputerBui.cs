@@ -1,28 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 using Content.Client._Starlight.UI;
 using Content.Client.GameTicking.Managers;
-using Content.Client.UserInterface.Controls;
 using Content.Shared._Starlight.Computers.Recruitment;
 using Content.Shared.Roles;
-using Content.Shared.Starlight.Antags.Abductor;
-using Content.Shared.StatusIcon;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed.TypeParsers;
-using YamlDotNet.Core.Tokens;
 
 namespace Content.Client._Starlight.Computers.Recruitment;
 
 [UsedImplicitly]
 public sealed class RecruitmentComputerBui(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly ILocalizationManager Loc = default!;
     [Dependency] private readonly IPrototypeManager _protos = default!;
@@ -37,7 +29,12 @@ public sealed class RecruitmentComputerBui(EntityUid owner, Enum uiKey) : BoundU
     [ViewVariables]
     private SLWindow? _window;
 
-    protected override void Open() => UpdateState(State);
+    protected override void Open()
+    {
+        base.Open();
+        UpdateState(State);
+    }
+
     protected override void UpdateState(BoundUserInterfaceState? state)
     {
         TryInitWindow();

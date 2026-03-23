@@ -47,11 +47,9 @@ public sealed class RevSupplyRiftSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly Chat.Managers.IChatManager _chatManager = default!;
-    [Dependency] private readonly DragonRiftSystem _dragonRift = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
@@ -207,7 +205,7 @@ public sealed class RevSupplyRiftSystem : EntitySystem
             else
             {
                 // Fall back to metadata if Identity system doesn't have a name
-                if (TryComp<MetaDataComponent>(revolutionary.Value, out var metadata))
+                if (TryComp(revolutionary.Value, out MetaDataComponent? metadata))
                 {
                     revRift.PlacedBy = metadata.EntityName;
                     Logger.InfoS("rev-supply-rift", $"Set PlacedBy to metadata name: {revRift.PlacedBy}");
@@ -222,7 +220,7 @@ public sealed class RevSupplyRiftSystem : EntitySystem
         else
         {
             // Try to find a nearby humanoid entity to use as the placer
-            if (TryComp<TransformComponent>(uid, out var riftTransform))
+            if (TryComp(uid, out TransformComponent? riftTransform))
             {
                 // Get all entities with HumanoidAppearanceComponent within a small radius
                 var nearbyHumanoids = EntityManager.EntityQuery<HumanoidProfileComponent, TransformComponent>()
@@ -272,7 +270,7 @@ public sealed class RevSupplyRiftSystem : EntitySystem
         SendRiftPlacedMessage(uid);
         
         // Play the soviet choir sound in a 5-tile radius around the rift
-        if (TryComp<TransformComponent>(uid, out var transform))
+        if (TryComp(uid, out TransformComponent? transform))
         {
             var soundPath = new SoundPathSpecifier("/Audio/_Starlight/Effects/sov_choir.ogg");
             _audio.PlayPvs(soundPath, uid, AudioParams.Default.WithMaxDistance(5f).WithVolume(10f));
@@ -406,7 +404,7 @@ public sealed class RevSupplyRiftSystem : EntitySystem
         
         // Get the location of the rift
         string locationString = "unknown location";
-        if (TryComp<TransformComponent>(_activeRift.Value, out var xform))
+        if (TryComp(_activeRift.Value, out TransformComponent? xform))
         {
             locationString = _navMap.GetNearestBeaconString((_activeRift.Value, xform));
         }
@@ -610,7 +608,7 @@ public sealed class RevSupplyRiftSystem : EntitySystem
     /// </summary>
     private void SendRiftPlacedMessage(EntityUid riftUid)
     {
-        if (!TryComp<TransformComponent>(riftUid, out var xform) || 
+        if (!TryComp(riftUid, out TransformComponent? xform) || 
             !TryComp<RevSupplyRiftComponent>(riftUid, out var revRift))
             return;
 

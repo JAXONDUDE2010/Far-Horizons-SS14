@@ -8,7 +8,6 @@ namespace Content.Client.Lobby.UI;
 public sealed partial class HumanoidProfileEditor
 {
     private bool _exporting;
-    private bool _imaging;
 
     // Far Horizons removed
     // private async void ExportImage()

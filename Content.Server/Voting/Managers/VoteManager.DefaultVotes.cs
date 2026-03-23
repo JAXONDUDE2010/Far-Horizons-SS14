@@ -38,6 +38,8 @@ namespace Content.Server.Voting.Managers
         private RoleSystem? _roleSystem;
         private GameTicker? _gameTicker;
 
+        private const string Secret = "Secret";
+
         private readonly Dictionary<string, int> _presetCooldown = new();
 
         private static readonly Dictionary<StandardVoteType, CVarDef<bool>> VoteTypesToEnableCVars = new()
@@ -231,7 +233,7 @@ namespace Content.Server.Voting.Managers
             var presets = GetGamePresets();
 
             //add the secret prototype
-            if (_prototypeManager.TryIndex<GamePresetPrototype>("Secret", out var secretPreset))
+            if (_prototypeManager.TryIndex<GamePresetPrototype>(Secret, out var secretPreset))
             {
                 presets.Add(secretPreset, Loc.GetString("ui-vote-secret-map"));
             }

@@ -106,8 +106,6 @@ public sealed class RoleBanCommand : IConsoleCommand
         banInfo.AddHWId(targetHWid);
         banInfo.WithSeverity(severity);
 
-        var success = true; // Starlight - track success of lookup
-
         ImmutableArray<BanRoleDef>? banRoleDefs;
         if (_proto.HasIndex<JobPrototype>(role))
         {

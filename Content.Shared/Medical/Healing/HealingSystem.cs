@@ -125,7 +125,7 @@ public sealed class HealingSystem : EntitySystem
                 foreach(var reagent in solution.Contents)
                 {
                     var drainReagent = healing.ReagentsToDrain.FirstOrDefault(drain => drain.Reagent == reagent.Reagent && reagent.Quantity >= drain.Quantity);
-                    if (solutionEntity != null && drainReagent != null)
+                    if (solutionEntity != null)
                         reagentsToRemove.Add((reagent, drainReagent.Quantity));
                 }
 

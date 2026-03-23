@@ -1,23 +1,17 @@
 using System.Linq;
-using Content.Server._FarHorizons.DiscordLink;
-using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
-using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.UI;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
 using Content.Shared.Starlight.GhostTheme;
 using Content.Shared.Starlight;
 using JetBrains.Annotations;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using Content.Server.Players.PlayTimeTracking;
-using Content.Shared.Players.PlayTimeTracking;
 
 namespace Content.Server.Ghost.Roles;
 
@@ -26,11 +20,9 @@ public sealed class GhostThemeSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerRolesManager _playerRoles = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;  // Far Horizons
 
     public override void Initialize()

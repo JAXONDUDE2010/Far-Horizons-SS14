@@ -36,7 +36,6 @@ public sealed class SpraySystem : SharedSpraySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
 
     private float _gridImpulseMultiplier;
 

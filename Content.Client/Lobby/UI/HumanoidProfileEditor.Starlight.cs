@@ -158,7 +158,7 @@ public sealed partial class HumanoidProfileEditor
         }
     }
 
-    private void SetWidth(float newWidth)
+    private void SetCharacterWidth(float newWidth)
     {
         if (Profile is null) return;
         Profile.Appearance = Profile.Appearance.WithWidth(newWidth);
@@ -166,7 +166,7 @@ public sealed partial class HumanoidProfileEditor
         ReloadProfilePreview();
     }
 
-    private void SetHeight(float newHeight)
+    private void SetCharacterHeight(float newHeight)
     {
         if (Profile is null) return;
         Profile.Appearance = Profile.Appearance.WithHeight(newHeight);

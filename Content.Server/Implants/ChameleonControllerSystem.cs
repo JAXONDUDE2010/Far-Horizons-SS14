@@ -21,7 +21,6 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedStationSpawningSystem _stationSpawningSystem = default!;
     [Dependency] private readonly ChameleonClothingSystem _chameleonClothingSystem = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
 
     public override void Initialize()

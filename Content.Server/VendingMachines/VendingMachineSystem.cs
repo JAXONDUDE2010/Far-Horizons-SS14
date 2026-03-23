@@ -33,7 +33,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         // 🌟Starlight🌟 start 
         [Dependency] private readonly ItemPriceManager _itemPriceManager = default!; 
         [Dependency] private readonly IComponentFactory _componentFactory = default!; 

@@ -33,14 +33,9 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-#region Starlight
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-#endregion Starlight
-
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
     private EntityQuery<HitscanReflectComponent> _reflectQuery; // Starlight
-    private EntityQuery<BloodstreamComponent> _bloodQuery; // Starlight
 
     public override void Initialize()
     {
@@ -57,7 +52,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     {
         var shooter = args.Shooter ?? args.Gun;
         // Starlight start - handle the shooter being the mech, not the pilot
-        if (shooter != null && TryComp<MechPilotComponent>(shooter, out var pilotA))
+        if (TryComp<MechPilotComponent>(shooter, out var pilotA))
             shooter = pilotA.Mech;
         // Starlight end
         var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);

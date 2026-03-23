@@ -6,7 +6,6 @@ using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
 using Content.Shared.CCVar;
-using Robust.Client;
 using Robust.Client.Console;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -16,7 +15,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 #region Starlight
-using Content.Shared.GameTicking.Prototypes;
 using Robust.Client.UserInterface.CustomControls;
 #endregion Starlight
 
@@ -24,7 +22,6 @@ namespace Content.Client.Lobby
 {
     public sealed class LobbyState : Robust.Client.State.State
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;

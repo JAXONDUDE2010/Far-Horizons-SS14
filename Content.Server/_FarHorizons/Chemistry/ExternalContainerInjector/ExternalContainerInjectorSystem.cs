@@ -229,8 +229,8 @@ public sealed partial class ExternalContainerInjectorSystem : SharedExternalCont
             _appearance.SetData(entity, SolutionContainerVisuals.BaseOverride, reagent.ToString(), appearance);
     }
 
-    private bool TryGetVialSolution(Entity<ExternalContainerInjectorComponent> entity, out Solution? solution,
-        out Entity<Content.Shared.Chemistry.Components.SolutionComponent> solutionEntity)
+    private new bool TryGetVialSolution(Entity<ExternalContainerInjectorComponent> entity, out Solution? solution,
+        out Entity<SolutionComponent> solutionEntity)
     {
         solution = null;
         solutionEntity = default;

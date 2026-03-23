@@ -73,6 +73,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     // Cached ban exemption flags are used to handle
     private readonly Dictionary<ICommonSession, ServerBanExemptFlags> _cachedBanExemptions = new();
 
+    private const string Pattern = @"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$";
+
     public void Initialize()
     {
         _netManager.RegisterNetMessage<MsgRoleBans>();
@@ -791,6 +793,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             };
     }
 
+    [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
+    private static partial Regex DiscordWebhookRegex();
+
     private void OnWebhookChanged(string url)
     {
         _webhookUrl = url;
@@ -799,7 +804,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             return;
 
         // Basic sanity check and capturing webhook ID and token
-        var match = Regex.Match(url, @"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$");
+        var match = DiscordWebhookRegex().Match(url);
 
         if (!match.Success)
         {

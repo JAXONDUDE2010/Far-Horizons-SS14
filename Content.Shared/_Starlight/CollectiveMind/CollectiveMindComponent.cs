@@ -1,6 +1,5 @@
 ﻿using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CollectiveMind;
 
@@ -8,7 +7,7 @@ namespace Content.Shared.CollectiveMind;
 public sealed partial class CollectiveMindComponent : Component
 {
     [DataField("minds")]
-    public Dictionary<CollectiveMindPrototype, CollectiveMindMemberData> Minds = new();
+    public Dictionary<ProtoId<CollectiveMindPrototype>, CollectiveMindMemberData> Minds = new();
 
     [DataField]
     public bool BlockWhenUnconscious = true; // Far Horizons - Block nexus while crit or asleep

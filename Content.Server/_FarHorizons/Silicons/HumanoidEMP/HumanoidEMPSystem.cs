@@ -13,7 +13,6 @@ namespace Content.Server._FarHorizons.Silicons.HumanoidEMP;
 
 public sealed partial class HumanoidEMPSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;

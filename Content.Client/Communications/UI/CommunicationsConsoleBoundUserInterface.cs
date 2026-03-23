@@ -14,7 +14,6 @@ namespace Content.Client.Communications.UI
     public sealed class CommunicationsConsoleBoundUserInterface : BoundUserInterface
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IGameTiming _timing = default!; // Starlight
 
         [ViewVariables]
         private CommunicationsConsoleMenu? _menu;

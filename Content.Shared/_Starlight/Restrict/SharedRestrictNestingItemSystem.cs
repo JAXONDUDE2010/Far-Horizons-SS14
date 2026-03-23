@@ -9,22 +9,15 @@ using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
-using Content.Shared.Tag;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Starlight.Restrict;
 public abstract partial class SharedRestrictNestingItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;

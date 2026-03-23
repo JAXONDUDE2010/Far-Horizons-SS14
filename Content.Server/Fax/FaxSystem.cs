@@ -65,8 +65,6 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
     //starlight
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly EntityStorageSystem _storage = default!;
     //end
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";

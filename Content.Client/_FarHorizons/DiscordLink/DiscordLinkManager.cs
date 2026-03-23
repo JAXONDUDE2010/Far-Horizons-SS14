@@ -7,8 +7,6 @@ namespace Content.Client._FarHorizons.DiscordLink;
 
 public sealed class DiscordLinkManager: IDiscordLinkManagerShared
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-
     private string? _discordLink;
     private bool _isMentor;
     private AdditionalPermissionsTypes[] _permissions = [];

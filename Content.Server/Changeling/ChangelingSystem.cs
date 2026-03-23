@@ -104,7 +104,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly NpcFactionSystem _factionSystem = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
@@ -121,6 +120,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     public EntProtoId SlowdownPrototype = "StatusEffectStaminaLow";
+
+    private const string BloodReagent = "Blood";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -201,7 +203,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
                 var vomitAmount = 15f;
                 _blood.TryModifyBloodLevel(uid, -vomitAmount);
-                solution.AddReagent("Blood", vomitAmount);
+                solution.AddReagent(BloodReagent, vomitAmount);
 
                 _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
 
@@ -381,7 +383,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
         if (!TryComp<HumanoidCharacterProfileComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
+        || !TryComp(target, out MetaDataComponent? metadata)
         || !TryComp<DnaComponent>(target, out var dna) 
         || dna.DNA == null
         || !TryComp<FingerprintComponent>(target, out var fingerprint))

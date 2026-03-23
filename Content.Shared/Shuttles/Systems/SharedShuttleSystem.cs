@@ -183,7 +183,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         
         var serverShuttleLimit = _configurationManager.GetCVar(StarlightCCVars.AdmemeShuttleLimit);
         
-        if (serverShuttleLimit != null && shuttle.FTLRange > serverShuttleLimit)
+        if (shuttle.FTLRange > serverShuttleLimit)
             return serverShuttleLimit;
         
         //Logger.Info($"GetFTLRange({shuttleUid}) = {shuttle.FTLRange}");

@@ -8,7 +8,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Starlight.MHelp;
 
-public sealed class UserMHelpUIHandler(NetUserId owner) : IMHelpUIHandler
+public sealed class UserMHelpUIHandler() : IMHelpUIHandler
 {
     public bool IsMentor => false;
     public bool IsOpen => _window is { Disposed: false, IsOpen: true };

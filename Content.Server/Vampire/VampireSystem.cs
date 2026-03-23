@@ -79,6 +79,8 @@ public sealed partial class VampireSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IngestionSystem _ingestion = default!;
 
+    private const string HeatDamage = "Heat";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -325,7 +327,7 @@ public sealed partial class VampireSystem : EntitySystem
 
     private void DoSpaceDamage(EntityUid uid, VampireComponent comp, DamageableComponent damage)
     {
-        var damageSpec = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Heat"), 2.5);
+        var damageSpec = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(HeatDamage), 2.5);
         _damageableSystem.TryChangeDamage(uid, damageSpec, true, false, uid);
         _popup.PopupEntity(Loc.GetString("vampire-startlight-burning"), uid, uid, PopupType.LargeCaution);
     }

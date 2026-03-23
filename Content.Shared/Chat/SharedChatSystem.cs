@@ -67,7 +67,6 @@ public abstract partial class SharedChatSystem : EntitySystem
 
 #region Starlight
     [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly SpeechSystem _speechSystem = default!;
 #endregion Starlight
 
     /// <summary>

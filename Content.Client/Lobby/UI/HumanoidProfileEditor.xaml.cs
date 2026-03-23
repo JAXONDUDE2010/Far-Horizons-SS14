@@ -69,8 +69,6 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public HumanoidCharacterProfile? Profile;
 
-        private Direction _previewRotation = Direction.North;
-
         private bool _isDirty;
 
         public bool IsDirty
@@ -254,12 +252,12 @@ namespace Content.Client.Lobby.UI
 
             WidthSlider.OnValueChanged += args =>
             {
-                SetWidth(args.Value);
+                SetCharacterWidth(args.Value);
             };
 
             HeightSlider.OnValueChanged += args =>
             {
-                SetHeight(args.Value);
+                SetCharacterHeight(args.Value);
             };
 
             WidthResetButton.OnPressed += _ =>

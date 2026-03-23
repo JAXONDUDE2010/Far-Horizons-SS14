@@ -66,10 +66,9 @@ public sealed class AirlockFixupSystem : EntitySystem
                 transform.LocalRotation = 0;
 
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            return;
+            // ignored
         }
-
     }
 }

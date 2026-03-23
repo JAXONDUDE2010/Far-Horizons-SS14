@@ -37,7 +37,6 @@ public sealed class MHelpUIController : UIController, IOnSystemChanged<MentorSys
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [UISystemDependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DiscordLinkManager _discordLinkManager = default!;  // Far Horizons
 
@@ -163,7 +162,7 @@ public sealed class MHelpUIController : UIController, IOnSystemChanged<MentorSys
 
         UIHelper?.Dispose();
         var ownerUserId = _playerManager.LocalUser!.Value;
-        UIHelper = isMentor || isAdmin ? new MentorMHelpUIHandler(ownerUserId) : new UserMHelpUIHandler(ownerUserId);
+        UIHelper = isMentor || isAdmin ? new MentorMHelpUIHandler(ownerUserId) : new UserMHelpUIHandler();
 
         UIHelper.OnMessageSend += (ticket, textMessage, playSound) => _mentorSystem?.Send(ticket,  textMessage, playSound);
         UIHelper.OnInputTextChanged += (ticket, text) => _mentorSystem?.SendInputTextUpdated(ticket,  text.Length > 0);

@@ -7,7 +7,7 @@ namespace Content.Client._FarHorizons.Research.UI.Helpers.Search;
 
 public sealed partial class SearchDatabase
 {
-    private const string Pattern = "[^a-z]";
+    private static readonly Regex Pattern = new("[^a-z]");
 
     public Dictionary<ProtoId<ResearchTreeNodePrototype>, List<string>> Data = [];
 
@@ -45,18 +45,17 @@ public sealed partial class SearchDatabase
 
             List<string> searchTerms = [];
 
-            searchTerms.Add(Regex.Replace(Loc.GetString(node.Name).ToLower(), Pattern, ""));
             searchTerms.AddRange(
                 node
                 .Unlocks
                 .Select(p => protoMan.Index(p).Result)
                 .Where(p => p != null)
-                .Select(p => Regex.Replace(protoMan.Index<EntityPrototype>(p!.Value).Name.ToLower(), Pattern, ""))
+                .Select(p => Pattern.Replace(protoMan.Index<EntityPrototype>(p!.Value).Name.ToLower(), ""))
             );
             searchTerms.AddRange(
                 node
                 .UnlockFlags
-                .Select(p => Regex.Replace(Loc.GetString(protoMan.Index(p).Text).ToLower(), Pattern, ""))
+                .Select(p => Pattern.Replace(Loc.GetString(protoMan.Index(p).Text).ToLower(), ""))
             );
 
             Data[nodeId] = searchTerms;
@@ -94,7 +93,7 @@ public sealed partial class SearchDatabase
 
     public void Search(string search)
     {
-        var normSearch = Regex.Replace(search.ToLower(), Pattern, "");
+        var normSearch = Pattern.Replace(search.ToLower(), "");
         
         SearchTerm = normSearch;
         _step = 0;

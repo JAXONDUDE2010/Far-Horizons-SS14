@@ -63,7 +63,7 @@ public sealed partial class VampireRuleSystem : GameRuleSystem<VampireRuleCompon
             return false;
 
         // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
+        if (TryComp(target, out MetaDataComponent? metaData))
         {
             var briefing = Loc.GetString("vampire-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
 
@@ -131,7 +131,7 @@ public sealed partial class VampireRuleSystem : GameRuleSystem<VampireRuleCompon
     
     private string MakeBriefing(EntityUid ent)
     {
-        if (TryComp<MetaDataComponent>(ent, out var metaData))
+        if (TryComp(ent, out MetaDataComponent? metaData))
         {
             var briefing = Loc.GetString("vampire-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
             
@@ -151,7 +151,7 @@ public sealed partial class VampireRuleSystem : GameRuleSystem<VampireRuleCompon
             if (!_mind.TryGetMind(vamp.Owner, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(vamp.Owner, out var metaData))
+            if (!TryComp(vamp.Owner, out MetaDataComponent? metaData))
                 continue;
 
             if (vamp.TotalBloodDrank > mostDrained)

@@ -10,7 +10,6 @@ namespace Content.Server._FarHorizons.Administration.Commands;
 [AdminCommand(AdminFlags.Permissions)]
 public sealed class MentorWhoCommand : IConsoleCommand
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IDiscordLinkManager _discordLink = default!;
 
     public string Command => "mentorwho";

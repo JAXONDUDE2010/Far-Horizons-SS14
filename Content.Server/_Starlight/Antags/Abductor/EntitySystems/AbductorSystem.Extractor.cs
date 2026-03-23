@@ -53,7 +53,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     
     private void OnExtractDoAfter(Entity<AbductorExtractorComponent> ent, ref AbductorExtractDoAfterEvent args)
     {
-        if (args.Target == null || args.User == null) return;
+        if (args.Target == null) return;
         
         if (!TryComp<BodyComponent>(args.Target.Value, out var body) ||
             body.Organs == null ||
