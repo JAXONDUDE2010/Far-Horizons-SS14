@@ -1,5 +1,33 @@
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
+#Far Horizons Start
+- type: entityTable
+  id: UnknownShuttlesFriendlyTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleCargoLost
+    - id: UnknownShuttleTravelingCuisine
+    - id: UnknownShuttleDisasterEvacPod
+    - id: UnknownShuttleHonki
+    - id: UnknownShuttleNTQuark
+    - id: UnknownShuttleCruiser
+    - id: UnknownShuttleCryptid
+    - id: UnknownShuttleEternal
+    - id: UnknownShuttleFlatline
+    - id: UnknownShuttleGym
+    - id: UnknownShuttleNTIncorporation
+    - id: UnknownShuttleJoe
+    - id: UnknownShuttleLambordeere
+    - id: UnknownShuttleMeatZone
+    - id: UnknownShuttleMicroshuttle
+    - id: UnknownShuttleSpacebus
+
+- type: entityTable
+  id: UnknownShuttlesFreelanceTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleSyndieEvacPod
+
 - type: entityTable
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -7,6 +35,7 @@
     - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar
     - id: UnknownShuttleInstigator
+#Far Horizons End
 
 # Shuttle Game Rules
 
@@ -22,16 +51,6 @@
     maxOccurrences: 1
   - type: RuleGrids
   - type: LoadMapRule
-
-- type: entity
-  abstract: true
-  parent: BaseUnknownShuttleRule
-  id: BaseUnknownShuttleAnnouncedRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity
@@ -64,6 +83,98 @@
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/quark.yml
 
+#FarHorizons Start - Revert of 41860
+- type: entity
+  abstract: true
+  parent: BaseUnknownShuttleRule
+  id: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleCargoLost
+  components:
+  - type: StationEvent
+    maxOccurrences: 2
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
+
+- type: entity
+  parent: BaseUnknownShuttleAnnouncedRule
+  id: UnknownShuttleTravelingCuisine
+  components:
+  - type: StationEvent
+    maxOccurrences: 2
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/traveling_china_cuisine.yml
+
+- type: entity
+  parent: BaseUnknownShuttleAnnouncedRule
+  id: UnknownShuttleDisasterEvacPod
+  components:
+  - type: StationEvent
+    maxOccurrences: 3
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/disaster_evacpod.yml
+
+- type: entity
+  id: UnknownShuttleCruiser
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/cruiser.yml
+
+- type: entity
+  id: UnknownShuttleCryptid
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/cryptid.yml
+
+- type: entity
+  id: UnknownShuttleEternal
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/eternal.yml
+
+- type: entity
+  id: UnknownShuttleFlatline
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/flatline.yml
+
+- type: entity
+  id: UnknownShuttleGym
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: 5 # Its just a big ship, so it needs to be rarer to be interesting.
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/gym.yml
+
+- type: entity
+  id: UnknownShuttleNTIncorporation
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+    earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/incorporation.yml
+
 - type: entity
   id: UnknownShuttleInstigator
   parent: BaseUnknownShuttleRule
@@ -74,6 +185,24 @@
     gridPath: /Maps/Shuttles/ShuttleEvent/instigator.yml
 
 - type: entity
+  id: UnknownShuttleJoe
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/joe.yml
+
+- type: entity
+  id: UnknownShuttleLambordeere
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/lambordeere.yml
+
+- type: entity
   id: UnknownShuttleManOWar
   parent: BaseUnknownShuttleRule
   components:
@@ -81,3 +210,34 @@
     weight: 1 # lower because antags
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/manowar.yml
+
+- type: entity
+  id: UnknownShuttleMeatZone
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/meatzone.yml
+
+- type: entity
+  id: UnknownShuttleMicroshuttle
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 11 # this is higher because its just a little generic personal shuttle
+    maxOccurrences: 4
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/microshuttle.yml
+
+- type: entity
+  id: UnknownShuttleSpacebus
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/spacebus.yml
+
+# Far Horizons End
