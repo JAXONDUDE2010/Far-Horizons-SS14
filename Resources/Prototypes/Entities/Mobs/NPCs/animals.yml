@@ -1476,6 +1476,11 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  #FarHorizons Start
+  - type: Vocal
+    sounds:
+      Unsexed: MonkeySounds
+  #FarHorizons End
 
 
 - type: entity
@@ -1567,6 +1572,8 @@
     interactSuccessString: petting-success-monkey
     interactFailureString: petting-failure-monkey
     interactSuccessSpawn: EffectHearts
+    interactSuccessSound: #FH
+      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg #FH
     interactFailureSound:
       path: /Audio/Items/wirecutter.ogg
   - type: MobThresholds
