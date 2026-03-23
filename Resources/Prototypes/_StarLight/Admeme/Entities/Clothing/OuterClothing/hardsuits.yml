@@ -9,7 +9,7 @@
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_hardsuit.rsi
     - type: Clothing
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_hardsuit.rsi
-      clothingvisuals:
+      clothingVisuals:
         outerClothing:
           - state: equipped-OUTERCLOTHING
         outerClothing-cyclorite:
@@ -46,7 +46,7 @@
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_med_hardsuit.rsi
     - type: Clothing
       sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_med_hardsuit.rsi
-      clothingvisuals:
+      clothingVisuals:
         outerClothing:
           - state: equipped-OUTERCLOTHING
     - type: ToggleableClothing
