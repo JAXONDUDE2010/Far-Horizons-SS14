@@ -91,8 +91,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         foreach (var damagePoints in comp.DamagePerTick.DamageDict)
         {
-
-            if (damage.Damage.DamageDict.TryGetValue(damagePoints.Key, out var val) && val >= comp.DevourConsumeDamageCap) // Starlight edit
+            if (_damageable.GetPositiveDamage((target.Value, damage)).DamageDict.TryGetValue(damagePoints.Key, out var val) && val >= comp.DevourConsumeDamageCap) // Starlight edit
                 return;
         }
         _damageable.ChangeDamage((target.Value, damage), comp.DamagePerTick, true, true, user);
@@ -176,7 +175,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
         var curTime = _timing.CurTime;
         args.Handled = true;
 
-        if (!EntityManager.EntityExists(ent.Comp.CurrentDevourSound))
+        if (!Exists(ent.Comp.CurrentDevourSound))
             _audio.Stop(ent.Comp.CurrentDevourSound!);
 
         if (args.Cancelled)
@@ -227,7 +226,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (target == null)
             return;
 
-        if (EntityManager.EntityExists(ent.Comp.CurrentDevourSound))
+        if (Exists(ent.Comp.CurrentDevourSound))
             _audio.Stop(ent.Comp.CurrentDevourSound!);
 
         if (args.Cancelled)

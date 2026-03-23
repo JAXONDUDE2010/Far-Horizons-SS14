@@ -117,7 +117,7 @@
   - BaseSpeciesMobOrganic
   - BaseSpeciesPickupableLarge #FH
   id: MobReptilian
-  name: Urissst Mz'Hand
+  name: Urist McScales
   components:
   # Starlight-start: Languages
   - type: LanguageKnowledge

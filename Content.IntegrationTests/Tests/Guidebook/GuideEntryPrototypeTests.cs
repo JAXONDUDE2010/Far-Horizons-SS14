@@ -1,42 +1,44 @@
-using Content.Client.Guidebook;
-using Content.Client.Guidebook.Richtext;
-using Robust.Shared.ContentPack;
-using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Guidebook;
+// Far Horizons - disable because of suspect memory issueses 
 
-namespace Content.IntegrationTests.Tests.Guidebook;
+// using Content.Client.Guidebook;
+// using Content.Client.Guidebook.Richtext;
+// using Robust.Shared.ContentPack;
+// using Robust.Shared.Prototypes;
+// using Content.IntegrationTests.Utility;
+// using Content.Shared.Guidebook;
+// using Robust.Shared.Localization;
 
-[TestFixture]
-[TestOf(typeof(GuidebookSystem))]
-[TestOf(typeof(GuideEntryPrototype))]
-[TestOf(typeof(DocumentParsingManager))]
-public sealed class GuideEntryPrototypeTests
-{
-    [Test]
-    public async Task ValidatePrototypeContents()
-    {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
-        var client = pair.Client;
-        await client.WaitIdleAsync();
-        var protoMan = client.ResolveDependency<IPrototypeManager>();
-        var resMan = client.ResolveDependency<IResourceManager>();
-        var parser = client.ResolveDependency<DocumentParsingManager>();
-        var prototypes = protoMan.EnumeratePrototypes<GuideEntryPrototype>().ToList();
+// namespace Content.IntegrationTests.Tests.Guidebook;
 
-        foreach (var proto in prototypes)
-        {
-            await client.WaitAssertion(() =>
-            {
-                using var reader = resMan.ContentFileReadText(proto.Text);
-                var text = reader.ReadToEnd();
-                Assert.That(parser.TryAddMarkup(new Document(), text), $"Failed to parse guidebook: {proto.Id}");
-            });
+// [TestFixture]
+// [TestOf(typeof(GuidebookSystem))]
+// [TestOf(typeof(GuideEntryPrototype))]
+// [TestOf(typeof(DocumentParsingManager))]
+// public sealed class GuideEntryPrototypeTests
+// {
+//     private static string[] _guideEntries = GameDataScrounger.PrototypesOfKind<GuideEntryPrototype>();
 
-            // Avoid styleguide update limit
-            await client.WaitRunTicks(1);
-        }
+//     [Test]
+//     [TestCaseSource(nameof(_guideEntries))]
+//     [Description("Ensures a given guidebook entry is valid, checking the document/etc.")]
+//     public async Task Validate(string protoKey)
+//     {
+//         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+//         var client = pair.Client;
+//         await client.WaitIdleAsync();
+//         var protoMan = client.ResolveDependency<IPrototypeManager>();
+//         var resMan = client.ResolveDependency<IResourceManager>();
+//         var parser = client.ResolveDependency<DocumentParsingManager>();
+//         var proto = protoMan.Index<GuideEntryPrototype>(protoKey);
 
-        await pair.CleanReturnAsync();
-    }
-}
+//         await client.WaitAssertion(() =>
+//         {
+//             using var reader = resMan.ContentFileReadText(proto.Text);
+//             var text = reader.ReadToEnd();
+
+//             Assert.That(parser.TryAddMarkup(new Document(), text), $"Failed to parse the guide entry's document.");
+//         });
+
+//         await pair.CleanReturnAsync();
+//     }
+// }

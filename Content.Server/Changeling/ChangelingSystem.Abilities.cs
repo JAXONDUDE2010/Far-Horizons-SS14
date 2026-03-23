@@ -39,6 +39,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly ChangelingIdentitySystem _changelingIdentitySystem = default!;
+
+    private const string PolytrinicAcidReagent = "PolytrinicAcid";
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
@@ -420,7 +423,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         var soln = new Solution();
-        soln.AddReagent("PolytrinicAcid", 10f);
+        soln.AddReagent(PolytrinicAcidReagent, 10f);
 
         if (_pull.IsPulled(uid))
         {

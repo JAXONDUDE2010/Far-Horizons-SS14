@@ -19,9 +19,7 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!; // Starlight
     [Dependency] private readonly TraitSystem _traitSystem = default!; //Starlight
-    [Dependency] private readonly SLSharedCharacterInfoSystem _sLSharedCharacterInfoSystem = default!; //Starlight
 
     public override void Initialize()
     {

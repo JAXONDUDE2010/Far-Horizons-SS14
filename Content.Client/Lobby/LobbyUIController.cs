@@ -1,21 +1,18 @@
-using System.Linq;
-using Content.Client.Body;
 using Content.Client.Guidebook;
-using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
-using Content.Client.Station;
+using Content.Shared._FarHorizons.Factions;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
-using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Starlight.CCVar; // Starlight-edit
+using Content.Shared.Station;
 using Content.Shared.Traits;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
@@ -41,10 +38,9 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
     [Dependency] private readonly ISharedFactionManager _factions = default!; // Far Horizons
-    //[UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!; NuBody removal
-    [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
-    [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
+    [UISystemDependency] private readonly InventorySystem _inventory = default!; // Far Horizons
+    [UISystemDependency] private readonly SharedStationSpawningSystem _spawn = default!; // Far Horizons
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;

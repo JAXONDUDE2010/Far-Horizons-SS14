@@ -22,6 +22,8 @@ public sealed class EggsLayingBui : BoundUserInterface
     public EggsLayingBui(EntityUid owner, Enum uiKey) : base(owner, uiKey) => IoCManager.InjectDependencies(this);
     protected override void Open()
     {
+        base.Open();
+
         _menu = this.CreateWindow<EggsLayingMenu>();
         _menu.OnClose += Close;
         _menu.EggChosen += (egg) =>

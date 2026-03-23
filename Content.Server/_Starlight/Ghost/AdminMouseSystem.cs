@@ -14,7 +14,6 @@ namespace Content.Server._Starlight.Ghost;
 public sealed class AdminMouseSystem : EntitySystem
 {
     [Dependency] private readonly IDiscordLinkManager _playerRoles = default!; /// Far Horizons
-    [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     public override void Initialize()
     {

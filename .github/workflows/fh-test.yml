@@ -50,6 +50,26 @@ jobs:
           sudo mkswap $SWAP_PATH
           sudo swapon $SWAP_PATH
       - uses: ./.github/actions/setup-test-env
-      - run: dotnet test --no-build -c DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --settings .farhorizons/.integrationtests --logger "console;verbosity=normal"
+      - run: dotnet test --no-build -c DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --settings .farhorizons/.integrationtests --logger "trx;LogFileName=results.trx"
         env:
           DOTNET_gcServer: "1"
+      - uses: EnricoMi/publish-unit-test-result-action@v2
+        if: (!cancelled())
+        with:
+          files: "**/results.trx"
+          check_name: Integration Tests
+  
+  build-release:
+    if: "!contains(github.event.pull_request.labels.*.name, 'automated pr') && github.actor != 'github-actions[bot]' && github.event.pull_request.draft == false"
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: git submodule update --init --recursive
+        shell: bash
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - shell: bash
+        run: |
+          dotnet restore
+          dotnet build -c Release --no-restore /m

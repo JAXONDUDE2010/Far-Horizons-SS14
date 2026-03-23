@@ -36,7 +36,6 @@ using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 
 #region Starlight
-using Content.Server._Starlight.BugReports;
 using Content.Server.Holiday;
 using Content.Server.Starlight;
 using Content.Shared.Starlight;

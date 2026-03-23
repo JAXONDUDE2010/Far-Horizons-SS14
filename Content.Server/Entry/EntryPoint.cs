@@ -1,6 +1,7 @@
 using Content.Server._FarHorizons.DiscordLink;
 using Content.Server._Starlight.BugReports; // Staright
 using Content.Server._Starlight.TextToSpeech;
+using System.Threading.Tasks;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -239,8 +240,9 @@ namespace Content.Server.Entry
             }
 
             _serverApi.Shutdown();
-            // TODO Should this be awaited?
-            _discordLink.Shutdown();
+
+            // We don't care when or how this finishes, just spin the task off into the void.
+            _ = _discordLink.Shutdown();
             _discordChatLink.Shutdown();
             // Nullink start
             _bugReport.Shutdown();

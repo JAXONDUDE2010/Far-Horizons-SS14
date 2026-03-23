@@ -1,19 +1,14 @@
 using System.Linq;
 using Content.Server.Access.Components;
 using Content.Server.Access.Systems;
-using Content.Server.Body.Systems;
 using Content.Server._FarHorizons.Factions;
 using Content.Server.GameTicking;
-using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Body;
-using Content.Shared.CCVar;
-using Content.Shared.Clothing;
-using Content.Shared.DetailExaminable;
 using Content.Shared._FarHorizons.Factions;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -24,16 +19,11 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Station;
 using JetBrains.Annotations;
-using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 // Starlight Start
-using Content.Server.Body.Systems;
-using Content.Server.GameTicking;
-using Content.Server._Starlight.Medical.Limbs;
-using Content.Shared.Body.Components;
 using Prometheus;
 using Robust.Server.Containers;
 
@@ -51,7 +41,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly ActorSystem _actors = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
@@ -59,7 +48,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
     [Dependency] private readonly ContainerSystem _container = default!; // Far Horizons
 

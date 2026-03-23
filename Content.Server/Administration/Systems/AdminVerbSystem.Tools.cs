@@ -65,10 +65,6 @@ public sealed partial class AdminVerbSystem
 
     [Dependency] private readonly FHResearchSystem _research = default!;  // Far Horizons
 
-    #region Starlight
-    [Dependency] private readonly StarlightEntitySystem _entitySystem = default!;
-    #endregion
-
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
         if (!TryComp(args.User, out ActorComponent? actor))

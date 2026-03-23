@@ -1,7 +1,7 @@
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
+using System.Linq;
 using Robust.Shared.Serialization;
-﻿using System.Linq;
 
 namespace Content.Shared._Starlight.Thaven;
 
@@ -77,7 +77,6 @@ public partial class ThavenMood
 }
 
 [Prototype]
-[Serializable, NetSerializable]
 public sealed partial class ThavenMoodPrototype : ThavenMood, IPrototype
 {
     /// <inheritdoc/>

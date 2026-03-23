@@ -17,14 +17,15 @@ namespace Content.Shared.Starlight.EntityEffects.Effects;
 public sealed partial class DissolvableReactionEntityEffectSystem : EntityEffectSystem<DissolvableComponent, DissolvableReaction>
 {
     [Dependency] private readonly SharedDissolvableSystem _dissolvable = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly EntityManager _entMan = default!;
 
+    private const string UnDissolvableTag = "UnDissolvable";
+
     protected override void Effect(Entity<DissolvableComponent> entity, ref EntityEffectEvent<DissolvableReaction> args)
     {
-        if (_tag.HasTag(entity, "UnDissolvable")) // Yeah, this is hardcode but.... Idk
+        if (_tag.HasTag(entity, UnDissolvableTag)) // Yeah, this is hardcode but.... Idk
             return;
 
         entity.Comp.Damage = args.Effect.Damage;

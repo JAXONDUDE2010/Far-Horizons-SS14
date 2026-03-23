@@ -329,7 +329,7 @@ public sealed partial class StoreSystem
                 {
                     // Get the buyer's name
                     var buyerName = "Unknown";
-                    if (TryComp<MetaDataComponent>(buyer, out var metadata))
+                    if (TryComp(buyer, out MetaDataComponent? metadata))
                     {
                         buyerName = metadata.EntityName;
                     }

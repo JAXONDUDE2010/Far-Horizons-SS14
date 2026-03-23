@@ -52,7 +52,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<SLChangelingRu
             return false;
 
         // briefing
-        if (TryComp<MetaDataComponent>(target, out var metaData))
+        if (TryComp(target, out MetaDataComponent? metaData))
         {
             var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
             var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
@@ -100,7 +100,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<SLChangelingRu
             if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
+            if (!TryComp(ling.Owner, out MetaDataComponent? metaData))
                 continue;
 
             if (ling.TotalAbsorbedEntities > mostAbsorbed)

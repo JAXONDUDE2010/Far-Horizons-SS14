@@ -114,7 +114,7 @@ public sealed class ReflectSystem : EntitySystem
         var reflectionChance = reflector.Comp.ReflectProb;
 
         // Check for enhanced reflection against specific projectile types
-        if (TryComp<MetaDataComponent>(projectile, out var metaData) && metaData.EntityPrototype != null)
+        if (TryComp(projectile, out MetaDataComponent? metaData) && metaData.EntityPrototype != null)
         {
             var projectileId = metaData.EntityPrototype.ID;
             if (reflector.Comp.EnhancedReflection.TryGetValue(projectileId, out var enhancedChance))

@@ -7,11 +7,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._FarHorizons.Research.UI.Helpers.Search;
 
-public class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font font, Texture texture)
+public sealed class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font font, Texture texture)
 {
-    private readonly IGameTiming _timing = timing;
-    private readonly IPrototypeManager _protoMan = protoMan;
-
     const int borderMargin = 2;
 
     public bool Active = false;
@@ -33,7 +30,7 @@ public class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font
     private Vector2 _sizeAnimTo = new(30, 30);
     private TimeSpan _sizeAnimStart = TimeSpan.Zero;
     private TimeSpan _sizeAnimEnd = TimeSpan.Zero;
-    private float _animProgress => Math.Clamp((float)(_timing.CurTime - _sizeAnimStart).TotalSeconds / (float)(_sizeAnimEnd - _sizeAnimStart).TotalSeconds, 0f, 1f);
+    private float _animProgress => Math.Clamp((float)(timing.CurTime - _sizeAnimStart).TotalSeconds / (float)(_sizeAnimEnd - _sizeAnimStart).TotalSeconds, 0f, 1f);
     private TimeSpan _animSpeed = TimeSpan.FromSeconds(0.1);
     public Vector2 ButtonSize => Vector2.Lerp(_sizeAnimFrom, _sizeAnimTo, _animProgress);
 
@@ -72,7 +69,7 @@ public class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font
         Active = !Active;
         _sizeAnimFrom = ButtonSize;
         _sizeAnimTo = Active ? _activeSize : _inactiveSize;
-        _sizeAnimStart = _timing.CurTime;
+        _sizeAnimStart = timing.CurTime;
         _sizeAnimEnd = _sizeAnimStart + _animSpeed;
         SearchText = _placeholderText;
         _searchResults = [];
@@ -92,14 +89,14 @@ public class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font
 
     public void Backspace()
     {
-        if (_timing.CurTime > _nextBackspace && SearchText != "" && SearchText != _placeholderText)
+        if (timing.CurTime > _nextBackspace && SearchText != "" && SearchText != _placeholderText)
         {
             SearchText = SearchText[..^1];
             _searchDb?.Search(SearchText);
             _searchResults = [];
             if (SearchText == "")
                 SearchText = _placeholderText;
-            _nextBackspace = _timing.CurTime + _backspaceFrequency;
+            _nextBackspace = timing.CurTime + _backspaceFrequency;
         }
     }
 
@@ -110,7 +107,7 @@ public class ResearchSearch(IGameTiming timing, IPrototypeManager protoMan, Font
         var postion = _button.TopLeft;
         foreach (var result in results)
         {
-            SearchResultCard card = new(_protoMan, result, _font, size, FGColor, BGColor);
+            SearchResultCard card = new(protoMan, result, _font, size, FGColor, BGColor);
             card.WrapName(handle);
             var adjustedOffset = new Vector2(0, card.Size.Y + _searchResultMargin);
             postion -= adjustedOffset;

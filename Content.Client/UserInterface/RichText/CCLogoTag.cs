@@ -15,7 +15,6 @@ namespace Content.Client.UserInterface.RichText;
 
 public sealed class CCLogoTag : IMarkupTag
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     private SpriteSystem? _spriteSystem;
     private IResourceCache? _resourceCache;

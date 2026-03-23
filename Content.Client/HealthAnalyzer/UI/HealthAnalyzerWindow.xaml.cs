@@ -23,7 +23,8 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Research.Components;
-using Content.Shared._FarHorizons.Body; //FarHorizons
+using Content.Shared._FarHorizons.Body;
+using Content.Shared.Damage.Systems; //FarHorizons
 
 namespace Content.Client.HealthAnalyzer.UI;
 
@@ -37,6 +38,7 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
     private readonly SpriteSystem _spriteSystem;
     private readonly IPrototypeManager _prototypes;
     private readonly IResourceCache _cache;
+    private readonly DamageableSystem _damageable;
     public event Action<BaseButton.ButtonEventArgs>? OnServerListButtonPressed; //FarHorizons
 
     public HealthAnalyzerWindow()
@@ -48,6 +50,8 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
         _spriteSystem = _entityManager.System<SpriteSystem>();
         _prototypes = dependencies.Resolve<IPrototypeManager>();
         _cache = dependencies.Resolve<IResourceCache>();
+
+        _damageable = _entityManager.System<DamageableSystem>();
 
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a); // FarHorizons
     }
@@ -134,7 +138,8 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
 
         // Total Damage
 
-        DamageLabel.Text = damageable.TotalDamage.ToString();
+        DamageLabel.Text = _damageable.GetPositiveDamage((target.Value, damageable)).DamageDict
+            .Select(p => (float)p.Value).Sum().ToString();
 
         // Alerts
 
@@ -164,11 +169,11 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
 
         // Damage Groups
 
-        IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
+        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damagePerType = _damageable.GetPositiveDamage((target.Value, damageable)).DamageDict;
 
         //Starlight begin - Sort damage groups in a fixed order and add metabolizing section
         var groupOrder = new List<string> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
-        var sortedGroups = damageable.DamagePerGroup
+        var sortedGroups = _damageable.GetDamagePerGroup((target.Value, damageable))
             .OrderBy(g => groupOrder.IndexOf(g.Key))
             .ToDictionary(g => g.Key, g => g.Value);
 
@@ -213,8 +218,8 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
 
     // Starlight begin - Draw Damage Groups in a two column grid in their own boxes.
     private void DrawDiagnosticGroups(
-        Dictionary<string, FixedPoint2> groups,
-        IReadOnlyDictionary<string, FixedPoint2> damageDict)
+        Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
+        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
         GroupsContainer.RemoveAllChildren();
 

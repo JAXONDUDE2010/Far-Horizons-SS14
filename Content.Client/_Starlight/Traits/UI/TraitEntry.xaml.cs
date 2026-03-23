@@ -16,8 +16,6 @@ namespace Content.Client._Starlight.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TraitEntry : PanelContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirementsManager = default!;
 

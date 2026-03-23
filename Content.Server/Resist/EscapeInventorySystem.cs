@@ -24,6 +24,8 @@ public sealed class EscapeInventorySystem : EntitySystem
     [Dependency] private readonly TagSystem _tagSystem = default!; // Starlight Edit
     [Dependency] private readonly TransformSystem _transformSystem = default!; // Starlight Edit
 
+    private const string PersonnelStorage = "PersonnelStorage";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -64,7 +66,7 @@ public sealed class EscapeInventorySystem : EntitySystem
         }
         
         // Uncontested - Escape from borg modules and such
-        if (_tagSystem.HasTag(container.Owner, "PersonnelStorage"))
+        if (_tagSystem.HasTag(container.Owner, PersonnelStorage))
         {
             AttemptEscape(uid, container.Owner, component);
         }
@@ -99,7 +101,7 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         // Starlight edit start - Special handling for borg modules
         if (_containerSystem.TryGetContainingContainer((uid, null, null), out var container) &&
-            _tagSystem.HasTag(container.Owner, "PersonnelStorage"))
+            _tagSystem.HasTag(container.Owner, PersonnelStorage))
         {
             // Remove from the container and put on the floor
             _containerSystem.Remove((uid, Transform(uid)), container, reparent: false);

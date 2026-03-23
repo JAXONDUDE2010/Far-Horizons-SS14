@@ -7,7 +7,7 @@ namespace Content.Shared._FarHorizons.Numbness;
 /// Exists for use as a status effect. Adds a shader to the client that scales with the effect duration.
 /// Use only in conjunction with <see cref="StatusEffectComponent"/>, on the status effect entity.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class NumbnessStatusEffectComponent : Component
 {
 }

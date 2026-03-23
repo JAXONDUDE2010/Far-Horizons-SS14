@@ -40,6 +40,9 @@ public sealed class CluwneSystem : EntitySystem
 
     [Dependency] private readonly OutfitSystem _outfitSystem = default!;
 
+    private const string HonkNeutral = "HonkNeutral";
+    private const string NanoTrasen = "NanoTrasen";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -96,8 +99,8 @@ public sealed class CluwneSystem : EntitySystem
             _popupSystem.PopupEntity(transformMessage, ent.Owner, PopupType.LargeCaution);
             _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
 
-            _faction.RemoveFaction(ent.Owner, "NanoTrasen", false);
-            _faction.AddFaction(ent.Owner, "HonkNeutral");
+            _faction.RemoveFaction(ent.Owner, NanoTrasen, false);
+            _faction.AddFaction(ent.Owner, HonkNeutral);
         }
         else
         {

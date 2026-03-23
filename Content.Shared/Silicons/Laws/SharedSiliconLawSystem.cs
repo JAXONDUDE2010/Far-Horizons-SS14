@@ -7,7 +7,6 @@ using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Wires;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes; // Starlight
 using Content.Shared.Emag.Components; //Starlight
 
 namespace Content.Shared.Silicons.Laws;
@@ -21,7 +20,6 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!; // Starlight
     [Dependency] private readonly IEntityManager _entMan = default!; // Starlight
 
     /// <inheritdoc/>
@@ -55,7 +53,6 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         }
 
         //#region Starlight
-        SiliconLawsetPrototype? proto = null;
         if (args.EmagComponent != null)
         {
             if (args.EmagComponent.DestroyTransponder)

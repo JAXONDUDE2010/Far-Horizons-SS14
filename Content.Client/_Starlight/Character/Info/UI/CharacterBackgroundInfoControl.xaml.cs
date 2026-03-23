@@ -12,6 +12,8 @@ namespace Content.Client._Starlight.Character.Info.UI;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterBackgroundInfoControl : Control
 {
+    private static readonly Regex Pattern = new("([a-z])([A-Z])");
+
     public CharacterBackgroundInfoControl()
     {
         RobustXamlLoader.Load(this);
@@ -45,7 +47,7 @@ public sealed partial class CharacterBackgroundInfoControl : Control
     static string ToLocale(string input)
     {
         input = input.Replace("TraitBackground", "");
-        string kebab = Regex.Replace(input, "([a-z])([A-Z])", "$1-$2").ToLower();
+        string kebab = Pattern.Replace(input, "$1-$2");
         return $"trait-background-{kebab}-name";
     }
 

@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Factions;
 
-public partial class SharedFactionManager : ISharedFactionManager
+public abstract partial class SharedFactionManager : ISharedFactionManager
 {
     [Dependency] protected readonly IPrototypeManager _prototypeManager = default!;
 

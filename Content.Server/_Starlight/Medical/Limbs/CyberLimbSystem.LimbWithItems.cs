@@ -11,8 +11,6 @@ using Robust.Shared.Physics.Components;
 namespace Content.Server._Starlight.Medical.Limbs;
 public sealed partial class CyberLimbSystem : EntitySystem
 {
-    [Dependency] private readonly VisualBodySystem _visBody = default!;
-
     public void InitializeLimbWithItems()
     {
         SubscribeLocalEvent<LimbItemDeployerComponent, ToggleLimbEvent>(OnLimbToggle);
