@@ -21,6 +21,7 @@
     - id: UnknownShuttleMeatZone
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
+# Far Horizons End
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
@@ -35,7 +36,6 @@
     - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar
     - id: UnknownShuttleInstigator
-#Far Horizons End
 
 # Shuttle Game Rules
 
