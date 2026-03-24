@@ -14,6 +14,8 @@ public sealed class TerrorEggSystem : AccUpdateEntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
+    private const string BluntDamageType = "Blunt"; // Far Horizons - make compiler stop yelling at me
+
     private readonly Dictionary<EntityUid, Entity<EggHolderComponent>> _eggs = [];
     private readonly EntProtoId[] _terrorSpiders = ["MobTerrorGray", "MobTerrorGreen", "MobTerrorRed"];
     private DamageTypePrototype? _blunt;
@@ -33,7 +35,7 @@ public sealed class TerrorEggSystem : AccUpdateEntitySystem
         foreach (var egg in _eggs)
         {
             egg.Value.Comp.Counter++;
-            _blunt ??= _prototypes.Index<DamageTypePrototype>("Blunt");
+            _blunt ??= _prototypes.Index<DamageTypePrototype>(BluntDamageType); // Far Horizons - make compiler stop yelling at me
             _damage ??= new(_blunt, 1);
             _damageable.TryChangeDamage(egg.Value.Owner, _damage, false);
             if (egg.Value.Comp.Counter >= 300)

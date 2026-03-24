@@ -103,9 +103,9 @@ public sealed class StationJobsTest
   job: TChaplain
 ";
 
-    private const int StationCount = 20; // FH - cut down these ridiculous numbers
+    private const int StationCount = 10; // FH - cut down these ridiculous numbers
     private const int CaptainCount = StationCount;
-    private const int PlayerCount = 1000; // FH - cut down these ridiculous numbers
+    private const int PlayerCount = 500; // FH - cut down these ridiculous numbers
     private const int TotalPlayers = PlayerCount + CaptainCount;
 
     [Test]

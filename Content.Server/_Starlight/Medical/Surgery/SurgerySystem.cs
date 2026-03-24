@@ -24,7 +24,6 @@ namespace Content.Server.Starlight.Medical.Surgery;
 // https://github.com/RMC-14/RMC-14
 public sealed partial class SurgerySystem : SharedSurgerySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;

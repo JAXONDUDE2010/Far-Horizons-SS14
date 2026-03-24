@@ -18,7 +18,6 @@ public sealed partial class SalarySystem : SharedSalarySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerRolesManager _playerRolesManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -29,15 +28,20 @@ public sealed partial class SalarySystem : SharedSalarySystem
     private float _delayAccumulator = 0f;
     private readonly Stopwatch _stopwatch = new();
     private readonly Dictionary<ICommonSession, TimeSpan> _lastSalary = [];
-    private SalariesPrototype _salaries = new();
+    private SalariesPrototype? _salaries;
+
+    private const string Standart = "standart";
+
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(ev => _lastSalary.Clear());
-        _salaries = _prototypes.Index<SalariesPrototype>("standart");
+        _salaries = _prototypes.Index<SalariesPrototype>(Standart);
         base.Initialize();
     }
     public override void Update(float frameTime)
     {
+        if (_salaries == null) return;
+
         _delayAccumulator += frameTime;
         if (_delayAccumulator > 2)
         {
@@ -45,7 +49,7 @@ public sealed partial class SalarySystem : SharedSalarySystem
             _stopwatch.Restart();
 
             var query = _playerRolesManager.Players.GetEnumerator();
-            while (query.MoveNext() && query.Current != null && _stopwatch.Elapsed < TimeSpan.FromMilliseconds(0.1))
+            while (query.MoveNext() && _stopwatch.Elapsed < TimeSpan.FromMilliseconds(0.1))
             {
                 if (!_lastSalary.TryGetValue(query.Current.Session, out var lastTime))
                 {

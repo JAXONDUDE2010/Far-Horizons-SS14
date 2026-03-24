@@ -17,7 +17,7 @@ namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
     [Migration("20251213182132_add user discord")]
-    partial class adduserdiscord
+    partial class AddUserDiscord
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

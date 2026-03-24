@@ -23,11 +23,12 @@ public sealed class DarkenedVisionOverlay : Overlay
 
     public DarkenedVisionComponent? DarkenedVision;
 
+    private const string CircleMask = "CircleMask";
 
     public DarkenedVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _circleMaskShader = _prototypeManager.Index<ShaderPrototype>("CircleMask").InstanceUnique();
+        _circleMaskShader = _prototypeManager.Index<ShaderPrototype>(CircleMask).InstanceUnique();
     }
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {

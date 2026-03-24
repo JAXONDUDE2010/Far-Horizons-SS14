@@ -33,7 +33,6 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
         [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly ISharedFactionManager _factions = default!; // Far Horizons
 

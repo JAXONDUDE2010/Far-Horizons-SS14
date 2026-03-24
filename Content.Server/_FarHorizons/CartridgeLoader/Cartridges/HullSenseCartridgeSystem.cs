@@ -16,7 +16,6 @@ public sealed class HullSenseCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

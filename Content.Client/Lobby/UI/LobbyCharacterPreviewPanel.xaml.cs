@@ -14,13 +14,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-#region Starlight
-using Content.Client.Lobby.UI.ProfileEditorControls;
-using Content.Client.Players.PlayTimeTracking;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
-#endregion Starlight
-
 namespace Content.Client.Lobby.UI;
 
 [GenerateTypedNameReferences]
@@ -30,7 +23,6 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     [Dependency] private readonly IClientPreferencesManager _preferences = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [Dependency] private readonly ISharedFactionManager _factions = default!; // Far Horizons
 

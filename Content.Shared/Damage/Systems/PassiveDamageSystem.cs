@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
@@ -34,9 +35,11 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Make sure they're up for a damage tick
             if (comp.NextDamage > curTime)
                 continue;
-
-            if (comp.DamageCap != 0 && damage.TotalDamage >= comp.DamageCap)
-                continue;
+            
+            // Far Horizons restored damage cap
+            if (comp.DamageCap != 0 &&
+                _damageable.GetPositiveDamage((uid, damage)).DamageDict.Sum(p => (float)p.Value) >=
+                comp.DamageCap) continue;
 
             // Set the next time they can take damage
             comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);

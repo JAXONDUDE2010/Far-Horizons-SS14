@@ -43,6 +43,8 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
         private static readonly EntProtoId PatchPrototypeId = "Patch"; //Starlight
+
+        private const string PatchPack = "PatchPack";
         public override void Initialize()
         {
             base.Initialize();
@@ -449,7 +451,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
                 else 
                 {
-                    if (_solutionContainerSystem.TryGetSolution(pill, SharedChemMaster.PatchSolutionName, out _, out var patchSolution));
+                    if (_solutionContainerSystem.TryGetSolution(pill, SharedChemMaster.PatchSolutionName, out _, out var patchSolution))
+                    {
+                    }
+
                     {
                         var patchQuantity = patchSolution?.Volume ?? FixedPoint2.Zero;
                         return (Name(pill), patchQuantity);
@@ -457,7 +462,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
             })).ToList();
             
-            if (_tag.HasTag(container.Value, "PatchPack"))
+            if (_tag.HasTag(container.Value, PatchPack))
             {
                 return new ContainerInfo(name, _storageSystem.GetCumulativeItemAreas((container.Value, storage)) / 2, storage.Grid.GetArea() / 2)
                 {

@@ -8,9 +8,6 @@ namespace Content.Client._Starlight.Chemistry.ExternalContainerInjector;
 
 public sealed class ExternalContainerInjectorSystem : SharedExternalContainerInjectorSystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
     public override void Initialize()
     {
         base.Initialize();

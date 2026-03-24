@@ -13,7 +13,6 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
     - CorgiWearable
     - IPCExternalCooling # Far Horizons
@@ -178,6 +177,5 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
     - IPCExternalCooling # Far Horizons

@@ -7,6 +7,7 @@ using Content.Shared.CollectiveMind;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.CharacterInfo;
 
@@ -37,7 +38,7 @@ public sealed class CharacterInfoSystem : EntitySystem
         string? briefing = null;
 
         // 🌟Starlight🌟 start
-        Dictionary<CollectiveMindPrototype, CollectiveMindMemberData>? collectiveMinds = null;
+        Dictionary<ProtoId<CollectiveMindPrototype>, CollectiveMindMemberData>? collectiveMinds = null;
         if (TryComp<CollectiveMindComponent>(entity, out var mindsComp))
             collectiveMinds = mindsComp.Minds;
 

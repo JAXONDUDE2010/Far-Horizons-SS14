@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Starlight.IoC;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Advertise.Components;
@@ -38,10 +37,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] protected readonly SharedUserInterfaceSystem UISystem = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-
-    // Starlight
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedSLIoCSystem _slIoc = default!;
 
     public override void Initialize()
     {
@@ -119,22 +114,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             contrabandInventory[weh.Key] = new(weh.Value);
         }
 
-        // 🌟Starlight🌟 Allow server-side systems to calculate prices
-        // If emagged for interaction, the machine becomes free
-
-        // This is a hack, because this method is doing a lot of things it should not be in component get state
-        // EntityPrototype.TryGetComponent called in CalculateInventoryPrices > GuessCategory has a debug assert
-        // that resolves a dependency
-        // This breaks if this method runs on a thread other than the main thread without IoC initialized
-        // TODO STARLIGHT FIXME
-        if (_net.IsServer)
-            _slIoc.ServerInitIoC();
-
         var isEmagged = _emag.CheckFlag(entity.Owner, EmagType.Interaction);
         var showPricesNow = component.ShowPrices && !isEmagged;
-        CalculateInventoryPrices(inventory, showPricesNow);
-        CalculateInventoryPrices(emaggedInventory, showPricesNow);
-        CalculateInventoryPrices(contrabandInventory, showPricesNow);
 
         args.State = new VendingMachineComponentState()
         {

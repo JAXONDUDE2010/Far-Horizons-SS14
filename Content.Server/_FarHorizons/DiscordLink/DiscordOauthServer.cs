@@ -11,7 +11,6 @@ namespace Content.Server._FarHorizons.DiscordLink;
 public sealed class DiscordOauthServer : IPostInjectInit
 {
     [Dependency] private readonly IStatusHost _statusHost = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly DiscordRequestsAdapter _requests = default!;
@@ -63,7 +62,7 @@ public sealed class DiscordOauthServer : IPostInjectInit
             string accessToken = await _requests.GetDiscordToken(code);
             discordUserId = await _requests.GetDiscordUserId(accessToken);
         }
-        catch (DiscordRequestsAdapter.DiscordRequestException e)
+        catch (DiscordRequestsAdapter.DiscordRequestException)
         {
             return await RespondFail(context);
         }

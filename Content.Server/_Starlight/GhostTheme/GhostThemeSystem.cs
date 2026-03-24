@@ -1,23 +1,17 @@
 using System.Linq;
-using Content.Server._FarHorizons.DiscordLink;
-using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
-using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.UI;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
 using Content.Shared.Starlight.GhostTheme;
 using Content.Shared.Starlight;
 using JetBrains.Annotations;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using Content.Server.Players.PlayTimeTracking;
-using Content.Shared.Players.PlayTimeTracking;
 
 namespace Content.Server.Ghost.Roles;
 
@@ -26,11 +20,9 @@ public sealed class GhostThemeSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerRolesManager _playerRoles = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;  // Far Horizons
 
     public override void Initialize()
@@ -40,10 +32,6 @@ public sealed class GhostThemeSystem : EntitySystem
     }
 
     private readonly Dictionary<ICommonSession, GhostThemeEui> _openUis = [];
-    public override void Shutdown()
-    {
-        base.Shutdown();
-    }
 
     public void OpenEui(ICommonSession session)
     {
@@ -100,7 +88,7 @@ public sealed class GhostThemeSystem : EntitySystem
             playerData.GhostThemeColor = color;
         }
 
-        _appearance.SetData(attached, GhostThemeVisualLayers.Color, color);
+        _appearance.SetData(attached, GhostVisuals.Color, color); // Far Horizons
     }
     public void ChangeTheme(ICommonSession session, string theme)
     {
@@ -127,7 +115,7 @@ public sealed class GhostThemeSystem : EntitySystem
         if (_playerRoles.GetPlayerData(attached) is PlayerData playerData)
             playerData.GhostTheme = theme;
 
-        _appearance.SetData(attached, GhostThemeVisualLayers.Base, theme);
+        _appearance.SetData(attached, GhostVisuals.Theme, theme); // Far Horizons
     }
     public void UpdateAllEui()
     {
@@ -136,11 +124,7 @@ public sealed class GhostThemeSystem : EntitySystem
             eui.StateDirty();
         }
     }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-    }
+    
     private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
     {
         var theme = EnsureComp<GhostThemeComponent>(uid);
@@ -162,11 +146,11 @@ public sealed class GhostThemeSystem : EntitySystem
 
             theme.SelectedGhostTheme = playerData.GhostTheme;
             theme.GhostThemeColor = playerData.GhostThemeColor;
-            _appearance.SetData(uid, GhostThemeVisualLayers.Color, playerData.GhostThemeColor);
+            _appearance.SetData(uid, GhostVisuals.Color, playerData.GhostThemeColor); // Far Horizons
 
             Dirty(uid, theme);
 
-            _appearance.SetData(uid, GhostThemeVisualLayers.Base, playerData.GhostTheme);
+            _appearance.SetData(uid, GhostVisuals.Theme, playerData.GhostTheme); // Far Horizons
         }
     }
 }

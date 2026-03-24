@@ -73,7 +73,7 @@
   - BaseSpeciesMobOrganic
   - BaseSpeciesPickupableLarge #FH
   id: MobDiona
-  name: McUrist Plants
+  name: Urist McPlants
   components:
   # Starlight-start: Languages
   - type: LanguageKnowledge

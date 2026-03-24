@@ -5,7 +5,7 @@ using Content.Shared.Eye.Blinding.Systems;
 
 namespace Content.Shared._FarHorizons.Body;
 
-public partial class VisionOrganSystem : EntitySystem
+public sealed partial class VisionOrganSystem : EntitySystem
 {
     [Dependency] private readonly BlindableSystem _blindable = default!;
 

@@ -172,7 +172,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         // STARLIGHT START: Check if the implant is a USSP uplink implant (revolutionary implant)
         var isUSSPImplant = false;
-        if (TryComp<MetaDataComponent>(implant.Value, out var metadata) && 
+        if (TryComp(implant.Value, out MetaDataComponent? metadata) && 
             metadata.EntityPrototype?.ID == "USSPUplinkImplant")
         {
             isUSSPImplant = true;
@@ -197,11 +197,11 @@ public abstract class SharedImplanterSystem : EntitySystem
             }
             
             // Check if the target already has a USSP uplink implant
-            if (TryComp<ImplantedComponent>(target, out var implanted) && implanted.ImplantContainer != null)
+            if (TryComp<ImplantedComponent>(target, out var implanted))
             {
                 foreach (var existingImplant in implanted.ImplantContainer.ContainedEntities)
                 {
-                    if (TryComp<MetaDataComponent>(existingImplant, out var existingMetadata) && 
+                    if (TryComp(existingImplant, out MetaDataComponent? existingMetadata) && 
                         existingMetadata.EntityPrototype?.ID == "USSPUplinkImplant")
                     {
                         _popup.PopupEntity(Loc.GetString("Already has an uplink implant."), user, user);

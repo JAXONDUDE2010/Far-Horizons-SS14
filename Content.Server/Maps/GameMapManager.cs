@@ -23,7 +23,6 @@ public sealed class GameMapManager : IGameMapManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IResourceManager _resMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HolidaySystem _holiday = default!;
     [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
 
     [ViewVariables(VVAccess.ReadOnly)]

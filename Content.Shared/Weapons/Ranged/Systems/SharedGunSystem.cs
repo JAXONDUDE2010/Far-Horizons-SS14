@@ -41,7 +41,6 @@ using Content.Shared.Mech.Components; // Startlight-edit
 using Content.Shared._FarHorizons.Vehicles.Components; //FarHorizons
 
 #region Starlight
-using Content.Shared.Mech.Components;
 using Content.Shared.Starlight.Utility;
 using Content.Shared.Weapons.Hitscan.Events;
 #endregion Starlight

@@ -24,6 +24,8 @@ public sealed class NightVisionSystem : EntitySystem
     [ViewVariables]
     private EntityUid? _effect = null;
 
+    private const string NvShader = "ModernNightVisionShader";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +38,7 @@ public sealed class NightVisionSystem : EntitySystem
 
         SubscribeLocalEvent<NightVisionComponent, FlashImmunityCheckEvent>(OnFlashImmunityChanged);
 
-        _overlay = new(_prototypeManager.Index<ShaderPrototype>("ModernNightVisionShader"));
+        _overlay = new(_prototypeManager.Index<ShaderPrototype>(NvShader));
     }
 
     private void OnFlashImmunityChanged(Entity<NightVisionComponent> ent, ref FlashImmunityCheckEvent args)

@@ -54,7 +54,6 @@ namespace Content.Server.Connection
     public sealed partial class ConnectionManager : IConnectionManager
     {
         [Dependency] private readonly IPlayerManager _plyMgr = default!;
-        [Dependency] private readonly IPlayerRolesManager _plyRoles = default!;
         [Dependency] private readonly IServerNetManager _netMgr = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -67,7 +66,6 @@ namespace Content.Server.Connection
         [Dependency] private readonly IHttpClientHolder _http = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IDiscordLinkManager _discordLinkManager = default!;  // Far Horizons
 
         private GameTicker? _ticker;
 

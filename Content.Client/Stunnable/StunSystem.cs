@@ -20,7 +20,6 @@ public sealed class StunSystem : SharedStunSystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     #region Starlight
-    [Dependency] private readonly InputSystem _input = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;

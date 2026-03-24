@@ -28,10 +28,8 @@ public sealed partial class DoorElectronicsConfigurationMenu : DefaultWindow
     private AccessLevelControl _accessButtons = new();
     private ProtoId<AccessGroupPrototype>? _selectedGroup = null;
     private List<ProtoId<AccessGroupPrototype>> _groups = new();
-    private List<ProtoId<AccessLevelPrototype>> _allLevels = new();
     private HashSet<ProtoId<AccessLevelPrototype>> _pressedLevels = new();
     private ButtonGroup _accessGroupButtonGroup = new();
-    public event Action<List<ProtoId<AccessLevelPrototype>>>? OnSubmit;
     public event Action<ProtoId<AccessGroupPrototype>>? OnGroupSelected;
     // Starlight End
 
@@ -54,7 +52,6 @@ public sealed partial class DoorElectronicsConfigurationMenu : DefaultWindow
     public void UpdateState(List<ProtoId<AccessLevelPrototype>> possibleAccessList, List<ProtoId<AccessGroupPrototype>> accessGroups, List<ProtoId<AccessLevelPrototype>>? pressedAccessList = null)
     {
         _groups = accessGroups;
-        _allLevels = possibleAccessList.Distinct().ToList();
         if (_selectedGroup == null || !_groups.Contains(_selectedGroup.Value))
         {
             if (_groups.Count > 0)

@@ -112,8 +112,6 @@ namespace Content.Server.Communications
         private void OnConstructionChangeEntityEvent(EntityUid uid, DepartmentalAnnouncementComponent comp, ref ConstructionChangeEntityEvent args)
         {
             var newUid = args.New;
-            if (newUid == null)
-                return;
 
             if (TryComp<ContainerFillComponent>(newUid, out var ContainerComp))
             {

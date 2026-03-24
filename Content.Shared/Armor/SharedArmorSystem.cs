@@ -9,10 +9,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.Stunnable; // Starlight-edit
 
-#region Starlight
-using Content.Shared.Stunnable;
-#endregion Starlight
-
 namespace Content.Shared.Armor;
 
 /// <summary>
