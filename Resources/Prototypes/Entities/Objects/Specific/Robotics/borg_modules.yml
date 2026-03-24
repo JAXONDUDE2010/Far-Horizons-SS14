@@ -1,7 +1,7 @@
 - type: entity
   id: BaseBorgModule
   parent: BaseItem
-  name: borg module
+  name: Borg Module #Far Horizons
   description: A piece of tech that gives cyborgs new abilities.
   abstract: true
   components:
@@ -476,7 +476,7 @@
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: cable cyborg module
+  name: Cable Cyborg Module #Far Horizons
   description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
   components:
   - type: Sprite
@@ -515,7 +515,7 @@
 - type: entity
   id: BorgModuleArtistry
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: artistry cyborg module
+  name: Artistry Cyborg Module #Far Horizons
   description: A module for arts & crafts whilst the station burns!
   components:
   - type: Sprite
@@ -532,7 +532,7 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: thruster cyborg module
+  name: Thruster Cyborg Module #Far Horizons
   description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
   components:
   - type: Sprite
@@ -551,7 +551,7 @@
 - type: entity
   id: BorgModuleTool
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: tool cyborg module
+  name: Tool Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -572,7 +572,7 @@
 - type: entity
   id: BorgModuleInflatable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: inflatable cyborg module
+  name: Inflatable Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -603,7 +603,7 @@
 - type: entity
   id: BorgModuleAppraisal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: appraisal cyborg module
+  name: Appraisal Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -623,7 +623,7 @@
 - type: entity
   id: BorgModuleMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: mining cyborg module
+  name: Mining Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -648,7 +648,7 @@
 - type: entity
   id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: advanced mining cyborg module
+  name: Advanced Mining Cyborg Module #Far Horizons
   description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
   components:
   - type: Sprite
@@ -674,7 +674,7 @@
 - type: entity
   id: BorgModuleTraversal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: traversal cyborg module
+  name: Traversal Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -693,7 +693,7 @@
 - type: entity
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: advanced tool cyborg module
+  name: Advanced Tool Cyborg Module #Far Horizons
   description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
@@ -722,7 +722,7 @@
 - type: entity
   id: BorgModuleConstruction
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
+  name: Construction Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -805,7 +805,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: engineering cyborg module
+  name: Engineering Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -826,7 +826,7 @@
 - type: entity
   id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: custodial cyborg module
+  name: Custodial Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -850,7 +850,7 @@
 - type: entity
   id: BorgModuleCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: cleaning cyborg module
+  name: Cleaning Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -869,7 +869,7 @@
 - type: entity
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: advanced cleaning cyborg module
+  name: Advanced Cleaning Cyborg Module #Far Horizons
   description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
@@ -898,7 +898,7 @@
 - type: entity
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: diagnosis cyborg module
+  name: Diagnosis Cyborg Module #Far Horizons
   suffix: DO NOT USE
   components:
   - type: Sprite
@@ -915,7 +915,7 @@
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: first aid cyborg module
+  name: First Aid Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -953,7 +953,7 @@
 - type: entity
   id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: rescue cyborg module
+  name: Rescue Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -972,7 +972,7 @@
 - type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: chemical cyborg module
+  name: Chemical Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1022,7 +1022,7 @@
 - type: entity
   id: BorgModuleAdvancedTopical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced first aid cyborg module
+  name: Advanced First Aid Cyborg Module #Far Horizons
   description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
   components:
   - type: Sprite
@@ -1074,7 +1074,7 @@
 - type: entity
   id: BorgModuleArtifact
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: artifact cyborg module
+  name: Artifact Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1100,7 +1100,7 @@
 - type: entity
   id: BorgModuleAnomaly
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: anomaly cyborg module
+  name: Anomaly Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1131,7 +1131,7 @@
 - type: entity
   id: BorgModuleService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
+  name: Service Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1181,7 +1181,7 @@
 - type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: musique cyborg module
+  name: Musique Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1242,7 +1242,7 @@
 - type: entity
   id: BorgModuleHarvesting
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
+  name: Harvesting Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1259,7 +1259,7 @@
 - type: entity
   id: BorgModuleClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: clowning cyborg module
+  name: Clowning Cyborg Module #Far Horizons
   components:
   - type: Sprite
     layers:
@@ -1276,7 +1276,7 @@
 - type: entity
   id: BorgModuleAdvancedClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: advanced clowning cyborg module
+  name: Advanced Clowning Cyborg Module #Far Horizons
   description: Advanced service module for only the silliest cyborgs! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn.
   components:
   - type: Sprite
@@ -1297,7 +1297,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleSyndicateWeapon
-  name: weapon cyborg module
+  name: Weapon Cyborg Module #Far Horizons
   description: a simple weapon module that comes with an Echis and energy dagger. # starlight
   components:
   - type: Sprite
@@ -1334,7 +1334,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleOperative
-  name: operative cyborg module
+  name: Operative Cyborg Module #Far Horizons
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
@@ -1353,7 +1353,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleEsword
-  name: energy sword cyborg module
+  name: Energy Sword Cyborg Module #Far Horizons
   description: A weapons module that comes with an energy sword.
   components:
   - type: Sprite
@@ -1370,7 +1370,7 @@
 - type: entity
   id: BorgModuleDoubleEsword
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: double energy sword cyborg module
+  name: Double Energy Sword Cyborg Module #Far Horizons
   description: A weapons module that comes with a double energy sword.
   components:
   - type: Sprite
@@ -1387,7 +1387,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ] #Starlight L6 printing
   id: BorgModuleL6C
-  name: L6C ROW cyborg module
+  name: L6C ROW Cyborg Module #Far Horizons
   description: A weapons module that comes with an L6 and capacity to hold 2 spare magazines.
   components:
     - type: Sprite
@@ -1397,7 +1397,7 @@
     - type: ItemBorgModule
       hands:
       - item: WeaponLightMachineGunL6C
-      # region starlight - L6C uses ammo
+      # starlight start - L6C uses ammo
       - item: MagazineLightRifleBoxSP
         hand:
           emptyRepresentative: MagazineLightRifleBoxSP
@@ -1412,7 +1412,7 @@
           whitelist:
             tags:
             - MagazineLightRifleBox
-      # end region starlight
+      # starlight end
       - item: PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
@@ -1420,7 +1420,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ] #Starlight c20 printing
   id: BorgModuleC20r
-  name: C-20r ROW cyborg module
+  name: C-20r ROW Cyborg Module #Far Horizons
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite
@@ -1437,7 +1437,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleMartyr
-  name: martyr cyborg module
+  name: Martyr Cyborg Module #Far Horizons
   description: A module that comes with an explosive you probably don't want to handle yourself.
   components:
     - type: Sprite
@@ -1474,7 +1474,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: MothershipModule
-  name: mothership module
+  name: Mothership Module #Far Horizons
   description: A module that helps the mothership borg brains and install other modules.
   components:
   - type: Tag
@@ -1519,7 +1519,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleBasic
-  name: basic xenoborg module
+  name: Basic Xenoborg Module #Far Horizons
   description: Essential items for any Xenoborg.
   components:
   - type: Sprite
@@ -1543,7 +1543,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleTool
-  name: tool xenoborg module
+  name: Tool Xenoborg Module #Far Horizons
   description: Simple tools for most Xenoborgs.
   components:
   - type: Sprite
@@ -1565,7 +1565,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleAccessBreaker
-  name: access breaker xenoborg module
+  name: Access Breaker Xenoborg Module #Far Horizons
   description: Module with a access breaker.
   components:
   - type: Sprite
@@ -1581,7 +1581,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleFireExtinguisher
-  name: fire extinguisher xenoborg module
+  name: Fire Extinguisher Xenoborg Module #Far Horizons
   description: Module with a self-refueling fire extinguisher.
   components:
   - type: Sprite
@@ -1597,7 +1597,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleDoorControl
-  name: door control xenoborg module
+  name: Door Control Xenoborg Module #Far Horizons
   description: Module that allows Xenoborgs to control airlocks.
   components:
   - type: Sprite
@@ -1615,7 +1615,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleJammer
-  name: jammer xenoborg module
+  name: Jammer Xenoborg Module #Far Horizons
   description: Module with a communication jammer.
   components:
   - type: Sprite
@@ -1631,7 +1631,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleLaser
-  name: laser xenoborg module
+  name: Laser Xenoborg Module #Far Horizons
   description: Module with a laser gun.
   components:
   - type: Sprite
@@ -1647,7 +1647,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleHeavyLaser
-  name: laser cannon xenoborg module
+  name: Laser Cannon Xenoborg Module #Far Horizons
   description: Module with a laser cannon.
   components:
   - type: Sprite
@@ -1663,7 +1663,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSpaceMovement
-  name: space movement xenoborg module
+  name: Space Movement Xenoborg Module #Far Horizons
   description: Module that helps a Xenoborg move better in space.
   components:
   - type: Sprite
@@ -1684,7 +1684,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSword
-  name: knife xenoborg module
+  name: Knife Xenoborg Module #Far Horizons
   description: Module with a kukri knife.
   components:
   - type: Sprite
@@ -1701,7 +1701,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleEnergySword
-  name: energy dagger xenoborg module
+  name: Energy Dagger Xenoborg Module #Far Horizons
   description: Module with an energy dagger.
   components:
   - type: Sprite
@@ -1718,7 +1718,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleHypo
-  name: nocturine hypo xenoborg module
+  name: Nocturine Hypo Xenoborg Module #Far Horizons
   description: Module with a self-refilling nocturine hypo.
   components:
   - type: Sprite
@@ -1734,7 +1734,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleChameleonProjector
-  name: chameleon projector xenoborg module
+  name: Chameleon Projector Xenoborg Module #Far Horizons
   description: Module with a chameleon projector.
   components:
   - type: Sprite
@@ -1750,7 +1750,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleCloakDevice
-  name: cloaking device xenoborg module
+  name: Cloaking Device Xenoborg Module #Far Horizons
   description: Module with a device that allows xenoborgs to become semi-invisible for some time.
   components:
   - type: Sprite
@@ -1766,7 +1766,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSuperCloakDevice
-  name: invisibility device xenoborg module
+  name: Invisibility Device Xenoborg Module #Far Horizons
   description: Module with a device that allows xenoborgs to become truly invisible for a short amount of time.
   components:
   - type: Sprite

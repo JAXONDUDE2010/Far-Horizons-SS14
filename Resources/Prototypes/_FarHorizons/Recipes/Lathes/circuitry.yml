@@ -2,3 +2,36 @@
   parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: ResearchTreeMapElectronics
   result: ResearchTreeMapCircuitboard
+
+# Contractor
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: ContractorCircuitBoard
+  result: ContractorCircuitBoard
+  materials:
+    UraniumGlass: 1000
+    Plastic: 500
+    Gold: 1000
+    Silver: 500
+
+# Genus Loci
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: GenusLociCircuitBoard
+  result: GenusLociCircuitBoard
+  materials:
+    UraniumGlass: 1000
+    Plastic: 500
+    Gold: 1000
+    Silver: 500
+
+# Freedomov
+- type: latheRecipe
+  parent: BaseLawboardRecipe
+  id: FreedomovCircuitBoard
+  result: FreedomovCircuitBoard
+  materials:
+    UraniumGlass: 1000
+    Plastic: 500
+    Gold: 1000
+    Silver: 500

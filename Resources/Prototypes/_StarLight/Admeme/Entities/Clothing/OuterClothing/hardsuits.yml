@@ -1,0 +1,59 @@
+#CCNT Consortium BSOs
+- type: entity
+  parent: [BaseCentcommContraband, ClothingOuterHardsuitBlueshield] #FH
+  id: ClothingOuterHardsuitNTNCConsortium
+  name: NanoTrasen marine hardsuit #FH
+  description: A protective hardsuit worn by NanoTrasen marines. #FH
+  components:
+    - type: Sprite
+      sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_hardsuit.rsi
+    - type: Clothing
+      sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_hardsuit.rsi
+      clothingVisuals:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING
+        outerClothing-cyclorite:
+          - state: equipped-OUTERCLOTHING-cyclorite
+        outerClothing-diona:
+          - state: equipped-OUTERCLOTHING-diona
+        outerClothing-moth:
+          - state: equipped-OUTERCLOTHING-moth
+        outerClothing-reptilian:
+          - state: equipped-OUTERCLOTHING-reptilian
+        outerClothing-resomi:
+          - state: equipped-OUTERCLOTHING-resomi
+        outerClothing-vox:
+          - state: equipped-OUTERCLOTHING-vox
+        outerClothing-vulpkanin:
+          - state: equipped-OUTERCLOTHING-vulpkanin
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetHardsuitNTNCConsortium
+    #region FH
+    - type: Tag
+      tags:
+      - Hardsuit
+      - WhitelistChameleon
+      - IPCExternalCooling
+      #endregion FH
+    
+- type: entity
+  parent: [BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic] #sl Change
+  id: ClothingOuterHardsuitNTNCConsortiumMedic
+  name: NanoTrasen marine medic hardsuit #FH
+  description: A protective hardsuit worn by NanoTrasen Marine medical personnel. #FH
+  components:
+    - type: Sprite
+      sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_med_hardsuit.rsi
+    - type: Clothing
+      sprite: _Starlight/Admeme/Clothing/OuterClothing/Hardsuits/ntnc_med_hardsuit.rsi
+      clothingVisuals:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetHardsuitNTNCConsortiumMedic
+    - type: Tag
+      tags:
+      - Hardsuit
+      - WhitelistChameleon
+      - IPCExternalCooling # FH
+        

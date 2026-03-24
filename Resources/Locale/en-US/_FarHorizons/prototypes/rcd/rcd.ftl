@@ -1,0 +1,1 @@
+rcd-component-emptylighting = Lighting Fixtures

@@ -48,6 +48,7 @@
         whitelist:
           tags:
           - Handcuffs
+    - item: RadioHandheldSecurity
     - item: BorgContraDuffel
   - type: BorgModuleIcon
     icon: { sprite: _FarHorizons/Interface/Actions/actions_borg.rsi, state: stunbaton-module } # TODO icon
@@ -65,6 +66,7 @@
   - type: ItemBorgModule
     hands:
     - item: BorgWeaponDominator
+    - item: RadioHandheldSecurity
   - type: BorgModuleIcon
     icon: { sprite: _FarHorizons/Interface/Actions/actions_borg.rsi, state: dominator-module } # TODO icon
 
@@ -81,6 +83,7 @@
   - type: ItemBorgModule
     hands:
     - item: BorgWeaponWeaponLaserCarbine
+    - item: RadioHandheldSecurity
   - type: BorgModuleIcon
     icon: { sprite: _FarHorizons/Interface/Actions/actions_borg.rsi, state: laser-carbine-module } # TODO icon
 
@@ -213,3 +216,47 @@
     - item: CloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
+
+- type: entity
+  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule]
+  id: BorgModuleAdvancedJanitorMisc
+  name: Advanced Misc. Janitorial Cyborg Module
+  description: An advanced janitorial module that attaches some extra useful items for the ever busy cleaning cyborg.
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - {sprite: _FarHorizons/Objects/Specific/Robotics/borgmodule.rsi, state: icon-light-replacer-adv }
+  - type: ItemBorgModule
+    hands:
+    - item: BorgWeaponLauncherHydra
+    - item: JaniBorgRCD
+    - item: LightReplacer
+    - item: BorgTrashBag
+    - item: WireBrushElectrical
+    - item: CleanerGrenade
+      hand:
+        emptyLabel: borg-slot-cleanergrenade-empty
+        emptyRepresentative: CleanerGrenade
+        whitelist:
+          tags:
+          - Cleanade
+  - type: BorgModuleIcon
+    icon: { sprite: _FarHorizons/Interface/Actions/actions_borg.rsi, state: adv-light-replacer-module }
+
+- type: entity
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  id: BorgModulePKA
+  name: Salvage PKA Cyborg Module
+  description: Gemini Stellar Logistics decided it was sometimes more cost efficient to send in a force of cyborgs to clear out problems on missions. PKA module worked great for that.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-rcd #This needs to be replaced with a decent icon at some point. {sprite: _FarHorizons/Objects/Specific/Robotics/borgmodule.rsi, state: icon-light-replacer-adv }
+  - type: ItemBorgModule
+    hands:
+    - item: BorgWeaponPKA
+    - item: RadioHandheldExpedition
+  - type: BorgModuleIcon
+    icon: { sprite: _FarHorizons/Interface/Actions/actions_borg.rsi, state: pka-module }

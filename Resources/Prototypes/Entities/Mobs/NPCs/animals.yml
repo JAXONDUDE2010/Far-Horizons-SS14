@@ -90,6 +90,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
 
 - type: entity
   name: bee
@@ -151,6 +152,7 @@
     tags:
     - Bee
     - Trash
+    - Animal #FH
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -253,6 +255,7 @@
     - DoorBumpOpener
     - Chicken
     - VimPilot
+    - Animal #FH
   - type: Reproductive
     breedChance: 0.05
     birthPopup: reproductive-laid-egg-popup
@@ -444,6 +447,7 @@
     tags:
     - Trash
     - VimPilot
+    - Animal #FH
   - type: Destructible
     thresholds:
     - trigger:
@@ -625,6 +629,7 @@
     - Trash
     - CannotSuicide
     - VimPilot
+    - Animal #FH
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -719,6 +724,7 @@
     - DoorBumpOpener
     - Duck
     - VimPilot
+    - Animal #FH
   - type: Reproductive
     breedChance: 0.05
     birthPopup: reproductive-laid-egg-popup
@@ -879,6 +885,7 @@
   - type: Tag
     tags:
     - Trash
+    - Animal #FH
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -913,6 +920,7 @@
     tags:
     - DoorBumpOpener
     - Cow
+    - Animal #FH
   - type: Reproductive
     partnerWhitelist:
       tags:
@@ -1045,6 +1053,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -1078,6 +1087,7 @@
     - ClothMade
     - DoorBumpOpener
     - Goat
+    - Animal #FH
   - type: Reproductive
     partnerWhitelist:
       tags:
@@ -1253,6 +1263,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - Animal #FH
   - type: GhostRole
     prob: 0.25
     name: ghost-role-information-kangaroo-name
@@ -1414,6 +1425,7 @@
     - VimPilot
     - DoorBumpOpener
     - AnomalyHost
+    - Animal #FH
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -1464,6 +1476,11 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  #FarHorizons Start
+  - type: Vocal
+    sounds:
+      Unsexed: MonkeySounds
+  #FarHorizons End
 
 
 - type: entity
@@ -1555,8 +1572,8 @@
     interactSuccessString: petting-success-monkey
     interactFailureString: petting-failure-monkey
     interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/lizard_happy.ogg
+    interactSuccessSound: #FH
+      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg #FH
     interactFailureSound:
       path: /Audio/Items/wirecutter.ogg
   - type: MobThresholds
@@ -1848,6 +1865,7 @@
     - ChefPilot
     - Mouse
     - Meat
+    - Animal #FH
   - type: Respirator
     damage:
       types:
@@ -2096,7 +2114,7 @@
   - type: Tag
     tags:
     - VimPilot
-
+    - Animal #FH
 
 - type: entity
   name: slug
@@ -2211,6 +2229,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: Destructible
     thresholds:
     - trigger:
@@ -2355,6 +2374,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: NpcFactionMember
     factions:
     - Passive
@@ -2580,6 +2600,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - Animal #FH
   - type: Prying # Open door from xeno.yml.
     pryPowered: true
     force: true
@@ -2700,6 +2721,7 @@
       tags:
       - DoorBumpOpener
       - FootstepSound
+      - Animal #FH
     - type: NpcFactionMember
       factions:
       - HonkHostile
@@ -2780,6 +2802,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: Puller
     needsHands: false
 
@@ -2856,6 +2879,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: Puller
     needsHands: false
 
@@ -2950,6 +2974,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
 
 - type: entity
   abstract: true
@@ -3031,6 +3056,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
 
 - type: entity
   name: corrupted corgi
@@ -3210,6 +3236,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 4
@@ -3319,6 +3346,7 @@
   - type: Tag
     tags:
       - DoorBumpOpener
+      - Animal #FH
   - type: MovementAlwaysTouching
   - type: PressureImmunity
   - type: ProtectedFromStepTriggers
@@ -3442,6 +3470,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
 
 - type: entity
   name: ferret
@@ -3496,6 +3525,7 @@
   - type: Tag
     tags:
     - VimPilot
+    - Animal #FH
   - type: Puller
     needsHands: false
 
@@ -3610,6 +3640,7 @@
     - Trash
     - Hamster
     - Meat
+    - Animal #FH
   - type: Respirator
     damage:
       types:
@@ -3698,6 +3729,7 @@
     - DoorBumpOpener
     - Pig
     - VimPilot
+    - Animal #FH
   - type: Reproductive
     partnerWhitelist:
       tags:
@@ -3750,7 +3782,7 @@
     - Sylvan
   # Starlight-end
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: SmallMobs #FarHorizons
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
@@ -3764,9 +3796,9 @@
           radius: 0.35
         density: 100 # High, because wood is heavy.
         mask:
-        - MobMask
+        - SmallMobMask #FarHorizons
         layer:
-        - MobLayer
+        - SmallMobLayer #FarHorizons
   - type: Inventory
     speciesId: cat
     templateId: pet
@@ -3815,8 +3847,9 @@
       Unsexed: UnisexDiona
   - type: Tag
     tags:
-    - DoorBumpOpener
+    #- DoorBumpOpener FarHorizons
     - VimPilot
+    - Animal #FH
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph
@@ -3825,6 +3858,7 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
+  - type: VentCrawler #FarHorizons
 
 - type: entity
   parent: MobDionaNymph
@@ -4015,6 +4049,7 @@
     - VimPilot
     - CanPilot
     - DoorBumpOpener
+    - Animal #FH
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew

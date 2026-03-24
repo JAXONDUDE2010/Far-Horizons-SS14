@@ -162,7 +162,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Canilunzt
     understands:
@@ -238,7 +237,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - VoxPidgin
     understands:
@@ -361,7 +359,6 @@
   - type: LanguageKnowledge
     speaks:
       - GalacticCommon
-      - Machine
       - Trinary
       - Thaveyan
     understands: 
@@ -461,7 +458,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Bubblish
     understands:
@@ -593,6 +589,35 @@
       - SiliconEmotesFH
       - Protogen
       - SlimePerson
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 6
+    metabolizerTypes: [ Protogen ]
+    stages: [ Digestion, Bloodstream, Metabolites ]
+    solutions:
+      Respiration:
+        solutionName: Lung
+        transferSolutionName: bloodstream
+        metabolizeAll: true
+      Digestion:
+        solutionName: stomach
+        solutionOnBody: false
+        transferSolutionName: bloodstream
+        transferSolutionOnBody: false
+        transferEfficacy: 0.5
+      Bloodstream:
+        solutionName: bloodstream
+        solutionOnBody: false
+        transferSolutionName: metabolites
+        transferSolutionOnBody: false
+      Metabolites:
+        solutionName: metabolites
+        solutionOnBody: false
+  - type: SolutionContainerManager
+    solutions:
+      food: {}
+      stomach:
+        maxVol: 50
   - type: ReattacheableLimbs 
 
 #region SHADEKIN ####
@@ -608,7 +633,6 @@
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon
-      - Machine
       - Trinary
       - Marish
       understands:
@@ -840,7 +864,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Scratch
     understands:
@@ -1072,7 +1095,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Draconic
     understands:
@@ -1168,7 +1190,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Moffic
     understands:
@@ -1310,7 +1331,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - SolCommon
     understands:
@@ -1374,7 +1394,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Nekomimetic
     understands:
@@ -1512,7 +1531,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - SolCommon
     understands:
@@ -1584,7 +1602,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Sylvan
     understands:
@@ -1712,7 +1729,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Terrum
     understands:
@@ -1857,7 +1873,6 @@
     - type: LanguageKnowledge
       speaks:
       - GalacticCommon
-      - Machine
       - Trinary
       - Scratch
       understands:
@@ -2003,7 +2018,6 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-    - Machine
     - Trinary
     - Chittin
     understands:

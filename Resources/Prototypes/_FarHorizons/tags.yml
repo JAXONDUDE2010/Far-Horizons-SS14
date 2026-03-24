@@ -1,6 +1,8 @@
 # ALPHABETIZE
 
-
+- type: Tag
+  id: Animal 
+  
 - type: Tag
   id: AnomalyLocator
 
@@ -27,6 +29,12 @@
 
 - type: Tag
   id: CartridgeRevolver38
+
+- type: Tag
+  id: ChemBag
+
+- type: Tag
+  id: Cleanade
 
 - type: Tag
   id: ClowncarKeys

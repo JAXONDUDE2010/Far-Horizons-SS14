@@ -200,10 +200,10 @@
 # Lighting
 - type: rcd
   id: TubeLight
-  category: Lighting
-  sprite: /Textures/Interface/Radial/RCD/tube_light.png
+  category: EmptyLighting #Far Horizons
+  sprite: /Textures/_FarHorizons/Interface/Radial/RCD/empty_tube_light.png #Far Horizons
   mode: ConstructObject
-  prototype: Poweredlight
+  prototype: PoweredlightEmpty #Far Horizons - RCD has had it good for too long. You'll have to work with a Janitor to get new lights.
   cost: 2
   delay: 1
   collisionMask: TabletopMachineMask
@@ -214,10 +214,10 @@
 
 - type: rcd
   id: BulbLight
-  category: Lighting
-  sprite: /Textures/Interface/Radial/RCD/bulb_light.png
+  category: EmptyLighting #Far Horizons
+  sprite: /Textures/_FarHorizons/Interface/Radial/RCD/empty_bulb_light.png #Far Horizons
   mode: ConstructObject
-  prototype: PoweredSmallLight
+  prototype: PoweredSmallLightEmpty #Far Horizons - RCD has had it good for too long. You'll have to work with a Janitor to get new lights.
   cost: 2
   delay: 1
   collisionMask: TabletopMachineMask
