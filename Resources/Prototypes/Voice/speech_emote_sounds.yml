@@ -775,6 +775,12 @@
         volume: -6
     Salute:
       collection: Salutes
+    Flap: # Far Horizons - add flap sounds for protogens
+      path: /Audio/_Starlight/Voice/Moth/moth_flapwings.ogg
+    Thump: # Far Horizons - add thump sounds for protogens
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
 
 - type: emoteSounds
   id: DionaBodyEmotes

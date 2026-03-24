@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  name: mop
+  name: Mop #Far Horizons
   id: MopItem
   description: A mop that can't be stopped, viscera cleanup detail awaits.
   components:
@@ -59,7 +59,7 @@
 
 - type: entity
   parent: MopItem
-  name: advanced mop
+  name: Advanced Mop #Far Horizons
   id: AdvMopItem
   description: Motorized mop that has a bigger reservoir and quickly replaces reagents inside with water. Automatic Clown Countermeasure not included.
   components:
@@ -93,7 +93,7 @@
         - MopAdv
 
 - type: entity
-  name: wet floor sign
+  name: Wet Floor Sign #Far Horizons
   id: WetFloorSign
   parent: ClothingOuterBase
   description: Caution! Wet Floor!
@@ -180,7 +180,7 @@
     - WetFloorSign
 
 - type: entity
-  name: plunger
+  name: Plunger #Far Horizons
   id: Plunger
   parent: BaseItem
   description: A plunger with a red plastic suction-cup and a wooden handle. Used to unclog drains.
@@ -245,7 +245,7 @@
       Wood: 100
 
 - type: entity
-  name: golden plunger
+  name: Golden Plunger #Far Horizons
   id: GoldenPlunger
   parent: Plunger
   description: A plunger with a plastic suction cup coated in a thin layer of gold given as a token of appreciation for years of service. Still used to unclog drains.
@@ -290,7 +290,7 @@
 
 - type: entity
   parent: BaseItem
-  name: damp rag
+  name: Damp Rag #Far Horizons
   id: RagItem
   description: For cleaning up messes, you suppose.
   components:
@@ -341,7 +341,7 @@
 - type: entity
   parent: BaseItem
   id: WireBrush
-  name: wire brush
+  name: Wire Brush #Far Horizons
   description: A bristly steel wire brush, perfect for scraping away even the toughest patches of rust.
   components:
   - type: Sprite
@@ -377,7 +377,7 @@
 - type: entity
   parent: WireBrush
   id: WireBrushElectrical
-  name: electrical wire brush
+  name: Electrical Wire Brush #Far Horizons
   description: A bristly steel wire brush with a moving head, allowing for a way easier time cleaning.
   components:
   - type: Tool

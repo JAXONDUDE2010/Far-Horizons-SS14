@@ -1,1 +1,3 @@
-borg-slot-handcuffs-empty = handcuffs
+borg-slot-handcuffs-empty = Handcuffs
+
+borg-slot-cleanergrenade-empty = Cleannade

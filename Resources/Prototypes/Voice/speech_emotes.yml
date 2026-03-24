@@ -490,8 +490,8 @@
     components:
     - Hands
   blacklist:
-    tags:
-    - SiliconEmotes
+    components:
+      - BorgChassis # Far Horizons - allow protogens to use it
   chatMessages: ["chat-emote-msg-flap"]
   chatTriggers:
    - flap

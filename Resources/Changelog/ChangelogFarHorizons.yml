@@ -9577,5 +9577,477 @@ Entries:
   id: 98102
   time: '2026-03-22T01:11:46.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/981
+- author: Karus Kardin
+  changes:
+  - message: Added Contractor Lawset (zurkon)
+    type: Add
+  id: 98900
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Genus Loci Lawset (Ray)
+    type: Add
+  id: 98901
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Cave Borg Lawset (zurkon)
+    type: Add
+  id: 98902
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Devil's Advocate Lawset (thetoast9812)
+    type: Add
+  id: 98903
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Freedomov Lawset (badassfreeman)
+    type: Add
+  id: 98904
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Trickster Lawset (badassfreeman)
+    type: Add
+  id: 98905
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: Karus Kardin
+  changes:
+  - message: Added Ouroboros Lawset (karuskardin)
+    type: Add
+  id: 98906
+  time: '2026-03-22T08:16:48.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/989
+- author: CorruptOmega
+  changes:
+  - message: Added Advanced Misc Janitor Cyborg Module, researchable in game. Includes
+      some real nice stuff.
+    type: Add
+  id: 99500
+  time: '2026-03-22T16:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: CorruptOmega
+  changes:
+  - message: Added Mining/Salvage PKA Cyborg Module, round start
+    type: Add
+  id: 99501
+  time: '2026-03-22T16:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: CorruptOmega
+  changes:
+  - message: Engineering RCD no longer creates fixtures and light bulbs, only fixtures.
+      You've had it good for too long, work together with the Janitors already.
+    type: Tweak
+  id: 99502
+  time: '2026-03-22T16:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: CorruptOmega
+  changes:
+  - message: Added Janitor RCD which can create Light Tubes and Light Bulbs, researchable
+      in game
+    type: Add
+  id: 99503
+  time: '2026-03-22T16:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: CorruptOmega
+  changes:
+  - message: SecBorg modules now come with a security radio included.
+    type: Add
+  id: 99504
+  time: '2026-03-22T16:42:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/995
+- author: Athena
+  changes:
+  - message: Fixes the brain transfer system for real this time.
+    type: Fix
+  id: 99700
+  time: '2026-03-22T18:10:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/997
+- author: Athena
+  changes:
+  - message: Diona missing some organs.
+    type: Fix
+  id: 99701
+  time: '2026-03-22T18:10:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/997
+- author: jhrushbe
+  changes:
+  - message: Added the Gunnery Console.
+    type: Add
+  id: 97200
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Added ammunition distributors.
+    type: Add
+  id: 97201
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Grenade projectiles will be shown on supporting mass scanners. Currently
+      limited to the Gunnery Console.
+    type: Tweak
+  id: 97202
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where distances in the mass scanner would be wildly incorrect.
+    type: Fix
+  id: 97203
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: Fasuh
+  changes:
+  - message: Fixed the common radio not requiring you to whisper on avali and resomi.
+    type: Fix
+  id: 98700
+  time: '2026-03-23T17:41:39.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/987
+- author: Terkala, jhrushbe
+  changes:
+  - message: Reactor code has been optimized to not use as many server resources.
+    type: Tweak
+  id: 100000
+  time: '2026-03-23T18:10:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1000
+- author: R3v3l4t1on
+  changes:
+  - message: Protogen can no longer speak Machine. They can still understand it though
+    type: Remove
+  id: 100600
+  time: '2026-03-23T20:25:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1006
+- author: lightening_orb
+  changes:
+  - message: 'Manor: Removed Singularity/Tesla Settup and replaced it with the reactor'
+    type: Tweak
+  id: 100800
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: 'Manor: Added engineering storage to Manor, Mass Materials, Shuttle Parts,
+      Tesla/Singlu Stuff'
+    type: Tweak
+  id: 100801
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: Manors Really stupid 4 SMES bank to 1 substation
+    type: Remove
+  id: 100802
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: Revelations Sanity
+    type: Fix
+  id: 100803
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: My Sanity
+    type: Remove
+  id: 100804
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: R3v3l4t1on
+  changes:
+  - message: Removed reference to a non-existing felinoid helmet.
+    type: Remove
+  id: 99800
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
+- author: R3v3l4t1on
+  changes:
+  - message: Typo causing vulps to not get a proper helmet.
+    type: Fix
+  id: 99801
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
+- author: R3v3l4t1on
+  changes:
+  - message: All species should now be able to wear the navy's hardsuits without getting
+      error sprites.
+    type: Fix
+  id: 99802
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
+- author: Roro, Abby
+  changes:
+  - message: Added resprites for ChemMaster, Chem dispenser, Reagent Grinder and Centrifuge.
+    type: Add
+  id: 101000
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: Roro, Abby
+  changes:
+  - message: The Chemistry bag now has more utility.
+    type: Tweak
+  id: 101001
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: Roro, Abby
+  changes:
+  - message: Chemistry bag now accepts Jugs and Hand labelers.
+    type: Tweak
+  id: 101002
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: Roro, Abby
+  changes:
+  - message: The Chemistry bag is now rigging, has a bit more storage (from 5x4 to
+      6x4 to account for more whitelisted items) and is fully explosive resistant
+      (no more losing your beakers to a microexplosion).
+    type: Tweak
+  id: 101003
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: Roro, Abby
+  changes:
+  - message: Since the Chem bag is now rigging, Chemists now start with a filled medical
+      belt in their belt slot.
+    type: Tweak
+  id: 101004
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: Roro, Abby
+  changes:
+  - message: Reagent grinder, Centrifuge and Electrolysis machines no longer have
+      infinite power and no longer work when theres no power.
+    type: Fix
+  id: 101005
+  time: '2026-03-24T13:37:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Added Airfryers to Cog, and Omega
+    type: Add
+  id: 101400
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave monkey Vocal component and some screaming noises from the files.
+    type: Add
+  id: 101401
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave Kobolds Lizard_purr.ogg upon successful petting.
+    type: Add
+  id: 101402
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: 'Reverted #41860 "Removed most unknown shuttle events".'
+    type: Remove
+  id: 101403
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed the issue with the ghost liquid on the jug of corn oil.
+    type: Fix
+  id: 101404
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Criminal records search now works proplerly again
+    type: Fix
+  id: 101405
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Custom species names no longer crash the Station Records interface for
+      Station AIs and admins.
+    type: Fix
+  id: 101406
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixes scurret hands issue by giving them actual hands in their body.
+    type: Fix
+  id: 101407
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed Diona not being able to get enough robust harvest in your system
+      to trigger tree form.
+    type: Fix
+  id: 101408
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed strippeable UI for animals.
+    type: Fix
+  id: 101409
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave the Station AI access to SMES, Substations, and Lathes. AI already
+      gets access to APCs, being able to directly look at SMES and Substations to
+      help diagnose power issues is in line with their current accesses, and the lack
+      of it seems like an oversight when UI was added for these machines. Lathes are
+      also just fun, to see what's unlocked more directly and check department material
+      counts.
+    type: Tweak
+  id: 101410
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Allow custom species to be named after non roundstart species become
+      abductors, kobolds or a gingerbread man.
+    type: Tweak
+  id: 101411
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: Killer Tamashi
+  changes:
+  - message: Battery Acid (Replaces Tazinide in boards)
+    type: Add
+  id: 100100
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Made all kinds of Machine/Computer/Ect boards to be grindable for 15u
+      Battery Acid / 10u Iron / 50u Silicon / 10u Gold
+    type: Tweak
+  id: 100101
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Gave more trait points for Languages [3] -> [5]
+    type: Tweak
+  id: 100102
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Changed Tourniquet damage from [15 brute/5 asphyx] -> [5 blunt]
+    type: Tweak
+  id: 100103
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Changed Vitamin/Protein to heal 100% of the time instead of 50%
+    type: Tweak
+  id: 100104
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Changed Handheld Taser to use.. well, Taser noises.
+    type: Tweak
+  id: 100105
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Buffed the shit out of the Handheld Taser, it now stuns in 7 hits instead
+      of 40, but only swings at 1.5x speed instead of 6x. (Still slower than a Baton
+      to stamcrit, but now not glacially slow)
+    type: Tweak
+  id: 100106
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Changed Handheld Taser Damage-To-Crit from [28] -> [18]
+    type: Tweak
+  id: 100107
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Changed Shots To Stun on Rubber Bullets to be exactly half a weapon's
+      magazine (Took too many bullets previously and ended up making them near-useless
+      when you account for movement/hiding behind things)
+    type: Tweak
+  id: 100108
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: .44 [4] -> [3]
+    type: Tweak
+  id: 100109
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: .38 [6] -> [4]
+    type: Tweak
+  id: 100110
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: .35 [8] -> [5]
+    type: Tweak
+  id: 100111
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Organs not being tagged as Meat, preventing Avali from eating them
+    type: Fix
+  id: 100112
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Fixed ProtoMoth unable to actually become "full" from cloth-made items
+    type: Fix
+  id: 100113
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Ling Blood being called Ling Blood (It's now just "Blood" again)
+    type: Fix
+  id: 100114
+  time: '2026-03-24T19:17:19.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1001
+- author: R3v3l4t1on
+  changes:
+  - message: All borg subtypes get basic tools once again. Cause we love our borgs.
+      Unlike Wizden.
+    type: Add
+  id: 101300
+  time: '2026-03-24T19:24:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1013
+- author: princess_gurchi
+  changes:
+  - message: wizden stable pull
+    type: Add
+  id: 99300
+  time: '2026-03-24T19:56:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/993
 Order: -1
 

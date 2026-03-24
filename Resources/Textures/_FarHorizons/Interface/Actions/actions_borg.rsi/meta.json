@@ -15,6 +15,12 @@
         },
         {
             "name": "laser-carbine-module"
+        },
+        {
+            "name": "adv-light-replacer-module"
+        },
+        {
+            "name": "pka-module"
         }
     ]
 }

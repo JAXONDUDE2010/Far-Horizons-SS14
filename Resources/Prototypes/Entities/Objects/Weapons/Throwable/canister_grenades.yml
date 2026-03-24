@@ -1,7 +1,7 @@
 - type: entity
   parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
-  name: smoke grenade
+  name: Smoke Grenade #Far Horizons
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
   - type: Sprite
@@ -26,7 +26,7 @@
 - type: entity
   parent: [ BaseCivilianContraband, SmokeGrenade ]
   id: CleanerGrenade
-  name: cleanade
+  name: Cleanade #Far Horizons
   description: Special grenade for janitors, releasing large cloud of space cleaner foam.
   components:
   - type: Sprite
@@ -41,11 +41,14 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Tag #Far Horizons
+    tags:
+    - Cleanade
 
 - type: entity
   parent: SmokeGrenade
   id: TearGasGrenade
-  name: tear gas grenade
+  name: Tear Gas Grenade #Far Horizons
   description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
   components:
   - type: Sprite
@@ -64,7 +67,7 @@
 - type: entity
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
   id: MetalFoamGrenade
-  name: metal foam grenade
+  name: Metal Foam Grenade #Far Horizons
   description: An emergency tool used for patching hull breaches with special quick-set metal foam. Almost as good as real floors!
   components:
   - type: Sprite
@@ -83,7 +86,7 @@
 - type: entity
   parent: [ BaseEngineeringContraband, VolatileGrenadeBase, TimerGrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
   id: AirGrenade
-  name: air grenade
+  name: Air Grenade #Far Horizons
   description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
   components:
   - type: Sprite

@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: JanitorRCD
+  result: JanitorRCD
+  completetime: 2
+  materials:
+    Plastic: 300
+    Steel: 50
+    Glass: 200
