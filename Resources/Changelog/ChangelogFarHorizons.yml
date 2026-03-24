@@ -9832,5 +9832,97 @@ Entries:
   id: 101005
   time: '2026-03-24T13:37:37.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1010
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Added Airfryers to Cog, and Omega
+    type: Add
+  id: 101400
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave monkey Vocal component and some screaming noises from the files.
+    type: Add
+  id: 101401
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave Kobolds Lizard_purr.ogg upon successful petting.
+    type: Add
+  id: 101402
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: 'Reverted #41860 "Removed most unknown shuttle events".'
+    type: Remove
+  id: 101403
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed the issue with the ghost liquid on the jug of corn oil.
+    type: Fix
+  id: 101404
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Criminal records search now works proplerly again
+    type: Fix
+  id: 101405
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Custom species names no longer crash the Station Records interface for
+      Station AIs and admins.
+    type: Fix
+  id: 101406
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixes scurret hands issue by giving them actual hands in their body.
+    type: Fix
+  id: 101407
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed Diona not being able to get enough robust harvest in your system
+      to trigger tree form.
+    type: Fix
+  id: 101408
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Fixed strippeable UI for animals.
+    type: Fix
+  id: 101409
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Gave the Station AI access to SMES, Substations, and Lathes. AI already
+      gets access to APCs, being able to directly look at SMES and Substations to
+      help diagnose power issues is in line with their current accesses, and the lack
+      of it seems like an oversight when UI was added for these machines. Lathes are
+      also just fun, to see what's unlocked more directly and check department material
+      counts.
+    type: Tweak
+  id: 101410
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
+- author: AthenaAI, ork, redmushie, Conflee
+  changes:
+  - message: Allow custom species to be named after non roundstart species become
+      abductors, kobolds or a gingerbread man.
+    type: Tweak
+  id: 101411
+  time: '2026-03-24T18:29:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1002
 Order: -1
 
