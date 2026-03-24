@@ -9678,5 +9678,113 @@ Entries:
   id: 99701
   time: '2026-03-22T18:10:27.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/997
+- author: jhrushbe
+  changes:
+  - message: Added the Gunnery Console.
+    type: Add
+  id: 97200
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Added ammunition distributors.
+    type: Add
+  id: 97201
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Grenade projectiles will be shown on supporting mass scanners. Currently
+      limited to the Gunnery Console.
+    type: Tweak
+  id: 97202
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: jhrushbe
+  changes:
+  - message: Fixed a bug where distances in the mass scanner would be wildly incorrect.
+    type: Fix
+  id: 97203
+  time: '2026-03-23T17:39:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/972
+- author: Fasuh
+  changes:
+  - message: Fixed the common radio not requiring you to whisper on avali and resomi.
+    type: Fix
+  id: 98700
+  time: '2026-03-23T17:41:39.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/987
+- author: Terkala, jhrushbe
+  changes:
+  - message: Reactor code has been optimized to not use as many server resources.
+    type: Tweak
+  id: 100000
+  time: '2026-03-23T18:10:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1000
+- author: R3v3l4t1on
+  changes:
+  - message: Protogen can no longer speak Machine. They can still understand it though
+    type: Remove
+  id: 100600
+  time: '2026-03-23T20:25:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1006
+- author: lightening_orb
+  changes:
+  - message: 'Manor: Removed Singularity/Tesla Settup and replaced it with the reactor'
+    type: Tweak
+  id: 100800
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: 'Manor: Added engineering storage to Manor, Mass Materials, Shuttle Parts,
+      Tesla/Singlu Stuff'
+    type: Tweak
+  id: 100801
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: Manors Really stupid 4 SMES bank to 1 substation
+    type: Remove
+  id: 100802
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: Revelations Sanity
+    type: Fix
+  id: 100803
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: lightening_orb
+  changes:
+  - message: My Sanity
+    type: Remove
+  id: 100804
+  time: '2026-03-23T21:10:06.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1008
+- author: R3v3l4t1on
+  changes:
+  - message: Removed reference to a non-existing felinoid helmet.
+    type: Remove
+  id: 99800
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
+- author: R3v3l4t1on
+  changes:
+  - message: Typo causing vulps to not get a proper helmet.
+    type: Fix
+  id: 99801
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
+- author: R3v3l4t1on
+  changes:
+  - message: All species should now be able to wear the navy's hardsuits without getting
+      error sprites.
+    type: Fix
+  id: 99802
+  time: '2026-03-24T02:36:34.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/998
 Order: -1
 
