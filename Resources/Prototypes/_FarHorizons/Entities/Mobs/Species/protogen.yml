@@ -225,6 +225,11 @@
       - Protogen
       - Vulpkanin
   - type: VisionOrganRequiredForVision
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SulfurBlood
+        Quantity: 300
 
 #region VOX ####
 
