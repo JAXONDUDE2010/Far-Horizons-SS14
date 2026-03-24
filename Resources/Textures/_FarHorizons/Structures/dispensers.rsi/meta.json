@@ -20,6 +20,9 @@
       "name": "industrial_loaded"
     },
     {
+      "name": "broken"
+    },
+    {
       "name": "industrial-working",
       "delays": [
         [
