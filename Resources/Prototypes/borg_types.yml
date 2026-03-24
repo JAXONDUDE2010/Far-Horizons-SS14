@@ -126,6 +126,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # Far Horizons - we love our cyborgs actually
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -158,6 +159,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # Far Horizons - we love our cyborgs actually
   - BorgModuleChemical
   - BorgModuleTopicals
 
@@ -210,6 +212,7 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool # Far Horizons - we love our cyborgs actually
   - BorgModuleMusique
   # Starlight start 
   - BorgModuleBartending
