@@ -123,7 +123,10 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     {
         var perTickAdvance = Math.Clamp(disease.StageProb, 0f, 1f);
         var maxStage = Math.Max(1, disease.Stages.Count);
-        if (SharedRandomExtensions.PredictedProb(_timing, perTickAdvance, GetNetEntity(ent)))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine([(int)_timing.CurTick.Value, GetNetEntity(ent).Id, 1, currentStage]);
+        var rand = new System.Random(seed);
+        if (rand.Prob(perTickAdvance))
             return Math.Min(currentStage + 1, maxStage);
 
         return currentStage;
@@ -154,7 +157,10 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
                 continue;
 
             var prob = entry.Probability >= 0f ? entry.Probability : symptom.Probability;
-            if (!SharedRandomExtensions.PredictedProb(_timing, prob, GetNetEntity(ent)))
+            // TODO: Replace with RandomPredicted once the engine PR is merged
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, 3, stage, i);
+            var rand = new System.Random(seed);
+            if (!rand.Prob(prob))
                 continue;
 
             _symptoms.TriggerSymptom(ent, disease, symptom);
@@ -272,13 +278,19 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         if (!CanBeInfected(uid, diseaseId))
             return false;
 
-        if (!SharedRandomExtensions.PredictedProb(_timing, probability, GetNetEntity(uid)))
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var seed = SharedRandomExtensions.HashCodeCombine([(int)_timing.CurTick.Value, uid.GetHashCode(), 0]);
+        var rand = new System.Random(seed);
+        if (!rand.Prob(probability))
             return false;
 
         if (TryComp<DiseaseCarrierComponent>(uid, out var carrier) && carrier.Immunity.TryGetValue(diseaseId, out var immunityStrength))
         {
             // Roll against immunity strength.
-            if (!SharedRandomExtensions.PredictedProb(_timing, immunityStrength, GetNetEntity(uid)))
+            // TODO: Replace with RandomPredicted once the engine PR is merged
+            var seedImmunity = SharedRandomExtensions.HashCodeCombine([(int)_timing.CurTick.Value, uid.GetHashCode(), 1]);
+            var randImmunity = new System.Random(seedImmunity);
+            if (!randImmunity.Prob(immunityStrength))
                 return false;
         }
 
