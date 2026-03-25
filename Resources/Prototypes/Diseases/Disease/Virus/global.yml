@@ -21,9 +21,7 @@
     stealth: [ Hidden, VeryHidden ]
   - stage: 2
     stealth: [ Hidden ]
-    sensations:
-    - messages: [ "disease-sensation-throat-sore", "disease-sensation-throat-mucus" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-throat-sore", "disease-sensation-throat-mucus" ]
     symptoms:
     - symptom: SymptomCough
     - symptom: SymptomSneeze
@@ -32,9 +30,7 @@
       bedrestChance: 0.10
       sleepMultiplier: 4
   - stage: 3
-    sensations:
-    - messages: [ "disease-sensation-throat-sore", "disease-sensation-throat-mucus" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-throat-sore", "disease-sensation-throat-mucus" ]
     symptoms:
     - symptom: SymptomCough
     - symptom: SymptomSneeze
@@ -65,9 +61,7 @@
     stealth: [ Hidden, VeryHidden ]
   - stage: 2
     stealth: [ Hidden ]
-    sensations:
-    - messages: [ "disease-sensation-throat-sore", "disease-sensation-stiff" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-throat-sore", "disease-sensation-stiff" ]
     symptoms:
     - symptom: SymptomCough
       probability: 0.02
@@ -76,9 +70,7 @@
     - symptom: SymptomFreezeLight
   - stage: 3
     stealth: [ Hidden ]
-    sensations:
-    - messages: [ "disease-sensation-throat-sore", "disease-sensation-stiff" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-throat-sore", "disease-sensation-stiff" ]
     symptoms:
     - symptom: SymptomCough
       probability: 0.04
@@ -106,9 +98,7 @@
   - stage: 1
     stealth: [ Hidden ]
   - stage: 2
-    sensations:
-    - messages: [ "disease-sensation-muscles-ache", "disease-sensation-stomach-hurt" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-muscles-ache", "disease-sensation-stomach-hurt" ]
     symptoms:
     - symptom: SymptomCough
     - symptom: SymptomSneeze
@@ -119,9 +109,7 @@
       sleepMultiplier: 1
       lowerStage: true
   - stage: 3
-    sensations:
-    - messages: [ "disease-sensation-muscles-ache", "disease-sensation-stomach-hurt" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-muscles-ache", "disease-sensation-stomach-hurt" ]
     symptoms:
     - symptom: SymptomCough
     - symptom: SymptomSneeze

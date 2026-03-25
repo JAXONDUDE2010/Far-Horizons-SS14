@@ -9,20 +9,14 @@
     requiredTicks: 300
   stages:
   - stage: 1
-    sensations:
-    - messages: [ "disease-sensation-queasy", "disease-sensation-stomach-weird" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-queasy", "disease-sensation-stomach-weird" ]
   - stage: 2
-    sensations:
-    - messages: [ "disease-sensation-stomach-ache", "disease-sensation-nausea" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-stomach-ache", "disease-sensation-nausea" ]
     symptoms:
     - symptom: SymptomEmoteGroan
       probability: 0.1
   - stage: 3
-    sensations:
-    - messages: [ "disease-sensation-stomach-hurt", "disease-sensation-sick" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-stomach-hurt", "disease-sensation-sick" ]
     symptoms:
     - symptom: SymptomVomiting
     - symptom: SymptomEmoteGroan
@@ -45,13 +39,9 @@
       min: 1
   stages:
   - stage: 1
-    sensations:
-    - messages: [ "disease-sensation-sleepy" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-sleepy" ]
   - stage: 2
-    sensations:
-    - messages: [ "disease-sensation-sleepy-2", "disease-sensation-sleepy-3" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-sleepy-2", "disease-sensation-sleepy-3" ]
     symptoms:
     - symptom: SymptomNarcolepsy
 
@@ -72,17 +62,13 @@
   - stage: 1
     # no-op
   - stage: 2
-    sensations:
-    - messages: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
   - stage: 3
     cureSteps:
       - !type:CureWait
         requiredTicks: 200
         cureChance: 0.5
-    sensations:
-    - messages: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
-      probability: 0.05
+    sensations: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
     symptoms:
     - symptom: SymptomMonkeyShout
     - symptom: SymptomGeneticDamage

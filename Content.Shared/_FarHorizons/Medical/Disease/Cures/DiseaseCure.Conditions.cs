@@ -4,10 +4,11 @@ using Content.Shared.EntityConditions;
 using Content.Shared.Metabolism;
 using Content.Shared.Medical.Disease.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
-[DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class CureConditions : CureStep
 {
     /// <summary>
@@ -19,15 +20,16 @@ public sealed partial class CureConditions : CureStep
 
 public sealed partial class CureConditions
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly MetabolizerSystem _metabolism = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-
     /// <summary>
     /// Cure step that succeeds once its configured carrier conditions pass.
     /// </summary>
     public override bool OnCure(EntityUid uid, DiseasePrototype disease)
     {
+        var _entityManager = IoCManager.Resolve<IEntityManager>();
+        var _entitySysManager = IoCManager.Resolve<IEntitySystemManager>();
+        var _metabolism = _entitySysManager.GetEntitySystem<MetabolizerSystem>();
+        var _solutions = _entitySysManager.GetEntitySystem<SharedSolutionContainerSystem>();
+        
         if (!_entityManager.TryGetComponent(uid, out BloodstreamComponent? bloodstream))
             return false;
 

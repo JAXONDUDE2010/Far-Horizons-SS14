@@ -2,10 +2,11 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Medical.Disease.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
-[DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class CureWait : CureStep
 {
     /// <summary>
@@ -17,14 +18,15 @@ public sealed partial class CureWait : CureStep
 
 public sealed partial class CureWait
 {
-    [Dependency] private readonly SharedDiseaseCureSystem _cureSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-
     /// <summary>
     /// Cures the disease after the infection has lasted a configured duration.
     /// </summary>
     public override bool OnCure(EntityUid uid, DiseasePrototype disease)
     {
+        var _entitySysManager = IoCManager.Resolve<IEntitySystemManager>();
+        var _cureSystem = _entitySysManager.GetEntitySystem<SharedDiseaseCureSystem>();
+        var _random = IoCManager.Resolve<IRobustRandom>();
+
         if (RequiredTicks <= 0f)
             return false;
 

@@ -6,7 +6,6 @@ using Content.Shared.Medical.Disease.Components;
 using Content.Shared.Medical.Disease.Cures;
 using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Medical.Disease.Symptoms;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.EntityEffects;
@@ -14,6 +13,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Popups;
 
 namespace Content.Shared.Medical.Disease.Systems;
 
@@ -30,6 +30,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedInternalsSystem _internals = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     /// <inheritdoc/>
     /// <summary>
@@ -139,9 +140,16 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
             return;
 
         // Apply the <see cref="PopupMessageEntityEffectSystem"/> effect to show the popup.
-        foreach (var entry in stageCfg.Sensations)
+        for (var i = 0; i < stageCfg.Sensations.Count; i++)
         {
-            _effects.TryApplyEffect(ent.Owner, entry);
+            var prob = 0.05f;
+            // TODO: Replace with RandomPredicted once the engine PR is merged
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, 3, stage, i);
+            var rand = new System.Random(seed);
+            if (!rand.Prob(prob))
+                continue;
+
+            _popup.PopupClient(Loc.GetString(stageCfg.Sensations[i]), ent.Owner);
         }
 
         // Symptoms are a list of detailed entries (symptom + optional probability override).

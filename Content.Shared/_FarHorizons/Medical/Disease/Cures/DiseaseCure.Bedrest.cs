@@ -5,10 +5,11 @@ using Content.Shared.Stunnable;
 using Content.Shared.Medical.Disease.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
-[DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class CureBedrest : CureStep
 {
     /// <summary>
@@ -26,15 +27,15 @@ public sealed partial class CureBedrest : CureStep
 
 public sealed partial class CureBedrest
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-
     /// <summary>
     /// Rolls a cure chance each tick while buckled to a healing bed.
     /// Sleeping multiplies the cure chance.
     /// </summary>
     public override bool OnCure(EntityUid uid, DiseasePrototype disease)
     {
+        var _entityManager = IoCManager.Resolve<IEntityManager>();
+        var _random = IoCManager.Resolve<IRobustRandom>();
+
         var onBed = false;
         if (_entityManager.TryGetComponent(uid, out BuckleComponent? buckle) && buckle.BuckledTo is { } strappedTo)
             onBed = _entityManager.HasComponent<HealOnBuckleComponent>(strappedTo);

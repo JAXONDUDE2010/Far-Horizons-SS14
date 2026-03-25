@@ -1,6 +1,7 @@
 using Content.Shared.StatusIcon;
 using Content.Shared.EntityEffects.Effects.Transform;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Prototypes;
 
@@ -108,6 +109,7 @@ public sealed partial class DiseasePrototype : IPrototype
 /// Per-stage configuration for a disease.
 /// </summary>
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class DiseaseStage
 {
     /// <summary>
@@ -134,7 +136,7 @@ public sealed partial class DiseaseStage
     /// Optional list of loc message keys to show as "sensations" to the carrier while at this stage.
     /// </summary>
     [DataField]
-    public PopupMessage[] Sensations { get; private set; } = [];
+    public List<string> Sensations { get; private set; } = [];
 
     /// <summary>
     /// Optional list of cure steps specific to this stage. Overrides disease-level <see cref="CureSteps"/> for this stage.
@@ -144,6 +146,7 @@ public sealed partial class DiseaseStage
 }
 
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class SymptomEntry
 {
     /// <summary>

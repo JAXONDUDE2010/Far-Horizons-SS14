@@ -1,10 +1,12 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Prototypes;
 
 /// <summary>
 /// Base class for cure step variants.
 /// </summary>
+[ImplicitDataDefinitionForInheritors, Serializable, NetSerializable]
 public abstract partial class CureStep
 {
     /// <summary>

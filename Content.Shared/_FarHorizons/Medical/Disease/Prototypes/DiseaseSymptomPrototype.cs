@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Prototypes;
 
@@ -66,6 +67,7 @@ public sealed partial class DiseaseSymptomPrototype : IPrototype
 }
 
 [DataDefinition]
+[Serializable, NetSerializable]
 public sealed partial class SymptomAirborneBurst
 {
     /// <summary>
@@ -84,6 +86,7 @@ public sealed partial class SymptomAirborneBurst
 /// <summary>
 /// Base class for symptom behavior.
 /// </summary>
+[Serializable, NetSerializable]
 public abstract partial class SymptomBehavior
 {
     /// <summary>

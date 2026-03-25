@@ -1,4 +1,5 @@
 using Content.Shared.Inventory;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Disease.Prototypes;
 
@@ -7,6 +8,7 @@ namespace Content.Shared.Medical.Disease.Prototypes;
 /// TODO: only the Contact works and Airborne.
 /// </summary>
 [Flags]
+[Serializable, NetSerializable]
 public enum DiseaseSpreadPath
 {
     NonContagious = 0,
@@ -18,9 +20,9 @@ public enum DiseaseSpreadPath
 
 /// <summary>
 /// Enumeration describing disease stealth behavior flags.
-/// TODO: does not work.
 /// </summary>
 [Flags]
+[Serializable, NetSerializable]
 public enum DiseaseStealthFlags
 {
     None = 0,
