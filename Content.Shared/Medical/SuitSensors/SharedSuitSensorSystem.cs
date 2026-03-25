@@ -438,7 +438,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         {
             status.ShowDisease = carrier.ActiveDiseases.Any(x =>
             {
-                if(!_proto.TryIndex(x.Key, out var disease))
+                if(!_proto.TryIndex(x.Key.Id, out var disease))
                     return false;
 
                 var index = x.Value-1;

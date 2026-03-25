@@ -85,7 +85,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
         var lines = new List<string>();
         foreach (var id in sample.Diseases)
         {
-            if (!_prototypes.TryIndex(id, out DiseasePrototype? diseaseProto))
+            if (!_prototypes.TryIndex(id.Id, out DiseasePrototype? diseaseProto))
                 continue;
             
             var displayName = Loc.GetString(diseaseProto.Name);
@@ -105,7 +105,9 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
 
             var showStage = (stageCfg.Stealth & DiseaseStealthFlags.HiddenStage) == 0;
 
-            lines.Add(Loc.GetString("diagnoser-disease-report-name",("name", displayName), ("stage", showStage ? stage : "Unknown")));
+            lines.Add(Loc.GetString("diagnoser-disease-report-name",("name", displayName)));
+            lines.Add(Loc.GetString("diagnoser-disease-report-stage",("stage", showStage ? stage : "Unknown")));
+            lines.Add(Loc.GetString("diagnoser-disease-report-variant",("name", id.StrainName)));
             lines.Add(Loc.GetString("diagnoser-disease-report-desc"));
             lines.Add(Loc.GetString(diseaseProto.Description));
 

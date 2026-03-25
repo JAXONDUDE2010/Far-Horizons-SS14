@@ -41,13 +41,13 @@ public sealed class DiseaseAirborneSystem : EntitySystem
 
             foreach (var (diseaseId, _) in carrier.ActiveDiseases)
             {
-                if (!_prototypes.TryIndex(diseaseId, out var disease))
+                if (!_prototypes.TryIndex(diseaseId.Id, out var disease))
                     continue;
 
                 if ((disease.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
                     continue;
 
-                TryAirborneSpread(uid, disease);
+                TryAirborneSpread(uid, diseaseId);
             }
         }
     }
@@ -55,8 +55,11 @@ public sealed class DiseaseAirborneSystem : EntitySystem
     /// <summary>
     /// Performs a one-off airborne spread attempt from a source carrier using disease parameters.
     /// </summary>
-    public void TryAirborneSpread(EntityUid source, DiseasePrototype disease, float? overrideRange = null, float chanceMultiplier = 1f)
+    public void TryAirborneSpread(EntityUid source, DiseaseData disease, float? overrideRange = null, float chanceMultiplier = 1f)
     {
+        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
+            return;
+
         if (Deleted(source))
             return;
 
@@ -64,7 +67,7 @@ public sealed class DiseaseAirborneSystem : EntitySystem
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        var range = overrideRange ?? disease.AirborneRange;
+        var range = overrideRange ?? diseaseProto.AirborneRange;
         _tmpTargets.Clear();
 
         // If the source is inside a container, include contained entities in the lookup.
@@ -76,7 +79,7 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             if (other == source)
                 continue;
 
-            if (!_disease.CanBeInfected(other, disease.ID))
+            if (!_disease.CanBeInfected(other, disease))
                 continue;
 
             // If the source is contained, only allow infection within the same container hierarchy.
@@ -87,8 +90,8 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             }
 
             // Compute final chance.
-            var chance = Math.Clamp(disease.AirborneInfect * chanceMultiplier, 0f, 1f);
-            chance = _disease.AdjustAirborneChanceForProtection(other, chance, disease);
+            var chance = Math.Clamp(diseaseProto.AirborneInfect * chanceMultiplier, 0f, 1f);
+            chance = _disease.AdjustAirborneChanceForProtection(other, chance, diseaseProto);
             if (chance <= 0f)
                 continue;
 
@@ -96,7 +99,7 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             if (!_interaction.InRangeUnobstructed(source, other, range))
                 continue;
 
-            _disease.TryInfectWithChance(other, disease.ID, chance);
+            _disease.TryInfectWithChance(other, disease, chance);
         }
     }
 }

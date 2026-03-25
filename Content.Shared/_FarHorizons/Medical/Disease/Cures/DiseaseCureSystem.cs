@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Medical.Disease.Components;
 using Content.Shared.Medical.Disease.Prototypes;
+using Content.Shared.Medical.Disease.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
@@ -19,7 +20,7 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// <summary>
     /// Executes a configured cure step via its polymorphic OnCure.
     /// </summary>
-    private bool ExecuteCureStep(Entity<DiseaseCarrierComponent> ent, CureStep step, DiseasePrototype disease)
+    private bool ExecuteCureStep(Entity<DiseaseCarrierComponent> ent, CureStep step, DiseaseData disease)
     {
         var deps = _entitySystemManager.DependencyCollection;
         deps.InjectDependencies(step);
@@ -29,12 +30,14 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// <summary>
     /// Attempts to apply cure steps for a disease on the provided carrier.
     /// </summary>
-    public void TriggerCureSteps(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease)
+    public void TriggerCureSteps(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if (!ent.Comp.ActiveDiseases.TryGetValue(disease.ID, out var stageNum))
+        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stageNum))
             return;
+        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
+            return; 
 
-        var stageCfg = disease.Stages.FirstOrDefault(s => s.Stage == stageNum);
+        var stageCfg = diseaseProto.Stages.FirstOrDefault(s => s.Stage == stageNum);
         if (stageCfg == null)
             return;
 
@@ -43,7 +46,7 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
         var rand = new System.Random(seed);
 
         // Disease-level cures.
-        var applicable = stageCfg.CureSteps.Count > 0 ? stageCfg.CureSteps : disease.CureSteps;
+        var applicable = stageCfg.CureSteps.Count > 0 ? stageCfg.CureSteps : diseaseProto.CureSteps;
         foreach (var step in applicable)
         {
             // Calculates the probability of treatment at each tick.
@@ -89,9 +92,9 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// <summary>
     /// Removes the disease, applies post-cure immunity.
     /// </summary>
-    public void ApplyCureDisease(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease)
+    public void ApplyCureDisease(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if (!ent.Comp.ActiveDiseases.Remove(disease.ID))
+        if (!ent.Comp.ActiveDiseases.Remove(disease))
             return;
 
         ApplyPostCureImmunity(ent, disease);
@@ -101,12 +104,12 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// <summary>
     /// Lowers the disease stage by 1.
     /// </summary>
-    public void ApplyCureDiseaseStage(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease)
+    public void ApplyCureDiseaseStage(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if (!ent.Comp.ActiveDiseases.TryGetValue(disease.ID, out var stage) || stage <= 1)
+        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stage) || stage <= 1)
             return;
 
-        ent.Comp.ActiveDiseases[disease.ID] = stage - 1;
+        ent.Comp.ActiveDiseases[disease] = stage - 1;
         Dirty(ent);
     }
 
@@ -131,14 +134,17 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// <summary>
     /// Writes or raises the immunity strength for the cured disease on the carrier.
     /// </summary>
-    private void ApplyPostCureImmunity(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease)
+    private void ApplyPostCureImmunity(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        var strength = disease.PostCureImmunity;
+        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
+            return;
 
-        if (ent.Comp.Immunity.TryGetValue(disease.ID, out var existing))
-            ent.Comp.Immunity[disease.ID] = MathF.Max(existing, strength);
+        var strength = diseaseProto.PostCureImmunity;
+
+        if (ent.Comp.Immunity.TryGetValue(disease.Id, out var existing))
+            ent.Comp.Immunity[disease.Id] = MathF.Max(existing, strength);
         else
-            ent.Comp.Immunity[disease.ID] = strength;
+            ent.Comp.Immunity[disease.Id] = strength;
 
         Dirty(ent);
     }

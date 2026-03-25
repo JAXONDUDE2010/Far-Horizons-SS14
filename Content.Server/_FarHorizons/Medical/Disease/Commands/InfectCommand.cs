@@ -37,11 +37,15 @@ public sealed class InfectCommand : LocalizedEntityCommands
         var targetUid = parsedUid.Value;
         var diseaseId = args[1];
 
+        var disease = _disease.CreateDisease(diseaseId);
+        if(disease == null)
+            return;
+
         var stage = 1;
         if (args.Length >= 3 && int.TryParse(args[2], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsedStage))
             stage = Math.Max(1, parsedStage);
 
-        if (!_disease.Infect(targetUid, diseaseId, stage))
+        if (!_disease.Infect(targetUid, disease, stage))
         {
             shell.WriteError(Loc.GetString("cmd-infect-fail"));
             return;
@@ -50,18 +54,15 @@ public sealed class InfectCommand : LocalizedEntityCommands
         shell.WriteLine(Loc.GetString("cmd-infect-completed", ("target", targetUid.ToString()), ("disease", diseaseId), ("stage", stage)));
     }
 
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args) => args.Length switch
     {
-        return args.Length switch
-        {
-            1 => CompletionResult.FromHintOptions(
-                CompletionHelper.NetEntities(args[0], EntityManager),
-                "<uid>"),
-            2 => CompletionResult.FromHintOptions(
-                CompletionHelper.PrototypeIDs<DiseasePrototype>(proto: _proto),
-                "<disease prototype>"),
-            3 => CompletionResult.FromHint("<stage>"),
-            _ => CompletionResult.Empty,
-        };
-    }
+        1 => CompletionResult.FromHintOptions(
+            CompletionHelper.NetEntities(args[0], EntityManager),
+            "<uid>"),
+        2 => CompletionResult.FromHintOptions(
+            CompletionHelper.PrototypeIDs<DiseasePrototype>(proto: _proto),
+            "<disease prototype>"),
+        3 => CompletionResult.FromHint("<stage>"),
+        _ => CompletionResult.Empty,
+    };
 }

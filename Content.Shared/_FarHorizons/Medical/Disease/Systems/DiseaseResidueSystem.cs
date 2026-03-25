@@ -37,7 +37,7 @@ public sealed class DiseaseResidueSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var toRemoveAfterDecay = new ValueList<string>();
+        var toRemoveAfterDecay = new ValueList<DiseaseData>();
         var query = EntityQueryEnumerator<DiseaseResidueComponent>();
         while (query.MoveNext(out var uid, out var residue))
         {
@@ -86,19 +86,19 @@ public sealed class DiseaseResidueSystem : EntitySystem
             return;
 
         var residue = EnsureComp<DiseaseResidueComponent>(args.Other);
-        foreach (var (id, _) in ent.Comp.ActiveDiseases)
+        foreach (var (DiseaseData, _) in ent.Comp.ActiveDiseases)
         {
-            if (!_prototypes.TryIndex(id, out var proto))
+            if (!_prototypes.TryIndex(DiseaseData.Id, out var proto))
                 continue;
 
             if ((proto.SpreadPath & DiseaseSpreadPath.Contact) == 0)
                 continue;
 
             var deposit = proto.ContactDeposit;
-            if (residue.Diseases.TryGetValue(id, out var cur))
-                residue.Diseases[id] = MathF.Min(1f, cur + deposit);
+            if (residue.Diseases.TryGetValue(DiseaseData, out var cur))
+                residue.Diseases[DiseaseData] = MathF.Min(1f, cur + deposit);
             else
-                residue.Diseases[id] = MathF.Min(1f, deposit);
+                residue.Diseases[DiseaseData] = MathF.Min(1f, deposit);
 
             Dirty(args.Other, residue);
         }
@@ -112,7 +112,7 @@ public sealed class DiseaseResidueSystem : EntitySystem
         if (ent.Comp.Diseases.Count == 0)
             return;
 
-        var toRemoveAfterContact = new ValueList<string>();
+        var toRemoveAfterContact = new ValueList<DiseaseData>();
         foreach (var (id, intensity) in ent.Comp.Diseases)
         {
             InfectByContactChance(args.Other, id);
@@ -202,9 +202,9 @@ public sealed class DiseaseResidueSystem : EntitySystem
     /// <summary>
     /// Tries to infect a target via contact using fixed per-disease chance.
     /// </summary>
-    private void InfectByContactChance(EntityUid target, string diseaseId)
+    private void InfectByContactChance(EntityUid target, DiseaseData diseaseId)
     {
-        if (!_prototypes.TryIndex(diseaseId, out DiseasePrototype? proto))
+        if (!_prototypes.TryIndex(diseaseId.Id, out DiseasePrototype? proto))
             return;
 
         if ((proto.SpreadPath & DiseaseSpreadPath.Contact) == 0)

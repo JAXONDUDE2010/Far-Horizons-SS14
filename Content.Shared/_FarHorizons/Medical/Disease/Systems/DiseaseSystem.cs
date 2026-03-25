@@ -8,12 +8,12 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Medical.Disease.Symptoms;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Random.Helpers;
-using Content.Shared.EntityEffects;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Popups;
+using Content.Shared.Dataset;
 
 namespace Content.Shared.Medical.Disease.Systems;
 
@@ -26,11 +26,14 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedDiseaseSymptomSystem _symptoms = default!;
     [Dependency] private readonly SharedDiseaseCureSystem _cure = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedInternalsSystem _internals = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    private static readonly string _firstStrainName = "StrainFirstNames";
+    private static readonly string _secondStrainName = "StrainSecondNames";
 
     /// <inheritdoc/>
     /// <summary>
@@ -77,18 +80,18 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         }
 
         var dirty = false;
-        var toRemove = new ValueList<string>();
+        var toRemove = new ValueList<DiseaseData>();
 
-        foreach (var (diseaseId, stage) in ent.Comp.ActiveDiseases.ToArray())
+        foreach (var (DiseaseData, stage) in ent.Comp.ActiveDiseases.ToArray())
         {
-            if (!_prototypes.TryIndex(diseaseId, out var disease))
+            if (!_prototypes.TryIndex(DiseaseData.Id, out var disease))
             {
-                toRemove.Add(diseaseId);
+                toRemove.Add(DiseaseData);
                 continue;
             }
 
             // Incubation: if still incubating, skip symptoms and spreading-level logic.
-            if (ent.Comp.IncubatingUntil.TryGetValue(diseaseId, out var until) && until > _timing.CurTime)
+            if (ent.Comp.IncubatingUntil.TryGetValue(DiseaseData, out var until) && until > _timing.CurTime)
                 continue;
 
             // Progression: scale advance chance strictly according to StageProb and time between ticks.
@@ -96,15 +99,15 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
 
             if (newStage != stage)
             {
-                ent.Comp.ActiveDiseases[diseaseId] = newStage;
+                ent.Comp.ActiveDiseases[DiseaseData] = newStage;
                 dirty = true;
             }
 
             // Trigger configured stage effects.
-            TriggerStage(ent, disease, newStage);
+            TriggerStage(ent, DiseaseData, newStage);
 
             // Attempt passive cure steps for this disease.
-            _cure.TriggerCureSteps(ent, disease);
+            _cure.TriggerCureSteps(ent, DiseaseData);
         }
 
         foreach (var id in toRemove)
@@ -133,9 +136,12 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         return currentStage;
     }
 
-    private void TriggerStage(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease, int stage)
+    private void TriggerStage(Entity<DiseaseCarrierComponent> ent, DiseaseData disease, int stage)
     {
-        var stageCfg = disease.Stages.FirstOrDefault(s => s.Stage == stage);
+        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
+            return;
+
+        var stageCfg = diseaseProto.Stages.FirstOrDefault(s => s.Stage == stage);
         if (stageCfg == null)
             return;
 
@@ -182,7 +188,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
 
         foreach (var (id, _) in ent.Comp.ActiveDiseases)
         {
-            if (!_prototypes.TryIndex(id, out var diseaseProto))
+            if (!_prototypes.TryIndex(id.Id, out var diseaseProto))
                 continue;
 
             if (diseaseProto.IconDisease is not { } iconId)
@@ -267,9 +273,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Validates if an entity can be infected with a particular disease (alive and prototype exists).
     /// </summary>
-    public bool CanBeInfected(EntityUid uid, string diseaseId)
+    public bool CanBeInfected(EntityUid uid, DiseaseData diseaseId)
     {
-        if (!_prototypes.HasIndex<DiseasePrototype>(diseaseId))
+        if (!_prototypes.HasIndex<DiseasePrototype>(diseaseId.Id))
             return false;
 
         if (_mobState.IsDead(uid))
@@ -281,7 +287,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Rolls probability, validates eligibility, then infects.
     /// </summary>
-    public bool TryInfectWithChance(EntityUid uid, string diseaseId, float probability, int startStage = 1)
+    public bool TryInfectWithChance(EntityUid uid, DiseaseData diseaseId, float probability, int startStage = 1)
     {
         if (!CanBeInfected(uid, diseaseId))
             return false;
@@ -292,7 +298,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         if (!rand.Prob(probability))
             return false;
 
-        if (TryComp<DiseaseCarrierComponent>(uid, out var carrier) && carrier.Immunity.TryGetValue(diseaseId, out var immunityStrength))
+        if (TryComp<DiseaseCarrierComponent>(uid, out var carrier) && carrier.Immunity.TryGetValue(diseaseId.Id, out var immunityStrength))
         {
             // Roll against immunity strength.
             // TODO: Replace with RandomPredicted once the engine PR is merged
@@ -308,9 +314,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Infects an entity if eligible, when it has a carrier component, and sets the initial stage.
     /// </summary>
-    public bool Infect(EntityUid uid, string diseaseId, int startStage = 1)
+    public bool Infect(EntityUid uid, DiseaseData diseaseId, int startStage = 1)
     {
-        if (!_prototypes.HasIndex<DiseasePrototype>(diseaseId))
+        if (!_prototypes.HasIndex(diseaseId.Id))
             return false;
 
         if (!TryComp<DiseaseCarrierComponent>(uid, out var carrier))
@@ -322,7 +328,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
             // Set initial stage.
 
             // Schedule incubation window if configured; during incubation symptoms/spread are suppressed.
-            var proto = _prototypes.Index<DiseasePrototype>(diseaseId);
+            var proto = _prototypes.Index(diseaseId.Id);
             if (proto.IncubationSeconds > 0)
                 carrier.IncubatingUntil[diseaseId] = _timing.CurTime + TimeSpan.FromSeconds(proto.IncubationSeconds);
         }
@@ -331,4 +337,20 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         Dirty(uid, carrier);
         return true;
     }
+
+    public DiseaseData? CreateDisease(string diseaseId)
+    {
+        if (!_prototypes.TryIndex<DiseasePrototype>(diseaseId, out var proto))
+            return null;
+
+        var disease = new DiseaseData
+        {
+            Id = diseaseId,
+            StrainName = GenerateStrainName()
+        };
+        return disease;
+    }
+
+    private string GenerateStrainName()
+        => $"{_random.Pick(_prototypes.Index<LocalizedDatasetPrototype>(_firstStrainName))}-{_random.NextByte(99)} {_random.Pick(_prototypes.Index<LocalizedDatasetPrototype>(_secondStrainName))}";
 }

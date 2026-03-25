@@ -16,12 +16,16 @@ public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<
 
     protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<CauseDisease> args)
     {
-        if (!_prototype.TryIndex(args.Effect.DiseaseId, out var proto))
+        if(!_prototype.TryIndex(args.Effect.DiseaseId, out var proto))
             return;
 
+        var disease = _disease.CreateDisease(args.Effect.DiseaseId);
+        if(disease == null)
+            return;
+            
         if (args.Effect.ForceInfect)
         {
-            _disease.Infect(entity.Owner, args.Effect.DiseaseId);
+            _disease.Infect(entity.Owner, disease);
             return;
         }
 
@@ -30,18 +34,18 @@ public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<
             case DiseaseSpreadPath.Contact:
                 {
                     var probability = _disease.AdjustContactChanceForProtection(entity.Owner, proto.ContactInfect, proto);
-                    _disease.TryInfectWithChance(entity.Owner, args.Effect.DiseaseId, probability);
+                    _disease.TryInfectWithChance(entity.Owner, disease, probability);
                     break;
                 }
             case DiseaseSpreadPath.Airborne:
                 {
                     var probability = _disease.AdjustAirborneChanceForProtection(entity.Owner, proto.AirborneInfect, proto);
-                    _disease.TryInfectWithChance(entity.Owner, args.Effect.DiseaseId, probability);
+                    _disease.TryInfectWithChance(entity.Owner, disease, probability);
                     break;
                 }
             default:
                 {
-                    _disease.Infect(entity.Owner, args.Effect.DiseaseId);
+                    _disease.Infect(entity.Owner, disease);
                     break;
                 }
         }

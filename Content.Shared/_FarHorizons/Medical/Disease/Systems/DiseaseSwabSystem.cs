@@ -16,7 +16,6 @@ public sealed class DiseaseSwabSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     /// <inheritdoc/>
@@ -83,9 +82,6 @@ public sealed class DiseaseSwabSystem : EntitySystem
         {
             foreach (var (diseaseId, stage) in carrier.ActiveDiseases)
             {
-                if (!_prototypes.HasIndex(diseaseId))
-                    continue;
-
                 ent.Comp.Diseases.Add(diseaseId);
                 ent.Comp.Stages[diseaseId] = stage;
             }

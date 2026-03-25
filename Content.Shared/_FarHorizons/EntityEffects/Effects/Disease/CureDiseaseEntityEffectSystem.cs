@@ -2,6 +2,7 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Medical.Disease.Cures;
 using Content.Shared.Medical.Disease.Components;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Shared.EntityEffects.Effects.Disease;
 
@@ -16,13 +17,15 @@ public sealed partial class CureDiseaseEntityEffectSystem : EntityEffectSystem<D
 
     protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<CureDisease> args)
     {
+        var diseaseID = args.Effect.DiseaseId;
         if (!_prototype.TryIndex(args.Effect.DiseaseId, out var diseaseProto))
             return;
+        var disease = entity.Comp.ActiveDiseases.First(x => diseaseID == x.Key.Id);
 
         if (args.Effect.LowerStage)
-            _cure.ApplyCureDiseaseStage(entity, diseaseProto);
+            _cure.ApplyCureDiseaseStage(entity, disease.Key);
         else
-            _cure.ApplyCureDisease(entity, diseaseProto);
+            _cure.ApplyCureDisease(entity, disease.Key);
     }
 }
 

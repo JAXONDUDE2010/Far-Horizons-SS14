@@ -3,6 +3,7 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Symptoms;
 
@@ -42,7 +43,7 @@ public sealed partial class SymptomGenericStatusEffect
     /// <summary>
     /// Adds an effect status component to the entity.
     /// </summary>
-    public override void OnSymptom(EntityUid uid, DiseasePrototype disease)
+    public override void OnSymptom(EntityUid uid, DiseaseData disease)
     {
         var duration = TimeSpan.FromSeconds(Time);
 

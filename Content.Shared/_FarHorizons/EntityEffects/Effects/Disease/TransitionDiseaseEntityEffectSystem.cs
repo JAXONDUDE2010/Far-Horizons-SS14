@@ -2,6 +2,7 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Medical.Disease.Components;
 using Content.Shared.Medical.Disease.Systems;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Shared.EntityEffects.Effects.Disease;
 
@@ -11,12 +12,26 @@ namespace Content.Shared.EntityEffects.Effects.Disease;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class TransitionDiseaseEntityEffectSystem : EntityEffectSystem<DiseaseCarrierComponent, TransitionDisease>
 {
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedDiseaseSystem _disease = default!;
 
     protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<TransitionDisease> args)
     {
-        entity.Comp.ActiveDiseases.Remove(args.Effect.FromDiseaseId);
-        _disease.Infect(entity.Owner, args.Effect.ToDiseaseId, Math.Max(1, args.Effect.StartStage));
+        var FromDiseaseId = args.Effect.FromDiseaseId;
+        var transitionFrom = entity.Comp.ActiveDiseases.Keys.First(x =>
+        {
+            if (!_prototype.TryIndex(FromDiseaseId, out var proto))
+                return false;
+            
+            return true;
+        });
+        entity.Comp.ActiveDiseases.Remove(transitionFrom);
+        
+        var disease = new DiseaseData
+        {
+            Id = args.Effect.ToDiseaseId
+        };
+        _disease.Infect(entity.Owner, disease, Math.Max(1, args.Effect.StartStage));
     }
 }
 

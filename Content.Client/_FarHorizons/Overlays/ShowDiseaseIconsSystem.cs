@@ -32,7 +32,7 @@ public sealed class ShowDiseaseIconsSystem : EquipmentHudSystem<ShowDiseaseIcons
 
         var showDisease = carrier.ActiveDiseases.Any(x =>
         {
-            if(!_prototype.TryIndex(x.Key, out var disease))
+            if(!_prototype.TryIndex(x.Key.Id, out var disease))
                 return false;
 
             var index = x.Value-1;

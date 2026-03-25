@@ -1,3 +1,4 @@
+using Content.Shared.Medical.Disease.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -86,11 +87,10 @@ public sealed partial class SymptomAirborneBurst
 /// <summary>
 /// Base class for symptom behavior.
 /// </summary>
-[Serializable, NetSerializable]
 public abstract partial class SymptomBehavior
 {
     /// <summary>
     /// Called when the symptom is triggered on the carrier.
     /// </summary>
-    public virtual void OnSymptom(EntityUid uid, DiseasePrototype disease) { }
+    public virtual void OnSymptom(EntityUid uid, DiseaseData disease) { }
 }

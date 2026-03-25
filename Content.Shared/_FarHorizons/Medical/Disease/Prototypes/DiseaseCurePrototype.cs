@@ -1,3 +1,4 @@
+using Content.Shared.Medical.Disease.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -24,7 +25,7 @@ public abstract partial class CureStep
     /// <summary>
     /// Attempts to execute this cure step on the given entity.
     /// </summary>
-    public virtual bool OnCure(EntityUid uid, DiseasePrototype disease)
+    public virtual bool OnCure(EntityUid uid, DiseaseData disease)
     {
         return false;
     }

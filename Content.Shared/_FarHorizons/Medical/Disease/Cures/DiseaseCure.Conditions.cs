@@ -5,6 +5,7 @@ using Content.Shared.Metabolism;
 using Content.Shared.Medical.Disease.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
@@ -23,7 +24,7 @@ public sealed partial class CureConditions
     /// <summary>
     /// Cure step that succeeds once its configured carrier conditions pass.
     /// </summary>
-    public override bool OnCure(EntityUid uid, DiseasePrototype disease)
+    public override bool OnCure(EntityUid uid, DiseaseData disease)
     {
         var _entityManager = IoCManager.Resolve<IEntityManager>();
         var _entitySysManager = IoCManager.Resolve<IEntitySystemManager>();

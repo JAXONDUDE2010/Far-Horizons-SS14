@@ -3,6 +3,7 @@ using Content.Shared.Medical.Disease.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
@@ -21,7 +22,7 @@ public sealed partial class CureWait
     /// <summary>
     /// Cures the disease after the infection has lasted a configured duration.
     /// </summary>
-    public override bool OnCure(EntityUid uid, DiseasePrototype disease)
+    public override bool OnCure(EntityUid uid, DiseaseData disease)
     {
         var _entitySysManager = IoCManager.Resolve<IEntitySystemManager>();
         var _cureSystem = _entitySysManager.GetEntitySystem<SharedDiseaseCureSystem>();
@@ -30,7 +31,7 @@ public sealed partial class CureWait
         if (RequiredTicks <= 0f)
             return false;
 
-        var state = _cureSystem.GetState(uid, disease.ID, this);
+        var state = _cureSystem.GetState(uid, disease.Id, this);
         state.Ticker++;
         if (state.Ticker < RequiredTicks)
             return false;

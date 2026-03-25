@@ -29,6 +29,12 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
 
         // Choose disease uniformly from pool.
         var chosenDisease = _random.Pick(comp.Disease).Id;
+        
+        var disease = _disease.CreateDisease(chosenDisease);
+        if(disease == null)
+        {
+            return;
+        }
 
         // Collect eligible humanoids with carrier component on the chosen station.
         var candidates = new List<EntityUid>();
@@ -38,7 +44,7 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
             if (StationSystem.GetOwningStation(ent, xform) != station)
                 continue;
 
-            if (!_disease.CanBeInfected(ent, chosenDisease))
+            if (!_disease.CanBeInfected(ent, disease))
                 continue;
 
             if (!mind.HasMind)
@@ -55,6 +61,7 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
         _random.Shuffle(candidates);
 
         var infected = 0;
+
         foreach (var ent in candidates)
         {
             if (infected >= toInfect)
@@ -67,10 +74,8 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
                     continue;
             }
 
-            if (_disease.Infect(ent, chosenDisease))
+            if (_disease.Infect(ent, disease))
                 infected++;
         }
     }
 }
-
-

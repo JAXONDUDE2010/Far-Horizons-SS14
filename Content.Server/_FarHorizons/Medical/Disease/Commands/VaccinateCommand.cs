@@ -5,6 +5,7 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Server.Medical.Disease.Commands;
 
@@ -44,23 +45,23 @@ public sealed class VaccinateCommand : LocalizedEntityCommands
         if (!EntityManager.TryGetComponent(targetUid, out DiseaseCarrierComponent? comp))
             comp = EntityManager.AddComponent<DiseaseCarrierComponent>(targetUid);
 
-        if (_proto.TryIndex(diseaseId, out DiseasePrototype? disease))
-            _cure.ApplyCureDisease((targetUid, comp), disease);
+        var disease = comp.ActiveDiseases.Keys.First(x => x.Id == diseaseId);
+        if (disease == null)
+            return;
+        
+        _cure.ApplyCureDisease((targetUid, comp), disease);
 
         shell.WriteLine(Loc.GetString("cmd-vaccinate-completed", ("target", targetUid.ToString()), ("disease", diseaseId)));
     }
 
-    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args) => args.Length switch
     {
-        return args.Length switch
-        {
-            1 => CompletionResult.FromHintOptions(
-                CompletionHelper.NetEntities(args[0], EntityManager),
-                "<uid>"),
-            2 => CompletionResult.FromHintOptions(
-                CompletionHelper.PrototypeIDs<DiseasePrototype>(proto: _proto),
-                "<disease prototype>"),
-            _ => CompletionResult.Empty,
-        };
-    }
+        1 => CompletionResult.FromHintOptions(
+            CompletionHelper.NetEntities(args[0], EntityManager),
+            "<uid>"),
+        2 => CompletionResult.FromHintOptions(
+            CompletionHelper.PrototypeIDs<DiseasePrototype>(proto: _proto),
+            "<disease prototype>"),
+        _ => CompletionResult.Empty,
+    };
 }

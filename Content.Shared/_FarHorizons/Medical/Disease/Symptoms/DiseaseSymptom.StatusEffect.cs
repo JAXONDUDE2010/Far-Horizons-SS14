@@ -1,5 +1,6 @@
 using Content.Shared.EntityEffects;
 using Content.Shared.Medical.Disease.Prototypes;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Symptoms;
 
@@ -20,7 +21,7 @@ public sealed partial class SymptomStatusEffect
     /// <summary>
     /// Executes the status effects.
     /// </summary>
-    public override void OnSymptom(EntityUid uid, DiseasePrototype disease)
+    public override void OnSymptom(EntityUid uid, DiseaseData disease)
     {
         if (Effects.Length == 0)
             return;

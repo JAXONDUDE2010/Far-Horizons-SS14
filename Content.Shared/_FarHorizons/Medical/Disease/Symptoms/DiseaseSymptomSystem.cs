@@ -3,6 +3,7 @@ using Content.Shared.Medical.Disease.Systems;
 using Content.Shared.Medical.Disease.Components;
 using Content.Shared.Medical.Disease.Prototypes;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Medical.Disease.Symptoms;
 
@@ -14,11 +15,12 @@ public sealed partial class SharedDiseaseSymptomSystem : EntitySystem
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DiseaseAirborneSystem _airborneDisease = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     /// <summary>
     /// Executes the side-effects for a triggered symptom on a carrier.
     /// </summary>
-    public void TriggerSymptom(Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease, DiseaseSymptomPrototype symptom)
+    public void TriggerSymptom(Entity<DiseaseCarrierComponent> ent, DiseaseData disease, DiseaseSymptomPrototype symptom)
     {
         // Skip this symptom when the carrier is dead.
         if (symptom.OnlyAlive && _mobState.IsDead(ent.Owner))
@@ -57,14 +59,16 @@ public sealed partial class SharedDiseaseSymptomSystem : EntitySystem
     /// <summary>
     /// Applies a single-shot airborne spread burst if configured.
     /// </summary>
-    private void ApplyAirborneBurst(DiseaseSymptomPrototype symptom, Entity<DiseaseCarrierComponent> ent, DiseasePrototype disease)
+    private void ApplyAirborneBurst(DiseaseSymptomPrototype symptom, Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
         var cfg = symptom.AirborneBurst;
-
-        if ((disease.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
+        if(!_prototype.TryIndex(disease.Id, out var diseaseProto))
             return;
 
-        var range = disease.AirborneRange * MathF.Max(0.1f, cfg.RangeMultiplier);
+        if ((diseaseProto.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
+            return;
+
+        var range = diseaseProto.AirborneRange * MathF.Max(0.1f, cfg.RangeMultiplier);
         var mult = MathF.Max(0f, cfg.ChanceMultiplier);
         _airborneDisease.TryAirborneSpread(ent.Owner, disease, overrideRange: range, chanceMultiplier: mult);
     }

@@ -1,3 +1,4 @@
+using Content.Shared.Medical.Disease.Systems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Medical.Disease.Components;
@@ -30,11 +31,11 @@ public sealed partial class DiseaseSampleComponent : Component
     /// Disease prototype IDs captured by this sample (from a swab etc.).
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<string> Diseases = [];
+    public List<DiseaseData> Diseases = [];
 
     /// <summary>
     /// Optional per-disease stage captured at the moment of sampling.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<string, int> Stages = [];
+    public Dictionary<DiseaseData, int> Stages = [];
 }

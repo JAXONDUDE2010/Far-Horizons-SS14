@@ -75,7 +75,14 @@
   - !type:SymptomStatusEffect
     effects:
     - !type:AdjustTemperature
-      amount: 1000
+      conditions:
+      - !type:TemperatureCondition
+          max: 314.15
+      amount: 20000
+    - !type:HealthChange
+      damage:
+        types:
+          Heat: 0.25
 
 - type: diseaseSymptom
   id: SymptomFreezeLight
@@ -85,7 +92,14 @@
   - !type:SymptomStatusEffect
     effects:
     - !type:AdjustTemperature
-      amount: -500
+      conditions:
+      - !type:TemperatureCondition
+          min: 273.15
+      amount: -15000
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: 3
 
 - type: diseaseSymptom
   id: SymptomFreeze
@@ -95,7 +109,14 @@
   - !type:SymptomStatusEffect
     effects:
     - !type:AdjustTemperature
-      amount: -1500
+      conditions:
+      - !type:TemperatureCondition
+          min: 228.15
+      amount: -25000
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: 6
 
 - type: diseaseSymptom
   id: SymptomToxin

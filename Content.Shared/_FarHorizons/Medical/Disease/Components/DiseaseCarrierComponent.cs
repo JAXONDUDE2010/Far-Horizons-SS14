@@ -3,6 +3,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Prototypes;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Components;
 
@@ -16,14 +17,14 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// Active diseases and their current stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<DiseasePrototype>, int> ActiveDiseases = [];
+    public Dictionary<DiseaseData, int> ActiveDiseases = [];
 
     /// <summary>
     /// Optional incubation end times per disease.
     /// Before this time, disease won't spread or show symptoms.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<DiseasePrototype>, TimeSpan> IncubatingUntil = [];
+    public Dictionary<DiseaseData, TimeSpan> IncubatingUntil = [];
 
     /// <summary>
     /// Delay between disease processing ticks.

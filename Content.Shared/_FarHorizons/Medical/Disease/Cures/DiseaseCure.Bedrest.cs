@@ -6,6 +6,7 @@ using Content.Shared.Medical.Disease.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Content.Shared.Medical.Disease.Systems;
 
 namespace Content.Shared.Medical.Disease.Cures;
 
@@ -31,7 +32,7 @@ public sealed partial class CureBedrest
     /// Rolls a cure chance each tick while buckled to a healing bed.
     /// Sleeping multiplies the cure chance.
     /// </summary>
-    public override bool OnCure(EntityUid uid, DiseasePrototype disease)
+    public override bool OnCure(EntityUid uid, DiseaseData disease)
     {
         var _entityManager = IoCManager.Resolve<IEntityManager>();
         var _random = IoCManager.Resolve<IRobustRandom>();
