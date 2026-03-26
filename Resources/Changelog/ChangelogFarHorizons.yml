@@ -10056,5 +10056,42 @@ Entries:
   id: 101900
   time: '2026-03-26T02:14:54.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1019
+- author: princess_gurchi
+  changes:
+  - message: Gunnery console for mining shuttle. Rock and stone, brothers.
+    type: Add
+  id: 102200
+  time: '2026-03-26T16:25:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
+- author: princess_gurchi
+  changes:
+  - message: IPC UI will no longer always proclaim IPC dead (although if you think
+      about it...)
+    type: Fix
+  id: 102201
+  time: '2026-03-26T16:25:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
+- author: princess_gurchi
+  changes:
+  - message: Ninja suit will now protect IPC from overheating in space
+    type: Fix
+  id: 102202
+  time: '2026-03-26T16:25:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
+- author: princess_gurchi
+  changes:
+  - message: Reverted broken rat sprites
+    type: Fix
+  id: 102203
+  time: '2026-03-26T16:25:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
+- author: princess_gurchi
+  changes:
+  - message: You will now only receive movement speed penalty when carrying someone
+      in heavy armor. No more slowdown from a person being hungry or hurt.
+    type: Fix
+  id: 102204
+  time: '2026-03-26T16:25:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
 Order: -1
 
