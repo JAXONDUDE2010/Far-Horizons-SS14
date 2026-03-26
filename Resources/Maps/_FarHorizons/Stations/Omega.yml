@@ -84131,8 +84131,6 @@ entities:
       pos: -24.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 11293
@@ -87618,7 +87616,6 @@ entities:
       pos: -32.5,7.5
       parent: 2
     - type: OperatingTable
-      scanner: invalid
 - proto: StationAiUploadComputer
   entities:
   - uid: 11754
