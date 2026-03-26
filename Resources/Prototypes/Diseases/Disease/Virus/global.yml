@@ -11,11 +11,11 @@
     - !type:ReagentCondition
       reagent: Spaceacillin
       min: 1
-  - !type:CureConditions
-    cureChance: 0.2
-    conditions:
-    - !type:TemperatureCondition
-      min: 309.15
+#  - !type:CureConditions
+#    cureChance: 0.2
+#    conditions:
+#    - !type:TemperatureCondition
+#      min: 309.15
   stages:
   - stage: 1
     stealth: [ Hidden, VeryHidden ]
