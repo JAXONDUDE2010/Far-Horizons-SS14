@@ -32,12 +32,12 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// </summary>
     public void TriggerCureSteps(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stageNum))
+        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stageData))
             return;
         if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
             return; 
 
-        var stageCfg = diseaseProto.Stages.FirstOrDefault(s => s.Stage == stageNum);
+        var stageCfg = diseaseProto.Stages.FirstOrDefault(s => s.Stage == stageData.Stage);
         if (stageCfg == null)
             return;
 
@@ -106,10 +106,12 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// </summary>
     public void ApplyCureDiseaseStage(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stage) || stage <= 1)
+        if (!ent.Comp.ActiveDiseases.TryGetValue(disease, out var stage) || stage.Stage <= 1)
             return;
 
-        ent.Comp.ActiveDiseases[disease] = stage - 1;
+        stage.Stage-=stage.Stage;
+
+        ent.Comp.ActiveDiseases[disease] = stage;
         Dirty(ent);
     }
 

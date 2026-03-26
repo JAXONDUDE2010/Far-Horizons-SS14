@@ -20,12 +20,13 @@ public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<
             return;
 
         var disease = _disease.CreateDisease(args.Effect.DiseaseId);
-        if(disease == null)
+        var stage = _disease.CreateStage(args.Effect.DiseaseId, 1);
+        if(disease == null || stage == null)
             return;
             
         if (args.Effect.ForceInfect)
         {
-            _disease.Infect(entity.Owner, disease);
+            _disease.Infect(entity.Owner, disease, stage);
             return;
         }
 
@@ -34,18 +35,18 @@ public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<
             case DiseaseSpreadPath.Contact:
                 {
                     var probability = _disease.AdjustContactChanceForProtection(entity.Owner, proto.ContactInfect, proto);
-                    _disease.TryInfectWithChance(entity.Owner, disease, probability);
+                    _disease.TryInfectWithChance(entity.Owner, disease, stage, probability);
                     break;
                 }
             case DiseaseSpreadPath.Airborne:
                 {
                     var probability = _disease.AdjustAirborneChanceForProtection(entity.Owner, proto.AirborneInfect, proto);
-                    _disease.TryInfectWithChance(entity.Owner, disease, probability);
+                    _disease.TryInfectWithChance(entity.Owner, disease, stage, probability);
                     break;
                 }
             default:
                 {
-                    _disease.Infect(entity.Owner, disease);
+                    _disease.Infect(entity.Owner, disease, stage);
                     break;
                 }
         }

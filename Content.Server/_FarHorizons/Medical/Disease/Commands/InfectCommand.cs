@@ -40,12 +40,13 @@ public sealed class InfectCommand : LocalizedEntityCommands
         var stage = 1;
         if (args.Length >= 3 && int.TryParse(args[2], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsedStage))
             stage = Math.Max(1, parsedStage);
-
-        var disease = _disease.CreateDisease(diseaseId, stage);
-        if(disease == null)
+        
+        var stageData = _disease.CreateStage(diseaseId, stage);
+        var disease = _disease.CreateDisease(diseaseId);
+        if(disease == null || stageData == null)
             return;
 
-        if (!_disease.Infect(targetUid, disease, stage))
+        if (!_disease.Infect(targetUid, disease, stageData))
         {
             shell.WriteError(Loc.GetString("cmd-infect-fail"));
             return;

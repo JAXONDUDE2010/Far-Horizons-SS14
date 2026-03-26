@@ -98,8 +98,11 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             // Try to avoid through-walls spread.
             if (!_interaction.InRangeUnobstructed(source, other, range))
                 continue;
-
-            _disease.TryInfectWithChance(other, disease, chance);
+            
+            var stage = _disease.CreateStage(disease.Id);
+            if(stage == null)
+                continue;
+            _disease.TryInfectWithChance(other, disease, stage, chance);
         }
     }
 }

@@ -17,7 +17,7 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// Active diseases and their current stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<DiseaseData, int> ActiveDiseases = [];
+    public Dictionary<DiseaseData, StageData> ActiveDiseases = [];
 
     /// <summary>
     /// Optional incubation end times per disease.

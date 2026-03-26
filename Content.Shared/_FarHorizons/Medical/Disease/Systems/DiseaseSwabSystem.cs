@@ -83,7 +83,7 @@ public sealed class DiseaseSwabSystem : EntitySystem
             foreach (var (diseaseId, stage) in carrier.ActiveDiseases)
             {
                 ent.Comp.Diseases.Add(diseaseId);
-                ent.Comp.Stages[diseaseId] = stage;
+                ent.Comp.Stages[diseaseId] = stage.Stage;
             }
 
             _popup.PopupPredicted(Loc.GetString("swab-disease-collected-popup"), target, args.Args.User);

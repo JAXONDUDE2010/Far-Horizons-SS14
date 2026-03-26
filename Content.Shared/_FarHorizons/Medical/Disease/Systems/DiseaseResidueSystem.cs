@@ -212,6 +212,11 @@ public sealed class DiseaseResidueSystem : EntitySystem
 
         var chance = Math.Clamp(proto.ContactInfect, 0f, 1f);
         chance = _disease.AdjustContactChanceForProtection(target, chance, proto);
-        _disease.TryInfectWithChance(target, diseaseId, chance);
+
+        var stage = _disease.CreateStage(diseaseId.Id);
+        if(stage == null)
+            return;
+
+        _disease.TryInfectWithChance(target, diseaseId, stage, chance);
     }
 }

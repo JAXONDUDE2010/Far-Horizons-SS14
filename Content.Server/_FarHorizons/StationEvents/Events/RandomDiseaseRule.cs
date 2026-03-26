@@ -31,7 +31,8 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
         var chosenDisease = _random.Pick(comp.Disease).Id;
         
         var disease = _disease.CreateDisease(chosenDisease);
-        if(disease == null)
+        var stage = _disease.CreateStage(chosenDisease);
+        if(disease == null || stage == null)
         {
             return;
         }
@@ -74,7 +75,7 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
                     continue;
             }
 
-            if (_disease.Infect(ent, disease))
+            if (_disease.Infect(ent, disease, stage))
                 infected++;
         }
     }

@@ -27,11 +27,12 @@ public sealed partial class TransitionDiseaseEntityEffectSystem : EntityEffectSy
         });
         entity.Comp.ActiveDiseases.Remove(transitionFrom);
         
-        var disease = new DiseaseData
-        {
-            Id = args.Effect.ToDiseaseId
-        };
-        _disease.Infect(entity.Owner, disease, Math.Max(1, args.Effect.StartStage));
+        var disease = _disease.CreateDisease(args.Effect.ToDiseaseId);
+        var stage = _disease.CreateStage(args.Effect.ToDiseaseId, 1);
+        if(disease == null || stage == null)
+            return;
+
+        _disease.Infect(entity.Owner, disease, stage);
     }
 }
 

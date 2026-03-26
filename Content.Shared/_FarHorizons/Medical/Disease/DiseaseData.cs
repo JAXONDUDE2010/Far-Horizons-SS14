@@ -18,10 +18,26 @@ public sealed class DiseaseData
     /// </summary>
     [ViewVariables]
     public string StrainName = string.Empty;
+}
 
+[Serializable, NetSerializable]
+public sealed class StageData
+{
+    /// <summary>
+    /// The stage for the disease
+    /// </summary>
+    [ViewVariables]
+    public int Stage = 1;
+
+    /// <summary>
+    /// The time until the disease attempts spreading.
+    /// </summary>
     [ViewVariables]
     public TimeSpan MinStageUntil;
-
+    
+    /// <summary>
+    /// The time until the disease attempts forceful advance
+    /// </summary>
     [ViewVariables]
     public TimeSpan MaxStageUntil;
 }
