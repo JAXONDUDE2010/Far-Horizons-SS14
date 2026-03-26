@@ -10093,5 +10093,130 @@ Entries:
   id: 102204
   time: '2026-03-26T16:25:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1022
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Fixed being able to remove unremovable encryption keys. -Notarin Steele
+    type: Fix
+  id: 102400
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Abductor Consoles and Televisions not having correct sprites -CrazyPhantom
+    type: Fix
+  id: 102401
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Consoles no longer try to connect to desktops. -CrazyPhantom
+    type: Fix
+  id: 102402
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Crew monitoring consoles now properly connect to computers next to them.
+      -CrazyPhantom
+    type: Fix
+  id: 102403
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Un-powered Operating computers should no longer speak. -AthenaAI
+    type: Fix
+  id: 102404
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Removed common comms from pAIs roundstart. -Notarin Steele
+    type: Remove
+  id: 102405
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: pAI camera snaps to grids now. -katte, FeralCreature
+    type: Tweak
+  id: 102406
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Computer sprites now connect dynamically based on neighboring computers.
+      -CrazyPhantom
+    type: Tweak
+  id: 102407
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Added the ability to install new encryption keys into a pAI. -Notarin
+      Steele
+    type: Add
+  id: 102408
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Added the ability to remove encryption keys from a pAI. -Notarin Steele
+    type: Add
+  id: 102409
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Added the ability for a pAI to open a PDA if it is in one. -Notarin Steele
+    type: Add
+  id: 102410
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Gave pAIs the ability to learn/purchase most station languages. -Notarin
+      Steele
+    type: Add
+  id: 102411
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Consoles now have slots for pAI. -katte, FeralCreature
+    type: Add
+  id: 102412
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: pAI can now open consoles they're in. -katte, FeralCreature
+    type: Add
+  id: 102413
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: Notarin Steele, katte, FeralCreature, Miracula, Rinary, CrazyPhantom and
+    AthenaAI
+  changes:
+  - message: Added grid mode as default to Fashion-O-Mat. Every other store received
+      a grid mode as an option to switch to. -Miracula, Rinary
+    type: Add
+  id: 102414
+  time: '2026-03-26T17:34:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
 Order: -1
 
