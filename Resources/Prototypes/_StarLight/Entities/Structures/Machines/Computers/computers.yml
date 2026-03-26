@@ -40,6 +40,7 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+      pai_slot: !type:ContainerSlot {} #FarHorizons
 
 #abductor
 
@@ -309,6 +310,7 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+      pai_slot: !type:ContainerSlot {} #FarHorizons
     
 # Universal ID Console
 - type: entity
@@ -395,6 +397,7 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #FarHorizons
 
 # Mining Shuttle Console
 - type: entity
