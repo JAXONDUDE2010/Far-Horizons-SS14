@@ -14,6 +14,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Popups;
 using Content.Shared.Dataset;
+using Content.Shared._FarHorizons.Silicons.IPC.Components;
 
 namespace Content.Shared.Medical.Disease.Systems;
 
@@ -300,6 +301,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     public bool CanBeInfected(EntityUid uid, DiseaseData diseaseId)
     {
         if (!_prototypes.HasIndex(diseaseId.Id))
+            return false;
+
+        if(HasComp<IPCBrainHolderComponent>(uid))
             return false;
 
         if (_mobState.IsDead(uid))

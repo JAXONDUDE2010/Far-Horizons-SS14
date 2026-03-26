@@ -483,8 +483,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         //FarHorizons Start
         if (!string.IsNullOrEmpty(status.DiseaseIcon))
             payload.Add(SuitSensorConstants.NET_DISEASE_ICON, status.DiseaseIcon);
-        if (status.ShowDisease != null)
-            payload.Add(SuitSensorConstants.NET_SHOW_DISEASE, status.ShowDisease);
+        payload.Add(SuitSensorConstants.NET_SHOW_DISEASE, status.ShowDisease);
         //FarHorizons End
 
         return payload;

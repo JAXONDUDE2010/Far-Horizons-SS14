@@ -170,7 +170,7 @@
     - !type:HealthChange
       damage:
         types:
-          Genetic: 1
+          Cellular: 1
 
 - type: diseaseSymptom
   id: SymptomGib
