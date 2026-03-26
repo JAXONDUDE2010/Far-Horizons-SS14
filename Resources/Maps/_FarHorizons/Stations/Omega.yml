@@ -85072,8 +85072,6 @@ entities:
       pos: -9.5,32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 16239
     components:
     - type: Transform
