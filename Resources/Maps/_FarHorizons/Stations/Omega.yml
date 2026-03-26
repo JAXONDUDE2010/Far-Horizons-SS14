@@ -74430,7 +74430,6 @@ entities:
       pos: -32.5,9.5
       parent: 2
     - type: OperatingTable
-      scanner: invalid
   - uid: 9859
     components:
     - type: Transform
