@@ -10218,5 +10218,28 @@ Entries:
   id: 102414
   time: '2026-03-26T17:34:57.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1024
+- author: princess_gurchi
+  changes:
+  - message: Changed default transfer rate of reagents from stomach into blood from
+      50% to 75%
+    type: Tweak
+  id: 102800
+  time: '2026-03-26T19:32:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1028
+- author: princess_gurchi
+  changes:
+  - message: Ambu and Ambu+ will now get metabolized in stomach and give their full
+      effect under original conditions (10u and 5u at once)
+    type: Tweak
+  id: 102801
+  time: '2026-03-26T19:32:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1028
+- author: princess_gurchi
+  changes:
+  - message: All pills containers now start with 10 pills
+    type: Tweak
+  id: 102802
+  time: '2026-03-26T19:32:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1028
 Order: -1
 
