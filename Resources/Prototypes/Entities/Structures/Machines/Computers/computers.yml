@@ -699,6 +699,7 @@
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #FarHorizons
 
 - type: entity
   parent: BaseComputerAiAccess
