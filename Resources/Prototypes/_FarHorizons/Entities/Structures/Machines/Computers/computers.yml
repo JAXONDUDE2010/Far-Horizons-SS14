@@ -81,6 +81,7 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      pai_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -123,6 +124,7 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      pai_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -165,6 +167,7 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      pai_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -213,3 +216,4 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      pai_slot: !type:ContainerSlot {}

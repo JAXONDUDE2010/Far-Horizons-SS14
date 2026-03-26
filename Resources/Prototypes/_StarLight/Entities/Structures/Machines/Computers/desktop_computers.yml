@@ -13,6 +13,11 @@
     drawdepth: SmallObjects
     offset: 0,0.2
     noRot: true
+  - type: GenericVisualizer  # Override to prevent edge connection sprites
+    visuals:
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        computerLayerBody:
+          None: { state: computer, sprite: _Starlight/Structures/Machines/desktop_computers.rsi }
   - type: Fixtures
     fixtures:
       fix1:
@@ -26,6 +31,8 @@
         - BulletImpassable
   - type: Physics
     bodyType: Static
+  - type: EdgeConnection
+    connectionKey: computersDesktop
 # endregion: Base
 
 # region: Frame
@@ -334,6 +341,7 @@
       PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
+      pai_slot: !type:ContainerSlot {} #FarHorizons
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

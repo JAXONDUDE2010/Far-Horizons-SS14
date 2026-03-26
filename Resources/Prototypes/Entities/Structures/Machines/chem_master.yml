@@ -77,6 +77,7 @@
     containers:
       beakerSlot: !type:ContainerSlot
       outputSlot: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #FarHorizons
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: ItemSlots
@@ -92,6 +93,14 @@
           - Bottle
           - PillCanister
           - PatchPack # Starlight-edit
+      # Starlight-start: for PAI slotting
+      pai_slot:
+        name: Personal AI Device
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - PAI
+      # Starlight-end
   - type: SolutionContainerManager
     solutions:
       buffer: {}

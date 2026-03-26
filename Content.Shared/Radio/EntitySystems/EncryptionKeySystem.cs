@@ -16,6 +16,10 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
+#region Starlight
+using Content.Shared.Interaction.Components;
+#endregion
+
 namespace Content.Shared.Radio.EntitySystems;
 
 /// <summary>
@@ -49,9 +53,9 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var contained = component.KeyContainer.ContainedEntities.ToArray();
-        _container.EmptyContainer(component.KeyContainer, reparent: false);
-        foreach (var ent in contained)
+        List<EntityUid> removedKeys = _container.EmptyContainer(component.KeyContainer, reparent: false); //Starlight fixed unremovable keys being removable
+        if (removedKeys.Count == 0) return; //Starlight fixed unremovable keys being removable
+        foreach (var ent in removedKeys) //Starlight fixed unremovable keys being removable
         {
             _hands.PickupOrDrop(args.User, ent, dropNear: true);
         }
@@ -98,7 +102,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         }
         else if (TryComp<ToolComponent>(args.Used, out var tool)
                  && _tool.HasQuality(args.Used, component.KeysExtractionMethod, tool)
-                 && component.KeyContainer.ContainedEntities.Count > 0) // dont block deconstruction
+                 && component.KeyContainer.ContainedEntities.Count(key => !HasComp(key, typeof(UnremoveableComponent))) != 0) //Starlight fixed unremovable keys being removable
         {
             args.Handled = true;
             TryRemoveKey(uid, component, args, tool);
@@ -146,12 +150,6 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if (!_wires.IsPanelOpen(uid))
         {
             _popup.PopupClient(Loc.GetString("encryption-keys-panel-locked"), uid, args.User);
-            return;
-        }
-
-        if (component.KeyContainer.ContainedEntities.Count == 0)
-        {
-            _popup.PopupClient(Loc.GetString("encryption-keys-no-keys"), uid, args.User);
             return;
         }
 
