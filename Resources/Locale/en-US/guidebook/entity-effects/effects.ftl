@@ -85,12 +85,6 @@ entity-effect-guidebook-satiate-hunger =
         *[other] hunger at {NATURALFIXED($relative, 3)}x the average rate
     }
 
-entity-effect-guidebook-speak-dataset =
-    { $chance ->
-        [1] Will force
-        *[other] force
-    } speak a random word
-
 entity-effect-guidebook-health-change =
     { $chance ->
         [1] { $healsordeals ->
@@ -293,12 +287,6 @@ entity-effect-guidebook-cure-disease =
         *[other] cure
     } the disease { $disease }
 
-entity-effect-guidebook-cure-disease-lower-stage =
-    { $chance ->
-        [1] Lowers
-        *[other] Lower
-    } stage of the disease { $disease }
-
 entity-effect-guidebook-eye-damage =
     { $chance ->
         [1] { $deltasign ->
@@ -350,18 +338,6 @@ entity-effect-guidebook-emote =
         [1] Will force
         *[other] force
     } the metabolizer to [bold][color=white]{$emote}[/color][/bold]
-
-entity-effect-guidebook-transition-disease =
-    { $chance ->
-        [1] Causes
-        *[other] cause
-    } disease transition from { $fromDisease } to { $toDisease }
-
-entity-effect-guidebook-cause-disease =
-    { $chance ->
-        [1] Causes
-        *[other] cause
-    } infects the target with disease { $disease }
 
 entity-effect-guidebook-extinguish-reaction =
     { $chance ->

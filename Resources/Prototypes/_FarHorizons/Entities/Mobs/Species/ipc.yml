@@ -298,6 +298,7 @@
         popup: mouth-taste-metal
         popupType: LargeCaution
         targetOnly: true
+  - type: PreventInfection
   # Lock
   - type: IPCLock
     instantSelfUnlock: true

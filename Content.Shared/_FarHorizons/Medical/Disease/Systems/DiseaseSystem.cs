@@ -303,7 +303,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         if (!_prototypes.HasIndex(diseaseId.Id))
             return false;
 
-        if(HasComp<IPCBrainHolderComponent>(uid))
+        if(HasComp<PreventInfectionComponent>(uid))
             return false;
 
         if (_mobState.IsDead(uid))

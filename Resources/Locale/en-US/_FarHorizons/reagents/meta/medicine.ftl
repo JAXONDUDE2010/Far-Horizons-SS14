@@ -6,3 +6,12 @@ reagent-desc-universal-blood = Created by Nanotrasen's advanced medical science,
 
 reagent-name-necrosol = necrosol
 reagent-desc-necrosol = A necrotic substance that seems to be able to heal frozen corpses. It can treat and rejuvenate plants when applied in small doses.
+
+reagent-name-salbutamol = salbutamol
+reagent-desc-salbutamol = A bronchodilator used to relieve bronchospasm and ease breathing.
+
+reagent-name-perfluorodecalin = perfluorodecalin
+reagent-desc-perfluorodecalin = A perfluorocarbon used as an oxygen carrier in some medical therapies.
+
+reagent-name-spaceacillin = spaceacillin
+reagent-desc-spaceacillin = A broad-spectrum antibiotic used to treat a variety of bacterial infections.

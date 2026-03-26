@@ -256,6 +256,7 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      #FarHorizons Start
       - !type:CauseDisease
         conditions:
         - !type:MetabolizerTypeCondition
@@ -263,6 +264,7 @@
           inverted: true
         disease: DiseaseFoodPoisoning
         probability: 0.003
+      #FarHorizons End
 
 - type: reagent
   id: MilkGoat
