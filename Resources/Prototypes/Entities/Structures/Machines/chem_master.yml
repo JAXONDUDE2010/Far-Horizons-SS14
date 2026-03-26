@@ -77,6 +77,7 @@
     containers:
       beakerSlot: !type:ContainerSlot
       outputSlot: !type:ContainerSlot
+      pai_slot: !type:ContainerSlot {} #FarHorizons
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: ItemSlots

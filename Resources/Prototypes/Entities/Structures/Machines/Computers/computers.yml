@@ -168,6 +168,7 @@
       board: !type:Container
         ents: []
       disk_slot: !type:ContainerSlot {}
+      pai_slot: !type:ContainerSlot {} #FarHorizons
   - type: GuideHelp
     guides:
     - ShuttleCraft
