@@ -24,6 +24,7 @@
     components: 
     - type: MagnetPickup
       requiresEquipping: false  # Starlight Edit - make it work even without being equipped
+      slotFlags: rig #FH
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Mining/ore_bag.rsi # Starlight edit
     state: icon

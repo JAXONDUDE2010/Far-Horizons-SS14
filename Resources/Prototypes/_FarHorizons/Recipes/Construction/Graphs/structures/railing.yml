@@ -1,0 +1,266 @@
+#Glass
+
+- type: constructionGraph
+  id: GlassRailing
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: glassrailing
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 2
+        - to: glassrailingCorner
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Glass
+              amount: 2
+              doAfter: 2.5
+        - to: glassrailingCornerSmall
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 2
+        - to: glassrailingRound
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Glass
+              amount: 2
+              doAfter: 2
+
+    - node: glassrailing
+      entity: GlassRailing
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: glassrailingCorner
+      entity: GlassRailingCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+    - node: glassrailingCornerSmall
+      entity: GlassRailingCornerSmall
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: glassrailingRound
+      entity: GlassRailingRound
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+#Wooden
+
+- type: constructionGraph
+  id: WoodenRailing
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodenrailing
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+        - to: woodenrailingCorner
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2.5
+        - to: woodenrailingCornerSmall
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+        - to: woodenrailingRound
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+    - node: woodenrailing
+      entity: WoodenRailing
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: woodenrailingCorner
+      entity: WoodenRailingCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+    - node: woodenrailingCornerSmall
+      entity: WoodenRailingCornerSmall
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: woodenrailingRound
+      entity: WoodenRailingRound
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+#Industrial
+
+- type: constructionGraph
+  id: IndustrialRailing
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: industrialrailing
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: industrialrailingCorner
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 2.5
+        - to: industrialrailingCornerSmall
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: industrialrailingRound
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+
+    - node: industrialrailing
+      entity: IndustrialRailing
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: industrialrailingCorner
+      entity: IndustrialRailingCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
+    - node: industrialrailingCornerSmall
+      entity: IndustrialRailingCornerSmall
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.25
+
+    - node: industrialrailingRound
+      entity: IndustrialRailingRound
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
