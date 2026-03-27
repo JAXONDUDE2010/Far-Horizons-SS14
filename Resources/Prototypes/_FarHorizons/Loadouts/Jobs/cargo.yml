@@ -35,7 +35,7 @@
 - type: loadout
   id: MiningOreBag
   equipment:
-    belt: OreBag
+    rig: OreBag
 
 # Salvage Technician
 

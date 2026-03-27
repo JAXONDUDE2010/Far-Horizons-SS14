@@ -68,6 +68,7 @@
     storageCloseSound: /Audio/Effects/closetclose.ogg
     whitelist:
       tags:
+      - ArtifactFragment #FH
       - Ore
   - type: UserInterface
     interfaces:

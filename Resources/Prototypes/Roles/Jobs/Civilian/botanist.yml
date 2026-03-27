@@ -25,6 +25,7 @@
     id: BotanistPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltPlantFilled
+    rig: PlantBag #FH
   #storage:
     #back:
     #- Stuff

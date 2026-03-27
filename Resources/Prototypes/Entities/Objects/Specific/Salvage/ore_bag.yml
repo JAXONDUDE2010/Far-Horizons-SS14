@@ -2,7 +2,7 @@
   name: Ore Bag #Far Horizons - The Great Capitalization Crusade
   id: OreBag
   parent: BaseStorageItem
-  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when activated. #FH
   components:
   - type: ItemToggle  # Starlight Edit - added toggle
     onUse: false
@@ -30,8 +30,7 @@
   - type: Clothing
     sprite: _Starlight/Objects/Specific/Mining/ore_bag.rsi # Starlight edit
     quickEquip: false
-    slots:
-    - belt
+    slots: rig #FH
   - type: Item
     size: Ginormous
   - type: Storage
