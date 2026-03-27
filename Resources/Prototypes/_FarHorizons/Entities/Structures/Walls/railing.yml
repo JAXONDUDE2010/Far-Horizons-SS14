@@ -9,9 +9,9 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _FarHorizons/Structures/Walls/railing_glass.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_glass.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/railing_glass.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_glass.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
@@ -249,9 +249,9 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _FarHorizons/Structures/Walls/railing_wood.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_wood.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/railing_wood.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_wood.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
@@ -489,9 +489,9 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _FarHorizons/Structures/Walls/railing_industrial.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_industrial.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/railing_industrial.rsi #FH
+    sprite: _FarHorizons/Structures/Walls/railing_industrial.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
