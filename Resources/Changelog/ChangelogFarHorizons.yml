@@ -10381,5 +10381,44 @@ Entries:
   id: 102701
   time: '2026-03-27T08:48:49.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1027
+- author: Pok27 and AthenaAI
+  changes:
+  - message: New foundations for a disease system and a couple of diseases.
+    type: Add
+  id: 103000
+  time: '2026-03-27T14:45:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1030
+- author: Pok27 and AthenaAI
+  changes:
+  - message: 'Add 3 new chemicals for medical that can treat the diseases or their
+      symptoms: Salbutamol, Spaceacillin, and Perfluorodecalin'
+    type: Add
+  id: 103001
+  time: '2026-03-27T14:45:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1030
+- author: Pok27 and AthenaAI
+  changes:
+  - message: Adds new station event that can make people contract a random contagious
+      disease. The diseases are Cold, Cold9 and Flu.
+    type: Add
+  id: 103002
+  time: '2026-03-27T14:45:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1030
+- author: Pok27 and AthenaAI
+  changes:
+  - message: Functionality to the Disease Diagnoser use a swab on your patient and
+      then on the machine (Future plans will be blood base examining.)
+    type: Add
+  id: 103003
+  time: '2026-03-27T14:45:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1030
+- author: Pok27 and AthenaAI
+  changes:
+  - message: Crew monitor can tell who is infected unless the disease is in its first
+      stages.
+    type: Add
+  id: 103004
+  time: '2026-03-27T14:45:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1030
 Order: -1
 
