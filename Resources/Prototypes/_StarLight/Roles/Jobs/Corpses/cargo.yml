@@ -38,7 +38,7 @@
     ears: ClothingHeadsetMining
     shoes: ClothingShoesBootsSalvage
     gloves: ClothingHandsGlovesFingerless
-    belt: OreBag
+    rig: OreBag #FH
     pocket1: RadioHandheldExpedition
 
 - type: startingGear

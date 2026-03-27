@@ -80,3 +80,44 @@
     startingCharge: 0
   - type: BatterySelfRecharger
     autoRechargeRate: 10
+
+- type: entity
+  name: China Lake #Moved so it doesnt get turned back into pre nerf clake
+  parent: [BaseWeaponLauncher, BaseSyndicateContraband]
+  id: WeaponLauncherChinaLake
+  description: A pump-action grenade launcher commonly used by the infamous Nuclear Operatives. PLOOP!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
+  - type: AmmoCounter
+  - type: Gun
+    pump: true
+    fireRate: 0.8
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    proto: GrenadeFrag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000

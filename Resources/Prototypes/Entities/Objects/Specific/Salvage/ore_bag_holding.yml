@@ -2,7 +2,7 @@
   name: Ore Bag Of Holding #Far Horizons - The Great Capitalization Crusade
   id: OreBagOfHolding
   parent: OreBag
-  description: A robust bag of holding for salvage billionaires and rich miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: A robust bag of holding for salvage billionaires and rich miners alike to carry large amounts of ore. Magnetises any nearby ores when activated. #FH
   components:
   - type: ItemToggle  #starlight edit, added toggle
     onUse: false

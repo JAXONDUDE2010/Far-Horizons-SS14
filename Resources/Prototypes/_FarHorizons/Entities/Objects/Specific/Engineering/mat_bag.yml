@@ -28,6 +28,7 @@
     state: icon
   - type: Clothing
     sprite: _FarHorizons/Objects/Specific/Engineering/mat_bag.rsi
+    quickEquip: false
     slots: rig
   - type: Item
     size: Ginormous
@@ -50,6 +51,3 @@
         enum.ToggleableVisuals.Layer:
           True: { state: "magnet" }
           False: { state: "icon" }
-  - type: Tag
-    tags:
-    - Webbing

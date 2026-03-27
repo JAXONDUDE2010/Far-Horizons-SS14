@@ -80,3 +80,158 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
+
+#Railings
+
+- type: construction
+  id: WoodenRailing
+  graph: WoodenRailing
+  startNode: start
+  targetNode: woodenrailing
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: WoodenRailingCorner
+  name: construction-recipe-wooden-railing-corner-fh #Far Horizons - The Great Capitalization Crusade
+  graph: WoodenRailing
+  startNode: start
+  targetNode: woodenrailingCorner
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: WoodenRailingCornerSmall
+  name: construction-recipe-wooden-railing-corner-small-fh #Far Horizons - The Great Capitalization Crusade
+  graph: WoodenRailing
+  startNode: start
+  targetNode: woodenrailingCornerSmall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: WoodenRailingRound
+  name: construction-recipe-wooden-railing-round-fh #Far Horizons - The Great Capitalization Crusade
+  graph: WoodenRailing
+  startNode: start
+  targetNode: woodenrailingRound
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: GlassRailing
+  graph: GlassRailing
+  startNode: start
+  targetNode: glassrailing
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: GlassRailingCorner
+  name: construction-recipe-glass-railing-corner-fh #Far Horizons - The Great Capitalization Crusade
+  graph: GlassRailing
+  startNode: start
+  targetNode: glassrailingCorner
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: GlassRailingCornerSmall
+  name: construction-recipe-glass-railing-corner-small-fh #Far Horizons - The Great Capitalization Crusade
+  graph: GlassRailing
+  startNode: start
+  targetNode: glassrailingCornerSmall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: GlassRailingRound
+  name: construction-recipe-glass-railing-round-fh #Far Horizons - The Great Capitalization Crusade
+  graph: GlassRailing
+  startNode: start
+  targetNode: glassrailingRound
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: IndustrialRailing
+  graph: IndustrialRailing
+  startNode: start
+  targetNode: industrialrailing
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: IndustrialRailingCorner
+  name: construction-recipe-industrial-railing-corner-fh #Far Horizons - The Great Capitalization Crusade
+  graph: IndustrialRailing
+  startNode: start
+  targetNode: industrialrailingCorner
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: IndustrialRailingCornerSmall
+  name: construction-recipe-industrial-railing-corner-small-fh #Far Horizons - The Great Capitalization Crusade
+  graph: IndustrialRailing
+  startNode: start
+  targetNode: industrialrailingCornerSmall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: IndustrialRailingRound
+  name: construction-recipe-industrial-railing-round-fh #Far Horizons - The Great Capitalization Crusade
+  graph: IndustrialRailing
+  startNode: start
+  targetNode: industrialrailingRound
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

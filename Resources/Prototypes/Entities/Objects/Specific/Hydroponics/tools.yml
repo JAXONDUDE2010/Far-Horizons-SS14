@@ -148,7 +148,7 @@
       Steel: 100
 
 - type: entity
-  name: plant bag
+  name: Plant Bag #FH
   id: PlantBag
   parent: BaseStorageItem
   description: A bag for botanists to easily move their huge harvests.
@@ -161,7 +161,7 @@
   - type: Clothing
     quickEquip: false
     slots:
-    - belt
+    - rig #FH
   - type: Storage
     grid:
     - 0,0,7,4
