@@ -13,6 +13,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.Disease.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -24,6 +25,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using Content.Shared.Medical.Disease.Prototypes;
 
 namespace Content.Shared.Medical.SuitSensors;
 
@@ -429,6 +432,28 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 break;
         }
 
+        //FarHorizons Start
+        // Include disease icon if the wearer has a disease carrier component with an active icon
+        if (TryComp<DiseaseCarrierComponent>(sensor.User.Value, out var carrier) && !string.IsNullOrEmpty(carrier.DiseaseIcon))
+        {
+            status.ShowDisease = carrier.ActiveDiseases.Any(x =>
+            {
+                if(!_proto.TryIndex(x.Key.Id, out var disease))
+                    return false;
+
+                var index = x.Value.Stage;
+
+                if (index < 0 || index >= disease.Stages.Count)
+                {
+                    Log.Error($"Invalid stage index {index} for {x.Key}");
+                    return false;
+                }
+
+                return (disease.Stages[index].Stealth & DiseaseStealthFlags.Hidden) == 0;
+            });
+            status.DiseaseIcon = carrier.DiseaseIcon;
+        }
+        //FarHorizons End
         return status;
     }
 
@@ -455,6 +480,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
         if (status.Coordinates != null)
             payload.Add(SuitSensorConstants.NET_COORDINATES, status.Coordinates);
+        //FarHorizons Start
+        if (!string.IsNullOrEmpty(status.DiseaseIcon))
+            payload.Add(SuitSensorConstants.NET_DISEASE_ICON, status.DiseaseIcon);
+        payload.Add(SuitSensorConstants.NET_SHOW_DISEASE, status.ShowDisease);
+        //FarHorizons End
 
         return payload;
     }
@@ -491,6 +521,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             TotalDamageThreshold = totalDamageThreshold,
             Coordinates = coords,
         };
+
+        //FarHorizons Start
+        if (payload.TryGetValue(SuitSensorConstants.NET_DISEASE_ICON, out string? diseaseIcon))
+            status.DiseaseIcon = diseaseIcon;
+        if (payload.TryGetValue(SuitSensorConstants.NET_SHOW_DISEASE, out bool showDisease))
+            status.ShowDisease = showDisease;
+        //FarHorizons End
         return status;
     }
 }
