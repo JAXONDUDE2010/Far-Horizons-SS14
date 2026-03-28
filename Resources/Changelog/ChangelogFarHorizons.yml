@@ -10434,5 +10434,40 @@ Entries:
   id: 103901
   time: '2026-03-27T16:48:44.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1039
+- author: Roro
+  changes:
+  - message: Fixed Assault belt for Nukies not fitting in belt.
+    type: Fix
+  id: 104100
+  time: '2026-03-28T05:59:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1041
+- author: Roro
+  changes:
+  - message: Fixed Tinted window sprite, had a sprite the wrong way around.
+    type: Fix
+  id: 104101
+  time: '2026-03-28T05:59:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1041
+- author: Roro
+  changes:
+  - message: Fixed improper Spaceacillin od, was formerly Perfluorodecalin.
+    type: Fix
+  id: 104102
+  time: '2026-03-28T05:59:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1041
+- author: Roro
+  changes:
+  - message: Fixed Moproach event announcement, no longer a random string of text.
+    type: Fix
+  id: 104103
+  time: '2026-03-28T05:59:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1041
+- author: Roro
+  changes:
+  - message: Fixed Vitals monitor, had a component that was messing up its sprites.
+    type: Fix
+  id: 104104
+  time: '2026-03-28T05:59:55.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1041
 Order: -1
 
