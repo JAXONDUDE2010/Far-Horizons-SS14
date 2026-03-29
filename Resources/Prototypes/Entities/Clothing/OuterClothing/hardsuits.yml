@@ -1715,6 +1715,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSanta
+  - type: SpaceRescuePingSender # Far Horizons
+    hidden: true
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, AllowSuitStorageClothing ]
