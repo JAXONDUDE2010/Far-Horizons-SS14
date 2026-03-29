@@ -213,7 +213,7 @@
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakCEDMantle
   name: Centeral Engineering Division mantle
-  description: Supermatters, Teslas and TEGs all tremble in fear from anyone wearing this mantle.
+  description: A mantle for members of the CED. It comes in its typical green and gold colorscheme.
   components:
   - type: Sprite
     sprite:  _Starlight/Clothing/Neck/Cloaks/CED_mantle.rsi
@@ -533,7 +533,7 @@
   parent: [ClothingNeckMantleRD, BaseCentcommContraband]
   id: ClothingNeckCloakCRDMantle
   name: Central Researching Division Mantle
-  description: Rumors say that anomalies stabilize on their own and artifacts start behaving the moment this mantle shows up in the lab.
+  description: Rumors says that this is just an ordinary cloak to easily identify members for CRD.
   components:
   - type: Sprite
     sprite:  _Starlight/Clothing/Neck/Cloaks/CRD_mantle.rsi
