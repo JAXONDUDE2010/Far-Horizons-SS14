@@ -365,49 +365,43 @@
       tags:
         - BioSec
 
-# Armory - Leikha
+# Armory - IFV-50
 - type: entity
-  id: ShelfArmoryLeikhaLarge
+  id: ShelfArmoryIFV-50TLarge
   parent: ShelfArmoryBase
-  name: Large IFV-50 Rack
-  description: Holds four Leikha Rifles and Enforcer Pistols.
+  name: Large IFV-50-T Rack
+  description: Holds four IFV-50-T Rifles and Enforcer Pistols.
   components:
-  - type: EntityStorageVisuals
-    stateBaseClosed: shotguncase
-    stateDoorOpen: shotguncase_open
-    stateDoorClosed: shotguncase_door
-#  - type: Sprite
-#    sprite: _Afterlight/Structures/Storage/closet-large.rsi
-#    layers:
-#    - state: leikhacase
-#      map: ["enum.StorageVisualLayers.Base"]
-#    - state: unlocked
-#      shader: unshaded
-#    - state: leikha-0
-#    - map: ["enum.StorageFillLayers.Fill"]
-#    - state: closed
-#      map: ["enum.StorageVisualLayers.Door"]
-#    - state: locked
-#      map: ["enum.LockVisualLayers.Lock"]
-#      shader: unshaded
-#  - type: StorageFillVisualizer
-#    maxFillLevels: 5
-#    fillBaseName: leikha
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Storage/racks.rsi
+    layers:
+    - state: ifvcase
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: ifv-0
+      map: ["enum.StorageFillLayers.Fill"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: StorageFillVisualizer
+    maxFillLevels: 5
+    fillBaseName: ifv
   - type: Storage
     whitelist:
       tags:
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
-        - Leikha
+        - IFV-50
         - MagazineRifle38
 
 #Armory - Lecter
 - type: entity
-  id: ShelfArmoryLecterLarge
+  id: ShelfArmoryLecterTypeTLarge
   parent: ShelfArmoryBase
-  name: large lecter rack
-  description: Holds four Lecter Rifles and Enforcer Pistols.
+  name: Large Lecter Type-T Rack
+  description: Holds four Lecter Type-T Rifles and Enforcer Pistols.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Storage/racks.rsi
@@ -437,30 +431,24 @@
 - type: entity
   id: ShelfArmoryMixedRifle
   parent: ShelfArmoryBase
-  name: mixed rifle rack
-  description: Holds two Lecter & Leikha rifles as well as four Enforcer Pistols.
+  name: Mixed Rifle Rack
+  description: Holds two Lecter Type-T & IFV-50-T rifles as well as four Enforcer Pistols.
   components:
-  - type: EntityStorageVisuals
-    stateBaseClosed: shotguncase
-    stateDoorOpen: shotguncase_open
-    stateDoorClosed: shotguncase_door
-#  - type: Sprite
-#    sprite: _Afterlight/Structures/Storage/closet-large.rsi
-#    layers:
-#    - state: mixedriflecase
-#      map: ["enum.StorageVisualLayers.Base"]
-#    - state: unlocked
-#      shader: unshaded
-#    - state: mixedrifle-0
-#    - map: ["enum.StorageFillLayers.Fill"]
-#    - state: closed
-#      map: ["enum.StorageVisualLayers.Door"]
-#    - state: locked
-#      map: ["enum.LockVisualLayers.Lock"]
-#      shader: unshaded
-#  - type: StorageFillVisualizer
-#    maxFillLevels: 5
-#    fillBaseName: mixedrifle
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Storage/racks.rsi
+    layers:
+    - state: mixedriflecase
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: mixedrifle-0
+      map: ["enum.StorageFillLayers.Fill"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: StorageFillVisualizer
+    maxFillLevels: 5
+    fillBaseName: mixedrifle
   - type: Storage
     whitelist:
       tags:
@@ -468,7 +456,7 @@
         - MagazinePistol
         - MagazineMagnum
         - Lecter
-        - Leikha
+        - IFV-50
         - MagazineRifle556
         - MagazineRifle38
 

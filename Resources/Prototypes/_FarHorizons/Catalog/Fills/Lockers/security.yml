@@ -346,8 +346,8 @@
 # Armory - Rifles
 
 - type: entity
-  id: ShelfArmoryLecterLargeFilled
-  parent: ShelfArmoryLecterLarge
+  id: ShelfArmoryLecterTypeTLargeFilled
+  parent: ShelfArmoryLecterTypeTLarge
   suffix: NT, Filled
   components:
   - type: StorageFill
@@ -366,13 +366,13 @@
       amount: 4
 
 - type: entity
-  id: ShelfArmoryLeikhaLargeFilled
-  parent: ShelfArmoryLeikhaLarge
+  id: ShelfArmoryIFV-50TLargeFilled
+  parent: ShelfArmoryIFV-50TLarge
   suffix: NT, Filled
   components:
   - type: StorageFill
     contents:
-    - id: WeaponRifleLeikha
+    - id: WeaponRifleIFV-50T
       amount: 4
     - id: WeaponPistolEnforcer
       amount: 4
@@ -394,7 +394,7 @@
     contents:
     - id: WeaponRifleLecterNT
       amount: 2
-    - id: WeaponRifleLeikha
+    - id: WeaponRifleIFV-50T
       amount: 2
     - id: WeaponPistolEnforcer
       amount: 4
