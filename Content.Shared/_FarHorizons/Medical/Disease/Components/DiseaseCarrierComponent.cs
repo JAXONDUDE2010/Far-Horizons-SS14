@@ -30,7 +30,7 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// Delay between disease processing ticks.
     /// </summary>
     [DataField]
-    public TimeSpan TickDelay = TimeSpan.FromSeconds(2);
+    public TimeSpan TickDelay = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// Time when the next disease processing tick occurs.
