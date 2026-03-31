@@ -245,6 +245,7 @@
     - SulfurBlood
     - Sap # Starlight-start
     - AvaliBlood # Starlight-end
+    - ShadekinBlood #FH
 
 - type: xenoArchTrigger
   id: TriggerThrow
