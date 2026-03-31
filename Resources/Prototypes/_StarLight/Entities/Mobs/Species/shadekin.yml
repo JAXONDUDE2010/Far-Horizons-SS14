@@ -68,6 +68,10 @@
       bloodlossHealDamage:
         types:
           Bloodloss: -0.25
+      bloodReferenceSolution: #FH start
+        reagents:
+          - ReagentId: ShadekinBlood
+            Quantity: 300 #FH end
     - type: Flammable
       damage:
         types:
