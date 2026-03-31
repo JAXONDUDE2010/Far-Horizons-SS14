@@ -252,7 +252,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Adjusts airborne infection chance for PPE/internals on the target.
     /// </summary>
-    public float AdjustAirborneChanceForProtection(EntityUid target, float baseChance, DiseasePrototype disease)
+    public float AdjustAirborneChanceForProtection(EntityUid target, float baseChance, DiseaseData disease)
     {
         var chance = baseChance;
 
@@ -282,7 +282,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Adjusts contact infection chance for PPE on the target.
     /// </summary>
-    public float AdjustContactChanceForProtection(EntityUid target, float baseChance, DiseasePrototype disease)
+    public float AdjustContactChanceForProtection(EntityUid target, float baseChance, DiseaseData disease)
     {
         var chance = baseChance;
         var permeability = MathF.Max(0f, disease.PermeabilityMod);
@@ -377,7 +377,12 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         var disease = new DiseaseData
         {
             Id = diseaseId,
-            StrainName = GenerateStrainName()
+            StrainName = GenerateStrainName(),
+            SpreadPath = proto.SpreadPath,
+            ContactInfect = proto.ContactInfect,
+            ContactDeposit = proto.ContactDeposit,
+            AirborneInfect = proto.AirborneInfect,
+            AirborneRange = proto.AirborneRange
         };
         return disease;
     }

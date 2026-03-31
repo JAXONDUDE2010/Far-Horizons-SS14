@@ -65,7 +65,7 @@ public sealed partial class SharedDiseaseSymptomSystem : EntitySystem
         if(!_prototype.TryIndex(disease.Id, out var diseaseProto))
             return;
 
-        if ((diseaseProto.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
+        if ((disease.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
             return;
 
         var range = diseaseProto.AirborneRange * MathF.Max(0.1f, cfg.RangeMultiplier);

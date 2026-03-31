@@ -14,7 +14,6 @@ namespace Content.Shared.Medical.Disease.Systems;
 /// </summary>
 public sealed class DiseaseAirborneSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -39,15 +38,12 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             if (carrier.NextTick > now)
                 continue;
 
-            foreach (var (diseaseId, _) in carrier.ActiveDiseases)
+            foreach (var (disease, _) in carrier.ActiveDiseases)
             {
-                if (!_prototypes.TryIndex(diseaseId.Id, out var disease))
-                    continue;
-
                 if ((disease.SpreadPath & DiseaseSpreadPath.Airborne) == 0)
                     continue;
 
-                TryAirborneSpread(uid, diseaseId);
+                TryAirborneSpread(uid, disease);
             }
         }
     }
@@ -57,9 +53,6 @@ public sealed class DiseaseAirborneSystem : EntitySystem
     /// </summary>
     public void TryAirborneSpread(EntityUid source, DiseaseData disease, float? overrideRange = null, float chanceMultiplier = 1f)
     {
-        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
-            return;
-
         if (Deleted(source))
             return;
 
@@ -67,7 +60,7 @@ public sealed class DiseaseAirborneSystem : EntitySystem
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        var range = overrideRange ?? diseaseProto.AirborneRange;
+        var range = overrideRange ?? disease.AirborneRange;
         _tmpTargets.Clear();
 
         // If the source is inside a container, include contained entities in the lookup.
@@ -90,8 +83,8 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             }
 
             // Compute final chance.
-            var chance = Math.Clamp(diseaseProto.AirborneInfect * chanceMultiplier, 0f, 1f);
-            chance = _disease.AdjustAirborneChanceForProtection(other, chance, diseaseProto);
+            var chance = Math.Clamp(disease.AirborneInfect * chanceMultiplier, 0f, 1f);
+            chance = _disease.AdjustAirborneChanceForProtection(other, chance, disease);
             if (chance <= 0f)
                 continue;
 

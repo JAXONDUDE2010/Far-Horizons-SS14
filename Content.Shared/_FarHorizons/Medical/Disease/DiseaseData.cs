@@ -18,6 +18,44 @@ public sealed class DiseaseData
     /// </summary>
     [ViewVariables]
     public string StrainName = string.Empty;
+
+    /// <summary>
+    /// Spread vectors for this disease.
+    /// </summary>
+    [DataField]
+    public DiseaseSpreadPath SpreadPath { get; set; } = DiseaseSpreadPath.NonContagious;
+
+    /// <summary>
+    /// Per-disease permeability multiplier (0-1) applied to PPE/internals effectiveness.
+    /// Values > 1 reduce protection; values < 1 increase protection.
+    /// </summary>
+    [DataField]
+    public float PermeabilityMod { get; set; } = 1.0f;
+
+    /// <summary>
+    /// Base per-contact infection probability for this disease (0-1). Used when two entities make contact.
+    /// </summary>
+    [DataField]
+    public float ContactInfect { get; set; } = 0.025f;
+
+    /// <summary>
+    /// Amount of residue intensity deposited when a carrier with this disease contacts a surface.
+    /// Expressed as (0-1) fraction added to per-disease residue intensity.
+    /// </summary>
+    [DataField]
+    public float ContactDeposit { get; set; } = 0.2f;
+
+    /// <summary>
+    /// Base per-target airborne infection probability (0-1) before PPE adjustments.
+    /// </summary>
+    [DataField]
+    public float AirborneInfect { get; set; } = 0.025f;
+
+    /// <summary>
+    /// Airborne infection radius in world units, used when <see cref="SpreadPath"/> contains Airborne.
+    /// </summary>
+    [DataField]
+    public float AirborneRange { get; set; } = 3f;
 }
 
 [Serializable, NetSerializable]
