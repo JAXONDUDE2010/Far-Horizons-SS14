@@ -354,8 +354,7 @@ public sealed partial class SleepingSystem : EntitySystem
         if (TryComp(ent.Owner, out SSDIndicatorComponent? SSDComp) && SSDComp.IsSSD)
             return false;
 
-        Wake((ent, ent.Comp));
-        return true;
+        return RemComp<SleepingComponent>(ent);
     }
 
     /// <summary>
