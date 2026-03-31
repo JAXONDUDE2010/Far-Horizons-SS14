@@ -87,7 +87,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             if (!_prototypes.TryIndex(diseaseData.Id, out DiseasePrototype? diseaseProto))
                 continue;
             
-            var displayName = Loc.GetString(diseaseProto.Name);
+            var displayName = Loc.GetString(diseaseData.Name);
             var stage = stageData.Stage;
 
             DiseaseStage? stageCfg = null;
@@ -109,7 +109,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             lines.Add(Loc.GetString("diagnoser-disease-report-stage",("stage", showStage ? stage+1 : "Unknown")));
             lines.Add(Loc.GetString("diagnoser-disease-report-variant",("name", diseaseData.StrainName)));
             lines.Add(Loc.GetString("diagnoser-disease-report-desc"));
-            lines.Add(Loc.GetString(diseaseProto.Description));
+            lines.Add(Loc.GetString(diseaseData.Description));
 
             // Symptoms block.
             lines.Add(Loc.GetString("diagnoser-disease-symptoms-header"));

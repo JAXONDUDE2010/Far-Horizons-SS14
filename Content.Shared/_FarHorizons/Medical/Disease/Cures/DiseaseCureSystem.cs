@@ -138,10 +138,7 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     /// </summary>
     private void ApplyPostCureImmunity(Entity<DiseaseCarrierComponent> ent, DiseaseData disease)
     {
-        if(!_prototypes.TryIndex(disease.Id, out var diseaseProto))
-            return;
-
-        var strength = diseaseProto.PostCureImmunity;
+        var strength = disease.PostCureImmunity;
 
         if (ent.Comp.Immunity.TryGetValue(disease.Id, out var existing))
             ent.Comp.Immunity[disease.Id] = MathF.Max(existing, strength);

@@ -15,7 +15,7 @@
     cureChance: 0.2
     conditions:
     - !type:TemperatureCondition
-      max: 309.15
+      max: 303.15
   stages:
   - stage: 0
     stealth: [ Hidden, VeryHidden ]

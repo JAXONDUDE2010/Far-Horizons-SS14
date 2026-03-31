@@ -14,9 +14,21 @@ public sealed class DiseaseData
     public ProtoId<DiseasePrototype> Id;
 
     /// <summary>
+    /// Displayed name of the disease.
+    /// </summary>
+    [DataField]
+    public string Name { get; set; } = default!;
+
+    /// <summary>
+    /// Displayed description of the disease.
+    /// </summary>
+    [DataField]
+    public string Description { get; set; } = default!;
+
+    /// <summary>
     /// Randomized name for the strain of the disease.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public string StrainName = string.Empty;
 
     /// <summary>
@@ -24,6 +36,24 @@ public sealed class DiseaseData
     /// </summary>
     [DataField]
     public DiseaseSpreadPath SpreadPath { get; set; } = DiseaseSpreadPath.NonContagious;
+
+    /// <summary>
+    /// Probability of progression through disease stages per tick.
+    /// </summary>
+    [DataField]
+    public float StageProb { get; set; } = 0.02f;
+
+    /// <summary>
+    /// Default immunity strength granted after curing this disease (0-1).
+    /// </summary>
+    [DataField]
+    public float PostCureImmunity { get; set; } = 0.7f;
+
+    /// <summary>
+    /// Optional incubation time in seconds before symptoms/spread begin after infection.
+    /// </summary>
+    [DataField]
+    public float IncubationSeconds { get; set; }
 
     /// <summary>
     /// Per-disease permeability multiplier (0-1) applied to PPE/internals effectiveness.

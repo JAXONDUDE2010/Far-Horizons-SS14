@@ -14,7 +14,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Popups;
 using Content.Shared.Dataset;
-using Content.Shared._FarHorizons.Silicons.IPC.Components;
 
 namespace Content.Shared.Medical.Disease.Systems;
 
@@ -147,7 +146,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         }
         
         // Normal stage change.
-        var perTickAdvance = Math.Clamp(diseaseProto.StageProb, 0f, 1f);
+        var perTickAdvance = Math.Clamp(disease.StageProb, 0f, 1f);
         var seed = SharedRandomExtensions.HashCodeCombine([(int)_timing.CurTick.Value, GetNetEntity(ent).Id, currentStage.MinStageUntil.Microseconds, currentStage.Stage]);
         var rand = new System.Random(seed);
         
@@ -345,23 +344,19 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Infects an entity if eligible, when it has a carrier component, and sets the initial stage.
     /// </summary>
-    public bool Infect(EntityUid uid, DiseaseData diseaseId, StageData stage)
+    public bool Infect(EntityUid uid, DiseaseData disease, StageData stage)
     {
-        if (!_prototypes.HasIndex(diseaseId.Id))
-            return false;
-
         if (!TryComp<DiseaseCarrierComponent>(uid, out var carrier))
             return false;
 
         // Only initialize stage and incubation when this disease is first added to the carrier.
-        if (carrier.ActiveDiseases.TryAdd(diseaseId, stage))
+        if (carrier.ActiveDiseases.TryAdd(disease, stage))
         {
             // Set initial stage.
 
             // Schedule incubation window if configured; during incubation symptoms/spread are suppressed.
-            var proto = _prototypes.Index(diseaseId.Id);
-            if (proto.IncubationSeconds > 0)
-                carrier.IncubatingUntil[diseaseId] = _timing.CurTime + TimeSpan.FromSeconds(proto.IncubationSeconds);
+            if (disease.IncubationSeconds > 0)
+                carrier.IncubatingUntil[disease] = _timing.CurTime + TimeSpan.FromSeconds(disease.IncubationSeconds);
         }
 
         carrier.NextTick = _timing.CurTime + carrier.TickDelay;
@@ -377,8 +372,13 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         var disease = new DiseaseData
         {
             Id = diseaseId,
+            Name = proto.Name,
+            Description = proto.Description,
             StrainName = GenerateStrainName(),
             SpreadPath = proto.SpreadPath,
+            StageProb = proto.StageProb,
+            PostCureImmunity = proto.PostCureImmunity,
+            IncubationSeconds = proto.IncubationSeconds,
             ContactInfect = proto.ContactInfect,
             ContactDeposit = proto.ContactDeposit,
             AirborneInfect = proto.AirborneInfect,
