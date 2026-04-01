@@ -502,6 +502,7 @@
       - SurvivalKitItems
       - FoodSnack
       - ShellShotgun
+      - Paper
       components:
       - Injector
   - type: Sprite
@@ -524,6 +525,7 @@
       - ShellShotgun
       - DrinkBottle
       - Pie
+      - Dinnerware
       components:
       - Injector
   - type: Sprite
@@ -541,6 +543,7 @@
   - type: Storage
     whitelist:
       tags:
+      - CableCoil 
       - SurvivalKitItems
       - FoodSnack
       - Inflatable
@@ -564,6 +567,7 @@
       - SurvivalKitItems
       - FoodSnack
       - ShellShotgun
+      - Paper
       components:
       - Injector
   - type: Sprite

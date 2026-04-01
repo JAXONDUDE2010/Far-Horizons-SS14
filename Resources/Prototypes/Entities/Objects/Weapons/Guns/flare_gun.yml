@@ -57,12 +57,15 @@
   - type: Tag #FH
     tags: #FH
     - SurvivalKitItems #FH
+  - type: UseDelay #FH
+    delay: 0.5 #FH To prevent spam
+
 
 - type: entity
   name: security shell gun
   parent: [WeaponFlareGun, BaseSecurityContraband]
   id: WeaponFlareGunSecurity
-  description: A modified flare gun originally designed to be used by security to launch non-lethal shotgun shells, however it can also fire lethal shells without risk.
+  description: A modified flare gun originally designed to be used by security to launch non-lethal shotgun shells, it can also fire lethal shells without risk. This comes at the cost of a slower overall fire rate due to the advanced mechanisms required to fire them. #FH
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
@@ -84,3 +87,5 @@
     tags:
     - Sidearm
     - SurvivalKitItems #FH
+  - type: Gun #FH
+    fireRate: 0.5 #FH , a flare gun that can shoot actual bullets shouldnt have a higher firerate than an actual shotgun
