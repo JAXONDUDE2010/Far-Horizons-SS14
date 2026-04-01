@@ -847,6 +847,8 @@
   tier: Tier2
   unlocks:
     - EnergyDomeTurtle
+    - HolographicFieldGeneratorCircuitboard
+    - HolographicBarrierGeneratorCircuitboard
   announceTo:
     - Engineering
     - Security

@@ -64,6 +64,7 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ScanGateMachineCircuitboard
+  - HolographicBarrierGeneratorCircuitboard #FH
 
 - type: latheRecipePack
   parent:
