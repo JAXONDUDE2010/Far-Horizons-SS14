@@ -214,8 +214,15 @@
           damageType: Slash
           damageAmount: 50
       - effect: !type:LimbEffectDestroy
-        condition: !type:LimbConditionTotalDamage
-          totalDamage: 150
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
+          
   # Far Horizons end
 
 - type: entity
@@ -257,8 +264,14 @@
           damageType: Slash
           damageAmount: 50
       - effect: !type:LimbEffectDestroy
-        condition: !type:LimbConditionTotalDamage
-          totalDamage: 150
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
   # Far Horizons end
 
 - type: entity
@@ -344,8 +357,14 @@
           damageType: Slash
           damageAmount: 50
       - effect: !type:LimbEffectDestroy
-        condition: !type:LimbConditionTotalDamage
-          totalDamage: 150
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
   # Far Horizons end
 
 - type: entity
@@ -383,8 +402,14 @@
           damageType: Slash
           damageAmount: 50
       - effect: !type:LimbEffectDestroy
-        condition: !type:LimbConditionTotalDamage
-          totalDamage: 150
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
   # Far Horizons end
 
 - type: entity

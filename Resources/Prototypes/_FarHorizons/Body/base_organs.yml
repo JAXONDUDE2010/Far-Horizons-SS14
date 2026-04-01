@@ -18,8 +18,14 @@
             damageType: Slash
             damageAmount: 100
         - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
-          condition: !type:LimbConditionTotalDamage
-            totalDamage: 250
+          condition: !type:LimbConditionOr
+            conditions:
+              - !type:LimbConditionSpecificDamage
+                damageType: Blunt
+                damageAmount: 250
+              - !type:LimbConditionSpecificDamage
+                damageType: Heat
+                damageAmount: 500
 
 - type: entity
   parent: DamageableLimbBaseNoVisuals
