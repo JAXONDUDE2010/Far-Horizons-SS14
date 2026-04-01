@@ -6,6 +6,8 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared._FarHorizons.LimbDamage.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
@@ -59,6 +61,9 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
 
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
+    private EntityQuery<LimbDamageableComponent> _limbDamageableQuery; // Far Horizons
+
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
@@ -110,6 +115,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _airtightQuery = GetEntityQuery<AirtightComponent>();
         _tileHistoryQuery = GetEntityQuery<TileHistoryComponent>();
+
+        _limbDamageableQuery = GetEntityQuery<LimbDamageableComponent>(); // Far Horizons
 
         _prototypeManager.PrototypesReloaded += ReloadExplosionPrototypes;
     }

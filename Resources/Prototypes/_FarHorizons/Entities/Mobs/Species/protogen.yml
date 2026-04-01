@@ -852,6 +852,15 @@
     - type: Inventory
       templateId: protogen
     - type: VisionOrganRequiredForVision
+    - type: NeedsOrgansForInventorySlots
+      slots:
+        - head
+        - ears
+        - mask
+        - gloves
+        - shoes
+    - type: LimbDamageable # Far Horizons
+      proto: LimbTargetHuman
 
 #region RESOMI ####
 
@@ -882,15 +891,6 @@
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
     - "enum.HumanoidVisualLayers.Chest"
-    - "enum.HumanoidVisualLayers.Head"
-    - "enum.HumanoidVisualLayers.LArm"
-    - "enum.HumanoidVisualLayers.LLeg"
-    - "enum.HumanoidVisualLayers.RArm"
-    - "enum.HumanoidVisualLayers.RLeg"
-    - "enum.HumanoidVisualLayers.RHand"
-    - "enum.HumanoidVisualLayers.LHand"
-    - "enum.HumanoidVisualLayers.RFoot"
-    - "enum.HumanoidVisualLayers.LFoot"
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/Resomi/brute_damage.rsi
@@ -1431,11 +1431,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: ProtoFeline
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#7a8bf2"
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw

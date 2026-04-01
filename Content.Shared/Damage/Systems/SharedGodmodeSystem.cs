@@ -1,3 +1,4 @@
+using Content.Shared._FarHorizons.LimbDamage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Destructible;
@@ -15,6 +16,7 @@ namespace Content.Shared.Damage.Systems;
 public abstract class SharedGodmodeSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     public override void Initialize()
     {
@@ -68,12 +70,14 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
     public virtual void EnableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
     {
+        _limbDamage.SetGodMode(uid, true); // Far Horizons
         // Rejuv to cover other stuff
         RaiseLocalEvent(uid, new RejuvenateEvent());
     }
 
     public virtual void DisableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
     {
+        _limbDamage.SetGodMode(uid, false); // Far Horizons
         if (!Resolve(uid, ref godmode, false))
             return;
 

@@ -20,6 +20,7 @@
             Poison: -1
             Radiation: -1
             Cellular: -2
+        affectAllLimbs: true # Far Horizons
 
 # basically the same as protein, but having a separate chemical allows us to extract it from peas
 - type: reagent
@@ -40,6 +41,7 @@
             Blunt: -0.25
             Slash: -0.25
             Piercing: -0.25
+        affectAllLimbs: true # Far Horizons
       - !type:ModifyBloodLevel
         amount: 1
       - !type:SatiateHunger
@@ -92,6 +94,7 @@
             Blunt: -0.13
             Slash: -0.13
             Piercing: -0.13
+        affectAllLimbs: true # Far Horizons
       - !type:SatiateHunger
   pricePerUnit: 3
   footstepSound:

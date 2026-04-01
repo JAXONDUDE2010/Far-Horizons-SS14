@@ -14,6 +14,16 @@
     markingData:
       group: Vulpkanin
 
+- type: entity
+  id: DamageableLimbVisualsVulpkanin
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#ccac1f"
+
 # Limbs
 
 - type: entity
@@ -21,7 +31,7 @@
   id: OrganVulpkaninTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]
+  parent: [ DamageableLimbVisualsVulpkanin, OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]
   id: OrganVulpkaninHead
   components:
   - type: VisualOrganMarkings
@@ -36,11 +46,11 @@
       - enum.HumanoidVisualLayers.SnoutCover
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
+  parent: [ DamageableLimbVisualsVulpkanin, OrganBaseArmLeft, OrganVulpkaninExternal ]
   id: OrganVulpkaninArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganVulpkaninExternal ]
+  parent: [ DamageableLimbVisualsVulpkanin, OrganBaseArmRight, OrganVulpkaninExternal ]
   id: OrganVulpkaninArmRight
 
 - type: entity
@@ -52,14 +62,14 @@
   id: OrganVulpkaninHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganVulpkaninExternal ]
+  parent: [ DamageableLimbVisualsVulpkanin, OrganBaseLegLeft, OrganVulpkaninExternal ]
   id: OrganVulpkaninLegLeft
   components:
   - type: MovementOrgan
     walkSpeedModifier: 1.08
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganVulpkaninExternal ]
+  parent: [ DamageableLimbVisualsVulpkanin, OrganBaseLegRight, OrganVulpkaninExternal ]
   id: OrganVulpkaninLegRight
   components:
   - type: MovementOrgan

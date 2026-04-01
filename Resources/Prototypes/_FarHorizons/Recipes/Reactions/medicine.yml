@@ -92,6 +92,7 @@
           damage:
             Brute: -2
             Burn: -2
+          affectAllLimbs: true # Far Horizons
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition

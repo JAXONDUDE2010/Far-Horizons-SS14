@@ -8,6 +8,12 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: LimbArmor # Far Horizons
+    limbs:
+      ArmLeft: {}
+      ArmRight: {}
+      LegRight: {}
+      LegLeft: {}
 
 - type: entity
   abstract: true

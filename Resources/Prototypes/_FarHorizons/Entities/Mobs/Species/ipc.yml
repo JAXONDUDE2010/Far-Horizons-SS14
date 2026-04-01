@@ -84,11 +84,6 @@
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
     - "enum.HumanoidVisualLayers.Chest"
-    - "enum.HumanoidVisualLayers.Head"
-    - "enum.HumanoidVisualLayers.LArm"
-    - "enum.HumanoidVisualLayers.LLeg"
-    - "enum.HumanoidVisualLayers.RArm"
-    - "enum.HumanoidVisualLayers.RLeg"
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -404,6 +399,15 @@
         modeAlert: IPCFansSpeedExtreme
   - type: Flammable
     firestackFade: -0.8 # Not much to burn + they take way too much damage even from a bit
+  - type: NeedsOrgansForInventorySlots
+    slots:
+      - head
+      - ears
+      - mask
+      - gloves
+      - shoes
+  - type: LimbDamageable # Far Horizons
+    proto: LimbTargetHuman
 
 - type: entity
   parent: BaseMentalAction

@@ -261,12 +261,24 @@
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsMoth
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#808A51"
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal ]
   id: OrganMothTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganMothExternal ]
+  parent: [ DamageableLimbVisualsMoth, OrganBaseHead, OrganMothExternal ]
   id: OrganMothHead
   components:
   - type: VisualOrganMarkings
@@ -274,11 +286,11 @@
     - enum.HumanoidVisualLayers.HeadTop
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganMothExternal ]
+  parent: [ DamageableLimbVisualsMoth, OrganBaseArmLeft, OrganMothExternal ]
   id: OrganMothArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganMothExternal ]
+  parent: [ DamageableLimbVisualsMoth, OrganBaseArmRight, OrganMothExternal ]
   id: OrganMothArmRight
 
 - type: entity
@@ -290,11 +302,11 @@
   id: OrganMothHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganMothExternal ]
+  parent: [ DamageableLimbVisualsMoth, OrganBaseLegLeft, OrganMothExternal ]
   id: OrganMothLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganMothExternal ]
+  parent: [ DamageableLimbVisualsMoth, OrganBaseLegRight, OrganMothExternal ]
   id: OrganMothLegRight
 
 - type: entity

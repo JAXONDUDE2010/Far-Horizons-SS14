@@ -112,6 +112,8 @@ public struct HitscanRaycastFiredEvent
     /// Data for the hitscan that was fired.
     /// </summary>
     public HitscanRaycastFiredData Data;
+
+    public bool DamageHandled; // Far Horizons
 }
 
 [ByRefEvent]

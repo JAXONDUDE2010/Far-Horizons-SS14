@@ -193,6 +193,7 @@
           type: [ Dwarf ]
         damage:
           Brute: -0.1
+        affectAllLimbs: true # Far Horizons
       - !type:Vomit
         probability: 0.04
         conditions:
@@ -874,6 +875,7 @@
             Heat: -0.4
             Shock: -0.4
             Cold: -0.4
+        affectAllLimbs: true # Far Horizons
 
 - type: reagent
   id: DevilsKiss
@@ -904,6 +906,7 @@
             Heat: -0.4
             Shock: -0.4
             Cold: -0.4
+        affectAllLimbs: true # Far Horizons
 
 - type: reagent
   id: DoctorsDelight
@@ -934,6 +937,7 @@
           Brute: -1
           Airloss: -1
           Toxin: -1
+        affectAllLimbs: true # Far Horizons
 
 - type: reagent
   id: DriestMartini
