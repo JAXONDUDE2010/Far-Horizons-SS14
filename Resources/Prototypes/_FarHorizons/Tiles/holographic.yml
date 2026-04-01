@@ -1,7 +1,7 @@
 - type: tile
   id: HolographicTile
   name: Holographic Tile
-  sprite: /Textures/Tiles/lattice.png
+  sprite: /Textures/_FarHorizons/Tiles/holographic.png
   baseTurf: Space
   isSubfloor: false
   friction: 0.1

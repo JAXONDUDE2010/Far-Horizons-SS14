@@ -18,7 +18,6 @@ public sealed class GenericFieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GenericFieldComponent, DestructionEventArgs>(OnDestructionEvent);
-        // SubscribeLocalEvent<GenericFieldComponent, AnchorStateChangedEvent>(OnAnchorChanged);
     }
     
     public override void Update(float frameTime)
@@ -40,7 +39,6 @@ public sealed class GenericFieldSystem : EntitySystem
     {
         if (field.Comp.SourceGen == null)
             return;
-        // TempTileCleanup(field);
         _genericgen.FieldDestroyed(field.Comp.SourceGen.Value);
     }
 
@@ -67,14 +65,4 @@ public sealed class GenericFieldSystem : EntitySystem
             field.Comp.TempTile = false;
         }
     }
-
-    // private void OnAnchorChanged(Entity<GenericFieldComponent> field, ref AnchorStateChangedEvent args) // tile beneath removed, likely destroyed
-    // {
-    //     if (TerminatingOrDeleted(field.Comp.GridUid))
-    //         return;
-
-    //     if (!args.Anchored && field.Comp.SourceGen != null)
-    //         _genericgen.FieldDestroyed(field.Comp.SourceGen.Value);
-    // }
-
 }
