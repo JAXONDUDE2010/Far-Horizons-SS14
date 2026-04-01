@@ -196,12 +196,16 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
         if (component.Connections == null)
             return;
 
+        if (component.Removing)
+            return;
+        component.Removing = true;
+
         var value = component.Connections.Value;
         var (otheruid, othercomponent) = value.Item1;
 
         foreach (var field in value.Item2)
         {
-            if (TryComp<GenericFieldComponent>(field, out var fieldComp))
+            if (TryComp<GenericFieldComponent>(field, out var fieldComp) && fieldComp.TempTile)
                 _genericfield.TempTileCleanup((field, fieldComp));
             QueueDel(field);
         }
@@ -220,6 +224,7 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
 
         othercomponent.Connections = null;
         component.Connections = null;
+        component.Removing = false;
 
         if (component.IsConnected)
             _popupSystem.PopupEntity(Loc.GetString("comp-genericfield-disconnected"), uid, PopupType.LargeCaution);
@@ -297,6 +302,8 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
     /// <param name="generator"></param>
     public void FieldDestroyed(Entity<GenericFieldGeneratorComponent> generator)
     {
+        if (generator.Comp.Removing)
+            return;
         if (TryComp<BatteryComponent>(generator, out var batteryComponent))
             _battery.UseCharge(generator.Owner, batteryComponent.MaxCharge);
         
@@ -473,18 +480,15 @@ public sealed class GenericFieldGeneratorSystem : EntitySystem
                         break;
 
                     var gridUid = Transform(firstGen).ParentUid;
-                    fieldComp.GridUid = gridUid;
-
+                    
                     if (!TryComp<MapGridComponent>(gridUid, out var mapGrid)) 
                         break;
 
-                    fieldComp.MapGrid = mapGrid;
-
                     var tile = _mapSystem.GetTileRef(gridUid, mapGrid, _transformSystem.GetMapCoordinates(newField, fieldXForm));
-                    fieldComp.Tileref = tile; //GenericFieldComponent needs to know what tile it is
 
                     _tile.ReplaceTile(tile, (ContentTileDefinition)tileDef, gridUid, mapGrid);
                     fieldComp.TempTile = true;
+                    
                     if (!_transformSystem.AnchorEntity(newField)) // if this fails to anchor, something has gone horribly wrong
                         RemoveConnections(firstGen); //remove connection and so it can try again
                 }
