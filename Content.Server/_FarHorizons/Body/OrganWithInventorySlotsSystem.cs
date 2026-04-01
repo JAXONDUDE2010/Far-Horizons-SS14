@@ -1,8 +1,9 @@
+using Content.Shared._FarHorizons.Body;
 using Content.Shared.Body;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
-namespace Content.Shared._FarHorizons.Body;
+namespace Content.Server._FarHorizons.Body;
 
 public sealed class OrganWithInventorySlotsSystem : EntitySystem
 {
@@ -34,7 +35,8 @@ public sealed class OrganWithInventorySlotsSystem : EntitySystem
 
     private void OnOrganRemoved(Entity<OrganWithInventorySlotsComponent> ent, ref OrganGotRemovedEvent args)
     {
-        if (!TryComp<OrganComponent>(ent, out var organ) || organ.Body == null) return;
+        if (!TryComp<OrganComponent>(ent, out var organ) || organ.Body == null ||
+            TerminatingOrDeleted(organ.Body.Value)) return;
         foreach (var slot in ent.Comp.Slots)
             _inventory.TryUnequip(organ.Body.Value, slot, true, true);
 
