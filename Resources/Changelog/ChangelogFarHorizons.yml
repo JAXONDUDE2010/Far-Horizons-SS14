@@ -10628,5 +10628,36 @@ Entries:
   id: 105401
   time: '2026-04-01T18:39:00.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1054
+- author: AthenaAI
+  changes:
+  - message: Added the ability for the AI to shunt itself to control any of its turrets.
+    type: Add
+  id: 106300
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: The ability for the AI to cycle the fire mode and deploy/undeploy turrets
+      while controlling the turret.
+    type: Add
+  id: 106301
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Swapped the projectiles of the turrets for their hitscan counterparts
+      for more consistent shooting.
+    type: Tweak
+  id: 106302
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Allows you to interact with the console without ejecting your PAI if
+      its inserted.
+    type: Tweak
+  id: 106303
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
 Order: -1
 
