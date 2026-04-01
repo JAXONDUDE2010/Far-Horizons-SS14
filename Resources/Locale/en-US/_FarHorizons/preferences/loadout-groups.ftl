@@ -1,4 +1,5 @@
 loadout-group-atmos-tech-hat = Atmospherics Technician Hat
+
 loadout-group-chief-engineer-backpack = Chief Engineer Backpacks
 
 
