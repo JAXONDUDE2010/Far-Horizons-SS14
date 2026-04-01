@@ -18,7 +18,7 @@
   id: ClothingBackpackNeosolEngineering
   name: Engineering Backpack
   suffix: S
-  description: It's a very robust backpack.
+  description: It's a very robust backpack for holding tons of materials and tools.
   components:
     - type: Sprite
       sprite: _FarHorizons/Clothing/Back/Backpacks/Syndicate/neosol_engineering.rsi
@@ -33,7 +33,7 @@
   id: ClothingBackpackNeosolAtmospherics
   name: Atmospherics Backpack
   suffix: S
-  description: It's a very robust backpack.
+  description: It's a very robust backpack for holding massive pipes and air related tanks.
   components:
     - type: Sprite
       sprite: _FarHorizons/Clothing/Back/Backpacks/Syndicate/neosol_atmospherics.rsi
@@ -48,7 +48,7 @@
   id: ClothingBackpackForeman
   name: Foreman's Backpack
   suffix: S
-  description: It's a very robust backpack.
+  description: It's a very robust backpack, some wires are burnt into it.
   components:
     - type: Sprite
       sprite: _FarHorizons/Clothing/Back/Backpacks/Syndicate/foreman.rsi

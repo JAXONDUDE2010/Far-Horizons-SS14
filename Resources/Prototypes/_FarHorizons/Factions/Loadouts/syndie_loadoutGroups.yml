@@ -193,8 +193,8 @@
   name: loadout-group-engineering-foreman-backpacks
   loadouts:
     - ForemanBackpack
-    - ForemanSatchel
     - ForemanDuffelbag
+    - ForemanSatchel
 
 - type: loadoutGroup
   id: ForemanHead
@@ -286,8 +286,8 @@
   name: loadout-group-engineering-neosol-backpacks
   loadouts:
     - NeosolEngineeringBackpack
-    - NeosolEngineeringSatchel
     - NeosolEngineeringDuffelbag
+    - NeosolEngineeringSatchel
 
 
 # Atmospheric Technician (Atmos)
@@ -298,8 +298,8 @@
   name: loadout-group-atmos-neosol-backpacks
   loadouts:
     - NeosolAtmosphericsBackpack
-    - NeosolAtmosphericsSatchel
     - NeosolAtmosphericsDuffelbag
+    - NeosolAtmosphericsSatchel
 
 
 - type: loadoutGroup
