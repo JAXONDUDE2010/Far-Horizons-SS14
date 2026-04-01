@@ -6,16 +6,13 @@
   permeabilityMod: 0.5
   cureSteps:
   - !type:CureConditions
-    cureChance: 0.08
+    cureChance: 0.15
     conditions:
     - !type:ReagentCondition
       reagent: Spaceacillin
       min: 1
-  - !type:CureConditions
-    cureChance: 0.2
-    conditions:
     - !type:TemperatureCondition
-      max: 303.15
+      max: 308.15
   stages:
   - stage: 0
     stealth: [ Hidden, VeryHidden ]
@@ -91,9 +88,9 @@
     - !type:ReagentCondition
       reagent: Spaceacillin
       min: 1
-  - !type:CureWait
-    requiredTicks: 300
-    cureChance: 0.5
+    - !type:ReagentCondition
+      reagent: Salbutamol
+      min: 1
   stages:
   - stage: 0
     stealth: [ Hidden ]

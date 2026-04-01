@@ -74,6 +74,7 @@
   color: "#A6D1FF"
   metabolisms:
     Bloodstream:
+      metabolismRate: 0.05
       effects:
       - !type:HealthChange
         damage:
