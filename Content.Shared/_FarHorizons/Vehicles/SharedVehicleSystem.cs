@@ -59,7 +59,7 @@ using Content.Shared._FarHorizons.ReagentDraw.EntitySystems;
 
 namespace Content.Shared._FarHorizons.Vehicles;
 
-public sealed partial class SharedVehicleSystems : EntitySystem
+public abstract partial class SharedVehicleSystem : EntitySystem
 {    
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
@@ -189,9 +189,11 @@ public sealed partial class SharedVehicleSystems : EntitySystem
     {
         if (!_gameTiming.IsFirstTimePredicted) return;
         if(args.User == null) return;
+        var user = args.User;
+        var item = args.Item;
         if(_tags.HasTag(args.Item, _vehicleKeyTag))
         {
-            if(ent.Comp.Rider == args.User || ent.Comp.Rider == null)
+            if(ent.Comp.Rider == user || ent.Comp.Rider == null)
             {
                 if(ent.Comp.Rider != null)
                 {
@@ -207,7 +209,7 @@ public sealed partial class SharedVehicleSystems : EntitySystem
                 }
 
                 TurnOffVehicle(ent.Owner, ent.Comp);
-                _handsSystem.PickupOrDrop(args.User, args.Item);
+                Timer.Spawn(0, () =>_handsSystem.PickupOrDrop(user, item));
                 ent.Comp.Rider = null;
                 Dirty(ent);
             }
@@ -235,7 +237,6 @@ public sealed partial class SharedVehicleSystems : EntitySystem
         if(TryComp<ContainerManagerComponent>(ent.Owner, out var container))
         {
             var key = container.Containers.Values.SelectMany(c => c.ContainedEntities).FirstOrDefault(e => _tags.HasTag(e, _vehicleKeyTag));           
-            _handsSystem.PickupOrDrop(args.User, key);
             ent.Comp.hasKeys = false;
             TurnOffVehicle(ent.Owner, ent.Comp);
             if(ent.Comp.Rider == null) return;
@@ -248,7 +249,7 @@ public sealed partial class SharedVehicleSystems : EntitySystem
             {
                 _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
             }
-
+            _handsSystem.PickupOrDrop(args.User, key);
             ent.Comp.Rider = null;
             Dirty(ent);
         }

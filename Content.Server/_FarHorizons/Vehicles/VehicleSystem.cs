@@ -6,18 +6,16 @@ using Content.Shared.DragDrop;
 using Content.Shared.Verbs;
 using Content.Server.Destructible;
 using Content.Shared.Administration.Logs;
-
 using Content.Shared._FarHorizons.Vehicles.Events;
 using Content.Shared._FarHorizons.Vehicles;
 
 namespace Content.Server._FarHorizons.Vehicles;
 
-public sealed partial class VehicleSystems : EntitySystem
+public sealed partial class VehicleSystems : SharedVehicleSystem
 {    
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedVehicleSystems _vehicles = default!;
 
     public override void Initialize()
     {
@@ -34,7 +32,7 @@ public sealed partial class VehicleSystems : EntitySystem
         if(!TryComp<VehicleComponent>(uid, out var vehicleComp)) return; 
         if(TryComp<DestructibleComponent>(uid, out var destructibleComp) && destructibleComp.IsBroken) return;
 
-        if (_vehicles.CanInsert(uid, component) && !component.PassengerSlot.ContainedEntities.Contains(args.User))
+        if (CanInsert(uid, component) && !component.PassengerSlot.ContainedEntities.Contains(args.User))
         {
             var enterVerb = new AlternativeVerb
             {
@@ -58,9 +56,9 @@ public sealed partial class VehicleSystems : EntitySystem
                 Text = Loc.GetString("vehicle-verb-leave"),
                 Act = () =>
                 {
-                    _vehicles.TryRemove(args.User, uid, component);
+                    TryRemove(args.User, uid, component);
                     if(HasComp<RiderComponent>(args.User))
-                        _vehicles.RemoveRider(args.User, uid, vehicleComp);
+                        RemoveRider(args.User, uid, vehicleComp);
                 }
             };
             args.Verbs.Add(exitVerb);
@@ -93,7 +91,7 @@ public sealed partial class VehicleSystems : EntitySystem
         args.Handled = true;
         if(TryComp<DestructibleComponent>(ent.Owner, out var destructibleComp) && destructibleComp.IsBroken) return;
 
-        if(!_vehicles.CanInsert(ent.Owner, ent.Comp)) return;
+        if(!CanInsert(ent.Owner, ent.Comp)) return;
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.EntryTime, new VehicleEntryDoAfter(), ent.Owner, target: args.Dragged)
         {

@@ -5,7 +5,7 @@ using Robust.Client.Graphics;
 
 namespace Content.Client._FarHorizons.Vehicles;
 
-public sealed class VehicleSystems : EntitySystem
+public sealed partial class VehicleSystems : SharedVehicleSystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
