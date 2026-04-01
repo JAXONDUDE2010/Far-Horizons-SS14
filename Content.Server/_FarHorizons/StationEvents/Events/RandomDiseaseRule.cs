@@ -71,7 +71,7 @@ public sealed class RandomDiseaseRule : StationEventSystem<RandomDiseaseRuleComp
             // Optional: skip entities already immune if desired.
             if (comp.SkipImmune)
             {
-                if (TryComp<DiseaseCarrierComponent>(ent, out var carrier) && carrier.Immunity.TryGetValue(chosenDisease, out var immunity) && immunity >= 1f)
+                if (TryComp<DiseaseCarrierComponent>(ent, out var carrier) && carrier.Immunity.TryGetValue(disease, out var immunity) && immunity >= 1f)
                     continue;
             }
 

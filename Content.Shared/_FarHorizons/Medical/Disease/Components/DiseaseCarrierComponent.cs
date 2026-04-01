@@ -44,7 +44,7 @@ public sealed partial class DiseaseCarrierComponent : Component
     /// Value represents the probability to block infection attempts for that disease.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<DiseasePrototype>, float> Immunity = [];
+    public Dictionary<DiseaseData, float> Immunity = [];
 
     /// <summary>
     /// Map of symptom prototype IDs to a suppression end time. Used to temporarily

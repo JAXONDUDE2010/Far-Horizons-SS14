@@ -69,6 +69,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// </summary>
     private void ProcessCarrier(Entity<DiseaseCarrierComponent> ent)
     {
+        // Attempts to decay the immunities of the carrier
+        _cure.PostImmunityDecay(ent);
+
         if (ent.Comp.ActiveDiseases.Count == 0)
         {
             if (!string.IsNullOrEmpty(ent.Comp.DiseaseIcon))
@@ -317,9 +320,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     /// Rolls probability, validates eligibility, then infects.
     /// </summary>
-    public bool TryInfectWithChance(EntityUid uid, DiseaseData diseaseId, StageData stage, float probability)
+    public bool TryInfectWithChance(EntityUid uid, DiseaseData disease, StageData stage, float probability)
     {
-        if (!CanBeInfected(uid, diseaseId))
+        if (!CanBeInfected(uid, disease))
             return false;
 
         // TODO: Replace with RandomPredicted once the engine PR is merged
@@ -328,7 +331,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
         if (!rand.Prob(probability))
             return false;
 
-        if (TryComp<DiseaseCarrierComponent>(uid, out var carrier) && carrier.Immunity.TryGetValue(diseaseId.Id, out var immunityStrength))
+        if (TryComp<DiseaseCarrierComponent>(uid, out var carrier) && carrier.Immunity.TryGetValue(disease, out var immunityStrength))
         {
             // Roll against immunity strength.
             // TODO: Replace with RandomPredicted once the engine PR is merged
@@ -338,7 +341,7 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
                 return false;
         }
 
-        return Infect(uid, diseaseId, stage);
+        return Infect(uid, disease, stage);
     }
 
     /// <summary>

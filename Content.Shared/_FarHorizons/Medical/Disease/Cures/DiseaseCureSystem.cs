@@ -140,12 +140,27 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
     {
         var strength = disease.PostCureImmunity;
 
-        if (ent.Comp.Immunity.TryGetValue(disease.Id, out var existing))
-            ent.Comp.Immunity[disease.Id] = MathF.Max(existing, strength);
+        if (ent.Comp.Immunity.TryGetValue(disease, out var existing))
+            ent.Comp.Immunity[disease] = MathF.Max(existing, strength);
         else
-            ent.Comp.Immunity[disease.Id] = strength;
+            ent.Comp.Immunity[disease] = strength;
 
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Makes disease immunity decay over time to allow reinfection for diseases.
+    /// </summary>
+    public void PostImmunityDecay(Entity<DiseaseCarrierComponent> ent)
+    {
+        if(ent.Comp.Immunity.Count == 0) return;
+
+        foreach(var (disease, immunity) in ent.Comp.Immunity)
+        {
+            ent.Comp.Immunity[disease] = immunity - (disease.PostCureImmunity/(600f/((int)ent.Comp.TickDelay.TotalSeconds)));
+            if(immunity <= 0)
+                ent.Comp.Immunity.Remove(disease);
+        }
     }
 
     /// <summary>
