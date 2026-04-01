@@ -32,4 +32,12 @@ public sealed partial class DiseaseSampleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<DiseaseData, StageData> DiseasesData = [];
+
+    /// <summary>
+    /// DiseaseData the entity is immune to and their immunity strength (0-1).
+    /// Value represents the probability to block infection attempts for that disease.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<DiseaseData, float> Immunity = [];
+
 }
