@@ -10659,5 +10659,19 @@ Entries:
   id: 106303
   time: '2026-04-01T21:01:57.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: CE backpacks, Neosol variants to engi backpacks, Evil CE backpacks.
+    type: Add
+  id: 106000
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: Resprites for engi backpacks
+    type: Tweak
+  id: 106001
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
 Order: -1
 
