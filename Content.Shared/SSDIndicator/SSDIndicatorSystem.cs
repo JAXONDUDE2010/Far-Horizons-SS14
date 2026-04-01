@@ -127,7 +127,6 @@ public sealed class SSDIndicatorSystem : EntitySystem
         if (_icSsdSleep)
             component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
 
-        _sleep.TrySleeping(uid);
 
         Dirty(uid, component);
     }
