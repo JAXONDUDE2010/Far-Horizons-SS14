@@ -10673,7 +10673,7 @@ Entries:
   id: 106001
   time: '2026-04-01T21:28:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
-- author: FAR HORIZONS TEAM
+- author: KarusKardin
   changes:
   - message: Made Holographic Fields drawn over players, they can now be used as hiding
       spots by particularly creative engineers.
@@ -10681,19 +10681,33 @@ Entries:
   id: 102000
   time: '2026-04-01T21:52:37.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
-- author: FAR HORIZONS TEAM
+- author: KarusKardin
   changes:
   - message: Fixed a visual issue when Holographic Generators lost power
     type: Fix
   id: 102001
   time: '2026-04-01T21:52:37.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
-- author: FAR HORIZONS TEAM
+- author: KarusKardin
   changes:
   - message: Fixed a bug that would cause Hologrpahic Barriers to fly off into oblivion
       sometimes when rammed by a grid.
     type: Fix
   id: 102002
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a bug that would cause grids to stop updating collisions after ramming a Holographic Barrier/Field
+    type: Fix
+  id: 102003
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Added EMAG functionality to Holographic Generators for particularly inventive Traitors.
+    type: Add
+  id: 102004
   time: '2026-04-01T21:52:37.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
 - author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
