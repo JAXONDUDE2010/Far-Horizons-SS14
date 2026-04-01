@@ -375,8 +375,8 @@
 
 - type: entity
   id: HomographicField
-  name: Homographic Field
-  description: A Homographic Field that blocks bloodflow with extreme temperatures.
+  name: Holographic Field
+  description: A Holographic Field that blocks airflow?
   placement:
     mode: SnapgridCenter
   components:
