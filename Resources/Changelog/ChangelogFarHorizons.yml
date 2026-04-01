@@ -10596,5 +10596,22 @@ Entries:
   id: 105602
   time: '2026-03-31T22:06:09.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Irkalla
+  changes:
+  - message: Removed things that annoy me personally. In this case a mantle that implies
+      the wearer has superpowers IC and tricks new players into thinking this is that
+      weird clothing anime from 2013 or something where clothing gives you superpowers.
+    type: Remove
+  id: 106100
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
+- author: Irkalla
+  changes:
+  - message: Psychic powers are not in the clothing. Please wear an amplifier like
+      Yuri did in RA2.
+    type: Fix
+  id: 106101
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
 Order: -1
 
