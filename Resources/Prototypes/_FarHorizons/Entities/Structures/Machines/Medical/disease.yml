@@ -1,0 +1,48 @@
+- type: entity
+  id: DiseasePandemic2300
+  parent: Vaccinator
+  name: PanD.E.M.I.C. 2300
+  description: A machine that creates vaccines.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container {}
+      machine_parts: !type:Container {}
+      mixer: !type:ContainerSlot {}
+  - type: DiseaseVaccinator
+  - type: MaterialStorage
+  - type: ItemSlots
+    slots:
+      mixer:
+        whitelist:
+          tags:
+            - CentrifugeCompatible
+  - type: ActivatableUI
+    key: enum.VaccinatorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.VaccinatorUiKey.Key:
+        type: VaccinatorBoundUserInterface
+
+- type: entity
+  id: DiseaseDiagnoser2300
+  parent: DiseaseDiagnoser
+  name: Disease Diagnoser Delta Extreme 2300
+  description: A machine that analyzes disease samples.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: DiseaseDiagnoser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container {}
+      machine_parts: !type:Container {}
+      mixer: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      mixer:
+        whitelist:
+          tags:
+            - CentrifugeCompatible

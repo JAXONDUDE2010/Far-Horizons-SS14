@@ -1,0 +1,1 @@
+vaccinator-popup-title = PanD.E.M.I.C 2300
