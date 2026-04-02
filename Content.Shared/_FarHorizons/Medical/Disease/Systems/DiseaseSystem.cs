@@ -417,33 +417,19 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     {
         if (!TryComp<BloodstreamComponent>(ent.Owner, out var bloodstream)
             || !_solution.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)) return;
-        var bloodReferenceData = bloodstream.BloodReferenceSolution.FirstOrDefault().Reagent.Data;
 
+        var bloodReferenceData = bloodstream.BloodReferenceSolution.FirstOrDefault().Reagent.Data;
         if (bloodReferenceData == null) return;
 
-        var bloodDiseaseData = bloodReferenceData.OfType<DiseaseReagentData>().FirstOrDefault();
+        bloodReferenceData.RemoveAll(d => d is DiseaseReagentData);
 
-        if (bloodDiseaseData == null)
+        var bloodDiseaseData = new DiseaseReagentData
         {
-            bloodDiseaseData = new DiseaseReagentData
-            {
-                ActiveDiseases = new Dictionary<DiseaseData, StageData>(ent.Comp.ActiveDiseases),
-                Immunity = new Dictionary<DiseaseData, float>(ent.Comp.Immunity)
-            };
+            ActiveDiseases = new Dictionary<DiseaseData, StageData>(ent.Comp.ActiveDiseases),
+            Immunity = new Dictionary<DiseaseData, float>(ent.Comp.Immunity)
+        };
 
-            bloodReferenceData.Add(bloodDiseaseData);
-        }
-        else
-        {
-            bloodDiseaseData.ActiveDiseases.Clear();
-            bloodDiseaseData.Immunity.Clear();
-
-            foreach (var (disease, stage) in ent.Comp.ActiveDiseases)
-                bloodDiseaseData.ActiveDiseases[disease] = stage;
-
-            foreach (var (disease, value) in ent.Comp.Immunity)
-                bloodDiseaseData.Immunity[disease] = value;
-        }
+        bloodReferenceData.Add(bloodDiseaseData);
         bloodSolution.SetReagentData(bloodReferenceData);
     }
 }

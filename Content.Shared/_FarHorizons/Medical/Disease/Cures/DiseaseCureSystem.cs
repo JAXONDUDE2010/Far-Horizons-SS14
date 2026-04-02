@@ -98,8 +98,8 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
         if (!ent.Comp.ActiveDiseases.Remove(disease))
             return;
 
-        _disease.UpdateBloodData(ent);
         ApplyPostCureImmunity(ent, disease);
+        _disease.UpdateBloodData(ent);
         _popup.PopupPredicted(Loc.GetString("disease-cured"), ent, ent.Owner);
     }
 
@@ -159,7 +159,7 @@ public sealed partial class SharedDiseaseCureSystem : EntitySystem
 
         foreach(var (disease, immunity) in ent.Comp.Immunity)
         {
-            ent.Comp.Immunity[disease] = immunity - (disease.PostCureImmunity/(600f/((int)ent.Comp.TickDelay.TotalSeconds)));
+            ent.Comp.Immunity[disease] = immunity - (disease.PostCureImmunity/(1800f/((int)ent.Comp.TickDelay.TotalSeconds)));
             if(immunity <= 0)
                 ent.Comp.Immunity.Remove(disease);
         }
