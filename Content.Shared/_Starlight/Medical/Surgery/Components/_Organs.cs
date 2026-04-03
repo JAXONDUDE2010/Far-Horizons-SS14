@@ -26,4 +26,6 @@ public sealed partial class OrganDamageComponent : Component
 {
     [DataField]
     public DamageSpecifier? Damage;
+
+    [ViewVariables] public DamageSpecifier? StoredDamage;
 }

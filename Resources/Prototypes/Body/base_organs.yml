@@ -475,8 +475,6 @@
         Bloodloss: 10
         Radiation: 10
         Caustic: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Eyes
   - type: Sprite
@@ -509,8 +507,6 @@
         Bloodloss: 10
         Radiation: 10
         Caustic: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Tongue
   - type: Sprite
@@ -531,8 +527,6 @@
         Cellular: 10
         Bloodloss: 10
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Appendix
   - type: Sprite
@@ -547,8 +541,6 @@
   components:
   - type: GibbableOrgan
   - type: OrganDamage
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Ears
   - type: Sprite
@@ -569,8 +561,6 @@
         Cellular: 20
         Bloodloss: 20
         Radiation: 30
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Lungs
   - type: Lung
@@ -605,8 +595,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Heart
   - type: Sprite
@@ -632,8 +620,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Stomach
   - type: Stomach
@@ -666,8 +652,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 30
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Liver
   - type: Sprite
@@ -695,8 +679,6 @@
         Caustic: 20
         Radiation: 10
         Cold: 120
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Kidneys
   - type: Sprite
