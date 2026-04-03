@@ -10819,5 +10819,116 @@ Entries:
   id: 107400
   time: '2026-04-02T22:22:57.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1074
+- author: princess_gurchi
+  changes:
+  - message: Every mob with combat mode now has a UI widget to target specific limbs
+      with their attacks
+    type: Add
+  id: 105900
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Every playable species can now get their limbs damaged
+    type: Add
+  id: 105901
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Any direct attack will attempt targeting a limb attacker has selected,
+      but can miss unless it's torso
+    type: Tweak
+  id: 105902
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Any indirect attack will land on a random limb, but with higher chances
+      of the targeted one
+    type: Tweak
+  id: 105903
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Passive health regeneration, healing chems and explosions will affect
+      all limbs at once
+    type: Tweak
+  id: 105904
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Old "body damage" is now torso damage, it works exactly the same as it
+      did otherwise
+    type: Tweak
+  id: 105905
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Health analyzer UI updated to display limb health
+    type: Add
+  id: 105906
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Healing someone with topicals heals the targeted limb
+    type: Add
+  id: 105907
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Healing limb will heal some damage on torso. Damaging limb will damage
+      torso. Damage ratio is 100% for head, 40% for arms and legs, 20% for hands and
+      feet
+    type: Add
+  id: 105908
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Armor values for limbs other than torso are only collected from relevant
+      equipment. Headshots on a target that doesn't wear a helmet are essentially
+      true damage
+    type: Add
+  id: 105909
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Armor values helmets provide to head are adjusted to the same values
+      as their respective hardsuit/matching vest. (this only affects damage to head)
+    type: Tweak
+  id: 105910
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: When detached from body, limbs won't rotate anymore
+    type: Fix
+  id: 105911
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: You can no long ash a person by implanting multiple deep-fried organs.
+      Organs will only ever apply damage they took from the body (poison for liver,
+      asphyx for lungs, shock for heart, etc.)
+    type: Fix
+  id: 105912
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Me, opening ss14 for the first time over a year ago and noticing it's
+      missing limb targeting
+    type: Remove
+  id: 105913
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
 Order: -1
 
