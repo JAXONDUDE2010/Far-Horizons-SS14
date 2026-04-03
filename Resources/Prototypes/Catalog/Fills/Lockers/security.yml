@@ -289,7 +289,7 @@
   id: FillGunSafeSubMachineGunDrozd
   table: !type:AllSelector
     children:
-    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunDrozdTypeT #FH
       amount: 1
     - id: WeaponSubMachineGunSP91RC
       amount: 2

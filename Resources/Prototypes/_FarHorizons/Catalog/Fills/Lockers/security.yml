@@ -492,7 +492,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunDrozdTypeT
       amount: 4
     - id: WeaponPistolEnforcer
       amount: 4
@@ -532,7 +532,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: WeaponSubMachineGunDrozd
+    - id: WeaponSubMachineGunDrozdTypeT
       amount: 2
     - id: WeaponSubMachineGunSP91RC
       amount: 2

@@ -1,0 +1,146 @@
+#region Drozd-T
+- type: entity
+  name: Drozd Type-T
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
+  id: WeaponSubMachineGunDrozdTypeT
+  description: A modifed Drozd platform utilized by NanoTrasen with a heavier grip & heavier stock for more stability and holographic sights for easy target acquisition, as well as electronic status lights. Feeds from 9mm SMG Magazines.
+  suffix: NT
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/nt_drozd.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/nt_drozd.rsi
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus # 5-10 Deviation / Heavy Stock & Grip
+      minAngle: -16
+      maxAngle: -22
+    - type: Gun
+      minAngle: 21
+      maxAngle: 32
+      fireRate: 6
+      burstFireRate: 18
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: FullAuto
+      availableModes:
+      - Burst
+      - FullAuto
+      - SemiAuto
+      shotsPerBurst: 3
+      burstCooldown: 0.375
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: MagazinePistolSubMachineGunSP
+          insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MagazinePistolSubMachineGunSP
+          whitelistFailPopup: gun-magazine-whitelist-fail
+        gun_chamber:
+          name: Chamber
+          priority: 1
+          whitelist:
+            tags:
+              - CartridgePistol
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: UseDelay #Much bulkier with the heavy stock and grip.
+      delay: 1
+    - type: Tag
+      tags:
+      - Drozd
+
+#region Drozd-S
+- type: entity
+  name: Drozd Type-S
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
+  id: WeaponSubMachineGunDrozdTypeS
+  description: A modifed Drozd platform utilized by NeoSol, with a near total conversion to a more automatic-rifle like platform, maintaining the faster rate of fire. Handles just like a rifle without quite the same punch. Feeds from 9mm SMG Magazines.
+  suffix: NS
+  components:
+    - type: Sprite
+      sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/NS_Drozd/ns_drozd_x32x64.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-0
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: Clothing
+      sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/NS_Drozd/ns_drozd_x32.rsi
+    - type: Item
+      sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/NS_Lecter/ns_drozd_x32.rsi
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus # 1-5 Deviation / Long Barrel & Heavy Stock/Grip
+      minAngle: -20
+      maxAngle: -27
+    - type: Gun
+      minAngle: 21
+      maxAngle: 32
+      fireRate: 6
+      burstFireRate: 18
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: FullAuto
+      availableModes:
+      - Burst
+      - FullAuto
+      - SemiAuto
+      shotsPerBurst: 3
+      burstCooldown: 0.375
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: MagazinePistolSubMachineGunSP
+          insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MagazinePistolSubMachineGunSP
+          whitelistFailPopup: gun-magazine-whitelist-fail
+        gun_chamber:
+          name: Chamber
+          priority: 1
+          whitelist:
+            tags:
+              - CartridgePistol
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: Sharp
+    - type: MeleeWeapon
+      wideAnimationRotation: -90
+      attackRate: 1
+      damage:
+        types:
+          Slash: 18 # On par with combat knife, albiet slower.
+      soundHit: /Audio/Weapons/bladeslice.ogg
+      angle: 0
+      animation: WeaponArcThrust
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: UseDelay #Much bulkier with the heavy stock and grip.
+      delay: 1
+    - type: SpeedModifiedOnWield
+      walkModifier: 0.90 #Just heavy enough to impede movement.
+      sprintModifier: 0.90
+    - type: Tag
+      tags:
+      - Drozd

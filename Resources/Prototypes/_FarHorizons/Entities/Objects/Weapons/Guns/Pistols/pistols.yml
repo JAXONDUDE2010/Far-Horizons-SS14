@@ -1,8 +1,10 @@
+#region MK78 (NanoTrasen)
 - type: entity
   name: MK 78
   parent: [BaseWeaponPistol, BaseSecurityContraband, FlashlightLantern]
   id: WeaponPistolMk58
-  description: Designed by Nanotrasen’s Small Arms Division, the Mk78 is a semi-automatic pistol with a simple recoil-operated action and excellent reliability. The new standard sidearm of Nanotrasen’s station security and emergency response teams, feeds from .35 pistol magazines. Comes with a intergrated flashlight, unlike the MK58.
+  description: Designed by Nanotrasen’s Small Arms Division, the MK 78 is a semi-automatic pistol with a simple recoil-operated action and excellent reliability. The new standard sidearm of Nanotrasen’s station security and emergency response teams, feeds from .35 pistol magazines. Comes with a intergrated flashlight and electronic status lights, unlike the MK 58. Feeds from 9mm Magazines.
+  suffix: NT
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk78.rsi
@@ -74,14 +76,97 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
 
+#region MK59 (NeoSol)
+- type: entity
+  name: MK 59
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: WeaponPistolMk59
+  description: Designed by NeoSol's Small Arms Division, the MK 59 is a modern iteration of the classic MK 58 with a nice red paintjob and bayonet for stabbing tiders. Debates are frequently had between NanoTrasen and NeoSol Security Officers about which service-pistol is better. Feeds from 9mm Magazines.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: 0
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 12 # Same as combat knife.
+    soundHit: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcThrust
+  - type: AltFireMelee
+    attackType: Heavy
+
+#region Stock Enforcer
 - type: entity
   name: Enforcer
-  parent: [WeaponPistolMk58]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolEnforcer
-  description: A burst-fire pistol often issued in NanoTransen armories to supplement larger firearms like the Lecter or Kammerer. Unlike the MK 78, the flashlight is attached rather than intergrated.
+  description: A burst-fire pistol typically utilized by law-enforcement in most regions alongisde MK variants manufactured by NeoSol and NanoTrasen. Feeds from 9mm Magazines.
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/enforcer.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    selectedMode: Burst
+    fireRate: 5
+    burstFireRate: 7
+    shotsPerBurst: 2
+    burstCooldown: 0.2
+    availableModes:
+    - SemiAuto
+    - Burst
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/enforcer.rsi
+  - type: Item
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/enforcer.rsi
+    storedOffset: 0,-2
+  - type: Tag
+    tags:
+    - Enforcer
+    - Sidearm
+  
+#region Enforcer Type-T
+- type: entity
+  name: Enforcer Type-T
+  parent: [WeaponPistolMk58]
+  id: WeaponPistolEnforcerTypeT
+  description: A modified burst-fire Enforcer platform often issued in NanoTransen armories to supplement larger firearms like the Lecter or Kammerer, comes with electronic status lights. Feeds from 9mm Magazines.
+  suffix: NT
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/nt_enforcer.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -101,9 +186,43 @@
     - SemiAuto
     - Burst
   - type: Clothing
-    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/enforcer.rsi
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/nt_enforcer.rsi
   - type: Item
-    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/enforcer.rsi
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/nt_enforcer.rsi
+    storedOffset: 0,-2
+  - type: Tag
+    tags:
+    - Enforcer
+    - Sidearm
+
+#region Enforcer Type-S
+- type: entity
+  name: Enforcer Type-S
+  parent: [WeaponPistolMk59]
+  id: WeaponPistolEnforcerTypeS
+  description: A modified burst-fire Enforcer platform often issued in NeoSol armories to supplement larger firearms like the Lecter or Kammerer, comes with a combat knife bayonet. Feeds from 9mm Magazines.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/ns_enforcer.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    selectedMode: Burst
+    fireRate: 5
+    burstFireRate: 7
+    shotsPerBurst: 2
+    burstCooldown: 0.2
+    availableModes:
+    - SemiAuto
+    - Burst
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/ns_enforcer.rsi
+  - type: Item
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/ns_enforcer.rsi
     storedOffset: 0,-2
   - type: Tag
     tags:
