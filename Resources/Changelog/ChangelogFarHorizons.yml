@@ -10981,5 +10981,13 @@ Entries:
   id: 108002
   time: '2026-04-03T15:10:28.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1080
+- author: KarusKardin
+  changes:
+  - message: Fixed Security Borg Modules description incorrectly stating they can
+      be fit into any frame.
+    type: Fix
+  id: 108200
+  time: '2026-04-03T18:45:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1082
 Order: -1
 
