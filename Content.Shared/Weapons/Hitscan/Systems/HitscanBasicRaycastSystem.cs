@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Body;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Weapons.Hitscan.Components;
@@ -21,7 +22,9 @@ using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared._Starlight.NullSpace;
 
-using Content.Shared._FarHorizons.Vehicles.Components; // FarHorizons
+using Content.Shared._FarHorizons.Vehicles.Components;
+using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared._FarHorizons.LimbDamage.Components;
 #endregion Starlight
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
@@ -32,6 +35,7 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
@@ -68,9 +72,26 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
         if (args.OutputTrace != null)
             rayCastResults.RemoveAll(x => x.Distance < 0.75); // This is hacky, but for some reason passing ignoredEnt to _physics.IntersectRay doesn't prevent ricochet from escaping the wall it was spawned from, remove this when this fixed in engine
+
+        // Limb Miss chance
+        var target = args.Target;
+        ProtoId<OrganCategoryPrototype>? limbTarget = null;
+
+        if (args.Target != null &&
+            rayCastResults.Any(p => p.HitEntity == target) &&
+            TryComp<LimbDamageableComponent>(target, out var targetLimbDamage) &&
+            TryComp<LimbTargettingComponent>(shooter, out var shooterTarget) &&
+            !_limbDamage.CheckAttackHit((target.Value, targetLimbDamage), (shooter, shooterTarget), out limbTarget))
+            rayCastResults.RemoveAll(p => p.HitEntity == target);
+        
+        // Limb Targetting
+        if (limbTarget != null)
+        {
+            var limbAimedShot = EnsureComp<LimbAimedHitscanShotComponent>(ent);
+            limbAimedShot.Target = limbTarget.Value;
+        }
         //FarHorizons-edit end
 
-        var target = args.Target;
         // If you are in a container, use the raycast result
         // Otherwise:
         //  1.) Hit the first entity that you targeted.

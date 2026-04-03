@@ -213,6 +213,8 @@
     damage:
       types:
         Blunt: 5
+  - type: LimbTargetting # Far Horizons
+    proto: LimbTargetHuman
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity

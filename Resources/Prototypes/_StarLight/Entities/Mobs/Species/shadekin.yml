@@ -171,3 +171,12 @@
         - AnomalyHost
         - Shadekin
     - type: VisionOrganRequiredForVision # Far Horizons
+    - type: NeedsOrgansForInventorySlots # Far Horizons
+      slots:
+        - head
+        - ears
+        - mask
+        - gloves
+        - shoes
+    - type: LimbDamageable # Far Horizons
+      proto: LimbTargetHuman

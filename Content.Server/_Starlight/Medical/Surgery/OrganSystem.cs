@@ -24,8 +24,8 @@ public sealed partial class OrganSystem : EntitySystem
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotInsertedEvent>(OnAbductorOrganImplanted);
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotRemovedEvent>(OnAbductorOrganExtracted);
 
-        SubscribeLocalEvent<DamageableComponent, OrganGotInsertedEvent>(OnOrganImplanted);
-        SubscribeLocalEvent<DamageableComponent, OrganGotRemovedEvent>(OnOrganExtracted);
+        SubscribeLocalEvent<OrganDamageComponent, OrganGotInsertedEvent>(OnOrganImplanted);
+        SubscribeLocalEvent<OrganDamageComponent, OrganGotRemovedEvent>(OnOrganExtracted);
     }
 
     //
@@ -47,22 +47,21 @@ public sealed partial class OrganSystem : EntitySystem
 
     //
 
-    private void OnOrganImplanted(Entity<DamageableComponent> ent, ref OrganGotInsertedEvent args)
+    private void OnOrganImplanted(Entity<OrganDamageComponent> ent, ref OrganGotInsertedEvent args)
     {
-        if (!TryComp<DamageableComponent>(args.Target, out var bodyDamageable)) return;
+        if (!TryComp<DamageableComponent>(args.Target, out var bodyDamageable)
+            || ent.Comp.StoredDamage == null) return;
 
-        var change = _damageableSystem.ChangeDamage((args.Target, bodyDamageable), _damageableSystem.GetPositiveDamage(ent), true, false);
-        _damageableSystem.ChangeDamage(ent.AsNullable(), change.Invert(), true, false);
+        _damageableSystem.ChangeDamage((args.Target, bodyDamageable), ent.Comp.StoredDamage.Invert(), true, false);
+        ent.Comp.StoredDamage = null;
     }
-    private void OnOrganExtracted(Entity<DamageableComponent> ent, ref OrganGotRemovedEvent args)
+    private void OnOrganExtracted(Entity<OrganDamageComponent> ent, ref OrganGotRemovedEvent args)
     {
         if (TerminatingOrDeleted(ent)) return;
-        if (!TryComp<OrganDamageComponent>(ent.Owner, out var damageRule)
-         || damageRule.Damage is null
+        if (ent.Comp.Damage is null
          || !TryComp<DamageableComponent>(args.Target, out var bodyDamageable)) return;
 
-        var change = _damageableSystem.ChangeDamage((args.Target, bodyDamageable), damageRule.Damage.Invert(), true, false);
-        _damageableSystem.ChangeDamage(ent.AsNullable(), change.Invert(), true, false);
+        ent.Comp.StoredDamage = _damageableSystem.ChangeDamage((args.Target, bodyDamageable), ent.Comp.Damage.Invert(), true, false);
     }
 
     //

@@ -256,4 +256,9 @@ public sealed partial class CryoPodWindow : FancyWindow
 
         return newSize;
     }
+
+    //FarHorizons Start
+    public void SetEntity(EntityUid uid) => 
+        HealthAnalyzer.SetEntity(uid);
+    //FarHorizons End
 }

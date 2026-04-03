@@ -212,6 +212,7 @@
       - !type:EvenHealthChange
         damage:
           Brute: -4
+        affectAllLimbs: true # Far Horizons
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage

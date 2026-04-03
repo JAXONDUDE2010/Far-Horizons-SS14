@@ -317,12 +317,24 @@
   - type: Sprite
     sprite: Mobs/Species/Vox/parts.rsi
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsVox
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#7a8bf2"
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorso, OrganVoxExternal ]
   id: OrganVoxTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganVoxExternal ]
+  parent: [ DamageableLimbVisualsVox, OrganBaseHead, OrganVoxExternal ]
   id: OrganVoxHead
   components:
   - type: VisualOrganMarkings
@@ -335,11 +347,11 @@
       - enum.HumanoidVisualLayers.SnoutCover
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganVoxExternal ]
+  parent: [ DamageableLimbVisualsVox, OrganBaseArmLeft, OrganVoxExternal ]
   id: OrganVoxArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganVoxExternal ]
+  parent: [ DamageableLimbVisualsVox, OrganBaseArmRight, OrganVoxExternal ]
   id: OrganVoxArmRight
 
 - type: entity
@@ -351,11 +363,11 @@
   id: OrganVoxHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganVoxExternal ]
+  parent: [ DamageableLimbVisualsVox, OrganBaseLegLeft, OrganVoxExternal ]
   id: OrganVoxLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganVoxExternal ]
+  parent: [ DamageableLimbVisualsVox, OrganBaseLegRight, OrganVoxExternal ]
   id: OrganVoxLegRight
 
 - type: entity

@@ -208,8 +208,6 @@
         Bloodloss: 10
         Radiation: 10
         Caustic: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Eyes
   - type: Sprite

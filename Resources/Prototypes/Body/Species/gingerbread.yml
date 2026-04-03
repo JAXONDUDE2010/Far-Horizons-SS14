@@ -97,20 +97,32 @@
     markingData:
       group: None
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsGingerbread
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#896e55"
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorso, OrganGingerbreadExternal ]
   id: OrganGingerbreadTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganGingerbreadExternal ]
+  parent: [ DamageableLimbVisualsGingerbread, OrganBaseHead, OrganGingerbreadExternal ]
   id: OrganGingerbreadHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganGingerbreadExternal ]
+  parent: [ DamageableLimbVisualsGingerbread, OrganBaseArmLeft, OrganGingerbreadExternal ]
   id: OrganGingerbreadArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganGingerbreadExternal ]
+  parent: [ DamageableLimbVisualsGingerbread, OrganBaseArmRight, OrganGingerbreadExternal ]
   id: OrganGingerbreadArmRight
 
 - type: entity
@@ -122,11 +134,11 @@
   id: OrganGingerbreadHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganGingerbreadExternal ]
+  parent: [ DamageableLimbVisualsGingerbread, OrganBaseLegLeft, OrganGingerbreadExternal ]
   id: OrganGingerbreadLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganGingerbreadExternal ]
+  parent: [ DamageableLimbVisualsGingerbread, OrganBaseLegRight, OrganGingerbreadExternal ]
   id: OrganGingerbreadLegRight
 
 - type: entity

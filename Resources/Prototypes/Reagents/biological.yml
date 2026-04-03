@@ -32,6 +32,7 @@
         damage:
           Brute: -3
           Burn: -1.25
+        affectAllLimbs: true # Far Horizons
     Bloodstream: # Don't inject someone else's blood into yourself! Your own blood won't actually metabolise.
       effects:
       - !type:HealthChange
@@ -193,6 +194,7 @@
           Burn: -3
           Brute: -3
           Toxin: -2
+        affectAllLimbs: true # Far Horizons
       - !type:HealthChange
         damage:
           types:

@@ -34,6 +34,7 @@
         damage:
           Brute: -0.5
           Burn: -0.5
+        affectAllLimbs: true # Far Horizons
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
@@ -61,6 +62,7 @@
         # probability: 0.5
         damage:
           Brute: -0.4
+        affectAllLimbs: true # Far Horizons
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
       - !type:SatiateHunger

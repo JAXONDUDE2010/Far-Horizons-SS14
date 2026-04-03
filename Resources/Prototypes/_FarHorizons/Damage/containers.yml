@@ -1,0 +1,5 @@
+- type: damageContainer
+  id: LimbDamageContainer
+  supportedGroups:
+  - Brute
+  - Burn

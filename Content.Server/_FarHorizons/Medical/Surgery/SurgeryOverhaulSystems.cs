@@ -24,10 +24,12 @@ using Content.Shared._FarHorizons.Research.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Body;
 using Content.Shared._FarHorizons.Body;
+using Content.Shared._FarHorizons.LimbDamage.Components;
 using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Utility;
+using Content.Shared._FarHorizons.LimbDamage;
 
 namespace Content.Server._FarHorizons.Medical.SurgeryOverhaul.Systems;
 
@@ -48,6 +50,8 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
+
     private readonly List<EntProtoId> _surgeriesForRotten = [];
     private readonly string _organicTag = "Organic";
     private readonly string _inorganicTag = "Inorganic";
@@ -162,6 +166,14 @@ public sealed partial class SurgeryOverhaulSystem : EntitySystem
                     BonusHeal.DamageDict.Add(key, _damageableSystem.GetPositiveDamage((args.Body, dmgComp)).DamageDict.Select(p => (float)p.Value).Sum() / ResearchModifier);
 
             TotalHeal = healComp.Damage! + (-BonusHeal);
+
+            if (TryComp<LimbDamageableComponent>(args.Body, out var limbDamageable) &&
+                TryComp<DamageableLimbComponent>(args.Part, out var damageableLimb) &&
+                damageableLimb.Organ is { Category: not null } &&
+                damageableLimb.Organ.Category != limbDamageable.DefaultLimb)
+            {
+                _limbDamage.TryChangeLimbDamage((args.Body, limbDamageable), damageableLimb.Organ.Category.Value, TotalHeal, out _);
+            }
             _damageableSystem.TryChangeDamage(args.Body, TotalHeal);
         }
     }

@@ -48,6 +48,7 @@ public sealed class CryoPodBoundUserInterface : BoundUserInterface
         if (_window != null && message is CryoPodUserMessage cryoMsg)
         {
             _window.Populate(cryoMsg);
+            _window.SetEntity(Owner); // Far Horizons
         }
     }
 }

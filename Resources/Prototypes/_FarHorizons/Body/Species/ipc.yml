@@ -121,6 +121,16 @@
     markingData:
       group: IPC
 
+- type: entity
+  id: DamageableLimbVisualsIPC
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#B67823"
+
 # Limbs
 
 - type: entity
@@ -128,7 +138,7 @@
   id: OrganIPCTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
   id: OrganIPCHead
   components:
   - type: VisualOrganMarkings
@@ -139,7 +149,7 @@
       - HeadTop
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmLeft, OrganIPCExternal ]
   id: OrganIPCArmLeft
   components:
   - type: HumanoidEMPCompositeElement
@@ -152,7 +162,7 @@
           Heat: 2
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmRight, OrganIPCExternal ]
   id: OrganIPCArmRight
   components:
   - type: HumanoidEMPCompositeElement
@@ -191,7 +201,7 @@
           Heat: 1
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegLeft, OrganIPCExternal ]
   id: OrganIPCLegLeft
   components:
   - type: HumanoidEMPCompositeElement
@@ -206,7 +216,7 @@
           Heat: 2
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegRight, OrganIPCExternal ]
   id: OrganIPCLegRight
   components:
   - type: HumanoidEMPCompositeElement

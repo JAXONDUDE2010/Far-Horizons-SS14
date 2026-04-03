@@ -161,6 +161,16 @@
     markingData:
       group: Avali
 
+- type: entity
+  id: DamageableLimbVisualsAvali
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#6C3BAA"
+
 # Limbs
 
 - type: entity
@@ -168,7 +178,7 @@
   id: OrganAvaliTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAvaliExternal ]
+  parent: [ DamageableLimbVisualsAvali, OrganBaseHeadSexed, OrganBaseHead, OrganAvaliExternal ]
   id: OrganAvaliHead
   components:
   - type: VisualOrganMarkings
@@ -179,11 +189,11 @@
     - enum.HumanoidVisualLayers.Hair
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganAvaliExternal ]
+  parent: [ DamageableLimbVisualsAvali, OrganBaseArmLeft, OrganAvaliExternal ]
   id: OrganAvaliArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganAvaliExternal ]
+  parent: [ DamageableLimbVisualsAvali, OrganBaseArmRight, OrganAvaliExternal ]
   id: OrganAvaliArmRight
 
 - type: entity
@@ -195,14 +205,14 @@
   id: OrganAvaliHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganAvaliExternal ]
+  parent: [ DamageableLimbVisualsAvali, OrganBaseLegLeft, OrganAvaliExternal ]
   id: OrganAvaliLegLeft
   components:
   - type: MovementOrgan
     sprintSpeedModifier: 1.06
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganAvaliExternal ]
+  parent: [ DamageableLimbVisualsAvali, OrganBaseLegRight, OrganAvaliExternal ]
   id: OrganAvaliLegRight
   components:
   - type: MovementOrgan

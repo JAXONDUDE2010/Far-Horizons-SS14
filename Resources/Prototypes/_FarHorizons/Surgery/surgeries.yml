@@ -31,9 +31,6 @@
     - SurgeryStepCarefulIncision
     - SurgeryStepRepairBrute 
     - SurgeryStepSealWound
-  - type: SurgeryPartCondition
-    parts:
-    - Torso
   - type: SurgerySpeciesCondition
     speciesBlacklist:
     - IPC
@@ -53,9 +50,6 @@
     - SurgeryStepCarefulIncision
     - SurgeryStepRepairBurn 
     - SurgeryStepSealWound
-  - type: SurgeryPartCondition
-    parts:
-    - Torso
   - type: SurgerySpeciesCondition
     speciesBlacklist:
     - IPC

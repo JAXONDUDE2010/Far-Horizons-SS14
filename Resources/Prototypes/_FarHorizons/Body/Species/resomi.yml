@@ -230,6 +230,18 @@
     markingData:
       group: Resomi
 
+- type: entity
+  id: DamageableLimbVisualsResomi
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/Resomi/brute_damage.rsi
+          color: "#6C3BAA"
+        Burn:
+          rsi: /Textures/Mobs/Effects/Resomi/burn_damage.rsi
+
 # Limbs
 
 - type: entity
@@ -237,15 +249,15 @@
   id: OrganResomiTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganResomiExternal ]
+  parent: [ DamageableLimbVisualsResomi, OrganBaseHeadSexed, OrganBaseHead, OrganResomiExternal ]
   id: OrganResomiHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganResomiExternal ]
+  parent: [ DamageableLimbVisualsResomi, OrganBaseArmLeft, OrganResomiExternal ]
   id: OrganResomiArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganResomiExternal ]
+  parent: [ DamageableLimbVisualsResomi, OrganBaseArmRight, OrganResomiExternal ]
   id: OrganResomiArmRight
 
 - type: entity
@@ -257,14 +269,14 @@
   id: OrganResomiHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganResomiExternal ]
+  parent: [ DamageableLimbVisualsResomi, OrganBaseLegLeft, OrganResomiExternal ]
   id: OrganResomiLegLeft
   components:
   - type: MovementOrgan
     sprintSpeedModifier: 1.06
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganResomiExternal ]
+  parent: [ DamageableLimbVisualsResomi, OrganBaseLegRight, OrganResomiExternal ]
   id: OrganResomiLegRight
   components:
   - type: MovementOrgan

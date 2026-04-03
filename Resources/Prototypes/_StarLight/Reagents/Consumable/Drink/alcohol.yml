@@ -32,6 +32,7 @@
             Heat: -0.4
             Shock: -0.4
             Cold: -0.4
+        affectAllLimbs: true # Far Horizons
       - !type:Drunk
         boozePower: 5
       - !type:HealthChange

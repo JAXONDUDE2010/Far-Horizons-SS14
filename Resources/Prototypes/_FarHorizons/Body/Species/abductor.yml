@@ -135,6 +135,16 @@
     markingData:
       group: Abductor
 
+- type: entity
+  id: DamageableLimbVisualsAbductor
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#878787"
+
 # Limbs
 
 - type: entity
@@ -142,15 +152,15 @@
   id: OrganAbductorTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganAbductorExternal ]
+  parent: [ DamageableLimbVisualsAbductor, OrganBaseHead, OrganAbductorExternal ]
   id: OrganAbductorHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganAbductorExternal ]
+  parent: [ DamageableLimbVisualsAbductor, OrganBaseArmLeft, OrganAbductorExternal ]
   id: OrganAbductorArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganAbductorExternal ]
+  parent: [ DamageableLimbVisualsAbductor, OrganBaseArmRight, OrganAbductorExternal ]
   id: OrganAbductorArmRight
 
 - type: entity
@@ -162,11 +172,11 @@
   id: OrganAbductorHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganAbductorExternal ]
+  parent: [ DamageableLimbVisualsAbductor, OrganBaseLegLeft, OrganAbductorExternal ]
   id: OrganAbductorLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganAbductorExternal ]
+  parent: [ DamageableLimbVisualsAbductor, OrganBaseLegRight, OrganAbductorExternal ]
   id: OrganAbductorLegRight
 
 - type: entity

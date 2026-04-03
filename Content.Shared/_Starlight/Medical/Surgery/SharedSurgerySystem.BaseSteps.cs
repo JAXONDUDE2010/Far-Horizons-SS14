@@ -11,6 +11,8 @@ using Content.Shared.Starlight.Medical.Surgery.Steps;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared._FarHorizons.LimbDamage.Components;
 //FarHorizons Start
 using Content.Shared._FarHorizons.Medical.SurgeryOverhaul.Components;
 using Content.Shared.Body;
@@ -27,6 +29,8 @@ public abstract partial class SharedSurgerySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HealingSystem _healing = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
+
     private readonly string _surgeryCompTag = "SurgeryCompatibleArmor";
     private readonly string _cyberHandTag = "CyberHandItem";
     private void InitializeSteps()
@@ -83,8 +87,19 @@ public abstract partial class SharedSurgerySystem
                 IsFinal = surgery.Comp.Steps[^1] == args.Step,
             };
             RaiseLocalEvent(step, ref evComplete);
-            if (_entitySystem.TryGetSingleton(args.Step, out var stepEnt) && TryComp(stepEnt, out HealingComponent? healing) && TryComp(ent, out DamageableComponent? damage))
-                args.Repeat = _healing.HasDamage((stepEnt, healing), (ent, damage));
+            if (_entitySystem.TryGetSingleton(args.Step, out var stepEnt) &&
+                TryComp(stepEnt, out HealingComponent? healing) && TryComp(ent, out DamageableComponent? damage))
+            {
+                if (!TryComp<LimbDamageableComponent>(ent, out var limbDamageable) ||
+                    !TryComp<DamageableLimbComponent>(args.Target.Value, out var damageableLimb) ||
+                    damageableLimb.Organ == null ||
+                    damageableLimb.Organ.Category == null ||
+                    damageableLimb.Organ.Category == limbDamageable.DefaultLimb)
+                    args.Repeat = _healing.HasDamage((stepEnt, healing), (ent, damage));
+                else
+                    args.Repeat =
+                        _limbDamage.LimbHasDamage((ent, limbDamageable), damageableLimb.Organ.Category.Value, healing);
+            }
         }
         //Far Horizons End
         RefreshUI(ent);

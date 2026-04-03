@@ -131,6 +131,7 @@
             Blunt: -3
             Slash: -3
             Piercing: -3
+        affectAllLimbs: true # Far Horizons
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Plant]
@@ -282,6 +283,7 @@
           Brute: -2.5
           Burn: -2.5
           Airloss: -5
+        affectAllLimbs: true # Far Horizons
       - !type:ModifyBloodLevel
         amount: 1
         conditions:
