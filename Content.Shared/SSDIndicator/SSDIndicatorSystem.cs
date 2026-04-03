@@ -11,6 +11,7 @@ using Content.Shared._Starlight.SSDIndicator.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Movement.Events;
 using Content.Shared.Starlight.CryoTeleportation;
+using System.Runtime;
 // Starlight-end
 
 namespace Content.Shared.SSDIndicator;
@@ -126,6 +127,8 @@ public sealed class SSDIndicatorSystem : EntitySystem
         if (_icSsdSleep)
             component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
 
+        component.FallAsleepTime = _timing.CurTime;
+        
         Dirty(uid, component);
     }
 
