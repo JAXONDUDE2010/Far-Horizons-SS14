@@ -217,7 +217,7 @@ public partial class LimbDamageSystem
 
     public void SetChangelingLimbs(Entity<LimbDamageableComponent?> target, bool state)
     {
-        if (!Resolve(target, ref target.Comp)) return;
+        if (!Resolve(target, ref target.Comp, false)) return;
 
         foreach (var limb in GetAllDamageable(target))
         {
