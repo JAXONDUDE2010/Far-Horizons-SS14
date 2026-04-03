@@ -600,7 +600,7 @@
 #region NeoSol Reps
 
 #- type: entity #Commented out until sprites
-#  parent: BasePDA
+#  parent: BaseNeoSolPDA
 #  id: RedSwordPDA
 #  name: Red Sword Officer's PDA
 #  components:
@@ -802,7 +802,7 @@
     state: pda-chaplain
 
 - type: entity
-  parent: BasePDA
+  parent: BaseNeoSolPDA
   id: CustodianPDA
   name: Custodian PDA
   description: Smells like bleach.
@@ -922,7 +922,7 @@
     bank: 100
 
 - type: entity
-  parent: BasePDA
+  parent: BaseNeoSolPDA
   id: JournalistPDA
   name: Journalist PDA
   description: Smells like freshly printed press.
