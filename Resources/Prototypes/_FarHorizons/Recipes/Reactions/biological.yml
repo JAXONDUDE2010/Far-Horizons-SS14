@@ -1,0 +1,15 @@
+- type: reaction
+  id: ShadekinBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ShadekinBlood:
+      amount: 20
+  products:
+    Water: 2
+    Iron: 1
+    Sugar: 2
+    Carbon: 6
+    Nitrogen: 2
+    Protein: 5

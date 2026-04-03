@@ -3,3 +3,14 @@
   id: BloodChangeling
   name: reagent-name-changeling-blood
   desc: reagent-desc-changeling-blood
+
+- type: reagent
+  parent: Blood
+  id: ShadekinBlood
+  name: reagent-name-shadekin-blood
+  group: Biological
+  desc: reagent-desc-shadekin-blood
+  flavor: metallic
+  color: "#0F241F"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-non-newtonian

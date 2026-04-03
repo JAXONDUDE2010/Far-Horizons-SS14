@@ -10513,5 +10513,311 @@ Entries:
   id: 105003
   time: '2026-03-30T15:31:40.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1050
+- author: Irkalla
+  changes:
+  - message: Removed things that annoy me personally. In this case some of the amount
+      of self praise we inherited from SL. Point me at more bad flavor messages and
+      descriptions please.
+    type: Remove
+  id: 104300
+  time: '2026-03-31T01:07:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1043
+- author: Irkalla
+  changes:
+  - message: Fixed implied psychic powers on NT CC cloaks description. No. You aren't
+      CSOD CAD CED CRD CID CBT John ‘Rouge’ Endbringer of the Void” who makes anomalies
+      soil themself by just looking at them.
+    type: Fix
+  id: 104301
+  time: '2026-03-31T01:07:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1043
+- author: Killer Tamashi
+  changes:
+  - message: Added IFV-50-S (NeoSol variant)
+    type: Add
+  id: 104900
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Killer Tamashi
+  changes:
+  - message: Added IFV-50-T (NanoTrasen variant)
+    type: Add
+  id: 104901
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Killer Tamashi
+  changes:
+  - message: Added IFV-50-T Rack Textures
+    type: Add
+  id: 104902
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Killer Tamashi
+  changes:
+  - message: Added Mixed Rifle Rack textures
+    type: Add
+  id: 104903
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Killer Tamashi
+  changes:
+  - message: Added Missing NeoSol Rack variants (Lecter Type-S / IFV-50-S / Mixed
+      Rifle)
+    type: Add
+  id: 104904
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Killer Tamashi
+  changes:
+  - message: Changed Stock IFV-50 stats to be longer wield time, less accurate (but
+      more accurate than a lecter)
+    type: Tweak
+  id: 104905
+  time: '2026-03-31T01:20:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Rain-enjoyer
+  changes:
+  - message: Shadekin blood.
+    type: Add
+  id: 105600
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Rain-enjoyer
+  changes:
+  - message: Shadekin now bleed shadekin blood
+    type: Tweak
+  id: 105601
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Rain-enjoyer
+  changes:
+  - message: Proto shadekin not taking the correct amount of bloodloss damage
+    type: Fix
+  id: 105602
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Irkalla
+  changes:
+  - message: Removed things that annoy me personally. In this case a mantle that implies
+      the wearer has superpowers IC and tricks new players into thinking this is that
+      weird clothing anime from 2013 or something where clothing gives you superpowers.
+    type: Remove
+  id: 106100
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
+- author: Irkalla
+  changes:
+  - message: Psychic powers are not in the clothing. Please wear an amplifier like
+      Yuri did in RA2.
+    type: Fix
+  id: 106101
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
+- author: AthenAI
+  changes:
+  - message: Fixed the issue with PAIs not getting encryption key channels properly.
+    type: Fix
+  id: 105400
+  time: '2026-04-01T18:39:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1054
+- author: AthenAI
+  changes:
+  - message: Fixed an issue where people could escape container vehicles and it would
+      make them be unable to move or have virtual items on their hands.
+    type: Fix
+  id: 105401
+  time: '2026-04-01T18:39:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1054
+- author: AthenaAI
+  changes:
+  - message: Added the ability for the AI to shunt itself to control any of its turrets.
+    type: Add
+  id: 106300
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: The ability for the AI to cycle the fire mode and deploy/undeploy turrets
+      while controlling the turret.
+    type: Add
+  id: 106301
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Swapped the projectiles of the turrets for their hitscan counterparts
+      for more consistent shooting.
+    type: Tweak
+  id: 106302
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Allows you to interact with the console without ejecting your PAI if
+      its inserted.
+    type: Tweak
+  id: 106303
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: CE backpacks, Neosol variants to engi backpacks, Evil CE backpacks.
+    type: Add
+  id: 106000
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: Resprites for engi backpacks
+    type: Tweak
+  id: 106001
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
+- author: KarusKardin
+  changes:
+  - message: Made Holographic Fields drawn over players, they can now be used as hiding
+      spots by particularly creative engineers.
+    type: Tweak
+  id: 102000
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a visual issue when Holographic Generators lost power
+    type: Fix
+  id: 102001
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a bug that would cause Hologrpahic Barriers to fly off into oblivion
+      sometimes when rammed by a grid.
+    type: Fix
+  id: 102002
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a bug that would cause grids to stop updating collisions after
+      ramming a Holographic Barrier/Field
+    type: Fix
+  id: 102003
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Added EMAG functionality to Holographic Generators for particularly inventive
+      Traitors.
+    type: Add
+  id: 102004
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: 'Ported Make Xenos Scary - Three PR''s from MoffStation by Nox38 and
+      Nyxilath (# 198, # 475, # 948)'
+    type: Add
+  id: 105800
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Ported SSD command - PR from Starlight by RHSvenson (# 1406) - Type /ssd
+      into chat to take a nap for a while.
+    type: Add
+  id: 105801
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Ported Add a SetCountdown Command - PR from Moffstation by Katzenminer
+      (# 965)
+    type: Add
+  id: 105802
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Laspi, Felinoids, Shadekin and their Proto counterparts now will properly
+      take Acidic damage again like the rest of the species.
+    type: Fix
+  id: 105803
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Station Cyborg Lights have been improved. No more fumbling in the dark,
+      at least till the battery runs out.
+    type: Tweak
+  id: 105804
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Syndicate Cyborgs now start with a fancy red tie that allows them to
+      shout out their disdain for NanoTrasen. They also happen to look about 100%
+      cooler.
+    type: Add
+  id: 105805
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Medical Cyborg Chemical Module had duplicate Hand Labeler removed. They
+      don't need to be dual wielding labelers.
+    type: Remove
+  id: 105806
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Medical Cyborg Chemical Module now includes a box of mouth swabs, and
+      a hand to use them with also! They can now figure out which virus Hanz has outside
+      of greed.
+    type: Add
+  id: 105807
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: KURY
+  changes:
+  - message: Engineer case now has a stack of LV cable and allows cables to be put
+      inside it.
+    type: Add
+  id: 106500
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: KURY
+  changes:
+  - message: Flare guns now have a cooldown per use so you cant spam the SFX 900 times.
+    type: Tweak
+  id: 106501
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: KURY
+  changes:
+  - message: Multiple survival cases now accept items that would logically fit inside
+      them (Why can a pie fit but the pie tin cant?, Nutribrick unopened fits but
+      the actual nutribrick doesnt????. that sort of thing.) Command sec and management
+      can now store papers in their survival crates.
+    type: Tweak
+  id: 106502
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: princess_gurchi
+  changes:
+  - message: Following loneops, wizard, xenoborgs or abductor ghost roles will no
+      longer freeze your game.
+    type: Fix
+  id: 107300
+  time: '2026-04-02T17:43:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1073
+- author: Irkalla
+  changes:
+  - message: Changed nothing important. Really. Just makes Shadekin eyes able to be
+      bright to be compliant with upcoming lore changes.
+    type: Tweak
+  id: 107400
+  time: '2026-04-02T22:22:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1074
 Order: -1
 
