@@ -91,7 +91,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
     #region Starlight
 
-    private void OnSSDTry(EntityUid uid, SSDIndicatorComponent component, SSDTryDoAfterEvent args) => SSD(uid, component, true);
+    private void OnSSDTry(EntityUid uid, SSDIndicatorComponent component, SSDTryDoAfterEvent args) => SSD(uid, component, true); // Far Horizons
 
     /// <summary>
     /// Attempts to set the entity as SSD.
