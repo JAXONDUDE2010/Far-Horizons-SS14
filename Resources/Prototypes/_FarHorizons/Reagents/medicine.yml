@@ -128,7 +128,7 @@
         - !type:HealthChange
           conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Avali, Resomi ]
+            type: [ Avali, Resomi, ProtoBird ]
             inverted: true
           damage:
             types:
@@ -136,13 +136,13 @@
         - !type:ModifyBloodLevel
           conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Avali, Resomi ]
+            type: [ Avali, Resomi, ProtoBird ]
             inverted: true
           amount: 10 # ~ 30% per 0.5
         - !type:HealthChange
           conditions:
           - !type:MetabolizerTypeCondition
-           type: [ Avali, Resomi ]
+           type: [ Avali, Resomi, ProtoBird ]
           damage:
             types: # It's artifical blood with the lethal things diluted. Doesn't make it any less deadly- just that the damage types are different and easier to heal. Crit: 5u / Lethal: 10u (Blood-bags hold 10u)
               Poison: 3

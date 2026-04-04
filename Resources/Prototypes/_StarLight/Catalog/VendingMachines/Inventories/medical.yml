@@ -59,8 +59,8 @@
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorBlueointment20
-  productEntity: Blueointment20
+  id: VendorBlueOintment
+  productEntity: BlueOintment
   cost:
     NTCredit: 34
   categories:

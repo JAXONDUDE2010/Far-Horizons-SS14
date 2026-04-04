@@ -33,7 +33,7 @@
       Tongue: OrganProtogenTongue
       Ears: OrganProtogenEars
       Lungs: OrganDionaLungsNymphing
-      Heart: OrganProtogenHeart
+      Heart: OrganProtoDionaeHeart
       Stomach: OrganDionaStomachNymphing
       Liver: OrganProtogenLiver
       Kidneys: OrganProtogenKidneys
@@ -99,3 +99,12 @@
 - type: entity
   parent: [ OrganProtoDionaeExternal, OrganDionaFootRight ]
   id: OrganProtoDionaeFootRight
+
+# Organs
+- type: entity
+  parent: OrganProtogenHeart
+  id: OrganProtoDionaeHeart
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ProtoDionae]

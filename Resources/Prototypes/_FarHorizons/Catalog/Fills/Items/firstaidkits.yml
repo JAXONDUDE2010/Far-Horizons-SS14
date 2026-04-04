@@ -17,10 +17,10 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: RedBrutePack
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: RedOintment
+      - id: Bluebrutepack20
+      - id: BlueOintment
+      - id: Gauze
+      - id: Tourniquet
       - id: Bloodpack
       - id: BloodpackAmmonia
         # Bottom #
@@ -39,10 +39,10 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: RedBrutePack
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: RedOintment
+      - id: Bluebrutepack20
+      - id: BlueOintment
+      - id: Gauze
+      - id: Tourniquet
       - id: Bloodpack
       - id: BloodpackAmmonia
         # Bottom #
@@ -84,8 +84,8 @@
     contents:
         # Top #
       - id: Bluebrutepack20
-        amount: 2
-      - id: Blueointment20
+      - id: BlueOintment
+      - id: Gauze
         amount: 2
       - id: Bloodpack
       - id: BloodpackAmmonia

@@ -498,12 +498,12 @@
         probability: 0.1 
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Vampire, Protogen  ] # FH - add Protogen
+          type: [ Animal, Vox, Plant, Vampire, Protogen, ProtoBird, ProtoDionae ] # FH - add Protogen
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Vampire, Protogen  ] # FH - add Protogen
+          type: [ Animal, Vox, Plant, Vampire, Protogen, ProtoBird, ProtoDionae ] # FH - add Protogen
           inverted: true
         damage:
           types:
@@ -511,7 +511,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+          type: [ Plant, ProtoDionae ] #FH
         damage:
           types:
             Poison: .25
@@ -537,7 +537,7 @@
       - !type:AdjustReagent 
         conditions: 
         - !type:MetabolizerTypeCondition 
-          type: [ Protogen ] 
+          type: [ Protogen, ProtoBird ] 
         reagent: Protein 
         amount: 0.5 
       - !type:CauseDisease 

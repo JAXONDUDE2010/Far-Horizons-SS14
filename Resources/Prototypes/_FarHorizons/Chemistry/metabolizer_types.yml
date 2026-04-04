@@ -1,3 +1,11 @@
 - type: metabolizerType
   id: Protogen
   name: metabolizer-type-protogen
+
+- type: metabolizerType
+  id: ProtoBird
+  name: metabolizer-type-protobird
+
+- type: metabolizerType
+  id: ProtoDionae
+  name: metabolizer-type-protodionae

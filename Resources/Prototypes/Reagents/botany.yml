@@ -15,7 +15,7 @@
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
 
 - type: reagent
   id: Left4Zed
@@ -39,14 +39,14 @@
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
       - !type:HealthChange
         damage:
           types:
             Poison: 1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
 
 - type: reagent
   id: PestKiller
@@ -70,7 +70,7 @@
             Poison: 3
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
 
 - type: reagent
   id: PlantBGone
@@ -101,7 +101,7 @@
             Piercing: 1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
 
 - type: reagent
   id: RobustHarvest
@@ -134,11 +134,11 @@
         affectAllLimbs: true # Far Horizons
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
         - !type:ReagentCondition
           reagent: RobustHarvest
           min: 30
@@ -151,7 +151,7 @@
         prototype: TreeMorph
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [Plant]
+            type: [Plant, ProtoDionae] #FH
           - !type:ReagentCondition
             reagent: RobustHarvest
             min: 80
@@ -159,7 +159,7 @@
       - !type:RegenerateLimbs
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [Plant]
+            type: [Plant, ProtoDionae] #FH
           - !type:ReagentCondition
             reagent: RobustHarvest
             min: 15
@@ -203,7 +203,7 @@
             Poison: 4
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant]
+          type: [Plant, ProtoDionae] #FH
 
 - type: reagent
   id: Ammonia
@@ -226,7 +226,7 @@
       - !type:HealthChange
         conditions: #Starlight
         - !type:MetabolizerTypeCondition
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
           inverted: true
         damage:
           types:
@@ -234,7 +234,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
         damage:
           types:
             Asphyxiation: -1

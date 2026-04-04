@@ -7177,7 +7177,7 @@ entities:
     - type: Transform
       pos: -12.526111,19.467264
       parent: 1
-- proto: Blueointment20
+- proto: BlueOintment
   entities:
   - uid: 625
     components:
