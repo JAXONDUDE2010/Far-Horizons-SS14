@@ -78,7 +78,7 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: WeaponPistolMk78 #Starlight
+        - id: WeaponPistolMk78 #Far Horizons
           amount: 2
         - id: MagazinePistolSP #Starlight
           amount: 2

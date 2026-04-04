@@ -237,7 +237,7 @@
   id: FillGunSafePistolMk58
   table: !type:AllSelector
     children:
-    - id: WeaponPistolMk78
+    - id: WeaponPistolMk78 #Far Horizons
       amount: 2
     - id: WeaponPistolEnforcerTypeT #FH
       amount: 1
@@ -291,7 +291,7 @@
     children:
     - id: WeaponSubMachineGunDrozdTypeT #FH
       amount: 1
-    - id: WeaponSubMachineGunP291T
+    - id: WeaponSubMachineGunP291T #Far Horizons
       amount: 2
     - id: MagazinePistolSubMachineGunSP
       amount: 4
