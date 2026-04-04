@@ -11012,5 +11012,19 @@ Entries:
   id: 108801
   time: '2026-04-04T00:34:00.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1088
+- author: AthenaAI
+  changes:
+  - message: A bug relating to client and server desync movement speed.
+    type: Fix
+  id: 108600
+  time: '2026-04-04T00:46:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1086
+- author: AthenaAI
+  changes:
+  - message: A bug with vehicles trying to damage themselves after running over someone.
+    type: Fix
+  id: 108601
+  time: '2026-04-04T00:46:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1086
 Order: -1
 
