@@ -755,7 +755,7 @@
     - Diona #FarHorizons
     - ProtoDionae #FarHorizons
   - type: SurgeryOrganExistCondition
-    category: Sentient Core #FH
+    category: SentientCore #FH
   - type: SurgeryPartCondition
     parts: [ Torso ]
   - type: Sprite
