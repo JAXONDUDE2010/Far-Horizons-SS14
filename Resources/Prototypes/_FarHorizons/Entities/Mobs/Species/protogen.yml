@@ -1398,6 +1398,8 @@
       - Protogen
       - Human
   - type: VisionOrganRequiredForVision
+  - type: LimbDamageable
+    proto: LimbTargetHuman
 
 #region FELIONOID ####
 
@@ -1608,6 +1610,8 @@
       - Protogen
       - Dwarf
   - type: VisionOrganRequiredForVision
+  - type: LimbDamageable
+    proto: LimbTargetHuman
 
 #region DIONA ####
 
