@@ -97,7 +97,7 @@
     containers:
       entity_storage: !type:GroupSelector
         children:
-        - id: WeaponPistolMk58
+        - id: WeaponPistolMk78
           weight: 1.5
         - id: FoamCrossbow
         - id: WeaponRifleFoam

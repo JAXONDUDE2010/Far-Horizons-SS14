@@ -181144,7 +181144,7 @@ entities:
       parent: 2
     missingComponents:
     - Contraband
-- proto: WeaponPistolMk58
+- proto: WeaponPistolMk78
   entities:
   - uid: 29050
     components:
