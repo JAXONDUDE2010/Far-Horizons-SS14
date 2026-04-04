@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared._FarHorizons.LimbDamage.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body;
 using Content.Shared.Damage;
@@ -133,12 +134,17 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         // Far Horizons start
-        var limbTarget = _limbDamage.GetCurrentValidTarget(ent.Owner, args.User);
-        var fullBodyDamage = _limbDamage.TryGetFullBodyDamage(ent.Owner);
-        var shouldHealLimb = limbTarget != null &&
+        ProtoId<OrganCategoryPrototype>? limbTarget = null;
+        var shouldHealLimb = false;
+        if (TryComp<LimbDamageableComponent>(ent.Owner, out var limbDamageable))
+        {
+            limbTarget = _limbDamage.GetCurrentValidTarget((ent.Owner, limbDamageable), args.User);
+            var fullBodyDamage = _limbDamage.TryGetFullBodyDamage((ent.Owner, null, limbDamageable));
+            shouldHealLimb = limbTarget != null &&
                              fullBodyDamage != null &&
                              fullBodyDamage.TryGetValue(limbTarget.Value, out var limbDamage) &&
                              limbDamage.Sum(p => (float)p.Value) > 0;
+        }
 
         // Only try repair the target if it is damaged
         if (!shouldHealLimb && _damageableSystem.GetTotalDamage(ent.Owner) == 0)
