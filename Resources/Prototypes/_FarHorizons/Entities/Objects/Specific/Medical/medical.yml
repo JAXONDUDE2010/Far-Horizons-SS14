@@ -120,9 +120,27 @@
     tags:
     - Medkit
 
+- type: entity
+  parent: BaseItem
+  id: BaseHealingItemFH
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+  - type: Item
+    size: Small
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+    heldPrefix: ointment
+  # Inherited
+  - type: StaticPrice
+    price: 0
+  - type: ItemPrice
+    priceCategory: medical  
+
 #region Blue Ointment
 
 - type: entity
+  parent: BaseHealingItemFH
   name: Blue Ointmnet
   description: Regular burn cream mixed in with Dermaline makes for an effective ointment. Lasts much longer than a normal container of ointment.
   id: BlueOintment
@@ -130,12 +148,13 @@
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+    state: ointment_blue
   - type: Item
     size: Small
     sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
     heldPrefix: ointment_blue
     storedSprite:
-      state: ointment-storage
+      state: ointment_blue-storage
       sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
   - type: Healing
     damageContainers:
