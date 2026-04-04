@@ -11278,5 +11278,128 @@ Entries:
   id: 110701
   time: '2026-04-04T22:56:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1107
+- author: Roro
+  changes:
+  - message: Made Diona not horrific to play.
+    type: Add
+  id: 110600
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Removed Diona Flammability, it was needlessly debilitating and caused
+      a literal practice laser to set you on fire, moths lost this aspect for a reason.
+    type: Remove
+  id: 110601
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Removed Diona Shock Weakness.
+    type: Remove
+  id: 110602
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Diona Rooting Slowdown 20% -> 10%.
+    type: Tweak
+  id: 110603
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Diona Heat Weakness 50% -> 30%.
+    type: Tweak
+  id: 110604
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: ProtoDiona Heat Weakness 50% -> 30%.
+    type: Tweak
+  id: 110605
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: ProtoDiona Shock Weakness 25% -> 15%.
+    type: Tweak
+  id: 110606
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Avali Heat Weakness 40% -> 20% and Cold Resist 40% -> 20%.
+    type: Tweak
+  id: 110607
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: ProtoAvali Heat Weakness 40% -> 20%.
+    type: Tweak
+  id: 110608
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Shadekin Bloodloss 270% -> 100% (you just take double bloodloss rather
+      than over quintuple).
+    type: Tweak
+  id: 110609
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: ProtoKin Bloodloss 270% -> 100%.
+    type: Tweak
+  id: 110610
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Laspii Cold Weakness 50% -> 30%.
+    type: Tweak
+  id: 110611
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: ProtoLaspii Cold Weakness 40% -> 30%.
+    type: Tweak
+  id: 110612
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Edited Guidebook entries to reflect these changes.
+    type: Tweak
+  id: 110613
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Shadekin Guidebook formerly said they took 170% more bloodloss when in
+      reality it was 270%, this has been fixed considering i changed their bloodloss
+      level.
+    type: Fix
+  id: 110614
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Fixed Chief Engineer Satchel and Duffel to have the correct storage amount.
+    type: Fix
+  id: 110615
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
+- author: Roro
+  changes:
+  - message: Avali and Resomi Guidebook now gives the proper key for nexus.
+    type: Fix
+  id: 110616
+  time: '2026-04-04T23:03:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1106
 Order: -1
 
