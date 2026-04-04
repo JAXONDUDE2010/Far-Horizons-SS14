@@ -10575,5 +10575,692 @@ Entries:
   id: 104905
   time: '2026-03-31T01:20:14.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1049
+- author: Rain-enjoyer
+  changes:
+  - message: Shadekin blood.
+    type: Add
+  id: 105600
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Rain-enjoyer
+  changes:
+  - message: Shadekin now bleed shadekin blood
+    type: Tweak
+  id: 105601
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Rain-enjoyer
+  changes:
+  - message: Proto shadekin not taking the correct amount of bloodloss damage
+    type: Fix
+  id: 105602
+  time: '2026-03-31T22:06:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1056
+- author: Irkalla
+  changes:
+  - message: Removed things that annoy me personally. In this case a mantle that implies
+      the wearer has superpowers IC and tricks new players into thinking this is that
+      weird clothing anime from 2013 or something where clothing gives you superpowers.
+    type: Remove
+  id: 106100
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
+- author: Irkalla
+  changes:
+  - message: Psychic powers are not in the clothing. Please wear an amplifier like
+      Yuri did in RA2.
+    type: Fix
+  id: 106101
+  time: '2026-04-01T16:26:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1061
+- author: AthenAI
+  changes:
+  - message: Fixed the issue with PAIs not getting encryption key channels properly.
+    type: Fix
+  id: 105400
+  time: '2026-04-01T18:39:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1054
+- author: AthenAI
+  changes:
+  - message: Fixed an issue where people could escape container vehicles and it would
+      make them be unable to move or have virtual items on their hands.
+    type: Fix
+  id: 105401
+  time: '2026-04-01T18:39:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1054
+- author: AthenaAI
+  changes:
+  - message: Added the ability for the AI to shunt itself to control any of its turrets.
+    type: Add
+  id: 106300
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: The ability for the AI to cycle the fire mode and deploy/undeploy turrets
+      while controlling the turret.
+    type: Add
+  id: 106301
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Swapped the projectiles of the turrets for their hitscan counterparts
+      for more consistent shooting.
+    type: Tweak
+  id: 106302
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: AthenaAI
+  changes:
+  - message: Allows you to interact with the console without ejecting your PAI if
+      its inserted.
+    type: Tweak
+  id: 106303
+  time: '2026-04-01T21:01:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1063
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: CE backpacks, Neosol variants to engi backpacks, Evil CE backpacks.
+    type: Add
+  id: 106000
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
+- author: KURY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  changes:
+  - message: Resprites for engi backpacks
+    type: Tweak
+  id: 106001
+  time: '2026-04-01T21:28:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1060
+- author: KarusKardin
+  changes:
+  - message: Made Holographic Fields drawn over players, they can now be used as hiding
+      spots by particularly creative engineers.
+    type: Tweak
+  id: 102000
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a visual issue when Holographic Generators lost power
+    type: Fix
+  id: 102001
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a bug that would cause Hologrpahic Barriers to fly off into oblivion
+      sometimes when rammed by a grid.
+    type: Fix
+  id: 102002
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Fixed a bug that would cause grids to stop updating collisions after
+      ramming a Holographic Barrier/Field
+    type: Fix
+  id: 102003
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: KarusKardin
+  changes:
+  - message: Added EMAG functionality to Holographic Generators for particularly inventive
+      Traitors.
+    type: Add
+  id: 102004
+  time: '2026-04-01T21:52:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1020
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: 'Ported Make Xenos Scary - Three PR''s from MoffStation by Nox38 and
+      Nyxilath (# 198, # 475, # 948)'
+    type: Add
+  id: 105800
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Ported SSD command - PR from Starlight by RHSvenson (# 1406) - Type /ssd
+      into chat to take a nap for a while.
+    type: Add
+  id: 105801
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Ported Add a SetCountdown Command - PR from Moffstation by Katzenminer
+      (# 965)
+    type: Add
+  id: 105802
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Laspi, Felinoids, Shadekin and their Proto counterparts now will properly
+      take Acidic damage again like the rest of the species.
+    type: Fix
+  id: 105803
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Station Cyborg Lights have been improved. No more fumbling in the dark,
+      at least till the battery runs out.
+    type: Tweak
+  id: 105804
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Syndicate Cyborgs now start with a fancy red tie that allows them to
+      shout out their disdain for NanoTrasen. They also happen to look about 100%
+      cooler.
+    type: Add
+  id: 105805
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Medical Cyborg Chemical Module had duplicate Hand Labeler removed. They
+      don't need to be dual wielding labelers.
+    type: Remove
+  id: 105806
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: Nox38, Nyxilath, RH Svenson, Katzenminer, CorruptOmega
+  changes:
+  - message: Medical Cyborg Chemical Module now includes a box of mouth swabs, and
+      a hand to use them with also! They can now figure out which virus Hanz has outside
+      of greed.
+    type: Add
+  id: 105807
+  time: '2026-04-01T22:00:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1058
+- author: KURY
+  changes:
+  - message: Engineer case now has a stack of LV cable and allows cables to be put
+      inside it.
+    type: Add
+  id: 106500
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: KURY
+  changes:
+  - message: Flare guns now have a cooldown per use so you cant spam the SFX 900 times.
+    type: Tweak
+  id: 106501
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: KURY
+  changes:
+  - message: Multiple survival cases now accept items that would logically fit inside
+      them (Why can a pie fit but the pie tin cant?, Nutribrick unopened fits but
+      the actual nutribrick doesnt????. that sort of thing.) Command sec and management
+      can now store papers in their survival crates.
+    type: Tweak
+  id: 106502
+  time: '2026-04-02T02:07:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1065
+- author: princess_gurchi
+  changes:
+  - message: Following loneops, wizard, xenoborgs or abductor ghost roles will no
+      longer freeze your game.
+    type: Fix
+  id: 107300
+  time: '2026-04-02T17:43:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1073
+- author: Irkalla
+  changes:
+  - message: Changed nothing important. Really. Just makes Shadekin eyes able to be
+      bright to be compliant with upcoming lore changes.
+    type: Tweak
+  id: 107400
+  time: '2026-04-02T22:22:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1074
+- author: princess_gurchi
+  changes:
+  - message: Every mob with combat mode now has a UI widget to target specific limbs
+      with their attacks
+    type: Add
+  id: 105900
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Every playable species can now get their limbs damaged
+    type: Add
+  id: 105901
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Any direct attack will attempt targeting a limb attacker has selected,
+      but can miss unless it's torso
+    type: Tweak
+  id: 105902
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Any indirect attack will land on a random limb, but with higher chances
+      of the targeted one
+    type: Tweak
+  id: 105903
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Passive health regeneration, healing chems and explosions will affect
+      all limbs at once
+    type: Tweak
+  id: 105904
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Old "body damage" is now torso damage, it works exactly the same as it
+      did otherwise
+    type: Tweak
+  id: 105905
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Health analyzer UI updated to display limb health
+    type: Add
+  id: 105906
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Healing someone with topicals heals the targeted limb
+    type: Add
+  id: 105907
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Healing limb will heal some damage on torso. Damaging limb will damage
+      torso. Damage ratio is 100% for head, 40% for arms and legs, 20% for hands and
+      feet
+    type: Add
+  id: 105908
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Armor values for limbs other than torso are only collected from relevant
+      equipment. Headshots on a target that doesn't wear a helmet are essentially
+      true damage
+    type: Add
+  id: 105909
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Armor values helmets provide to head are adjusted to the same values
+      as their respective hardsuit/matching vest. (this only affects damage to head)
+    type: Tweak
+  id: 105910
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: When detached from body, limbs won't rotate anymore
+    type: Fix
+  id: 105911
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: You can no long ash a person by implanting multiple deep-fried organs.
+      Organs will only ever apply damage they took from the body (poison for liver,
+      asphyx for lungs, shock for heart, etc.)
+    type: Fix
+  id: 105912
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: princess_gurchi
+  changes:
+  - message: Me, opening ss14 for the first time over a year ago and noticing it's
+      missing limb targeting
+    type: Remove
+  id: 105913
+  time: '2026-04-03T10:46:42.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1059
+- author: Roro, Abby
+  changes:
+  - message: Added ID's and PDA's for NeoSol Personnel.
+    type: Add
+  id: 107700
+  time: '2026-04-03T11:37:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1077
+- author: Roro, Abby
+  changes:
+  - message: Fixed Corpsman PDA not having Corpsman ID.
+    type: Fix
+  id: 107701
+  time: '2026-04-03T11:37:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1077
+- author: Roro, Abby
+  changes:
+  - message: Detectives Hard-Worn Suit no longer has stray pixels.
+    type: Fix
+  id: 107702
+  time: '2026-04-03T11:37:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1077
+- author: Roro, Abby
+  changes:
+  - message: BSO no longer spawns with 2 PDA's and Berets.
+    type: Fix
+  id: 107703
+  time: '2026-04-03T11:37:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1077
+- author: princess_gurchi
+  changes:
+  - message: You can no longer hit anyone's head with indirect attack
+    type: Tweak
+  id: 108000
+  time: '2026-04-03T15:10:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1080
+- author: princess_gurchi
+  changes:
+  - message: Slimes and dionas (as well as their protogen variants) have no organs
+      in their heads. Therefore attacking their heads is no different from attacking
+      their arms or legs
+    type: Tweak
+  id: 108001
+  time: '2026-04-03T15:10:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1080
+- author: princess_gurchi
+  changes:
+  - message: Ling limbs can't be gibbed to match how their bodies work
+    type: Fix
+  id: 108002
+  time: '2026-04-03T15:10:28.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1080
+- author: KarusKardin
+  changes:
+  - message: Fixed Security Borg Modules description incorrectly stating they can
+      be fit into any frame.
+    type: Fix
+  id: 108200
+  time: '2026-04-03T18:45:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1082
+- author: CorruptOmega
+  changes:
+  - message: Made Shadekin Blood brighter so you can actually see/read the text.
+    type: Tweak
+  id: 108300
+  time: '2026-04-03T18:50:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1083
+- author: KarusKardin
+  changes:
+  - message: Made Holographic Generators cheaper to build by removing the 2 medium
+      powercells previously needed to construct them
+    type: Tweak
+  id: 108800
+  time: '2026-04-04T00:34:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1088
+- author: KarusKardin
+  changes:
+  - message: Fixed an issue caused by upstream that made it impossible to flatpack
+      Holographci Generators
+    type: Fix
+  id: 108801
+  time: '2026-04-04T00:34:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1088
+- author: AthenaAI
+  changes:
+  - message: A bug relating to client and server desync movement speed.
+    type: Fix
+  id: 108600
+  time: '2026-04-04T00:46:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1086
+- author: AthenaAI
+  changes:
+  - message: A bug with vehicles trying to damage themselves after running over someone.
+    type: Fix
+  id: 108601
+  time: '2026-04-04T00:46:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1086
+- author: ScorchFollower
+  changes:
+  - message: Edited the Magistrate's Coat side-profile sprite.
+    type: Tweak
+  id: 109100
+  time: '2026-04-04T01:28:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1091
+- author: lightening_orb
+  changes:
+  - message: Changed Law -> CFA in TeleComms Channel
+    type: Tweak
+  id: 104800
+  time: '2026-04-04T09:09:53.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1048
+- author: Killer Tamashi
+  changes:
+  - message: Added Instigator M500 (100 hours of Security Officer)
+    type: Add
+  id: 109400
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added MK 58 (100 hours of Security Officer)
+    type: Add
+  id: 109401
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Oath Breaker M500 (100 hours of Brigmedic)
+    type: Add
+  id: 109402
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Above guns to HoS loadout.
+    type: Add
+  id: 109403
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Drozd Type-T (NanoTrasen)
+    type: Add
+  id: 109404
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added P2-91-T (NanoTrasen)
+    type: Add
+  id: 109405
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Enforcer Type-T (NanoTrasen)
+    type: Add
+  id: 109406
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Drozd Type-S (NeoSol)
+    type: Add
+  id: 109407
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added P2-91-S (NeoSol)
+    type: Add
+  id: 109408
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Enforcer Type-S (NeoSol)
+    type: Add
+  id: 109409
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added MK 59 (NeoSol)
+    type: Add
+  id: 109410
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Drozd Rack Sprites.
+    type: Add
+  id: 109411
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added P2-91 Rack Sprites.
+    type: Add
+  id: 109412
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Mixed SMG Rack Sprites.
+    type: Add
+  id: 109413
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added NeoSol variants of SMG racks (no sprites yet)
+    type: Add
+  id: 109414
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Added Light SMG Crate, a cheaper option for SMGs containing P2-91s.
+    type: Add
+  id: 109415
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Changed Inspector M500 to require 100 hours of Detective instead of 150.
+      (50 rounds instead of 75)
+    type: Tweak
+  id: 109416
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Messed around with organization in a few gun files, should be nicer to
+      the eyes now.
+    type: Tweak
+  id: 109417
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Changed all instances (sans unused items) of .35 to 9mm.
+    type: Tweak
+  id: 109418
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Changed mentions of MK 58 in game files to MK 78.
+    type: Tweak
+  id: 109419
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Nerfed Stock Drozd/P2-91 to allow for NT/NS modifcations to be different.
+    type: Tweak
+  id: 109420
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: Killer Tamashi
+  changes:
+  - message: Fixed 9mm box sprites being broken.
+    type: Fix
+  id: 109421
+  time: '2026-04-04T10:17:58.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1094
+- author: KarusKardin
+  changes:
+  - message: Restored previously disabled source signals for holographic generators
+      as the cause of the issue has been fixed (for real this time)
+    type: Fix
+  id: 109300
+  time: '2026-04-04T10:39:49.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1093
+- author: princess_gurchi
+  changes:
+  - message: Fixed limb targeting shader being unable to compile on old GLSL versions
+      (compatibility renderer mode)
+    type: Fix
+  id: 110000
+  time: '2026-04-04T12:33:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1100
+- author: princess_gurchi
+  changes:
+  - message: IPC once again only able to receive IPC surgery
+    type: Fix
+  id: 109800
+  time: '2026-04-04T13:04:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1098
+- author: princess_gurchi
+  changes:
+  - message: Slimes and Dionae have their brains lodged properly somewhere in their
+      torso, making head actually non essential (diona still need it to have eyes
+      though)
+    type: Fix
+  id: 109801
+  time: '2026-04-04T13:04:14.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1098
+- author: princess_gurchi and their minion CorruptOmega
+  changes:
+  - message: Put people using the /ssd command actually to sleep.
+    type: Tweak
+  id: 108700
+  time: '2026-04-04T13:12:31.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1087
+- author: Irkalla
+  changes:
+  - message: Added fun. More RP objectives for Antags with a greater degree of freedom
+      leading to hopefully more interesting and memorable rounds.
+    type: Add
+  id: 110800
+  time: '2026-04-04T17:02:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1108
+- author: CorruptOmega
+  changes:
+  - message: CMO now has a medical door remote in locker again. Apparently when they
+      are handed the remote and told "Don't forget to bring this to station" they
+      are more likely to not take it with them. NanoTrasen now supplies in locker
+      instead.
+    type: Tweak
+  id: 110500
+  time: '2026-04-04T17:10:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1105
+- author: CorruptOmega
+  changes:
+  - message: Detective Wawa kept getting tangled up with their shoulder holster where
+      their belt was supposed to be. We have corrected their silly antics by attaching
+      the holster to their torso instead. Silly little goober.
+    type: Tweak
+  id: 110501
+  time: '2026-04-04T17:10:17.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1105
 Order: -1
 

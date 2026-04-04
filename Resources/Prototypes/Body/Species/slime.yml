@@ -67,7 +67,7 @@
       LegRight: OrganSlimePersonLegRight
       FootLeft: OrganSlimePersonFootLeft
       FootRight: OrganSlimePersonFootRight
-      Brain: OrganSlimePersonCore
+      SentientCore: OrganSlimePersonCore #FH
       Lungs: OrganSlimePersonLungs
   - type: HumanoidProfile
     species: SlimePerson
@@ -171,6 +171,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion] #Far Horizons
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
@@ -290,20 +291,32 @@
     markingData:
       group: Slime
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsSlime
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#2cf274"
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSlimePersonExternal ]
   id: OrganSlimePersonTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHeadNonVital, OrganSlimePersonExternal ] #FarHorizons
+  parent: [ DamageableLimbVisualsSlime, OrganBaseHeadSexed, OrganBaseHeadNonVital, OrganSlimePersonExternal ] #FarHorizons
   id: OrganSlimePersonHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganSlimePersonExternal ]
+  parent: [ DamageableLimbVisualsSlime, OrganBaseArmLeft, OrganSlimePersonExternal ]
   id: OrganSlimePersonArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganSlimePersonExternal ]
+  parent: [ DamageableLimbVisualsSlime, OrganBaseArmRight, OrganSlimePersonExternal ]
   id: OrganSlimePersonArmRight
 
 - type: entity
@@ -315,11 +328,11 @@
   id: OrganSlimePersonHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganSlimePersonExternal ]
+  parent: [ DamageableLimbVisualsSlime, OrganBaseLegLeft, OrganSlimePersonExternal ]
   id: OrganSlimePersonLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganSlimePersonExternal ]
+  parent: [ DamageableLimbVisualsSlime, OrganBaseLegRight, OrganSlimePersonExternal ]
   id: OrganSlimePersonLegRight
 
 - type: entity
@@ -334,6 +347,10 @@
   parent: [ OrganBaseBrain, OrganSlimePersonInternal ] #FarHorizons
   id: OrganSlimePersonCore
   name: sentient slime core
+  components:
+  # Far Horizons - brain isn't in the head
+  - type: Organ
+    category: SentientCore
 #FarHorizons - Moving metabolizer/stomach to entire body, instead of core.
 #  components:
 #  - type: SolutionContainerManager

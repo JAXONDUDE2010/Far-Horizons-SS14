@@ -194,6 +194,7 @@
         damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
           Burn: -0.5
           Brute: -0.5
+        affectAllLimbs: true # Far Horizons
       - !type:HealthChange
         conditions:
         - !type:MobStateCondition

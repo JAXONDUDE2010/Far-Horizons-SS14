@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._FarHorizons.LimbDamage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
@@ -9,6 +10,7 @@ public sealed class PassiveDamageSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     public override void Initialize()
     {
@@ -47,8 +49,10 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
             {
-                if(allowedState == mobState.CurrentState)
-                    _damageable.ChangeDamage((uid, damage), comp.Damage, true, false);
+                if (allowedState != mobState.CurrentState) continue;
+
+                _damageable.ChangeDamage((uid, damage), comp.Damage, true, false);
+                _limbDamage.ChangeDamageAll(uid, comp.Damage, true, false); // Far Horizons
             }
         }
     }

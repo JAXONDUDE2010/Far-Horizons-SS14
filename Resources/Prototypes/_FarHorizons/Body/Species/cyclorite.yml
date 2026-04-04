@@ -170,6 +170,16 @@
     markingData:
       group: Cyclorite
 
+- type: entity
+  id: DamageableLimbVisualsCyclorite
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#7a8bf2"
+
 # Limbs
 
 - type: entity
@@ -177,15 +187,15 @@
   id: OrganCycloriteTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganCycloriteExternal ]
+  parent: [ DamageableLimbVisualsCyclorite, OrganBaseHead, OrganCycloriteExternal ]
   id: OrganCycloriteHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganCycloriteExternal ]
+  parent: [ DamageableLimbVisualsCyclorite, OrganBaseArmLeft, OrganCycloriteExternal ]
   id: OrganCycloriteArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganCycloriteExternal ]
+  parent: [ DamageableLimbVisualsCyclorite, OrganBaseArmRight, OrganCycloriteExternal ]
   id: OrganCycloriteArmRight
 
 - type: entity
@@ -197,14 +207,14 @@
   id: OrganCycloriteHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganCycloriteExternal ]
+  parent: [ DamageableLimbVisualsCyclorite, OrganBaseLegLeft, OrganCycloriteExternal ]
   id: OrganCycloriteLegLeft
   components:
   - type: MovementOrgan
     sprintSpeedModifier: 0.9
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganCycloriteExternal ]
+  parent: [ DamageableLimbVisualsCyclorite, OrganBaseLegRight, OrganCycloriteExternal ]
   id: OrganCycloriteLegRight
   components:
   - type: MovementOrgan

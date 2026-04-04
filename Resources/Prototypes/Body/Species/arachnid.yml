@@ -203,20 +203,32 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/parts.rsi
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsArachnid
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#162581"
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorso, OrganArachnidExternal ]
   id: OrganArachnidTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganArachnidExternal ]
+  parent: [ DamageableLimbVisualsArachnid, OrganBaseHead, OrganArachnidExternal ]
   id: OrganArachnidHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganArachnidExternal ]
+  parent: [ DamageableLimbVisualsArachnid, OrganBaseArmLeft, OrganArachnidExternal ]
   id: OrganArachnidArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganArachnidExternal ]
+  parent: [ DamageableLimbVisualsArachnid, OrganBaseArmRight, OrganArachnidExternal ]
   id: OrganArachnidArmRight
 
 - type: entity
@@ -228,11 +240,11 @@
   id: OrganArachnidHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganArachnidExternal ]
+  parent: [ DamageableLimbVisualsArachnid, OrganBaseLegLeft, OrganArachnidExternal ]
   id: OrganArachnidLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganArachnidExternal ]
+  parent: [ DamageableLimbVisualsArachnid, OrganBaseLegRight, OrganArachnidExternal ]
   id: OrganArachnidLegRight
 
 - type: entity

@@ -53,6 +53,7 @@
       groups:
         Flammable: [Touch]
         Extinguish: [Touch]
+        Acidic: [Touch, Ingestion] #Far Horizons
       reactions:
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
@@ -68,6 +69,10 @@
       bloodlossHealDamage:
         types:
           Bloodloss: -0.25
+      bloodReferenceSolution: #FH start
+        reagents:
+          - ReagentId: ShadekinBlood
+            Quantity: 300 #FH end
     - type: Flammable
       damage:
         types:
@@ -166,3 +171,12 @@
         - AnomalyHost
         - Shadekin
     - type: VisionOrganRequiredForVision # Far Horizons
+    - type: NeedsOrgansForInventorySlots # Far Horizons
+      slots:
+        - head
+        - ears
+        - mask
+        - gloves
+        - shoes
+    - type: LimbDamageable # Far Horizons
+      proto: LimbTargetHuman

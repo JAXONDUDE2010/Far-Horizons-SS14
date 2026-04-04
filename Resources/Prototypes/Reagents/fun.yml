@@ -256,6 +256,7 @@
           types:
              Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
+        affectAllLimbs: true # Far Horizons
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition

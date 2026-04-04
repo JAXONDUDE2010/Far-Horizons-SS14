@@ -1,5 +1,6 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
+    xmlns:limbDamage="clr-namespace:Content.Client._FarHorizons.LimbDamage.UI"
     VerticalExpand="True"
     Orientation="Vertical">
     <Label
@@ -11,38 +12,40 @@
         Margin="0 0 0 5"
         Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
-            <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64" />
+            <limbDamage:LimbStatusUI Name="LimbTargettingDisplay"/>
+            <!-- <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64" /> -->
             <TextureRect Name="NoDataTex" Access="Public" SetSize="64 64" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
-            <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
-                <RichTextLabel Name="NameLabel" SetWidth="150" />
-                <Label Name="SpeciesLabel" VerticalAlignment="Top" StyleClasses="LabelSubText" />
+            <!-- Starlight begin - changed to fix species and name labels overlapping -->
+            <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top" SetWidth="155">
+                <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                    <RichTextLabel Name="NameLabel" SetWidth="150" />
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical">
+                    <Label Name="SpeciesLabel" StyleClasses="LabelSubText" />
+                </BoxContainer>
             </BoxContainer>
-            <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right" VerticalExpand="True"
-                   VerticalAlignment="Top" Name="ScanModeLabel"
-                   Text="{Loc 'health-analyzer-window-entity-unknown-text'}" />
+            <!-- Starlight end -->
+            <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right"
+                    VerticalAlignment="Top" Name="ScanModeLabel"
+                    Text="{Loc 'health-analyzer-window-entity-unknown-text'}" />
         </BoxContainer>
 
         <PanelContainer StyleClasses="LowDivider" />
 
         <GridContainer Margin="0 5 0 0" Columns="2">
-            <Label Text="{Loc 'health-analyzer-window-entity-status-text'}" />
+            <Label Name="StatusText" Text="{Loc 'health-analyzer-window-entity-status-text'}" />
             <Label Name="StatusLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
+            <Label Name="TemperatureText" Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
             <Label Name="TemperatureLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
+            <Label Name="BloodText" Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
             <Label Name="BloodLabel" />
+            <Label Name="DiseaseText" Text="{Loc 'health-analyzer-window-entity-disease-text'}" />
+            <BoxContainer Name="DiseaseContainer">
+                <Label Name="DiseaseLabel" />
+                <TextureRect Name="DiseaseIcon" Access="Public" Visible="false" Margin="5 0 0 0" TextureScale="2 2" VerticalAlignment="Center" />
+            </BoxContainer>
             <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" />
             <Label Name="DamageLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-disease-text'}"/>
-            <BoxContainer>
-                <Label Name="DiseaseLabel"/>
-                <TextureRect Name="DiseaseIcon"
-                             Access="Public"
-                             Visible="false"
-                             Margin="5 0 0 0"
-                             TextureScale="2 2"
-                             VerticalAlignment="Center"/>
-                    </BoxContainer>
         </GridContainer>
     </BoxContainer>
 
@@ -59,5 +62,30 @@
         Margin="0 5 0 5"
         Orientation="Vertical">
     </BoxContainer>
+    
+    <!-- Starlight begin - metabolizing chems section of ui -->
+    <PanelContainer Name="ChemicalsDivider" Visible="False" StyleClasses="LowDivider" />
+
+    <BoxContainer
+        Name="ChemicalsContainer"
+        Visible="False"
+        Margin="0 5 0 5"
+        Orientation="Vertical">
+    </BoxContainer>
+    <!-- Starlight end -->
+
+    <!--FarHorizons Start-->
+    <BoxContainer
+        Orientation="Horizontal"
+        Align="End"
+        HorizontalExpand="True">
+        <Button
+            Name="ServerListButton"
+            Text="{Loc 'lathe-menu-server-list'}"
+            TextAlign="Center"
+            Mode="Press">
+        </Button>
+    </BoxContainer>
+    <!--FarHorizons End-->
 
 </BoxContainer>

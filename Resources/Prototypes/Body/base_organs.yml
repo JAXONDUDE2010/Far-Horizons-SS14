@@ -22,6 +22,9 @@
   components:
   - type: Organ
   # Far Horizons start
+  - type: Sprite
+    overrideDir: South # No rotating limbs!
+    enableOverrideDir: true
   - type: Edible
   - type: Extractable
     juiceSolution:
@@ -78,7 +81,7 @@
 
 #FarHorizons Start
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBase, OrganBase]
   id: OrganBaseHeadNonVital
   name: Head 
   abstract: true
@@ -105,7 +108,35 @@
       - HeadTop
       - FaceCover 
       - FaceCoverCover 
-  - type: HeadOrgan 
+  - type: HeadOrgan
+  - type: OrganWithInventorySlots
+    slots:
+      - head
+      - mask
+      - ears
+  - type: DamageableLimb
+    bodyDamageFactor: 0.4 # Non vital variant is used for diona and slime, same 40% as legs/arms
+    missChance: 0.35 # 35% chance to miss
+    redirectChance: 0.2 # 20% chance to hit torso
+    scatterHitChance: 0 # Disable chance to miss head without aiming
+    aimedTowardsScatterHitChance: 0
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 150 # Since taking someone's head off = killing, it shouldn't be faster to do that
+      - effect: !type:LimbEffectDestroy
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 250 # Gib lite
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 1500 # Just in case there's laser gatling I don't know of in maints locker
+  - type: LimbDamageVisuals
+    layer: "enum.HumanoidVisualLayers.Head"
 
 - type: entity
   parent: OrganBaseHeadNonVital
@@ -113,11 +144,13 @@
   name: Head 
   abstract: true
   components:
-  - type: VitalOrgan 
-#FarHorizons End
+  - type: VitalOrgan
+  - type: DamageableLimb
+    bodyDamageFactor: 1.0 # 100% damage transfer for vital heads
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBase, OrganBase ]
   id: OrganBaseArmLeft
   name: Left Arm #FarHorizons Capitalization
   abstract: true
@@ -134,9 +167,13 @@
     markingData:
       layers:
       - LArm
+  # Far Horizons start
+  - type: LimbDamageVisuals
+    layer: "enum.HumanoidVisualLayers.LArm"
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBase, OrganBase ]
   id: OrganBaseArmRight
   name: Right Arm #FarHorizons Capitalization
   abstract: true
@@ -153,9 +190,13 @@
     markingData:
       layers:
       - RArm
+  # Far Horizons start
+  - type: LimbDamageVisuals
+    layer: "enum.HumanoidVisualLayers.RArm"
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBaseNoVisuals, OrganBase ]
   id: OrganBaseHandLeft
   name: Left Hand #FarHorizons Capitalization
   abstract: true
@@ -176,9 +217,36 @@
     markingData:
       layers:
       - LHand
+  # Far Horizons start
+  - type: OrganWithInventorySlots
+    slots: [ gloves ]
+  - type: DamageableLimb
+    bodyDamageFactor: 0.2
+    missChance: 0.35
+    redirectChance: 0.2
+    redirectTarget: ArmLeft
+    scatterHitChance: 0.05
+    aimedTowardsScatterHitChance: 0.1
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 50
+      - effect: !type:LimbEffectDestroy
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
+          
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBaseNoVisuals, OrganBase ]
   id: OrganBaseHandRight
   name: Right Hand #FarHorizons Capitalization
   abstract: true
@@ -199,9 +267,35 @@
     markingData:
       layers:
       - RHand
+  # Far Horizons start
+  - type: OrganWithInventorySlots
+    slots: [ gloves ]
+  - type: DamageableLimb
+    bodyDamageFactor: 0.2
+    missChance: 0.35
+    redirectChance: 0.2
+    redirectTarget: ArmRight
+    scatterHitChance: 0.05
+    aimedTowardsScatterHitChance: 0.1
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 50
+      - effect: !type:LimbEffectDestroy
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBase, OrganBase ]
   id: OrganBaseLegLeft
   name: Left Leg #FarHorizons Capitalization
   abstract: true
@@ -218,10 +312,14 @@
     markingData:
       layers:
       - LLeg
-  - type: MovementOrgan # Far Horizons
+  # Far Horizons start
+  - type: MovementOrgan
+  - type: LimbDamageVisuals
+    layer: "enum.HumanoidVisualLayers.LLeg"
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBase, OrganBase ]
   id: OrganBaseLegRight
   name: Right Leg #FarHorizons Capitalization
   abstract: true
@@ -238,10 +336,14 @@
     markingData:
       layers:
       - RLeg
+  # Far Horizons start
   - type: MovementOrgan
+  - type: LimbDamageVisuals
+    layer: "enum.HumanoidVisualLayers.RLeg"
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBaseNoVisuals, OrganBase ]
   id: OrganBaseFootLeft
   name: Left Foot #FarHorizons Capitalization
   abstract: true
@@ -258,9 +360,35 @@
     markingData:
       layers:
       - LFoot
+  # Far Horizons start
+  - type: OrganWithInventorySlots
+    slots: [ shoes ]
+  - type: DamageableLimb
+    bodyDamageFactor: 0.2
+    missChance: 0.35
+    redirectChance: 0.2
+    redirectTarget: LegLeft
+    scatterHitChance: 0.05
+    aimedTowardsScatterHitChance: 0.1
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 50
+      - effect: !type:LimbEffectDestroy
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
+  # Far Horizons end
 
 - type: entity
-  parent: OrganBase
+  parent: [ DamageableLimbBaseNoVisuals, OrganBase ]
   id: OrganBaseFootRight
   name: Right Foot #FarHorizons Capitalization
   abstract: true
@@ -277,6 +405,32 @@
     markingData:
       layers:
       - RFoot
+  # Far Horizons start
+  - type: OrganWithInventorySlots
+    slots: [ shoes ]
+  - type: DamageableLimb
+    bodyDamageFactor: 0.2
+    missChance: 0.35
+    redirectChance: 0.2
+    redirectTarget: LegLeft
+    scatterHitChance: 0.05
+    aimedTowardsScatterHitChance: 0.1
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 50
+      - effect: !type:LimbEffectDestroy
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 300
+  # Far Horizons end
 
 - type: entity
   parent: OrganBase
@@ -323,8 +477,6 @@
         Bloodloss: 10
         Radiation: 10
         Caustic: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Eyes
   - type: Sprite
@@ -357,8 +509,6 @@
         Bloodloss: 10
         Radiation: 10
         Caustic: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Tongue
   - type: Sprite
@@ -379,8 +529,6 @@
         Cellular: 10
         Bloodloss: 10
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Appendix
   - type: Sprite
@@ -395,8 +543,6 @@
   components:
   - type: GibbableOrgan
   - type: OrganDamage
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Ears
   - type: Sprite
@@ -417,8 +563,6 @@
         Cellular: 20
         Bloodloss: 20
         Radiation: 30
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Lungs
   - type: Lung
@@ -453,8 +597,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Heart
   - type: Sprite
@@ -480,8 +622,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 10
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Stomach
   - type: Stomach
@@ -514,8 +654,6 @@
         Bloodloss: 20
         Caustic: 20
         Radiation: 30
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Liver
   - type: Sprite
@@ -543,8 +681,6 @@
         Caustic: 20
         Radiation: 10
         Cold: 120
-  - type: Damageable
-    damageContainer: Biological
   - type: Organ
     category: Kidneys
   - type: Sprite

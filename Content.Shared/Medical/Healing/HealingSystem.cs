@@ -2,6 +2,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using System.Linq;
+using Content.Shared._FarHorizons.LimbDamage;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -42,6 +43,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ConditionalHealingSystem _conditionalHealing = default!; // Far Horizons
     [Dependency] private readonly BlindableSystem _blindable = default!; // Far Horizons
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     public override void Initialize()
     {
@@ -98,10 +100,23 @@ public sealed class HealingSystem : EntitySystem
         if (healing.AdjustEyeDamage != 0 && TryComp(target, out BlindableComponent? blindable))
             _blindable.AdjustEyeDamage((target, blindable), healing.AdjustEyeDamage);
 
-        if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        // Far Horizons start
+        bool healingDone;
+        DamageSpecifier? healed;
+        if (args.TargettedLimb == null)
+            healingDone = _damageable.TryChangeDamage(target.Owner,
+                healing.Damage * _damageable.UniversalTopicalsHealModifier, out healed, true,
+                origin: args.Args.User);
+        else
+            healingDone = _limbDamage.TryChangeLimbDamage(target.Owner, args.TargettedLimb.Value,
+                healing.Damage * _damageable.UniversalTopicalsHealModifier, out healed, true,
+                origin: args.Args.User);
+        // Far Horizons end
+
+        if (!healingDone && healing.BloodlossModifier != 0)
             return;
 
-        if (healed == null && healing.BloodlossModifier != 0 && healing.AdjustEyeDamage != 0) // Far Horizons - added eye healing
+        if (healing.BloodlossModifier != 0 && healing.AdjustEyeDamage != 0) // Far Horizons - added eye healing
             return;
 
         var total = healed?.GetTotal();
@@ -159,7 +174,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
+        args.Repeat = HasDamage((args.Used.Value, healing), target, args.User) && !dontRepeat;
         args.Handled = true;
 
         if (!args.Repeat)
@@ -173,8 +188,16 @@ public sealed class HealingSystem : EntitySystem
             args.Args.Delay = healing.Delay * GetScaledHealingPenalty(target.Owner, healing.SelfHealPenaltyMultiplier);
     }
 
-    public bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent> target)
+    public bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent> target, EntityUid? origin = null)
     {
+        // Far Horizons start
+        if (origin != null)
+        {
+            var limbTarget = _limbDamage.GetCurrentValidTarget(target.Owner, origin.Value);
+            if (limbTarget != null) return _limbDamage.LimbHasDamage(target.Owner, limbTarget.Value, healing.Comp);
+        }
+        // Far Horizons end
+
         var damageableDict = _damageable.GetAllDamage(target.AsNullable()).DamageDict;
         var healingDict = healing.Comp.Damage.DamageDict;
         foreach (var type in healingDict)
@@ -265,7 +288,7 @@ public sealed class HealingSystem : EntitySystem
                 return false;
         }
         // Starlight end
-        if (!HasDamage(healing, target!))
+        if (!HasDamage(healing, target!, user))
         {
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
@@ -285,8 +308,10 @@ public sealed class HealingSystem : EntitySystem
             ? healing.Comp.Delay
             : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
 
+        var limbTarget = _limbDamage.GetCurrentValidTarget(target.Owner, user); // Far Horizons
+
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)
+            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(limbTarget), target, target: target, used: healing)
             {
                 // Didn't break on damage as they may be trying to prevent it and
                 // not being able to heal your own ticking damage would be frustrating.

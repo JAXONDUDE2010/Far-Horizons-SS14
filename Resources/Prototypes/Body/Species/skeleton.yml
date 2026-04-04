@@ -141,6 +141,7 @@
           Burn: -1
           Brute: -0.75
           Metaphysical: -2 # Gameplay: skeletons need some way to heal holy damage. Lore: milk is an unholy liquid that shuns the light of god. (/j)
+        affectAllLimbs: true # Far Horizons
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -206,20 +207,29 @@
     markingData:
       group: Skeleton
 
+# Far Horizons start
+- type: entity
+  id: DamageableLimbVisualsSkeleton
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups: {}
+# Far Horizons end
+
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganSkeletonPersonExternal ]
+  parent: [ DamageableLimbVisualsSkeleton, OrganBaseHead, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonHead
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganSkeletonPersonExternal ]
+  parent: [ DamageableLimbVisualsSkeleton, OrganBaseArmLeft, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganSkeletonPersonExternal ]
+  parent: [ DamageableLimbVisualsSkeleton, OrganBaseArmRight, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonArmRight
 
 - type: entity
@@ -231,11 +241,11 @@
   id: OrganSkeletonPersonHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganSkeletonPersonExternal ]
+  parent: [ DamageableLimbVisualsSkeleton, OrganBaseLegLeft, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganSkeletonPersonExternal ]
+  parent: [ DamageableLimbVisualsSkeleton, OrganBaseLegRight, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonLegRight
 
 - type: entity

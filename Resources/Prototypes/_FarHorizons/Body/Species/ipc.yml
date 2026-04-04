@@ -83,9 +83,6 @@
   abstract: true
   suffix: IPC
   components:
-  - type: Tag
-    tags:
-      - Inorganic
   - type: Extractable
     juiceSolution:
       reagents:
@@ -121,14 +118,28 @@
     markingData:
       group: IPC
 
+- type: entity
+  id: DamageableLimbVisualsIPC
+  abstract: true
+  components:
+    - type: LimbDamageVisuals
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#B67823"
+
 # Limbs
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganIPCExternal ]
   id: OrganIPCTorso
+  components:
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
   id: OrganIPCHead
   components:
   - type: VisualOrganMarkings
@@ -137,9 +148,12 @@
       - Head
       - HeadSide
       - HeadTop
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmLeft, OrganIPCExternal ]
   id: OrganIPCArmLeft
   components:
   - type: HumanoidEMPCompositeElement
@@ -150,9 +164,12 @@
         types:
           Shock: 3
           Heat: 2
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmRight, OrganIPCExternal ]
   id: OrganIPCArmRight
   components:
   - type: HumanoidEMPCompositeElement
@@ -163,6 +180,9 @@
         types:
           Shock: 3
           Heat: 2
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseHandLeft, OrganIPCExternal ]
@@ -176,6 +196,9 @@
         types:
           Shock: 3
           Heat: 1
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseHandRight, OrganIPCExternal ]
@@ -189,9 +212,12 @@
         types:
           Shock: 3
           Heat: 1
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegLeft, OrganIPCExternal ]
   id: OrganIPCLegLeft
   components:
   - type: HumanoidEMPCompositeElement
@@ -204,9 +230,12 @@
         types:
           Shock: 3
           Heat: 2
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegRight, OrganIPCExternal ]
   id: OrganIPCLegRight
   components:
   - type: HumanoidEMPCompositeElement
@@ -219,6 +248,9 @@
         types:
           Shock: 3
           Heat: 2
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseFootLeft, OrganIPCExternal ]
@@ -234,6 +266,9 @@
         types:
           Shock: 3
           Heat: 1
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseFootRight, OrganIPCExternal ]
@@ -249,6 +284,9 @@
         types:
           Shock: 3
           Heat: 1
+  - type: Tag
+    tags:
+      - Inorganic
 
 # Organs
 
@@ -270,18 +308,29 @@
       damageAmount:
         types:
           Shock: 1
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseTongue, OrganIPCInternal ]
   id: OrganIPCTongue
   name: Vocal Modulator
   description: "A vocal modulator, typically used for lying."
+  components:
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseEars, OrganIPCInternal ]
   id: OrganIPCEars
   name: Robotic Ears
   description: "Process audio at the same quality of station-side cyborgs"
+  components:
+  - type: Tag
+    tags:
+      - Inorganic
 
 - type: entity
   parent: [ OrganBaseHeart, OrganIPCInternal ]
@@ -291,3 +340,6 @@
   components:
   - type: Metabolizer
     maxReagents: 0
+  - type: Tag
+    tags:
+      - Inorganic

@@ -1,12 +1,17 @@
+using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared.Body;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanBasicDamageSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
 
     public override void Initialize()
     {
@@ -17,14 +22,33 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
 
     private void OnHitscanHit(Entity<HitscanBasicDamageComponent> ent, ref HitscanRaycastFiredEvent args)
     {
-        if (args.Data.HitEntity == null)
+        if (args.Data.HitEntity == null ||
+            args.DamageHandled) // Far Horisons
             return;
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        // var damageDealt = _damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, origin: args.Data.Gun); // Starlight - we redefine this
-        // Starlight start
-        var damageDealt = _damage.ChangeDamage(
+        // Far Horizons limb targetting start
+        ProtoId<OrganCategoryPrototype>? limbTarget = null;
+        if (args.Data.Shooter != null)
+            limbTarget = _limbDamage.TryScatterHitTarget(args.Data.HitEntity.Value, args.Data.Shooter.Value);
+
+        DamageSpecifier damageDealt;
+        if (limbTarget != null)
+            _limbDamage.TryChangeLimbDamage(
+                args.Data.HitEntity.Value,
+                limbTarget.Value,
+                dmg,
+                out damageDealt,
+                ignoreResistances: ent.Comp.IgnoreResistances,
+                origin: args.Data.Shooter!.Value,
+                armorPenetration: ent.Comp.ArmorPenetration,
+                canHeal: false
+            );
+        else
+            // var damageDealt = _damage.TryChangeDamage(args.Data.HitEntity.Value, dmg, origin: args.Data.Gun); // Starlight - we redefine this
+            // Starlight start
+            damageDealt = _damage.ChangeDamage(
                 args.Data.HitEntity.Value,
                 dmg,
                 ignoreResistances: ent.Comp.IgnoreResistances,
@@ -32,7 +56,9 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
                 armorPenetration: ent.Comp.ArmorPenetration,
                 canHeal: false
             );
-        // Starlight end
+            // Starlight end
+        // Far Horizons end
+        
 
         if (damageDealt == null)
             return;
@@ -45,5 +71,7 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
         };
 
         RaiseLocalEvent(ent, ref damageEvent);
+
+        args.DamageHandled = true; // Far Horisons
     }
 }

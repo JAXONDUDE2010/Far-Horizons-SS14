@@ -1,0 +1,44 @@
+- type: entity
+  id: DamageableLimbBaseNoVisuals
+  abstract: true
+  components:
+    - type: Damageable
+      damageContainer: LimbDamageContainer # Only brute and heat
+    - type: DamageableLimb
+      bodyDamageFactor: 0.4 # 40% of the damage/healing limb takes is transferred to body
+      missChance: 0.2 # 20% chance that direct attack misses entirely
+      redirectChance: 0.1 # 10% chance if it didn't miss, it hit other part of the body instead
+      redirectTarget: Torso # Which part to redirect attack to
+      scatterHitChance: 0.1 # 10% chance to hit this limb when making indirrect attack without aiming at it
+      aimedTowardsScatterHitChance: 0.2 # 20% chance to hit it when making indirrect attack with it as target
+    - type: LimbDamageEffect
+      effects:
+        - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
+          condition: !type:LimbConditionSpecificDamage
+            damageType: Slash
+            damageAmount: 100
+        - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
+          condition: !type:LimbConditionOr
+            conditions:
+              - !type:LimbConditionSpecificDamage
+                damageType: Blunt
+                damageAmount: 250
+              - !type:LimbConditionSpecificDamage
+                damageType: Heat
+                damageAmount: 500
+
+- type: entity
+  parent: DamageableLimbBaseNoVisuals
+  id: DamageableLimbBase
+  abstract: true
+  components:
+    - type: Appearance
+    - type: LimbDamageVisuals
+      thresholds: [ 10, 30, 50, 70]
+      # layer: "enum.HumanoidVisualLayers.Head" - each limb should overwrite this
+      damageOverlayGroups:
+        Brute:
+          rsi: /Textures/Mobs/Effects/brute_damage.rsi
+          color: "#FF0000"
+        Burn:
+          rsi: /Textures/Mobs/Effects/burn_damage.rsi

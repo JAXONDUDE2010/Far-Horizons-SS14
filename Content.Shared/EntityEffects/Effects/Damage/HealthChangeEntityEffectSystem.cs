@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._FarHorizons.LimbDamage;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -16,6 +17,7 @@ namespace Content.Shared.EntityEffects.Effects.Damage;
 public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<DamageableComponent, HealthChange>
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<HealthChange> args)
     {
@@ -28,6 +30,10 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
                 damageSpec,
                 args.Effect.IgnoreResistances,
                 interruptsDoAfters: false);
+
+        if (args.Effect.AffectAllLimbs)
+            _limbDamage.ChangeDamageAll(entity.Owner, damageSpec, args.Effect.IgnoreResistances,
+                interruptsDoAfters: false); // Far Horizons
     }
 }
 
@@ -42,6 +48,8 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
 
     [DataField]
     public bool IgnoreResistances = true;
+
+    [DataField] public bool AffectAllLimbs; // Far Horizons
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {

@@ -38,6 +38,7 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
+        affectAllLimbs: true
       - !type:ModifyBleed #smth smth burns you from the inside so it stops internal bleeding, clearly.
         amount: -0.5
       - !type:SatiateHunger

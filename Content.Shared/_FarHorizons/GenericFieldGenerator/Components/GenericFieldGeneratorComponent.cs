@@ -78,6 +78,11 @@ public sealed partial class GenericFieldGeneratorComponent : Component
     /// </summary>
     [DataField("retryWait")]
     public float RetryWait;
+    
+    /// <summary>
+    /// Used to retry connection when fully charged, but not connected
+    /// </summary>
+    public bool Removing = false;
 
     //Ports
     [DataField]
@@ -89,14 +94,14 @@ public sealed partial class GenericFieldGeneratorComponent : Component
     [DataField]
     public ProtoId<SinkPortPrototype> OffPort = "Off";
 
-    // [DataField]
-    // public ProtoId<SourcePortPrototype> ConnectionStatusPort = "ConnectionStatus";
+    [DataField]
+    public ProtoId<SourcePortPrototype> ConnectionStatusPort = "ConnectionStatus";
     
-    // [DataField] 
-    // public ProtoId<SourcePortPrototype> FieldConnectedPort = "FieldConnected";
+    [DataField] 
+    public ProtoId<SourcePortPrototype> FieldConnectedPort = "FieldConnected";
 
-    // [DataField] 
-    // public ProtoId<SourcePortPrototype> FieldDisconnectedPort = "FieldDisconnected";
+    [DataField] 
+    public ProtoId<SourcePortPrototype> FieldDisconnectedPort = "FieldDisconnected";
 }
 
 [Serializable, NetSerializable]

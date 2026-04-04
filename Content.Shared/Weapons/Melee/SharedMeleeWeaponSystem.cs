@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._FarHorizons.LimbDamage;
 using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared._Starlight.Weapons.Melee.Events; // Starlight-edit
 using Content.Shared.ActionBlocker;
@@ -68,6 +69,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
+    [Dependency] private   readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -504,7 +506,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             !HasComp<DamageableComponent>(target) ||
             !TryComp(target, out TransformComponent? targetXform) ||
             // Not in LOS.
-            !InRange(user, target.Value, component.Range, session))
+            !InRange(user, target.Value, component.Range, session) ||
+            !_limbDamage.CheckAttackHit(target.Value, user, out var overrideTarget)) // Far Horizons
         {
             // Leave IsHit set to true, because the only time it's set to false
             // is when a melee weapon is examined. Misses are inferred from an
@@ -557,7 +560,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
+        if ((   overrideTarget != null &&
+                _limbDamage.TryChangeLimbDamage(target.Value, overrideTarget.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass)) || // Far Horizons
+            Damageable.TryChangeDamage(target.Value, modifiedDamage, out damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
@@ -719,7 +724,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
+            // Far Horizons start
+            var targetLimb = _limbDamage.TryScatterHitTarget(entity, user);
+            DamageSpecifier damageResult;
+            if (targetLimb == null)
+                damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user,
+                    ignoreResistances: resistanceBypass);
+            else
+                _limbDamage.TryChangeLimbDamage(entity, targetLimb.Value, modifiedDamage, out damageResult, origin: user);
+            // Far Horizons end
 
             if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
