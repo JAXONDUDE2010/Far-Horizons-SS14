@@ -109,7 +109,7 @@ public sealed partial class RepairableSystem : EntitySystem
                 damageAmount, out healed, true, false, origin: user);
         }
 
-        if (healed.Empty || !healingDoneToLimb)
+        if (!healingDoneToLimb)
             _damageableSystem.TryChangeDamage(ent.Owner, damageAmount, out healed, true, false, origin: user);
         // Far Horizons end
         
