@@ -23,6 +23,7 @@ public sealed class DiseaseVaccinatorSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     private readonly static string _vaccine = "Vaccine";
     public override void Initialize()
     {
@@ -54,6 +55,7 @@ public sealed class DiseaseVaccinatorSystem : EntitySystem
 
         Dictionary<string, (DiseaseData disease, float value)> immunityByName = [];
         var immunities = solution.Value.Comp.Solution;
+        var name = "";
 
         foreach(var immunity in immunities)
         {
@@ -68,15 +70,21 @@ public sealed class DiseaseVaccinatorSystem : EntitySystem
                 string diseaseKey = disease.Name; 
                 
                 if (!immunityByName.TryGetValue(diseaseKey, out var existing) || value > existing.value)
+                {
                     immunityByName[diseaseKey] = (disease, value);
+                    name += $"{Loc.GetString(disease.Name)} {Math.Round(value*100)}% ";
+                }
             }
         }
+        name += "Vaccine";
+
         Dictionary<DiseaseData, float> Immunity = immunityByName.Values.ToDictionary(x => x.disease, x => x.value);
 
         Entity<SolutionComponent>? penSolRef = null;
 
         if (!_solutionContainer.ResolveSolution(args.Item, "pen", ref penSolRef, out var penSol)) return;
 
+        _metadata.SetEntityName(args.Item, name);
         var reagentData = new List<ReagentData>();
         var DiseaseData = new DiseaseReagentData { Immunity = Immunity }; 
         reagentData.Add(DiseaseData);
