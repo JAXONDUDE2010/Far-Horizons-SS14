@@ -132,61 +132,63 @@
     stackType: RegenerativeMesh
     count: 1
 
-- type: entity
-  name: bruise pack
-  description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
-  parent: BaseHealingItem
-  id: Brutepack
-  suffix: Full
-  components:
-  - type: Tag
-    tags:
-    - Brutepack
-  - type: Sprite 
-    state: brutepack
-  - type: Item
-    heldPrefix: brutepack
-  - type: Healing
-    damageContainers:
-      - Biological
-    delay: 1.6 # STARLIGHT
-    damage:
-      types:
-        Blunt: -5
-        Piercing: -5
-        Slash: -5
-    healingBeginSound:
-      path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
-    healingEndSound:
-      path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
-  - type: Stack
-    stackType: Brutepack
-    count: 10
-  - type: StackPrice
-    price: 5
-  - type: InteractRestriction #FH - Edit
-    restrictInteractionTarget:
-      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
-        - IPC
-
-- type: entity
-  id: Brutepack1
-  parent: Brutepack
-  suffix: Single
-  components:
-  - type: Stack
-    stackType: Brutepack
-    count: 1
-  - type: InteractRestriction #FH - Edit
-    restrictInteractionTarget:
-      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
-        - IPC
+#FH - Start - Disabled
+#- type: entity
+#  name: bruise pack
+#  description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
+#  parent: BaseHealingItem
+#  id: Brutepack
+#  suffix: Full
+#  components:
+#  - type: Tag
+#    tags:
+#    - Brutepack
+#  - type: Sprite 
+#    state: brutepack
+#  - type: Item
+#    heldPrefix: brutepack
+#  - type: Healing
+#    damageContainers:
+#      - Biological
+#    delay: 1.6 # STARLIGHT
+#    damage:
+#      types:
+#        Blunt: -5
+#        Piercing: -5
+#        Slash: -5
+#    healingBeginSound:
+#      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+#      params:
+#        volume: 1.0
+#        variation: 0.125
+#    healingEndSound:
+#      path: "/Audio/Items/Medical/brutepack_end.ogg"
+#      params:
+#        volume: 1.0
+#        variation: 0.125
+#  - type: Stack
+#    stackType: Brutepack
+#    count: 10
+#  - type: StackPrice
+#    price: 5
+#  - type: InteractRestriction #FH - Edit
+#    restrictInteractionTarget:
+#      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+#        - IPC
+#
+#- type: entity
+#  id: Brutepack1
+#  parent: Brutepack
+#  suffix: Single
+#  components:
+#  - type: Stack
+#    stackType: Brutepack
+#    count: 1
+#  - type: InteractRestriction #FH - Edit
+#    restrictInteractionTarget:
+#      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+#        - IPC
+#FH - End
 
 - type: entity
   name: medicated suture

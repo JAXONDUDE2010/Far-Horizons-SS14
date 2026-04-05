@@ -497,12 +497,88 @@
         reagents:
         - ReagentId: BurnCream
           Quantity: 10
+
 #region Brute Pack
+- type: entity
+  name: Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat brute-force trauma.
+  parent: BaseItem
+  id: Brutepack
+  suffix: Full
+  components:
+  - type: Stack
+    count: 20
+    stackType: Brutepack
+    baseLayer: base
+    layerStates:
+    - brutepack-9
+    - brutepack-8
+    - brutepack-7
+    - brutepack-6
+    - brutepack-5
+    - brutepack-4
+    - brutepack-3
+    - brutepack-2
+    - brutepack-1
+    - brutepack-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack-0
+    layers:
+    - state: brutepack-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Blunt: -5
+        Piercing: -5
+        Slash: -5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: Brutepack1
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: Brutepack
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack-0 }
+  spawn: Brutepack
 
 #region Blue Brute Pack
 - type: entity
   name: Blue Brute Pack
-  description: A therapeutic gel pack and bandage set designed to treat brute-force trauma. A special mixture of gel-based chems make these ones last longer and a bit more potent.
+  description: A therapeutic gel-laced bandage set designed to treat brute-force trauma. A special mixture of chemicals make these ones last longer and a bit more potent.
   parent: BaseItem
   id: BrutepackBlue
   suffix: Full
@@ -590,7 +666,7 @@
 #region Bruizine Brute Pack
 - type: entity
   name: Bruizine Brute Pack
-  description: A therapeutic gel pack and bandage set designed to treat blunt-force trauma. A specific blend of Bruizine and Bicaridine gel makes this pack great at treating blunt injuries, but not much else.
+  description: A therapeutic gel-laced bandage set designed to treat blunt-force trauma. A non-reactive Bruizine-Bicaridine mixture makes this pack great at treating blunt injuries, but not much else.
   parent: BaseItem
   id: BrutepackRed
   suffix: Full
@@ -668,7 +744,7 @@
 #region Lacerinol Brute Pack
 - type: entity
   name: Lacerinol Brute Pack
-  description: A therapeutic gel pack and bandage set designed to treat lacerations. A specific blend of Lacerinol and Bicaridine gel makes this pack great at treating stab wounds, but not much else.
+  description: A therapeutic gel-laced bandage set designed to treat lacerations. A non-reactive Lacerinol-Bicaridine mixture makes this pack great at treating stab wounds, but not much else.
   parent: BaseItem
   id: BrutepackBlack
   suffix: Full
@@ -746,7 +822,7 @@
 #region Puncturase Brute Pack
 - type: entity
   name: Puncturase Brute Pack
-  description: A therapeutic gel pack and bandage set designed to treat piercing injuries. A specific blend of Puncturase and Bicaridine gel makes this pack great at treating gunshot wounds, but not much else.
+  description: A therapeutic gel-laced bandage set designed to treat piercing injuries. A non-reactive Puncturase-Bicaridine mixture makes this pack great at treating gunshot wounds, but not much else.
   parent: BaseItem
   id: BrutepackBeige
   suffix: Full

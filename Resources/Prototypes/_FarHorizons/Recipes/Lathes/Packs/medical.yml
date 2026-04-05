@@ -4,6 +4,7 @@
   recipes:
   - SoftPouchMedical
   - HardPouchMedical
+  - BlueOintmentEmpty
 
 #region Dynamic
 - type: latheRecipePack

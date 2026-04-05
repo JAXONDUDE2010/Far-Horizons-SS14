@@ -38,7 +38,7 @@
         maxVol: 20
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 15
+          Quantity: 20 #FH
           
 - type: entity
   id: PatchBurnSmall
@@ -67,7 +67,7 @@
       patch:
         maxVol: 20
         reagents:
-        - ReagentId: Omnizine
+        - ReagentId: Dermaline #FH - Why was it OMNI???
           Quantity: 20
           
 - type: entity
