@@ -59,9 +59,9 @@
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorBlueOintment
+  id: VendorBlueOintment #FH
   icon: { sprite: /Textures/_FarHorizons/Objects/Specific/Medical/blue_ointment.rsi, state: icon } #FH
-  productEntity: BlueOintment
+  productEntity: BlueOintment #FH
   cost:
     NTCredit: 34
   categories:
