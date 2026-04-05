@@ -17,7 +17,7 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: Bluebrutepack20
+      - id: BrutepackBlue
       - id: BlueOintment
       - id: Gauze
       - id: Tourniquet
@@ -39,7 +39,7 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: Bluebrutepack20
+      - id: BrutepackBlue
       - id: BlueOintment
       - id: Gauze
       - id: Tourniquet
@@ -83,7 +83,7 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: Bluebrutepack20
+      - id: BrutepackBlue
       - id: BlueOintment
       - id: Gauze
         amount: 2

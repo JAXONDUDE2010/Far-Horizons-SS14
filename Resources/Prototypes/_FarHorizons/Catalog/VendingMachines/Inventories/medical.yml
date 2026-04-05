@@ -1,0 +1,35 @@
+- type: listing
+  id: VendorBrutepackRed
+  productEntity: BrutepackRed
+  cost:
+    NTCredit: 68
+  categories:
+  - SLMedical
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorBrutepackBlack
+  productEntity: BrutepackBlack
+  cost:
+    NTCredit: 68
+  categories:
+  - SLMedical
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorBrutepackBeige
+  productEntity: BrutepackBeige
+  cost:
+    NTCredit: 68
+  categories:
+  - SLMedical
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition

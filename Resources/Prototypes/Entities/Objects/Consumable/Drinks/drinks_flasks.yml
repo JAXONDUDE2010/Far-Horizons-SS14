@@ -6,7 +6,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 30
+        maxVol: 50 #FH Edit - Roundstart flasks are 50, unsure why this was 30.
   - type: Sprite
     sprite: Objects/Consumable/Drinks/flask.rsi
   - type: FitsInDispenser

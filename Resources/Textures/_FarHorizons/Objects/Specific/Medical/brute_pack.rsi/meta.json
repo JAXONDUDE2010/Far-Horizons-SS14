@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "By Killer Tamashi (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "brutepack-0"
+    },
+    {
+      "name": "brutepack-1"
+    },
+    {
+      "name": "brutepack-2"
+    },
+    {
+      "name": "brutepack-3"
+    },
+    {
+      "name": "brutepack-4"
+    },
+    {
+      "name": "brutepack-5"
+    },
+    {
+      "name": "brutepack-6"
+    },
+    {
+      "name": "brutepack-7"
+    },
+    {
+      "name": "brutepack-8"
+    },
+    {
+      "name": "brutepack-9"
+    },
+    {
+      "name": "brutepack-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "brutepack-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_blue-0"
+    },
+    {
+      "name": "brutepack_blue-1"
+    },
+    {
+      "name": "brutepack_blue-2"
+    },
+    {
+      "name": "brutepack_blue-3"
+    },
+    {
+      "name": "brutepack_blue-4"
+    },
+    {
+      "name": "brutepack_blue-5"
+    },
+    {
+      "name": "brutepack_blue-6"
+    },
+    {
+      "name": "brutepack_blue-7"
+    },
+    {
+      "name": "brutepack_blue-8"
+    },
+    {
+      "name": "brutepack_blue-9"
+    },
+    {
+      "name": "brutepack_blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_red-0"
+    },
+    {
+      "name": "brutepack_red-1"
+    },
+    {
+      "name": "brutepack_red-2"
+    },
+    {
+      "name": "brutepack_red-3"
+    },
+    {
+      "name": "brutepack_red-4"
+    },
+    {
+      "name": "brutepack_red-5"
+    },
+    {
+      "name": "brutepack_red-6"
+    },
+    {
+      "name": "brutepack_red-7"
+    },
+    {
+      "name": "brutepack_red-8"
+    },
+    {
+      "name": "brutepack_red-9"
+    },
+    {
+      "name": "brutepack_red-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_red-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_black-0"
+    },
+    {
+      "name": "brutepack_black-1"
+    },
+    {
+      "name": "brutepack_black-2"
+    },
+    {
+      "name": "brutepack_black-3"
+    },
+    {
+      "name": "brutepack_black-4"
+    },
+    {
+      "name": "brutepack_black-5"
+    },
+    {
+      "name": "brutepack_black-6"
+    },
+    {
+      "name": "brutepack_black-7"
+    },
+    {
+      "name": "brutepack_black-8"
+    },
+    {
+      "name": "brutepack_black-9"
+    },
+    {
+      "name": "brutepack_black-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_black-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_beige-0"
+    },
+    {
+      "name": "brutepack_beige-1"
+    },
+    {
+      "name": "brutepack_beige-2"
+    },
+    {
+      "name": "brutepack_beige-3"
+    },
+    {
+      "name": "brutepack_beige-4"
+    },
+    {
+      "name": "brutepack_beige-5"
+    },
+    {
+      "name": "brutepack_beige-6"
+    },
+    {
+      "name": "brutepack_beige-7"
+    },
+    {
+      "name": "brutepack_beige-8"
+    },
+    {
+      "name": "brutepack_beige-9"
+    },
+    {
+      "name": "brutepack_beige-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "brutepack_beige-inhand-right",
+      "directions": 4
+    }
+  ]
+}

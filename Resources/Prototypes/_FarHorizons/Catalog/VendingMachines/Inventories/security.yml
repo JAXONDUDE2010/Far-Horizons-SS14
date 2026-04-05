@@ -9,3 +9,69 @@
   - !type:ListingLimitedStockCondition
     stock: 2
   - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorBrutepackBlueSec
+  productEntity: BrutepackBlue
+  cost:
+    NTCredit: 34
+  categories:
+  - SLBrigmedic
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+    access: Brigmedic
+
+- type: listing
+  id: VendorBlueOintmentSec
+  icon: { sprite: /Textures/_FarHorizons/Objects/Specific/Medical/blue_ointment.rsi, state: icon }
+  productEntity: BlueOintment
+  cost:
+    NTCredit: 34
+  categories:
+  - SLBrigmedic
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+    access: Brigmedic
+
+- type: listing
+  id: VendorBrutepackRedSec
+  productEntity: BrutepackRed
+  cost:
+    NTCredit: 68
+  categories:
+  - SLBrigmedic
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+    access: Brigmedic
+
+- type: listing
+  id: VendorBrutepackBlackSec
+  productEntity: BrutepackBlack
+  cost:
+    NTCredit: 68
+  categories:
+  - SLBrigmedic
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+    access: Brigmedic
+
+- type: listing
+  id: VendorBrutepackBeigeSec
+  productEntity: BrutepackBeige
+  cost:
+    NTCredit: 68
+  categories:
+  - SLBrigmedic
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:BuyerAccessCondition
+    access: Brigmedic

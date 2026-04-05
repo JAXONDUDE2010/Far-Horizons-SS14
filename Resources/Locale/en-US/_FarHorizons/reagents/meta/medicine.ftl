@@ -20,7 +20,7 @@ reagent-name-burn-cream = Burn Cream
 reagent-desc-burn-cream = A broad-spectrum antibiotic cream used in most medical-grade burn ointment, needs to be applied topically from an Ointment container. Not very effective otherwise.
 
 reagent-name-burn-cream-blue = Dermaline Burn Cream
-reagent-desc-burn-cream-blue = The addition of Dermaline to Burn Cream makes for a more effective burn ointment, lasting much longer than it would otherwise. Needs to be applied topically from a Blue Ointment container.
+reagent-desc-burn-cream-blue = Mixing Dermaline and Pyrazine together with regular burn cream makes for a fairly effective long-lasting ointment. Needs to be applied topically from a Blue Ointment container.
 
 reagent-name-aloe-vera-cream = Aloe Vera Burn Cream
 reagent-desc-aloe-vera-cream = All-Natural Burn Cream! Not very effective, however.

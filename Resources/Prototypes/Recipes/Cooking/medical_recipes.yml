@@ -29,8 +29,9 @@
   group: Medicinal
   solids:
     FoodAloe: 1
-    Ointment: 1
+#    Ointment: 1 - FH
     MaterialCloth1: 1
   reagents:
     Sigynate: 20
     Dermaline: 20
+    BurnCream: 1 #FH

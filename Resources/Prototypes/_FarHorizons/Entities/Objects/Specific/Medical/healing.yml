@@ -281,9 +281,9 @@
       - Biological
     damage:
       types:
-        Heat: -5.5
-        Cold: -5.5
-        Shock: -5.5
+        Heat: -6
+        Cold: -6
+        Shock: -6
         Caustic: -2
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -309,10 +309,10 @@
         - IPC
   - type: Openable
     sound:
-      collection: bottleOpenSounds
+      collection: flaskOpenSounds
     closeable: true
     closeSound:
-      collection: bottleCloseSounds
+      collection: flaskCloseSounds
   - type: Tag
     tags:
     - Ointment
@@ -477,10 +477,10 @@
         - IPC
   - type: Openable
     sound:
-      collection: bottleOpenSounds
+      collection: flaskOpenSounds
     closeable: true
     closeSound:
-      collection: bottleCloseSounds
+      collection: flaskCloseSounds
   - type: Tag
     tags:
     - Ointment
@@ -497,3 +497,326 @@
         reagents:
         - ReagentId: BurnCream
           Quantity: 10
+#region Brute Pack
+
+#region Blue Brute Pack
+- type: entity
+  name: Blue Brute Pack
+  description: A therapeutic gel pack and bandage set designed to treat brute-force trauma. A special mixture of gel-based chems make these ones last longer and a bit more potent.
+  parent: BaseItem
+  id: BrutepackBlue
+  suffix: Full
+  components:
+  - type: Stack
+    count: 20
+    stackType: BrutepackBlue
+    baseLayer: base
+    layerStates:
+    - brutepack_blue-9
+    - brutepack_blue-8
+    - brutepack_blue-7
+    - brutepack_blue-6
+    - brutepack_blue-5
+    - brutepack_blue-4
+    - brutepack_blue-3
+    - brutepack_blue-2
+    - brutepack_blue-1
+    - brutepack_blue-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_blue-0
+    layers:
+    - state: brutepack_blue-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_blue
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Blunt: -6
+        Piercing: -6
+        Slash: -6
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBlue1
+  parent: BrutepackBlue
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_blue-9
+  - type: Stack
+    count: 1
+
+- type: entity
+  id: BrutepackBlue10
+  parent: BrutepackBlue
+  suffix: 10
+  components:
+  - type: Sprite
+    state: brutepack_blue-5
+  - type: Stack
+    count: 10
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBlue
+  maxCount: 20
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_blue-0 }
+  spawn: BrutepackBlue
+
+#region Bruizine Brute Pack
+- type: entity
+  name: Bruizine Brute Pack
+  description: A therapeutic gel pack and bandage set designed to treat blunt-force trauma. A specific blend of Bruizine and Bicaridine gel makes this pack great at treating blunt injuries, but not much else.
+  parent: BaseItem
+  id: BrutepackRed
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackRed
+    baseLayer: base
+    layerStates:
+    - brutepack_red-9
+    - brutepack_red-8
+    - brutepack_red-7
+    - brutepack_red-6
+    - brutepack_red-5
+    - brutepack_red-4
+    - brutepack_red-3
+    - brutepack_red-2
+    - brutepack_red-1
+    - brutepack_red-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_red-0
+    layers:
+    - state: brutepack_red-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_red
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -2.5
+        Slash: -2.5
+        Blunt: -7.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackRed1
+  parent: BrutepackRed
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_red-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackRed
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_red-0 }
+  spawn: BrutepackRed
+
+#region Lacerinol Brute Pack
+- type: entity
+  name: Lacerinol Brute Pack
+  description: A therapeutic gel pack and bandage set designed to treat lacerations. A specific blend of Lacerinol and Bicaridine gel makes this pack great at treating stab wounds, but not much else.
+  parent: BaseItem
+  id: BrutepackBlack
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackBlack
+    baseLayer: base
+    layerStates:
+    - brutepack_black-9
+    - brutepack_black-8
+    - brutepack_black-7
+    - brutepack_black-6
+    - brutepack_black-5
+    - brutepack_black-4
+    - brutepack_black-3
+    - brutepack_black-2
+    - brutepack_black-1
+    - brutepack_black-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_black-0
+    layers:
+    - state: brutepack_black-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_black
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -2.5
+        Slash: -7.5
+        Blunt: -2.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBlack1
+  parent: BrutepackBlack
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_black-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBlack
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_black-0 }
+  spawn: BrutepackBlack
+
+#region Puncturase Brute Pack
+- type: entity
+  name: Puncturase Brute Pack
+  description: A therapeutic gel pack and bandage set designed to treat piercing injuries. A specific blend of Puncturase and Bicaridine gel makes this pack great at treating gunshot wounds, but not much else.
+  parent: BaseItem
+  id: BrutepackBeige
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackBeige
+    baseLayer: base
+    layerStates:
+    - brutepack_beige-9
+    - brutepack_beige-8
+    - brutepack_beige-7
+    - brutepack_beige-6
+    - brutepack_beige-5
+    - brutepack_beige-4
+    - brutepack_beige-3
+    - brutepack_beige-2
+    - brutepack_beige-1
+    - brutepack_beige-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_beige-0
+    layers:
+    - state: brutepack_beige-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_beige
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -7.5
+        Slash: -2.5
+        Blunt: -2.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBeige1
+  parent: BrutepackBeige
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_beige-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBeige
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_beige-0 }
+  spawn: BrutepackBeige
