@@ -5,8 +5,17 @@
   spreadPath: [ NonContagious ]
   stageProb: 0.03
   cureSteps:
+  - !type:CureConditions
+    cureChance: 0.05
+    conditions:
+    - !type:ReagentCondition
+      reagent: Ipecac
+      min: 1
   - !type:CureWait
-    requiredTicks: 300
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     sensations: [ "disease-sensation-queasy", "disease-sensation-stomach-weird" ]
@@ -28,7 +37,7 @@
   id: DiseaseNarcolepsySyndrome
   name: disease-DiseaseNarcolepsySyndrome-name
   desc: disease-DiseaseNarcolepsySyndrome-desc
-  spreadPath: [ Airborne ]
+  spreadPath: [ NonContagious ]
   airborneInfect: 0.01
   cureSteps:
   - !type:CureConditions
@@ -37,6 +46,11 @@
     - !type:ReagentCondition
       reagent: Haloperidol
       min: 1
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     sensations: [ "disease-sensation-sleepy" ]
@@ -58,16 +72,17 @@
     - !type:ReagentCondition
       reagent: JuiceBanana
       min: 3
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     # no-op
   - stage: 1
     sensations: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
   - stage: 2
-    cureSteps:
-      - !type:CureWait
-        requiredTicks: 200
-        cureChance: 0.5
     sensations: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
     symptoms:
     - symptom: SymptomMonkeyShout

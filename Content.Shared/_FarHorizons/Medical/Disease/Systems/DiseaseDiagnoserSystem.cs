@@ -108,6 +108,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             lines.Add(Loc.GetString("diagnoser-disease-report-name",("name", displayName)));
             lines.Add(Loc.GetString("diagnoser-disease-report-stage",("stage", showStage ? stage+1 : "Unknown")));
             lines.Add(Loc.GetString("diagnoser-disease-report-variant",("name", diseaseData.StrainName)));
+            lines.Add(Loc.GetString("diagnoser-disease-report-spreadpath",("spreadpath", diseaseData.SpreadPath)));
             lines.Add(Loc.GetString("diagnoser-disease-report-desc"));
             lines.Add(Loc.GetString(diseaseData.Description));
 
