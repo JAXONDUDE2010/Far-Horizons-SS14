@@ -227,7 +227,7 @@
   - type: Sprite
     state: medical
   - type: MachineBoard
-    prototype: DiseasePandemic2300
+    prototype: DiseasePandemic2300 #FH
     stackRequirements:
       Manipulator: 2
       Cable: 5
