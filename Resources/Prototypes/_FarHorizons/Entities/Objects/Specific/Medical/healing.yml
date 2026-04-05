@@ -514,6 +514,19 @@
         - ReagentId: BurnCream
           Quantity: 10
 
+- type: entity
+  suffix: One Use
+  parent: OintmentEmpty
+  id: Ointment1 # Leftover to keep maps from breaking, and also fit with "only one use" for said maps.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+        - ReagentId: BurnCream
+          Quantity: 1
+
 #region Brute Pack
 - type: entity
   name: Brute Pack
