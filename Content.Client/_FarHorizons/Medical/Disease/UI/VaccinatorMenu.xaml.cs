@@ -159,11 +159,18 @@ public sealed partial class VaccinatorMenu : FancyWindow
             CreateVaccineButton.Disabled = true;
             return; 
         }
-        
+
+        if(NoImmunityDataText.Visible)
+        {
+            CreateVaccineButton.ToolTip = "No Antibodies Detected.";
+            CreateVaccineButton.Disabled = true;
+            return; 
+        }
+
         CreateVaccineButton.Disabled = !canCraft;
         
         if (!canCraft)
-            CreateVaccineButton.ToolTip = "Insufficient materials";
+            CreateVaccineButton.ToolTip = "Insufficient materials. Vaccines requires 1 steel 0.5 plastic.";
         else
             CreateVaccineButton.ToolTip = "Create vaccine";
     }

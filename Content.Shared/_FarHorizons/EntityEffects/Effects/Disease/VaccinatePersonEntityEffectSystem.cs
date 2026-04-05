@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._FarHorizons.Medical.Disease.Components;
+using Content.Shared._FarHorizons.Medical.Disease.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -19,6 +20,7 @@ public sealed partial class VaccinatePersonEntityEffectSystem : EntityEffectSyst
         var _entitySysManager = IoCManager.Resolve<IEntitySystemManager>();
         var _metabolism = _entitySysManager.GetEntitySystem<MetabolizerSystem>();
         var _solutions = _entitySysManager.GetEntitySystem<SharedSolutionContainerSystem>();
+        var _disease = _entitySysManager.GetEntitySystem<SharedDiseaseSystem>();
 
         if (!_entityManager.TryGetComponent(entity.Owner, out BloodstreamComponent? bloodstream))
             return;
@@ -33,11 +35,9 @@ public sealed partial class VaccinatePersonEntityEffectSystem : EntityEffectSyst
         if (diseaseData == null) return;
 
         foreach (var (disease, value) in diseaseData.Immunity)
-        {
-            if (!entity.Comp.Immunity.TryGetValue(disease, out var existing) || value > existing)
-                entity.Comp.Immunity[disease] = value;
-        }
-
+            entity.Comp.Immunity[disease] = value;
+        
+        _disease.UpdateBloodData(entity);
         _entityManager.Dirty(entity.Owner, entity.Comp);
     }
 }

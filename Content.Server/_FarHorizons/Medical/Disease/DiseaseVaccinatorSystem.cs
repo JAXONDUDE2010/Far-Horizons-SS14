@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Lathe;
 using Content.Shared._FarHorizons.Medical.Disease.Components;
 using Content.Shared._FarHorizons.Medical.Disease.Systems;
@@ -9,7 +8,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Robust.Server.Containers;
@@ -79,15 +77,9 @@ public sealed class DiseaseVaccinatorSystem : EntitySystem
 
         if (!_solutionContainer.ResolveSolution(args.Item, "pen", ref penSolRef, out var penSol)) return;
 
-        var data = new DiseaseReagentData { Immunity = Immunity };
-
-        var existingRea = penSol.GetReagentQuantity(new ReagentId("Vaccine", null));
-        if (existingRea <= FixedPoint2.Zero) return;
-
-        _solutionContainer.RemoveReagent(penSolRef.Value, new ReagentId("Vaccine", null), existingRea);
-
-        var vaccineWithData = new ReagentQuantity(new ReagentId("Vaccine", [data]), existingRea);
-        if(!_solutionContainer.TryAddReagent(penSolRef.Value, vaccineWithData, out _))
-            return;
+        var reagentData = new List<ReagentData>();
+        var DiseaseData = new DiseaseReagentData { Immunity = Immunity }; 
+        reagentData.Add(DiseaseData);
+        penSol.SetReagentData(reagentData);
     }
 }
