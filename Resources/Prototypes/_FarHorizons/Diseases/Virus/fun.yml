@@ -2,9 +2,7 @@
   id: DiseaseGBS
   name: disease-DiseaseGBS-name
   desc: disease-DiseaseGBS-desc
-  spreadPath: [ Contact ]
-  contactInfect: 0.005
-  contactDeposit: 0.08
+  spreadPath: [ NonContagious ]
   cureSteps:
   - !type:CureConditions
     cureChance: 0.15 # Higher chance to cure, since two reagents are required.
@@ -15,9 +13,14 @@
     - !type:ReagentCondition
       reagent: Sulfur
       min: 1
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
-  # no-op
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     symptoms:
     - symptom: SymptomSneeze
@@ -43,16 +46,21 @@
   id: DiseaseHonkSyndrome
   name: disease-DiseaseHonkSyndrome-name
   desc: disease-DiseaseHonkSyndrome-desc
-  spreadPath: [ Contact ]
+  spreadPath: [ NonContagious ]
   cureSteps:
   - !type:CureConditions
     conditions:
     - !type:ReagentCondition
       reagent: BananaHonk
-      min: 5
+      min: 1
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
-    # no-op
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     sensations: [ "disease-sensation-clown", "disease-sensation-banana-compulsion" ]
     symptoms:
@@ -62,19 +70,31 @@
     sensations: [ "disease-sensation-clown" ]
     symptoms:
     - symptom: SymptomHonkShout
-    - symptom: SymptomTransformClown
 
 - type: disease
   id: DiseaseOwOnavirus
   name: disease-DiseaseOwOnavirus-name
   desc: disease-DiseaseOwOnavirus-desc
-  spreadPath: [ Contact ]
+  spreadPath: [ NonContagious ]
   iconDisease: DiseaseIconBuff
   cureSteps:
+  - !type:CureConditions
+    cureChance: 0.15 # Did you know cats hate the smell of citrus?
+    conditions:
+    - !type:ReagentCondition
+      reagent: JuiceLemon
+      min: 1
+    - !type:ReagentCondition
+      reagent: JuiceLime
+      min: 1
   - !type:CureWait
-    requiredTicks: 400
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
+    stealth: [ Hidden ]
     symptoms:
     - symptom: SymptomOwOAccent
     - symptom: SymptomEmoteCat

@@ -6,16 +6,18 @@
   permeabilityMod: 0.5
   cureSteps:
   - !type:CureConditions
-    cureChance: 0.08
+    cureChance: 0.15
     conditions:
     - !type:ReagentCondition
       reagent: Spaceacillin
       min: 1
-  - !type:CureConditions
-    cureChance: 0.2
-    conditions:
     - !type:TemperatureCondition
-      max: 309.15
+      max: 308.15
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     stealth: [ Hidden, VeryHidden ]
@@ -25,10 +27,7 @@
     symptoms:
     - symptom: SymptomCough
     - symptom: SymptomSneeze
-    cureSteps:
-    - !type:CureBedrest
-      bedrestChance: 0.10
-      sleepMultiplier: 4
+
   - stage: 2
     sensations: [ "disease-sensation-throat-sore", "disease-sensation-throat-mucus" ]
     symptoms:
@@ -36,10 +35,6 @@
     - symptom: SymptomSneeze
     - symptom: SymptomFever
     - symptom: SymptomTransitionToFlu
-    cureSteps:
-    - !type:CureBedrest
-      bedrestChance: 0.05
-      sleepMultiplier: 5
 
 - type: disease
   id: DiseaseCold9
@@ -56,6 +51,11 @@
     - !type:ReagentCondition
       reagent: Leporazine
       min: 1
+  - !type:CureWait
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     stealth: [ Hidden, VeryHidden ]
@@ -86,14 +86,19 @@
   permeabilityMod: 0.75
   cureSteps:
   - !type:CureConditions
-    cureChance: 0.1
+    cureChance: 0.15
     conditions:
     - !type:ReagentCondition
       reagent: Spaceacillin
       min: 1
+    - !type:ReagentCondition
+      reagent: Salbutamol
+      min: 1
   - !type:CureWait
-    requiredTicks: 300
-    cureChance: 0.5
+    requiredTicks: 900
+  - !type:CureBedrest
+      bedrestChance: 0.00066 #Abysmally Low to have an average of 300 ticks before a heal if they sleep
+      sleepMultiplier: 5
   stages:
   - stage: 0
     stealth: [ Hidden ]
