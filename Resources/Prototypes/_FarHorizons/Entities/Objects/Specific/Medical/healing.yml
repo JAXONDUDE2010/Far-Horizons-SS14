@@ -320,7 +320,6 @@
   - type: Tag
     tags:
     - Ointment
-    - Recyclable
 
 - type: entity
   suffix: Filled
@@ -410,7 +409,6 @@
   - type: Tag
     tags:
     - Ointment
-    - Recyclable
 
 - type: entity
   suffix: Filled
@@ -499,7 +497,6 @@
   - type: Tag
     tags:
     - Ointment
-    - Recyclable
 
 - type: entity
   suffix: Filled
