@@ -19,6 +19,7 @@
   stages:
   - stage: 0
     sensations: [ "disease-sensation-queasy", "disease-sensation-stomach-weird" ]
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     sensations: [ "disease-sensation-stomach-ache", "disease-sensation-nausea" ]
     symptoms:
@@ -54,6 +55,7 @@
   stages:
   - stage: 0
     sensations: [ "disease-sensation-sleepy" ]
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     sensations: [ "disease-sensation-sleepy-2", "disease-sensation-sleepy-3" ]
     symptoms:
@@ -79,7 +81,7 @@
       sleepMultiplier: 5
   stages:
   - stage: 0
-    # no-op
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     sensations: [ "disease-sensation-sick", "disease-sensation-banana-compulsion" ]
   - stage: 2

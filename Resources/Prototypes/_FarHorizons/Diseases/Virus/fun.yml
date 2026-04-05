@@ -20,7 +20,7 @@
       sleepMultiplier: 5
   stages:
   - stage: 0
-  # no-op
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     symptoms:
     - symptom: SymptomSneeze
@@ -60,7 +60,7 @@
       sleepMultiplier: 5
   stages:
   - stage: 0
-    # no-op
+    stealth: [ Hidden, VeryHidden ]
   - stage: 1
     sensations: [ "disease-sensation-clown", "disease-sensation-banana-compulsion" ]
     symptoms:
@@ -94,6 +94,7 @@
       sleepMultiplier: 5
   stages:
   - stage: 0
+    stealth: [ Hidden ]
     symptoms:
     - symptom: SymptomOwOAccent
     - symptom: SymptomEmoteCat

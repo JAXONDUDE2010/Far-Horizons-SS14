@@ -1,6 +1,6 @@
 - type: entity
   id: DiseasePandemic2300
-  parent: Vaccinator
+  parent: [ Vaccinator, SmallConstructibleMachine ]
   name: PanD.E.M.I.C. 2300
   description: A machine that creates vaccines.
   placement:
