@@ -126,7 +126,7 @@
             types:
               Poison: -10
               Radiation: -10
-              Airloss: -10 #In the event IPCs somehow get airloss..
+              Asphyxiation: -10 #In the event IPCs somehow get airloss..
           healingBeginSound:
             path: "/Audio/Items/Medical/ointment_begin.ogg"
             params:
@@ -283,7 +283,7 @@
           delay: 2
           damage:
             types:
-              Genetic: -5 #In the event IPCs somehow get genetic damage..
+              Cellular: -5 #In the event IPCs somehow get genetic damage..
           healingBeginSound:
             path: "/Audio/Items/Medical/ointment_begin.ogg"
             params:
