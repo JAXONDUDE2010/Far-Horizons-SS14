@@ -11,21 +11,6 @@
       redirectTarget: Torso # Which part to redirect attack to
       scatterHitChance: 0.05 # 5% chance to hit this limb when making indirrect attack without aiming at it
       aimedTowardsScatterHitChance: 0.1 # 10% chance to hit it when making indirrect attack with it as target
-    - type: LimbDamageEffect
-      effects:
-        - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
-          condition: !type:LimbConditionSpecificDamage
-            damageType: Slash
-            damageAmount: 100
-        - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
-          condition: !type:LimbConditionOr
-            conditions:
-              - !type:LimbConditionSpecificDamage
-                damageType: Blunt
-                damageAmount: 250
-              - !type:LimbConditionSpecificDamage
-                damageType: Heat
-                damageAmount: 500
 
 - type: entity
   parent: DamageableLimbBaseNoVisuals

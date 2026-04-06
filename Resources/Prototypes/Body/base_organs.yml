@@ -170,6 +170,30 @@
   # Far Horizons start
   - type: LimbDamageVisuals
     layer: "enum.HumanoidVisualLayers.LArm"
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 100
+      - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 500
+      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
+          handId: left
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
   # Far Horizons end
 
 - type: entity
@@ -193,6 +217,30 @@
   # Far Horizons start
   - type: LimbDamageVisuals
     layer: "enum.HumanoidVisualLayers.RArm"
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 100
+      - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 500
+      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
+          handId: right
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
   # Far Horizons end
 
 - type: entity
@@ -242,7 +290,19 @@
             - !type:LimbConditionSpecificDamage
               damageType: Heat
               damageAmount: 300
-          
+      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
+          handId: left
+        condition: !type:LimbConditionTotalDamage
+          totalDamage: 50
+      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
+          handId: left
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 50
   # Far Horizons end
 
 - type: entity
@@ -292,6 +352,15 @@
             - !type:LimbConditionSpecificDamage
               damageType: Heat
               damageAmount: 300
+      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
+          handId: right
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 50
   # Far Horizons end
 
 - type: entity
@@ -316,6 +385,30 @@
   - type: MovementOrgan
   - type: LimbDamageVisuals
     layer: "enum.HumanoidVisualLayers.LLeg"
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 100
+      - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 500
+      - effect: !type:LimbEffectKnockdown # Knockdown
+          knockdownTime: 0.25
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
   # Far Horizons end
 
 - type: entity
@@ -340,6 +433,30 @@
   - type: MovementOrgan
   - type: LimbDamageVisuals
     layer: "enum.HumanoidVisualLayers.RLeg"
+  - type: LimbDamageEffect
+    effects:
+      - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
+        condition: !type:LimbConditionSpecificDamage
+          damageType: Slash
+          damageAmount: 100
+      - effect: !type:LimbEffectDestroy # Gib limb. If it has organs (head), it will drop them
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Heat
+              damageAmount: 500
+      - effect: !type:LimbEffectKnockdown # Knockdown
+          knockdownTime: 0.25
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 250
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 150
   # Far Horizons end
 
 - type: entity
@@ -385,6 +502,15 @@
             - !type:LimbConditionSpecificDamage
               damageType: Heat
               damageAmount: 300
+      - effect: !type:LimbEffectKnockdown # Knockdown
+          knockdownTime: 0.5
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 50
   # Far Horizons end
 
 - type: entity
@@ -430,6 +556,15 @@
             - !type:LimbConditionSpecificDamage
               damageType: Heat
               damageAmount: 300
+      - effect: !type:LimbEffectKnockdown # Knockdown
+          knockdownTime: 0.5
+        condition: !type:LimbConditionOr
+          conditions:
+            - !type:LimbConditionTotalDamage
+              totalDamage: 150
+            - !type:LimbConditionSpecificDamage
+              damageType: Blunt
+              damageAmount: 50
   # Far Horizons end
 
 - type: entity
