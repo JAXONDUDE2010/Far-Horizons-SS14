@@ -6,8 +6,9 @@
 
 - type: damageContainer
   id: Robotic
+  supportedTypes:
+    - Bloodloss
   supportedGroups:
     - Brute
     - Burn
     - Toxin
-    - Airloss #mfw bloodloss is a type of airloss
