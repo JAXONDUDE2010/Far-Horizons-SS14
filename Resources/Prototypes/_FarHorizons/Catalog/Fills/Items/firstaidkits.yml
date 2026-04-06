@@ -17,10 +17,10 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: BrutepackBlue
-      - id: BlueOintment
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
       - id: Gauze
-      - id: Tourniquet
       - id: Bloodpack
       - id: BloodpackAmmonia
         # Bottom #
@@ -39,10 +39,10 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: BrutepackBlue
-      - id: BlueOintment
+      - id: Brutepack
+        amount: 2
+      - id: Ointment
       - id: Gauze
-      - id: Tourniquet
       - id: Bloodpack
       - id: BloodpackAmmonia
         # Bottom #
@@ -83,10 +83,10 @@
   - type: StorageFill
     contents:
         # Top #
-      - id: BrutepackBlue
-      - id: BlueOintment
-      - id: Gauze
+      - id: Brutepack
         amount: 2
+      - id: Ointment
+      - id: Gauze
       - id: Bloodpack
       - id: BloodpackAmmonia
         # Bottom #
