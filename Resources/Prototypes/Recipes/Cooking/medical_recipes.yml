@@ -6,6 +6,7 @@
   group: Medicinal
   solids:
     FoodAloe: 1
+    SheetGlass1: 1 #FH
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSuture
@@ -28,9 +29,11 @@
   time: 10
   group: Medicinal
   solids:
-    FoodAloe: 1
-    Ointment: 1
+#    FoodAloe: 1 - FH
+#    Ointment: 1 - FH
     MaterialCloth1: 1
   reagents:
     Sigynate: 20
     Dermaline: 20
+    BurnCream: 1 #FH
+    AloeVeraCream: 1 #FH

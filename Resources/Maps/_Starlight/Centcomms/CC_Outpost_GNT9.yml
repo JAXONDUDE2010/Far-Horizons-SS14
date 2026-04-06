@@ -7165,7 +7165,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 20.5,41.5
       parent: 1
-- proto: Bluebrutepack20
+- proto: BrutepackBlue
   entities:
   - uid: 623
     components:
@@ -7177,7 +7177,7 @@ entities:
     - type: Transform
       pos: -12.526111,19.467264
       parent: 1
-- proto: Blueointment20
+- proto: BlueOintment
   entities:
   - uid: 625
     components:

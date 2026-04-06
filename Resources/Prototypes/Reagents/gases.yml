@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Protogen ] #FH
+          type: [ Human, Animal, Rat, Plant, Protogen, ProtoBird, ProtoDionae ] #FH
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Protogen ] #FH
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth, Protogen, ProtoBird, ProtoDionae ] #FH
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -170,11 +170,11 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+          type: [ Plant, ProtoDionae ] #FH
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
+          type: [ Plant, Vox, ProtoDionae ] #FH
           inverted: true
         ignoreResistances: true
         damage:
@@ -184,7 +184,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+          type: [ Plant, ProtoDionae ] #FH
           inverted: true
         factor: -4
     Respiration:
@@ -192,12 +192,12 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+          type: [ Plant, ProtoDionae ] #FH
       - !type:HealthChange
         minScale: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant, Vox ]
+          type: [ Plant, Vox, ProtoDionae ] #FH
           inverted: true
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
@@ -209,7 +209,7 @@
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+          type: [ Plant, ProtoDionae ] #FH
           inverted: true
         factor: -4
       # We need a metabolism effect on reagent removal
