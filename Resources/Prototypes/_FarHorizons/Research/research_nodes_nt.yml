@@ -1169,6 +1169,8 @@
   - RightArmCyberRipper
   - LeftLegCyberHydraulic
   - RightLegCyberHydraulic
+  - LeftLegCyberCargo
+  - RightLegCyberCargo
 
   announceTo:
     - Security
@@ -1605,10 +1607,10 @@
     - RightArmCyberEngineer
     - LeftArmCyberBulwark
     - RightArmCyberBulwark
+    - LeftArmCyberZeus
+    - RightArmCyberZeus
     - LeftLegCyberPilebunker
     - RightLegCyberPilebunker
-    - LeftLegCyberCargo
-    - RightLegCyberCargo
   announceTo:
     - Security
     - Medical

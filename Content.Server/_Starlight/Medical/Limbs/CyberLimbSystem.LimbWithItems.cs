@@ -19,7 +19,7 @@ public sealed partial class CyberLimbSystem : EntitySystem
         SubscribeLocalEvent<LimbItemDeployerComponent, OrganGotInsertedEvent>(LimbWithItemsInserted);
         SubscribeLocalEvent<LimbItemDeployerComponent, OrganGotRemovedEvent>(LimbWithItemsRemoved);
 
-        SubscribeLocalEvent<LimbItemDeployerComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted);
+        SubscribeLocalEvent<LimbItemDeployerComponent, BodyRelayedEvent<CyberneticDisruptionEvent>>(OnCyberneticsDisrupted);
     }
 
     private void LimbWithItemsInserted(Entity<LimbItemDeployerComponent> ent, ref OrganGotInsertedEvent args) => 
@@ -81,7 +81,7 @@ public sealed partial class CyberLimbSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnCyberneticsDisrupted(Entity<LimbItemDeployerComponent> ent, ref CyberneticDisruptionEvent args)
+    private void OnCyberneticsDisrupted(Entity<LimbItemDeployerComponent> ent, ref BodyRelayedEvent<CyberneticDisruptionEvent> args)
     {
         if(!ent.Comp.IsCybernetic)
             return;
@@ -90,7 +90,7 @@ public sealed partial class CyberLimbSystem : EntitySystem
         {
             var ev = new ToggleLimbEvent
             {
-                Performer = args.Target,
+                Performer = args.Args.Target,
             };
             RaiseLocalEvent(ent, ev);
         }

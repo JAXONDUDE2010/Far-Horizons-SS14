@@ -41,8 +41,6 @@ public sealed partial class OrganSystem : EntitySystem
 
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotInsertedEvent>(OnAbductorOrganImplanted);
         SubscribeLocalEvent<AbductorOrganComponent, OrganGotRemovedEvent>(OnAbductorOrganExtracted);
-
-        SubscribeLocalEvent<FunctionalOrganComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted);
     }
 
     //
@@ -177,17 +175,5 @@ public sealed partial class OrganSystem : EntitySystem
         if (TerminatingOrDeleted(ent)) return;
         ent.Comp.IsMuted = HasComp<MutedComponent>(args.Target);
         EnsureComp<MutedComponent>(args.Target);
-    }
-
-    private void OnCyberneticsDisrupted(Entity<FunctionalOrganComponent> ent, ref CyberneticDisruptionEvent args)
-    {
-        if(!ent.Comp.IsCybernetic)
-            return;
-
-        if (TryComp(args.Target, out CyberneticDisruptionComponent? _))
-        {
-            // Nothing happens here yet
-            return;
-        }
     }
 }

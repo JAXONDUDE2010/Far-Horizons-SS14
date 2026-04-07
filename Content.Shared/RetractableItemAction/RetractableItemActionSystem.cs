@@ -9,6 +9,7 @@ using Content.Shared._Starlight.Cybernetics; // Starlight
 using Content.Shared._Starlight.Cybernetics.Components; // Starlight
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Body;
 
 namespace Content.Shared.RetractableItemAction;
 
@@ -34,7 +35,7 @@ public sealed class RetractableItemActionSystem : EntitySystem
         SubscribeLocalEvent<ActionRetractableItemComponent, ComponentShutdown>(OnActionSummonedShutdown);
         Subs.SubscribeWithRelay<ActionRetractableItemComponent, HeldRelayedEvent<TargetHandcuffedEvent>>(OnItemHandcuffed, inventory: false);
 
-        SubscribeLocalEvent<RetractableItemActionComponent, CyberneticDisruptionEvent>(OnCyberneticsDisrupted); // 🌟Starlight🌟
+        SubscribeLocalEvent<RetractableItemActionComponent, BodyRelayedEvent<CyberneticDisruptionEvent>>(OnCyberneticsDisrupted); // 🌟Starlight🌟
     }
 
     private void OnActionInit(Entity<RetractableItemActionComponent> ent, ref MapInitEvent args)
@@ -191,14 +192,14 @@ public sealed class RetractableItemActionSystem : EntitySystem
         EnsureComp<UnremoveableComponent>(item);
     }
 
-    private void OnCyberneticsDisrupted(Entity<RetractableItemActionComponent> ent, ref CyberneticDisruptionEvent args)
+    private void OnCyberneticsDisrupted(Entity<RetractableItemActionComponent> ent, ref BodyRelayedEvent<CyberneticDisruptionEvent> args)
     {
         if(!ent.Comp.IsCybernetic)
             return;
 
         var ev = new OnRetractableItemActionEvent
         {
-            Performer = args.Target,
+            Performer = args.Args.Target,
         };
         RaiseLocalEvent(ent, ref ev);
     }

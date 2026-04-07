@@ -9,6 +9,7 @@ using Content.Shared.Actions;
 using Content.Shared.Projectiles;
 using Robust.Shared.Random;
 using Content.Shared.Body;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Shared._Starlight.Cybernetics;
 
@@ -21,7 +22,7 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
     [Dependency] protected readonly AlertsSystem Alerts = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
     public override void Initialize()
     {
@@ -43,10 +44,7 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
         if(!TryComp<BodyComponent>(uid, out var body) || body.Organs == null) return;
 
         var ev = new CyberneticDisruptionEvent(uid);
-        foreach (var part in body.Organs.ContainedEntities)
-            RaiseLocalEvent(part, ref ev);
-        foreach (var action in _actions.GetActions(uid))
-            RaiseLocalEvent(action.Owner, ref ev);
+        _body.RelayEvent((uid, body), ref ev);
     }
 
     public bool TryAddCyberneticDisruptionDuration(EntityUid uid, TimeSpan duration, bool refreshDuration = false)
@@ -75,10 +73,7 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
         if(!TryComp<BodyComponent>(uid, out var body) || body.Organs == null) return;
         var ev = new CyberneticDisruptionEvent(uid);
 
-        foreach (var part in body.Organs.ContainedEntities)
-            RaiseLocalEvent(part, ref ev);
-        foreach (var action in _actions.GetActions(uid))
-            RaiseLocalEvent(action.Owner, ref ev);
+        _body.RelayEvent((uid, body), ref ev);
 
         var timeForLogs = duration.HasValue
             ? duration.Value.Seconds.ToString()
@@ -122,8 +117,8 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
 
     private void OnCollide(EntityUid uid, CyberneticDisruptionOnCollideComponent component, EntityUid target)
     {
-
-        if(_random.NextFloat() <= component.DisableChance)
+        var rand = SharedRandomExtensions.PredictedRandom(GameTiming, GetNetEntity(uid), GetNetEntity(target)); // FarHorizons
+        if(rand.NextFloat() <= component.DisableChance) // FarHorizons
             TryAddCyberneticDisruptionDuration(target, component.Duration);
     }
 }

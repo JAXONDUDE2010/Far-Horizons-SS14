@@ -657,7 +657,7 @@
 - type: entity
   id: LeftArmCyberZeus
   name: Left Zeus Arm
-  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand, BaseSecurityContraband ]
   components:
     - type: VisualOrgan
       data:
@@ -683,7 +683,7 @@
 - type: entity
   id: RightArmCyberZeus
   name: Right Zeus Arm
-  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  parent: [ OrganCyberArmRight, WithRightCyberHand, BaseSecurityContraband ]
   components:
     - type: VisualOrgan
       data:
@@ -996,7 +996,7 @@
       sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
       state: l_leg_hydraulic
     - type: MovementOrgan
-      sprintSpeedModifier: 1.15
+      sprintSpeedModifier: 1.20
     - type: FootstepModifier
       footstepSoundCollection:
         path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
