@@ -24,16 +24,6 @@ public sealed partial class FunctionalOrganComponent : Component
     public ComponentRegistry? Components;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedSurgerySystem))]
-public sealed partial class TaggedOrganComponent : Component
-{
-    [DataField]
-    public List<ProtoId<TagPrototype>> AddTags = new();
-    
-    [DataField]
-    public List<ProtoId<TagPrototype>> RemoveTags = new();
-}
-
 [RegisterComponent, NetworkedComponent]
 public sealed partial class OrganDamageComponent : Component
 {

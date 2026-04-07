@@ -67,18 +67,3 @@
     - type: EncryptionKeyHolder
       keySlots: 4
       canBeExamined: false
-    
-
-- type: entity
-  id: BrainImplantNexus
-  name: Nexus Uplink
-  description: A weird piece of Avali tech... Gives you access to the Nexus!
-  parent: BaseEntityBrainImplant
-  components:
-  - type: Sprite
-    state: brain_implant_nexus
-  - type: CollectiveMindIdentity
-    prototypeId: Nexus
-  - type: TaggedOrgan
-    addTags:
-      - Nexus
