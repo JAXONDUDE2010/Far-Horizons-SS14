@@ -292,10 +292,6 @@
               damageAmount: 300
       - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
           handId: left
-        condition: !type:LimbConditionTotalDamage
-          totalDamage: 50
-      - effect: !type:LimbEffectDisarm # Drop items each time hand takes damage when above treshold
-          handId: left
         condition: !type:LimbConditionOr
           conditions:
             - !type:LimbConditionTotalDamage
