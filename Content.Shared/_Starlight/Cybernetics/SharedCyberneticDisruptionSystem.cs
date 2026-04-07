@@ -5,7 +5,6 @@ using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._Starlight.Cybernetics.Components;
-using Content.Shared.Actions;
 using Content.Shared.Projectiles;
 using Robust.Shared.Random;
 using Content.Shared.Body;
@@ -21,7 +20,6 @@ public abstract partial class SharedCyberneticDisruptionSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly AlertsSystem Alerts = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly BodySystem _body = default!;
 
     public override void Initialize()
