@@ -18,7 +18,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Network;
-using Content.Shared.Atmos.Components;
 
 namespace Content.Shared._FarHorizons.Medical.Disease.Systems;
 
@@ -266,10 +265,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     public float AdjustAirborneChanceForProtection(EntityUid target, float baseChance, DiseaseData disease)
     {
         var chance = baseChance;
-        var protection = 0f;
 
         if (_internals.AreInternalsWorking(target))
-            protection += 1f - DiseaseEffectiveness.InternalsMultiplier;
+            chance *= DiseaseEffectiveness.InternalsMultiplier;
 
         var permeability = MathF.Max(0f, disease.PermeabilityMod);
         foreach (var (slot, mult) in DiseaseEffectiveness.AirborneSlots)
@@ -279,15 +277,16 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
                 if (TryGetInventoryEntity(target, SlotFlags.MASK, out var maskUid))
                 {
                     if (TryComp<MaskComponent>(maskUid, out var mask) && !mask.IsToggled)
-                        protection += (1f - mult) * permeability;
+                        chance *= MathF.Min(1f, mult * permeability);
                 }
                 continue;
             }
+
             if (TryGetInventoryEntity(target, slot, out _))
-                protection += (1f - mult) * permeability;
+                chance *= MathF.Min(1f, mult * permeability);
         }
 
-        return MathF.Max(0f, chance * (1f - MathF.Min(1f, protection)));
+        return MathF.Max(0f, MathF.Min(1f, chance));
     }
 
     /// <summary>
@@ -295,14 +294,15 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// </summary>
     public float AdjustContactChanceForProtection(EntityUid target, float baseChance, DiseaseData disease)
     {
-        var protection = 0f;
+        var chance = baseChance;
         var permeability = MathF.Max(0f, disease.PermeabilityMod);
         foreach (var (slot, mult) in DiseaseEffectiveness.ContactSlots)
         {
             if (TryGetInventoryEntity(target, slot, out _))
-                protection += (1f - mult) * permeability;
+                chance *= MathF.Min(1f, mult * permeability);
         }
-        return MathF.Max(0f, baseChance * (1f - MathF.Min(1f, protection)));
+
+        return MathF.Max(0f, MathF.Min(1f, chance));
     }
 
     /// <summary>
