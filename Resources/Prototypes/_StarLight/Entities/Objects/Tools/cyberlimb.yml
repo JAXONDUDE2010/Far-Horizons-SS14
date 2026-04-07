@@ -683,7 +683,6 @@
     tags:
       - PowerCellTiny
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 3 # Full charge in two minutes
     autoRechargePauseTime: 30
   - type: GenericVisualizer

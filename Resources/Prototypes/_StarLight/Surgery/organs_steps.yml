@@ -1146,10 +1146,8 @@
   components:
   - type: SurgeryStep
     duration: 2
-    tools:
-    - type: HandImplant
+    organCategory: HandLeftImplant
   - type: SurgeryStepOrganInsert
-    slot: HandLeftImplant
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
@@ -1162,10 +1160,8 @@
   components:
   - type: SurgeryStep
     duration: 2
-    tools:
-    - type: HandRightImplant
+    organCategory: HandRightImplant
   - type: SurgeryStepOrganInsert
-    slot: HandImplant
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
