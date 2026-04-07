@@ -43,7 +43,7 @@ public sealed partial class RepairableSystem : EntitySystem
         var target = args.TargettedLimb;
         FixedPoint2 totalDamage;
         if (target != null && _limbDamage.TryGetFullBodyDamage(ent.Owner) is { } fullBodyDamage &&
-            fullBodyDamage.TryGetValue(target.Value, out var limbDamage))
+            fullBodyDamage.TryGetValue(target.Value, out var limbDamage) && limbDamage.Count != 0)
             totalDamage = limbDamage.Sum(p => (float)p.Value);
         else
         {

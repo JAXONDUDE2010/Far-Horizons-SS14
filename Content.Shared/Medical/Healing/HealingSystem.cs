@@ -112,7 +112,7 @@ public sealed class HealingSystem : EntitySystem
                 origin: args.Args.User);
         }
 
-        if (!healingDoneToLimb)
+        if (!healingDoneToLimb || healed.Empty)
             healingDone = _damageable.TryChangeDamage(target.Owner,
                 healing.Damage * _damageable.UniversalTopicalsHealModifier, out healed, true,
                 origin: args.Args.User);

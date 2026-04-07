@@ -2,6 +2,8 @@ using System.Linq;
 using Content.Shared._FarHorizons.Body;
 using Content.Shared._FarHorizons.LimbDamage.Components;
 using Content.Shared.Body;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -82,5 +84,31 @@ public sealed partial class LimbEffectDestroy : ILimbDamageEffect
     {
         entMan.System<SharedAudioSystem>().PlayPredicted(_gibSound, target, null);
         entMan.QueueDeleteEntity(target);
+    }
+}
+
+[Serializable, NetSerializable]
+[DataDefinition]
+public sealed partial class LimbEffectDisarm : ILimbDamageEffect
+{
+    [DataField] public string HandId = "";
+
+    public void Run(Entity<DamageableLimbComponent> limb, IEntityManager entMan, IPrototypeManager protoMan)
+    {
+        if (limb.Comp.Organ?.Body == null) return;
+        entMan.System<SharedHandsSystem>().TryDrop(limb.Comp.Organ.Body.Value, HandId, checkActionBlocker: false);
+    }
+}
+
+[Serializable, NetSerializable]
+[DataDefinition]
+public sealed partial class LimbEffectKnockdown : ILimbDamageEffect
+{
+    [DataField] public float KnockdownTime;
+
+    public void Run(Entity<DamageableLimbComponent> limb, IEntityManager entMan, IPrototypeManager protoMan)
+    {
+        if (limb.Comp.Organ?.Body == null) return;
+        entMan.System<SharedStunSystem>().TryKnockdown(limb.Comp.Organ.Body.Value, TimeSpan.FromSeconds(KnockdownTime), false, true, false);
     }
 }

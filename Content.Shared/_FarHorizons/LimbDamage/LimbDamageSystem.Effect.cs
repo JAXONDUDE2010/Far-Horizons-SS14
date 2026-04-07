@@ -16,7 +16,7 @@ public partial class LimbDamageSystem
 
     private void OnDamageChanged(Entity<LimbDamageEffectComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.DamageDelta == null || args.DamageDelta.Empty)
+        if (args.DamageDelta == null || args.DamageDelta.Empty || !_timing.IsFirstTimePredicted)
             return;
 
         foreach (var effect in ent.Comp.Effects)
