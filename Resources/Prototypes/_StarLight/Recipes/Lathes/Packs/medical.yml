@@ -43,7 +43,6 @@
   - RightLegCyberPilebunker
   - LeftLegCyberCargo
   - RightLegCyberCargo
-
   - LeftArmCyberReaper
   - RightArmCyberReaper
   - LeftArmCyberMechwright
@@ -62,8 +61,8 @@
   - RightArmCyberGorilla
   - LeftArmCyberEngineer
   - RightArmCyberEngineer
-  - LeftArmCyberInvestigator
-  - RightArmCyberInvestigator
+  - LeftArmCyberResearcher #FH
+  - RightArmCyberResearcher #FH
   - LeftArmCyberScribe
   - RightArmCyberScribe
 

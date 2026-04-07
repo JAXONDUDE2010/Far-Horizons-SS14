@@ -56,13 +56,18 @@ public sealed partial class ResearchTreeNodePrototype : IPrototype
         List<int> parentDepths = [];
         foreach (var parent in Requires)
         {
+            if (!protoMan.HasIndex<ResearchTreeNodePrototype>(parent))
+            {
+                Logger.Error($"Research node '{ID}' references unknown parent node '{parent}'");
+                continue; 
+            }
+            
             var parentProto = protoMan.Index(parent);
             if (parentProto.Tier != Tier)
                 continue;
             
             parentDepths.Add(parentProto.GetTieredDepth(protoMan));
         }
-
         return parentDepths.Count == 0 ? 0 : parentDepths.OrderDescending().First() + 1;
     }
 

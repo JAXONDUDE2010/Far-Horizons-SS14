@@ -13,10 +13,8 @@ using Content.Shared._Starlight.Cybernetics.Components;
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using Content.Shared.VentCraw;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Starlight;
-using Content.Shared.Actions;
 
 namespace Content.Server._Starlight.Medical.Surgery;
 public sealed partial class OrganSystem : EntitySystem
@@ -25,7 +23,6 @@ public sealed partial class OrganSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {

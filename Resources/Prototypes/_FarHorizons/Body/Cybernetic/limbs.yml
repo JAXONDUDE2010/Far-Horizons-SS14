@@ -1071,7 +1071,7 @@
 # Cargo Legs
 - type: entity
   id: LeftLegCyberCargo
-  name: Left Cargo Cyber Leg"
+  name: Left Cargo Cyber Leg
   description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
   parent: [ OrganCyberLegLeft, WithLeftCyberFoot ]
   components:
@@ -1113,7 +1113,7 @@
 
 - type: entity
   id: RightLegCyberCargo
-  name: "right cargo cyber leg"
+  name: Right Cargo Cyber Leg
   description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
   parent: [ OrganCyberLegRight, WithRightCyberFoot ]
   components:

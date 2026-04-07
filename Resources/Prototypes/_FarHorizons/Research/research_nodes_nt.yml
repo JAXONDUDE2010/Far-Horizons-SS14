@@ -1139,6 +1139,45 @@
 # Cybernetics
 
 - type: researchTreeNode
+  id: FunctionalCyberlimbsMKI
+  name: research-tree-node-functional-cyberlimb-mki
+  cost: 10000
+  icon:
+    state: medical
+    color: "#52B4E9"
+  tier: Tier2
+  requires:
+    - Cyberlimbs
+  unlocks:
+  - LeftArmCyberPersephone
+  - RightArmCyberPersephone
+  - LeftArmCyberGorilla
+  - RightArmCyberGorilla
+  - LeftArmCyberResearcher 
+  - RightArmCyberResearcher
+  - LeftArmCyberMechwright
+  - RightArmCyberMechwright
+  - LeftArmCyberScribe
+  - RightArmCyberScribe
+  - LeftArmCyberSpacer
+  - RightArmCyberSpacer
+  - LeftArmCyberRiplet
+  - RightArmCyberRiplet
+  - LeftArmCyberHerakles
+  - RightArmCyberHerakles
+  - LeftArmCyberRipper
+  - RightArmCyberRipper
+  - LeftLegCyberHydraulic
+  - RightLegCyberHydraulic
+
+  announceTo:
+    - Security
+    - Medical
+    - Engineering
+    - Service
+    - Supply
+
+- type: researchTreeNode
   id: Harmpack
   name: research-tree-node-dual-wield
   cost: 10000
@@ -1147,7 +1186,7 @@
     color: "#003860"
   tier: Tier2
   requires:
-    - Cyberlimbs
+    - FunctionalCyberlimbsMKI
   unlocks:
     - ClothingBackpackHarmpack
   announceTo:
@@ -1171,6 +1210,39 @@
     - Security
     - Medical
     - Engineering
+
+- type: researchTreeNode
+  id: BrainImplants
+  name: research-tree-node-brain-implants
+  cost: 10000
+  icon:
+    state: medical
+    color: "#52B4E9"
+  tier: Tier2
+  requires:
+    - BudgetCyberorgans
+    - EyeImplants
+  unlocks:
+    - BrainImplantComms
+    - BrainImplantTranslator
+  announceTo:
+    - Medical
+
+- type: researchTreeNode
+  id: HandImplants
+  name: research-tree-node-hand-implants
+  cost: 10000
+  icon:
+    state: medical
+    color: "#52B4E9"
+  tier: Tier2
+  requires:
+    - BudgetCyberorgans
+  unlocks:
+    - HandImplantInsulated
+    - HandImplantThrusters
+  announceTo:
+    - Medical
 
 # Chem
 
@@ -1434,7 +1506,7 @@
     - DeviceQuantumSpinInverter
 
 - type: researchTreeNode
-  id: SpeedBoot
+  id: CyberSpeedLegs
   name: research-tree-node-quantum-fiber
   cost: 10000
   icon:
@@ -1444,7 +1516,8 @@
   requires:
     - DeterrenceTech
   unlocks:
-    - ClothingShoesBootsSpeed
+    - LeftLegCyberSpeed
+    - RightLegCyberSpeed
 
 - type: researchTreeNode
   id: BluespaceMastery
@@ -1457,7 +1530,6 @@
   requires:
     - QuantumDataManagement
     - QuantumLeaping
-    - SpeedBoot
   unlocks:
     - CargoTelepadMachineCircuitboard
     - ClothingBackpackHolding
@@ -1507,26 +1579,34 @@
 # Cybernetics
 
 - type: researchTreeNode
-  id: FunctionalCyberlimbs
-  name: research-tree-node-functional-cyberlimb
-  cost: 9320
+  id: FunctionalCyberlimbsMKII
+  name: research-tree-node-functional-cyberlimb-mkii
+  cost: 10000
   icon:
     state: medical
     color: "#52B4E9"
   tier: Tier3
   requires:
+    - FunctionalCyberlimbsMKI
     - Harmpack
   unlocks:
+    - LeftArmCyberAngel
+    - RightArmCyberAngel
     - LeftArmCyberReaper
     - RightArmCyberReaper
-    - LeftArmCyberMechwright
-    - RightArmCyberMechwright
+    - LeftArmCyberEngineer
+    - RightArmCyberEngineer
     - LeftArmCyberBulwark
     - RightArmCyberBulwark
+    - LeftLegCyberPilebunker
+    - RightLegCyberPilebunker
+    - LeftLegCyberCargo
+    - RightLegCyberCargo
   announceTo:
     - Security
     - Medical
     - Engineering
+    - Supply
 
 - type: researchTreeNode
   id: NVEyes
@@ -1604,7 +1684,7 @@
   tier: Tier3
   requires:
     - BorgPlaceholder3
-    - FunctionalCyberlimbs
+    - FunctionalCyberlimbsMKII
   unlocks:
     - SecborgEndoskeleton
     - BorgModuleLaserCarbine

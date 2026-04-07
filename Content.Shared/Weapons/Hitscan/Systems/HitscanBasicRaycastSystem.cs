@@ -15,13 +15,9 @@ using Robust.Shared.Utility;
 
 #region Starlight
 using System.Linq;
-using Content.Shared.Body.Components;
 using Content.Shared.Mech.Components;
-using Content.Shared.Weapons.Reflect;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared._Starlight.NullSpace;
-using Content.Shared.Tag;
 
 using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared._FarHorizons.LimbDamage;
@@ -36,20 +32,15 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!; //Starlight -- arming distance
     [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
-
-    private EntityQuery<HitscanReflectComponent> _reflectQuery; // Starlight
 
     public override void Initialize()
     {
         base.Initialize();
 
         _visualsQuery = GetEntityQuery<HitscanBasicVisualsComponent>();
-
-        _reflectQuery = GetEntityQuery<HitscanReflectComponent>(); // Starlight
 
         SubscribeLocalEvent<HitscanBasicRaycastComponent, HitscanTraceEvent>(OnHitscanFired);
     }

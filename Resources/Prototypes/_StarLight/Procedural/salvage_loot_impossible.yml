@@ -132,10 +132,10 @@
         - proto: RightArmCyberAngel
           prob: 0.2
           cost: 15
-        - proto: LeftArmCyberInvestigator
+        - proto: LeftArmCyberResearcher
           prob: 0.2
           cost: 15
-        - proto: RightArmCyberInvestigator
+        - proto: RightArmCyberResearcher
           prob: 0.2
           cost: 15
         - proto: LeftArmCyberScribe

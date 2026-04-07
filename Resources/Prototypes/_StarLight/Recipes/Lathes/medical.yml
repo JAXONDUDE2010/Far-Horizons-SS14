@@ -172,8 +172,8 @@
     Steel: 100
 #
 - type: latheRecipe
-  id: LeftArmCyberReaper
-  result: LeftArmCyberReaper
+  id: LeftArmCyberRipper
+  result: LeftArmCyberRipper
   categories:
   - Cyberlimbs
   completetime: 10
@@ -182,6 +182,31 @@
     Steel: 100
     Silver: 450
     Glass: 100
+
+- type: latheRecipe
+  id: RightArmCyberRipper
+  result: RightArmCyberRipper
+  categories:
+  - Cyberlimbs
+  completetime: 10
+  materials:
+    Plastic: 550
+    Steel: 100
+    Silver: 450
+    Glass: 100
+#
+#
+- type: latheRecipe
+  id: LeftArmCyberReaper
+  result: LeftArmCyberReaper
+  categories:
+  - Cyberlimbs
+  completetime: 10
+  materials:
+    Plastic: 10000
+    Steel: 500
+    Silver: 450
+    Glass: 1000
 
 - type: latheRecipe
   id: RightArmCyberReaper
@@ -328,8 +353,8 @@
 
 #
 - type: latheRecipe
-  id: LeftArmCyberInvestigator
-  result: LeftArmCyberInvestigator
+  id: LeftArmCyberResearcher
+  result: LeftArmCyberResearcher
   categories:
   - Cyberlimbs
   completetime: 10
@@ -341,8 +366,8 @@
     Glass: 100
 
 - type: latheRecipe
-  id: RightArmCyberInvestigator
-  result: RightArmCyberInvestigator
+  id: RightArmCyberResearcher
+  result: RightArmCyberResearcher
   categories:
   - Cyberlimbs
   completetime: 10

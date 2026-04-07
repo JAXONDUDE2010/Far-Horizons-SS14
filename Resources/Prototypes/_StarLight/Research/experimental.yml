@@ -52,8 +52,8 @@
   recipeUnlocks:
     - LeftArmCyberGorilla
     - RightArmCyberGorilla
-    - LeftArmCyberInvestigator
-    - RightArmCyberInvestigator
+    - LeftArmCyberResearcher
+    - RightArmCyberResearcher
   technologyPrerequisites:
     - CyberLimbsTech
     - AdvancedAnomalyResearch
