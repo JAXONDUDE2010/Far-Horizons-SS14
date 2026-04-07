@@ -260,7 +260,7 @@
       - !type:CauseDisease
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+          type: [ Animal, Protogen, ProtoBird, Avali, Resomi ] #FH
           inverted: true
         disease: DiseaseFoodPoisoning
         probability: 0.003

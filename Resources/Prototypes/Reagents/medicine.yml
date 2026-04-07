@@ -269,7 +269,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition #starliight
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
           inverted: true
         damage:
           types:
@@ -287,7 +287,7 @@
       - !type:HealthChange #Starlight
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
         damage:
           types:
             Poison: 1.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead (Lethal Dose: 20u)
@@ -308,7 +308,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition #starliight
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
           inverted: true
         damage:
           types:
@@ -333,7 +333,7 @@
       - !type:HealthChange #Starlight
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Avali, Resomi ] 
+          type: [ Avali, Resomi, ProtoBird ] #FH
         damage:
           types:
             Poison: 2.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead. Dex+ is worse. (Lethal Dose: 15u)
@@ -763,13 +763,13 @@
         - !type:ModifyBloodLevel
           conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Avali, Resomi ]
+            type: [ Avali, Resomi, ProtoBird ] #FH
             inverted: true
           amount: 4 #FH ~ 10% per 0.5u
         - !type:HealthChange
           conditions:
           - !type:MetabolizerTypeCondition
-           type: [ Avali, Resomi ]
+           type: [ Avali, Resomi, ProtoBird ] #FH
           damage:
             types:
               Poison: 2 #This is on par with giving someone the wrong blood-type (very lethal) / (Crit Dose: 10u / Lethal: 15u) - FH

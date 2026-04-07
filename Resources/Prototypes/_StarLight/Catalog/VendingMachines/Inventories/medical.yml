@@ -47,8 +47,8 @@
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorBluebrutepack20
-  productEntity: Bluebrutepack20
+  id: VendorBrutepackBlue #FH
+  productEntity: BrutepackBlue #FH
   cost:
     NTCredit: 34
   categories:
@@ -59,8 +59,9 @@
   - !type:BuyerAccessCondition
 
 - type: listing
-  id: VendorBlueointment20
-  productEntity: Blueointment20
+  id: VendorBlueOintment #FH
+  icon: { sprite: /Textures/_FarHorizons/Objects/Specific/Medical/blue_ointment.rsi, state: icon } #FH
+  productEntity: BlueOintment #FH
   cost:
     NTCredit: 34
   categories:

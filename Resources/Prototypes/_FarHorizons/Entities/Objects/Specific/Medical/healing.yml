@@ -1,3 +1,4 @@
+#region UBR Pack
 - type: entity
   name: Universal Blood Pack
   description: Does not work with Ammonia-based races and will not accept Amoxla to avoid lethal accidents by colorblind medical doctors.
@@ -68,6 +69,7 @@
         - ReagentId: UniversalBlood
           Quantity: 10
 
+#region Amoxla Pack
 - type: entity
   name: Amoxla Pack
   description: Does not work with Non-Ammonia-based races and will not accept Universal Blood to avoid lethal accidents by colorblind medical doctors.
@@ -133,6 +135,7 @@
         - ReagentId: Amoxla
           Quantity: 10
 
+#region Oil Pack
 - type: entity
   name: Oil Pack
   description: Does not work with Non-Organic races and will not accept Universal Blood or Amoxla to avoid lethal accidents by colorblind medical doctors.
@@ -197,6 +200,7 @@
         - ReagentId: Oil
           Quantity: 10
 
+#region Pills
 - type: entity
   name: pill canister
   parent: PillCanister
@@ -275,3 +279,679 @@
       storagebase:
         id: PillHyronalin
         amount: 10 
+
+
+#region Blue Ointment
+- type: entity
+  parent: [BaseAutoMender, DrinkVisualsOpenable, DrinkVisualsFill] # You have no idea how long this took me to get to layer properly
+  name: Blue Ointment Canister
+  description: Used to treat those nasty burns. Seems to be able to hold more than a normal Canister.
+  id: BlueOintmentEmpty
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/blue_ointment.rsi
+    layers:
+    - state: empty
+    - state: ointment1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: icon_open
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Item
+    size: Small
+    sprite: _FarHorizons/Objects/Specific/Medical/blue_ointment.rsi
+    heldPrefix: ointment
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 20
+  - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: BurnCreamBlue
+      Quantity: 1
+    delay: 1.6
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Heat: -6
+        Cold: -6
+        Shock: -6
+        Caustic: -2
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: ointment
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: -fill-
+  - type: ExaminableSolution
+    examinableWhileClosed: false
+    heldOnly: false
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: Tag
+    tags:
+    - Ointment
+
+- type: entity
+  suffix: Filled
+  parent: BlueOintmentEmpty
+  id: BlueOintment
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 20
+        reagents:
+        - ReagentId: BurnCreamBlue
+          Quantity: 20
+
+#region Aloe Vera
+- type: entity
+  parent: BlueOintmentEmpty
+  name: Aloe Vera Canister
+  description: Used to treat those nasty burns. Less effective than it's medical counterpart.
+  id: AloeCreamEmpty
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/green_ointment.rsi
+    layers:
+    - state: empty
+    - state: ointment1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: icon_open
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Item
+    size: Small
+    sprite: _FarHorizons/Objects/Specific/Medical/green_ointment.rsi
+    heldPrefix: ointment
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+  - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: AloeVeraCream
+      Quantity: 1
+    delay: 1.6
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Heat: -2.5
+        Cold: -2.5
+        Shock: -2.5
+        Caustic: -0.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: SolutionContainerVisuals
+    maxFillLevels: 8
+    fillBaseName: ointment
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: -fill-
+  - type: ExaminableSolution
+    examinableWhileClosed: false
+    heldOnly: false
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+      Glass: 100
+  - type: Tag
+    tags:
+    - Ointment
+
+- type: entity
+  suffix: Filled
+  parent: AloeCreamEmpty
+  id: AloeCream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+        - ReagentId: AloeVeraCream
+          Quantity: 10
+
+#region Ointment
+- type: entity
+  parent: BlueOintmentEmpty
+  name: Ointment Canister
+  description: Used to treat those nasty burns. Less effective on caustic burns.
+  id: OintmentEmpty
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+    layers:
+    - state: empty
+    - state: ointment1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: icon_open
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Item
+    size: Small
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+    heldPrefix: ointment
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+  - type: Healing
+    solutionDrain: true
+    reagentsToDrain:
+    - ReagentId: BurnCream
+      Quantity: 1
+    delay: 1.6
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Heat: -5
+        Cold: -5
+        Shock: -5
+        Caustic: -1.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: ointment
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: -fill-
+  - type: ExaminableSolution
+    examinableWhileClosed: false
+    heldOnly: false
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:  # Use blacklist instead of whitelist so can be clicked on bags/medkits
+        - IPC
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: Tag
+    tags:
+    - Ointment
+
+- type: entity
+  suffix: Filled
+  parent: OintmentEmpty
+  id: Ointment
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+        - ReagentId: BurnCream
+          Quantity: 10
+
+- type: entity
+  suffix: One Use
+  parent: OintmentEmpty
+  id: Ointment1 # Leftover to keep maps from breaking, and also fit with "only one use" for said maps.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+        - ReagentId: BurnCream
+          Quantity: 1
+
+#region Brute Pack
+- type: entity
+  name: Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat brute-force trauma.
+  parent: BaseItem
+  id: Brutepack
+  suffix: Full
+  components:
+  - type: Stack
+    count: 20
+    stackType: Brutepack
+    baseLayer: base
+    layerStates:
+    - brutepack-9
+    - brutepack-8
+    - brutepack-7
+    - brutepack-6
+    - brutepack-5
+    - brutepack-4
+    - brutepack-3
+    - brutepack-2
+    - brutepack-1
+    - brutepack-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack-0
+    layers:
+    - state: brutepack-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Blunt: -5
+        Piercing: -5
+        Slash: -5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: Brutepack1
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack-9
+  - type: Stack
+    count: 1
+
+#region Blue Brute Pack
+- type: entity
+  name: Blue Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat brute-force trauma. A special mixture of chemicals make these ones last longer and a bit more potent.
+  parent: BaseItem
+  id: BrutepackBlue
+  suffix: Full
+  components:
+  - type: Stack
+    count: 20
+    stackType: BrutepackBlue
+    baseLayer: base
+    layerStates:
+    - brutepack_blue-9
+    - brutepack_blue-8
+    - brutepack_blue-7
+    - brutepack_blue-6
+    - brutepack_blue-5
+    - brutepack_blue-4
+    - brutepack_blue-3
+    - brutepack_blue-2
+    - brutepack_blue-1
+    - brutepack_blue-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_blue-0
+    layers:
+    - state: brutepack_blue-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_blue
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Blunt: -6
+        Piercing: -6
+        Slash: -6
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBlue1
+  parent: BrutepackBlue
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_blue-9
+  - type: Stack
+    count: 1
+
+- type: entity
+  id: BrutepackBlue10
+  parent: BrutepackBlue
+  suffix: 10
+  components:
+  - type: Sprite
+    state: brutepack_blue-5
+  - type: Stack
+    count: 10
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBlue
+  name: stack-brutepack
+  maxCount: 20
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_blue-0 }
+  spawn: BrutepackBlue
+
+#region Bruizine Brute Pack
+- type: entity
+  name: Bruizine Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat blunt-force trauma. A non-reactive Bruizine-Bicaridine mixture makes this pack great at treating blunt injuries, but not much else.
+  parent: BaseItem
+  id: BrutepackRed
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackRed
+    baseLayer: base
+    layerStates:
+    - brutepack_red-9
+    - brutepack_red-8
+    - brutepack_red-7
+    - brutepack_red-6
+    - brutepack_red-5
+    - brutepack_red-4
+    - brutepack_red-3
+    - brutepack_red-2
+    - brutepack_red-1
+    - brutepack_red-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_red-0
+    layers:
+    - state: brutepack_red-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_red
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -2.5
+        Slash: -2.5
+        Blunt: -7.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackRed1
+  parent: BrutepackRed
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_red-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackRed
+  name: stack-brutepack
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_red-0 }
+  spawn: BrutepackRed
+
+#region Lacerinol Brute Pack
+- type: entity
+  name: Lacerinol Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat lacerations. A non-reactive Lacerinol-Bicaridine mixture makes this pack great at treating stab wounds, but not much else.
+  parent: BaseItem
+  id: BrutepackBlack
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackBlack
+    baseLayer: base
+    layerStates:
+    - brutepack_black-9
+    - brutepack_black-8
+    - brutepack_black-7
+    - brutepack_black-6
+    - brutepack_black-5
+    - brutepack_black-4
+    - brutepack_black-3
+    - brutepack_black-2
+    - brutepack_black-1
+    - brutepack_black-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_black-0
+    layers:
+    - state: brutepack_black-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_black
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -2.5
+        Slash: -7.5
+        Blunt: -2.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBlack1
+  parent: BrutepackBlack
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_black-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBlack
+  name: stack-brutepack
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_black-0 }
+  spawn: BrutepackBlack
+
+#region Puncturase Brute Pack
+- type: entity
+  name: Puncturase Brute Pack
+  description: A therapeutic gel-laced bandage set designed to treat piercing injuries. A non-reactive Puncturase-Bicaridine mixture makes this pack great at treating gunshot wounds, but not much else.
+  parent: BaseItem
+  id: BrutepackBeige
+  suffix: Full
+  components:
+  - type: Stack
+    count: 10
+    stackType: BrutepackBeige
+    baseLayer: base
+    layerStates:
+    - brutepack_beige-9
+    - brutepack_beige-8
+    - brutepack_beige-7
+    - brutepack_beige-6
+    - brutepack_beige-5
+    - brutepack_beige-4
+    - brutepack_beige-3
+    - brutepack_beige-2
+    - brutepack_beige-1
+    - brutepack_beige-0
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/brute_pack.rsi
+    state: brutepack_beige-0
+    layers:
+    - state: brutepack_beige-0
+      map: ["base"]
+  - type: Item
+    heldPrefix: brutepack_beige
+  - type: Appearance
+  - type: Healing
+    damageContainers:
+      - Biological
+    delay: 1.6
+    damage:
+      types:
+        Piercing: -7.5
+        Slash: -2.5
+        Blunt: -2.5
+    bloodlossModifier: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: StackPrice
+    price: 5
+  - type: InteractRestriction
+    restrictInteractionTarget:
+      blacklist:
+        - IPC
+  - type: Tag
+    tags:
+    - Brutepack
+
+- type: entity
+  id: BrutepackBeige1
+  parent: BrutepackBeige
+  suffix: Single
+  components:
+  - type: Sprite
+    state: brutepack_beige-9
+  - type: Stack
+    count: 1
+
+- type: stack
+  parent: BaseSmallStack
+  id: BrutepackBeige
+  name: stack-brutepack
+  icon: { sprite: "_FarHorizons/Objects/Specific/Medical/brute_pack.rsi", state: brutepack_beige-0 }
+  spawn: BrutepackBeige

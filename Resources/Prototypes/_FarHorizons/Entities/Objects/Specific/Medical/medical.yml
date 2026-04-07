@@ -15,7 +15,7 @@
   - type: Storage
     whitelist:
       tags:
-        - Bottle
+        - Bottle 
         - Brutepack
         - Bloodpack
         - AmmoniaPack
@@ -26,6 +26,7 @@
         - Hypospray
         - Vial
         - ExternalContainerInjectorVial
+        - Tourniquet
       components:
         - Injector
         - Pill
@@ -118,3 +119,20 @@
   - type: Tag
     tags:
     - Medkit
+
+- type: entity
+  parent: BaseItem
+  id: BaseHealingItemFH
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+  - type: Item
+    size: Small
+    sprite: _FarHorizons/Objects/Specific/Medical/ointment.rsi
+    heldPrefix: ointment
+  # Inherited
+  - type: StaticPrice
+    price: 0
+  - type: ItemPrice
+    priceCategory: medical  

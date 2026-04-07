@@ -75,11 +75,11 @@
 
 - type: latheRecipe
   id: Ointment
-  result: Ointment1
+  result: OintmentEmpty #FH Edit
   completetime: 1
   materials:
-    Glass: 25
-    Plastic: 25
+    Steel: 125 #FH Edit
+    Plastic: 125 #FH Edit
 
 - type: latheRecipe
   id: Gauze

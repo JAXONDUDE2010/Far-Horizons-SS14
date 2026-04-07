@@ -159,7 +159,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition # Starlight
-          type: [ Avali, Resomi ]
+          type: [ Avali, Resomi, ProtoBird ] #FH
         damage:
           types:
             Poison: 2

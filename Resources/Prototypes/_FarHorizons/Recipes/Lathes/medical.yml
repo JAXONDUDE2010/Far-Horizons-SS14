@@ -79,3 +79,11 @@
   materials:
     Steel: 100
     Plastic: 50
+
+- type: latheRecipe
+  id: BlueOintmentEmpty
+  result: BlueOintmentEmpty
+  completetime: 1
+  materials:
+    Steel: 225
+    Plastic: 225
