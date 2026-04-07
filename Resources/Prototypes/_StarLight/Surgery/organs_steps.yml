@@ -1220,10 +1220,8 @@
   components:
   - type: SurgeryStep
     duration: 2
-    tools:
-    - type: BrainImplant
+    organCategory: BrainImplant
   - type: SurgeryStepOrganInsert
-    slot: brain_implant
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
