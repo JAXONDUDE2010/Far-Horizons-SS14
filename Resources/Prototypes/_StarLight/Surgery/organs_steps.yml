@@ -1146,6 +1146,8 @@
   components:
   - type: SurgeryStep
     duration: 2
+    tools:
+    - type: Organ
     organCategory: HandLeftImplant
   - type: SurgeryStepOrganInsert
   - type: Sprite
@@ -1160,6 +1162,8 @@
   components:
   - type: SurgeryStep
     duration: 2
+    tools:
+    - type: Organ
     organCategory: HandRightImplant
   - type: SurgeryStepOrganInsert
   - type: Sprite
@@ -1220,6 +1224,8 @@
   components:
   - type: SurgeryStep
     duration: 2
+    tools:
+    - type: Organ
     organCategory: BrainImplant
   - type: SurgeryStepOrganInsert
   - type: Sprite

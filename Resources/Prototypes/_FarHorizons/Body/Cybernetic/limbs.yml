@@ -571,7 +571,7 @@
   id: RightArmCyberGorilla
   name: Right G.O.R.I.L.L.A Arm
   description: Augmented arm for the scientists of the modern age.
-  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  parent: [ OrganCyberArmRight, WithRightCyberHand, BaseScienceContraband ]
   components:
     - type: VisualOrgan
       data:
@@ -640,6 +640,7 @@
       state: r_angel_arm
     - type: LimbItemStorage
       items:
+        - AdvancedJetInjectorCyber
         - AutoinjectorCyberTricordrazine
         - AutoinjectorCyberInaprovaline
         - DefibrillatorCyber
@@ -1164,7 +1165,7 @@
 # Speed legs
 - type: entity
   id: LeftLegCyberSpeed
-  name: Left Cyber Speed
+  name: Left Cyber Speed Leg
   parent: [ OrganCyberLegLeft, WithLeftCyberFoot ]
   description: Gotta Go Fast!
   components:
@@ -1185,7 +1186,7 @@
 
 - type: entity
   id: RightLegCyberSpeed
-  name: Right Cyber Speed
+  name: Right Cyber Speed Leg
   parent: [ OrganCyberLegRight, WithRightCyberFoot ]
   description: Gotta Go Fast!
   components:

@@ -7,12 +7,11 @@ public abstract class SharedInherentActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InherentActionComponent, MapInitEvent>(OnStartup);
+        SubscribeLocalEvent<InherentActionComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<InherentActionComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<InherentActionComponent, GetItemActionsEvent>(OnGetItemActions);
     }
@@ -23,7 +22,7 @@ public abstract class SharedInherentActionSystem : EntitySystem
             args.AddAction(ref ent.Comp.ActionEntity, ent.Comp.Action);
     }
 
-    private void OnStartup(EntityUid uid, InherentActionComponent component, MapInitEvent args)
+    private void OnStartup(EntityUid uid, InherentActionComponent component, ComponentStartup args)
     {
         if (component.IsEquipment)
         {

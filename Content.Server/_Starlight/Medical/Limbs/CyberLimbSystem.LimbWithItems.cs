@@ -34,7 +34,7 @@ public sealed partial class CyberLimbSystem : EntitySystem
             {
                 Performer = args.Target,
             };
-            OnLimbToggle((args.Target, ent.Comp), ref toggleLimbEvent);
+            OnLimbToggle(ent, ref toggleLimbEvent);
         }
 
         _actions.RemoveProvidedActions(args.Target, ent);

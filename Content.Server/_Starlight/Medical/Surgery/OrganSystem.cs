@@ -47,26 +47,23 @@ public sealed partial class OrganSystem : EntitySystem
 
     private void OnFunctionalOrganImplanted(Entity<FunctionalOrganComponent> ent, ref OrganGotInsertedEvent args)
     {
-        foreach (var (_, compEntry) in ent.Comp.Components ?? [])
+        foreach (var comp in (ent.Comp.Components ?? []).Values)
         {
-            var compType = compEntry.Component.GetType();
-            if (!EntityManager.HasComponent(args.Target, compType))
+            if (!EntityManager.HasComponent(args.Target, comp.Component.GetType()))
             {
-                var newComp = IoCManager.Resolve<IComponentFactory>().GetComponent(compType);
-                EntityManager.AddComponent(args.Target, newComp);
-                UpdateEntity(args.Target, compEntry.Component, ent.Owner);
+                EntityManager.AddComponent(args.Target, comp.Component);
+                UpdateEntity(args.Target, comp.Component, ent.Owner);
             }
         }
     }
 
     private void OnFunctionalOrganExtracted(Entity<FunctionalOrganComponent> ent, ref OrganGotRemovedEvent args)
     {
-        if (TerminatingOrDeleted(ent)) return;
         foreach (var comp in (ent.Comp.Components ?? []).Values)
         {
             if (EntityManager.HasComponent(args.Target, comp.Component.GetType()))
             {
-                EntityManager.RemoveComponentDeferred(args.Target, EntityManager.GetComponent(args.Target, comp.Component.GetType()));
+                EntityManager.RemoveComponent(args.Target, EntityManager.GetComponent(args.Target, comp.Component.GetType()));
                 UpdateEntity(args.Target, comp.Component, ent.Owner);
             }
         }

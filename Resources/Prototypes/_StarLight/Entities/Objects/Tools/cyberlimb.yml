@@ -534,6 +534,7 @@
       tags:
         - CyberHandItem
 
+
 - type: entity
   name: tricordrazine cyber autoinjector
   parent: AutoinjectorCyber
@@ -546,15 +547,15 @@
           maxVol: 15
     - type: Injector
       solutionName: hypospray
-      currentTransferAmount: null 
-      activeModeProtoId: JetInjectorDynamicMode
+      ignoreClosed: false
+      activeModeProtoId: HyposprayDynamicMode
       allowedModes:
-      - JetInjectorDynamicMode
-      - JetInjectorInjectMode
+      - HyposprayDynamicMode
+      - HyposprayInjectMode
+      needHand: false
+      currentTransferAmount: 15
       reagentWhitelist:
         - Tricordrazine
-    - type: UseDelay
-      delay: 1.5
 
 - type: entity
   name: inaprovaline cyber autoinjector
@@ -568,18 +569,18 @@
           maxVol: 15
     - type: Injector
       solutionName: hypospray
-      currentTransferAmount: null 
-      activeModeProtoId: JetInjectorDynamicMode
+      ignoreClosed: false
+      activeModeProtoId: HyposprayDynamicMode
       allowedModes:
-      - JetInjectorDynamicMode
-      - JetInjectorInjectMode
+      - HyposprayDynamicMode
+      - HyposprayInjectMode
+      needHand: false
+      currentTransferAmount: 15
       reagentWhitelist:
         - Inaprovaline
     - type: Tag
       tags:
         - CyberHandItem
-    - type: UseDelay
-      delay: 1.5
 
 - type: entity
   parent: AdvancedJetInjector
@@ -1171,6 +1172,8 @@
   - type: DrawableSolution
     solution: beaker
   - type: Spillable
+    solution: beaker
+  - type: DrainableSolution
     solution: beaker
   - type: SolutionTransfer
     maxTransferAmount: 30
