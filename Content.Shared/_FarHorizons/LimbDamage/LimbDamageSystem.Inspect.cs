@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Shared._FarHorizons.Body;
 using Content.Shared._FarHorizons.LimbDamage.Components;
+using Content.Shared.Armor;
 using Content.Shared.Body;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -32,6 +34,29 @@ public partial class LimbDamageSystem
     {
         SubscribeLocalEvent<LimbDamageableComponent, GetVerbsEvent<ExamineVerb>>(OnBodyExamine);
         SubscribeLocalEvent<DamageableLimbComponent, GetVerbsEvent<ExamineVerb>>(OnDetachedExamine);
+        SubscribeLocalEvent<LimbArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorExamine);
+    }
+
+    private void OnArmorExamine(Entity<LimbArmorComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
+    {
+        var source = args.User;
+        var detailsRange = _examine.IsInDetailsRange(source, ent);
+
+        var verb = new ExamineVerb()
+        {
+            Act = () =>
+            {
+                var markup = CreateArmorMarkup(ent);
+                _examine.SendExamineTooltip(source, ent, markup, false, false);
+            },
+            Text = Loc.GetString("limb-armor-examinable-verb-text"),
+            Category = VerbCategory.Examine,
+            Disabled = !detailsRange,
+            Message = Loc.GetString("limb-armor-examinable-verb-message"),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/target-doll-middle.svg.192dpi.png"))
+        };
+
+        args.Verbs.Add(verb);
     }
 
     private void OnDetachedExamine(Entity<DamageableLimbComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
@@ -119,6 +144,75 @@ public partial class LimbDamageSystem
                 first = false;
                 
             msg.AddMarkupOrThrow(finalMessage);
+        }
+
+        return msg;
+    }
+
+    public FormattedMessage CreateArmorMarkup(Entity<LimbArmorComponent> ent)
+    {
+        var msg = new FormattedMessage();
+
+        if (!TryComp<ArmorComponent>(ent, out var armor))
+            return msg;
+
+        Dictionary<DamageModifierSet, List<ProtoId<OrganCategoryPrototype>>> limbArmor = new();
+        limbArmor[armor.Modifiers] = new() { "Torso" };
+
+        foreach (var (limb, proteciton) in ent.Comp.Limbs)
+        {
+            if (!proteciton.FlatReduction.Any() && !proteciton.Coefficients.Any())
+                limbArmor[armor.Modifiers].Add(limb);
+            else if (limbArmor.ContainsKey(proteciton))
+                limbArmor[proteciton].Add(limb);
+            else
+                limbArmor[proteciton] = new() { limb };
+        }
+
+        var first = true;
+        foreach (var (protection, limbs) in limbArmor)
+        {
+            if (!first)
+            {
+                msg.PushNewline();
+                msg.PushNewline();
+            }
+            else
+                first = false;
+
+            var allLimbNames = limbs.Select(p => Loc.GetString($"limb-category-limb-name-{p.Id.ToLower()}")).ToList();
+            var combinedString = string.Join(", ", allLimbNames.SkipLast(1));
+
+            var damageMessage = allLimbNames.Count switch
+            {
+                0 => "",
+                1 => Loc.GetString("limb-armor-examinable-header-one", ("limb", allLimbNames.First())),
+                _ => Loc.GetString("limb-armor-examinable-header-many", ("limbFirst", combinedString),
+                    ("limbLast", allLimbNames.Last()))
+            };
+            msg.AddMarkupOrThrow(damageMessage);
+
+            foreach (var coefficientArmor in protection.Coefficients)
+            {
+                msg.PushNewline();
+
+                var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+                    ("type", armorType),
+                    ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
+                ));
+            }
+
+            foreach (var flatArmor in protection.FlatReduction)
+            {
+                msg.PushNewline();
+
+                var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
+                    ("type", armorType),
+                    ("value", flatArmor.Value)
+                ));
+            }
         }
 
         return msg;
