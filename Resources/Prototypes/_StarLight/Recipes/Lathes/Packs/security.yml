@@ -147,3 +147,16 @@
   recipes:
   - LeftArmCyberBulwark
   - RightArmCyberBulwark
+  - LeftArmCyberZeus
+  - RightArmCyberZeus
+  - LeftArmCyberHerakles
+  - RightArmCyberHerakles
+
+- type: latheRecipePack
+  id: SecurityImplants
+  recipes:
+  - HandLeftImplantClaws
+  - HandRightImplantClaws
+  - HandLeftImplantForensics
+  - HandRightImplantForensics
+

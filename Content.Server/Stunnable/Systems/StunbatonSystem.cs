@@ -1,5 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.Events;
+using Content.Shared.PowerCell;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
@@ -18,6 +19,7 @@ namespace Content.Server.Stunnable.Systems
     {
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly PowerCellSystem _powerCell = default!; // 🌟Starlight🌟
         [Dependency] private readonly SharedBatterySystem _battery = default!;
         [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
 
@@ -33,11 +35,32 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge((entity.Owner, battery), entity.Comp.EnergyPerUse))
+            // 🌟Starlight🌟 start
+            if (!_itemToggle.IsActivated(entity.Owner))
+            {
+                args.Cancelled = true;
+                return;
+            }
+
+            Entity<BatteryComponent>? batteryEntity = null;
+            BatteryComponent? battery = null;
+            EntityUid batteryUid = entity.Owner;
+            
+            if (TryComp(entity.Owner, out battery))
+            {
+                batteryUid = entity.Owner;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(entity.Owner, out batteryEntity))
+            {
+                batteryUid = batteryEntity.Value.Owner;
+                battery = batteryEntity.Value.Comp;
+            }
+            
+            if (battery == null || !_battery.TryUseCharge((batteryUid, battery), entity.Comp.EnergyPerUse))
             {
                 args.Cancelled = true;
             }
+            // 🌟Starlight🌟 end
         }
 
         private void OnExamined(Entity<StunbatonComponent> entity, ref ExaminedEvent args)
@@ -47,30 +70,62 @@ namespace Content.Server.Stunnable.Systems
             : Loc.GetString("comp-stunbaton-examined-off");
             args.PushMarkup(onMsg);
 
-            if (TryComp<BatteryComponent>(entity.Owner, out var battery))
+            // 🌟Starlight🌟 start
+            Entity<BatteryComponent>? batteryEnt = null;
+            BatteryComponent? battery = null;
+            EntityUid batteryUid = entity.Owner;
+            
+            if (TryComp<BatteryComponent>(entity.Owner, out battery))
             {
-                var count = _battery.GetRemainingUses((entity.Owner, battery), entity.Comp.EnergyPerUse);
+                batteryUid = entity.Owner;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(entity.Owner, out batteryEnt))
+            {
+                batteryUid = batteryEnt.Value.Owner;
+                battery = batteryEnt.Value.Comp;
+            }
+            
+            if (battery != null)
+            {
+                var count = (int)(_battery.GetCharge((batteryUid, battery)) / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
             }
+            // 🌟Starlight🌟 end
         }
 
         protected override void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
             base.TryTurnOn(entity, ref args);
 
-            if (!TryComp<BatteryComponent>(entity, out var battery) || _battery.GetCharge((entity, battery)) < entity.Comp.EnergyPerUse)
+            // 🌟Starlight🌟 start
+            Entity<BatteryComponent>? batteryEnt = null;
+            BatteryComponent? battery = null;
+            EntityUid batteryUid = entity.Owner;
+            
+            if (TryComp<BatteryComponent>(entity.Owner, out battery))
+            {
+                batteryUid = entity.Owner;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(entity.Owner, out batteryEnt))
+            {
+                batteryUid = batteryEnt.Value.Owner;
+                battery = batteryEnt.Value.Comp;
+            }
+            
+            if (battery != null && _battery.GetCharge((batteryUid, battery)) < entity.Comp.EnergyPerUse)
             {
                 args.Cancelled = true;
                 if (args.User != null)
                 {
-                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User, (EntityUid) args.User);
+                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid)args.User, (EntityUid)args.User);
                 }
                 return;
             }
+            // 🌟Starlight🌟 end
 
             if (TryComp<RiggableComponent>(entity, out var rig) && rig.IsRigged)
             {
-                _riggableSystem.Explode(entity.Owner, _battery.GetCharge((entity, battery)), args.User);
+                _riggableSystem.Explode(entity.Owner, battery != null ? _battery.GetCharge((batteryUid, battery)) : 0f, args.User);
             }
         }
 
@@ -98,11 +153,31 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnChargeChanged(Entity<StunbatonComponent> entity, ref ChargeChangedEvent args)
         {
-            if (TryComp<BatteryComponent>(entity.Owner, out var battery) &&
-                _battery.GetCharge((entity.Owner, battery)) < entity.Comp.EnergyPerUse)
+            // 🌟Starlight🌟 start
+            // If the stun baton is not activated, we don't need to check anything
+            if (!_itemToggle.IsActivated(entity.Owner))
+                return;
+
+            Entity<BatteryComponent>? batteryEnt = null;
+            BatteryComponent? battery = null;
+            EntityUid batteryUid = entity.Owner;
+            
+            if (TryComp<BatteryComponent>(entity.Owner, out battery))
+            {
+                batteryUid = entity.Owner;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(entity.Owner, out batteryEnt))
+            {
+                batteryUid = batteryEnt.Value.Owner;
+                battery = batteryEnt.Value.Comp;
+            }
+            
+            // Deactivate if: no battery found OR battery charge is too low
+            if (battery == null || _battery.GetCharge((batteryUid, battery)) < entity.Comp.EnergyPerUse)
             {
                 _itemToggle.TryDeactivate(entity.Owner, predicted: false);
             }
+            // 🌟Starlight🌟 end
         }
     }
 }

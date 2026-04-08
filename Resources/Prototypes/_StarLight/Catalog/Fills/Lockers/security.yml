@@ -167,3 +167,5 @@
           amount: 4
         - id: Binoculars
           amount: 2
+        - id: NeuralLinkDisruptor
+          amount: 2

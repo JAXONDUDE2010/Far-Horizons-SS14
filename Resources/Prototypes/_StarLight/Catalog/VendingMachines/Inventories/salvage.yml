@@ -457,3 +457,26 @@
   - SalvageMercenaryEquipment
   conditions:
   - !type:BuyerAccessCondition
+
+
+#Cybernetics
+
+- type: listing
+  id: VendorSalvageLeftArmCyberSpacer
+  productEntity: LeftArmCyberSpacer
+  cost:
+    SalvageTicket: 700
+  categories:
+  - SalvageCybernetics
+  conditions:
+  - !type:BuyerAccessCondition
+
+- type: listing
+  id: VendorSalvageRightArmCyberSpacer
+  productEntity: RightArmCyberSpacer
+  cost:
+    SalvageTicket: 700
+  categories:
+  - SalvageCybernetics
+  conditions:
+  - !type:BuyerAccessCondition

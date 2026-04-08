@@ -19,6 +19,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Robust.Shared.Utility;
+using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 
 namespace Content.Server.Cloning;
 
@@ -83,6 +87,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
             CopyStatusEffects(original, clone.Value);
 
         var originalName = _nameMod.GetBaseName(original);
+
+        CopyCyberwareStates(original, clone.Value); // 🌟Starlight🌟 Copy species-native cyberware
 
         // Set the clone's name. The raised events will also adjust their PDA and ID card names.
         _metaData.SetEntityName(clone.Value, originalName);
@@ -274,7 +280,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         }
 
     }
-
+    
     /// <summary>
     ///    Scans all permanent status effects applied to the original entity and transfers them to the clone.
     /// </summary>
@@ -303,4 +309,36 @@ public sealed partial class CloningSystem : SharedCloningSystem
             _statusEffects.TrySetStatusEffectDuration(target, effectProto);
         }
     }
+
+#region: Starlight
+    /// <summary>
+    ///     Copies all data of cyberware from one mob to another.
+    ///     Only copies data of cyberware target mob has.
+    ///     Can copy the storage inside a storage implant according to a whitelist and blacklist.
+    /// </summary>
+    /// <param name="original">Entity to copy cyberware data from.</param>
+    /// <param name="target">Entity to copy cyberware data to.</param>
+    private void CopyCyberwareStates(EntityUid original, EntityUid target)
+    {
+        if(!TryComp(original, out BodyComponent? originalBody) || originalBody.Organs == null
+        || !TryComp(target, out BodyComponent? targetBody) || targetBody.Organs == null)
+            return;
+
+        if (!_prototype.Resolve((ProtoId<CloningSettingsPrototype>)"BaseClone", out var settings))
+            return; // invalid settings
+
+        var originalOrgans = originalBody.Organs.ContainedEntities;
+        foreach (var organ in targetBody.Organs.ContainedEntities)
+        {
+            var originalOrgan = originalOrgans.Where(o => MetaData(o).EntityPrototype?.ID == MetaData(organ).EntityPrototype?.ID).FirstOrNull();
+            if (originalOrgan != null && (
+            TryComp(organ, out BrainImplantComponent? _) 
+            || TryComp(organ, out HandImplantComponent? _) 
+            || TryComp(organ, out EyeImplantComponent? _)))
+            {
+                CloneComponents(originalOrgan.Value, organ, settings);
+            }
+        }
+    }
+#endregion: Starlight
 }

@@ -73,3 +73,42 @@
   - type: HeldSpeedModifier
     walkModifier: 1
     sprintModifier: 0.9
+  - type: Tag
+    tags:
+      - CyberHandItem
+
+# Debug
+
+- type: entity
+  name: Super Amazing All In One Surgery Stick
+  id: DebugStickSurgery
+  parent: BoneGelBase
+  description: A stick.
+  suffix: DEBUG, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: laser
+  - type: SurgeryTool
+  - type: BoneGel
+    speed: 0.1
+  - type: Scalpel
+    speed: 0.1
+  - type: Cautery
+    speed: 0.1
+  - type: SurgicalDrill
+    speed: 0.1
+  - type: Hemostat
+    speed: 0.1
+  - type: Retractor
+    speed: 0.1
+  - type: BoneSaw
+    speed: 0.1
+  - type: BoneSetter
+    speed: 0.1
+  - type: SolutionRegeneration
+    solution: container
+    generated: 
+      reagents:
+      - ReagentId: BoneGel
+        Quantity: 10

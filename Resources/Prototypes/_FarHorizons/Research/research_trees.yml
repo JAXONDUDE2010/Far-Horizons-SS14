@@ -77,11 +77,10 @@
     - AdvLaserPistol
     - Declone
     - QuantumLeaping
-    - SpeedBoot
     - BluespaceMastery
     - ScanGates
     - QuantumDataManagement
-    - FunctionalCyberlimbs
+    - FunctionalCyberlimbsMKII
     - NVEyes
     - ThermalEyes
     - BorgPlaceholder1
@@ -92,3 +91,6 @@
     - Cloning
     - VehicleBasicParts
     - VehicleAdvancedParts
+    - BrainImplants
+    - HandImplants
+    - FunctionalCyberlimbsMKI

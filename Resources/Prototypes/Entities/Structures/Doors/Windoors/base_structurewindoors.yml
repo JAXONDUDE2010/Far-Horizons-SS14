@@ -175,8 +175,9 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
-  - type: Tag
-    tags:
+  - type: Tag #Starlight -- minimum arming distance
+    tags: 
+      - BulletUnarmedCollide #Starlight -- Make bullet pre-arming not phase through windoors 
       - DoorRemoteWhitelist
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
 
@@ -255,7 +256,7 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
       - DoorRemoteWhitelist
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
-
+      - BulletUnarmedCollide #Starlight -- Make bullet pre-arming not phase through windoors 
 
 #Plasma Windoors
 - type: entity

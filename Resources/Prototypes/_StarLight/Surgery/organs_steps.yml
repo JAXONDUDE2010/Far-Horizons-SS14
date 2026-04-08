@@ -367,7 +367,7 @@
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepLocateImplant
-  name: Locate Eye Implant
+  name: Locate Implant
   components:
   - type: SurgeryStep
     duration: 2
@@ -1118,6 +1118,143 @@
         Piercing: 10
   #FarHorizons End
 
+# hand implants
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepPrepareImplantSiteHand
+  name: Prepare Implant Site
+  components:
+  - type: SurgeryStep
+    duration: 2
+    tools:
+    - type: Scalpel
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+  
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepInsertLeftHandImplant
+  name: Insert Hand Implant
+  components:
+  - type: SurgeryStep
+    duration: 2
+    tools:
+    - type: Organ
+    organCategory: HandLeftImplant
+  - type: SurgeryStepOrganInsert
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: hand_implant_insulated
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepInsertRightHandImplant
+  name: Insert Hand Implant
+  components:
+  - type: SurgeryStep
+    duration: 2
+    tools:
+    - type: Organ
+    organCategory: HandRightImplant
+  - type: SurgeryStepOrganInsert
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: hand_implant_insulated
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveLeftHandImplant
+  name: Remove Hand Implant
+  components:
+  - type: SurgeryStep
+    duration: 3
+    tools:
+    - type: Scalpel
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepOrganExtract
+    slot: HandLeftImplant
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveRightHandImplant
+  name: Remove Hand Implant
+  components:
+  - type: SurgeryStep
+    duration: 3
+    tools:
+    - type: Scalpel
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepOrganExtract
+    slot: HandRightImplant
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+
+# brain implants
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepInsertBrainImplant
+  name: Insert Brain Implant
+  components:
+  - type: SurgeryStep
+    duration: 2
+    tools:
+    - type: Organ
+    organCategory: BrainImplant
+  - type: SurgeryStepOrganInsert
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+    layers:
+      - state: brain_implant_translator
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveBrainImplant
+  name: Remove Brain Implant
+  components:
+  - type: SurgeryStep
+    duration: 2
+    tools:
+    - type: Scalpel
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepOrganExtract
+    slot: BrainImplant
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  #FarHorizons Start
+  - type: OnFailDamage
+    damage: 
+      types:
+        Slash: 10
+  #FarHorizons End
+  
 # tongue
 
 - type: entity

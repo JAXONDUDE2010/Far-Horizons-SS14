@@ -53,6 +53,7 @@
       prob: 0.02
     - id: VehicleKeySTV
       amount: 2 # In case the first set gets lost/stolen
+    - id: NeuralLinkDisruptor # Starlight
 
 - type: entityTable
   id: FillLockerWardenHarduit

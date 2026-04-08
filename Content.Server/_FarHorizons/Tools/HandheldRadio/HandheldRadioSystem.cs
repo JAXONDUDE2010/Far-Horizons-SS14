@@ -186,7 +186,7 @@ public sealed class HandheldRadioSystem : EntitySystem
             if (senderTf.MapID != targetTf.MapID && !targetRadio.Comp.RecievesFromAnyMap)
                 continue;
             
-            var name = Loc.GetString("speech-name-relay", ("speaker", Name(radio, targetMeta)), ("originalName", Name(source, sourceMeta)));
+            var name = Loc.GetString("speech-name-relay", ("speaker", Name(radio)), ("originalName", Name(source)));
             LanguagePrototype? language = null;
             if (TryComp(source, out LanguageSpeakerComponent? sourceLang))
                 language = _language.GetLanguage((source, sourceLang));

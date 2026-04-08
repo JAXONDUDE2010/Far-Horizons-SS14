@@ -15,10 +15,7 @@ using Robust.Shared.Utility;
 
 #region Starlight
 using System.Linq;
-using Content.Shared.Body.Components;
 using Content.Shared.Mech.Components;
-using Content.Shared.Weapons.Reflect;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared._Starlight.NullSpace;
 
@@ -39,15 +36,11 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
-    private EntityQuery<HitscanReflectComponent> _reflectQuery; // Starlight
-
     public override void Initialize()
     {
         base.Initialize();
 
         _visualsQuery = GetEntityQuery<HitscanBasicVisualsComponent>();
-
-        _reflectQuery = GetEntityQuery<HitscanReflectComponent>(); // Starlight
 
         SubscribeLocalEvent<HitscanBasicRaycastComponent, HitscanTraceEvent>(OnHitscanFired);
     }
