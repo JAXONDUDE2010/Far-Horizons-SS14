@@ -20,6 +20,7 @@ namespace Content.Client._Starlight.TTS;
 /// </summary>
 public sealed class TextToSpeechSystem : EntitySystem
 {
+    private const float CrossFade = 0.010f;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -223,7 +224,7 @@ public sealed class TextToSpeechSystem : EntitySystem
                 continue;
             var timeRemaining = despawnComponent.Lifetime - SharedAudioSystem.AudioDespawnBuffer - 1f;
 
-            if (timeRemaining < 0.066f)
+            if (timeRemaining < 0.066f && (ttsComp.AudioLength.TotalSeconds - audio.PlaybackPosition) < 0.096f)
                 toPlay.Add((uid, audio, ttsComp));
         }
 
