@@ -11691,5 +11691,230 @@ Entries:
   id: 112605
   time: '2026-04-07T15:38:54.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1126
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Welding implants work for Shadekin and Resomi now.
+    type: Fix
+  id: 112800
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Left cyberlegs no longer move around while in side view.
+    type: Fix
+  id: 112801
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Many surgery steps are now slightly more sensible.
+    type: Tweak
+  id: 112802
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Reaper arms now have a bone gel attachment, bringing them up to standard
+      for a full surgical kit.
+    type: Tweak
+  id: 112803
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Syndicate eye implants work now and are available from the traitor uplink.
+    type: Tweak
+  id: 112804
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Mantis blades now conform to skin tone.
+    type: Tweak
+  id: 112805
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Thermal vision cyber eyes are now Arsenal tech
+    type: Tweak
+  id: 112806
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Spacer Arm, a cybernetic arm specialised in salvage activities.
+    type: Add
+  id: 112807
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added G.O.R.I.L.L.A Arm, a cybernetic arm specialised in anomalous research.
+    type: Add
+  id: 112808
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Angel Arm, a cybernetic arm specialised in paramedic duties.
+    type: Add
+  id: 112809
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Persephone Arm, a cybernetic arm specialised in botany.
+    type: Add
+  id: 112810
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Zeus Arm, a cybernetic arm sporting a stun fist and melee-range
+      EMP device.
+    type: Add
+  id: 112811
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Riplet Arm, a cybernetic arm allowing a cargo technician to pick
+      up an entire crate - like a small Ripley!
+    type: Add
+  id: 112812
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Engineer Arm, a cybernetic arm containing a full advanced tool
+      set and RCD, at a high price.
+    type: Add
+  id: 112813
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Hydraulic Legs. They are your budget spegs giving you a decent
+      speed boost.
+    type: Add
+  id: 112814
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Pilebunker Legs to let their users jump.
+    type: Add
+  id: 112815
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Insulation Hand Implant.
+    type: Add
+  id: 112816
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Forensics Hand Implant.
+    type: Add
+  id: 112817
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Claws Hand Implant.
+    type: Add
+  id: 112818
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Thrusters Hand Implant.
+    type: Add
+  id: 112819
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Diagnostics Eye Implant - most of this was already done, credit
+      to @Rinary1
+    type: Add
+  id: 112820
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Chemistry Eye Implant.
+    type: Add
+  id: 112821
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Restored functionality of Syndicate Eye Implant.
+    type: Add
+  id: 112822
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Radio Brain Implant.
+    type: Add
+  id: 112823
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Translator Brain Implant.
+    type: Add
+  id: 112824
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Forensics and Claw implants to traitor uplink.
+    type: Add
+  id: 112825
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Expedition Radio Brain Implant and Spacer Arms to salvage ticket
+      vendor.
+    type: Add
+  id: 112826
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Added Mechwright arm to unlockable trinkets (20 hours of Station
+    type: Add
+  id: 112827
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Cyberhands can accept hand implants.
+    type: Fix
+  id: 112828
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: The blueprints for the new cyberlegs had been misplaced during transfer.
+      We have located them again, and you should find them in your medfab.
+    type: Fix
+  id: 112829
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Citrea & sprites by Maitake, Fasuh, Vonte
+  changes:
+  - message: Cybernetic limbs and some implants can now be disrupted by
+    type: Add
+  id: 112830
+  time: '2026-04-08T18:53:02.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
 Order: -1
 
