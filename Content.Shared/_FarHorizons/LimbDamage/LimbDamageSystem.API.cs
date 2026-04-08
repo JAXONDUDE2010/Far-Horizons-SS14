@@ -18,14 +18,14 @@ public partial class LimbDamageSystem
     public bool TryChangeLimbDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
         DamageSpecifier damage, out DamageSpecifier bodyDamageDealt, bool ignoreResistances = false,
         bool interruptsDoAfters = true, EntityUid? origin = null, bool ignoreGlobalModifiers = false,
-        float armorPenetration = 0, bool canHeal = true) => TryChangeLimbDamage(target, targetLimb, damage,
+        float armorPenetration = 0, bool canHeal = true, bool skipBodyDamage = false) => TryChangeLimbDamage(target, targetLimb, damage,
         out bodyDamageDealt, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers,
-        armorPenetration, canHeal);
+        armorPenetration, canHeal, skipBodyDamage);
 
     public bool TryChangeLimbDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
         DamageSpecifier damage, out DamageSpecifier bodyDamageDealt, out DamageSpecifier limbDamageDealt, bool ignoreResistances = false,
         bool interruptsDoAfters = true, EntityUid? origin = null, bool ignoreGlobalModifiers = false,
-        float armorPenetration = 0, bool canHeal = true)
+        float armorPenetration = 0, bool canHeal = true, bool skipBodyDamage = false)
     {
         bodyDamageDealt = new();
         limbDamageDealt = new();
@@ -41,9 +41,11 @@ public partial class LimbDamageSystem
         limbDamageDealt = _damageable.ChangeDamage(targetLimbEnt.Value.Owner, damage, ignoreResistances,
             interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration, canHeal);
 
-        bodyDamageDealt = _damageable.ChangeDamage(target.Owner,
-            limbDamageDealt * targetLimbEnt.Value.Comp.BodyDamageFactor, true, interruptsDoAfters, origin,
-            ignoreGlobalModifiers, armorPenetration, canHeal);
+        if (!skipBodyDamage)
+            bodyDamageDealt = _damageable.ChangeDamage(target.Owner,
+                limbDamageDealt * targetLimbEnt.Value.Comp.BodyDamageFactor, true, interruptsDoAfters, origin,
+                ignoreGlobalModifiers, armorPenetration, canHeal);
+
         return true;
     }
 
