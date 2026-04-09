@@ -278,7 +278,7 @@
   id: UplinkAdvancedLeftClawsImplant
   name: uplink-advanced-claws-left-name
   description: uplink-advanced-claws-desc
-  icon: { sprite: _Starlight/Objects/Specific/Medical/implants.rsi, state: hand_implant_claws }
+  icon: { sprite: _Starlight/Objects/Specific/Medical/implants.rsi, state: l_hand_implant_claws }
   productEntity: LeftHandImplantClaws
   discountCategory: rareDiscounts
   discountDownTo:
@@ -292,7 +292,7 @@
   id: UplinkAdvancedRightClawsImplant
   name: uplink-advanced-claws-right-name
   description: uplink-advanced-claws-desc
-  icon: { sprite: _Starlight/Objects/Specific/Medical/implants.rsi, state: hand_implant_claws }
+  icon: { sprite: _Starlight/Objects/Specific/Medical/implants.rsi, state: r_hand_implant_claws }
   productEntity: RightHandImplantClaws
   discountCategory: rareDiscounts
   discountDownTo:

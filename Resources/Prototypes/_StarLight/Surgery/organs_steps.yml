@@ -1153,7 +1153,7 @@
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
-      - state: hand_implant_insulated
+      - state: l_hand_implant_insulated
 
 - type: entity
   parent: SurgeryStepBase
@@ -1169,7 +1169,7 @@
   - type: Sprite
     sprite: _Starlight/Objects/Specific/Medical/implants.rsi
     layers:
-      - state: hand_implant_insulated
+      - state: r_hand_implant_insulated
 
 - type: entity
   parent: SurgeryStepBase
