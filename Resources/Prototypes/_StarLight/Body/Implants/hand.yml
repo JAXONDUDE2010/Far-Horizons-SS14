@@ -11,13 +11,13 @@
       - people
 
 - type: entity
-  id: HandLeftImplantInsulated
+  id: LeftHandImplantInsulated
   name: Left Hand Insulation Implant
   description: Protects your hands from electric currents!
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_insulated
+    state: l_hand_implant_insulated
   - type: Organ
     category: HandLeftImplant
   - type: FunctionalOrgan
@@ -25,13 +25,13 @@
     - type: Insulated
 
 - type: entity
-  id: HandRightImplantInsulated
+  id: RightHandImplantInsulated
   name: Right Hand Insulation Implant
   description: Protects your hands from electric currents!
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_insulated
+    state: r_hand_implant_insulated
   - type: Organ
     category: HandRightImplant
   - type: FunctionalOrgan
@@ -39,13 +39,13 @@
     - type: Insulated
 
 - type: entity
-  id: HandLeftImplantForensics
+  id: LeftHandImplantForensics
   name: Left Hand Forensics Implant
   description: Removes your fingerprints! Great for forensics, at the cost of your mail.
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_forensics
+    state: l_hand_implant_forensics
   - type: Organ
     category: HandLeftImplant
   - type: FunctionalOrgan
@@ -53,13 +53,13 @@
     - type: FingerprintMask
 
 - type: entity
-  id: HandRightImplantForensics
+  id: RightHandImplantForensics
   name: Right Hand Forensics Implant
   description: Removes your fingerprints! Great for forensics, at the cost of your mail.
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_forensics
+    state: r_hand_implant_forensics
   - type: Organ
     category: HandRightImplant
   - type: FunctionalOrgan
@@ -67,13 +67,13 @@
     - type: FingerprintMask
 
 - type: entity
-  id: HandLeftImplantClaws
+  id: LeftHandImplantClaws
   name: Left Hand Claws Implant
   description: Gives you retractable claws!
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_claws
+    state: l_hand_implant_claws
   - type: Organ
     category: HandLeftImplant
   - type: FunctionalOrgan
@@ -82,13 +82,13 @@
       action: ActionRetractableItemAdvancedClaws
 
 - type: entity
-  id: HandRightImplantClaws
+  id: RightHandImplantClaws
   name: Right Hand Claws Implant
   description: Gives you retractable claws!
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_claws
+    state: r_hand_implant_claws
   - type: Organ
     category: HandRightImplant
   - type: FunctionalOrgan
@@ -97,13 +97,13 @@
       action: ActionRetractableItemAdvancedClaws
 
 - type: entity
-  id: HandLeftImplantThrusters
+  id: LeftHandImplantThrusters
   name: Left Hand Thruster Implant
   description: Wrist-mounted micro-thrusters to help you maneuver in space.
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_thrusters
+    state: l_hand_implant_thrusters
   - type: Organ
     category: HandLeftImplant
   - type: FunctionalOrgan
@@ -111,13 +111,13 @@
     - type: MovementAlwaysTouching
 
 - type: entity
-  id: HandRightImplantThrusters
+  id: RightHandImplantThrusters
   name: Right Hand Thruster Implant
   description: Wrist-mounted micro-thrusters to help you maneuver in space.
   parent: BaseEntityHandImplant
   components:
   - type: Sprite
-    state: hand_implant_thrusters
+    state: r_hand_implant_thrusters
   - type: Organ
     category: HandRightImplant
   - type: FunctionalOrgan
