@@ -161,6 +161,7 @@
     delay: 1
     damageContainers:
       - Biological
+      - Robotic
     damage:
       types:
         Bloodloss: -1
