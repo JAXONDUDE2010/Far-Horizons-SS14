@@ -200,7 +200,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
-    allowedJobs: [ Bartender, BlueShield ]
+    allowedJobs: [ Bartender, BlueShield ] # FH
 
 - type: entity
   id: BaseSecurityLawyerContraband
@@ -209,7 +209,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
-    allowedJobs: [ Lawyer, BlueShield ]
+    allowedJobs: [ Lawyer, BlueShield ] # FH
 
 - type: entity
   id: BaseJanitorContraband
