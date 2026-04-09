@@ -12,12 +12,12 @@ limb-category-limb-name-footright = Right Foot
 limb-health-no-damage = There is no visible damage on { POSS-ADJ($target) } body.
 limb-health-missing = { CAPITALIZE(POSS-ADJ($target)) } [color=#c0ed1e]{$limb}[/color] [color=#f2190e]is missing! [/color]
 limb-health-ok = { CAPITALIZE(POSS-ADJ($target)) } [color=#c0ed1e]{$limb}[/color] looks healthy.
-limb-health-damge-combined = { CAPITALIZE(POSS-ADJ($target)) } [color=#c0ed1e]{$limb}[/color] [color=#ea8d2a]{$damage}![/color]
+limb-health-damage-combined = { CAPITALIZE(POSS-ADJ($target)) } [color=#c0ed1e]{$limb}[/color] [color=#ea8d2a]{$damage}![/color]
 
 limb-health-examinable-detached-ok = This is [color=#c0ed1e]{$limb}[/color], it looks healthy.
-limb-health-examinable-detached-damge-combined = This is [color=#c0ed1e]{$limb}[/color], it [color=#ea8d2a]{$damage}![/color]
+limb-health-examinable-detached-damage-combined = This is [color=#c0ed1e]{$limb}[/color], it [color=#ea8d2a]{$damage}![/color]
 limb-health-examinable-detached-attachment-ok = [color=#c0ed1e]{$limb}[/color] is attached, it looks healthy.
-limb-health-examinable-detached-attachment-damge-combined = [color=#c0ed1e]{$limb}[/color] is attached, it [color=#ea8d2a]{$damage}![/color]
+limb-health-examinable-detached-attachment-damage-combined = [color=#c0ed1e]{$limb}[/color] is attached, it [color=#ea8d2a]{$damage}![/color]
 
 limb-health-damage-combine = {$first} and {$last}
 

@@ -131,7 +131,7 @@ public partial class LimbDamageSystem
                 var thresholds = ProcessThresholds(limbDamage, _inspectThresholds);
 
                 if (thresholds.Count != 0)
-                    finalMessage = Loc.GetString("limb-health-damge-combined",
+                    finalMessage = Loc.GetString("limb-health-damage-combined",
                         ("target", Identity.Entity(ent, EntityManager)), ("limb", limbName),
                         ("damage", ProcessDamageText(thresholds)));
             }
@@ -235,7 +235,7 @@ public partial class LimbDamageSystem
         if (thresholds.Count == 0)
             baseMessage = Loc.GetString("limb-health-examinable-detached-ok", ("limb", limbName));
         else
-            baseMessage = Loc.GetString("limb-health-examinable-detached-damge-combined", ("limb", limbName),
+            baseMessage = Loc.GetString("limb-health-examinable-detached-damage-combined", ("limb", limbName),
                 ("damage", ProcessDamageText(thresholds)));
         
         msg.AddMarkupOrThrow(baseMessage);
@@ -257,7 +257,7 @@ public partial class LimbDamageSystem
                     msg.AddMarkupOrThrow(Loc.GetString("limb-health-examinable-detached-attachment-ok",
                         ("limb", organName)));
                 else
-                    msg.AddMarkupOrThrow(Loc.GetString("limb-health-examinable-detached-attachment-damge-combined",
+                    msg.AddMarkupOrThrow(Loc.GetString("limb-health-examinable-detached-attachment-damage-combined",
                         ("limb", organName), ("damage", ProcessDamageText(organThresholds))));
             }
 
