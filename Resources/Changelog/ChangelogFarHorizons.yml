@@ -11916,5 +11916,12 @@ Entries:
   id: 112830
   time: '2026-04-08T18:53:02.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Oil bags & Glass Sheets not working on IPCs
+    type: Fix
+  id: 113400
+  time: '2026-04-09T22:21:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1134
 Order: -1
 
