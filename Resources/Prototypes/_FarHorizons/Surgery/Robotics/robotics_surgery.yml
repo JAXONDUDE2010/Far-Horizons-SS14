@@ -233,7 +233,7 @@
 
 - type: entity
   parent: SurgeryBase
-  id: SurgeryExtractLeftHandImplant
+  id: SurgeryExtractLeftHandImplantRobot
   name: Extract Hand Implant
   components:
   - type: Surgery
@@ -258,7 +258,7 @@
 
 - type: entity
   parent: SurgeryBase
-  id: SurgeryExtractRightHandImplant
+  id: SurgeryExtractRightHandImplantRobot
   name: Extract Hand Implant
   components:
   - type: Surgery
