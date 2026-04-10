@@ -135,6 +135,13 @@ namespace Content.Client._FarHorizons.Lobby.UI
             PauseValueLabel.Text = pause.ToString("F2");
             PolyphonyValueLabel.Text = polyphony.ToString("F0");
             VolumeValueLabel.Text = volume.ToString("F2");
+
+            if (CurrentVoice is { } current)
+            {
+                var updated = new Symspeech(current.Voice, pitch, speed, pause, polyphony, volume);
+                CurrentVoice = updated;
+                OnVoiceSelected?.Invoke(updated);
+            }
         }
     }
 }
