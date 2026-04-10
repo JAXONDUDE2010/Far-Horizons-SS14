@@ -80,8 +80,8 @@
     ChemistryBottleEpinephrine: 3
     ChemistryBottleInaprovaline: 5
     Syringe: 5
-    PillTricordrazine: 20
-    PillIbuprofen: 20 #Far Horizons
+    PillTricordrazine: 30
+    PillIbuprofen: 30 #Far Horizons
     PillIron: 10  #Far Horizons
     PillCopper: 10  #Far Horizons
   contrabandInventory:
