@@ -48,12 +48,12 @@ public sealed partial class ConnectedOrganSystem : SharedConnectedOrganSystem
         if(HasComp<VisualOrganComponent>(ent))
         {
             var entName = MetaData(args.Target).EntityName;
-            _metaData.SetEntityName(ent, $"{entName}'s {GetPartName(ent.Owner)}");
+            _metaData.SetEntityName(ent, $"{entName}'s {GetPartName(ent.Owner)}", raiseEvents: false);
 
             if(TryComp<HeadOrganComponent>(ent, out var head))
             {
                 head.NameBackup = $"{entName}";
-                _metaData.SetEntityName(args.Target, "Unknown");
+                _metaData.SetEntityName(args.Target, "Unknown", raiseEvents: false);
             }
         }
     }
