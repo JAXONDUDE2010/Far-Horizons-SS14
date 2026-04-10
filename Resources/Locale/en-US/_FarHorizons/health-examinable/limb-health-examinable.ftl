@@ -63,18 +63,18 @@ limb-health-silicon-piercing-10 = has small puncture
 limb-health-silicon-piercing-30 = is pierced in several spots
 limb-health-silicon-piercing-50 = is riddled with holes
 
-limb-health-silicon-heat-10 = is slightly warped
-limb-health-silicon-heat-30 = is starting to melt
-limb-health-silicon-heat-50 = is melted into a slag
+limb-health-silicon-heat-10 = has some scorch marks
+limb-health-silicon-heat-30 = is somewhat warped
+limb-health-silicon-heat-50 = is warped and partially slagged
 
-limb-health-silicon-cold-10 = is coated in frost crystals
+limb-health-silicon-cold-10 = is coated in frost
 limb-health-silicon-cold-30 = has ice clogging internals
-limb-health-silicon-cold-50 = has cold cracks
+limb-health-silicon-cold-50 = has thick reflective layer of ice
 
-limb-health-silicon-shock-10 = is twitching with static
+limb-health-silicon-shock-10 = is sparking and twitching occasionally
 limb-health-silicon-shock-30 = is smelling of burnt electronics
-limb-health-silicon-shock-50 = is a fried mess
+limb-health-silicon-shock-50 = is looking burnt and its surface peeling off
 
-limb-health-silicon-caustic-10 = is oxidizing on the surface
-limb-health-silicon-caustic-30 = has bubbling chemical erosion
-limb-health-silicon-caustic-50 = is dissolving into a sludge
+limb-health-silicon-caustic-10 = looks tarnished
+limb-health-silicon-caustic-30 = is eroded on the surface
+limb-health-silicon-caustic-50 = has a thick iridescent oxidized layer
