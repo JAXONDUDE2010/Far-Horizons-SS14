@@ -35,9 +35,9 @@ public sealed partial class TTSSystem : EntitySystem
         "The robust salvagers have once again halted the nuclear operatives."
     ];
 
-    private Symspeech _defaultAnnounceVoice = null!; // Far Horizons
+    // private Symspeech _defaultAnnounceVoice = null!; // Far Horizons
 
-    private Symspeech _defaultVoice = null!; // Far Horizons
+    // private Symspeech _defaultVoice = null!; // Far Horizons
     // private const int MaxChars = 200; // Far Horizons - Change to a CVar
     private const float WhisperVoiceVolumeModifier = 0.6f;
     private readonly ISawmill _sawmill = Logger.GetSawmill(nameof(TTSSystem));
@@ -48,8 +48,6 @@ public sealed partial class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _defaultVoice = new Symspeech("1", 0, 0, 0, 0, 0); // Far Horizons - TODO - Add a nice voice as a default
-        _defaultAnnounceVoice = new Symspeech("1", 0, 0, 0, 0, 0); // Far Horizons - TODO - Add a nice voice as a default
         _cfg.OnValueChanged(StarlightCCVars.TTSEnabled, v => _isEnabled = v, true);
         _cfg.OnValueChanged(StarlightCCVars.TTSMaxLengthMessage, v => _maxChars = v, true); // Far Horizons - Add max characters length as a CVar
 
@@ -157,11 +155,23 @@ public sealed partial class TTSSystem : EntitySystem
         await Task.Yield();
         try
         {
+            // Far Horizons edit start
+            var defaultAnnounceVoice = _prototypeManager.Index<VoicePrototype>(Symspeech.DefaultAnnouncerVoice);
+            
+            var defaultAnnouncer = new Symspeech(
+                defaultAnnounceVoice.ID,
+                defaultAnnounceVoice.DefaultPitch,
+                defaultAnnounceVoice.DefaultSpeed,
+                defaultAnnounceVoice.DefaultPause,
+                defaultAnnounceVoice.DefaultPolyphony,
+                defaultAnnounceVoice.DefaultVolume);
+            // Far Horizons edit end
+            
             var text = ShortenMessage(CleanText(args.Message.Tts ?? args.Message.Text)); // Far Horizons - shorten the message to the max length
             var filter = args.Receivers.RemovePlayers(_ignoredRecipients);
             var voice = args.SpeakerUid.HasValue
-                ? GetOrAssignVoice(GetEntity(args.SpeakerUid.Value), fallbackVoice: _defaultAnnounceVoice) // Far Horizons
-                : _defaultAnnounceVoice; // Far Horizons
+                ? GetOrAssignVoice(GetEntity(args.SpeakerUid.Value), fallbackVoice: defaultAnnouncer) // Far Horizons
+                : defaultAnnouncer; // Far Horizons
 
             await GenerateAndStream(TTSType.Announcement, voice, text, filter, TTSEffect.Megaphone, args.AnnouncementSound);
         }

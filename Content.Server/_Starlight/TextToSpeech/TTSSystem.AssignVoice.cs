@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
@@ -17,7 +18,18 @@ public sealed partial class TTSSystem
     // Far Horizons edit start - change to symspeech
     private Symspeech GetOrAssignVoice(EntityUid uid, TextToSpeechComponent? component = default, Symspeech? fallbackVoice = null)
     {
-        fallbackVoice ??= _defaultVoice;
+        Sex? sex = null;
+        var isHumanoid = false;
+
+        if (TryComp<HumanoidProfileComponent>(uid, out var humanoidAppearanceComponent))
+        {
+            isHumanoid = true;
+            sex = humanoidAppearanceComponent.Sex;
+        }
+
+        fallbackVoice ??= HumanoidCharacterProfile.DefaultSymspeech(
+            humanoidAppearanceComponent?.Species ?? HumanoidCharacterProfile.DefaultSpecies,
+            sex ?? Sex.Male);
         if (component is null && !TryComp(uid, out component))
             return fallbackVoice;
 
@@ -25,13 +37,6 @@ public sealed partial class TTSSystem
             && _prototypeManager.TryIndex(symspeech.Voice, out VoicePrototype? proto))
             return symspeech;
 
-        var isHumanoid = false;
-
-        if (TryComp<HumanoidProfileComponent>(uid, out var humanoidAppearanceComponent)
-            && humanoidAppearanceComponent?.Sex is Sex sex1)
-        {
-            isHumanoid = true;
-        }
 
         if (TryComp<MindContainerComponent>(uid, out var mindContainer)
             && mindContainer.HasMind
@@ -41,7 +46,7 @@ public sealed partial class TTSSystem
             {
                 if (mind.Symspeech?.Voice is { } mindVoiceId && _prototypeManager.TryIndex(mindVoiceId, out VoicePrototype? mindVoice))
                 {
-                    component.Symspeech?.Voice = mindVoiceId;
+                    component.Symspeech = mind.Symspeech;
                     return mind.Symspeech;
                 }
             }
@@ -49,7 +54,7 @@ public sealed partial class TTSSystem
             {
                 if (mind.SiliconSymspeech?.Voice is { } mindVoiceId && _prototypeManager.TryIndex(mindVoiceId, out VoicePrototype? mindVoice))
                 {
-                    component.Symspeech?.Voice = mindVoiceId;
+                    component.Symspeech = mind.SiliconSymspeech;
                     return mind.SiliconSymspeech;
                 }
             }
@@ -67,15 +72,17 @@ public sealed partial class TTSSystem
 
             var index = _rng.Next(voicePrototypes.Length);
             var prototype = voicePrototypes[index];
-            component.Symspeech?.Voice = prototype.Value.ID;
-            return new Symspeech(
+            var newSymspeech = new Symspeech(
                 prototype.Value.ID,
                 prototype.Value.DefaultPitch,
                 prototype.Value.DefaultSpeed,
                 prototype.Value.DefaultPause,
                 prototype.Value.DefaultPolyphony,
                 prototype.Value.DefaultVolume
-                );
+            );
+            component.Symspeech = newSymspeech;
+            
+            return newSymspeech;
         }
     }
     // Far Horizons edit end

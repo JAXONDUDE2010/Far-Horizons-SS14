@@ -25,6 +25,7 @@ using Content.Shared._FarHorizons.Humanoid;
 using Robust.Shared;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._Starlight.Traits;
+using Content.Shared.Starlight.TextToSpeech; // Far Horizons
 
 namespace Content.Shared.Preferences
 {
@@ -745,6 +746,22 @@ namespace Content.Shared.Preferences
                 SpeciesLoadout.Role = speciesPrototype.Loadout.Value;
                 SpeciesLoadout.SetDefault(this, session, prototypeManager);
             }
+
+            Symspeech ??= DefaultSymspeech();
+
+            if (SiliconSymspeech == null)
+            {
+                if (prototypeManager.TryIndex<VoicePrototype>(Symspeech.DefaultSiliconVoice, out var siliconVoiceProto))
+                {
+                    SiliconSymspeech = new Symspeech(
+                        siliconVoiceProto.ID,
+                        siliconVoiceProto.DefaultPitch,
+                        siliconVoiceProto.DefaultSpeed,
+                        siliconVoiceProto.DefaultPause,
+                        siliconVoiceProto.DefaultPolyphony,
+                        siliconVoiceProto.DefaultVolume);
+                }
+            }
             // Far Horizons end
         }
 
@@ -891,6 +908,27 @@ namespace Content.Shared.Preferences
             var dataNode = serialization.WriteValue(export, alwaysWrite: true, notNullableOverride: true);
             return dataNode;
         }
+        
+        // Far Horizons edit start - Default Symspeech for species and sex
+        public Symspeech DefaultSymspeech() => DefaultSymspeech(Species, Sex);
+
+        public static Symspeech DefaultSymspeech(ProtoId<SpeciesPrototype> species, Sex sex)
+        {
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+            var speciesProto = prototypeManager.Index(species);
+            var defaultVoiceProtoId = sex == Sex.Male ? speciesProto.DefaultMaleVoice : speciesProto.DefaultFemaleVoice;
+            var defaultVoice = prototypeManager.Index(defaultVoiceProtoId);
+
+            return new Symspeech(
+                defaultVoice.ID,
+                defaultVoice.DefaultPitch,
+                defaultVoice.DefaultSpeed,
+                defaultVoice.DefaultPause,
+                defaultVoice.DefaultPolyphony,
+                defaultVoice.DefaultVolume
+            );
+        }
+        // Far Horizons edit end
 
         // Far Horizons - moved to Far Horizons file
         // public static HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session, ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
