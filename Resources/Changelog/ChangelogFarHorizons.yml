@@ -11990,5 +11990,62 @@ Entries:
   id: 113107
   time: '2026-04-09T23:57:59.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: AthenaAI
+  changes:
+  - message: Added Flipped sprites for the hand implants for clarity.
+    type: Add
+  id: 113200
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added spacer arm to miner ticket vendor ( they deserve love too)
+    type: Add
+  id: 113201
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added Neural Link as a hard thief steal objective have fun agents.
+    type: Add
+  id: 113202
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added the ability for sec to search cargo legs via verbs.
+    type: Add
+  id: 113203
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed Cyber speed legs, diagnostic and chemistry eyes not showing in
+      the research tree and med fab.
+    type: Fix
+  id: 113204
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed the sprites for limbs on the medical dispenser and ticket vendor.
+    type: Fix
+  id: 113205
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed Neural Link not showing on our warden locker variants.
+    type: Fix
+  id: 113206
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed an issue with double leg amputation not removing legs paralyzed.
+    type: Fix
+  id: 113207
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
 Order: -1
 
