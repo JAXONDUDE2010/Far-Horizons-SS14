@@ -56,7 +56,7 @@
   parent: BaseMagazineBoxRifle556 #FH
   id: MagazineBoxRifle556AP #FH
   name: 5.56 Ammunition Box (Rifle AP) #FH
-  description: A carboard box of Armor-Piercing 5.56 rounds. Effective against heavily armored targets. #FH
+  description: A cardboard box of Armor-Piercing 5.56 rounds. Effective against heavily armored targets. #FH
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle556AP #FH
@@ -72,7 +72,7 @@
   parent: BaseMagazineBoxRifle556 #FH
   id: MagazineBoxRifle556Practice #FH
   name: 5.56 Ammunition Box (Rifle Practice) #FH
-  description: A carboard box of Chalk-Loaded 5.56 rounds. Used for target practice. #FH
+  description: A cardboard box of Chalk-Loaded 5.56 rounds. Used for target practice. #FH
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle556Practice #FH
@@ -88,7 +88,7 @@
   id: MagazineBoxRifle556Incendiary #FH
   parent: BaseMagazineBoxRifle556 #FH
   name: 5.56 Ammunition Box (Rifle Incendiary) #FH
-  description: A carboard box of Self-Igniting 5.56 rounds. Burns people alive. #FH
+  description: A cardboard box of Self-Igniting 5.56 rounds. Burns people alive. #FH
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle556Incendiary #FH

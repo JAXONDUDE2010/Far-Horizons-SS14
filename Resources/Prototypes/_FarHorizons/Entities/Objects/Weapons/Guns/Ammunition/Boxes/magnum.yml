@@ -28,7 +28,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnum
   name: .44 Magnum Ammunition Box (Revolver Any)
-  description: A carboard box designed to hold .44 Revolver rounds.
+  description: A cardboard box designed to hold .44 Revolver rounds.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -43,7 +43,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumHP
   name: .44 Magnum Ammunition Box (Revolver HP)
-  description: A carboard box of Hollow-Point .44 Revolver rounds. Effective against unarmored targets.
+  description: A cardboard box of Hollow-Point .44 Revolver rounds. Effective against unarmored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumHP
@@ -59,7 +59,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumSP
   name: .44 Magnum Ammunition Box (Revolver SP)
-  description: A carboard box of Soft-Point .44 Revolver rounds. Effective against lightly-armored targets.
+  description: A cardboard box of Soft-Point .44 Revolver rounds. Effective against lightly-armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumSP
@@ -75,7 +75,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumFMJ
   name: .44 Magnum Ammunition Box (Revolver FMJ)
-  description: A carboard box of Full Metal Jacket .44 Revolver rounds. Effective against armored targets.
+  description: A cardboard box of Full Metal Jacket .44 Revolver rounds. Effective against armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumFMJ
@@ -91,7 +91,7 @@
   id: MagazineBoxMagnumAP
   parent: BaseMagazineBoxMagnum
   name: .44 Magnum Ammunition Box (Revolver AP)
-  description: A carboard box of Armor-Piercing .44 Revolver rounds. Effective against heavily armored targets.
+  description: A cardboard box of Armor-Piercing .44 Revolver rounds. Effective against heavily armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
@@ -107,7 +107,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumPractice
   name: .44 Magnum Ammunition Box (Revolver Practice)
-  description: A carboard box of Chalk-Loaded .44 Revolver rounds. Used for target practice.
+  description: A cardboard box of Chalk-Loaded .44 Revolver rounds. Used for target practice.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -123,7 +123,7 @@
   id: MagazineBoxMagnumIncendiary
   parent: BaseMagazineBoxMagnum
   name: .44 Magnum Ammunition Box (Revolver Incendiary)
-  description: A carboard box of Self-Igniting .44 Revolver rounds. Burns people alive.
+  description: A cardboard box of Self-Igniting .44 Revolver rounds. Burns people alive.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
@@ -139,7 +139,7 @@
   id: MagazineBoxMagnumUranium
   parent: BaseMagazineBoxMagnum
   name: .44 Magnum Ammunition Box (Revolver Uranium)
-  description: A carboard box of Uranium-Core .44 Revolver rounds. Delivers radiation poisoning on contact.
+  description: A cardboard box of Uranium-Core .44 Revolver rounds. Delivers radiation poisoning on contact.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -155,7 +155,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumRubber
   name: Ammunition box (.44 Magnum Rubber)
-  description: A carboard box of Rubber .44 Revolver rounds. Mostly harmless.
+  description: A cardboard box of Rubber .44 Revolver rounds. Mostly harmless.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumRubber

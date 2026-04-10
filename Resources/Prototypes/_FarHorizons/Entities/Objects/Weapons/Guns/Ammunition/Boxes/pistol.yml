@@ -2,7 +2,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistol
   name: 9mm Ammunition Box (Any)
-  description: A carboard box designed to hold 9mm rounds.
+  description: A cardboard box designed to hold 9mm rounds.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -17,7 +17,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolHP
   name: 9mm Ammunition Box (HP)
-  description: A carboard box of Hollow-Point 9mm rounds. Effective against unarmored targets.
+  description: A cardboard box of Hollow-Point 9mm rounds. Effective against unarmored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolHP
@@ -33,7 +33,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolSP
   name: 9mm Ammunition Box (SP)
-  description: A carboard box of Soft-Point 9mm rounds. Effective against lightly-armored targets.
+  description: A cardboard box of Soft-Point 9mm rounds. Effective against lightly-armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolSP
@@ -49,7 +49,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolFMJ
   name: 9mm Ammunition Box (FMJ)
-  description: A carboard box of Full Metal Jacket 9mm rounds. Effective against armored targets.
+  description: A cardboard box of Full Metal Jacket 9mm rounds. Effective against armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolFMJ
@@ -65,7 +65,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolAP
   name: 9mm Ammunition Box (AP)
-  description: A carboard box of Armor-Piercing 9mm rounds. Effective against heavily armored targets.
+  description: A cardboard box of Armor-Piercing 9mm rounds. Effective against heavily armored targets.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolAP
@@ -81,7 +81,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolRubber
   name: 9mm Ammunition Box (Rubber)
-  description: A carboard box of Rubber 9mm rounds. Mostly harmless.
+  description: A cardboard box of Rubber 9mm rounds. Mostly harmless.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolRubber

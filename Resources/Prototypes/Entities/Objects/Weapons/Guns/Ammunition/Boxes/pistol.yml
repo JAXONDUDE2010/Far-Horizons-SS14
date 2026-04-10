@@ -34,7 +34,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolPractice
   name: 9mm Ammunition Box (Practice) #FH
-  description: A carboard box of Chalk-Loaded 9mm rounds. Used for target practice. #FH
+  description: A cardboard box of Chalk-Loaded 9mm rounds. Used for target practice. #FH
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice
@@ -50,7 +50,7 @@
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolIncendiary
   name: 9mm Ammunition Box (Incendiary) #FH
-  description: A carboard box of Self-Igniting 9mm rounds. Burns people alive. #FH
+  description: A cardboard box of Self-Igniting 9mm rounds. Burns people alive. #FH
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolIncendiary
