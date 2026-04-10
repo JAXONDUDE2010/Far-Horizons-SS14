@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: [BaseSpeciesMobOrganic, BaseSpeciesPickupableLarge] #FH
   id: BaseMobElf
   name: Urist McElgi
   abstract: true
@@ -30,11 +30,6 @@
       amount: 5
   - type: Speech
     speechSounds: Tenor
-  - type: HumanoidAppearance
-    species: Elf
-    hideLayersOnEquip:
-    - Hair
-    - Snout
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -42,16 +37,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
-- type: entity
-  parent: BaseSpeciesDummy
-  id: MobElfDummy
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+  - type: VisionOrganRequiredForVision # Far Horizons
+  - type: LimbDamageable # Far Horizons
+    proto: LimbTargetHuman

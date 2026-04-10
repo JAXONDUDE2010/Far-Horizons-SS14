@@ -14,6 +14,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - LeatherSatchel # starlight
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -21,17 +22,9 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
-
-- type: loadoutGroup
-  id: SurvivalMedical
-  name: loadout-group-survival-medical
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMedical
-  - EmergencyOxygenMedical
-  - EmergencyNonBreatherMedical #FH
-  #- LoadoutSpeciesVoxNitrogen # SL removed
+  - Heels # 🌟Starlight🌟
+  - LaceupShoes # 🌟Starlight🌟
+  - LeatherShoes # 🌟Starlight🌟
 
 # Chief Medical Officer
 
@@ -74,6 +67,10 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - WhiteShoes # 🌟Starlight🌟
+  - Heels # 🌟Starlight🌟
+  - LaceupShoes # 🌟Starlight🌟
+  - LeatherShoes # 🌟Starlight🌟
 
 #- type: loadoutGroup
 #  id: ChiefMedicalOfficerJobTrinkets
@@ -107,6 +104,10 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - NurseJumpskirt # afterlight
+  - CoronerJumpskirt # afterlight
+  - CoronerJumpsuit # afterlight
+  - CoronerJumpsuitAlt # afterlight
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -116,6 +117,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - WindbreakerMedical #Starlight
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -153,6 +155,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorChemistJumpsuit # Starlight
+  - SeniorChemistJumpskirt # Starlight
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -162,6 +166,8 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorChemistLabCoat # Starlight
+  - SeniorChemistWintercoat # Starlight
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -170,6 +176,10 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  - SeniorChemistBackpack # Starlight
+  - SeniorChemistSatchel # Starlight
+  - SeniorChemistDuffel # Starlight
+  - LeatherSatchel # starlight
 
 #- type: loadoutGroup
 #  id: ChemistJobTrinkets
@@ -192,6 +202,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - SeniorParamedicJumpsuit #Starlight
+  - SeniorParamedicJumpskirt #Starlight
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -208,6 +220,8 @@
   - BlueShoes
   - WhiteShoes
   - MedicalWinterBoots
+  - Heels # 🌟Starlight🌟
+  - HighHeelBoots # Starlight
 
 #- type: loadoutGroup
 #  id: ParamedicJobTrinkets

@@ -1,5 +1,4 @@
 using Content.Server.Administration;
-using Content.Server.Popups;
 using Content.Server.Prayer;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -15,7 +14,6 @@ namespace Content.Server._Starlight.Magic.Systems;
 /// </summary>
 public sealed class PsychicWhisperSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly PrayerSystem _prayerSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

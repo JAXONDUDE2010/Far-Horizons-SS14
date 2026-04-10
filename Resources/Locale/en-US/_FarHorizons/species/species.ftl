@@ -17,6 +17,3 @@ subspecies-name-protodionae = Proto-Dionae
 subspecies-name-protocyclops = Proto-Cyclops
 subspecies-name-protoavali = Proto-Avali
 subspecies-name-protoarachnid = Proto-Arachnid
-
-species-name-thaven = Thaven
-species-name-resomi = Resomi
