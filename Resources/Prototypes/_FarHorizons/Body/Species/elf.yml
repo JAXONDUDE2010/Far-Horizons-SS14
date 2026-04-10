@@ -90,6 +90,47 @@
   name: Urist McElgi
 
 - type: entity
+  parent: MobElf
+  id: MobElfWood
+  name: Urist McElgi-Wood
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Sylvan
+    understands:
+    - GalacticCommon
+    - Sylvan
+
+- type: entity
+  parent: MobElf
+  id: MobElfDark
+  name: Urist McElgi-Dark
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Darktongue
+    understands:
+    - GalacticCommon
+    - Darktongue
+    - Felyaic
+
+- type: entity
+  parent: MobElf
+  id: MobElfCave
+  name: Urist McElgi-Cave
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Felyaic
+    understands:
+    - GalacticCommon
+    - Darktongue
+    - Felyaic
+
+- type: entity
   parent: OrganBase
   id: OrganElf
   abstract: true

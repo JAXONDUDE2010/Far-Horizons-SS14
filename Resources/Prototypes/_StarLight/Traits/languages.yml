@@ -72,52 +72,6 @@
         - Iterator
       inverted: true
 
-- type: trait
-  id: Darktongue
-  name: trait-language-darktongue-name
-  description: trait-language-darktongue-desc
-  category: LanguageTraits
-  effects:
-    - !type:LanguageEffect
-      languagesSpoken:
-        - Darktongue
-      languagesUnderstood:
-        - Darktongue
-  requirements:
-    - !type:TraitsRequirement
-      traits:
-        - Iterator
-      inverted: true
-    - !type:TraitsRequirement
-      traits:
-        - DarkElf
-      inverted: true
-
-- type: trait
-  id: Felyaic
-  name: trait-language-felyaic-name
-  description: trait-language-felyaic-desc
-  category: LanguageTraits
-  cost: 1
-  effects:
-    - !type:LanguageEffect
-      languagesSpoken:
-        - Felyaic
-      languagesUnderstood:
-        - Felyaic
-  requirements:
-    - !type:TraitsRequirement
-      traits:
-        - Darktongue
-    - !type:TraitsRequirement
-      traits:
-        - Iterator
-      inverted: true
-    - !type:TraitsRequirement
-      traits:
-        - CaveElf
-      inverted: true
-
 # Species Languages // Should cost: 2
 
 - type: trait
@@ -203,13 +157,13 @@
       languagesUnderstood:
         - Aielic
   requirements:
-    - !type:TraitsRequirement
-      traits:
-        - Iterator
+    - !type:SpeciesRequirement
+      species:
+        - Elf
       inverted: true
     - !type:TraitsRequirement
       traits:
-        - HighElf
+        - Iterator
       inverted: true
 
 - type: trait
@@ -382,10 +336,51 @@
     - !type:SpeciesRequirement
       species:
         - Diona
+        - ElfWood
       inverted: true
     - !type:TraitsRequirement
       traits:
-        - WoodElf
+        - Iterator
+      inverted: true
+
+- type: trait
+  id: Darktongue
+  name: trait-language-darktongue-name
+  description: trait-language-darktongue-desc
+  category: LanguageTraits
+  cost: 2
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Darktongue
+      languagesUnderstood:
+        - Darktongue
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - ElfDark
+      inverted: true
+    - !type:TraitsRequirement
+      traits:
+        - Iterator
+      inverted: true
+
+- type: trait
+  id: Felyaic
+  name: trait-language-felyaic-name
+  description: trait-language-felyaic-desc
+  category: LanguageTraits
+  cost: 2
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Felyaic
+      languagesUnderstood:
+        - Felyaic
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - ElfCave
       inverted: true
     - !type:TraitsRequirement
       traits:

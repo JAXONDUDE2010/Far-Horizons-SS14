@@ -17,3 +17,8 @@ subspecies-name-protodionae = Proto-Dionae
 subspecies-name-protocyclops = Proto-Cyclops
 subspecies-name-protoavali = Proto-Avali
 subspecies-name-protoarachnid = Proto-Arachnid
+
+subspecies-name-elf-high = Quela
+subspecies-name-elf-wood = Laurasse
+subspecies-name-elf-dark = Seiryth
+subspecies-name-elf-cave = Detar

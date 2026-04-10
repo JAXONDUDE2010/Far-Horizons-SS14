@@ -10,6 +10,61 @@
   lastNames: NamesLastElf
   naming: FirstLast
   customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesName: subspecies-name-elf-high
+  hasSubspecies: true
+  minAge: 30
+  youngAge: 120
+  oldAge: 2700
+  maxAge: 10000
+
+#FH Start
+- type: species
+  id: ElfWood
+  name: subspecies-name-elf-wood
+  roundStart: true
+  prototype: MobElfWood
+  dollPrototype: AppearanceElf
+  defaultSkinTone: "#c9803c"
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Elf
+  subspeciesName: subspecies-name-elf-wood
+  minAge: 30
+  youngAge: 120
+  oldAge: 2700
+  maxAge: 10000
+
+- type: species
+  id: ElfDark
+  name: subspecies-name-elf-dark
+  roundStart: true
+  prototype: MobElfDark
+  dollPrototype: AppearanceElf
+  defaultSkinTone: "#c9803c"
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Elf
+  subspeciesName: subspecies-name-elf-dark
+  minAge: 30
+  youngAge: 120
+  oldAge: 2700
+  maxAge: 10000
+
+- type: species
+  id: ElfCave
+  name: subspecies-name-elf-cave
+  roundStart: true
+  prototype: MobElfCave
+  dollPrototype: AppearanceElf
+  defaultSkinTone: "#646085"
+  skinColoration: Hues
+  customName: true
+  roundstartCyberwareCapacity: 6
+  subspeciesOf: Elf
+  subspeciesName: subspecies-name-elf-cave
   minAge: 30
   youngAge: 120
   oldAge: 2700

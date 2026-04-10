@@ -7,10 +7,10 @@
   - type: LanguageKnowledge
     speaks:
     - GalacticCommon
-#    - Aielic
+    - Aielic
     understands:
     - GalacticCommon
-#    - Aielic
+    - Aielic
 #    - SolCommon
 #    - Darktongue
 #    - Sylvan
