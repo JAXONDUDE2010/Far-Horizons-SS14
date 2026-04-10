@@ -759,7 +759,7 @@
   suffix: Tricordrazine 20u, 10 # Far Horizons - more pills
   components:
   - type: Label
-    currentLabel: tricordrazine 10u
+    currentLabel: tricordrazine 20u
   - type: EntityTableContainerFill
     containers:
       storagebase:
