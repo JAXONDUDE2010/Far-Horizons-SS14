@@ -58,11 +58,11 @@ namespace Content.Client._FarHorizons.Lobby.UI
             {
                 var symspeech = new Symspeech(
                     voice: voice.ID,
-                    pitch: pitch,
-                    speed: speed,
-                    pause: pause,
-                    polyphony: polyphony,
-                    volume: volume
+                    pitch: voice.DefaultPitch,
+                    speed: voice.DefaultSpeed,
+                    pause: voice.DefaultPause,
+                    polyphony: voice.DefaultPolyphony,
+                    volume: voice.DefaultVolume
                 );
 
                 OnVoiceSelected?.Invoke(symspeech);
@@ -70,11 +70,11 @@ namespace Content.Client._FarHorizons.Lobby.UI
                 CurrentVoiceLabel.Text =
                     Loc.GetString("voice-selector-current-voice", ("voice", Loc.GetString(voice.Name)));
 
-                PitchSlider.Value = voice.DefaultPitch;
-                SpeedSlider.Value = voice.DefaultSpeed;
-                PauseSlider.Value = voice.DefaultPause;
-                PolyphonySlider.Value = voice.DefaultPolyphony;
-                VolumeSlider.Value = voice.DefaultVolume;
+                PitchSlider.Value = symspeech.Pitch;
+                SpeedSlider.Value = symspeech.Speed;
+                PauseSlider.Value = symspeech.Pause;
+                PolyphonySlider.Value = symspeech.Polyphony;
+                VolumeSlider.Value = symspeech.Volume;
 
                 UpdateValues();
             }
