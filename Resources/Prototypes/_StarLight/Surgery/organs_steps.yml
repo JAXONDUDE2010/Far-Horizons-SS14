@@ -1139,6 +1139,7 @@
         Slash: 10
   #FarHorizons End
   
+# FarHorizons STart
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepInsertLeftHandImplant
@@ -1186,12 +1187,10 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
-  #FarHorizons Start
   - type: OnFailDamage
     damage: 
       types:
         Slash: 10
-  #FarHorizons End
 
 - type: entity
   parent: SurgeryStepBase
@@ -1208,7 +1207,6 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
-  #FarHorizons Start
   - type: OnFailDamage
     damage: 
       types:
