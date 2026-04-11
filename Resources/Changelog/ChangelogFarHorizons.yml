@@ -12268,5 +12268,27 @@ Entries:
   id: 114800
   time: '2026-04-11T01:57:43.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1148
+- author: princess_gurchi
+  changes:
+  - message: Fixed direct attacks with guns aimed at torso being able to hit limbs
+    type: Fix
+  id: 115200
+  time: '2026-04-11T15:28:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1152
+- author: princess_gurchi
+  changes:
+  - message: Fixed health inspect text showing empty lines
+    type: Fix
+  id: 115201
+  time: '2026-04-11T15:28:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1152
+- author: princess_gurchi
+  changes:
+  - message: Removed all instances of foldabale clothes as we don't have any foldable
+      sprites
+    type: Fix
+  id: 115202
+  time: '2026-04-11T15:28:16.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1152
 Order: -1
 
