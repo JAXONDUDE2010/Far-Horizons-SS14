@@ -166,8 +166,14 @@ namespace Content.Client.Lobby.UI
                     _entManager.System<TextToSpeechSystem>().RequestPreviewTts(symspeech);
             };
 
-            VoiceButton.OnPressed += _ => _voiceSelectorWindow.OpenCentered();
-        
+            VoiceButton.OnPressed += _ =>
+            {
+                var voice = Profile?.Symspeech ?? Profile?.DefaultSymspeech();
+                if (voice != null)
+                    _voiceSelectorWindow.LoadVoice(voice);
+                _voiceSelectorWindow.OpenCentered();
+            };
+
             _voiceSiliconSelectorWindow.OnVoiceSelected += voice =>
             {
                 Profile = Profile?.WithSiliconVoice(voice);
@@ -181,7 +187,24 @@ namespace Content.Client.Lobby.UI
                         _entManager.System<TextToSpeechSystem>().RequestPreviewTts(symspeech);
                 };
 
-            SiliconVoiceButton.OnPressed += _ => _voiceSiliconSelectorWindow.OpenCentered();
+            SiliconVoiceButton.OnPressed += _ =>
+            {
+                var voice = Profile?.SiliconSymspeech;
+                if (voice is null)
+                {
+                    var defaultSiliconVoice = _prototypeManager.Index<VoicePrototype>(Symspeech.DefaultSiliconVoice);
+                    voice = new Symspeech(
+                        defaultSiliconVoice.ID,
+                        defaultSiliconVoice.DefaultPitch,
+                        defaultSiliconVoice.DefaultSpeed,
+                        defaultSiliconVoice.DefaultPause,
+                        defaultSiliconVoice.DefaultPolyphony,
+                        defaultSiliconVoice.DefaultVolume
+                    );
+                }
+                _voiceSiliconSelectorWindow.LoadVoice(voice);
+                _voiceSiliconSelectorWindow.OpenCentered();
+            };
             // Far Horizons edit end
 
             Markings.SetModel(_markingsModel);

@@ -48,8 +48,6 @@ namespace Content.Client._FarHorizons.Lobby.UI
             PauseSlider.OnValueChanged += _ => UpdateValues();
             PolyphonySlider.OnValueChanged += _ => UpdateValues();
             VolumeSlider.OnValueChanged += _ => UpdateValues();
-
-            UpdateValues();
         }
 
         private void OnItemSelected(ItemList.ItemListSelectedEventArgs obj)
@@ -118,6 +116,22 @@ namespace Content.Client._FarHorizons.Lobby.UI
             PauseSlider.Value = CurrentVoice.Pause;
             PolyphonySlider.Value = CurrentVoice.Polyphony;
             VolumeSlider.Value = CurrentVoice.Volume;
+
+            CurrentVoiceLabel.Text = Loc.GetString("voice-selector-current-voice",
+                ("voice", Loc.GetString(voiceProto.Name)));
+        }
+
+        public void LoadVoice(Symspeech voice)
+        {
+            var voiceProto = _protoManager.Index(voice.Voice);
+
+            CurrentVoice = voice;
+
+            PitchSlider.Value = voice.Pitch;
+            SpeedSlider.Value = voice.Speed;
+            PauseSlider.Value = voice.Pause;
+            PolyphonySlider.Value = voice.Polyphony;
+            VolumeSlider.Value = voice.Volume;
 
             CurrentVoiceLabel.Text = Loc.GetString("voice-selector-current-voice",
                 ("voice", Loc.GetString(voiceProto.Name)));
