@@ -119,6 +119,8 @@ namespace Content.Server.Database
 
             var oldProfile = db.DbContext.Profile
                 .Include(p => p.StarLightProfile) // Starlight
+                .Include(p => p.FarHorizonsProfile).ThenInclude(fh => fh!.Symspeech) // Far Horizons
+                .Include(p => p.FarHorizonsProfile).ThenInclude(fh => fh!.SiliconSymspeech) // Far Horizons
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)

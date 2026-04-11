@@ -195,7 +195,7 @@
   defaultPitch: -12
   defaultSpeed: 0.58
   defaultPause: 0.72
-  defaultPoly: 3
+  defaultPolyphony: 3
   defaultVolume: 0.8
 
 - type: voice
@@ -300,7 +300,7 @@
   defaultPitch: -12
   defaultSpeed: 0.58
   defaultPause: 0.72
-  defaultPoly: 8
+  defaultPolyphony: 8
   defaultVolume: 1.0
 
 - type: voice
@@ -380,7 +380,7 @@
   defaultPitch: 0
   defaultSpeed: 0.58
   defaultPause: 0.72
-  defaultPoly: 8
+  defaultPolyphony: 8
   defaultVolume: 1.0
 
 - type: voice
@@ -1496,6 +1496,6 @@
   defaultPitch: -22
   defaultSpeed: 0.58
   defaultPause: 0.72
-  defaultPoly: 4
+  defaultPolyphony: 4
   defaultVolume: 1.2
 
