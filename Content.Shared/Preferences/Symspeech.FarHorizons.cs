@@ -7,9 +7,9 @@ namespace Content.Shared.Preferences;
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class Symspeech
 {
-    public const string DefaultSiliconVoice = "synthVoice";
+    public const string DefaultSiliconVoice = "synthBass1";
     
-    public const string DefaultAnnouncerVoice = "synthVoice";
+    public const string DefaultAnnouncerVoice = "announcement-voice";
 
     [DataField] public ProtoId<VoicePrototype> Voice;
 

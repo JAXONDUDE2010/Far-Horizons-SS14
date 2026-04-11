@@ -97,7 +97,8 @@ namespace Content.Client._FarHorizons.Lobby.UI
 
             VoiceList.Clear();
             foreach (var voice in voices)
-                VoiceList.AddItem($"{Loc.GetString(voice.Name)}", metadata: voice);
+                if(voice.AccessibleForPlayers)
+                    VoiceList.AddItem($"{Loc.GetString(voice.Name)}", metadata: voice);
 
             if (CurrentVoice != null)
                 SelectVoice(CurrentVoice);

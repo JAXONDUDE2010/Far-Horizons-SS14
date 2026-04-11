@@ -1492,7 +1492,7 @@
   id: announcement-voice
   voice: 13
   name: "Announcement Voice"
-  AccessibleForPlayers: false
+  accessibleForPlayers: false
   defaultPitch: -22
   defaultSpeed: 0.58
   defaultPause: 0.72

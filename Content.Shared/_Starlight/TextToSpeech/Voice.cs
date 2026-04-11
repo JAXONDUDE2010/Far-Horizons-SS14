@@ -52,5 +52,8 @@ public sealed partial class VoicePrototype : IPrototype
     
     [DataField("defaultVolume")]
     public float DefaultVolume { get; private set; } = 1.0f;
+
+    [DataField("accessibleForPlayers")] 
+    public bool AccessibleForPlayers { get; private set; } = true;
     // Far Horizons edit end
 }
