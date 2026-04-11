@@ -946,9 +946,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsUnique();
 
                     b.HasIndex("SiliconSymspeechId")
+                        .IsUnique()
                         .HasDatabaseName("IX_far_horizons_profile_silicon_symspeech_id");
 
                     b.HasIndex("SymspeechId")
+                        .IsUnique()
                         .HasDatabaseName("IX_far_horizons_profile_symspeech_id");
 
                     b.ToTable("far_horizons_profile", (string)null);
@@ -2220,13 +2222,15 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_far_horizons_profile_profile_profile_id");
 
                     b.HasOne("Content.Server.Database.FarHorizonsModel+SymspeechDTO", "SiliconSymspeech")
-                        .WithMany()
-                        .HasForeignKey("SiliconSymspeechId")
+                        .WithOne()
+                        .HasForeignKey("Content.Server.Database.FarHorizonsModel+FarHorizonsProfile", "SiliconSymspeechId")
+                        .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("FK_far_horizons_profile_fh_symspeech_silicon_symspeech_id");
 
                     b.HasOne("Content.Server.Database.FarHorizonsModel+SymspeechDTO", "Symspeech")
-                        .WithMany()
-                        .HasForeignKey("SymspeechId")
+                        .WithOne()
+                        .HasForeignKey("Content.Server.Database.FarHorizonsModel+FarHorizonsProfile", "SymspeechId")
+                        .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("FK_far_horizons_profile_fh_symspeech_symspeech_id");
 
                     b.Navigation("Profile");

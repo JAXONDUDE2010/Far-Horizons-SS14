@@ -54,12 +54,14 @@ namespace Content.Server.Database.Migrations.Postgres
                         name: "FK_far_horizons_profile_fh_symspeech_silicon_symspeech_id",
                         column: x => x.silicon_symspeech_id,
                         principalTable: "fh_symspeech",
-                        principalColumn: "fh_symspeech_id");
+                        principalColumn: "fh_symspeech_id",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_far_horizons_profile_fh_symspeech_symspeech_id",
                         column: x => x.symspeech_id,
                         principalTable: "fh_symspeech",
-                        principalColumn: "fh_symspeech_id");
+                        principalColumn: "fh_symspeech_id",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_far_horizons_profile_profile_profile_id",
                         column: x => x.profile_id,
@@ -77,12 +79,14 @@ namespace Content.Server.Database.Migrations.Postgres
             migrationBuilder.CreateIndex(
                 name: "IX_far_horizons_profile_silicon_symspeech_id",
                 table: "far_horizons_profile",
-                column: "silicon_symspeech_id");
+                column: "silicon_symspeech_id",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_far_horizons_profile_symspeech_id",
                 table: "far_horizons_profile",
-                column: "symspeech_id");
+                column: "symspeech_id",
+                unique: true);
         }
 
         /// <inheritdoc />
