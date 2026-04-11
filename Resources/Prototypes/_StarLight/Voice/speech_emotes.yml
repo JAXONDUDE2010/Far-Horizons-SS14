@@ -446,10 +446,6 @@
   - squeek.
   - squeek?
   - squeek!
-  - squeeks
-  - squeeks.
-  - squeeks?
-  - squeeks!
 
 - type: emote
   id: Snort
@@ -469,10 +465,6 @@
   - snort.
   - snort?
   - snort!
-  - snorts
-  - snorts.
-  - snorts?
-  - snorts!
 
 - type: emote
   id: LagomorphSnore
@@ -492,10 +484,6 @@
   - snore.
   - snore?
   - snore!
-  - snores
-  - snores.
-  - snores?
-  - snores!
 
 - type: emote
   id: LagomorphSneeze
@@ -511,14 +499,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-sneeze"]
   chatTriggers:
-  - sneeze
-  - sneeze.
   - sneeze?
-  - sneeze!
-  - sneezes
-  - sneezes.
-  - sneezes?
-  - sneezes!
 
 - type: emote
   id: LagomorphStomp
@@ -538,7 +519,3 @@
   - stomp.
   - stomp?
   - stomp!
-  - stomps
-  - stomps.
-  - stomps?
-  - stomps!

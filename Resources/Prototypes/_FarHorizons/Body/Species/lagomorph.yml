@@ -1,7 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
   id: Lagomorph
-  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
@@ -12,9 +11,13 @@
     enum.HumanoidVisualLayers.Head:
       limit: 3
       required: false
-    enum.HumanoidVisualLayers.Snout:
+    enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
+      default: [ LagomorphEarsTall ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 3
       required: false
@@ -42,6 +45,10 @@
     enum.HumanoidVisualLayers.RFoot:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ LagomorphTailFluffy ]
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -113,7 +120,7 @@
     sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
-  parent: OrganHuman
+  parent: OrganLagomorph
   id: OrganLagomorphExternal
   abstract: true
   components:

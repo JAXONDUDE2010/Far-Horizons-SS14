@@ -138,7 +138,6 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
-  - EmergencyElfOxygen # Starlight
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonBreather # 🌟Starlight🌟
 
@@ -693,7 +692,6 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
-  - EmergencyElfOxygenClown # Starlight
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonBreatherClown # 🌟Starlight🌟
 
@@ -759,7 +757,6 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
-  - EmergencyElfOxygenMime # Starlight
   - EmergencySpeciesMothMime
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonBreatherMime # 🌟Starlight🌟
@@ -1162,7 +1159,6 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
-  - EmergencyElfOxygenExtended # Starlight
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonBreatherExtended # 🌟Starlight🌟
 
@@ -1402,7 +1398,6 @@
   - SecurityHud
   - DetectiveNoirGlasses
   - SecurityVisor #Far Horizons
-  - SecurityGlassesPrescription # Starlight
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1449,7 +1444,6 @@
   - BrigmedicVisor #Far Horizons
   - BrigmedicHud
   - BrigmedicEyePatchHud # Starlight
-  - BrigmeicGlassesPrescription # Starlight
 
 - type: loadoutGroup
   id: BrigmedicBelt
@@ -1614,86 +1608,8 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
-  - EmergencyElfOxygenSecurity # Starlight
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonbreatherSecurity # 🌟Starlight🌟
-
-# Medical
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChiefMedicalOfficer
-
-- type: loadoutGroup
-  id: MedicalGloves
-  name: loadout-group-medical-gloves
-  minLimit: 0
-  loadouts:
-  - LatexGloves
-  - NitrileGloves
-
-- type: loadoutGroup
-  id: MedicalDoctorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMedicalDoctor
-
-- type: loadoutGroup
-  id: MedicalInternJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMedicalIntern
-
-- type: loadoutGroup
-  id: ChemistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChemist
-
-
-- type: loadoutGroup #Starlight start
-  id: ParamedicPDA
-  name: loadout-group-paramedic-id
-  loadouts:
-  - ParamedicPDA
-  - SeniorParamedicPDA #Starlight end
-
-- type: loadoutGroup
-  id: ParamedicJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieParamedic
-
-- type: loadoutGroup
-  id: MedicalEyewear
-  name: loadout-group-medical-glasses
-  minLimit: 0
-  loadouts:
-  - MedicalHud
-  - MedicalEyePatchHud
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
-  - MedicalGlassesPrescription # Starlight
-
-- type: loadoutGroup
-  id: SurvivalMedical
-  name: loadout-group-survival-medical
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMedical
-  - EmergencyOxygenMedical
-  - EmergencyElfOxygenMedical # Starlight
-  - LoadoutSpeciesVoxNitrogen
-  - EmergencyNonBreatherMedical # 🌟Starlight🌟
 
 # Wildcards
 - type: loadoutGroup
@@ -1747,7 +1663,6 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
-  - EmergencyElfOxygenSyndicate # Starlight
 #  - LoadoutSpeciesVoxNitrogen - Starlight removed
   - EmergencyNonBreatherSyndicate # 🌟Starlight🌟
 
@@ -1768,7 +1683,6 @@
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
-  - EmergencyElfOxygenMilitaryDouble # Starlight
 
 # - type: loadoutGroup
 #   id: GroupSpeciesBreathToolMedical

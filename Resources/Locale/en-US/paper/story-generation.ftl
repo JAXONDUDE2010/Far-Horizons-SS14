@@ -96,7 +96,6 @@ story-gen-book-character39 = wizard
 
 # Starlight edit start
 story-gen-book-character40 = laspi
-story-gen-book-character41 = elf
 story-gen-book-character42 = goblin
 story-gen-book-character43 = orc
 story-gen-book-character44 = IAA

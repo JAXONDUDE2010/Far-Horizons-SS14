@@ -57,6 +57,8 @@
   effects:
     - !type:BackgroundEffect
       background: MagicalEncounter
+    - !type:SpawnItemInHandEffect
+      item: BookOfCantrips
 
 - type: trait
   id: Abducted

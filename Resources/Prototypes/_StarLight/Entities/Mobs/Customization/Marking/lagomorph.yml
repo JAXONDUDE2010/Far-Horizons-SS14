@@ -221,7 +221,7 @@
 
 - type: marking
   id: LagomorphEyeScarLeft
-  markingCategory: Head
+  bodyPart: Head
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -229,7 +229,7 @@
 
 - type: marking
   id: LagomorphEyeScarRight
-  markingCategory: Head
+  bodyPart: Head
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -237,7 +237,7 @@
 
 - type: marking
   id: LagomorphDewlap
-  markingCategory: HeadSide
+  bodyPart: HeadSide
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -284,7 +284,7 @@
 
 - type: marking
   id: LagomorphTailFluffy
-  markingCategory: Tail
+  bodyPart: Tail
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -292,7 +292,7 @@
 
 - type: marking
   id: LagomorphTailLong
-  markingCategory: Tail
+  bodyPart: Tail
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -300,7 +300,7 @@
 
 - type: marking
   id: LagomorphTailCotton
-  markingCategory: Tail
+  bodyPart: Tail
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -310,7 +310,7 @@
 
 - type: marking
   id: LagomorphChestScarLeft
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -318,7 +318,7 @@
 
 - type: marking
   id: LagomorphChestScarRight
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -326,7 +326,7 @@
 
 - type: marking
   id: LagomorphBackScarLeft
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -334,7 +334,7 @@
 
 - type: marking
   id: LagomorphBackScarRight
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -342,7 +342,7 @@
 
 - type: marking
   id: LagomorphBellyColour
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -350,7 +350,7 @@
 
 - type: marking
   id: LagomorphTorsoSpots
-  markingCategory: Chest
+  bodyPart: Chest
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -360,7 +360,7 @@
 
 - type: marking
   id: LagomorphBraceletL
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -368,7 +368,7 @@
 
 - type: marking
   id: LagomorphBraceletR
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -376,7 +376,7 @@
 
 - type: marking
   id: LagomorphArmSpotsL
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -384,7 +384,7 @@
 
 - type: marking
   id: LagomorphArmSpotsR
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -392,7 +392,7 @@
 
 - type: marking
   id: LagomorphArmMittsR
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -400,7 +400,7 @@
 
 - type: marking
   id: LagomorphArmMittsL
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -408,7 +408,7 @@
 
 - type: marking    
   id: LagomorphHandMittsR
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -416,7 +416,7 @@
   
 - type: marking
   id: LagomorphHandMittsL
-  markingCategory: Arms
+  bodyPart: Arms
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -426,7 +426,7 @@
 
 - type: marking
   id: LagomorphLegSpotsL
-  markingCategory: Legs
+  bodyPart: Legs
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -434,7 +434,7 @@
 
 - type: marking
   id: LagomorphLegSpotsR
-  markingCategory: Legs
+  bodyPart: Legs
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -442,7 +442,7 @@
 
 - type: marking
   id: LagomorphLegSockL
-  markingCategory: Legs
+  bodyPart: Legs
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -450,7 +450,7 @@
 
 - type: marking
   id: LagomorphFootSockR
-  markingCategory: Legs
+  bodyPart: Legs
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -458,7 +458,7 @@
 
 - type: marking
   id: LagomorphClaws
-  markingCategory: Legs
+  bodyPart: Legs
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -468,7 +468,7 @@
 
 - type: marking
   id: LagomorphBinderTop
-  markingCategory: Special
+  bodyPart: UndergarmentTop #FH
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -476,7 +476,7 @@
 
 - type: marking
   id: LagomorphBraTop
-  markingCategory: Special
+  bodyPart: UndergarmentTop #FH
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -484,7 +484,7 @@
 
 - type: marking
   id: LagomorphTankTop
-  markingCategory: Special
+  bodyPart: UndergarmentTop #FH
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -492,7 +492,7 @@
 
 - type: marking
   id: LagomorphBoxers
-  markingCategory: Special
+  bodyPart: UndergarmentBottom #FH
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -500,7 +500,7 @@
 
 - type: marking
   id: LagomorphPanties
-  markingCategory: Special
+  bodyPart: UndergarmentBottom #FH
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi

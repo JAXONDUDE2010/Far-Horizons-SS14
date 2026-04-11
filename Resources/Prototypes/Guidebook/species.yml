@@ -3,7 +3,6 @@
   name: guide-entry-species
   text: "/ServerInfo/Guidebook/Mobs/Species.xml"
   children:
-  - Elf # Starlight
   - Arachnid
   - Avali
   - Cyclorite

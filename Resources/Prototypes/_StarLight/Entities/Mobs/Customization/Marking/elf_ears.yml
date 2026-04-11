@@ -1,7 +1,6 @@
 - type: marking
   id: ElfLongEars
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
   speciesRestriction: [Elf]
@@ -12,10 +11,9 @@
 - type: marking
   id: ElfLongEarsWide
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
-  speciesRestriction: [Elf]
+  speciesRestriction: [Human]
   sprites:
   - sprite: _Starlight/Mobs/Customization/elf_ears.rsi
     state: long_ears_wide
@@ -23,10 +21,9 @@
 - type: marking
   id: ElfLongEarsSmall
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
-  speciesRestriction: [Elf]
+  speciesRestriction: [Human]
   sprites:
   - sprite: _Starlight/Mobs/Customization/elf_ears.rsi
     state: long_ears_small
@@ -34,10 +31,9 @@
 - type: marking
   id: ElfLongEarsUpwards
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
-  speciesRestriction: [Elf]
+  speciesRestriction: [Human]
   sprites:
   - sprite: _Starlight/Mobs/Customization/elf_ears.rsi
     state: long_ears_upwards
@@ -45,10 +41,9 @@
 - type: marking
   id: ElfLongEarsTall
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
-  speciesRestriction: [Elf]
+  speciesRestriction: [Human]
   sprites:
   - sprite: _Starlight/Mobs/Customization/elf_ears.rsi
     state: long_ears_tall
@@ -56,10 +51,9 @@
 - type: marking
   id: ElfLongEarsThin
   bodyPart: HeadTop
-  markingCategory: HeadTop
   forcedColoring: true
   followSkinColor: true
-  speciesRestriction: [Elf]
+  speciesRestriction: [Human]
   sprites:
   - sprite: _Starlight/Mobs/Customization/elf_ears.rsi
     state: long_ears_thin
