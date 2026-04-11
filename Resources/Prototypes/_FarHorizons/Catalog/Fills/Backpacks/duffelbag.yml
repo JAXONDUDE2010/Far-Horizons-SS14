@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledLecterW
-  name: Lecter Type-W bundle
+  name: Lecter Type-W Bundle
   description: "A simple wooden lecter with a short barrel and stock to enable ease of handling. Also comes with an underbarrel chainsaw and two 5.56 SP & FMJ mags."
   components:
   - type: EntityTableContainerFill
@@ -13,3 +13,70 @@
           amount: 2
         - id: MagazineRifle556FMJ
           amount: 2
+
+- type: entity
+  parent: BriefcaseBrown
+  id: BriefcaseBrownSyndicateFilledPistolDeagle
+  suffix: S, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolDeagle
+        - id: MagazineMagnum
+          amount: 2
+        - id: MagazineBoxMagnumSP
+
+- type: entity
+  parent: BriefcaseBrown
+  id: BriefcaseBrownSyndicateFilledPistolStechkin
+  suffix: S, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolDeagle
+        - id: MagazinePistol38SP
+          amount: 2
+        - id: MagazineBoxRevolver38SP
+
+- type: entity
+  parent: BriefcaseBrown
+  id: BriefcaseBrownSyndicateFilledRevolver
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRevolverPythonAP
+        - id: SpeedLoaderMagnumAP
+          amount: 2
+        - id: MagazineBoxMagnumAP
+
+- type: entity
+  parent: BriefcaseBrown
+  id: BriefcaseBrownSyndicateFilledPistolViper
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolViper
+        - id: MagazinePistolSP
+          amount: 2
+        - id: MagazineBoxPistolSP
+
+- type: entity
+  parent: BriefcaseBrown
+  id: BriefcaseBrownSyndicateFilledPistolCobra
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolCobra
+        - id: MagazinePistolCaselessRifle
+          amount: 2
+        - id: MagazineBoxCaselessRifle
