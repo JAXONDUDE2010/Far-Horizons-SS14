@@ -2,6 +2,8 @@ using Content.Shared._FarHorizons.LimbDamage.Components;
 using Content.Shared.Body;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -12,6 +14,8 @@ public sealed partial class LimbDamageSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -21,6 +25,7 @@ public sealed partial class LimbDamageSystem : EntitySystem
         InitDamage();
         InitArmor();
         InitEffect();
+        InitInspect();
 
         SubscribeLocalEvent<LimbDamageableComponent, ComponentInit>(OnBodyInit);
         SubscribeLocalEvent<DamageableLimbComponent, ComponentInit>(OnLimbInit);

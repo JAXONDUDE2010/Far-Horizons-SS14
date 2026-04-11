@@ -11916,5 +11916,357 @@ Entries:
   id: 112830
   time: '2026-04-08T18:53:02.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1128
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Oil bags & Glass Sheets not working on IPCs
+    type: Fix
+  id: 113400
+  time: '2026-04-09T22:21:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1134
+- author: CrazyPhantom779, CringeCursed, Qerd, Rinary, Shin, starlight, Fasuh
+  changes:
+  - message: Changed TTS to a new version from Starlight, without implementing any
+      TTS.
+    type: Tweak
+  id: 113000
+  time: '2026-04-09T22:33:32.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1130
+- author: princess_gurchi
+  changes:
+  - message: Hacking doors, punching wires and touching electrified grille without
+      insuls will primarily damage hands
+    type: Add
+  id: 113100
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Inspecting someone's health from close range will now show details about
+      each limb
+    type: Add
+  id: 113101
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Inspecting armor now clearly tells how well it protects each limb
+    type: Add
+  id: 113102
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Removed secondary stamina resistance component which a few hardsuits
+      had in error
+    type: Remove
+  id: 113103
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Fixed topicals healing limbs without being consumed
+    type: Fix
+  id: 113104
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Fixed IPC being unable to ghost from crit state
+    type: Fix
+  id: 113105
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Glassed no longer correct your vision all the way from the pocket
+    type: Fix
+  id: 113106
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: princess_gurchi
+  changes:
+  - message: Hristov bullets no longer quantum tunnel though adjacent obstacles
+    type: Fix
+  id: 113107
+  time: '2026-04-09T23:57:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1131
+- author: AthenaAI
+  changes:
+  - message: Added Flipped sprites for the hand implants for clarity.
+    type: Add
+  id: 113200
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added spacer arm to miner ticket vendor ( they deserve love too)
+    type: Add
+  id: 113201
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added Neural Link as a hard thief steal objective have fun agents.
+    type: Add
+  id: 113202
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Added the ability for sec to search cargo legs via verbs.
+    type: Add
+  id: 113203
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed Cyber speed legs, diagnostic and chemistry eyes not showing in
+      the research tree and med fab.
+    type: Fix
+  id: 113204
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed the sprites for limbs on the medical dispenser and ticket vendor.
+    type: Fix
+  id: 113205
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed Neural Link not showing on our warden locker variants.
+    type: Fix
+  id: 113206
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: AthenaAI
+  changes:
+  - message: Fixed an issue with double leg amputation not removing legs paralyzed.
+    type: Fix
+  id: 113207
+  time: '2026-04-10T01:19:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1132
+- author: qriqii
+  changes:
+  - message: Renamed the BSO from “Officer “Blue Shield”” to “Blueshield Officer”.
+    type: Tweak
+  id: 113700
+  time: '2026-04-10T01:27:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1137
+- author: qriqii
+  changes:
+  - message: Made sec contra also legal for the BSO.
+    type: Tweak
+  id: 113701
+  time: '2026-04-10T01:27:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1137
+- author: qriqii
+  changes:
+  - message: Fixed items the BSO and NTR start with having incorrect contra tags.
+    type: Fix
+  id: 113702
+  time: '2026-04-10T01:27:11.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1137
+- author: AthenaAI
+  changes:
+  - message: Added a Ibuprofen a non steroidal anti inflammatory and high temp reducing
+      chem.
+    type: Add
+  id: 113900
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Added Ibuprofen 5u pills and pill canister to Nanomed and Nanomed Civ.
+    type: Add
+  id: 113901
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Adjusted the amount of pills on the Nanomed Civ to match the amount in
+      the buffed pill canisters in the Nanomed.
+    type: Tweak
+  id: 113902
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Buffed Trico amount on pills form 10 -> 20u for the self treating tiders.
+    type: Tweak
+  id: 113903
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Adjusted the temp increase and decrease for Fever and Chill symptoms.
+      Also made sure all symptoms don't work when you are dead.
+    type: Tweak
+  id: 113904
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Adjusted PPE to be additive now having a mask, glasses, helmet + internal
+      should make you immune to any airborne disease.
+    type: Tweak
+  id: 113905
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Same with contact diseases if you are wearing gloves, coat and inner
+      shirt.
+    type: Tweak
+  id: 113906
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Fixed Rubber stamp not showing on CMO locker.
+    type: Tweak
+  id: 113907
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: AthenaAI
+  changes:
+  - message: Like their kin Resomi's are now cold blooded.
+    type: Tweak
+  id: 113908
+  time: '2026-04-10T03:04:36.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1139
+- author: princess_gurchi
+  changes:
+  - message: Health inspect text for inorganic limbs is now different from organics.
+    type: Add
+  id: 114400
+  time: '2026-04-10T15:15:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1144
+- author: princess_gurchi
+  changes:
+  - message: Fixed cybernetic limbs being considered meat
+    type: Fix
+  id: 114401
+  time: '2026-04-10T15:15:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1144
+- author: princess_gurchi
+  changes:
+  - message: Removing someone's head will no longer rename their ID and their station
+      records
+    type: Fix
+  id: 114402
+  time: '2026-04-10T15:15:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1144
+- author: princess_gurchi
+  changes:
+  - message: Slimes no longer bleed after reattaching surgically removed limbs
+    type: Fix
+  id: 114403
+  time: '2026-04-10T15:15:30.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1144
+- author: Killer Tamashi
+  changes:
+  - message: Added Ammo Canisters (9mm / .38 / .44 / 5.56 / 7.62) - They hold 16 magazines
+      worth of bullets. Used mainly for reloading en masse.
+    type: Add
+  id: 114300
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Added 9mm Magazine Sprites
+    type: Add
+  id: 114301
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Added .38 Magazine Sprites
+    type: Add
+  id: 114302
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Added .44 Magazine Sprites
+    type: Add
+  id: 114303
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Added SP Canisters to Weapon Racks, as well as 1 HP and 1 FMJ ammo box
+      per caliber. (Encourages Reloading)
+    type: Add
+  id: 114304
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Added Python Bundle, holds 2 AP speedloaders and an AP box for a hefty
+      10 TC.
+    type: Add
+  id: 114305
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Changed Ammo Boxes, they now hold 4 magazines worth of bullets instead
+      of 2.
+    type: Tweak
+  id: 114306
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Changed Ammo Box material cost accordingly.
+    type: Tweak
+  id: 114307
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Changed SP stripe color to a deeper blue & HP stripe color to a deeper
+      red. Shifted other colors a bit too, for visual consistency.
+    type: Tweak
+  id: 114308
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Changed Weapon Racks to hold 1 HP / 2 SP / 1 FMJ magazines per gun, as
+      opposed to 3 SP & 1 HP per gun. Felt a bit weird to exclude FMJ specifically,
+      given it's roundstart.
+    type: Tweak
+  id: 114309
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Changed most Syndicate Weapon options (except for Python and Hushpup)
+      to come in Bundles instead of singular weapons. FH armor is simply too strong
+      to only come with a magazine loaded in the gun, so they now come with 2 magazines
+      and an ammo box.
+    type: Tweak
+  id: 114310
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Fixed a lot of missing descriptions for Magazines and Ammo Boxes. Should
+      have [Caliber] / [Ammo Type] / [Effective Against] in the description now.
+    type: Fix
+  id: 114311
+  time: '2026-04-11T01:54:15.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1143
+- author: Killer Tamashi
+  changes:
+  - message: Fixed one Aloe netting you 10 burn meshes, it is now a more reasonable
+      2
+    type: Fix
+  id: 114800
+  time: '2026-04-11T01:57:43.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1148
 Order: -1
 

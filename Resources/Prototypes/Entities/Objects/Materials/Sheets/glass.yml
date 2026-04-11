@@ -87,12 +87,14 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
+#FH - Start
   - type: ConditionalHealing
     healingDefinitions:
       - allowedTags: [ IPC, Protogen, ProtoArachnid, ProtoAvali, ProtoCyclops, ProtoDawi, ProtoDionae, ProtoFeline, ProtoHumie, ProtoMoth, ProtoReptile, ProtoResomi, ProtoSlimePerson, ProtoThaven, ProtoVox, ProtoVulp, ProtoKin ]
         healing:
           damageContainers:
             - Biological
+            - Robotic
           damage: {}
           delay: 2
           adjustEyeDamage: -1 # 1 glass = 1 weld
@@ -106,6 +108,7 @@
             params:
               volume: 1.0
               variation: 0.125
+#FH - End
 
 - type: entity
   parent: SheetGlass

@@ -6,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Medical.Healing;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -14,39 +15,55 @@ namespace Content.Shared._FarHorizons.LimbDamage;
 public partial class LimbDamageSystem
 {
     public static ProtoId<OrganCategoryPrototype> DefaultLimb = "Torso";
+    public static ProtoId<TagPrototype> InorganicTag = "Inorganic";
 
     public bool TryChangeLimbDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
         DamageSpecifier damage, out DamageSpecifier bodyDamageDealt, bool ignoreResistances = false,
         bool interruptsDoAfters = true, EntityUid? origin = null, bool ignoreGlobalModifiers = false,
-        float armorPenetration = 0, bool canHeal = true)
+        float armorPenetration = 0, bool canHeal = true, bool skipBodyDamage = false) => TryChangeLimbDamage(target,
+        targetLimb, damage,
+        out bodyDamageDealt, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers,
+        armorPenetration, canHeal, skipBodyDamage);
+
+    public bool TryChangeLimbDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
+        DamageSpecifier damage, out DamageSpecifier bodyDamageDealt, out DamageSpecifier limbDamageDealt,
+        bool ignoreResistances = false,
+        bool interruptsDoAfters = true, EntityUid? origin = null, bool ignoreGlobalModifiers = false,
+        float armorPenetration = 0, bool canHeal = true, bool skipBodyDamage = false)
     {
         bodyDamageDealt = new();
+        limbDamageDealt = new();
 
         if (!Resolve(target, ref target.Comp, false) ||
             target.Comp.DefaultLimb == targetLimb)
             return false; // Damage to torso is vanilla damage system which we don't handle.
-        
+
         var targetLimbEnt = GetAllDamageable(target).Where(p => p.Comp.Organ!.Category == targetLimb).FirstOrNull();
         if (targetLimbEnt == null)
             return false;
 
-        var limbDamageDealt = _damageable.ChangeDamage(targetLimbEnt.Value.Owner, damage, ignoreResistances,
+        limbDamageDealt = _damageable.ChangeDamage(targetLimbEnt.Value.Owner, damage, ignoreResistances,
             interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration, canHeal);
 
-        bodyDamageDealt = _damageable.ChangeDamage(target.Owner,
-            limbDamageDealt * targetLimbEnt.Value.Comp.BodyDamageFactor, true, interruptsDoAfters, origin,
-            ignoreGlobalModifiers, armorPenetration, canHeal);
+        if (!skipBodyDamage)
+            bodyDamageDealt = _damageable.ChangeDamage(target.Owner,
+                limbDamageDealt * targetLimbEnt.Value.Comp.BodyDamageFactor, true, interruptsDoAfters, origin,
+                ignoreGlobalModifiers, armorPenetration, canHeal);
+
         return true;
     }
 
-    public void ChangeDamageAll(Entity<LimbDamageableComponent?> target, DamageSpecifier damage, bool ignoreResistances = false, bool interruptsDoAfters = true, EntityUid? origin = null, bool ignoreGlobalModifiers = false, float armorPenetration = 0, bool canHeal = true)
+    public void ChangeDamageAll(Entity<LimbDamageableComponent?> target, DamageSpecifier damage,
+        bool ignoreResistances = false, bool interruptsDoAfters = true, EntityUid? origin = null,
+        bool ignoreGlobalModifiers = false, float armorPenetration = 0, bool canHeal = true)
     {
         if (!Resolve(target, ref target.Comp, false))
             return;
 
         var allLimbs = GetAllDamageable(target);
         foreach (var limb in allLimbs)
-            _damageable.ChangeDamage(limb.Owner, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers, armorPenetration, canHeal);
+            _damageable.ChangeDamage(limb.Owner, damage, ignoreResistances, interruptsDoAfters, origin,
+                ignoreGlobalModifiers, armorPenetration, canHeal);
     }
 
     public DamageSpecifier HealAllEvenly(Entity<LimbDamageableComponent?> target, FixedPoint2 amount,
@@ -72,7 +89,8 @@ public partial class LimbDamageSystem
             _damageable.ClearAllDamage((limb.Owner, limb.Comp.Damageable));
     }
 
-    public bool LimbHasDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb, HealingComponent healing)
+    public bool LimbHasDamage(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
+        HealingComponent healing)
     {
         var limb = GetAllDamageable(target).Where(p => p.Comp.Organ!.Category == targetLimb).FirstOrNull();
         if (limb?.Comp.Damageable == null)
@@ -84,7 +102,8 @@ public partial class LimbDamageSystem
         return false;
     }
 
-    public bool CheckAttackHit(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb, out ProtoId<OrganCategoryPrototype>? overrideTarget)
+    public bool CheckAttackHit(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype> targetLimb,
+        out ProtoId<OrganCategoryPrototype>? overrideTarget)
     {
         overrideTarget = null;
 
@@ -93,29 +112,31 @@ public partial class LimbDamageSystem
 
         var ev = new LimbHitCheckEvent(targetLimb);
         RaiseLocalEvent(target, ref ev);
-        
+
         overrideTarget = ev.HitTarget;
         return overrideTarget != null;
     }
 
-    public bool CheckAttackHit(Entity<LimbDamageableComponent?> target, Entity<LimbTargettingComponent?> source, out ProtoId<OrganCategoryPrototype>? overrideTarget)
+    public bool CheckAttackHit(Entity<LimbDamageableComponent?> target, Entity<LimbTargettingComponent?> source,
+        out ProtoId<OrganCategoryPrototype>? overrideTarget)
     {
         overrideTarget = null;
 
         if (!Resolve(target, ref target.Comp, false) ||
-            !Resolve(source, ref source.Comp, false)) 
+            !Resolve(source, ref source.Comp, false))
             return true; // No missing when attack shouldn't be handled by limb damage
-        
+
         if (source.Comp.Target == target.Comp.DefaultLimb)
         {
             overrideTarget = source.Comp.Target;
             return true;
         }
-        
+
         return CheckAttackHit(target, source.Comp.Target, out overrideTarget);
     }
 
-    public ProtoId<OrganCategoryPrototype>? TryScatterHitTarget(Entity<LimbDamageableComponent?> target, ProtoId<OrganCategoryPrototype>? aimedTowards = null)
+    public ProtoId<OrganCategoryPrototype>? TryScatterHitTarget(Entity<LimbDamageableComponent?> target,
+        ProtoId<OrganCategoryPrototype>? aimedTowards = null)
     {
         if (!Resolve(target, ref target.Comp, false))
             return null;
@@ -164,8 +185,9 @@ public partial class LimbDamageSystem
         foreach (var limb in allDamageable)
             if (limb.Comp.Organ!.Category != null &&
                 limb.Comp.Damageable != null)
-                damage[limb.Comp.Organ!.Category.Value] = _damageable.GetPositiveDamage((limb.Owner, limb.Comp.Damageable)).DamageDict;
-        
+                damage[limb.Comp.Organ!.Category.Value] =
+                    _damageable.GetPositiveDamage((limb.Owner, limb.Comp.Damageable)).DamageDict;
+
         return damage;
     }
 
@@ -177,7 +199,7 @@ public partial class LimbDamageSystem
 
         Dictionary<ProtoId<OrganCategoryPrototype>, IReadOnlyDictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>>
             damage = new() { [DefaultLimb] = _damageable.GetDamagePerGroup((ent, ent.Comp1)) };
-        
+
 
         if (!Resolve(ent, ref ent.Comp2, false))
             return damage;
@@ -186,8 +208,9 @@ public partial class LimbDamageSystem
         foreach (var limb in allDamageable)
             if (limb.Comp.Organ!.Category != null &&
                 limb.Comp.Damageable != null)
-                damage[limb.Comp.Organ!.Category.Value] = _damageable.GetDamagePerGroup((limb.Owner, limb.Comp.Damageable));
-        
+                damage[limb.Comp.Organ!.Category.Value] =
+                    _damageable.GetDamagePerGroup((limb.Owner, limb.Comp.Damageable));
+
         return damage;
     }
 
@@ -235,5 +258,17 @@ public partial class LimbDamageSystem
             else
                 RemCompDeferred<ChangelingLimbComponent>(limb);
         }
+    }
+
+    public List<ProtoId<OrganCategoryPrototype>> GetInorganicOrgans(Entity<LimbDamageableComponent?> target)
+    {
+        if (!Resolve(target, ref target.Comp, false) ||
+            target.Comp.Body is not { Organs: not null })
+            return new();
+
+        return target.Comp.Body.Organs.ContainedEntities
+            .Select(p => (Entity<OrganComponent?>)(p, CompOrNull<OrganComponent>(p)))
+            .Where(p => p.Comp is { Category: not null } && _tag.HasTag(p.Owner, InorganicTag))
+            .Select(p => p.Comp!.Category!.Value).ToList();
     }
 }
