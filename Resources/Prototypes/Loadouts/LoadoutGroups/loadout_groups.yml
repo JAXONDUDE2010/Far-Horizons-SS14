@@ -1398,6 +1398,7 @@
   - SecurityHud
   - DetectiveNoirGlasses
   - SecurityVisor #Far Horizons
+  - SecurityPrescriptionGlasses #FH
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1444,6 +1445,7 @@
   - BrigmedicVisor #Far Horizons
   - BrigmedicHud
   - BrigmedicEyePatchHud # Starlight
+  - BrigmedicPrescriptionGlasses #FH
 
 - type: loadoutGroup
   id: BrigmedicBelt

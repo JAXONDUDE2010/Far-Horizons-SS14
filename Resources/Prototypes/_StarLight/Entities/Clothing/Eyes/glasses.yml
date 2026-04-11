@@ -114,7 +114,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesBrigmedicPrescription
-  name: prescription brigmedic glasses
+  name: Prescription Brigmedic Glasses
   description: A set of unshielded prescription glasses for Brigmedics.
   components:
   - type: Sprite
@@ -131,7 +131,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyeGlassesMedicalPrescription
-  name: prescription medical glasses
+  name: Prescription Medical Glasses
   description: A set of prescription glasses for Doctors. Not covered under insurance.
   components:
   - type: Sprite
@@ -148,7 +148,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyeGlassesSecurityPrescription
-  name: prescription security glasses
+  name: Prescription Security Glasses
   description: A set of unshielded prescription glasses for Security.
   components:
   - type: Sprite
@@ -164,7 +164,7 @@
 - type: entity
   parent: ClothingEyesGlassesChemical
   id: ClothingEyeGlassesChemicalPrescription
-  name: prescription chemical analysis glasses
+  name: Prescription Chemical Analysis Glasses
   description: A set of prescription glasses for chemists.
   components:
   - type: Sprite

@@ -109,7 +109,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ LagoMorph ]
+    metabolizerTypes: [ Animal ]
 
 - type: entity
   parent: OrganLagomorph

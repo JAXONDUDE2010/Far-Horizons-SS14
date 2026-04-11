@@ -65,8 +65,8 @@
     energy: 8
     color: "#93F02E"
   - type: Unremoveable
-  - type: SurgeryTool
-    successRate: 1
+  - type: Cautery
+    speed: 1.0
     startSound:
       path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
     endSound:

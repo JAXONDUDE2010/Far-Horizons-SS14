@@ -29,7 +29,6 @@ using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 // Starlight Start
-using Content.Shared.Speech;
 using Content.Shared.Station.Components;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -42,12 +41,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-// Starlight Start
-using Content.Shared.Speech;
-using Content.Server._Starlight.Language;
 using Content.Shared._Starlight.Chat;
-using Content.Shared._Starlight.Language;
-using Content.Shared.Popups;
 // Starlight End
 
 namespace Content.Server.Chat.Systems;

@@ -26,6 +26,17 @@
   - LaceupShoes # 🌟Starlight🌟
   - LeatherShoes # 🌟Starlight🌟
 
+- type: loadoutGroup
+  id: SurvivalMedical
+  name: loadout-group-survival-medical
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMedical
+  - EmergencyOxygenMedical
+  - EmergencyNonBreatherMedical #FH
+  #- LoadoutSpeciesVoxNitrogen # SL removed
+
 # Chief Medical Officer
 
 - type: loadoutGroup
@@ -176,9 +187,6 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
-  - SeniorChemistBackpack # Starlight
-  - SeniorChemistSatchel # Starlight
-  - SeniorChemistDuffel # Starlight
   - LeatherSatchel # starlight
 
 #- type: loadoutGroup
@@ -202,8 +210,6 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
-  - SeniorParamedicJumpsuit #Starlight
-  - SeniorParamedicJumpskirt #Starlight
 
 - type: loadoutGroup
   id: ParamedicOuterClothing

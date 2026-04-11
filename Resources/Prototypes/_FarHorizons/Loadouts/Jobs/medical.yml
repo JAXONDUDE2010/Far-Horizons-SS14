@@ -111,3 +111,8 @@
   id: NitrileGloves
   equipment:
     gloves: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: MedicalEyesPrescriptionGlasses
+  equipment:
+    eyes: ClothingEyeGlassesMedicalPrescription

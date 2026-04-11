@@ -67,6 +67,11 @@
     eyes: ClothingEyesGlassesBrigmedic
 
 - type: loadout
+  id: BrigmedicPrescriptionGlasses
+  equipment:
+    eyes: ClothingEyesGlassesBrigmedicPrescription
+
+- type: loadout
   id: BrigmedicHud
   equipment:
     eyes: ClothingEyesHudBrigmedic

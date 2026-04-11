@@ -184,14 +184,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: LanguageIconDarktongue
-  icon:
-    sprite: /Textures/_Starlight/Interface/language_icon.rsi
-    state: darktongue
-  allowSelection: false
-
-- type: jobIcon
-  parent: JobIcon
   id: LanguageIconClassical
   icon:
     sprite: /Textures/_Starlight/Interface/language_icon.rsi

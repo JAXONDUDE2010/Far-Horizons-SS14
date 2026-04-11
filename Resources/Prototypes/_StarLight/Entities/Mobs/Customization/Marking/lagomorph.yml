@@ -360,7 +360,7 @@
 
 - type: marking
   id: LagomorphBraceletL
-  bodyPart: Arms
+  bodyPart: LArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -368,7 +368,7 @@
 
 - type: marking
   id: LagomorphBraceletR
-  bodyPart: Arms
+  bodyPart: RArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -376,7 +376,7 @@
 
 - type: marking
   id: LagomorphArmSpotsL
-  bodyPart: Arms
+  bodyPart: LArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -384,7 +384,7 @@
 
 - type: marking
   id: LagomorphArmSpotsR
-  bodyPart: Arms
+  bodyPart: RArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -392,7 +392,7 @@
 
 - type: marking
   id: LagomorphArmMittsR
-  bodyPart: Arms
+  bodyPart: RArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -400,7 +400,7 @@
 
 - type: marking
   id: LagomorphArmMittsL
-  bodyPart: Arms
+  bodyPart: LArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -408,7 +408,7 @@
 
 - type: marking    
   id: LagomorphHandMittsR
-  bodyPart: Arms
+  bodyPart: RArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -416,7 +416,7 @@
   
 - type: marking
   id: LagomorphHandMittsL
-  bodyPart: Arms
+  bodyPart: LArm
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -426,7 +426,7 @@
 
 - type: marking
   id: LagomorphLegSpotsL
-  bodyPart: Legs
+  bodyPart: LLeg
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -434,7 +434,7 @@
 
 - type: marking
   id: LagomorphLegSpotsR
-  bodyPart: Legs
+  bodyPart: RLeg
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -442,7 +442,7 @@
 
 - type: marking
   id: LagomorphLegSockL
-  bodyPart: Legs
+  bodyPart: LLeg
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
@@ -450,15 +450,23 @@
 
 - type: marking
   id: LagomorphFootSockR
-  bodyPart: Legs
+  bodyPart: RLeg
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
       state: feet_socks
 
 - type: marking
-  id: LagomorphClaws
-  bodyPart: Legs
+  id: LagomorphClawL #FH
+  bodyPart: LLeg
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: claws
+
+- type: marking
+  id: LagomorphClawR #FH
+  bodyPart: RLeg
   groupWhitelist: [Lagomorph]
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
