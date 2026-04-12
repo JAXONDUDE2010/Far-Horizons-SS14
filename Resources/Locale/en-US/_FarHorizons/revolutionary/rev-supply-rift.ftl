@@ -34,3 +34,9 @@ combat-bundle-advanced-desc = Has all a comrade needs! Comes with a mask, combat
 
 combat-bundle-eva-advanced = Hardsuit Combat Bundle
 combat-bundle-eva-advanced-desc = The very best the USSP has to offer! Comes with a marine hardsuit with oxygen, mask, combat fatigues, boots, chest rig and Stechkin & AK47 with extra magazines and a box.
+
+commandant-crate-name = Commandant Crate
+commandant-crate-desc = Lead the masses to victory, comrade!
+
+supplies-crate-name = Supply Crate
+supplies-crate-desc = Holds enough ammunition, medical supplies and food to bolster the Revolution while waiting on Rift supplies.

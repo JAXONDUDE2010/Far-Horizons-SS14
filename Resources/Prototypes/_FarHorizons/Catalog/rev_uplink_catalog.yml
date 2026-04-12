@@ -78,6 +78,32 @@
   - !type:StockLimitedListingCondition
     stockLimit: 1
 
+- type: listing
+  id: UplinkCommandantBundle #Yes, you MAY protag. Once.
+  name: commandant-crate-name
+  description: commandant-crate-desc
+  productEntity: CrateSovietCommandant
+  cost:
+    Conversion: 10
+  categories:
+  - RevUplinkPassive
+  conditions:
+  - !type:StockLimitedListingCondition
+    stockLimit: 1
+
+- type: listing
+  id: UplinkCrateSovietSupply #Better version of rift only one.
+  name: supplies-crate-name
+  description: supplies-crate-desc
+  productEntity: CrateSovietSupply
+  cost:
+    Conversion: 10
+  categories:
+  - RevUplinkPassive
+  conditions:
+  - !type:StockLimitedListingCondition
+    stockLimit: 1
+
 # 500 crates
 - type: listing
   id: RevSupplyRiftListing

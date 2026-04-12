@@ -5,9 +5,9 @@
   description: The red tide is here.
   components:
   - type: Icon
-    sprite: _Starlight/Structures/Storage/USSP/revolutionary.rsi
+    sprite: /Textures/_FarHorizons/Structures/Storage/Crates/commie_secure_crate.rsi #FH
   - type: Sprite
-    sprite: _Starlight/Structures/Storage/USSP/revolutionary.rsi
+    sprite: /Textures/_FarHorizons/Structures/Storage/Crates/commie_secure_crate.rsi #FH
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/teleport_arrival.ogg
