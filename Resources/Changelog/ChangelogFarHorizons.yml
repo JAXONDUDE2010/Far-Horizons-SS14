@@ -12290,5 +12290,19 @@ Entries:
   id: 115202
   time: '2026-04-11T15:28:16.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1152
+- author: lightening_orb
+  changes:
+  - message: GMN Headset
+    type: Add
+  id: 115400
+  time: '2026-04-12T01:56:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1154
+- author: lightening_orb
+  changes:
+  - message: Added NTNC Comms to NTNC Headset
+    type: Fix
+  id: 115401
+  time: '2026-04-12T01:56:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1154
 Order: -1
 
