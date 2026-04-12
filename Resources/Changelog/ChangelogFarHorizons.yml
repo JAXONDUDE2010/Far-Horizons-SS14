@@ -12304,5 +12304,59 @@ Entries:
   id: 115401
   time: '2026-04-12T01:56:56.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1154
+- author: AthenaAI
+  changes:
+  - message: Hopefully fixes the container vehicle reload bug.
+    type: Fix
+  id: 115700
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Fixed Reaper Doc Arm being really expensive.
+    type: Fix
+  id: 115701
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Fixed the ripper doc arm not showing on the lathe when unlocked.
+    type: Fix
+  id: 115702
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Tweaked the recipe on the ripper doc arm to use less silver but more
+      steel since its a cheaper less sanitary thing.
+    type: Tweak
+  id: 115703
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Swapped the Integrated radio to use our IPC radio system. Rejoice on
+      the new maintenace hatch in the back of your head.
+    type: Tweak
+  id: 115704
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Reverted the no damage on ripper doc arm parts since its unrealistic.
+      Also removed the speed penalty on the ripper doc arm.
+    type: Tweak
+  id: 115705
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
+- author: AthenaAI
+  changes:
+  - message: Tweaked the borg advanced topical module's beaker to use the same style
+      of beaker whitelist from the chemical module. Also there is an extra beaker
+      slot now to give it a nice even 2 full rows of items.
+    type: Tweak
+  id: 115706
+  time: '2026-04-12T03:17:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1157
 Order: -1
 
