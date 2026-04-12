@@ -1,0 +1,369 @@
+#region Wearables
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSovietContraband]
+  id: ClothingBackpackDuffelSSF
+  name: SSF duffel bag
+  description: Bulky olive-drab bag stamped with a faded SSF insignia.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Back/Duffels/soviet_marine_duffel.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Storage
+    grid:
+    - 0,0,8,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSovietContraband]
+  id: ClothingBackpackDuffelSSFLarge
+  name: Huge SSF duffel bag
+  description: Bulky olive-drab bag stamped with a faded SSF insignia.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Back/Duffels/soviet_marine_duffel.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Storage
+    grid:
+    - 0,0,9,5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.1
+    sprintModifier: 0.1
+  - type: HeldSpeedModifier
+
+- type: entity
+  id: ClothingBackpackDuffelZaporozhianBundle
+  name: Zaporozhian sich bundle
+  parent: ClothingBackpackDuffelSSF
+  description: Cossacks- have gone to space, and have earned respect within the union.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitCossack
+        - id: ClothingUniformJumpsuitCossack
+        - id: ClothingUniformJumpsuitCossack
+        - id: ClothingHeadHatHetmanHat
+        - id: BladedFlatcapGrey
+        - id: BladedFlatcapBrown
+        - id: ClothingShoesBootsSalvage
+        - id: ClothingShoesBootsSalvage
+        - id: ClothingShoesBootsSalvage
+        - id: HydroponicsToolHatchet
+        - id: HydroponicsToolHatchet
+        - id: WheatBushel
+        - id: WheatBushel
+        - id: MeatwheatBushel
+        - id: MeatwheatBushel
+        - id: ClothingHeadHatStrawHat
+
+- type: entity
+  id: ClothingBackpackDuffelSovietEVABundle
+  name: Soviet EVA bundle
+  parent: ClothingBackpackDuffelSSF
+  description: Contains a soviet EVA suit and helmet, along with emergency oxygen and nitrogen tanks. For the workers of space!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSovietEVA
+        - id: ClothingHeadHelmetSovietEVA
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+
+- type: entity
+  id: ClothingBackpackDuffelMarineHardsuitBundle
+  name: SSF Marine Hardsuit Bundle
+  parent: ClothingBackpackDuffelSSF
+  description: Contains the USSP's elite marine hardsuit.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSovietMarine
+        - id: ClothingHandsGlovesCombat
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+
+- type: entity
+  id: ClothingBackpackDuffelSSFArmor
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterArmorBasic
+        - id: ClothingHeadHelmetBasic
+
+#region Weapons
+- type: entity
+  id: ClothingBackpackDuffelWeaponPistolMakarov
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolMakarov
+        - id: MagazinePistolSP
+          amount: 2
+
+- type: entity
+  id: ClothingBackpackDuffelStechkinAPS
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolAPS
+        - id: MagazinePistol38SP
+          amount: 2
+
+- type: entity
+  id: ClothingBackpackDuffelBoltGunWood
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSniperMosin
+        - id: MagazineBoxMagnumSP
+
+- type: entity
+  id: ClothingBackpackDuffelWeaponShotgunToz106Extended
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunToz106Extended
+        - id: MagazineShotgunToz
+        - id: BoxLethalshotToz
+
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleAk
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleAk
+        - id: MagazineLightRifleSP
+          amount: 2
+
+- type: entity
+  id: ClothingBackpackDuffelDP28Bundle
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLightMachineGunDP28
+        - id: MagazineLightRifleMaxim
+          amount: 4
+        - id: MagazineCanisterLightRifleSP
+
+- type: entity
+  id: ClothingBackpackDuffelPPShBundle
+  parent: ClothingBackpackDuffelSSF
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunPPSH
+        - id: MagazinePistolSubMachineGunPPSH
+          amount: 4
+        - id: MagazineCanisterPistolSP
+
+#region Bundles
+- type: entity
+  id: CrateSovietBundleCombat
+  name: Soviet Combat Crate
+  parent: CrateSoviet
+  description: Contains a set of armor and a Makarov, with extra magazines and a box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackDuffelSSF
+        - id: ClothingSovietBelt
+        - id: ClothingOuterArmorBasic
+        - id: ClothingHeadHelmetBasic
+        - id: ClothingShoesBootsCowboyBlackFilled
+        - id: ClothingUniformJumpsuitSoviet
+        - id: WeaponPistolMakarov
+        - id: MagazinePistolSP
+          amount: 4
+        - id: MagazineBoxPistolSP
+
+- type: entity
+  id: CrateSovietEVABundleCombat
+  name: Soviet Combat EVA Crate
+  parent: CrateSoviet
+  description: Contains a Soviet EVA set and a Makarov, with extra magazines and a box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackDuffelSSF
+        - id: ClothingSovietBelt
+        - id: ClothingOuterHardsuitSovietEVA
+        - id: ClothingHeadHelmetSovietEVA
+        - id: ClothingShoesBootsCowboyBlackFilled
+        - id: ClothingUniformJumpsuitSoviet
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: WeaponPistolMakarov
+        - id: MagazinePistolSP
+          amount: 4
+        - id: MagazineBoxPistolSP
+
+- type: entity
+  id: CrateSovietBundleCombatAdvanced
+  name: Advanced Soviet Combat Crate
+  parent: CrateSoviet
+  description: The second best the USSP has to offer! Contains a set of armor, combat uniform, mask, chest rig and makarov & mosin with extra magazines and a box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackDuffelSSF
+        - id: ClothingSovietBelt
+        - id: ClothingBeltSovietMarineWebbing
+        - id: ClothingOuterArmorBasic
+        - id: ClothingHeadHelmetBasic
+        - id: ClothingSovietGasMask
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingShoesBootsCowboyBlackFilled
+        - id: ClothingUniformJumpsuitSovietFatigues
+        - id: WeaponPistolMakarov
+        - id: MagazinePistolSP
+          amount: 4
+        - id: MagazineBoxPistolSP
+        - id: WeaponSniperMosin
+        - id: SpeedLoaderLightRifle
+          amount: 4
+        - id: MagazineBoxMagnumSP
+
+- type: entity
+  id: CrateSovietEVABundleCombatAdvanced
+  name: Advanced Soviet Combat Hardsuit Crate
+  parent: CrateSoviet
+  description: The very best the USSP has to offer! Contains a Soviet Marine Hardsuit, combat uniform, mask, chest rig and Stechkin & AK47 with extra magazines and a box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackDuffelSSF
+        - id: ClothingSovietBelt
+        - id: ClothingBeltSovietMarineWebbing
+        - id: ClothingOuterHardsuitSovietMarine
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingShoesBootsCowboyBlackFilled
+        - id: ClothingUniformJumpsuitSovietFatigues
+        - id: ClothingSovietGasMask
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: WeaponRifleAk
+        - id: MagazineLightRifleSP
+          amount: 4
+        - id: MagazineBoxLightRifleSP
+        - id: WeaponPistolAPS
+        - id: MagazinePistol38SP
+          amount: 4
+        - id: MagazineBoxRevolver38SP
+
+- type: entity
+  id: ClothingBackpackDuffelSupplies
+  name: USSP Supplies Bag
+  parent: ClothingBackpackDuffelSSFLarge
+  description: Contains everything a revolutionary fighter needs!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedkitFilled
+          amount: 2
+        - id: MagazineLightRifleSP
+          amount: 2
+        - id: MagazinePistol38SP
+          amount: 2
+        - id: SpeedLoaderLightRifle
+          amount: 2
+        - id: MagazinePistolSP
+          amount: 2
+        - id: MagazineBoxRevolver38SP
+        - id: MagazineBoxPistolSP
+        - id: MagazineBoxMagnumSP
+        - id: MagazineBoxLightRifleSP
+        - id: MagazineBoxRevolver38FMJ
+        - id: MagazineBoxPistolFMJ
+        - id: MagazineBoxMagnumFMJ
+        - id: MagazineBoxLightRifleFMJ
+        - id: FoodTinMRE
+          amount: 4
+        - id: DrinkWaterBottleFull
+          amount: 4
+
+#region Loadouts
+- type: entity
+  id: ClothingBackpackDuffelMarineLoadout
+  name: SSF duffel bag
+  parent: ClothingBackpackDuffelSSF
+  description: Bulky olive-drab bag stamped with a faded SSF insignia.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
+        - id: BoxMRE
+        - id: FoodTinMRE
+        - id: FoodTinBeans
+        - id: DrinkVodkizineBottleFull
+        - id: WeaponPistolMakarov
+        - id: ToolDebug
+        - id: WelderIndustrial
+        - id: Multitool
+
+- type: entity
+  id: ClothingSatchelLeatherSovietOfficialLoadout
+  name: leather satchel
+  parent: ClothingBackpackSatchelLeather
+  suffix: USSP official
+  description: A trend-setting satchel from a bygone era.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Finka
+        - id: PenExploding
+        - id: BoxFolderBase
+        - id: BoxFolderClipboard
+        - id: BodyBagFolded
+        - id: DrinkVodkizineBottleFull
+        - id: Flash
+        - id: CigarGoldCase
+        - id: FlippoEngravedLighter
+        - id: MagazinePistolSP
