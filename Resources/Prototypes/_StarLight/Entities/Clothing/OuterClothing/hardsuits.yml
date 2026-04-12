@@ -327,9 +327,9 @@
     sprite: _Starlight/Clothing/OuterClothing/Hardsuits/sovietmarine.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/OuterClothing/Hardsuits/sovietmarine.rsi
+#FarHorizons - Start
   - type: Item
     size: Huge
-#FarHorizons - Start
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
