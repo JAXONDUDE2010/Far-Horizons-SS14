@@ -12365,5 +12365,127 @@ Entries:
   id: 114500
   time: '2026-04-12T10:32:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1145
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Soviet Combat Crate (uplink)
+    type: Add
+  id: 115500
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Soviet Combat EVA Crate (uplink)
+    type: Add
+  id: 115501
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Advanced Soviet Combat Crate (uplink)
+    type: Add
+  id: 115502
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Advanced Soviet Combat Hardsuit Crate (uplink)
+    type: Add
+  id: 115503
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added USSP Supplies Bag (rift only, rare)
+    type: Add
+  id: 115504
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added AK47 to USSP uplink.
+    type: Add
+  id: 115505
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Basic Armor to USSP uplink.
+    type: Add
+  id: 115506
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added SSF Marine Chest Rig to USSP uplink.
+    type: Add
+  id: 115507
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Soviet Belt to USSP uplink.
+    type: Add
+  id: 115508
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Commandant Crate (conversion, 1 only)
+    type: Add
+  id: 115509
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Added Supplies Crate (conversion, 1 only)
+    type: Add
+  id: 115510
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Changed all Soviet guns to come in bundles with 2 mags. Really expensive
+      ones come with 4 mags and a canister.
+    type: Tweak
+  id: 115511
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Changed PPSH to not have admeme firerate of 15, it is now 8. Also no
+      longer automatically drops magazines.
+    type: Tweak
+  id: 115512
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Rebalanced SSF Marine Hardsuit to use bloodred stats, as previous values
+      were busted.
+    type: Tweak
+  id: 115513
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Cut most prices of USSP items in uplink to half, if not more.
+    type: Tweak
+  id: 115514
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: Conversion now gives 2 telebonds instead of 1.
+    type: Tweak
+  id: 115515
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
+- author: Killer Tamashi (Everything else) & ScorchFollower (Crate sprite)
+  changes:
+  - message: (ScorchFollower) New commie crate sprite
+    type: Tweak
+  id: 115516
+  time: '2026-04-13T10:52:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1155
 Order: -1
 
