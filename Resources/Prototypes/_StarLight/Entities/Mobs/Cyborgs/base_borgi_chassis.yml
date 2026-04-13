@@ -237,7 +237,7 @@
   parent: BaseBorgiChassis
   id: BaseSyndicateBorgiChassis
   name: Syndi Borgi
-  description: A unusually smart dog, loves stating it's laws. #FH
+  description: An unusually smart dog, loves stating it's laws. #FH
   suffix: Antag
   components:
     - type: GhostRole
