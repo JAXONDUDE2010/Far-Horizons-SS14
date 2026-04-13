@@ -10,7 +10,8 @@
     - type: Icon
       sprite: _FarHorizons/Tools/Towing/rope.rsi
       state: rope
-    - type: Towing
+    - type: TowingRope
+    - type: Tied
 
 - type: entity
   parent: BaseItem
@@ -26,4 +27,5 @@
       sprite: _FarHorizons/Tools/Towing/rope.rsi
       state: hook
     - type: Hitch
-    - type: Towing
+    - type: TowingRope
+    - type: Tied

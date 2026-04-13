@@ -9,7 +9,6 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
-using Robust.Shared.Physics.Dynamics.Joints;
 
 namespace Content.Server._FarHorizons.Towing;
 public sealed partial class TowingSystem : EntitySystem
@@ -22,17 +21,17 @@ public sealed partial class TowingSystem : EntitySystem
     private static readonly string _hitchHook = "HitchHook";
     public override void Initialize()
     {
-        SubscribeLocalEvent<TowingComponent, GetVerbsEvent<UtilityVerb>>(OnAddUtilityVerb);
+        SubscribeLocalEvent<TowingRopeComponent, GetVerbsEvent<UtilityVerb>>(OnAddUtilityVerb);
         SubscribeLocalEvent<TiedComponent, GetVerbsEvent<AlternativeVerb>>(OnAddUnTieVerb);
         SubscribeLocalEvent<HitchComponent, GetVerbsEvent<AlternativeVerb>>(OnAddHitchVerb);
-        SubscribeLocalEvent<TowingComponent, TieUpDoAfter>(OnTieUpDoAfter);
+        SubscribeLocalEvent<TowingRopeComponent, TieUpDoAfter>(OnTieUpDoAfter);
         SubscribeLocalEvent<TiedComponent, UnTieDoAfter>(OnUnTieDoAfter);
         SubscribeLocalEvent<HandsComponent, DeployHitchDoAfter>(OnDeployHitchDoAfter);
         SubscribeLocalEvent<TiedComponent, JointRemovedEvent>(OnJointRemoved);
         base.Initialize();
     }
 
-    public void OnAddUtilityVerb(EntityUid ent, TowingComponent component, GetVerbsEvent<UtilityVerb> args)
+    public void OnAddUtilityVerb(EntityUid ent, TowingRopeComponent component, GetVerbsEvent<UtilityVerb> args)
     {
         if(!args.CanAccess || !args.CanInteract || args.Hands == null) return;
         if(HasComp<TiedComponent>(args.Target)) return;
@@ -53,7 +52,7 @@ public sealed partial class TowingSystem : EntitySystem
         args.Verbs.Add(tieVerb);
     }
 
-    public void OnTieUpDoAfter(Entity<TowingComponent> ent, ref TieUpDoAfter args)
+    public void OnTieUpDoAfter(Entity<TowingRopeComponent> ent, ref TieUpDoAfter args)
     {
         if(args.Cancelled) return;
         if(args.Target == null || args.Used == null) return;
@@ -61,19 +60,16 @@ public sealed partial class TowingSystem : EntitySystem
         var used = args.Used.Value;
         args.Handled = true;
         
-        if(ent.Comp.EntityA == null || !EntityManager.EntityExists(ent.Comp.EntityA))
+        if(ent.Comp.FirstEnd == null || !EntityManager.EntityExists(ent.Comp.FirstEnd))
         {
-            CreateJoint(used, target, ent.Comp, used);
+            CreateJoint(used, target, ent.Comp);
         }
         else
         {
-            var entA = ent.Comp.EntityA.Value;
-            _joint.ClearJoints(entA);
+            var entA = ent.Comp.FirstEnd.Value;
+            _joint.RecursiveClearJoints(entA);
 
-            if(TryComp<TiedComponent>(entA, out var tied))
-                CreateJoint(entA, target, ent.Comp, isHitch:tied.isHitch);
-            else
-                CreateJoint(entA, target, ent.Comp);
+            CreateJoint(entA, target, ent.Comp);
             QueueDel(ent.Owner);
         }
     }
@@ -106,18 +102,6 @@ public sealed partial class TowingSystem : EntitySystem
         if(args.Cancelled) return;
         if(args.Target == null) return;
         var target = args.Target.Value;
-        if(ent.Comp.TiedBy != null)
-        {
-            if(TryComp<TowingComponent>(ent.Comp.TiedBy.Value, out var tow) && !ent.Comp.isHitch)
-            {
-                tow.EntityA = null;
-                Dirty(ent.Comp.TiedBy.Value, tow);
-            }
-            else
-            {
-                QueueDel(ent.Comp.TiedBy.Value);
-            }
-        }
         if(TryComp<TiedComponent>(target, out var tComp))
         {
             if(tComp.AttachedTo != null)
@@ -145,7 +129,8 @@ public sealed partial class TowingSystem : EntitySystem
     {
         if(!args.CanAccess || !args.CanInteract || args.Hands == null) return;
         if(HasComp<TiedComponent>(args.Target)) return;
-        if(TryComp<TowingComponent>(args.Target, out var TowComp) && TowComp.EntityA != null) return;
+        if(TryComp<TowingRopeComponent>(args.Target, out var TowComp) && TowComp.FirstEnd != null) return;
+        if(Transform(args.Target).ParentUid != Transform(args.Target).GridUid) return;
         var untieRopeVerb = new AlternativeVerb
         {
             Text = Loc.GetString("towing-hitch-deploy"),
@@ -173,13 +158,12 @@ public sealed partial class TowingSystem : EntitySystem
         var hook = SpawnAtPosition(_hitchHook, target.ToCoordinates());
         _hands.TryPickupAnyHand(args.User, hook);
         
-        var towComp = Comp<TowingComponent>(hook);
-        CreateJoint(hook, target, towComp, hook, true);
+        var towComp = Comp<TowingRopeComponent>(hook);
+        CreateJoint(hook, target, towComp);
     }
 
-    private void CreateJoint(EntityUid entityA, EntityUid entityB, TowingComponent towComp, EntityUid? TiedBy=null, bool isHitch=false)
-    {
-        var jointComp = EnsureComp<JointComponent>(entityB);
+    private void CreateJoint(EntityUid entityA, EntityUid entityB, TowingRopeComponent towComp)
+    {        
         var visualComp = EnsureComp<JointVisualsComponent>(entityB);
         var tiedComp = EnsureComp<TiedComponent>(entityB);
         var joint = _joint.CreateDistanceJoint(entityA, entityB);
@@ -189,28 +173,17 @@ public sealed partial class TowingSystem : EntitySystem
                         
         visualComp.Sprite = towComp.RopeSprite;
         visualComp.Target = entityA;
-
-        tiedComp.TiedBy = TiedBy;
-        tiedComp.isHitch = isHitch;
         tiedComp.AttachedTo = entityA;
 
         if (TryComp<TiedComponent>(entityA, out var tied))
         {
             tied.AttachedTo = entityB;
-            tied.TiedBy = null;
-            Dirty(entityA, tied);
         }
 
-        towComp.EntityA = entityB;
+        towComp.FirstEnd = entityB;
         
         _movementSpeed.RefreshMovementSpeedModifiers(entityA);
         _movementSpeed.RefreshMovementSpeedModifiers(entityB);
-
-        if(TiedBy != null)
-            Dirty(TiedBy.Value, towComp);
-        Dirty(entityB, tiedComp);
-        Dirty(entityB, visualComp);
-        Dirty(entityB, jointComp);
     }
 
     private void OnJointRemoved(Entity<TiedComponent> ent, ref JointRemovedEvent args)
