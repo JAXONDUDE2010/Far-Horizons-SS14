@@ -141,6 +141,9 @@
       map: ["buckledLayer"]
       visible: false
 #FH - Start
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
   - type: ItemSlots
     slots:
       item:
@@ -157,6 +160,9 @@
   suffix: folded
   components:
 #FH - Start
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
   - type: ItemSlots
     slots:
       item:
