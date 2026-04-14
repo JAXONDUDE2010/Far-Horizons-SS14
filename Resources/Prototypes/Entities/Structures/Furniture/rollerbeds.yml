@@ -51,6 +51,7 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
+            - !type:EmptyAllContainersBehaviour
             - !type:SpawnEntitiesBehavior
               spawn:
                 SheetSteel1:
@@ -130,7 +131,7 @@
   - type: Item
     heldPrefix: emergency_rollerbed
   - type: Sprite
-    layers:
+    layers: 
     - state: emergency_rollerbed
       map: ["unfoldedLayer"]
     - state: emergency_rollerbed_folded
@@ -139,6 +140,14 @@
     - state: emergency_rollerbed_buckled
       map: ["buckledLayer"]
       visible: false
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - DefibrillatorSmall
 
 - type: entity
   parent: EmergencyRollerBed
