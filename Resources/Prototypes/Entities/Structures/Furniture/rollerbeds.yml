@@ -140,6 +140,7 @@
     - state: emergency_rollerbed_buckled
       map: ["buckledLayer"]
       visible: false
+#FH - Start
   - type: ItemSlots
     slots:
       item:
@@ -148,12 +149,23 @@
         whitelist:
           tags:
           - DefibrillatorSmall
+#FH - End
 
 - type: entity
   parent: EmergencyRollerBed
   id: EmergencyRollerBedSpawnFolded
   suffix: folded
   components:
+#FH - Start
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - DefibrillatorSmall
+#FH - End
   - type: Foldable
     folded: true
   - type: Strap
