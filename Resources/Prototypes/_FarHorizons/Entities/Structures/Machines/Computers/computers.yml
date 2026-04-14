@@ -320,3 +320,25 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       pai_slot: !type:ContainerSlot {}
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: AbductorComputerShuttle
+  name: Abductor Shuttle Console 
+  description: Used to pilot a shuttle by the abductors to pilot their craft...
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Machines/abductor_console.rsi
+    layers:
+    - map: ["console"]
+      state: console
+  - type: GenericVisualizer  # Override to prevent edge connection sprites
+    visuals:
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        console:
+          None: { state: console, sprite: _Starlight/Structures/Machines/abductor_console.rsi }
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1.6
+    color: "#FC0097"

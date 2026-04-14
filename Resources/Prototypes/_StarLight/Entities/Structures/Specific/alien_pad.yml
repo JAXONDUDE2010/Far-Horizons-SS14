@@ -33,3 +33,12 @@
     range: 200
   - type: Appearance
   - type: CollideOnAnchor
+  #FH Start
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Abductor
+  - type: DeviceLinkSink
+    ports:
+      - AlienPadReceiver
+  #FH End
