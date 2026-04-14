@@ -2,7 +2,7 @@
   id: BodyBag
   parent: [ BaseDeployFoldable, BasePaperLabelableVisualized ]
   name: Self-Sealing Body Bag #Far Horizons - The Great Capitalization Crusade
-  description: A body bag that hermetically seals itself when closed by expelling air and any excess liquid through one-way ports underneath the bag, it does an excellent job of keeping cadavers from rotting.
+  description: A body bag that hermetically seals itself when closed by expelling air and any excess liquid through one-way ports underneath the bag, it does an excellent job of keeping cadavers from rotting. #FH
   components:
   - type: Item
     size: Small
@@ -57,7 +57,7 @@
         - VimPilot # Pets
         - CanPilot # People
     closeSound:
-      path: /Audio/Machines/windoor_open.ogg
+      path: /Audio/Machines/windoor_open.ogg #FH
     openSound:
       path: /Audio/Misc/zip.ogg
   - type: EntityStorageLayingDownOverride

@@ -708,7 +708,7 @@
   suffix: Full
   components:
   - type: Stack
-    count: 10
+    count: 20
     stackType: BrutepackRed
     baseLayer: base
     layerStates:
@@ -790,7 +790,7 @@
   suffix: Full
   components:
   - type: Stack
-    count: 10
+    count: 20
     stackType: BrutepackBlack
     baseLayer: base
     layerStates:
@@ -872,7 +872,7 @@
   suffix: Full
   components:
   - type: Stack
-    count: 10
+    count: 20
     stackType: BrutepackBeige
     baseLayer: base
     layerStates:

@@ -51,7 +51,7 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
-            - !type:EmptyAllContainersBehaviour
+            - !type:EmptyAllContainersBehaviour #FH
             - !type:SpawnEntitiesBehavior
               spawn:
                 SheetSteel1:

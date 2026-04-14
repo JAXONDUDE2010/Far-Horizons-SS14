@@ -4,7 +4,7 @@ meta:
   engineVersion: 272.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/18/2026 07:55:48
+  time: 04/14/2026 09:10:37
   entityCount: 30160
 maps:
 - 1
@@ -70637,12 +70637,19 @@ entities:
     - type: Transform
       pos: -31.475151,-16.521818
       parent: 2
-- proto: DiseaseDiagnoser
+- proto: DiseaseDiagnoser2300
   entities:
   - uid: 10558
     components:
     - type: Transform
       pos: -54.5,-46.5
+      parent: 2
+- proto: DiseasePandemic2300
+  entities:
+  - uid: 24240
+    components:
+    - type: Transform
+      pos: -54.5,-47.5
       parent: 2
 - proto: DisposalBend
   entities:
@@ -78277,11 +78284,17 @@ entities:
     - type: Transform
       pos: -5.756453,-32.373886
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 11872
     components:
     - type: Transform
       pos: -5.490828,-32.63951
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: Emitter
   entities:
   - uid: 11873
@@ -79737,7 +79750,7 @@ entities:
       pos: 60.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40739.81
+      secondsUntilStateChange: -40826.2
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -135564,19 +135577,6 @@ entities:
           Nitrogen: 14.477538
 - proto: LockerMedicineFilled
   entities:
-  - uid: 19404
-    components:
-    - type: Transform
-      pos: -37.5,-31.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1495
-        moles:
-          Oxygen: 3.848459
-          Nitrogen: 14.477538
   - uid: 19405
     components:
     - type: Transform
@@ -136379,6 +136379,13 @@ entities:
     components:
     - type: Transform
       pos: -27.5,-33.5
+      parent: 2
+- proto: MedicalMicrowave
+  entities:
+  - uid: 24302
+    components:
+    - type: Transform
+      pos: -33.5,-30.5
       parent: 2
 - proto: MedicalTechFab
   entities:
@@ -138567,7 +138574,6 @@ entities:
     - type: DatasetVocalizer
       dataset: PlushiesAsh
     - type: TextToSpeech
-      voice: wanderer
 - proto: PlushieBreaks
   entities:
   - uid: 19830
@@ -138629,7 +138635,6 @@ entities:
     - type: DatasetVocalizer
       dataset: PlushiesKiller
     - type: TextToSpeech
-      voice: heavy
 - proto: PlushieLamp
   entities:
   - uid: 19836
@@ -138673,7 +138678,6 @@ entities:
     - type: DatasetVocalizer
       dataset: PlushiesMorgana
     - type: TextToSpeech
-      voice: bettylabomba
 - proto: PlushieNuke
   entities:
   - uid: 19842
@@ -153150,19 +153154,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ShelfArmoryLecterTypeTLargeFilled
-  entities:
-  - uid: 22066
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,40.5
-      parent: 2
-    - type: AccessReader
-      accessListsOriginal:
-      - - Armory
-    - type: Fixtures
-      fixtures: {}
 - proto: ShelfArmoryIFV-50TLargeFilled
   entities:
   - uid: 22067
@@ -153170,6 +153161,19 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,40.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Armory
+    - type: Fixtures
+      fixtures: {}
+- proto: ShelfArmoryLecterTypeTLargeFilled
+  entities:
+  - uid: 22066
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,40.5
       parent: 2
     - type: AccessReader
       accessListsOriginal:
@@ -168528,13 +168532,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 76.5,-24.5
       parent: 2
-- proto: Vaccinator
-  entities:
-  - uid: 24240
-    components:
-    - type: Transform
-      pos: -54.5,-47.5
-      parent: 2
 - proto: VariantCubeBox
   entities:
   - uid: 24241
@@ -168936,15 +168933,15 @@ entities:
       parent: 2
 - proto: VendingMachineMedical
   entities:
+  - uid: 19404
+    components:
+    - type: Transform
+      pos: -37.5,-31.5
+      parent: 2
   - uid: 24301
     components:
     - type: Transform
       pos: -23.5,-33.5
-      parent: 2
-  - uid: 24302
-    components:
-    - type: Transform
-      pos: -33.5,-30.5
       parent: 2
   - uid: 24303
     components:
