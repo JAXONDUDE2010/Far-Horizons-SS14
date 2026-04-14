@@ -72,6 +72,16 @@
     radius: 1.5
     energy: 1.6
     color: "#FC0097"
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Abductor
+  - type: DeviceLinkSource
+    range: 15
+    ports:
+      - AlienPadSender
+      - ExperimentatorSender
+      - DispenserSender
 
 - type: entity
   parent: ComputerComms
@@ -140,6 +150,13 @@
     layers:
     - map: ["console"]
       state: console
+  #FH Start
+  - type: GenericVisualizer 
+    visuals:
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        console:
+          None: { state: console, sprite: _Starlight/Structures/Machines/abductor_camera_console.rsi }
+  #FH End
   - type: RemoteEyeConsole
     remoteEntityProto: AbductorHumanObservationConsoleEye
     color: "#A04B81"
