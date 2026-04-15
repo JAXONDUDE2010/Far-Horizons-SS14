@@ -325,7 +325,7 @@
   parent: BaseComputerShuttle
   id: AbductorComputerShuttle
   name: Abductor Shuttle Console 
-  description: Used to pilot a shuttle by the abductors to pilot their craft...
+  description: High tech shuttle console for all your station visiting needs! Experiments not included.
   components:
   - type: Sprite
     sprite: _Starlight/Structures/Machines/abductor_console.rsi

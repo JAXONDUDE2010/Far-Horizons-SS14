@@ -13,6 +13,8 @@ device-frequency-prototype-name-turret = Sentry Turret
 device-frequency-prototype-name-turret-control = Sentry Turret Control
 device-frequency-prototype-name-xenoborg = Xenoborg
 device-frequency-prototype-name-mothership = Mothership
+
+# FarHorizons
 device-frequency-prototype-name-abductors = Abductors
 
 ## camera frequencies

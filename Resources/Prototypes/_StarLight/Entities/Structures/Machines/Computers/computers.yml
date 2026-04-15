@@ -72,6 +72,7 @@
     radius: 1.5
     energy: 1.6
     color: "#FC0097"
+  #FarHorizons Start
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: Abductor
@@ -82,6 +83,7 @@
       - AlienPadSender
       - ExperimentatorSender
       - DispenserSender
+  #FarHorizons End
 
 - type: entity
   parent: ComputerComms
