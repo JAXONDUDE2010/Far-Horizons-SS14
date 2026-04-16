@@ -12963,5 +12963,62 @@ Entries:
   id: 116620
   time: '2026-04-16T22:29:33.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: princess_gurchi
+  changes:
+  - message: Every source of EMP now has power value attached to it
+    type: Add
+  id: 117000
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP damage that inorganic body parts take (protogen, IPC, cybernetics)
+      is now dealt directly to that limb instead of torso only.
+    type: Add
+  id: 117001
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP strength now modifies damage dealt by square root of its value (strength
+      9 EMP deals 3x the damage of strength 1 EMP)
+    type: Tweak
+  id: 117002
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP effects on humanoids now require specific strength to trigger. Glitching
+      on eyes happen on any level, but blindness only starting from 6. Slowdown on
+      legs will happen at 4, but knockdown only at 8 (3 and 7 for IPC). Items will
+      drop from hand at 5.
+    type: Tweak
+  id: 117003
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP chem reaction has 0.5 strength per 1u of uranium used, rounded up,
+      with hard cap at 10
+    type: Tweak
+  id: 117004
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP grenades have strength of 10, projectile grenades/ion rifles - 8,
+      Ling scream - 6, EMP implant/ninja suit/zeus fist - 5
+    type: Tweak
+  id: 117005
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: Add inspect text showing EMP strength to grenades, projectile grenades
+      and ion rifles. Add description text showing EMP strength to ling scream
+    type: Tweak
+  id: 117006
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
 Order: -1
 
