@@ -24,7 +24,7 @@ using Robust.Shared.Utility;
 using Content.Shared._FarHorizons.Factions;
 using Content.Server._FarHorizons.Factions;
 using Content.Shared._Starlight.Traits;
-using Content.Shared.Starlight.TextToSpeech;
+using Content.Shared.Starlight.TextToSpeech; // Far Horizons edit
 
 namespace Content.Server.Preferences.Managers
 {
