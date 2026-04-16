@@ -3,6 +3,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Projectiles;
+using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 
@@ -24,6 +25,16 @@ public abstract partial class SharedGunSystem
         args.PushMarkup(ent.Comp.Spent
             ? Loc.GetString("gun-cartridge-spent")
             : Loc.GetString("gun-cartridge-unspent"));
+        
+        // Far Horizons start
+        var proto = ProtoManager.Index(ent.Comp.Prototype);
+        if (!proto.Components.TryGetValue("EmpOnTrigger", out var empReg) ||
+            empReg.Component is not EmpOnTriggerComponent empComp)
+            return;
+        
+        if (args.IsInDetailsRange)
+            args.PushText(Loc.GetString("emp-grenade-strength-description", ("empStrength", empComp.Strength)), 10);
+        // Far Horizons end
     }
 
     private void OnCartridgeDamageExamine(Entity<CartridgeAmmoComponent> ent, ref DamageExamineEvent args)

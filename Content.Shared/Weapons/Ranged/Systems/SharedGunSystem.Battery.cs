@@ -29,6 +29,16 @@ public abstract partial class SharedGunSystem
     private void OnBatteryExamine(Entity<BatteryAmmoProviderComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("gun-battery-examine", ("color", AmmoExamineColor), ("count", ent.Comp.Shots)));
+
+        // Far Horizons start
+        var proto = ProtoManager.Index(ent.Comp.Prototype);
+        if (!proto.Components.TryGetValue("HitscanEmpEffect", out var empReg) ||
+            empReg.Component is not HitscanEmpEffectComponent empComp)
+            return;
+        
+        if (args.IsInDetailsRange)
+            args.PushText(Loc.GetString("emp-grenade-strength-description", ("empStrength", empComp.Emp.Strength)), 10);
+        // Far Horizons end
     }
 
     private void OnBatteryDamageExamine(Entity<BatteryAmmoProviderComponent> ent, ref DamageExamineEvent args)

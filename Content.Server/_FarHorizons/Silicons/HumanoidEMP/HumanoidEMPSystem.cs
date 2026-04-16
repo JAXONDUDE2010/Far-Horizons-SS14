@@ -35,6 +35,8 @@ public sealed partial class HumanoidEMPSystem : EntitySystem
 
         SubscribeLocalEvent<HumanoidEMPComponent, EmpPulseEvent>(OnHumanoidEMP);
         SubscribeLocalEvent<OrganEmpTargetComponent, BodyRelayedEvent<GatherOrganEmpEffectEvent>>(OnOrganEmp);
+
+        InitializeInspect();
     }
 
     private void OnOrganEmp(Entity<OrganEmpTargetComponent> ent, ref BodyRelayedEvent<GatherOrganEmpEffectEvent> args)
