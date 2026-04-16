@@ -115,6 +115,128 @@
         - SiliconEmotesFH
         - TrueProtogen  # because of that
 
+# EMP Bases
+
+- type: entity
+  id: BaseProtogenArmLeft
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 2
+        Heat: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - left
+
+- type: entity
+  id: BaseProtogenArmRight
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 2
+        Heat: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - right
+
+- type: entity
+  id: BaseProtogenHandLeft
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - left
+
+- type: entity
+  id: BaseProtogenHandRight
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - right
+
+- type: entity
+  id: BaseProtogenLegLeft
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 2
+        Heat: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
+
+- type: entity
+  id: BaseProtogenLegRight
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 2
+        Heat: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
+
+- type: entity
+  id: BaseProtogenFootLeft
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
+
+- type: entity
+  id: BaseProtogenFootRight
+  abstract: true
+  components:
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
+
 # Organs
 
 - type: entity
@@ -174,35 +296,35 @@
   - type: VisualOrganMarkings
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganProtogenExternal ]
+  parent: [ BaseProtogenArmLeft, OrganBaseArmLeft, OrganProtogenExternal ]
   id: OrganProtogenArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganProtogenExternal ]
+  parent: [ BaseProtogenArmRight, OrganBaseArmRight, OrganProtogenExternal ]
   id: OrganProtogenArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganProtogenExternal ]
+  parent: [ BaseProtogenHandLeft, OrganBaseHandLeft, OrganProtogenExternal ]
   id: OrganProtogenHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganProtogenExternal ]
+  parent: [ BaseProtogenHandRight, OrganBaseHandRight, OrganProtogenExternal ]
   id: OrganProtogenHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganProtogenExternal ]
+  parent: [ BaseProtogenLegLeft, OrganBaseLegLeft, OrganProtogenExternal ]
   id: OrganProtogenLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganProtogenExternal ]
+  parent: [ BaseProtogenLegRight, OrganBaseLegRight, OrganProtogenExternal ]
   id: OrganProtogenLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganProtogenExternal ]
+  parent: [ BaseProtogenFootLeft, OrganBaseFootLeft, OrganProtogenExternal ]
   id: OrganProtogenFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganProtogenExternal ]
+  parent: [ BaseProtogenFootRight, OrganBaseFootRight, OrganProtogenExternal ]
   id: OrganProtogenFootRight
 
 # Internal
@@ -223,14 +345,17 @@
     data:
       sprite: Mobs/Customization/eyes.rsi
       state: no_eyes
-  - type: HumanoidEMPCompositeElement
-    effect:
-      glitchDuration: 10.0
-      additionalEffects:
-        StatusEffectBlinded: 2.0
-      damageAmount:
-        types:
-          Shock: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      1:
+        glitchDuration: 5.0
+      6:
+        glitchDuration: 5.0
+        additionalEffects:
+          StatusEffectBlinded: 2.0
 
 - type: entity
   parent: [ OrganBaseTongue, OrganProtogenInternal ]

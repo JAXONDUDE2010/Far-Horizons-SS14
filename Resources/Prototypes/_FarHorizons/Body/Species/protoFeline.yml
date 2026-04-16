@@ -69,33 +69,33 @@
   id: OrganProtoFelineHead
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoFelineExternal, OrganFelionoidArmLeft ]
   id: OrganProtoFelineArmLeft
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoFelineExternal, OrganFelionoidArmRight ]
   id: OrganProtoFelineArmRight
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoFelineExternal, OrganFelionoidHandLeft ]
   id: OrganProtoFelineHandLeft
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoFelineExternal, OrganFelionoidHandRight ]
   id: OrganProtoFelineHandRight
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoFelineExternal, OrganFelionoidLegLeft ]
   id: OrganProtoFelineLegLeft
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoFelineExternal, OrganFelionoidLegRight ]
   id: OrganProtoFelineLegRight
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoFelineExternal, OrganFelionoidFootLeft ]
   id: OrganProtoFelineFootLeft
 
 - type: entity
-  parent: [ OrganProtoFelineExternal, OrganFelionoidFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoFelineExternal, OrganFelionoidFootRight ]
   id: OrganProtoFelineFootRight

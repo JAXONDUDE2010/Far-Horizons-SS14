@@ -21,11 +21,10 @@
         reagents:
         - ReagentId: Oil
           Quantity: 10
-  - type: HumanoidEMPCompositeElement
-    effect:
-      damageAmount:
-        types:
-          Shock: 5
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
   - type: Tag
     tags:
       - Inorganic
@@ -51,13 +50,14 @@
   abstract: true
   name: Right Cyber Arm
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        dropItemsFrom:
-        - body_part_slot_right hand
-        damageAmount:
-          types:
-            Shock: 10
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 6
+      thresholds:
+        5:
+          dropItemsFrom:
+          - right
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -87,13 +87,14 @@
   abstract: true
   name: Left Cyber Arm
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        dropItemsFrom:
-        - body_part_slot_left hand
-        damageAmount:
-          types:
-            Shock: 10
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 6
+      thresholds:
+        5:
+          dropItemsFrom:
+          - left
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -123,13 +124,14 @@
   abstract: true
   name: Right Cyber Hand
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        dropItemsFrom:
-        - body_part_slot_right hand
-        damageAmount:
-          types:
-            Shock: 5
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 3
+      thresholds:
+        5:
+          dropItemsFrom:
+          - right
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -159,13 +161,14 @@
   abstract: true
   name: Left Cyber Hand
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        dropItemsFrom:
-        - body_part_slot_left hand
-        damageAmount:
-          types:
-            Shock: 5
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 3
+      thresholds:
+        5:
+          dropItemsFrom:
+          - left
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -195,15 +198,17 @@
   abstract: true
   name: Right Cyber Leg
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        knockdownAmount: 1.0
-        slowdownAmount: 1.0
-        walkSpeedModifier: 0.6
-        sprintSpeedModifier: 0.6
-        damageAmount:
-          types:
-            Shock: 10
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 6
+      thresholds:
+        4:
+          slowdownAmount: 1.0
+          walkSpeedModifier: 0.6
+          sprintSpeedModifier: 0.6
+        8:
+          knockdownAmount: 1.0
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -233,15 +238,17 @@
   abstract: true
   name: Left Cyber Leg
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        knockdownAmount: 1.0
-        slowdownAmount: 1.0
-        walkSpeedModifier: 0.6
-        sprintSpeedModifier: 0.6
-        damageAmount:
-          types:
-            Shock: 10
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 6
+      thresholds:
+        4:
+          slowdownAmount: 1.0
+          walkSpeedModifier: 0.6
+          sprintSpeedModifier: 0.6
+        8:
+          knockdownAmount: 1.0
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -271,15 +278,17 @@
   abstract: true
   name: Right Cyber Foot
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        knockdownAmount: 0.5
-        slowdownAmount: 0.5
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
-        damageAmount:
-          types:
-            Shock: 5
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 3
+      thresholds:
+        4:
+          slowdownAmount: 0.5
+          walkSpeedModifier: 0.8
+          sprintSpeedModifier: 0.8
+        8:
+          knockdownAmount: 0.5
     - type: VisualOrganMarkings
       markingData:
         layers:
@@ -309,15 +318,17 @@
   abstract: true
   name: Left Cyber Foot
   components:
-    - type: HumanoidEMPCompositeElement
-      effect:
-        knockdownAmount: 0.5
-        slowdownAmount: 0.5
-        walkSpeedModifier: 0.8
-        sprintSpeedModifier: 0.8
-        damageAmount:
-          types:
-            Shock: 5
+    - type: OrganEmpTarget
+      baseDamage:
+        types:
+          Shock: 3
+      thresholds:
+        4:
+          slowdownAmount: 0.5
+          walkSpeedModifier: 0.8
+          sprintSpeedModifier: 0.8
+        8:
+          knockdownAmount: 0.5
     - type: VisualOrganMarkings
       markingData:
         layers:
