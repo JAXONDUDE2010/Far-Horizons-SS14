@@ -12815,5 +12815,153 @@ Entries:
   id: 116905
   time: '2026-04-16T21:32:41.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1169
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: BZ Gas
+    type: Add
+  id: 116600
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium Gas
+    type: Add
+  id: 116601
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Nitrium Gas
+    type: Add
+  id: 116602
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Pluxium Gas
+    type: Add
+  id: 116603
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Hydrogen Gas
+    type: Add
+  id: 116604
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Hyper-Noblium Gas
+    type: Add
+  id: 116605
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Proto-Nitrate Gas
+    type: Add
+  id: 116606
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Zauker Gas
+    type: Add
+  id: 116607
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Halon Gas
+    type: Add
+  id: 116608
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Helium Gas
+    type: Add
+  id: 116609
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Anti-Noblium Gas
+    type: Add
+  id: 116610
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Electrolyzer Machine
+    type: Add
+  id: 116611
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Metal Hydrogen Gear
+    type: Add
+  id: 116612
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Description to Electrolyzers.
+    type: Add
+  id: 116613
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium now has a minor bleed-staunching effect.
+    type: Add
+  id: 116614
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Electrolyzers Now correctly accept Plasma and Uranium sheets.
+    type: Fix
+  id: 116615
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Missing localizations for BZ chem guidebook entry.
+    type: Fix
+  id: 116616
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium heals more at lower concentrations.
+    type: Tweak
+  id: 116617
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium now has a cap on how much it heals. This only affects high concentrations.
+    type: Tweak
+  id: 116618
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Nitrosyl plasmide no longer makes it impossible to stun and cuff (but
+      still reduces stun time).
+    type: Tweak
+  id: 116619
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Changed atmos devices max pressure from 4500 to 9000 kPa.
+    type: Tweak
+  id: 116620
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
 Order: -1
 
