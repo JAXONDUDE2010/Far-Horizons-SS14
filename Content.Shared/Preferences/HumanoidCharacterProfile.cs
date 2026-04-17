@@ -747,7 +747,12 @@ namespace Content.Shared.Preferences
                 SpeciesLoadout.SetDefault(this, session, prototypeManager);
             }
 
+            if (Symspeech is not null && !prototypeManager.HasIndex<VoicePrototype>(Symspeech.Voice))
+                Symspeech = null;
             Symspeech ??= DefaultSymspeech();
+
+            if (SiliconSymspeech is not null && !prototypeManager.HasIndex<VoicePrototype>(SiliconSymspeech.Voice))
+                SiliconSymspeech = null;
 
             if (SiliconSymspeech == null)
             {

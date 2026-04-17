@@ -69,11 +69,6 @@
   name: symspeech-tts-voice-name-13
 
 - type: voice
-  id: tubularBells
-  voice: 14
-  name: symspeech-tts-voice-name-14
-
-- type: voice
   id: dulcimer
   voice: 15
   name: symspeech-tts-voice-name-15
@@ -279,11 +274,6 @@
   name: symspeech-tts-voice-name-54
 
 - type: voice
-  id: orchestraHit
-  voice: 55
-  name: symspeech-tts-voice-name-55
-
-- type: voice
   id: trumpet
   voice: 56
   name: symspeech-tts-voice-name-56
@@ -459,29 +449,9 @@
   name: symspeech-tts-voice-name-88
 
 - type: voice
-  id: warmPad
-  voice: 89
-  name: symspeech-tts-voice-name-89
-
-- type: voice
   id: polysynth
   voice: 90
   name: symspeech-tts-voice-name-90
-
-- type: voice
-  id: spaceVoice
-  voice: 91
-  name: symspeech-tts-voice-name-91
-
-- type: voice
-  id: bowedGlass
-  voice: 92
-  name: symspeech-tts-voice-name-92
-
-- type: voice
-  id: metalPad
-  voice: 93
-  name: symspeech-tts-voice-name-93
 
 - type: voice
   id: haloPad
@@ -489,19 +459,9 @@
   name: symspeech-tts-voice-name-94
 
 - type: voice
-  id: sweepPad
-  voice: 95
-  name: symspeech-tts-voice-name-95
-
-- type: voice
   id: iceRain
   voice: 96
   name: symspeech-tts-voice-name-96
-
-- type: voice
-  id: soundtrack
-  voice: 97
-  name: symspeech-tts-voice-name-97
 
 - type: voice
   id: crystal
@@ -514,19 +474,9 @@
   name: symspeech-tts-voice-name-99
 
 - type: voice
-  id: brightness
-  voice: 100
-  name: symspeech-tts-voice-name-100
-
-- type: voice
   id: goblin
   voice: 101
   name: symspeech-tts-voice-name-101
-
-- type: voice
-  id: echoDrops
-  voice: 102
-  name: symspeech-tts-voice-name-102
 
 - type: voice
   id: starTheme
@@ -624,11 +574,6 @@
   name: symspeech-tts-voice-name-121
 
 - type: voice
-  id: seashore
-  voice: 122
-  name: symspeech-tts-voice-name-122
-
-- type: voice
   id: birds
   voice: 123
   name: symspeech-tts-voice-name-123
@@ -637,21 +582,6 @@
   id: telephone1
   voice: 124
   name: symspeech-tts-voice-name-124
-
-- type: voice
-  id: helicopter
-  voice: 125
-  name: symspeech-tts-voice-name-125
-
-- type: voice
-  id: applause
-  voice: 126
-  name: symspeech-tts-voice-name-126
-
-- type: voice
-  id: gunShot
-  voice: 127
-  name: symspeech-tts-voice-name-127
 
 - type: voice
   id: synthBass101
@@ -724,11 +654,6 @@
   name: symspeech-tts-voice-name-141
 
 - type: voice
-  id: rain
-  voice: 142
-  name: symspeech-tts-voice-name-142
-
-- type: voice
   id: dog
   voice: 143
   name: symspeech-tts-voice-name-143
@@ -742,11 +667,6 @@
   id: carEngine
   voice: 145
   name: symspeech-tts-voice-name-145
-
-- type: voice
-  id: laughing
-  voice: 146
-  name: symspeech-tts-voice-name-146
 
 - type: voice
   id: machineGun
@@ -764,24 +684,9 @@
   name: symspeech-tts-voice-name-149
 
 - type: voice
-  id: thunder
-  voice: 150
-  name: symspeech-tts-voice-name-150
-
-- type: voice
-  id: horseGallop
-  voice: 151
-  name: symspeech-tts-voice-name-151
-
-- type: voice
   id: doorCreaking
   voice: 152
   name: symspeech-tts-voice-name-152
-
-- type: voice
-  id: carStop
-  voice: 153
-  name: symspeech-tts-voice-name-153
 
 - type: voice
   id: scream
@@ -794,24 +699,9 @@
   name: symspeech-tts-voice-name-155
 
 - type: voice
-  id: wind
-  voice: 156
-  name: symspeech-tts-voice-name-156
-
-- type: voice
   id: bird2
   voice: 157
   name: symspeech-tts-voice-name-157
-
-- type: voice
-  id: door
-  voice: 158
-  name: symspeech-tts-voice-name-158
-
-- type: voice
-  id: carPass
-  voice: 159
-  name: symspeech-tts-voice-name-159
 
 - type: voice
   id: punch
@@ -824,54 +714,9 @@
   name: symspeech-tts-voice-name-161
 
 - type: voice
-  id: stream
-  voice: 162
-  name: symspeech-tts-voice-name-162
-
-- type: voice
-  id: scratch
-  voice: 163
-  name: symspeech-tts-voice-name-163
-
-- type: voice
-  id: carCrash
-  voice: 164
-  name: symspeech-tts-voice-name-164
-
-- type: voice
   id: heartBeat
   voice: 165
   name: symspeech-tts-voice-name-165
-
-- type: voice
-  id: bubbles
-  voice: 166
-  name: symspeech-tts-voice-name-166
-
-- type: voice
-  id: windchime
-  voice: 167
-  name: symspeech-tts-voice-name-167
-
-- type: voice
-  id: siren
-  voice: 168
-  name: symspeech-tts-voice-name-168
-
-- type: voice
-  id: footsteps
-  voice: 169
-  name: symspeech-tts-voice-name-169
-
-- type: voice
-  id: train
-  voice: 170
-  name: symspeech-tts-voice-name-170
-
-- type: voice
-  id: jetPlane
-  voice: 171
-  name: symspeech-tts-voice-name-171
 
 - type: voice
   id: chorusedTineEP
@@ -1019,11 +864,6 @@
   name: symspeech-tts-voice-name-200
 
 - type: voice
-  id: starship
-  voice: 201
-  name: symspeech-tts-voice-name-201
-
-- type: voice
   id: carillon
   voice: 202
   name: symspeech-tts-voice-name-202
@@ -1057,11 +897,6 @@
   id: harpsichordnoVel
   voice: 208
   name: symspeech-tts-voice-name-208
-
-- type: voice
-  id: tinklingBells
-  voice: 209
-  name: symspeech-tts-voice-name-209
 
 - type: voice
   id: vibraphoneNoTrem
@@ -1149,11 +984,6 @@
   name: symspeech-tts-voice-name-226
 
 - type: voice
-  id: solarWind
-  voice: 227
-  name: symspeech-tts-voice-name-227
-
-- type: voice
   id: mysteryPad
   voice: 228
   name: symspeech-tts-voice-name-228
@@ -1164,24 +994,9 @@
   name: symspeech-tts-voice-name-229
 
 - type: voice
-  id: brightSawStack
-  voice: 230
-  name: symspeech-tts-voice-name-230
-
-- type: voice
-  id: cymbalCrash
-  voice: 231
-  name: symspeech-tts-voice-name-231
-
-- type: voice
   id: filterSnap
   voice: 232
   name: symspeech-tts-voice-name-232
-
-- type: voice
-  id: howlingWinds
-  voice: 233
-  name: symspeech-tts-voice-name-233
 
 - type: voice
   id: interference
@@ -1202,11 +1017,6 @@
   id: coupledHarpsinoVel
   voice: 237
   name: symspeech-tts-voice-name-237
-
-- type: voice
-  id: christmasBells
-  voice: 238
-  name: symspeech-tts-voice-name-238
 
 - type: voice
   id: detunTnwlOrgnoVel
@@ -1259,24 +1069,9 @@
   name: symspeech-tts-voice-name-248
 
 - type: voice
-  id: solarWind2
-  voice: 249
-  name: symspeech-tts-voice-name-249
-
-- type: voice
   id: tambourine
   voice: 250
   name: symspeech-tts-voice-name-250
-
-- type: voice
-  id: whiteNoiseWave
-  voice: 251
-  name: symspeech-tts-voice-name-251
-
-- type: voice
-  id: shootingStar
-  voice: 252
-  name: symspeech-tts-voice-name-252
 
 - type: voice
   id: woodwindChoir
@@ -1292,11 +1087,6 @@
   id: sawLead3
   voice: 255
   name: symspeech-tts-voice-name-255
-
-- type: voice
-  id: nightVision
-  voice: 256
-  name: symspeech-tts-voice-name-256
 
 - type: voice
   id: mandolin
@@ -1317,136 +1107,6 @@
   id: tinWhistleOr
   voice: 260
   name: symspeech-tts-voice-name-260
-
-- type: voice
-  id: standard1Kit
-  voice: 261
-  name: symspeech-tts-voice-name-261
-
-- type: voice
-  id: standard2Kit
-  voice: 262
-  name: symspeech-tts-voice-name-262
-
-- type: voice
-  id: standard3Kit
-  voice: 263
-  name: symspeech-tts-voice-name-263
-
-- type: voice
-  id: roomKit
-  voice: 264
-  name: symspeech-tts-voice-name-264
-
-- type: voice
-  id: powerKit
-  voice: 265
-  name: symspeech-tts-voice-name-265
-
-- type: voice
-  id: electronicKit
-  voice: 266
-  name: symspeech-tts-voice-name-266
-
-- type: voice
-  id: 808909Kit
-  voice: 267
-  name: symspeech-tts-voice-name-267
-
-- type: voice
-  id: danceKit
-  voice: 268
-  name: symspeech-tts-voice-name-268
-
-- type: voice
-  id: jazzKit
-  voice: 269
-  name: symspeech-tts-voice-name-269
-
-- type: voice
-  id: brushKit
-  voice: 270
-  name: symspeech-tts-voice-name-270
-
-- type: voice
-  id: orchestralKit
-  voice: 271
-  name: symspeech-tts-voice-name-271
-
-- type: voice
-  id: sFXKit
-  voice: 272
-  name: symspeech-tts-voice-name-272
-
-- type: voice
-  id: cM6432LKit
-  voice: 273
-  name: symspeech-tts-voice-name-273
-
-- type: voice
-  id: standard1
-  voice: 274
-  name: symspeech-tts-voice-name-274
-
-- type: voice
-  id: standard2
-  voice: 275
-  name: symspeech-tts-voice-name-275
-
-- type: voice
-  id: standard3
-  voice: 276
-  name: symspeech-tts-voice-name-276
-
-- type: voice
-  id: room
-  voice: 277
-  name: symspeech-tts-voice-name-277
-
-- type: voice
-  id: power
-  voice: 278
-  name: symspeech-tts-voice-name-278
-
-- type: voice
-  id: electronic
-  voice: 279
-  name: symspeech-tts-voice-name-279
-
-- type: voice
-  id: 808909
-  voice: 280
-  name: symspeech-tts-voice-name-280
-
-- type: voice
-  id: dance
-  voice: 281
-  name: symspeech-tts-voice-name-281
-
-- type: voice
-  id: jazz
-  voice: 282
-  name: symspeech-tts-voice-name-282
-
-- type: voice
-  id: brush
-  voice: 283
-  name: symspeech-tts-voice-name-283
-
-- type: voice
-  id: orchestral
-  voice: 284
-  name: symspeech-tts-voice-name-284
-
-- type: voice
-  id: sFX
-  voice: 285
-  name: symspeech-tts-voice-name-285
-
-- type: voice
-  id: cM6432L
-  voice: 286
-  name: symspeech-tts-voice-name-286
 
 - type: voice
   id: bikeHorn
