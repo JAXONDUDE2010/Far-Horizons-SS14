@@ -191,22 +191,6 @@
       stock: 1
 
 - type: listing
-  id: Darktongue
-  name: language-Darktongue-name
-  description: language-Darktongue-description
-  productLanguage: Darktongue
-  icon:
-    sprite: /Textures/_Starlight/Interface/language_icon.rsi
-    state: darktongue
-  cost:
-    SiliconMemory: 5
-  categories:
-    - Languages
-  conditions:
-    - !type:ListingLimitedStockCondition
-      stock: 1
-
-- type: listing
   id: Classical
   name: language-Classical-name
   description: language-Classical-description

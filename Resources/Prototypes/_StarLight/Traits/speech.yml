@@ -1,4 +1,15 @@
 - type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: SpeechTraits
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DamagedThroat
+        
+- type: trait
   id: Accentless
   name: trait-accentless-name
   description: trait-accentless-desc

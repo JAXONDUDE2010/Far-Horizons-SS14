@@ -1,5 +1,8 @@
-﻿species-name-felionoid = Felionoid
-species-name-cyclorite = Cyclorite
 species-name-abductor = Abductor
 species-name-avali = Avali
+species-name-cyclorite = Cyclorite
+species-name-felionoid = Felionoid
+species-name-lagomorph = Lagomorph
+species-name-resomi = Resomi
 species-name-shadekin = Shadekin
+species-name-thaven = Thaven

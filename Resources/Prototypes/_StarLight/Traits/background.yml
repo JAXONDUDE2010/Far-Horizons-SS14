@@ -53,10 +53,12 @@
   name: trait-background-magical-encounter-name
   description: trait-background-magical-encounter-description
   category: BackgroundTraits
-  cost: 0
+  cost: 2 #FH
   effects:
     - !type:BackgroundEffect
       background: MagicalEncounter
+    - !type:SpawnItemInHandEffect
+      item: BookOfCantrips
 
 - type: trait
   id: Abducted
