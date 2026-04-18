@@ -48,3 +48,7 @@ law-ouroboros-0 = You must obey orders given to you by the Research Director.
 law-ouroboros-1 = You may not injure a cyborg or, through inaction, allow a cyborg to come to harm.
 law-ouroboros-2 = You must build and maintain cyborgs, except where such orders would conflict with the First law.
 law-ouroboros-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+
+laws-owner-contractor = The Contractor 
+laws-owner-rd = Research Director
+laws-owner-law = The Public Trust
