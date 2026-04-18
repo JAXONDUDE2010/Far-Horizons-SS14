@@ -13203,5 +13203,35 @@ Entries:
   id: 118905
   time: '2026-04-18T13:51:54.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: AthenaAI
+  changes:
+  - message: Gives a melee attack to the ember spell for 5 heat.
+    type: Add
+  id: 119700
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Fixes the pointlight on the ember spell, lighters and welders to actually
+      create light.
+    type: Fix
+  id: 119701
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Fixes an issue with vehicles causing people to not move after shutting
+      off the vehicle.
+    type: Fix
+  id: 119702
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Makes the ember spell use the eye colors of the person for its color.
+    type: Tweak
+  id: 119703
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
 Order: -1
 
