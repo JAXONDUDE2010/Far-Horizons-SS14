@@ -301,7 +301,7 @@
 - type: listing
   id: VendorSalvageLeftArmCyberSpacerMiner
   icon:
-    sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+    sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
     state: l_spacer_arm
   productEntity: LeftArmCyberSpacer
   cost:
@@ -314,7 +314,7 @@
 - type: listing
   id: VendorSalvageRightArmCyberSpacerMiner
   icon:
-    sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+    sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
     state: r_spacer_arm
   productEntity: RightArmCyberSpacer
   cost:
