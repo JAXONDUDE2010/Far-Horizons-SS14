@@ -104,7 +104,9 @@ namespace Content.Client._FarHorizons.Lobby.UI
 
         public void SelectVoice(Symspeech voice)
         {
-            var voiceProto = _protoManager.Index(voice.Voice);
+            if (!_protoManager.TryIndex<VoicePrototype>(voice.Voice, out var voiceProto))
+                return;
+
             var item = VoiceList.Where(x => x.Metadata is VoicePrototype voice1 && voice1.ID == voiceProto.ID);
             if (item.Any())
                 item.First().Selected = true;
@@ -123,7 +125,8 @@ namespace Content.Client._FarHorizons.Lobby.UI
 
         public void LoadVoice(Symspeech voice)
         {
-            var voiceProto = _protoManager.Index(voice.Voice);
+            if (!_protoManager.TryIndex<VoicePrototype>(voice.Voice, out var voiceProto))
+                return;
 
             CurrentVoice = voice;
 

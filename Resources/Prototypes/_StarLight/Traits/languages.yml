@@ -55,6 +55,8 @@
         - Iterator
       inverted: true
 
+# Species Languages // Should cost: 2
+
 - type: trait
   id: Nekomimetic
   name: trait-language-nekomimetic-name
@@ -126,40 +128,6 @@
       inverted: true
 
 - type: trait
-  id: Darktongue
-  name: trait-language-darktongue-name
-  description: trait-language-darktongue-desc
-  category: LanguageTraits
-  effects:
-    - !type:LanguageEffect
-      languagesSpoken:
-        - Darktongue
-      languagesUnderstood:
-        - Darktongue
-  requirements:
-    - !type:TraitsRequirement
-      traits:
-        - Iterator
-      inverted: true
-
-- type: trait
-  id: Classical
-  name: trait-language-classical-name
-  description: trait-language-classical-desc
-  category: LanguageTraits
-  effects:
-    - !type:LanguageEffect
-      languagesSpoken:
-        - Classical
-      languagesUnderstood:
-        - Classical
-  requirements:
-    - !type:TraitsRequirement
-      traits:
-        - Iterator
-      inverted: true
-
-- type: trait
   id: Aielic
   name: trait-language-aielic-name
   description: trait-language-aielic-desc
@@ -198,6 +166,32 @@
       traits:
         - Iterator
       inverted: true
+
+- type: trait
+  id: Darktongue
+  name: trait-language-darktongue-name
+  description: trait-language-darktongue-desc
+  category: LanguageTraits
+  cost: 2 #FH
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Darktongue
+      languagesUnderstood:
+        - Darktongue
+
+- type: trait
+  id: Classical
+  name: trait-language-classical-name
+  description: trait-language-classical-desc
+  category: LanguageTraits
+  cost: 1
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Classical
+      languagesUnderstood:
+        - Classical
 
 - type: trait
   id: SolCommon
@@ -389,6 +383,19 @@
       languagesUnderstood:
         - Thaveyan
         - Carptongue
+
+- type: trait
+  id: Lagomorphian
+  name: trait-language-lagomorphian-name
+  description: trait-language-lagomorphian-desc
+  category: LanguageTraits
+  cost: 2
+  effects:
+    - !type:LanguageEffect
+      languagesSpoken:
+        - Lagomorphian
+      languagesUnderstood:
+        - Lagomorphian
   requirements:
     - !type:SpeciesRequirement
       species:

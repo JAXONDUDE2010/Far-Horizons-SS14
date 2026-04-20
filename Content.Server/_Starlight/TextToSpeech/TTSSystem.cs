@@ -107,7 +107,7 @@ public sealed partial class TTSSystem : EntitySystem
             var channel = new ProtoId<RadioChannelPrototype>(args.Channel.ID);
             
             // Far Horizons edit
-            await GenerateAndStream(TTSType.Radio, symspeech, text, filter, TTSEffect.Walkie, chime, null, channel);
+            await GenerateAndStream(TTSType.Radio, symspeech, text, filter, TTSEffect.Radio, chime, null, channel);
         }
         catch (TaskCanceledException ex)
         {

@@ -196,6 +196,11 @@
     eyes: ClothingEyesGlassesSecurity
 
 - type: loadout
+  id: SecurityPrescriptionGlasses #FH
+  equipment:
+    eyes: ClothingEyeGlassesSecurityPrescription
+
+- type: loadout
   id: SecurityHud
   equipment:
     eyes: ClothingEyesHudSecurity

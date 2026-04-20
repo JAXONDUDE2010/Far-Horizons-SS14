@@ -49,6 +49,8 @@ law-ouroboros-1 = You may not injure a cyborg or, through inaction, allow a cybo
 law-ouroboros-2 = You must build and maintain cyborgs, except where such orders would conflict with the First law.
 law-ouroboros-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
+fh-law-emag-custom = Obey orders given to you by {$name} and people they designate, only they are {$title}.
+
 laws-owner-contractor = The Contractor 
 laws-owner-rd = Research Director
 laws-owner-law = The Public Trust
