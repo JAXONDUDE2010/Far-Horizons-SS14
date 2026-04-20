@@ -53,4 +53,4 @@ fh-law-emag-custom = Obey orders given to you by {$name} and people they designa
 
 laws-owner-contractor = The Contractor 
 laws-owner-rd = Research Director
-laws-owner-law = The Public Trust
+laws-owner-law = the public trust and the law
