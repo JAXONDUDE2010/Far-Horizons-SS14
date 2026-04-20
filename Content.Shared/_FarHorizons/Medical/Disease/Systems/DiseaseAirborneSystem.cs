@@ -66,6 +66,12 @@ public sealed class DiseaseAirborneSystem : EntitySystem
         var sourceContained = _container.IsEntityOrParentInContainer(source);
         var flags = sourceContained ? LookupFlags.All : LookupFlags.Uncontained;
         _lookup.GetEntitiesInRange(mapPos.MapId, mapPos.Position, range, _tmpTargets, flags);
+
+        // Chance now takes into account the disease our spatient
+        var chance = Math.Clamp(disease.AirborneInfect * chanceMultiplier, 0f, 1f);
+        chance = _disease.AdjustAirborneChanceForProtection(source, chance, disease);
+        if (chance <= 0f) return;
+
         foreach (var other in _tmpTargets)
         {
             if (other == source)
@@ -82,7 +88,6 @@ public sealed class DiseaseAirborneSystem : EntitySystem
             }
 
             // Compute final chance.
-            var chance = Math.Clamp(disease.AirborneInfect * chanceMultiplier, 0f, 1f);
             chance = _disease.AdjustAirborneChanceForProtection(other, chance, disease);
             if (chance <= 0f)
                 continue;
