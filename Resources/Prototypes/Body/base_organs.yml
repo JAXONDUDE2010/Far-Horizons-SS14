@@ -147,7 +147,6 @@
 - type: entity
   parent: OrganBaseHeadNonVitalNonEdible
   id: OrganBaseHeadVitalNonEdible
-  name: Head 
   abstract: true
   components:
   - type: VitalOrgan
@@ -157,11 +156,11 @@
 - type: entity
   parent: [ OrganBaseHeadNonVitalNonEdible, OrganEdible ]
   id: OrganBaseHeadNonVitalEdible
+  abstract: true
 
 - type: entity
   parent: OrganBaseHeadNonVitalEdible
   id: OrganBaseHead
-  name: Head 
   abstract: true
   components:
   - type: VitalOrgan
