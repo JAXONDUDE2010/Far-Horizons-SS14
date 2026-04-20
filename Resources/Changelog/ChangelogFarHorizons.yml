@@ -13349,5 +13349,12 @@ Entries:
   id: 121100
   time: '2026-04-20T17:25:29.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1211
+- author: Coolsurf6, IrkallaEpsilon
+  changes:
+  - message: Cyclorite color filter is disabled, same for protogen cyclorites.
+    type: Tweak
+  id: 120700
+  time: '2026-04-20T18:05:50.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1207
 Order: -1
 
