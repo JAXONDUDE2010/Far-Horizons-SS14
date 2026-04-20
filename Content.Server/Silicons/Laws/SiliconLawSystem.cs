@@ -35,8 +35,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly IEntityManager _entMan = default!; // Starlight
-    [Dependency] private readonly IonStormSystem _ionTarget = default!; // FH
-    
+
 
     private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
