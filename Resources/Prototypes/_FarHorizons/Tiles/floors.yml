@@ -24,7 +24,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemDarkSquiggly
+  itemDrop: FloorTileItemDarkSquigglyVertical
   allowRotationMirror: true
 
 - type: tile
@@ -40,14 +40,14 @@
   - 1.0
   footstepSounds:
     collection: FootstepTile
-  itemDrop: SheetGlass1
+  itemDrop: SheetGlass1 # TODO: differentiate between NT an NS
 
 - type: tile
-  id: FloorHydroNeosol
+  id: FloorHydroNeoSol
   parent: BaseStationTile
   name: tiles-hydro-neosol-floor
   sprite: /Textures/_FarHorizons/Tiles/hydro_neosol.png
-  itemDrop: FloorTileItemHydro
+  itemDrop: FloorTileItemHydroNeoSol
 
 - type: tile
   id: FloorMetal
@@ -60,7 +60,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetal
 
 - type: tile
   id: FloorMetalEngi
@@ -73,7 +73,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalEngi
 
 - type: tile
   id: FloorMetalMed
@@ -86,7 +86,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalMed
 
 - type: tile
   id: FloorMetalSec
@@ -99,7 +99,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalSec
 
 - type: tile
   id: FloorMetalEngiNeoSol
@@ -112,7 +112,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalEngiNeoSol
 
 - type: tile
   id: FloorMetalMedNeoSol
@@ -125,7 +125,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalMedNeoSol
 
 - type: tile
   id: FloorMetalSecNeoSol
@@ -138,7 +138,7 @@
   - 1.0
   - 1.0
   - 1.0
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemMetalSecNeoSol
 
 - type: tile
   id: FloorRGlassNeoSol
@@ -153,4 +153,4 @@
   - 1.0
   footstepSounds:
     collection: FootstepTile
-  itemDrop: SheetRGlass1
+  itemDrop: SheetRGlass1 # TODO: differentiate between NT an NS

@@ -1,0 +1,39 @@
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkSquigglyVertical
+  result: FloorTileItemDarkSquigglyVertical
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetal
+  result: FloorTileMetal
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalEngi
+  result: FloorTileMetalEngi
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalMed
+  result: FloorTileMetalMed
+  
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalSec
+  result: FloorTileMetalSec
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalEngiNeoSol
+  result: FloorTileMetalEngiNeoSol
+
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalMedNeoSol
+  result: FloorTileMetalMedNeoSol
+  
+- type: latheRecipe
+  parent: BaseMaintTileRecipe
+  id: FloorTileMetalSecNeoSol
+  result: FloorTileMetalSecNeoSol
