@@ -5,35 +5,35 @@
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetal
-  result: FloorTileMetal
+  id: FloorTileItemMetal
+  result: FloorTileItemMetal
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalEngi
-  result: FloorTileMetalEngi
+  id: FloorTileItemMetalEngi
+  result: FloorTileItemMetalEngi
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalMed
-  result: FloorTileMetalMed
+  id: FloorTileItemMetalMed
+  result: FloorTileItemMetalMed
   
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalSec
-  result: FloorTileMetalSec
+  id: FloorTileItemMetalSec
+  result: FloorTileItemMetalSec
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalEngiNeoSol
-  result: FloorTileMetalEngiNeoSol
+  id: FloorTileItemMetalEngiNeoSol
+  result: FloorTileItemMetalEngiNeoSol
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalMedNeoSol
-  result: FloorTileMetalMedNeoSol
+  id: FloorTileItemMetalMedNeoSol
+  result: FloorTileItemMetalMedNeoSol
   
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileMetalSecNeoSol
-  result: FloorTileMetalSecNeoSol
+  id: FloorTileItemMetalSecNeoSol
+  result: FloorTileItemMetalSecNeoSol
