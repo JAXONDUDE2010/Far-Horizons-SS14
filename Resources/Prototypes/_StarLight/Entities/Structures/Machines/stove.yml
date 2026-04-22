@@ -51,7 +51,7 @@
         layer:
         - TabletopMachineLayer
   - type: Sprite
-    sprite: _Starlight/Structures/Machines/stove.rsi
+    sprite: _FarHorizons/Structures/Machines/Kitchen/stove.rsi # FarHorizons - resprite
     drawdepth: SmallObjects
     snapCardinals: true
     layers:
