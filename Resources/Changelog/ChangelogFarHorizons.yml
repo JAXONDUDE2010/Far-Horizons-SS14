@@ -13405,5 +13405,34 @@ Entries:
   id: 120606
   time: '2026-04-21T16:17:44.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: Killer Tamashi
+  changes:
+  - message: Added NoCadet SecureWindoor
+    type: Add
+  id: 121600
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Changed STV trunk size to be able to fit a large person in it.
+    type: Tweak
+  id: 121601
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Meta map errors (some doors not having NoCadet in sec, missing
+      HV cable in sec, ect)
+    type: Fix
+  id: 121602
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Fixed STV not having a hitch.
+    type: Fix
+  id: 121603
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
 Order: -1
 
