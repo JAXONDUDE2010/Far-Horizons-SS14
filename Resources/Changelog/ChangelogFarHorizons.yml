@@ -13434,5 +13434,21 @@ Entries:
   id: 121603
   time: '2026-04-23T11:25:23.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: AthenaAI
+  changes:
+  - message: Made diseases infection more reasonable so something with odds of 0.00001%
+      doesn't infect someone.
+    type: Tweak
+  id: 121800
+  time: '2026-04-24T07:05:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1218
+- author: AthenaAI
+  changes:
+  - message: Airborne disease's infection chance now take into account the source's
+      gear before calculating the target's chance of infection.
+    type: Tweak
+  id: 121801
+  time: '2026-04-24T07:05:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1218
 Order: -1
 
