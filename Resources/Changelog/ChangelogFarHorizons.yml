@@ -13450,5 +13450,26 @@ Entries:
   id: 121801
   time: '2026-04-24T07:05:25.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1218
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added the Blender, a variant of the Reagent Grinder.
+    type: Add
+  id: 121500
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added 5 advertisement signs.
+    type: Add
+  id: 121501
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for microwave, oven, stove, freezer, and deep fryer.
+    type: Tweak
+  id: 121502
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
 Order: -1
 
