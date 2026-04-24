@@ -330,6 +330,9 @@ public sealed partial class SharedDiseaseSystem : EntitySystem
     /// </summary>
     public bool TryInfectWithChance(EntityUid uid, DiseaseData disease, StageData stage, float probability)
     {
+        if(probability < 0.01)
+            return false;
+
         if (!CanBeInfected(uid, disease))
             return false;
 
