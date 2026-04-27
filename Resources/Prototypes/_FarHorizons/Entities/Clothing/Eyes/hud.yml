@@ -16,7 +16,7 @@
     - PetWearable
     - WhitelistChameleon
 
-#region NanoTrasen ##
+#region ## NanoTrasen ##
 - type: entity
   parent: [ ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband ]
   id: ClothingEyesHudCorpsman
@@ -39,7 +39,7 @@
   - type: IdentityBlocker
     coverage: EYES
 
-#region Syndicate ####
+#region ## Syndicate ##
 
 
 
@@ -54,13 +54,13 @@
   parent: [ClothingEyesBase, BaseCommandContraband]
   id: ClothingEyesHudCommandSyndi
   name: Administration HUD
-  suffix: S
+  suffix: NS
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Eyes/Hud/syndicommand.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/command.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Eyes/Hud/syndicommand.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/command.rsi
   - type: ShowJobIcons
   - type: Tag
     tags:
@@ -73,13 +73,13 @@
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesHudSecuritySyndi
   name: Security HUD
-  suffix: S
+  suffix: NS
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Eyes/Hud/sec-syndi.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/sec.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Eyes/Hud/sec-syndi.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/sec.rsi
   - type: Tag
     tags:
     - HudSecurity
@@ -90,13 +90,13 @@
   parent: [ClothingEyesHudSecuritySyndi, ClothingHeadEyeBaseFlippable]
   id: ClothingEyesEyepatchHudSecuritySyndi
   name: Security HUD Eyepatch
-  suffix: S
+  suffix: NS
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/secpatch.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/secpatch.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -109,13 +109,13 @@
   parent: [ ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband ]
   id: ClothingEyesHudBrigmedicSyndi
   name: Security Medical HUD
-  suffix: S
+  suffix: NS
   description: Tamashi-upgraded HUDs. Yes. Security medical ones.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Eyes/Hud/brigmedichud-syndi.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/brigmedichud.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Eyes/Hud/brigmedichud-syndi.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/brigmedichud.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -135,13 +135,13 @@
   parent: [ ClothingEyesHudBrigmedicSyndi, ClothingHeadEyeBaseFlippable ]
   id: ClothingEyesEyepatchHudSecMedSyndi
   name: Security Medical HUD Eyepatch
-  suffix: S
+  suffix: NS
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/secpatch.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/Eyes/Hud/secpatch.rsi
+    sprite: _FarHorizons/Clothing/Eyes/Hud/NeoSol/secpatch.rsi
   - type: Tag
     tags:
     - PetWearable
