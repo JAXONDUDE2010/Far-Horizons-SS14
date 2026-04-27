@@ -1,0 +1,128 @@
+#region ## NanoTrasen ##
+
+
+
+
+
+#region Security
+
+- type: entity
+  parent: [BaseSecurityContraband, ClothingOuterWinterCoatToggleable, AllowSuitStorageClothing]
+  id: ClothingOuterCoatCorpsmanFH
+  name: Corpsman's Armored Jacket
+  suffix: NT
+  description: Heavily armored yet surprisingly comfortable jacket, a byproduct from the tendency of corpsmen to throw themselves directly into danger.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/corpsman.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Coats/corpsman.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: Pierceable
+    level: Metal
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.50
+  - type: Armor
+    modifiers:
+      flatReductions: #FH
+        Piercing: 5 #FH
+        Heat: 4 #FH
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.60
+        Heat: 0.75
+        Caustic: 0.75
+  - type: LimbArmor
+    limbs:
+      ArmRight: {}
+      ArmLeft: {}
+      LegRight: {}
+      LegLeft: {}
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodCorpsman
+
+
+
+
+#region ## NeoSol ##
+
+
+
+
+
+#region Security
+
+# Marshal (HoS)
+
+- type: entity
+  parent: [ ClothingOuterArmorHoS, ClothingOuterWinterCoat, BaseSecurityCommandContraband ]
+  id: ClothingOuterWinterHoSSyndi
+  name: Marshal's Armored Winter Coat
+  suffix: NS
+  description: A sturdy, utilitarian winter coat designed to protect the Marshal from any threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/coathosarmored.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/coathosarmored.rsi
+
+# Constable (Warden)
+- type: entity
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoat, BaseSecurityContraband]
+  id: ClothingOuterWinterWardenSyndi
+  name: Constable's Armored Winter Coat
+  suffix: NS
+  description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/coatwardenarmored.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/coatwardenarmored.rsi
+
+#region Medical
+
+- type: entity
+  parent: ClothingOuterWinterCMO
+  id: ClothingOuterWinterCMOSyndi
+  name: Medical Director's Winter Coat
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/cmo.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/cmo.rsi
+
+- type: entity
+  parent: ClothingOuterWinterMed
+  id: ClothingOuterWinterMedSyndi
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/medical.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/medical.rsi
+
+- type: entity
+  parent: ClothingOuterWinterPara
+  id: ClothingOuterWinterParaSyndi
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/paramedic.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/paramedic.rsi
+
+- type: entity
+  parent: ClothingOuterWinterViro
+  id: ClothingOuterWinterViroSyndi
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/viro.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/WinterCoats/NeoSol/viro.rsi

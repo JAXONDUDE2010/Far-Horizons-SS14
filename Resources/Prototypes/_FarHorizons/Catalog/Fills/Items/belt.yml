@@ -21,7 +21,13 @@
         - RocketAmmo120mmHE
       120mmrocket_slot1:
         - RocketAmmo120mmShrapnel
+#region ##NanoTrasen##
 
+
+
+
+
+#region Security
 #Scug Belt
 - type: entity
   id: ClothingBeltHolsterScugFilled
@@ -36,7 +42,7 @@
         - id: SpeedLoaderMagnumSP
         - id: WeaponRevolverInitiator
         
-#region Syndicate
+#region ##NeoSol##
 
 
 
@@ -53,7 +59,7 @@
 - type: entity
   id: ClothingBeltSheathFilledSyndi
   parent: ClothingBeltSheathSyndi
-  suffix: Filled
+  suffix: NS, Filled
   components:
   - type: ContainerFill
     containers:
@@ -65,7 +71,7 @@
 - type: entity
   id: ClothingBeltChiefEngineerFilledSyndi
   parent: ClothingBeltChiefEngineerSyndi
-  suffix: S, Filled
+  suffix: NS, Filled
   components:
   - type: EntityTableContainerFill
     containers:
@@ -84,7 +90,7 @@
 - type: entity
   id: ClothingBeltUtilityFilledSyndi
   parent: ClothingBeltUtilitySyndi
-  suffix: S, Filled
+  suffix: NS, Filled
   components:
   - type: EntityTableContainerFill
     containers:
@@ -100,7 +106,7 @@
 - type: entity
   id: ClothingBeltUtilityEngineeringSyndi
   parent: ClothingBeltUtilitySyndi
-  suffix: S, Engineering
+  suffix: NS, Engineering
   components:
   - type: EntityTableContainerFill
     containers:
