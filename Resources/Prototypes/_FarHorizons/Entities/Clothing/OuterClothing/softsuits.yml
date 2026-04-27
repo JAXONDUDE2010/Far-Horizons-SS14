@@ -1,3 +1,11 @@
+#region ## NanoTrasen ##
+
+
+
+
+
+
+#region Medical
 - type: entity
   parent: ClothingOuterEVASuitBase
   id: ClothingOuterHardsuitMedicalEVA
@@ -5,10 +13,49 @@
   description: A lightweight space suit supplied in the medical department with the basic ability to protect the wearer from the vacuum of space during emergencies.
   components:
   - type: Sprite
-    sprite: _FarHorizons/Clothing/OuterClothing/Suits/medical_eva.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/medical.rsi
   - type: Clothing
-    sprite: _FarHorizons/Clothing/OuterClothing/Suits/medical_eva.rsi
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/medical.rsi
   - type: Tag
     tags:
     - SuitEVA
     - WhitelistChameleon
+    - IPCExternalCooling
+
+#region ## NeoSol ##
+
+
+
+
+
+
+#region Medical
+
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitMedicalEVASyndi
+  name: Medical EVA Suit
+  description: A lightweight space suit supplied in the medical department with the basic ability to protect the wearer from the vacuum of space during emergencies.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/NeoSol/medical.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/NeoSol/medical.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    - WhitelistChameleon
+    - IPCExternalCooling
+
+- type: entity
+  parent: ClothingOuterHardsuitVoidParamed
+  id: ClothingOuterHardsuitVoidParamedSyndi
+  name: Paramedic Void Suit
+  description: A void suit made for paramedics.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/NeoSol/paramed.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/OuterClothing/Suits/NeoSol/paramed.rsi

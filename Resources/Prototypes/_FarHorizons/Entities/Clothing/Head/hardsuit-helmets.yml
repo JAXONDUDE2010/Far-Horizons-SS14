@@ -1,3 +1,5 @@
+#region ## NanoTrasen ##
+
 # Magistrate Helmet
 
 - type: entity
@@ -169,7 +171,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
 
-#region Syndicate
+#region ## NeoSol ##
 
 
 
@@ -186,7 +188,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitCapSyndi
   name: Commandant's Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: Special hardsuit helmet, made for the Commandant of the station.
   components:
   - type: Sprite
@@ -212,7 +214,7 @@
   id: ClothingHeadHelmetHardsuitHoPSyndi
   categories: [ HideSpawnMenu ]
   name: Personnel Manager Hardsuit Helmet
-  suffix: S
+  suffix: NS
   components:
   - type: Sprite
     sprite: _FarHorizons/Clothing/Head/Hardsuits/syndihopspace.rsi
@@ -229,7 +231,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSecurityRedSyndi
   name: Marshal's Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: Security hardsuit helmet with the latest top secret Syndi-HUD software. Belongs to the SO.
   components:
   - type: Sprite
@@ -267,7 +269,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitEngineeringWhiteSyndi
   name: Foreman's Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: Special hardsuit helmet, made for the technical lead of the station.
   components:
   - type: Sprite
@@ -358,7 +360,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitAtmosSyndi
   name: Atmospheric Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
   components:
   - type: Sprite
@@ -449,7 +451,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitEngineeringSyndi
   name: Engineer Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: An architectural hardsuit helmet designed for working in low-pressure, high radioactive environments.
   components:
   - type: Sprite
@@ -535,7 +537,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSecuritySyndi
   name: Security Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
@@ -576,7 +578,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitWardenSyndi
   name: Constable's Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
@@ -614,7 +616,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitBrigmedicSyndi
   name: Brigmedic Hardsuit Helmet
-  suffix: S
+  suffix: NS
   description: The lightweight helmet of the medical officer hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
@@ -659,7 +661,7 @@
   id: ClothingHeadHelmetHardsuitNtrepSyndi
   categories: [ HideSpawnMenu ]
   name: NeoSol Representative's Hardsuit Helmet
-  suffix: S
+  suffix: NS
   components:
   - type: Sprite
     sprite: _FarHorizons/Clothing/Head/Hardsuits/ntrep-syndi.rsi
