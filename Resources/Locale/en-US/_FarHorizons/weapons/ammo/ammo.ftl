@@ -1,16 +1,16 @@
 ammo-selection-title = Ammo Selection
 
 ammo-selection-title-description = 
-  Thank you for your purchase of the Ammo Selector v 2.0!
-  Choose 1 kind of ammunition type from the list provided.
+  We appreciate your purchase of the Ammo Selector v 2.0
+  Choose a single type of ammunition from the list provided.
 
   WARNING: Bluespace Teleportation is not quiet. Do not use in a crowded space.
 
 ammo-selection-title-description-s = 
-  Thank you for your purchase of the Ammo Selector v 2.0!
-  Choose 1 kind of ammunition type from the list provided.
+  We appreciate your purchase of the Ammo Selector v 2.0
+  Choose a single type of ammunition from the list provided.
 
-  WARNING: Redspace Teleportation is not quiet. No refunds if caught.
+  WARNING: Redspace Teleportation is not quiet. No refunds if used irresponsibly.
 
 ammo-selection-hp-name = Hollow Point
 ammo-selection-sp-name = Soft Point
