@@ -203,7 +203,7 @@
           amount: 5
         - id: MagazinePistolSP
           amount: 5
-        - id: MagazinePistol38FMJ
+        - id: MagazinePistol38SP
           amount: 5
         - id: MagazinePistolSubMachineGunSP
           amount: 4
