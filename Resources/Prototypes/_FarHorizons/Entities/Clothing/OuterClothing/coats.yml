@@ -284,7 +284,7 @@
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmoSyndi]
-  id: ClothingOuterCoatLabCmoOpened
+  id: ClothingOuterCoatLabCmoSyndiOpened
   name: Medical Director's Lab Coat
 
 #Virologist
@@ -300,5 +300,5 @@
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViroSyndi]
-  id: ClothingOuterCoatLabCmoOpened
+  id: ClothingOuterCoatLabViroSyndiOpened
   name: Virologist Lab Coat

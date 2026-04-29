@@ -27,6 +27,38 @@
 
 
 
+
+#region Science
+- type: entity
+  id: ClothingBeltScienceRoboticist
+  parent: ClothingBeltScience
+  suffix: NT, Roboticist, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CrowbarYellow
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+
+- type: entity
+  id: ClothingBeltScienceRD
+  parent: ClothingBeltScience
+  suffix: NT, ResearchDirector, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CrowbarYellow
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool
+      - id: AnomalyScanner
+      - id: NodeScanner
+
 #region Security
 #Scug Belt
 - type: entity
@@ -118,3 +150,79 @@
         - id: Wirecutter
         - id: Welder
         - id: Multitool
+
+#region Medical
+
+- type: entity
+  parent: ClothingBeltMedicalSyndi
+  id: ClothingBeltMedicalSyndiFilled
+  suffix: NS, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Ointment
+        - id: Bloodpack
+        - id: BloodpackAmmonia #Far Horizons
+        - id: Gauze
+        - id: PillCanisterTricordrazine
+
+- type: entity
+  parent: ClothingBeltMedicalEMTSyndi
+  id: ClothingBeltMedicalEMTSyndiFilled
+  suffix: NS, Paramedic, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Bloodpack
+        - id: BloodpackAmmonia #Far Horizons
+        - id: Gauze
+        # Reagents focused on emergency response rather than outright healing
+        - id: ChemistryBottleInaprovaline
+          amount: 2
+        - id: ChemistryBottleHaloperidol
+        - id: ChemistryBottleEthylredoxrazine
+        - id: ChemistryBottleIpecac
+        - id: ChemistryBottleCharcoal
+
+#region Security
+
+- type: entity
+  id: ClothingBeltBrigmedicSyndiFilled
+  parent: ClothingBeltBrigmedicSyndi
+  suffix: NS, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Stunbaton
+      - id: Handcuffs    
+      - id: Brutepack
+      - id: Ointment
+      - id: Gauze
+
+- type: entity
+  id: ClothingBeltCorpsmanSyndiFilled
+  parent: ClothingBeltCorpsmanSyndi
+  suffix: NS, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Stunbaton
+      - id: Handcuffs    
+      - id: Brutepack
+      - id: Ointment
+      - id: Gauze
+
+- type: entity
+  id: ClothingBeltSecuritySyndiFilled
+  parent: ClothingBeltSecuritySyndi
+  suffix: NS, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityEntityTable

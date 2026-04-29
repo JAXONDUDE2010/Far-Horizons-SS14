@@ -295,7 +295,6 @@
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/ce-w.rsi
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/ce-w.rsi
-    .rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
