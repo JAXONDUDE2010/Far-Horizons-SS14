@@ -13471,5 +13471,26 @@ Entries:
   id: 121502
   time: '2026-04-24T07:09:26.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: princess_gurchi
+  changes:
+  - message: Mentor chat to hide admin in-round spoilers from innocent mentor eyes
+    type: Add
+  id: 122100
+  time: '2026-04-27T23:50:38.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1221
+- author: CawsForConcern
+  changes:
+  - message: IPC health alarm now loops seamlessly.
+    type: Tweak
+  id: 122500
+  time: '2026-04-29T10:16:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1225
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Security Juggsuit being able to fit in normal bags
+    type: Fix
+  id: 122800
+  time: '2026-04-29T21:14:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1228
 Order: -1
 
