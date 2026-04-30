@@ -1,4 +1,4 @@
-using Content.Server.Nuke;
+using Content.Server._FarHorizons.Shuttles;
 using Content.Server.Shuttles.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

@@ -1,4 +1,4 @@
-namespace Content.Server.Shuttles.Components;
+namespace Content.Server._FarHorizons.Shuttles.Components;
 
 /// <summary>
 /// If added to a grid, counts as escaping for objectives.

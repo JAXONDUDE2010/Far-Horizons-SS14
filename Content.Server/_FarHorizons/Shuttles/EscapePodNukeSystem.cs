@@ -1,21 +1,20 @@
+using Content.Server._FarHorizons.Shuttles.Components;
 using Content.Server.AlertLevel;
-using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
+using Content.Server.Nuke;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
 using Content.Shared.Nuke;
 using Content.Shared.Shuttles.Components;
-using Microsoft.Extensions.Configuration;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Nuke;
+namespace Content.Server._FarHorizons.Shuttles;
 
 public sealed class EscapePodNukeSystem : EntitySystem
 {
@@ -46,29 +45,29 @@ public sealed class EscapePodNukeSystem : EntitySystem
     {
         base.Update(frameTime);
         // Don't handle any of this logic if in lobby
-        if (_ticker.RunLevel != GameRunLevel.PreRoundLobby)
-        {
+        if (_ticker.RunLevel == GameRunLevel.PreRoundLobby)
+            return;
+        
             var query = EntityQueryEnumerator<NukeComponent>();
-            while (query.MoveNext(out var uid, out var nuke))
+        while (query.MoveNext(out var uid, out var nuke))
+        {
+            if (nuke.Status != NukeStatus.ARMED)
+                continue;
+
+            if (nuke.RemainingTime <= nuke.DisarmDoAfterLength && !_escapealerted)
             {
-                if (nuke.Status == NukeStatus.ARMED)
-                {
-                    if (nuke.RemainingTime <= nuke.DisarmDoAfterLength && !_escapealerted)
-                    {
-                        _chatSystem.DispatchGlobalAnnouncement(
-                            Loc.GetString("fh-nuke-component-announcement-evac", ("time", (int)nuke.DisarmDoAfterLength)),
-                            playSound: false,
-                            colorOverride: Color.Red);
+                _chatSystem.DispatchGlobalAnnouncement(
+                    Loc.GetString("fh-nuke-component-announcement-evac", ("time", (int)nuke.DisarmDoAfterLength)),
+                    playSound: false,
+                    colorOverride: Color.Red);
 
-                        _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
+                _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
 
-                        _escapealerted = true;
-                    }
-
-                    if (nuke.RemainingTime <= 8) //Under no cercumstances should the nuke be capable of going off before FTL, physics are weird and they still get destroyed
-                        LaunchPods();
-                }
+                _escapealerted = true;
             }
+
+            if (nuke.RemainingTime <= 8) //Under no cercumstances should the nuke be capable of going off before FTL, physics are weird and they still get destroyed
+                LaunchPods();
         }
     }
 
@@ -112,14 +111,14 @@ public sealed class EscapePodNukeSystem : EntitySystem
 
     private void OnNukeExploded(NukeExplodedEvent ev)
     {
-        if (!_annoucedlaunch)
-        {
-            _annoucedlaunch = true;
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("fh-escape-pods-left", ("transitTime", $"{_emergencyshuttle.TransitTime:0}")));
-            var stationUid = _station.GetOwningStation(_originalstaiton);
-            if (stationUid != null)
-                _alertLevel.SetLevel(stationUid.Value, "red", false, false, true); //secretly change alert back to red so the lights come back on
-        }
+        if (_annoucedlaunch) 
+            return;
+
+        _annoucedlaunch = true;
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("fh-escape-pods-left", ("transitTime", $"{_emergencyshuttle.TransitTime:0}")));
+        var stationUid = _station.GetOwningStation(_originalstaiton);
+        if (stationUid != null)
+            _alertLevel.SetLevel(stationUid.Value, "red", false, false, true); //secretly change alert back to red so the lights come back on
     }
 
     private void OnNukeDisarm(NukeDisarmSuccessEvent ev)

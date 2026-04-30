@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server._FarHorizons.Shuttles;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion;
@@ -16,7 +17,7 @@ namespace Content.Server.Nuke
     ///     To activate it, user needs to insert an authorization disk and enter a secret code.
     /// </summary>
     [RegisterComponent]
-    [Access(typeof(NukeSystem),typeof(EscapePodNukeSystem))] //FH
+    [Access(typeof(NukeSystem))]
     public sealed partial class NukeComponent : SharedNukeComponent
     {
         /// <summary>

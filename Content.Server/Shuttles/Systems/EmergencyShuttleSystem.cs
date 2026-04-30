@@ -39,6 +39,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server._Starlight.Station; // Starlight
+using Content.Server._FarHorizons.Shuttles.Components; //FH
 
 namespace Content.Server.Shuttles.Systems;
 
