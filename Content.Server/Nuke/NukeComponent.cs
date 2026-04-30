@@ -16,7 +16,7 @@ namespace Content.Server.Nuke
     ///     To activate it, user needs to insert an authorization disk and enter a secret code.
     /// </summary>
     [RegisterComponent]
-    [Access(typeof(NukeSystem))]
+    [Access(typeof(NukeSystem),typeof(EscapePodNukeSystem))] //FH
     public sealed partial class NukeComponent : SharedNukeComponent
     {
         /// <summary>
@@ -197,5 +197,10 @@ namespace Content.Server.Nuke
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("requiredFloorRadius")]
         public float RequiredFloorRadius = 5;
+
+        /// <summary>
+        ///     Has the crew been warned its too late to disarm the nuke?
+        /// </summary>
+        public bool EscapeAlerted; //FH
     }
 }
