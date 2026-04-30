@@ -1,0 +1,2 @@
+trait-background-magical-encounter-name = Intrinsic Augments
+trait-background-magical-encounter-description = Through cyberware, bioware, genetic modifications, psionics or birthright, you gain access to a set of abilities some would call unnatural.
