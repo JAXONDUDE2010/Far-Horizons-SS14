@@ -427,10 +427,25 @@
   components:
   - type: Action
     icon:
-      sprite: _FarHorizons/Clothing/OuterClothing/Hardsuits/paramed.rsi #Far Horizons
+      sprite: _FarHorizons/Clothing/OuterClothing/Suits/paramed.rsi #Far Horizons
       state: icon-siren
     useDelay: 1
     itemIconStyle: BigAction
+
+#FH Start
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleParamedicSirenSyndi
+  name: Toggle Paramedic Siren
+  description: Toggles the paramedic siren on and off.
+  components:
+  - type: Action
+    icon:
+      sprite: _FarHorizons/Clothing/OuterClothing/Suits/NeoSol/paramed.rsi 
+      state: icon-siren
+    useDelay: 1
+    itemIconStyle: BigAction
+#FH End
 
 - type: entity
   parent: ActionToggleWagging
