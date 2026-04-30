@@ -30,6 +30,7 @@ public sealed class EscapePodNukeSystem : EntitySystem
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
 
     private bool _preppods = false;
+    private bool _escapealerted = false;
     private EntityUid? _originalstaiton;
     private bool _annoucedlaunch = false;
     public override void Initialize()
@@ -38,6 +39,7 @@ public sealed class EscapePodNukeSystem : EntitySystem
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
+        SubscribeLocalEvent<NukeDisarmSuccessEvent>(OnNukeDisarm);
     }
 
     public override void Update(float frameTime)
@@ -51,7 +53,7 @@ public sealed class EscapePodNukeSystem : EntitySystem
             {
                 if (nuke.Status == NukeStatus.ARMED)
                 {
-                    if (nuke.RemainingTime <= nuke.DisarmDoAfterLength && !nuke.EscapeAlerted)
+                    if (nuke.RemainingTime <= nuke.DisarmDoAfterLength && !_escapealerted)
                     {
                         _chatSystem.DispatchGlobalAnnouncement(
                             Loc.GetString("fh-nuke-component-announcement-evac", ("time", (int)nuke.DisarmDoAfterLength)),
@@ -60,7 +62,7 @@ public sealed class EscapePodNukeSystem : EntitySystem
 
                         _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
 
-                        nuke.EscapeAlerted = true;
+                        _escapealerted = true;
                     }
 
                     if (nuke.RemainingTime <= 8) //Under no cercumstances should the nuke be capable of going off before FTL, physics are weird and they still get destroyed
@@ -72,7 +74,7 @@ public sealed class EscapePodNukeSystem : EntitySystem
 
     private void LaunchPods()
     {
-        //mostly copied from EmergencyShuttleSystem, but with only the pod launch parts and modified to function independatly, also only launches for the current station
+        //mostly copied from EmergencyShuttleSystem, but with only the pod launch parts and modified to function independatly
 
         var podQuery = AllEntityQuery<EscapePodComponent>();
 
@@ -120,9 +122,17 @@ public sealed class EscapePodNukeSystem : EntitySystem
         }
     }
 
+    private void OnNukeDisarm(NukeDisarmSuccessEvent ev)
+    {
+        _preppods = false;
+        _escapealerted = false;
+    }
+
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _preppods = false;
+        _escapealerted = false;
         _annoucedlaunch = false;
+        _originalstaiton = null;
     }
 }

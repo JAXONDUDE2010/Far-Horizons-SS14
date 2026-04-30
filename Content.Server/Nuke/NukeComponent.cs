@@ -197,10 +197,5 @@ namespace Content.Server.Nuke
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("requiredFloorRadius")]
         public float RequiredFloorRadius = 5;
-
-        /// <summary>
-        ///     Has the crew been warned its too late to disarm the nuke?
-        /// </summary>
-        public bool EscapeAlerted; //FH
     }
 }
