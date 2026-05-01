@@ -13534,5 +13534,71 @@ Entries:
   id: 123000
   time: '2026-04-30T17:09:05.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1230
+- author: Killer Tamashi
+  changes:
+  - message: Added Ammo Selector for Syndicates and a NT variant (not used for anything
+      yet).
+    type: Add
+  id: 122400
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Added Resprited Small/Large gun-cases
+    type: Add
+  id: 122401
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Uzi to use 9mm SMG mags.
+    type: Tweak
+  id: 122402
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Most weapons in uplink to come in new gun-cases with the new
+      ammo selector, except for ammo types I have not reworked yet. (12g weapons /
+      Histrov & Pitbull)
+    type: Tweak
+  id: 122403
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed the L6 to come in the M81A1 crate, and gave it a lot of SP magazines
+      (5) and a 7.62 ammo canister. It IS the cost of all your TC as a syndicate traitor,
+      afterall.
+    type: Tweak
+  id: 122404
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed gun descriptions in uplink to mention applicable weapons come
+      with an ammo selector and what type of ammo the gun is loaded with already on
+      purchase.
+    type: Tweak
+  id: 122405
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Allowed Bags of Holding to actually.. act like bags of holding. They
+      can now store Ginormous items.
+    type: Tweak
+  id: 122406
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Normal bags can now also hold "ginormous" items now, but this will never
+      happen in practice due to the size of the item being bigger than the backpack,
+      and even duffel bags, with the exception of bluespace bags which is intentional.
+    type: Tweak
+  id: 122407
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
 Order: -1
 
