@@ -63,12 +63,6 @@
       - type: IntrinsicAugments
         action: ActionOpenCantripStore
         addComponents:
-          - type: UserInterface
-            interfaces:
-              enum.StoreUiKey.Key:
-                type: StoreBoundUserInterface
-          - type: ActivatableUI
-            key: enum.StoreUiKey.Key
           - type: Store
             name: store-preset-name-cantrips
             categories:
