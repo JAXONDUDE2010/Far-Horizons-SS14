@@ -13643,5 +13643,13 @@ Entries:
   id: 123701
   time: '2026-05-02T12:00:13.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1237
+- author: princess_gurchi
+  changes:
+  - message: Fixed intrinsic augments preventing their holders from getting their
+      armor stripped, surgery performed on, or using music player
+    type: Fix
+  id: 124300
+  time: '2026-05-02T12:54:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1243
 Order: -1
 
