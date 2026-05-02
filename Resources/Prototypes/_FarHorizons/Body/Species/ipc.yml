@@ -139,7 +139,7 @@
       - Inorganic
 
 - type: entity
-  parent: [ DamageableLimbVisualsIPC, OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseHeadSexed, OrganBaseHeadVitalNonEdible, OrganIPCExternal ]
   id: OrganIPCHead
   components:
   - type: VisualOrganMarkings
@@ -153,17 +153,18 @@
       - Inorganic
 
 - type: entity
-  parent: [ DamageableLimbVisualsIPC, OrganBaseArmLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmLeftNonEdible, OrganIPCExternal ]
   id: OrganIPCArmLeft
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      dropItemsFrom:
-      - body_part_slot_left hand
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 2
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 2
+    thresholds:
+      5:
+        dropItemsFrom:
+        - left
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
@@ -184,17 +185,18 @@
       - Inorganic
 
 - type: entity
-  parent: [ DamageableLimbVisualsIPC, OrganBaseArmRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseArmRightNonEdible, OrganIPCExternal ]
   id: OrganIPCArmRight
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      dropItemsFrom:
-      - body_part_slot_right hand
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 2
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 2
+    thresholds:
+      5:
+        dropItemsFrom:
+        - right
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
@@ -215,17 +217,18 @@
       - Inorganic
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganIPCExternal ]
+  parent: [ OrganBaseHandLeftNonEdible, OrganIPCExternal ]
   id: OrganIPCHandLeft
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      dropItemsFrom:
-      - body_part_slot_left hand
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - left
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach
@@ -246,17 +249,18 @@
       - Inorganic
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganIPCExternal ]
+  parent: [ OrganBaseHandRightNonEdible, OrganIPCExternal ]
   id: OrganIPCHandRight
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      dropItemsFrom:
-      - body_part_slot_right hand
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 1
+    thresholds:
+      5:
+        dropItemsFrom:
+        - right
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach
@@ -277,19 +281,21 @@
       - Inorganic
 
 - type: entity
-  parent: [ DamageableLimbVisualsIPC, OrganBaseLegLeft, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegLeftNonEdible, OrganIPCExternal ]
   id: OrganIPCLegLeft
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      knockdownAmount: 0.25
-      slowdownAmount: 2.5
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier: 0.5
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 2
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 2
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
@@ -310,19 +316,21 @@
       - Inorganic
 
 - type: entity
-  parent: [ DamageableLimbVisualsIPC, OrganBaseLegRight, OrganIPCExternal ]
+  parent: [ DamageableLimbVisualsIPC, OrganBaseLegRightNonEdible, OrganIPCExternal ]
   id: OrganIPCLegRight
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      knockdownAmount: 0.25
-      slowdownAmount: 2.5
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier: 0.5
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 2
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 2
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach # Amputate limb when it takes slash damage
@@ -343,19 +351,21 @@
       - Inorganic
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganIPCExternal ]
+  parent: [ OrganBaseFootLeftNonEdible, OrganIPCExternal ]
   id: OrganIPCFootLeft
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      knockdownAmount: 0.25
-      slowdownAmount: 2.5
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier: 0.5
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach
@@ -376,19 +386,21 @@
       - Inorganic
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganIPCExternal ]
+  parent: [ OrganBaseFootRightNonEdible, OrganIPCExternal ]
   id: OrganIPCFootRight
   components:
-  - type: HumanoidEMPCompositeElement
-    effect:
-      knockdownAmount: 0.25
-      slowdownAmount: 2.5
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier: 0.5
-      damageAmount:
-        types:
-          Shock: 3
-          Heat: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 3
+        Heat: 1
+    thresholds:
+      3:
+        slowdownAmount: 2.5
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      7:
+        knockdownAmount: 0.25
   - type: LimbDamageEffect
     effects:
       - effect: !type:LimbEffectDetach
@@ -420,14 +432,16 @@
     data:
       sprite: Mobs/Customization/eyes.rsi
       state: no_eyes
-  - type: HumanoidEMPCompositeElement
-    effect:
-      glitchDuration: 10.0
-      additionalEffects:
-        StatusEffectBlinded: 2.0
-      damageAmount:
-        types:
-          Shock: 1
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 1
+    thresholds:
+      1:
+        glitchDuration: 10.0
+      6:
+        additionalEffects:
+          StatusEffectBlinded: 2.0
   - type: Tag
     tags:
       - Inorganic

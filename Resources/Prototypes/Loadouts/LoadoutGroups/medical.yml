@@ -14,6 +14,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - LeatherSatchel # starlight
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -21,6 +22,9 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  - Heels # 🌟Starlight🌟
+  - LaceupShoes # 🌟Starlight🌟
+  - LeatherShoes # 🌟Starlight🌟
 
 - type: loadoutGroup
   id: SurvivalMedical
@@ -74,6 +78,10 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - WhiteShoes # 🌟Starlight🌟
+  - Heels # 🌟Starlight🌟
+  - LaceupShoes # 🌟Starlight🌟
+  - LeatherShoes # 🌟Starlight🌟
 
 #- type: loadoutGroup
 #  id: ChiefMedicalOfficerJobTrinkets
@@ -107,6 +115,10 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - NurseJumpskirt # afterlight
+  - CoronerJumpskirt # afterlight
+  - CoronerJumpsuit # afterlight
+  - CoronerJumpsuitAlt # afterlight
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -116,6 +128,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - WindbreakerMedical #Starlight
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -153,6 +166,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorChemistJumpsuit # Starlight
+  - SeniorChemistJumpskirt # Starlight
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -162,6 +177,8 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorChemistLabCoat # Starlight
+  - SeniorChemistWintercoat # Starlight
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -170,6 +187,7 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  - LeatherSatchel # starlight
 
 #- type: loadoutGroup
 #  id: ChemistJobTrinkets
@@ -208,6 +226,8 @@
   - BlueShoes
   - WhiteShoes
   - MedicalWinterBoots
+  - Heels # 🌟Starlight🌟
+  - HighHeelBoots # Starlight
 
 #- type: loadoutGroup
 #  id: ParamedicJobTrinkets

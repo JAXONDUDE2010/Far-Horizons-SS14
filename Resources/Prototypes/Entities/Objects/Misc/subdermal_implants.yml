@@ -187,7 +187,7 @@
   parent: BaseSubdermalImplant
   id: EmpImplant
   name: EMP implant
-  description: This implant creates an electromagnetic pulse when activated.
+  description: This implant creates an electromagnetic pulse (strength 5) when activated. # Far Horizons
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -197,6 +197,7 @@
     range: 2.75
     energyConsumption: 50000
     disableDuration: 10
+    strength: 5 # FH
 
 - type: entity
   parent: BaseSubdermalImplant

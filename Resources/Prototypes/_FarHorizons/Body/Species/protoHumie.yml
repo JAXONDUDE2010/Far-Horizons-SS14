@@ -65,33 +65,33 @@
   id: OrganProtoHumieHead
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoHumieExternal, OrganHumanArmLeft ]
   id: OrganProtoHumieArmLeft
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoHumieExternal, OrganHumanArmRight ]
   id: OrganProtoHumieArmRight
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoHumieExternal, OrganHumanHandLeft ]
   id: OrganProtoHumieHandLeft
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoHumieExternal, OrganHumanHandRight ]
   id: OrganProtoHumieHandRight
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoHumieExternal, OrganHumanLegLeft ]
   id: OrganProtoHumieLegLeft
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoHumieExternal, OrganHumanLegRight ]
   id: OrganProtoHumieLegRight
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoHumieExternal, OrganHumanFootLeft ]
   id: OrganProtoHumieFootLeft
 
 - type: entity
-  parent: [ OrganProtoHumieExternal, OrganHumanFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoHumieExternal, OrganHumanFootRight ]
   id: OrganProtoHumieFootRight

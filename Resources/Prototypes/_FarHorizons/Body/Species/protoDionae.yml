@@ -69,35 +69,35 @@
   id: OrganProtoDionaeHead
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoDionaeExternal, OrganDionaArmLeft ]
   id: OrganProtoDionaeArmLeft
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoDionaeExternal, OrganDionaArmRight ]
   id: OrganProtoDionaeArmRight
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoDionaeExternal, OrganDionaHandLeft ]
   id: OrganProtoDionaeHandLeft
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoDionaeExternal, OrganDionaHandRight ]
   id: OrganProtoDionaeHandRight
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoDionaeExternal, OrganDionaLegLeft ]
   id: OrganProtoDionaeLegLeft
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoDionaeExternal, OrganDionaLegRight ]
   id: OrganProtoDionaeLegRight
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoDionaeExternal, OrganDionaFootLeft ]
   id: OrganProtoDionaeFootLeft
 
 - type: entity
-  parent: [ OrganProtoDionaeExternal, OrganDionaFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoDionaeExternal, OrganDionaFootRight ]
   id: OrganProtoDionaeFootRight
 
 # Organs

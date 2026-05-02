@@ -24,6 +24,7 @@ using Robust.Shared.Utility;
 using Content.Shared._FarHorizons.Factions;
 using Content.Server._FarHorizons.Factions;
 using Content.Shared._Starlight.Traits;
+using Content.Shared.Starlight.TextToSpeech; // Far Horizons edit
 
 namespace Content.Server.Preferences.Managers
 {
@@ -211,7 +212,8 @@ namespace Content.Server.Preferences.Managers
             Symspeech? symspeech;
             Symspeech? siliconSymspeech;
             
-            if (profile.FarHorizonsProfile?.Symspeech is { } profileSymspeech)
+            if (profile.FarHorizonsProfile?.Symspeech is { } profileSymspeech
+                && _prototypeManager.HasIndex<VoicePrototype>(profileSymspeech.Voice))
             {
                 symspeech = new Symspeech(
                     profileSymspeech.Voice,
@@ -225,7 +227,8 @@ namespace Content.Server.Preferences.Managers
             else
                 symspeech = null;
 
-            if (profile.FarHorizonsProfile?.SiliconSymspeech is { } profileSiliconSymspeech)
+            if (profile.FarHorizonsProfile?.SiliconSymspeech is { } profileSiliconSymspeech
+                && _prototypeManager.HasIndex<VoicePrototype>(profileSiliconSymspeech.Voice))
             {
                 siliconSymspeech = new Symspeech(
                     profileSiliconSymspeech.Voice,

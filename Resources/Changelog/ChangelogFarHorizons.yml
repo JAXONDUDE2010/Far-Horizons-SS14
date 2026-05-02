@@ -12815,5 +12815,790 @@ Entries:
   id: 116905
   time: '2026-04-16T21:32:41.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1169
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: BZ Gas
+    type: Add
+  id: 116600
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium Gas
+    type: Add
+  id: 116601
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Nitrium Gas
+    type: Add
+  id: 116602
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Pluxium Gas
+    type: Add
+  id: 116603
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Hydrogen Gas
+    type: Add
+  id: 116604
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Hyper-Noblium Gas
+    type: Add
+  id: 116605
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Proto-Nitrate Gas
+    type: Add
+  id: 116606
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Zauker Gas
+    type: Add
+  id: 116607
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Halon Gas
+    type: Add
+  id: 116608
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Helium Gas
+    type: Add
+  id: 116609
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Anti-Noblium Gas
+    type: Add
+  id: 116610
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Electrolyzer Machine
+    type: Add
+  id: 116611
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Metal Hydrogen Gear
+    type: Add
+  id: 116612
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Description to Electrolyzers.
+    type: Add
+  id: 116613
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium now has a minor bleed-staunching effect.
+    type: Add
+  id: 116614
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Electrolyzers Now correctly accept Plasma and Uranium sheets.
+    type: Fix
+  id: 116615
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Missing localizations for BZ chem guidebook entry.
+    type: Fix
+  id: 116616
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium heals more at lower concentrations.
+    type: Tweak
+  id: 116617
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Healium now has a cap on how much it heals. This only affects high concentrations.
+    type: Tweak
+  id: 116618
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Nitrosyl plasmide no longer makes it impossible to stun and cuff (but
+      still reduces stun time).
+    type: Tweak
+  id: 116619
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: marc-pelletier, CrazyPhantom, redmushie, AndrewTateOfficialSS14
+  changes:
+  - message: Changed atmos devices max pressure from 4500 to 9000 kPa.
+    type: Tweak
+  id: 116620
+  time: '2026-04-16T22:29:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1166
+- author: princess_gurchi
+  changes:
+  - message: Every source of EMP now has power value attached to it
+    type: Add
+  id: 117000
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP damage that inorganic body parts take (protogen, IPC, cybernetics)
+      is now dealt directly to that limb instead of torso only.
+    type: Add
+  id: 117001
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP strength now modifies damage dealt by square root of its value (strength
+      9 EMP deals 3x the damage of strength 1 EMP)
+    type: Tweak
+  id: 117002
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP effects on humanoids now require specific strength to trigger. Glitching
+      on eyes happen on any level, but blindness only starting from 6. Slowdown on
+      legs will happen at 4, but knockdown only at 8 (3 and 7 for IPC). Items will
+      drop from hand at 5.
+    type: Tweak
+  id: 117003
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP chem reaction has 0.5 strength per 1u of uranium used, rounded up,
+      with hard cap at 10
+    type: Tweak
+  id: 117004
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: EMP grenades have strength of 10, projectile grenades/ion rifles - 8,
+      Ling scream - 6, EMP implant/ninja suit/zeus fist - 5
+    type: Tweak
+  id: 117005
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: princess_gurchi
+  changes:
+  - message: Add inspect text showing EMP strength to grenades, projectile grenades
+      and ion rifles. Add description text showing EMP strength to ling scream
+    type: Tweak
+  id: 117006
+  time: '2026-04-16T23:51:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1170
+- author: KarusKardin
+  changes:
+  - message: Modified law 0 for EMAGed borgs to be more reliable for the one who EMAGed
+      them
+    type: Tweak
+  id: 117700
+  time: '2026-04-17T10:54:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1177
+- author: KarusKardin
+  changes:
+  - message: EMAG now applies Ioned laws to borgs
+    type: Tweak
+  id: 117701
+  time: '2026-04-17T10:54:00.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1177
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Partially ports Elves by adding cantrips and the ear markings of elves
+      for humans. (Rhetorica)
+    type: Add
+  id: 115100
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Anyone with the Magical Encounter Background gains the cantrip book (subject
+      to change)
+    type: Add
+  id: 115101
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Ports the Lagomorphs and their extra horn markings. (InanimateIJK, TacoLlama)
+    type: Add
+  id: 115102
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Ports the extra prescription glasses equivalents for security glasses,
+      brigmedic glasses, medical hud, and chemical analyser. (SeaborneProto)
+    type: Add
+  id: 115103
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Ports Damaged Throat Trait. (Scarlet/hydetime)
+    type: Add
+  id: 115104
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Fixed the issue with prescription glasses unblurring your vision.
+    type: Fix
+  id: 115105
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Tweaked the luminous orb to be the same duration as a flare.
+    type: Tweak
+  id: 115106
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Zoomies are bound to legs and only last 10 seconds.
+    type: Tweak
+  id: 115107
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Darktongue cost to 2 points.
+    type: Tweak
+  id: 115108
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: AthenaAI, Rhetorica, InanimateIJK, TacoLlama, Scarlet/hydetime
+  changes:
+  - message: Elf reagents to only be half as effective as their normal counterparts.
+    type: Tweak
+  id: 115109
+  time: '2026-04-17T11:11:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1151
+- author: Fasuh
+  changes:
+  - message: Added a system to set your voice to default in case your voice cannot
+      be loaded.
+    type: Add
+  id: 117100
+  time: '2026-04-17T11:19:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1171
+- author: Fasuh
+  changes:
+  - message: Removed a lot of annoying to listen to voices.
+    type: Remove
+  id: 117101
+  time: '2026-04-17T11:19:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1171
+- author: Fasuh
+  changes:
+  - message: Fixed incorrect effect being applied to radios.
+    type: Fix
+  id: 117400
+  time: '2026-04-17T11:22:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1174
+- author: KittenColony
+  changes:
+  - message: Renamed Magistrate to Concord Liaison.
+    type: Tweak
+  id: 117800
+  time: '2026-04-17T18:01:18.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1178
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Bodybag starting locked.
+    type: Fix
+  id: 118500
+  time: '2026-04-18T10:11:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1185
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Dominator auto unlock/lock not working.
+    type: Fix
+  id: 118501
+  time: '2026-04-18T10:11:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1185
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Unlocking taking priority over unfolding.
+    type: Fix
+  id: 118502
+  time: '2026-04-18T10:11:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1185
+- author: princess_gurchi
+  changes:
+  - message: Fixed being able to get nexus on protogens and trinary on birds with
+      export yaml edits
+    type: Fix
+  id: 118900
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: princess_gurchi
+  changes:
+  - message: Fixed being able to queue the same research more than once
+    type: Fix
+  id: 118901
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: princess_gurchi
+  changes:
+  - message: Dragons have evolved faraday cage in their stomach to stop eaten hardsuits
+      from showing up on mass scanner
+    type: Tweak
+  id: 118902
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: princess_gurchi
+  changes:
+  - message: Added missing displacements for rigs on resomi and cyclorite (as well
+      as their proto- variants)
+    type: Fix
+  id: 118903
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: princess_gurchi
+  changes:
+  - message: Wizard is once again a roundstart antag you can spawn as
+    type: Tweak
+  id: 118904
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: princess_gurchi
+  changes:
+  - message: Removed all non-FH maps so map voting doesn't require admin intervention
+    type: Tweak
+  id: 118905
+  time: '2026-04-18T13:51:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1189
+- author: AthenaAI
+  changes:
+  - message: Gives a melee attack to the ember spell for 5 heat.
+    type: Add
+  id: 119700
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Fixes the pointlight on the ember spell, lighters and welders to actually
+      create light.
+    type: Fix
+  id: 119701
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Fixes an issue with vehicles causing people to not move after shutting
+      off the vehicle.
+    type: Fix
+  id: 119702
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI
+  changes:
+  - message: Makes the ember spell use the eye colors of the person for its color.
+    type: Tweak
+  id: 119703
+  time: '2026-04-18T16:40:09.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1197
+- author: AthenaAI, Citrea
+  changes:
+  - message: Adds a system so the sprite path for a visual organ can be overwritten
+      depending on the species.
+    type: Add
+  id: 120000
+  time: '2026-04-19T10:45:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1200
+- author: AthenaAI, Citrea
+  changes:
+  - message: Adds cyberlimbs sprites by Citrea from SL for Resomi.
+    type: Add
+  id: 120001
+  time: '2026-04-19T10:45:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1200
+- author: Killer Tamashi
+  changes:
+  - message: Added "No Cadet" Doors/Lockers for Security, does what it says pretty
+      much.
+    type: Add
+  id: 118700
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Added Zookeeper to Meta Station.
+    type: Add
+  id: 118701
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Added Solitary Cell to Meta Station. You get a toilet.
+    type: Add
+  id: 118702
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Added a small kitchen area to Genpop in Meta Station.
+    type: Add
+  id: 118703
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Restructured the entire security department in Meta to support separation
+      of cadet/secoff access, important things are now out of a cadet's reach, either
+      locked behind doors that do not let them in or lockers.
+    type: Tweak
+  id: 118704
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Changed Genpop structure in Meta Station a bit, Warden now has to let
+      you through a checkpoint before you leave (This is to make Warden aware your
+      time is up and to mark you as discharged, as a great issue with Sec is having
+      prisoners randomly leave with no notice and creating confusion)
+    type: Tweak
+  id: 118705
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Slapped Meta Sec dock into the station.
+    type: Tweak
+  id: 118706
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: Killer Tamashi
+  changes:
+  - message: Extended Meta's NW solars around the left-side of the Sec dock.
+    type: Tweak
+  id: 118707
+  time: '2026-04-19T10:49:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1187
+- author: AthenaAI
+  changes:
+  - message: Fixes the edible limbs for the cybernetics also ipcs limbs are no longer
+      edibles since I was here.
+    type: Fix
+  id: 120500
+  time: '2026-04-20T16:28:59.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1205
+- author: KarusKardin
+  changes:
+  - message: Removed the experimental Ioned effect applied by EMAG
+    type: Remove
+  id: 120400
+  time: '2026-04-20T16:32:40.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1204
+- author: KarusKardin
+  changes:
+  - message: Adjusted obeysTo for some lawsets
+    type: Tweak
+  id: 120401
+  time: '2026-04-20T16:32:40.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1204
+- author: AthenaAI
+  changes:
+  - message: Adds a cheese cantrip, creates a small piece of cheese that can be fed
+      to all races it tastes awful...
+    type: Add
+  id: 120300
+  time: '2026-04-20T16:39:18.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1203
+- author: AthenaAI
+  changes:
+  - message: Fixes reagent whitelist in the injector system to work properly and give
+      a better message when there is no valid reagent in a solution. This fixes the
+      trico and inap attachments in the angel cyber arm.
+    type: Fix
+  id: 121100
+  time: '2026-04-20T17:25:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1211
+- author: Coolsurf6, IrkallaEpsilon
+  changes:
+  - message: Cyclorite color filter is disabled, same for protogen cyclorites.
+    type: Tweak
+  id: 120700
+  time: '2026-04-20T18:05:50.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1207
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added 11 new tiles.
+    type: Add
+  id: 120600
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added 5 turnstile variants.
+    type: Add
+  id: 120601
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added 2 new tables.
+    type: Add
+  id: 120602
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for 55 tiles.
+    type: Tweak
+  id: 120603
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for 14 chairs.
+    type: Tweak
+  id: 120604
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for turnstiles.
+    type: Tweak
+  id: 120605
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for 9 tables.
+    type: Tweak
+  id: 120606
+  time: '2026-04-21T16:17:44.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1206
+- author: Killer Tamashi
+  changes:
+  - message: Added NoCadet SecureWindoor
+    type: Add
+  id: 121600
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Changed STV trunk size to be able to fit a large person in it.
+    type: Tweak
+  id: 121601
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Meta map errors (some doors not having NoCadet in sec, missing
+      HV cable in sec, ect)
+    type: Fix
+  id: 121602
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: Killer Tamashi
+  changes:
+  - message: Fixed STV not having a hitch.
+    type: Fix
+  id: 121603
+  time: '2026-04-23T11:25:23.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1216
+- author: AthenaAI
+  changes:
+  - message: Made diseases infection more reasonable so something with odds of 0.00001%
+      doesn't infect someone.
+    type: Tweak
+  id: 121800
+  time: '2026-04-24T07:05:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1218
+- author: AthenaAI
+  changes:
+  - message: Airborne disease's infection chance now take into account the source's
+      gear before calculating the target's chance of infection.
+    type: Tweak
+  id: 121801
+  time: '2026-04-24T07:05:25.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1218
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added the Blender, a variant of the Reagent Grinder.
+    type: Add
+  id: 121500
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Added 5 advertisement signs.
+    type: Add
+  id: 121501
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: ItsAbby, jhrushbe
+  changes:
+  - message: Resprites for microwave, oven, stove, freezer, and deep fryer.
+    type: Tweak
+  id: 121502
+  time: '2026-04-24T07:09:26.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: princess_gurchi
+  changes:
+  - message: Mentor chat to hide admin in-round spoilers from innocent mentor eyes
+    type: Add
+  id: 122100
+  time: '2026-04-27T23:50:38.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1221
+- author: CawsForConcern
+  changes:
+  - message: IPC health alarm now loops seamlessly.
+    type: Tweak
+  id: 122500
+  time: '2026-04-29T10:16:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1225
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Security Juggsuit being able to fit in normal bags
+    type: Fix
+  id: 122800
+  time: '2026-04-29T21:14:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1228
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Renamed "magical encounter" background into "intrinsic augments" with
+      a matching description to not suggest magic
+    type: Tweak
+  id: 122300
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Renamed "cantrips" into "intrinsics." Changed Rejuvenating Seed and Haemostatic
+      Glyph names and descriptions to be less magic.
+    type: Tweak
+  id: 122301
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Intrinsics no longer come from a book, but from an action on your character.
+      As soon as 2 abilities are selected, the action disappears. They also no longer
+      use wizcoins.
+    type: Tweak
+  id: 122302
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Nerfed Haemostatic Assistance intrinsic. It now has 15u of Inaprovaline
+      (same amount of bleed healing, but over loner time) and has syringe doafter.
+      This is done to avoid it being too useful for combat.
+    type: Tweak
+  id: 122303
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: KarusKardin
+  changes:
+  - message: Escape Pods now launch when nuke is detonated, antags can escape on pods
+      to complete their objectives.
+    type: Add
+  id: 123000
+  time: '2026-04-30T17:09:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1230
+- author: Killer Tamashi
+  changes:
+  - message: Added Ammo Selector for Syndicates and a NT variant (not used for anything
+      yet).
+    type: Add
+  id: 122400
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Added Resprited Small/Large gun-cases
+    type: Add
+  id: 122401
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Uzi to use 9mm SMG mags.
+    type: Tweak
+  id: 122402
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Most weapons in uplink to come in new gun-cases with the new
+      ammo selector, except for ammo types I have not reworked yet. (12g weapons /
+      Histrov & Pitbull)
+    type: Tweak
+  id: 122403
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed the L6 to come in the M81A1 crate, and gave it a lot of SP magazines
+      (5) and a 7.62 ammo canister. It IS the cost of all your TC as a syndicate traitor,
+      afterall.
+    type: Tweak
+  id: 122404
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed gun descriptions in uplink to mention applicable weapons come
+      with an ammo selector and what type of ammo the gun is loaded with already on
+      purchase.
+    type: Tweak
+  id: 122405
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Allowed Bags of Holding to actually.. act like bags of holding. They
+      can now store Ginormous items.
+    type: Tweak
+  id: 122406
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Normal bags can now also hold "ginormous" items now, but this will never
+      happen in practice due to the size of the item being bigger than the backpack,
+      and even duffel bags, with the exception of bluespace bags which is intentional.
+    type: Tweak
+  id: 122407
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
 Order: -1
 

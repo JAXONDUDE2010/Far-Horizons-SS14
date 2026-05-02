@@ -1,7 +1,7 @@
 <Document>
   # Species
 
-  Nanotrasen employs a variety of sapient species.
+  NanoTrasen employs a variety of sapient species.
 
   <Box>
   <GuideEntityEmbed Entity="AppearanceHuman" Caption="Human"/>
@@ -17,6 +17,7 @@
   <GuideEntityEmbed Entity="AppearanceVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="AppearanceThaven" Caption="Thaven"/>
   <GuideEntityEmbed Entity="AppearanceResomi" Caption="Resomi"/>
+  <GuideEntityEmbed Entity="AppearanceLagomorph" Caption="Lagomorph"/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="AppearanceDwarf" Caption="Dwarf"/>

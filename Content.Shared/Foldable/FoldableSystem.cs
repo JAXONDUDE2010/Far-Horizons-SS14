@@ -155,7 +155,7 @@ public sealed class FoldableSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
 
             // If the object is unfolded and they click it, they want to fold it, if it's folded, they want to pick it up
-            Priority = component.IsFolded ? 0 : 2,
+            Priority = 2, ///FH - Edit - Unfolds on Alt+Click too now instead of locking
         };
 
         args.Verbs.Add(verb);

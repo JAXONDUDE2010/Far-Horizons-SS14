@@ -36,6 +36,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly IEntityManager _entMan = default!; // Starlight
 
+
     private static readonly ProtoId<SiliconLawsetPrototype> DefaultCrewLawset = "Crewsimov";
 
     /// <inheritdoc/>
@@ -188,7 +189,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         component.Lawset?.Laws.Insert(0, new SiliconLaw
         {
-            LawString = Loc.GetString("law-emag-custom", ("name", Name(args.user)), ("title", Loc.GetString(component.Lawset.ObeysTo))),
+            LawString = Loc.GetString("fh-law-emag-custom", ("name", Name(args.user)), ("title", Loc.GetString(component.Lawset.ObeysTo))), //FH
             Order = 0,
             Sayable = false
         });
@@ -196,7 +197,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         //Add the secrecy law after the others
         component.Lawset?.Laws.Add(new SiliconLaw
         {
-            LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
+            LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))), //FH
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
     }

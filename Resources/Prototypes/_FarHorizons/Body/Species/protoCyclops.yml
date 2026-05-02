@@ -69,33 +69,33 @@
   id: OrganProtoCyclopsHead
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoCyclopsExternal, OrganCycloriteArmLeft ]
   id: OrganProtoCyclopsArmLeft
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoCyclopsExternal, OrganCycloriteArmRight ]
   id: OrganProtoCyclopsArmRight
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoCyclopsExternal, OrganCycloriteHandLeft ]
   id: OrganProtoCyclopsHandLeft
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoCyclopsExternal, OrganCycloriteHandRight ]
   id: OrganProtoCyclopsHandRight
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoCyclopsExternal, OrganCycloriteLegLeft ]
   id: OrganProtoCyclopsLegLeft
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoCyclopsExternal, OrganCycloriteLegRight ]
   id: OrganProtoCyclopsLegRight
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoCyclopsExternal, OrganCycloriteFootLeft ]
   id: OrganProtoCyclopsFootLeft
 
 - type: entity
-  parent: [ OrganProtoCyclopsExternal, OrganCycloriteFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoCyclopsExternal, OrganCycloriteFootRight ]
   id: OrganProtoCyclopsFootRight

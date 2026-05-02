@@ -69,35 +69,35 @@
   id: OrganProtoAvaliHead
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoAvaliExternal, OrganAvaliArmLeft ]
   id: OrganProtoAvaliArmLeft
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoAvaliExternal, OrganAvaliArmRight ]
   id: OrganProtoAvaliArmRight
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoAvaliExternal, OrganAvaliHandLeft ]
   id: OrganProtoAvaliHandLeft
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoAvaliExternal, OrganAvaliHandRight ]
   id: OrganProtoAvaliHandRight
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoAvaliExternal, OrganAvaliLegLeft ]
   id: OrganProtoAvaliLegLeft
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoAvaliExternal, OrganAvaliLegRight ]
   id: OrganProtoAvaliLegRight
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoAvaliExternal, OrganAvaliFootLeft ]
   id: OrganProtoAvaliFootLeft
 
 - type: entity
-  parent: [ OrganProtoAvaliExternal, OrganAvaliFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoAvaliExternal, OrganAvaliFootRight ]
   id: OrganProtoAvaliFootRight
 
 # Internal

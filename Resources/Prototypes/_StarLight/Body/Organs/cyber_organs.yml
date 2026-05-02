@@ -12,14 +12,17 @@
     comps: 
     - type: NightVision
   # Far Horizons - EMP effects from installed cybernetics
-  - type: HumanoidEMPCompositeElement
-    effect:
-      glitchDuration: 10.0
-      additionalEffects:
-        StatusEffectBlinded: 2.0
-      damageAmount:
-        types:
-          Shock: 5
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 5
+    thresholds:
+      1:
+        glitchDuration: 5.0
+      6:
+        glitchDuration: 5.0
+        additionalEffects:
+          StatusEffectBlinded: 2.0
 
 - type: entity
   id: CyberEyeThermal
@@ -35,14 +38,17 @@
     comps: 
     - type: ThermalVision
   # Far Horizons - EMP effects from installed cybernetics
-  - type: HumanoidEMPCompositeElement
-    effect:
-      glitchDuration: 10.0
-      additionalEffects:
-        StatusEffectBlinded: 2.0
-      damageAmount:
-        types:
-          Shock: 5
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 5
+    thresholds:
+      1:
+        glitchDuration: 5.0
+      6:
+        glitchDuration: 5.0
+        additionalEffects:
+          StatusEffectBlinded: 2.0
 
 - type: entity
   id: BudgetCyberEyes
@@ -59,14 +65,17 @@
     comps: 
     - type: NoirOverlay
   # Far Horizons - EMP effects from installed cybernetics
-  - type: HumanoidEMPCompositeElement
-    effect:
-      glitchDuration: 10.0
-      additionalEffects:
-        StatusEffectBlinded: 2.0
-      damageAmount:
-        types:
-          Shock: 5
+  - type: OrganEmpTarget
+    baseDamage:
+      types:
+        Shock: 5
+    thresholds:
+      1:
+        glitchDuration: 5.0
+      6:
+        glitchDuration: 5.0
+        additionalEffects:
+          StatusEffectBlinded: 2.0
 
 - type: entity
   id: BudgetCyberTongue

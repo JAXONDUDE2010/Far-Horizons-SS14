@@ -53,7 +53,7 @@
         layer:
         - MachineLayer
   - type: Sprite
-    sprite: _Starlight/Structures/Machines/oven.rsi
+    sprite: _FarHorizons/Structures/Machines/Kitchen/oven.rsi # FarHorizons - resprite
     drawdepth: SmallObjects
     snapCardinals: true
     layers:

@@ -85,35 +85,35 @@
       - enum.HumanoidVisualLayers.SnoutCover
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenArmLeft, OrganBaseArmLeft, OrganProtoVulpExternal ]
   id: OrganProtoVulpArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenArmRight, OrganBaseArmRight, OrganProtoVulpExternal ]
   id: OrganProtoVulpArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenHandLeft, OrganBaseHandLeft, OrganProtoVulpExternal ]
   id: OrganProtoVulpHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenHandRight, OrganBaseHandRight, OrganProtoVulpExternal ]
   id: OrganProtoVulpHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenLegLeft, OrganBaseLegLeft, OrganProtoVulpExternal ]
   id: OrganProtoVulpLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenLegRight, OrganBaseLegRight, OrganProtoVulpExternal ]
   id: OrganProtoVulpLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenFootLeft, OrganBaseFootLeft, OrganProtoVulpExternal ]
   id: OrganProtoVulpFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganProtoVulpExternal ]
+  parent: [ BaseProtogenFootRight, OrganBaseFootRight, OrganProtoVulpExternal ]
   id: OrganProtoVulpFootRight
 
 #Internal Organs

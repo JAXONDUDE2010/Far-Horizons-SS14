@@ -59,21 +59,12 @@
   - type: GlitchOnIonStorm
     duration: 25
     ramp: 3
-  - type: HumanoidEMPComposite # HumanoidEMPComposite is used to gather EMP effects from HumanoidEMPCompositeElement components on all limbs and organs. These effects added in addition to effects in HumanoidEMP and won't work without it
   - type: HumanoidEMP # HumanoidEMP is needed to receive EMP effects, it may carry its own innate effects, but doesn't have to
     effectCooldown: 2
-    effect: # TODO: Move the rest of this to limbs as well.
-      knockdownAmount: 1.0
-      slowdownAmount: 15.0
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier: 0.5
-      dropItemsFrom:
-        - body_part_slot_right hand
-        - body_part_slot_left hand
-      damageAmount:
-        types:
-          Shock: 10
-          Heat: 10
+    baseDamage:
+      types:
+        Shock: 1
+        Heat: 1
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -704,21 +695,12 @@
         enum.InstrumentUiKey.Key:
           type: InstrumentBoundUserInterface
           requireInputValidation: false
-    - type: HumanoidEMPComposite # HumanoidEMPComposite is used to gather EMP effects from HumanoidEMPCompositeElement components on all limbs and organs. These effects added in addition to effects in HumanoidEMP and won't work without it
     - type: HumanoidEMP # HumanoidEMP is needed to receive EMP effects, it may carry its own innate effects, but doesn't have to
       effectCooldown: 2
-      effect:
-        knockdownAmount: 1.0
-        slowdownAmount: 15.0
-        walkSpeedModifier: 0.5
-        sprintSpeedModifier: 0.5
-        dropItemsFrom:
-          - body_part_slot_right hand
-          - body_part_slot_left hand
-        damageAmount:
-          types:
-            Shock: 10
-            Heat: 10
+      baseDamage:
+        types:
+          Shock: 1
+          Heat: 1
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -1023,6 +1005,11 @@
           32:
             sprite: Mobs/Species/Resomi/displacement.rsi
             state: belt
+      rig:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Resomi/displacement.rsi
+            state: belt
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -1080,6 +1067,11 @@
             sprite: Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Resomi/displacement.rsi
+            state: belt
+      rig:
         sizeMaps:
           32:
             sprite: Mobs/Species/Resomi/displacement.rsi
@@ -1764,7 +1756,7 @@
   - type: Icon
     sprite: _FarHorizons/Mobs/Species/Proto-Cyclops/parts.rsi
     state: full
-  - type: CycloriteVision
+# - type: CycloriteVision --FH Edit Comments out teal-cyan color filter--
   - type: NightVision
   - type: Butcherable
     butcheringType: Spike
@@ -1861,6 +1853,11 @@
             sprite: _Starlight/Mobs/Species/Cyclorite/displacement.rsi
             state: neck
       belt:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Cyclorite/displacement.rsi
+            state: belt
+      rig:
         sizeMaps:
           32:
             sprite: _Starlight/Mobs/Species/Cyclorite/displacement.rsi

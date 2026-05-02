@@ -65,35 +65,35 @@
   id: OrganProtoArachnidHead
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidArmLeft ]
+  parent: [ BaseProtogenArmLeft, OrganProtoArachnidExternal, OrganArachnidArmLeft ]
   id: OrganProtoArachnidArmLeft
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidArmRight ]
+  parent: [ BaseProtogenArmRight, OrganProtoArachnidExternal, OrganArachnidArmRight ]
   id: OrganProtoArachnidArmRight
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidHandLeft ]
+  parent: [ BaseProtogenHandLeft, OrganProtoArachnidExternal, OrganArachnidHandLeft ]
   id: OrganProtoArachnidHandLeft
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidHandRight ]
+  parent: [ BaseProtogenHandRight, OrganProtoArachnidExternal, OrganArachnidHandRight ]
   id: OrganProtoArachnidHandRight
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidLegLeft ]
+  parent: [ BaseProtogenLegLeft, OrganProtoArachnidExternal, OrganArachnidLegLeft ]
   id: OrganProtoArachnidLegLeft
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidLegRight ]
+  parent: [ BaseProtogenLegRight, OrganProtoArachnidExternal, OrganArachnidLegRight ]
   id: OrganProtoArachnidLegRight
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidFootLeft ]
+  parent: [ BaseProtogenFootLeft, OrganProtoArachnidExternal, OrganArachnidFootLeft ]
   id: OrganProtoArachnidFootLeft
 
 - type: entity
-  parent: [ OrganProtoArachnidExternal, OrganArachnidFootRight ]
+  parent: [ BaseProtogenFootRight, OrganProtoArachnidExternal, OrganArachnidFootRight ]
   id: OrganProtoArachnidFootRight
 
 # Internal

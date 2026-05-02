@@ -1,5 +1,186 @@
 #region NanoTrasen
 
+# Cadetless - Todo; Rip things out from cadet locker fills when every sec department has been re-mapped. For now, just code distinction. (Maps use cadet lockers by default for reverse-compatability)
+- type: entity
+  id: LockerSecurityOfficerFHFilled
+  parent: LockerSecurityFH
+  name: Security Officer's Locker
+  suffix: NT, No Cadet, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+      - id: WeaponDisabler
+      - id: WeaponHeldTaser
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.3
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingBeltSecurityFilled
+      - id: Flash
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingEyesHudSecurity
+      - id: ClothingHeadsetSecurity
+      - id: ClothingHandsGlovesSecurityRed
+      - id: ClothingShoesBootsJack
+      - id: WeaponMeleeNeedle
+      - id: HoloprojectorSecurity
+      - id: BookSpaceLaw
+
+- type: entity
+  id: LockerSecurityOfficerLargeFHFilled
+  parent: LockerSecurityLargeFH
+  name: Large Security Officer's Locker
+  suffix: NT, No Cadet, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+        amount: 2
+      - id: WeaponHeldTaser
+      - id: WeaponDisabler
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.6
+      - id: ClothingHeadHelmetBasic
+        amount: 2
+      - id: ClothingOuterArmorBasic
+        amount: 2
+      - id: ClothingBeltSecurityFilled
+        amount: 2
+      - id: Flash
+        amount: 2
+      - id: ClothingEyesGlassesSecurity
+        amount: 2
+      - id: ClothingEyesHudSecurity
+        amount: 2
+      - id: ClothingHeadsetSecurity
+        amount: 2
+      - id: ClothingHandsGlovesSecurityRed
+        amount: 2
+      - id: ClothingShoesBootsJack
+        amount: 2
+      - id: WeaponMeleeNeedle
+      - id: HoloprojectorSecurity
+        amount: 2
+      - id: BookSpaceLaw
+        amount: 2
+
+- type: entity
+  id: LockerSecurityOfficerLargeFHLFilled
+  parent: LockerSecurityLargeFHL
+  name: Large Security Officer Lockers
+  suffix: NT, No Cadet, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+        amount: 2
+      - id: WeaponHeldTaser
+      - id: WeaponDisabler
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.6
+      - id: ClothingHeadHelmetBasic
+        amount: 2
+      - id: ClothingOuterArmorBasic
+        amount: 2
+      - id: ClothingBeltSecurityFilled
+        amount: 2
+      - id: Flash
+        amount: 2
+      - id: ClothingEyesGlassesSecurity
+        amount: 2
+      - id: ClothingEyesHudSecurity
+        amount: 2
+      - id: ClothingHeadsetSecurity
+        amount: 2
+      - id: ClothingHandsGlovesSecurityRed
+        amount: 2
+      - id: ClothingShoesBootsJack
+        amount: 2
+      - id: WeaponMeleeNeedle
+      - id: HoloprojectorSecurity
+        amount: 2
+      - id: BookSpaceLaw
+        amount: 2
+
+- type: entity
+  id: LockerSecurityOfficerLargeFHMFilled
+  parent: LockerSecurityLargeFHM
+  name: Large Security Officer Lockers
+  suffix: NT, No Cadet, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+        amount: 3
+      - id: WeaponHeldTaser
+      - id: WeaponDisabler
+        amount: 2
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.9
+      - id: ClothingHeadHelmetBasic
+        amount: 3
+      - id: ClothingOuterArmorBasic
+        amount: 3
+      - id: ClothingBeltSecurityFilled
+        amount: 3
+      - id: Flash
+        amount: 3
+      - id: ClothingEyesGlassesSecurity
+        amount: 3
+      - id: ClothingEyesHudSecurity
+        amount: 3
+      - id: ClothingHeadsetSecurity
+        amount: 3
+      - id: ClothingHandsGlovesSecurityRed
+        amount: 3
+      - id: ClothingShoesBootsJack
+        amount: 3
+      - id: WeaponMeleeNeedle
+      - id: HoloprojectorSecurity
+        amount: 3
+      - id: BookSpaceLaw
+        amount: 3
+
+- type: entity
+  id: LockerSecurityOfficerLargeFHRFilled
+  parent: LockerSecurityLargeFHR
+  name: Large Security Officer Lockers
+  suffix: NT, No Cadet, Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+        amount: 2
+      - id: WeaponHeldTaser
+      - id: WeaponDisabler
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.6
+      - id: ClothingHeadHelmetBasic
+        amount: 2
+      - id: ClothingOuterArmorBasic
+        amount: 2
+      - id: ClothingBeltSecurityFilled
+        amount: 2
+      - id: Flash
+        amount: 2
+      - id: ClothingEyesGlassesSecurity
+        amount: 2
+      - id: ClothingEyesHudSecurity
+        amount: 2
+      - id: ClothingHeadsetSecurity
+        amount: 2
+      - id: ClothingHandsGlovesSecurityRed
+        amount: 2
+      - id: ClothingShoesBootsJack
+        amount: 2
+      - id: WeaponMeleeNeedle
+      - id: HoloprojectorSecurity
+        amount: 2
+      - id: BookSpaceLaw
+        amount: 2
+
+#Cadet.. Yes
 - type: entity
   id: LockerSecurityFHFilled
   suffix: NT, Filled

@@ -8,6 +8,7 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
+  - MedicalEyesPrescriptionGlasses
 
 - type: loadoutGroup
   id: MedicalGloves

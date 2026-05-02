@@ -386,6 +386,7 @@
     - timer # Far Horizons
     range: 5.5
     energyConsumption: 50000
+    strength: 10 # FH
   - type: DeleteOnTrigger
     keysIn:
     - timer # Far Horizons

@@ -116,10 +116,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "l_silver_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "l_silver_arm"
     - type: LimbItemStorage
       items:
@@ -150,10 +150,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "r_silver_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "r_silver_arm"
     - type: LimbItemStorage
       items:
@@ -185,10 +185,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "l_steel_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "l_steel_arm"
     - type: LimbItemStorage
       items:
@@ -215,10 +215,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "r_steel_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "r_steel_arm"
     - type: LimbItemStorage
       items:
@@ -246,10 +246,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "l_bulwark_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "l_bulwark_arm"
     - type: LimbItemStorage
       items:
@@ -272,10 +272,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "r_bulwark_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "r_bulwark_arm"
     - type: LimbItemStorage
       items:
@@ -299,10 +299,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "l_mantis_blade_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "l_mantis_blade_arm"
     - type: LimbItemStorage
       items:
@@ -324,10 +324,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "r_mantis_blade_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "r_mantis_blade_arm"
     - type: LimbItemStorage
       items:
@@ -351,10 +351,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "l_ripper_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "l_ripper_arm"
     - type: LimbItemStorage
       items:
@@ -390,10 +390,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: "r_ripper_arm"
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: "r_ripper_arm"
     - type: LimbItemStorage
       items:
@@ -430,10 +430,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_engineer_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_engineer_arm
     - type: LimbItemStorage
       items:
@@ -459,10 +459,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_engineer_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_engineer_arm
     - type: LimbItemStorage
       items:
@@ -489,10 +489,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_spacer_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_spacer_arm
     - type: LimbItemStorage
       items:
@@ -517,10 +517,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_spacer_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_spacer_arm
     - type: LimbItemStorage
       items:
@@ -546,10 +546,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_gorilla_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_gorilla_arm
     - type: LimbItemStorage
       items:
@@ -575,10 +575,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_gorilla_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_gorilla_arm
     - type: LimbItemStorage
       items:
@@ -604,10 +604,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_angel_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_angel_arm
     - type: LimbItemStorage
       items:
@@ -633,10 +633,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_angel_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_angel_arm
     - type: LimbItemStorage
       items:
@@ -662,10 +662,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_zeus_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_zeus_arm
     - type: LimbItemStorage
       items:
@@ -688,10 +688,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_zeus_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_zeus_arm
     - type: LimbItemStorage
       items:
@@ -716,10 +716,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_riplet_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_riplet_arm
     - type: LimbItemStorage
       items:
@@ -742,10 +742,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_riplet_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_riplet_arm
     - type: LimbItemStorage
       items:
@@ -769,10 +769,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_persephone_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_persephone_arm
     - type: LimbItemStorage
       items:
@@ -801,10 +801,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_persephone_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_persephone_arm
     - type: LimbItemStorage
       items:
@@ -830,14 +830,14 @@
   id: LeftArmCyberScribe
   name: Left Scribe Arm
   description: Augmented arm for the bureaucrats of the modern age.
-  parent: [ OrganCyberArmRight, WithRightCyberHand ]
+  parent: [ OrganCyberArmLeft, WithLeftCyberHand ]
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_scribe_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_scribe_arm
     - type: LimbItemStorage
       items:
@@ -863,10 +863,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_scribe_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_scribe_arm
     - type: LimbItemStorage
       items:
@@ -883,6 +883,8 @@
           - CyberHandItem
       stateOn: r_scribe_arm_TOOLS
       stateOff: r_scribe_arm
+
+# Herakles
 
 - type: entity
   id: LeftArmCyberHerakles
@@ -930,10 +932,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_investigator_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_investigator_arm
     - type: LimbItemStorage
       items:
@@ -960,10 +962,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_investigator_arm
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_investigator_arm
     - type: LimbItemStorage
       items:
@@ -991,10 +993,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_leg_hydraulic
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_leg_hydraulic
     - type: MovementOrgan
       sprintSpeedModifier: 1.20
@@ -1011,10 +1013,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_leg_hydraulic
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_leg_hydraulic
     - type: MovementOrgan
       sprintSpeedModifier: 1.15
@@ -1032,10 +1034,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_leg_pilebunker
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_leg_pilebunker
     - type: MovementOrgan
       sprintSpeedModifier: 1.10
@@ -1054,10 +1056,10 @@
   components:
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_leg_pilebunker
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_leg_pilebunker
     - type: MovementOrgan
       sprintSpeedModifier: 1.10
@@ -1080,10 +1082,10 @@
       size: Normal 
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: l_leg_cargo
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: l_leg_cargo
     - type: MovementOrgan
       sprintSpeedModifier: 1.05
@@ -1126,10 +1128,10 @@
       size: Normal 
     - type: VisualOrgan
       data:
-        sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+        sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
         state: r_leg_cargo
     - type: Sprite
-      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      sprite: _FarHorizons/Mobs/Species/Cyberlimbs/parts.rsi #FH
       state: r_leg_cargo
     - type: MovementOrgan
       sprintSpeedModifier: 1.05
