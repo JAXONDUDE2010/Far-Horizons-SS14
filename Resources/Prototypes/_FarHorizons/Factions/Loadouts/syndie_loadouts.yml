@@ -63,7 +63,7 @@
     head: ClothingHeadHatBeretCmoSyndi
 
 - type: loadout
-  id: ResearchDirectorBeret
+  id: ResearchDirectorBeretSyndi
   startingGear: RDBeret
   
 # Engineering
@@ -704,6 +704,43 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtPsychologist
 
+# Science
+
+- type: loadout
+  id: RoboticistJumpsuitSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRoboticistSyndi
+
+- type: loadout
+  id: RoboticistJumpskirtSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRoboticistSyndi
+
+- type: loadout
+  id: ScientistJumpsuitSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistSyndi
+
+- type: loadout
+  id: ScientistJumpskirtSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtScientistSyndi
+
+- type: loadout
+  id: ScientistJumpskirtFormalSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtScientistFormalSyndi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterRD 
+
+- type: loadout
+  id: ScientistJumpsuitFormalSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistFormalSyndi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterRD 
 
 # Security
 
@@ -1102,6 +1139,19 @@
   id: ParamedicWintercoatSyndi
   equipment:
     outerClothing: ClothingOuterWinterPara
+
+# Science
+
+- type: loadout
+  id: ScienceLabCoatSyndi
+  equipment:
+    outerClothing: ClothingOuterCoatRndSyndi
+
+- type: loadout
+  id: ScienceWintercoatSyndi
+  equipment:
+    outerClothing: ClothingOuterWinterSciSyndi
+
 # Security
 
 - type: loadout
@@ -1213,6 +1263,7 @@
 
 # region PDA
 
+# Medical
 - type: loadout
   id: SurgeonPDASyndi
   equipment:
@@ -1238,3 +1289,18 @@
     proto: SeniorPhysician
   equipment:
     id: SeniorPhysicianPDA
+
+# Science
+
+- type: loadout
+  id: ScientistPDASyndi
+  equipment:
+    id: AcademicPDA
+
+- type: loadout
+  id: SeniorResearcherPDASyndi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorResearcher
+  equipment:
+    id: SeniorResearcherPDA

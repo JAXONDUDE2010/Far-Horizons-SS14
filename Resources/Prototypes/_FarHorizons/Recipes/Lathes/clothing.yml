@@ -358,11 +358,6 @@
 
 - type: latheRecipe
   parent: BaseHatRecipe
-  id: ClothingHeadHatBeretSeniorPhysician
-  result: ClothingHeadHatBeretSeniorPhysician
-
-- type: latheRecipe
-  parent: BaseHatRecipe
   id: ClothingHeadHatParamedicsoftSyndi
   result: ClothingHeadHatParamedicsoftSyndi
 
@@ -435,11 +430,6 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtSeniorPhysicianSyndi
-  result: ClothingUniformJumpskirtSeniorPhysicianSyndi
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitParamedicSyndi
   result: ClothingUniformJumpsuitParamedicSyndi
 
@@ -457,3 +447,46 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtVirologySyndi
   result: ClothingUniformJumpskirtVirologySyndi
+
+# Science Jumpsuits
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitResearchDirectorSyndi
+  result: ClothingUniformJumpsuitResearchDirectorSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtResearchDirectorSyndi
+  result: ClothingUniformJumpskirtResearchDirectorSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitScientistSyndi
+  result: ClothingUniformJumpsuitScientistSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitScientistFormalSyndi
+  result: ClothingUniformJumpsuitScientistFormalSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtScientistSyndi
+  result: ClothingUniformJumpskirtScientistSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtScientistFormalSyndi
+  result: ClothingUniformJumpskirtScientistFormalSyndi
+
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitRoboticistSyndi
+  result: ClothingUniformJumpsuitRoboticistSyndi
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtRoboticistSyndi
+  result: ClothingUniformJumpskirtRoboticistSyndi

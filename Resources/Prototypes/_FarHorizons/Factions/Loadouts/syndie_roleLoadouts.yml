@@ -269,35 +269,37 @@
 - type: roleLoadout
   id: SyndieRoboticist #Robotics Engineer
   groups:
-  - RoboticistHead
-  - RoboticistGoggles
-  - RoboticistJumpsuit
-  - RoboticistGloves
-  - RoboticistOuterClothing
-  - RoboticistBackpack
-  - RoboticistShoes
+  - RoboticistHeadSyndi
+  - RoboticistGogglesSyndi
+  - RoboticistJumpsuitSyndi
+  - RoboticistGlovesSyndi
+  - RoboticistOuterClothingSyndi
+  - RoboticistBackpackSyndi
+  - RoboticistShoesSyndi
   - Survival
   - Trinkets
+  - Pens 
 
 - type: roleLoadout
   id: SyndieScientist #Researcher
   groups:
-  - ScientistHead
+  - ScientistHeadSyndi
   - ScientistNeck
-  - ScientistJumpsuit
+  - ScientistJumpsuitSyndi
   - ScientistBackpackSyndi
-  - ScientistOuterClothing
+  - ScientistOuterClothingSyndi
   - ScientistGloves
   - ScientistShoes
-  - ScientistPDA
+  - ScientistPDASyndi
   - Glasses
   - Survival
   - Trinkets
+  - Pens 
 
 - type: roleLoadout
   id: SyndieResearchAssistant #Undergraduate
   groups:
-  - ResearchAssistantJumpsuit
+  - ResearchAssistantJumpsuitSyndi
   - ScientistBackpackSyndi
   - Glasses
   - Survival

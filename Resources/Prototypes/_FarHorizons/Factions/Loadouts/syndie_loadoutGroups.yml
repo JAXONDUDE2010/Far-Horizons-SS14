@@ -671,6 +671,120 @@
   - ScientistDuffelSyndi
   - LeatherSatchel 
 
+#Roboticist
+
+- type: loadoutGroup
+  id: RoboticistHeadSyndi
+  name: loadout-group-roboticist-head
+  minLimit: 0
+  loadouts:
+  - RoboticistCap
+  - ScienceBeret #Far Horizons
+  - SkullBandana
+  - RoboticistBlackCapFlipped
+
+- type: loadoutGroup
+  id: RoboticistGogglesSyndi
+  name: loadout-group-roboticist-goggles
+  minLimit: 0
+  loadouts:
+  - RoboticistWeldingGoggles
+  - RoboticistDiagnosticsHud
+
+- type: loadoutGroup
+  id: RoboticistJumpsuitSyndi
+  name: loadout-group-roboticist-jumpsuit
+  loadouts:
+  - RoboticistJumpsuitSyndi
+  - RoboticistJumpskirtSyndi
+
+- type: loadoutGroup
+  id: RoboticistGlovesSyndi
+  name: loadout-group-roboticist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - PurpleGloves
+  - RobohandsGloves
+
+- type: loadoutGroup
+  id: RoboticistOuterClothingSyndi
+  name: loadout-group-roboticist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: RoboticistBackpackSyndi
+  name: loadout-group-roboticist-backpack
+  loadouts:
+  - RoboticistBackpack
+  - RoboticistSatchel
+  - RoboticistDuffel
+  - LeatherSatchel
+
+- type: loadoutGroup
+  id: RoboticistShoesSyndi
+  name: loadout-group-roboticist-shoes
+  minLimit: 1
+  loadouts:
+  - BlackShoes
+  - ScienceWinterBoots
+  - Heels
+  - LeatherShoes
+
+  # Academic
+
+- type: loadoutGroup
+  id: ScientistHeadSyndi
+  name: loadout-group-scientist-head
+  minLimit: 0
+  loadouts:
+  - SkullBandana
+  - ScienceBeret 
+
+- type: loadoutGroup
+  id: ScientistJumpsuitSyndi
+  name: loadout-group-scientist-jumpsuit
+  loadouts:
+  - ScientistJumpsuitSyndi
+  - ScientistJumpskirtSyndi
+  - ScientistJumpsuitFormalSyndi
+  - ScientistJumpskirtFormalSyndi
+  - RoboticistJumpsuitSyndi
+  - RoboticistJumpskirtSyndi
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+  
+- type: loadoutGroup
+  id: ScientistOuterClothingSyndi
+  name: loadout-group-scientist-outerclothing
+  minLimit: 0
+  loadouts:
+  - RegularLabCoatSyndi
+  - ScienceLabCoatSyndi
+  - ScienceWintercoatSyndi
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+  - SeniorResearcherLabCoat
+  - WindbreakerScience 
+
+- type: loadoutGroup
+  id: ScientistPDASyndi
+  name: loadout-group-scientist-id
+  loadouts:
+  - ScientistPDASyndi
+  - SeniorResearcherPDASyndi
+
+#Research Assistant
+- type: loadoutGroup
+  id: ResearchAssistantJumpsuitSyndi
+  name: loadout-group-research-assistant-jumpsuit
+  loadouts:
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+
 #region Security
 
 # General Security

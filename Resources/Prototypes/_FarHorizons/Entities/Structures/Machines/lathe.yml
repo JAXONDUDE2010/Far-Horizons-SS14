@@ -413,7 +413,7 @@
     - ClothingCommandNS
     - ClothingEngineeringNS #Only has Head Uniform
     - ClothingMedicalNS
-#    - ClothingScience
+    - ClothingScienceNS
     - ClothingSecurityNS
 #    - ClothingServiceNS
     - WinterCoatsNS

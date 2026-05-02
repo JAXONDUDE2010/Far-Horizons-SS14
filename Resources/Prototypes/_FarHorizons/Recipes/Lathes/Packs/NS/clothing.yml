@@ -54,19 +54,22 @@
   - ClothingUniformJumpskirtCoroner
   - ClothingUniformJumpskirtSuitNurse
 
-#- type: latheRecipePack
-#  id: ClothingScienceNS
-#  recipes:
-#  - ClothingHeadHatBeretRND
-#  - ClothingUniformJumpsuitResearchDirector
-#  - ClothingUniformJumpskirtResearchDirector
-#  - ClothingUniformJumpsuitRDClassical
-#  - ClothingUniformJumpskirtRDClassical
-#  - ClothingUniformJumpsuitScientist
-#  - ClothingUniformJumpskirtScientist
-#  - ClothingUniformJumpsuitSeniorResearcher
-#  - ClothingUniformJumpskirtSeniorResearcher
-#  - ClothingUniformJumpskirtScientistFormal
+- type: latheRecipePack
+  id: ClothingScienceNS
+  recipes:
+  - ClothingHeadHatBeretRND
+  - ClothingUniformJumpsuitResearchDirectorSyndi
+  - ClothingUniformJumpskirtResearchDirectorSyndi
+  - ClothingUniformJumpsuitRDClassical
+  - ClothingUniformJumpskirtRDClassical
+  - ClothingUniformJumpsuitScientistSyndi
+  - ClothingUniformJumpskirtScientistSyndi
+  - ClothingUniformJumpsuitSeniorResearcherSyndi
+  - ClothingUniformJumpskirtSeniorResearcherSyndi
+  - ClothingUniformJumpskirtScientistFormalSyndi
+  - ClothingUniformJumpsuitScientistFormalSyndi
+  - ClothingUniformJumpsuitRoboticistSyndi
+  - ClothingUniformJumpskirtRoboticistSyndi
 
 - type: latheRecipePack
   id: ClothingSecurityNS

@@ -41,7 +41,7 @@
 
 # Foreman (CE)
 - type: entity
-  id: DresserChiefEngineerFilled
+  id: DresserForemanFilled
   parent: Dresser
   suffix: Filled, NS, Foreman
   components:
