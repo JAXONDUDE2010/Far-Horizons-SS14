@@ -13471,5 +13471,134 @@ Entries:
   id: 121502
   time: '2026-04-24T07:09:26.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1215
+- author: princess_gurchi
+  changes:
+  - message: Mentor chat to hide admin in-round spoilers from innocent mentor eyes
+    type: Add
+  id: 122100
+  time: '2026-04-27T23:50:38.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1221
+- author: CawsForConcern
+  changes:
+  - message: IPC health alarm now loops seamlessly.
+    type: Tweak
+  id: 122500
+  time: '2026-04-29T10:16:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1225
+- author: Killer Tamashi
+  changes:
+  - message: Fixed Security Juggsuit being able to fit in normal bags
+    type: Fix
+  id: 122800
+  time: '2026-04-29T21:14:54.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1228
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Renamed "magical encounter" background into "intrinsic augments" with
+      a matching description to not suggest magic
+    type: Tweak
+  id: 122300
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Renamed "cantrips" into "intrinsics." Changed Rejuvenating Seed and Haemostatic
+      Glyph names and descriptions to be less magic.
+    type: Tweak
+  id: 122301
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Intrinsics no longer come from a book, but from an action on your character.
+      As soon as 2 abilities are selected, the action disappears. They also no longer
+      use wizcoins.
+    type: Tweak
+  id: 122302
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: princess_gurchi, Irkalla
+  changes:
+  - message: Nerfed Haemostatic Assistance intrinsic. It now has 15u of Inaprovaline
+      (same amount of bleed healing, but over loner time) and has syringe doafter.
+      This is done to avoid it being too useful for combat.
+    type: Tweak
+  id: 122303
+  time: '2026-04-30T15:45:52.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1223
+- author: KarusKardin
+  changes:
+  - message: Escape Pods now launch when nuke is detonated, antags can escape on pods
+      to complete their objectives.
+    type: Add
+  id: 123000
+  time: '2026-04-30T17:09:05.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1230
+- author: Killer Tamashi
+  changes:
+  - message: Added Ammo Selector for Syndicates and a NT variant (not used for anything
+      yet).
+    type: Add
+  id: 122400
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Added Resprited Small/Large gun-cases
+    type: Add
+  id: 122401
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Uzi to use 9mm SMG mags.
+    type: Tweak
+  id: 122402
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed Most weapons in uplink to come in new gun-cases with the new
+      ammo selector, except for ammo types I have not reworked yet. (12g weapons /
+      Histrov & Pitbull)
+    type: Tweak
+  id: 122403
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed the L6 to come in the M81A1 crate, and gave it a lot of SP magazines
+      (5) and a 7.62 ammo canister. It IS the cost of all your TC as a syndicate traitor,
+      afterall.
+    type: Tweak
+  id: 122404
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Changed gun descriptions in uplink to mention applicable weapons come
+      with an ammo selector and what type of ammo the gun is loaded with already on
+      purchase.
+    type: Tweak
+  id: 122405
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Allowed Bags of Holding to actually.. act like bags of holding. They
+      can now store Ginormous items.
+    type: Tweak
+  id: 122406
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: Killer Tamashi
+  changes:
+  - message: Normal bags can now also hold "ginormous" items now, but this will never
+      happen in practice due to the size of the item being bigger than the backpack,
+      and even duffel bags, with the exception of bluespace bags which is intentional.
+    type: Tweak
+  id: 122407
+  time: '2026-05-01T10:57:46.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
 Order: -1
 
