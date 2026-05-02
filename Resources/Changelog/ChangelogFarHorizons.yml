@@ -13600,5 +13600,12 @@ Entries:
   id: 122407
   time: '2026-05-01T10:57:46.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1224
+- author: princess_gurchi
+  changes:
+  - message: Fixed adminchat permissions not being checked for adminchat listeners
+    type: Fix
+  id: 123400
+  time: '2026-05-02T11:41:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1234
 Order: -1
 
