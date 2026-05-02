@@ -13,9 +13,9 @@
     - Flash
 
 - type: startingGear
-  id: MarshalPDA
+  id: SyndieHoSGear
   equipment:
-    id: HoSPDA
+    id: MarshalPDA
     gloves: ClothingHandsGlovesCombat
   storage:
     back:
