@@ -24,6 +24,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSyndicateContraband]
   id: ClothingBackpackSyndicateBrigmedic
+  name: Brigmedic Backpack
   description: It's a very sterile backpack.
   suffix: NS
   components:
