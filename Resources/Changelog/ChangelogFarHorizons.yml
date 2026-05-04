@@ -13674,5 +13674,34 @@ Entries:
   id: 123800
   time: '2026-05-04T00:33:00.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1238
+- author: princess_gurchi
+  changes:
+  - message: Female proto-avali get proper displacements
+    type: Fix
+  id: 125100
+  time: '2026-05-04T21:46:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1251
+- author: princess_gurchi
+  changes:
+  - message: Proto-shadekin glitch on ion storm just like the rest of toasters
+    type: Fix
+  id: 125101
+  time: '2026-05-04T21:46:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1251
+- author: princess_gurchi
+  changes:
+  - message: Lathes no longer duplicate mats on power cycle
+    type: Fix
+  id: 125102
+  time: '2026-05-04T21:46:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1251
+- author: princess_gurchi
+  changes:
+  - message: Commies have learned to use AK properly and no longer embarrass themselves
+      in front of salv
+    type: Fix
+  id: 125103
+  time: '2026-05-04T21:46:08.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1251
 Order: -1
 
