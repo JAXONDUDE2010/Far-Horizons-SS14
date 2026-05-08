@@ -13784,5 +13784,31 @@ Entries:
   id: 125701
   time: '2026-05-08T14:20:57.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1257
+- author: CorruptOmega
+  changes:
+  - message: Modified department names in Job menu to represent the companies that
+      make up the Mega-Corporations. You are no longer just the Science Department,
+      you are from Telos Industries that is a business of NanoTrasen.
+    type: Tweak
+  id: 124800
+  time: '2026-05-08T14:33:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1248
+- author: CorruptOmega
+  changes:
+  - message: Modified RSO to be the Red Sword Operative. Because it was better than
+      Red Shield Operative.
+    type: Tweak
+  id: 124801
+  time: '2026-05-08T14:33:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1248
+- author: CorruptOmega
+  changes:
+  - message: Starlight got a little silly at one point and had their folder named
+      _StarLight. It now says _Starlight. Windows users no longer have to suffer between
+      repos.
+    type: Tweak
+  id: 124802
+  time: '2026-05-08T14:33:20.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1248
 Order: -1
 
