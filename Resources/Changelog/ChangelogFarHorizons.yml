@@ -13769,5 +13769,20 @@ Entries:
   id: 125501
   time: '2026-05-06T20:57:18.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1255
+- author: princess_gurchi
+  changes:
+  - message: Projectile based weapons can target limbs. I used to be a tider like
+      you, then I took an arrow in the knee
+    type: Add
+  id: 125700
+  time: '2026-05-08T14:20:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1257
+- author: princess_gurchi
+  changes:
+  - message: Bullets, magazines and ammo boxes show damage on inspect
+    type: Fix
+  id: 125701
+  time: '2026-05-08T14:20:57.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1257
 Order: -1
 
