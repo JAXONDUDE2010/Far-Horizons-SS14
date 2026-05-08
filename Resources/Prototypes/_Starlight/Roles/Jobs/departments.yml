@@ -1,6 +1,6 @@
 - type: department
   id: Law
-  name: department-Law
+  name: faction-neutral-department-Law #Far Horizons
   description: department-Law-description
   color: "#ff178b"
   weight: -10
@@ -10,7 +10,7 @@
   
 - type: department
   id: Representives
-  name: department-Representives
+  name: faction-nt-department-Representives #Far Horizons
   description: department-Representives-description
   color: "#05255D"
   roles:

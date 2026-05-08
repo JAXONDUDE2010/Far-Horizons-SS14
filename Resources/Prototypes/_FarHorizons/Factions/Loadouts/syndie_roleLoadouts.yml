@@ -398,7 +398,7 @@
 #region SHC
 
 - type: roleLoadout
-  id: SyndieBlueShield #"Red Shield" Operative
+  id: SyndieBlueShield #"Red Sword" Operative
   groups:
   - BlueShieldJumpsuit
   - BlueShieldBackpack
