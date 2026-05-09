@@ -13824,5 +13824,29 @@ Entries:
   id: 126101
   time: '2026-05-09T10:52:24.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1261
+- author: CorruptOmega
+  changes:
+  - message: Intrinsics 'cantrips' now have the name and descriptions in store and
+      the action matching.
+    type: Tweak
+  id: 126300
+  time: '2026-05-09T13:58:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1263
+- author: CorruptOmega
+  changes:
+  - message: Rejuvenating Seed is now a rejuvenating rune in name and description....
+      because it was always a rune and not a seed.
+    type: Tweak
+  id: 126301
+  time: '2026-05-09T13:58:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1263
+- author: CorruptOmega
+  changes:
+  - message: Intrinsics that decayed/evaporated after some time now say they do so
+      in store/action. Just for your information.
+    type: Tweak
+  id: 126302
+  time: '2026-05-09T13:58:56.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1263
 Order: -1
 
