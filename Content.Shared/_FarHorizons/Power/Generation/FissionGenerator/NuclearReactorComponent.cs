@@ -42,13 +42,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// 2D grid of reactor components, or null where there are no components. Size is ReactorGridWidth x ReactorGridHeight
     /// </summary>
-    public ReactorPartComponent?[,] ComponentGrid;
-
-    /// <summary>
-    /// Dictionary of the entities all the parts in the component grid belong to
-    /// </summary>
-    [AutoNetworkedField]
-    public Dictionary<Vector2i, EntityUid> GridEntities = [];
+    public Entity<ReactorPartComponent>?[,] ComponentGrid;
 
     /// <summary>
     /// Dictionary of data that determines the reactor grid's visuals
