@@ -97,8 +97,8 @@
 
 - type: entity
   id: ElfAntidoteSeed
-  name: seed of rejuvenation
-  description: A bundle of radiant life magic, useful for restoring vitality to plants. Will evaporate soon if not used.
+  name: Rejuvenating Rune #Far Horizons
+  description: A rune of radiant life magic, useful for restoring vitality to plants. Will evaporate soon if not used. #Far Horizons
   components:
   - type: Item
     sprite: _Starlight/Objects/Magic/antidote.rsi
@@ -156,7 +156,7 @@
 - type: entity
   parent: BaseFoam
   id: ElfCleanseSmoke
-  name: cleansing aura
+  name: Cleansing Aura #Far Horizons
   categories: [ HideSpawnMenu ]
   components:
   - type: Smoke
@@ -193,8 +193,8 @@
 # Hemostasis
 
 - type: entity
-  name: haemostatic rune
-  description: A magic rune that stops bleeding when applied. Will fade if not used quickly.
+  name: Haemostatic Rune #Far Horizons
+  description: A rune that stops bleeding when applied. Will fade if not used quickly. #Far Horizons
   parent: BaseHealingItem
   id: ElfRuneHaemostatic
   components:
