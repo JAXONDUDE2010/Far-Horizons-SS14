@@ -15,6 +15,7 @@ public sealed partial class ReactorPartSystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private float _burnDiv => (ReactorPartBurnTemp - ReactorPartHotTemp) / 5; // The 5 is how much heat damage insulated gloves protect from
 
@@ -174,6 +175,8 @@ public sealed partial class ReactorPartSystem
             else
                 burncomp.Damage.DamageDict["Heat"] = damage;
         }
+
+        _appearance.SetData(uid, ReactorPartVisuals.HeatDistort, burncomp.IsDamageActive);
 
         Dirty(uid, burncomp);
     }
