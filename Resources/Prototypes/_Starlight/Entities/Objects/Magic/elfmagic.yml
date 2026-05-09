@@ -98,7 +98,7 @@
 - type: entity
   id: ElfAntidoteSeed
   name: Rejuvenating Rune #Far Horizons
-  description: A rune of radiant life magic, useful for restoring vitality to plants. Will evaporate soon if not used. #Far Horizons
+  description: A rune of radiant life energy, useful for restoring vitality to plants. Will evaporate soon if not used. #Far Horizons
   components:
   - type: Item
     sprite: _Starlight/Objects/Magic/antidote.rsi
