@@ -13871,5 +13871,12 @@ Entries:
   id: 126402
   time: '2026-05-09T14:25:28.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1264
+- author: R3v3l4t1on
+  changes:
+  - message: The L6C no longer has a secondary phantom magazine that self-charges.
+    type: Tweak
+  id: 122700
+  time: '2026-05-09T14:46:18.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1227
 Order: -1
 
