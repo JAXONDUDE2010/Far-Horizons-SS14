@@ -54,7 +54,7 @@
   parent: BaseAction
   id: ActionCantripAntidote
   name: Botanical Rejuvenating #Far Horizons
-  description: Procures a substance to mend vitality of a plant. #Far Horizons
+  description: Procures a substance to mend vitality of a plant. Evaporates after 15 seconds. #Far Horizons
   components:
   - type: Magic
     requiresClothes: false
@@ -101,7 +101,7 @@
   parent: BaseAction
   id: ActionCantripBandage
   name: Haemostatic Assistance #Far Horizons
-  description: Procures means to assist with stemming a bleeding wound. #Far Horizons
+  description: Procures means to assist with stemming a bleeding wound. Evaporates after 15 seconds. #Far Horizons
   components:
   - type: Magic
     requiresClothes: false

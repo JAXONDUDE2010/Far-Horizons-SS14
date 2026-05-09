@@ -1,8 +1,8 @@
 cantrip-bandage-name = Haemostatic Assistance
-cantrip-bandage-description = Procures means to assist with stemming a bleeding wound.
+cantrip-bandage-description = Procures means to assist with stemming a bleeding wound. Evaporates after 15 seconds.
 
 cantrip-antidote-name = Botanical Rejuvenating
-cantrip-antidote-description = Procures a substance to mend vitality of a plant.
+cantrip-antidote-description = Procures a substance to mend vitality of a plant. Evaporates after 15 seconds.
 
 cantrip-chese-name = Cheese
 cantrip-cheese-description = Summon cheese from a dimension with infinite cheese.
