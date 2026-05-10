@@ -110,6 +110,7 @@ public sealed class NuclearReactorSystem : EntitySystem
         SubscribeLocalEvent<NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorEjectItemMessage>(OnEjectItemMessage);
+        SubscribeLocalEvent<NuclearReactorComponent, ReactorAlarmAckMessage>(OnAlarmAckMessage);
         SubscribeLocalEvent<NuclearReactorComponent, BoundUIOpenedEvent>(OnUIOpened);
 
         // Signal events
@@ -661,12 +662,52 @@ public sealed class NuclearReactorSystem : EntitySystem
 
     private void UpdateAudio(NuclearReactorComponent comp)
     {
+        // There's probably a more elegant way of doing this... oh well
+        if(!comp.Melted && comp.ThermalPower > comp.MaximumThermalPower)
+        {
+            if(!comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighThermalAck))
+                comp.AlarmState |= NuclearReactorAlarmStates.HighThermal;
+            else
+                comp.AlarmState &= ~NuclearReactorAlarmStates.HighThermal;
+        }
+        else
+        {
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighThermal;
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighThermalAck;
+        }
+
+        if(!comp.Melted && comp.Temperature > comp.ReactorOverheatTemp)
+        {
+            if(!comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighTempAck))
+                comp.AlarmState |= NuclearReactorAlarmStates.HighTemp;
+            else
+                comp.AlarmState &= ~NuclearReactorAlarmStates.HighTemp;
+        }
+        else
+        {
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighTemp;
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighTempAck;
+        }
+
+        if(!comp.Melted && comp.RadiationLevel > comp.MaximumRadiation * 0.5)
+        {
+            if(!comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighRadAck))
+                comp.AlarmState |= NuclearReactorAlarmStates.HighRad;
+            else
+                comp.AlarmState &= ~NuclearReactorAlarmStates.HighRad;
+        }
+        else
+        {
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighRad;
+            comp.AlarmState &= ~NuclearReactorAlarmStates.HighRadAck;
+        }
+
         if(Exists(comp.AlarmAudioHighThermal))
-            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighThermal.Value, !comp.Melted && comp.ThermalPower > comp.MaximumThermalPower);
+            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighThermal.Value, comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighThermal));
         if(Exists(comp.AlarmAudioHighTemp))
-            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighTemp.Value, !comp.Melted && comp.Temperature > comp.ReactorOverheatTemp);
+            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighTemp.Value, comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighTemp));
         if(Exists(comp.AlarmAudioHighRads))
-            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighRads.Value, !comp.Melted && comp.RadiationLevel > comp.MaximumRadiation * 0.5);
+            _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighRads.Value, comp.AlarmState.HasFlag(NuclearReactorAlarmStates.HighRad));
     }
 
     private void UpdateRadio(EntityUid uid, NuclearReactorComponent comp)
@@ -870,6 +911,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                GridHeight = gridHeight,
 
                ReactionRatio = _partSystem.ReactionRatio,
+               AckAvailable = (reactor.AlarmState & NuclearReactorAlarmStates.Alarms) != 0,
            });
     }
 
@@ -947,6 +989,18 @@ public sealed class NuclearReactorSystem : EntitySystem
             return;
 
         _slotsSystem.TryEjectToHands(uid, component.PartSlot, args.Actor);
+    }
+
+    private void OnAlarmAckMessage(EntityUid uid, NuclearReactorComponent component, ReactorAlarmAckMessage args)
+    {
+        if(component.AlarmState.HasFlag(NuclearReactorAlarmStates.HighThermal))
+            component.AlarmState |= NuclearReactorAlarmStates.HighThermalAck;
+
+        if(component.AlarmState.HasFlag(NuclearReactorAlarmStates.HighTemp))
+            component.AlarmState |= NuclearReactorAlarmStates.HighTempAck;
+
+        if(component.AlarmState.HasFlag(NuclearReactorAlarmStates.HighRad))
+            component.AlarmState |= NuclearReactorAlarmStates.HighRadAck;
     }
 
     private float _accumulator = 0f;
