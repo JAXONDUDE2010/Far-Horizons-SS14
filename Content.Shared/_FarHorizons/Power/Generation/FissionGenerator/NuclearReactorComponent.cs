@@ -356,7 +356,7 @@ public sealed partial class ReactorCapVisualData
 }
 
 [Flags]
-public enum NuclearReactorAlarmStates
+public enum NuclearReactorAlarmStates : ushort
 {
     HighThermal = 1 << 0,       // Alarm should sound
     HighThermalAck = 1 << 1,    // Alarm should not sound even if it should
