@@ -102,14 +102,6 @@
   text: "/ServerInfo/Guidebook/StarlightSOP/GeneralSOP/EmergencySOPs/emergency-shuttle.xml"
   priority: 2
 
-#FH - Start
-- type: guideEntry
-  id: prometheus-protocol
-  name: guide-entry-prometheus-protocol
-  text: "/ServerInfo/_FarHorizons/Guidebook/SOP/EmergencySOP/PrometheusProtocol.xml"
-  priority: 3
-#FH - End
-
 - type: guideEntry
   id: miscellaneous-clarifications
   name: guide-entry-sl-miscellaneous-clarifications

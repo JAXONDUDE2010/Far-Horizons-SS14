@@ -1,17 +1,3 @@
-## HoS
-- type: entity
-  parent: BaseTraitorStealObjective
-  id: BriefcaseSecureNukeCodesObjective
-  components:
-  - type: NotJobRequirement
-    jobs: 
-      - HeadOfSecurity
-  - type: StealCondition
-    stealGroup: BriefcaseSecureNukeCodesSteal
-    owner: job-name-hos
-  - type: Objective
-    difficulty: 3
-
 ## Corpsman
 
 - type: entity

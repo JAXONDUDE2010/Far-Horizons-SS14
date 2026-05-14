@@ -27,16 +27,14 @@
       state: heart-on #FH
 #  - type: EscapeShuttleCondition - FH
 
-#FH - Start
-#- type: entity
-#  parent: [BaseParadoxCloneObjective, BaseKillObjective]
-#  id: ParadoxCloneKillObjective
-#  name: Fix the space-time paradox.
-#  description: Replace your original to fix the paradox. Remember, your mission is to blend in, do not kill anyone else unless you have to!
-#  components:
-#  - type: PickSpecificPerson
-#  - type: KillPersonCondition
-#    requireDead: true
-#  - type: TargetObjective
-#    title: objective-condition-kill-head-title # kill <name>, <job>
-#FH - End
+- type: entity
+  parent: [BaseParadoxCloneObjective, BaseKillObjective]
+  id: ParadoxCloneKillObjective
+  name: The straightforward option.
+  description: It'll probably work. Right? Entirely optional.
+  components:
+  - type: PickSpecificPerson
+  - type: KillPersonCondition
+    requireDead: true
+  - type: TargetObjective
+    title: objective-condition-kill-head-title # kill <name>, <job>

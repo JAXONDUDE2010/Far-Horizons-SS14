@@ -132,3 +132,10 @@
   name: guide-entry-sl-security-sop-permitacquisition
   text: "/ServerInfo/Guidebook/StarlightSOP/SecuritySOP/PermitAcquisition.xml"
   priority: 10
+
+#region Emergencies
+- type: guideEntry
+  id: prometheus-protocol
+  name: guide-entry-prometheus-protocol
+  text: "/ServerInfo/_FarHorizons/Guidebook/SOP/EmergencySOP/PrometheusProtocol.xml"
+  priority: 3
