@@ -13946,5 +13946,47 @@ Entries:
   id: 126805
   time: '2026-05-10T15:28:20.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1268
+- author: Killer Tamashi
+  changes:
+  - message: Added FH Metashield.
+    type: Add
+  id: 127100
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
+- author: Killer Tamashi
+  changes:
+  - message: Added Security Alamac under Security SoP in the guidebook.
+    type: Add
+  id: 127101
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
+- author: Killer Tamashi
+  changes:
+  - message: Added Prometheus Protocol under Emergency SoP in the guidebook.
+    type: Add
+  id: 127102
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
+- author: Killer Tamashi
+  changes:
+  - message: Removed SL Metashield.
+    type: Remove
+  id: 127103
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
+- author: Killer Tamashi
+  changes:
+  - message: Removed Rule 14 - Continuity Guidelines (SL Rule / Replaced by new Metashield)
+    type: Remove
+  id: 127104
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
+- author: Killer Tamashi
+  changes:
+  - message: Changed Paradox Clones to have the option to choose peace or violence.
+    type: Tweak
+  id: 127105
+  time: '2026-05-14T21:47:35.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1271
 Order: -1
 
