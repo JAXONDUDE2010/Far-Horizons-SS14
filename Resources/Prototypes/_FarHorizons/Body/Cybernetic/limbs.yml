@@ -819,14 +819,6 @@
           - CyberHandItem
       stateOn: l_riplet_arm_TOOLS
       stateOff: l_riplet_arm
-    - type: RoundstartImplantable
-      cost: 2
-      iconScale: 2.5
-      iconOffset: -40, -25
-      description:
-        - roundstart-cybernetics-riplet-description
-        - roundstart-cybernetics-hand-attached-description
-        - roundstart-cybernetics-generic-limb-description
 
 - type: entity
   id: RightArmCyberRiplet
@@ -853,14 +845,6 @@
           - CyberHandItem
       stateOn: r_riplet_arm_TOOLS
       stateOff: r_riplet_arm
-    - type: RoundstartImplantable
-      cost: 2
-      iconScale: 2.5
-      iconOffset: -10, -25
-      description:
-        - roundstart-cybernetics-riplet-description
-        - roundstart-cybernetics-hand-attached-description
-        - roundstart-cybernetics-generic-limb-description
 
 # Persephone
 - type: entity

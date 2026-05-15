@@ -14,8 +14,6 @@ roundstart-cybernetics-angel-description = Has built-in defibrilator
 roundstart-cybernetics-persephone-description = It has full set of gardening tools.
 roundstart-cybernetics-scribe-description = Has a printer, file storage,
                                             multi-stamp and even a pen!
-roundstart-cybernetics-riplet-description = An arm that can lift
-                                            entire crate or locker.
 roundstart-cybernetics-hydraulic-description = A moderate movement speed increase.
 roundstart-cybernetics-cargo-description = A leg with internal storage compartment.
 roundstart-cybernetics-brain-radio-description = Built-in radio with easily
