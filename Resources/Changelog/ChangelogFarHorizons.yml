@@ -14038,5 +14038,26 @@ Entries:
   id: 127500
   time: '2026-05-16T06:07:29.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1275
+- author: Fasuh
+  changes:
+  - message: Added logs for profile saving errors.
+    type: Add
+  id: 127700
+  time: '2026-05-16T17:20:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1277
+- author: Fasuh
+  changes:
+  - message: Fixed saving imported characters.
+    type: Fix
+  id: 127701
+  time: '2026-05-16T17:20:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1277
+- author: Fasuh
+  changes:
+  - message: Fixed (maybe) saving of symspeech changes.
+    type: Fix
+  id: 127702
+  time: '2026-05-16T17:20:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1277
 Order: -1
 
