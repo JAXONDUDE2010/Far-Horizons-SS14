@@ -14059,5 +14059,13 @@ Entries:
   id: 127702
   time: '2026-05-16T17:20:22.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1277
+- author: Rain-enjoyer
+  changes:
+  - message: changed the guidebook for shadekin to better reflect this server's lore
+      for them.
+    type: Tweak
+  id: 127900
+  time: '2026-05-17T13:57:03.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1279
 Order: -1
 
