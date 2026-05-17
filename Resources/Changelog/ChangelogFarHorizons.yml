@@ -14067,5 +14067,13 @@ Entries:
   id: 127900
   time: '2026-05-17T13:57:03.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1279
+- author: KarusKardin
+  changes:
+  - message: gave mentor perms to every role above mentor. (they can now use the mhelp
+      menu and mghost)
+    type: Tweak
+  id: 128100
+  time: '2026-05-17T15:44:33.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1281
 Order: -1
 
