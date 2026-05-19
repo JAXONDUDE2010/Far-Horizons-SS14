@@ -361,6 +361,23 @@
     - PetWearable
     - CorgiWearable
 
+# Red Sword Operative (BSO)
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
+  id: ClothingHeadHatBeretRedSword
+  name: Red Sword Operative's Beret
+  description: A reminder of the standards that others cannot hope to meet.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Head/Hats/NeoSol/baret_redsword.rsi 
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Head/Hats/NeoSol/baret_redsword.rsi 
+  - type: Tag
+    tags:
+    - HamsterWearable
+
 #region Engineering
 
 - type: entity

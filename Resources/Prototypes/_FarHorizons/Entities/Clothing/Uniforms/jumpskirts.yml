@@ -460,6 +460,44 @@
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/shrepSHC.rsi
 
+# Red Sword Operative (BSO)
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
+  id: ClothingUniformJumpskirtRedSword
+  name: Red Sword Operative's Skirt 
+  description: Skirt of a bodyguard specialized in harming threats.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
+  id: ClothingUniformJumpskirtEliteRedSword
+  name: Elite Red Sword Operative's Skirt 
+  description: Skirt of an elite red sword. The feats required to aquire one make other red swords kneel.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword_elite.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword_elite.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
+  id: ClothingUniformJumpskirtRedSwordFormal
+  name: Red Sword Operative's Formal Skirt 
+  description: For when a slaughter does not warrant a lack of class.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword_formal.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/redsword_formal.rsi
+
 #region Civilian
 
 - type: entity
