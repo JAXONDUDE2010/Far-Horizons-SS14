@@ -14082,5 +14082,12 @@ Entries:
   id: 128300
   time: '2026-05-20T20:01:11.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1283
+- author: Fasuh
+  changes:
+  - message: Fixed scopes snapping diagonally instead of straight.
+    type: Fix
+  id: 128400
+  time: '2026-05-20T20:12:04.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1284
 Order: -1
 
