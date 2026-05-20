@@ -234,7 +234,7 @@ public abstract class SharedActiveCritSystem : EntitySystem
 
     public bool ForceWhisper(Entity<ActiveCritComponent?> ent)
     {
-        if (!Resolve(ent, ref ent.Comp) || !_mobState.IsCritical(ent))
+        if (!Resolve(ent, ref ent.Comp, false) || !_mobState.IsCritical(ent))
             return false;
 
         if (ent.Comp.WhisperChance >= 1)
