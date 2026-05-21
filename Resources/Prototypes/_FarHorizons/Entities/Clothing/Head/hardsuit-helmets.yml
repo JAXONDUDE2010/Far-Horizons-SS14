@@ -358,6 +358,8 @@
   id: ClothingHeadHelmetHardsuitRedSword
   categories: [ HideSpawnMenu ]
   name: Red Sword Operative's Hardsuit Helmet
+  description: Without a hardsuit supporting it, the weight of the armor would crush your spine.
+  suffix: NS
   components:
   - type: Sprite
     sprite: _FarHorizons/Clothing/Head/Helmets/NeoSol/redswordoperative.rsi 

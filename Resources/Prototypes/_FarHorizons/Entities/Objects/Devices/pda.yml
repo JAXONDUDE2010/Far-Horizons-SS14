@@ -603,6 +603,7 @@
   parent: BaseNeoSolPDA
   id: RedSwordPDA
   name: Red Sword Operative's PDA
+  description: It has seen more "peacekeeping" than most security forces.
   suffix: NS
   components:
   - type: Sprite
@@ -633,6 +634,7 @@
   parent: BaseNeoSolPDA
   id: SyndicateOperatingAgentPDA
   name: Syndicate Operating Agent PDA
+  description: Gilded with gold and in pristine condition.
   suffix: NS
   components:
   - type: Pda

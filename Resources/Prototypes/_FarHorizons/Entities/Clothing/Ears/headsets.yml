@@ -198,6 +198,7 @@
   parent: [ ClothingHeadset, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
   id: ClothingHeadsetRSO
   name: Red Sword Operative Headset
+  description: A headset specialized in tuning out everyone but command.
   suffix: NS
   components:
   - type: ContainerFill
@@ -216,6 +217,7 @@
   parent: [ ClothingHeadsetAlt, BaseBlueshieldContraband ] # Technically not Blueshield, but that's a problem for another day
   id: ClothingHeadsetAltRSO
   name: Red Sword Operative Over-Ear Headset
+  description: A headset specialized in tuning out everyone but command.
   suffix: NS
   components:
   - type: ContainerFill
