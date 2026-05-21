@@ -632,13 +632,13 @@
 
 - type: entity #Will do with Red Sword PDA
   parent: BaseNeoSolPDA
-  id: SyndicateOperatingAgentPDA
-  name: Syndicate Operating Agent PDA
+  id: NeoSolRepresentativePDA
+  name: NeoSol Representative PDA
   description: Gilded with gold and in pristine condition.
   suffix: NS
   components:
   - type: Pda
-    id: SyndicateOperatingAgentIDCard
+    id: NeoSolRepresentativeIDCard
     penSlot:
       startingItem: PenNTR
       priority: -1
@@ -649,11 +649,11 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-soa
+        pda-neosolrepresentative
   - type: PdaBorderColor
     borderColor: "#151515"
   - type: Icon
-    state: pda-soa
+    state: pda-neosolrepresentative
 
 #endregion
 

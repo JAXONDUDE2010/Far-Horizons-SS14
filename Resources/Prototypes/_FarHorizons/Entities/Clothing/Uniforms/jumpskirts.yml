@@ -410,12 +410,12 @@
   - type: Clothing
     sprite: _FarHorizons/Clothing/Uniforms/Jumpskirt/NeoSol/ce_turtle.rsi
 
-# Syndicate Operating Agent (NTR)
+# NeoSol Representative (NTR)
 
 - type: entity
   parent: [ ClothingUniformBase, BaseRepresentativesContraband ]
-  id: ClothingUniformJumpskirtSOA
-  name: Syndicate Operating Agent Skirt
+  id: ClothingUniformJumpskirtNSR
+  name: NeoSol Representative Skirt
   description: That skirt that is better not to see.
   suffix: NS
   components:
@@ -426,8 +426,8 @@
 
 - type: entity
   parent: [ ClothingUniformBase, BaseRepresentativesContraband ]
-  id: ClothingUniformJumpskirtSOAFormal
-  name: Syndicate Operating Agent Formal Skirt
+  id: ClothingUniformJumpskirtNSRFormal
+  name: NeoSol Representative Formal Skirt
   description: That skirt that is better not to see.
   suffix: NS
   components:
@@ -438,8 +438,8 @@
 
 - type: entity
   parent: [ ClothingUniformBase, BaseRepresentativesContraband ]
-  id: ClothingUniformJumpskirtSOATurtleNeck
-  name: Syndicate Operating Agent's Turtleneck Jumpskirt
+  id: ClothingUniformJumpskirtNSRTurtleNeck
+  name: NeoSol Representative's Turtleneck Jumpskirt
   description: For a more casual look while on the job.
   suffix: NS
   components:
@@ -450,8 +450,8 @@
 
 - type: entity
   parent: [ ClothingUniformBase, BaseRepresentativesContraband ]
-  id: ClothingUniformJumpskirtSOAHighCommand
-  name: Syndicate Operating Agent's High Command Jumpskirt
+  id: ClothingUniformJumpskirtNSRHighCommand
+  name: NeoSol Representative's High Command Jumpskirt
   description: When you somehow want to look even more official than you did before.
   suffix: NS
   components:

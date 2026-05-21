@@ -327,12 +327,12 @@
     - PetWearable
     - CorgiWearable
 
-# Syndicate Operating Agent (NTR)
+# NeoSol Representative (NTR)
 
 - type: entity
   parent: [ ClothingHeadBase, BaseRepresentativesContraband ]
   id: ClothingHeadHatBeretSOA
-  name: Syndicate Operating Agent's Beret
+  name: NeoSol Representative's Beret
   description: A red colored beret to remind command of their betters.
   suffix: NS
   components:
@@ -347,8 +347,8 @@
 
 - type: entity
   parent: [ ClothingHeadBase, BaseRepresentativesContraband ]
-  id: ClothingHeadHatCapSOA
-  name: Syndicate Operating Agent Cap 
+  id: ClothingHeadHatCapNSR
+  name: NeoSol Representative Cap
   description: The cap to keep command in line.
   suffix: NS
   components:

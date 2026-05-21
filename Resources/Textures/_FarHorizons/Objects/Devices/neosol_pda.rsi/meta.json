@@ -181,9 +181,6 @@
       "name": "pda-zookeeper"
     },
     {
-      "name": "pda-soa"
-    },
-    {
       "name": "pda-redswordoperative"
     }
   ]

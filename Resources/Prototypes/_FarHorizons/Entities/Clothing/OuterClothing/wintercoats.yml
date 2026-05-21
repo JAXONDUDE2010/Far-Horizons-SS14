@@ -58,12 +58,12 @@
 
 #region Command
 
-# Syndicate Operating Agent (NTR)
+# NeoSol Representative (NTR)
 
 - type: entity
   parent: [ ClothingOuterWinterCoat, BaseRepresentativesContraband ]
-  id: ClothingOuterWinterSOA
-  name: Syndicate Operating Agent's Winter Coat
+  id: ClothingOuterWinterNSR
+  name: NeoSol Representative's Winter Coat
   description: Authentic fur stitched to a durathread backing using golden thread. Rumored to cost more than some stations.
   suffix: NS
   components:

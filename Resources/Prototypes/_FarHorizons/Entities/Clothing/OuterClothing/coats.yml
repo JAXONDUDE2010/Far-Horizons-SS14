@@ -127,12 +127,12 @@
   - type: Clothing
     sprite: _FarHorizons/Clothing/OuterClothing/Coats/NeoSol/hos_trenchcoat.rsi
 
-# Syndicate Operating Agent (NTR)
+# NeoSol Representative (NTR)
 
 - type: entity
   parent: [ BaseRepresentativesContraband, ClothingOuterStorageBase ]
-  id: ClothingOuterCoatSOA
-  name: Syndicate Operating Agent's Jacket
+  id: ClothingOuterCoatNSR
+  name: NeoSol Representative's Jacket
   description: Freshly steamed and pressed, ready to perform its duties.
   suffix: NS
   components:
