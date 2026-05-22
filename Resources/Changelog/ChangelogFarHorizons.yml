@@ -14150,5 +14150,37 @@ Entries:
   id: 128501
   time: '2026-05-22T11:12:36.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1285
+- author: princess_gurchi
+  changes:
+  - message: You can no longer examine anything or use right-click menu in active
+      crit
+    type: Tweak
+  id: 129400
+  time: '2026-05-22T11:26:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1294
+- author: princess_gurchi
+  changes:
+  - message: When entering active crit - you will take temporary eye damage that will
+      be removed when you're no longer crit
+    type: Tweak
+  id: 129401
+  time: '2026-05-22T11:26:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1294
+- author: princess_gurchi
+  changes:
+  - message: Avali regeneration, jumps of any kind and lagomorph abilities are no
+      longer usable in active crit
+    type: Tweak
+  id: 129402
+  time: '2026-05-22T11:26:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1294
+- author: princess_gurchi
+  changes:
+  - message: Fixed a funny little issue making you roll fail chances twice in active
+      crit
+    type: Fix
+  id: 129403
+  time: '2026-05-22T11:26:01.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1294
 Order: -1
 
