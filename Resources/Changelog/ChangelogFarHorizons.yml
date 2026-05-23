@@ -14182,5 +14182,12 @@ Entries:
   id: 129403
   time: '2026-05-22T11:26:01.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1294
+- author: AthenaAI
+  changes:
+  - message: Fixed an issue with vehicles trying to lerp every second.
+    type: Fix
+  id: 129800
+  time: '2026-05-23T14:43:18.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/1298
 Order: -1
 
