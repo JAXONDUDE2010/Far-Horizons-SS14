@@ -308,7 +308,7 @@
         mask:
           - ItemMask # BulletImpassable
   - type: Sprite
-    sprite: _FarHorizons\Objects\Weapons\Guns\Projectiles\holoflares.rsi
+    sprite: _FarHorizons/Objects/Weapons/Guns/Projectiles/holoflares.rsi
     state: low
     scale: 0.5,0.5
     shader: unshaded
@@ -341,7 +341,7 @@
   name: Holoflare
   components:
   - type: Sprite
-    sprite: _FarHorizons\Objects\Weapons\Guns\Projectiles\holoflares.rsi
+    sprite: _FarHorizons/Objects/Weapons/Guns/Projectiles/holoflares.rsi
     state: medium
     scale: 0.6,0.6
     shader: unshaded
@@ -359,7 +359,7 @@
   name: Bright Holoflare
   components:
   - type: Sprite
-    sprite: _FarHorizons\Objects\Weapons\Guns\Projectiles\holoflares.rsi
+    sprite: _FarHorizons/Objects/Weapons/Guns/Projectiles/holoflares.rsi
     state: high
     scale: 0.7,0.7
     shader: unshaded

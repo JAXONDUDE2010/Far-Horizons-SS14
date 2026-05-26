@@ -31,10 +31,9 @@
     rig: ClothingBeltSalvageWebbing #Far Horizons - They have this on top of a belt.
     belt: ClothingBeltSheathFilledMachete #Far Horizons - Cool awesome machete scabbard
     gloves: ClothingHandsGlovesCargo #Far Horizons
-  storage:
-    back:
-    - HandLabeler #Far Horizons - since machete belt has lower storage cap, it don't fit in there.
-
+  #storage:
+   # back:
+   
 - type: chameleonOutfit
   id: SalvageLeadChameleonOutfit
   job: SalvageLead
