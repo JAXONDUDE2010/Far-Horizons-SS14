@@ -61,7 +61,7 @@
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherSpear
   name: Crusher Spear
-  description: A later design of the proto-kinetic crusher that features a long, spear head shell that deals weaker but piercing strikes. The spear boasts throwing and greater leech at the cost of some speed and damage.
+  description: A later design of the proto-kinetic crusher that features a long, spear head shell that deals weaker but piercing strikes. The spear boasts quicker strikes, throwing, and greater leech at the cost of some damage.
   components:
   - type: Tag
     tags:
