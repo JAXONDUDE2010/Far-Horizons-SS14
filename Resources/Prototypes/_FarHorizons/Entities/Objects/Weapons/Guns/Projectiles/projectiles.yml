@@ -325,7 +325,7 @@
       types:
         Heat: 0
   - type: TimedDespawn
-    lifetime: 180
+    lifetime: 120 # 2 minutes, same as time for 0 to full
   - type: PointLight
     enabled: true
     color: "#C0E0F8"
@@ -375,7 +375,7 @@
   - type: Sprite
     state: low-sec
   - type: PointLight
-    color: "#254ca8"
+    color: "#3261d1"
 
 - type: entity
   id: MediumIntensityHoloflareSec
@@ -385,7 +385,7 @@
   - type: Sprite
     state: medium-sec
   - type: PointLight
-    color: "#254ca8"
+    color: "#3261d1"
 
 - type: entity
   id: HighIntensityHoloflareSec
@@ -395,7 +395,7 @@
   - type: Sprite
     state: high-sec
   - type: PointLight
-    color: "#254ca8"
+    color: "#3261d1
 
 - type: entity
   id: LowIntensityHoloflareEngi

@@ -53,7 +53,7 @@
     damage:
       types:
         Blunt: 5
-        Structural: 30
+        Structural: 45
   - type: GunRequiresWield
   - type: DisarmMalus
 
@@ -113,16 +113,16 @@
   - type: LeechOnMarker
     leech:
       types:
-        Blunt: -12
-        Piercing: -12
-        Slash: -12
+        Blunt: -7
+        Piercing: -7
+        Slash: -7
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Piercing: 3
         Slash: 1
-        Structural: 30
+        Structural: 10
   - type: GunRequiresWield
   - type: DisarmMalus
   - type: EmbeddableProjectile
@@ -168,13 +168,18 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 20
-        Structural: 30
+        Slash: 14
+        Structural: 15
     soundHit:
       collection: MetalThud
   - type: DisarmMalus
   - type: Reflect
     reflectProb: 0.1
     spread: 70
-    
+  - type: LeechOnMarker
+    leech:
+      types:
+        Blunt: -4
+        Piercing: -4
+        Slash: -4
     

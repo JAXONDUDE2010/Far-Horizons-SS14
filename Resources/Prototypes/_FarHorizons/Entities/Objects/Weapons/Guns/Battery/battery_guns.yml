@@ -535,7 +535,8 @@
   - type: Tag
     tags:
       - HoloflarePistol
-    
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   id: WeaponHoloflarePistolSec
